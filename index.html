@@ -814,6 +814,68 @@
             background-size: 1000px 100%;
             animation: shimmer 2s infinite;
         }
+
+        /* Ecosystem Section */
+        .ecosystem {
+            padding: 5rem 5%;
+            position: relative;
+            z-index: 10;
+        }
+        .ecosystem-container { max-width: 1400px; margin: 0 auto; }
+        .ecosystem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .ecosystem-card {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            backdrop-filter: blur(16px);
+        }
+        .ecosystem-card h3 { margin-bottom: 0.5rem; }
+        .ecosystem-card p { color: rgba(255,255,255,0.8); }
+        .ecosystem-card small { color: rgba(255,255,255,0.6); }
+
+        /* Babel Glass Section */
+        .babel {
+            padding: 5rem 5%;
+            position: relative;
+            z-index: 10;
+        }
+        .babel-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        .babel-visual .hero-card { min-height: 360px; }
+        .babel-list { color: rgba(255,255,255,0.85); line-height: 1.6; }
+        .badge-soon {
+            display: inline-block; margin-left: 0.5rem; padding: 0.2rem 0.6rem;
+            border-radius: 999px; font-size: 0.75rem; color: #fff;
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+        }
+        .prototype-placeholder {
+            margin-top: 1rem;
+            border: 2px dashed var(--glass-border);
+            border-radius: 16px;
+            padding: 1.25rem;
+            background: rgba(255,255,255,0.04);
+        }
+        .prototype-actions { display: flex; gap: 0.75rem; margin-top: 0.75rem; }
+        .button-disabled {
+            padding: 0.8rem 1.4rem; border-radius: 50px; border: 2px solid var(--glass-border);
+            color: rgba(255,255,255,0.6); background: transparent; pointer-events: none; opacity: 0.6;
+        }
+
+        @media (max-width: 900px) {
+            .babel-container { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
@@ -830,6 +892,7 @@
             <div class="nav-links" id="navLinks">
                 <a href="#features">Features</a>
                 <a href="#product">EchoMind</a>
+                <a href="#babelglass">Babel Glass</a>
                 <a href="#company">About</a>
                 <a href="#contact">Contact</a>
                 <a href="https://chat.lazying.art" class="cta-button">Try EchoMind</a>
@@ -884,6 +947,75 @@
         </div>
     </section>
 
+    <!-- Ecosystem Section -->
+    <section class="ecosystem" id="ecosystem">
+        <div class="ecosystem-container">
+            <div class="section-header">
+                <span class="section-tag">ECOSYSTEM</span>
+                <h2 class="section-title">AI + Software + Hardware, Working Together</h2>
+                <p class="section-subtitle">EchoMind AI pairs with our platform and Babel Glass to deliver hands-free, real-time multilingual communication</p>
+            </div>
+            <div class="ecosystem-grid">
+                <div class="ecosystem-card">
+                    <div class="feature-icon">🧠</div>
+                    <h3 class="feature-title">EchoMind AI</h3>
+                    <p>Low-latency, multilingual conversation intelligence powering voice, text, and context memory.</p>
+                    <small><a href="#product" style="color: var(--accent); text-decoration: none;">Learn more →</a></small>
+                </div>
+                <div class="ecosystem-card">
+                    <div class="feature-icon">🧩</div>
+                    <h3 class="feature-title">Lazying Platform</h3>
+                    <p>Privacy-first software layer for profiles, terminology, and integrations across devices.</p>
+                    <small>Enterprise-ready with optional cloud features</small>
+                </div>
+                <div class="ecosystem-card">
+                    <div class="feature-icon">👓</div>
+                    <h3 class="feature-title">Babel Glass</h3>
+                    <p>Hands-free translation glasses with on-lens subtitles and natural speech output.</p>
+                    <small><a href="#babelglass" style="color: var(--accent); text-decoration: none;">Explore Babel Glass →</a></small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Babel Glass Section -->
+    <section class="babel" id="babelglass">
+        <div class="babel-container">
+            <div class="babel-visual">
+                <div class="hero-card">
+                    <div class="product-preview">
+                        <div class="product-logo">👓</div>
+                        <h3 style="margin-bottom: 0.5rem;">Babel Glass</h3>
+                        <div class="language-tags" style="margin-top: 0.5rem;">
+                            <span class="lang-tag">EN ⇄ JP</span>
+                            <span class="lang-tag">EN ⇄ ZH</span>
+                            <span class="lang-tag">EN ⇄ YUE</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <span class="section-tag">HARDWARE</span>
+                <h2 class="section-title">Wear It, Speak Any Language<span class="badge-soon">Prototype</span></h2>
+                <p class="section-subtitle" style="margin-bottom: 1rem;">Real-time, hands-free translation with lens subtitles and natural speech output — designed for Japan-first deployments</p>
+                <ul class="babel-list">
+                    <li>Bidirectional, interruption-friendly translation with on-lens subtitles</li>
+                    <li>Multi-microphone pickup, beamforming, and noise suppression</li>
+                    <li>Honorific-aware Japanese support and industry terminology</li>
+                    <li>Edge-first architecture with privacy-preserving design</li>
+                    <li>Tap-to-charge with magnetic alignment and quick top-ups</li>
+                </ul>
+                <div class="prototype-placeholder">
+                    <strong>Prototype Dock</strong>
+                    <p style="margin-top: 0.25rem; color: rgba(255,255,255,0.75)">A live 3D model and demo video will appear here. The site runs normally without it.</p>
+                    <div class="prototype-actions">
+                        <button class="button-disabled" aria-disabled="true" title="Coming soon">View Prototype</button>
+                        <a href="mailto:contact@lazying.art" class="secondary-button">Register Interest</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- Features Section -->
     <section class="features" id="features">
         <div class="features-container">
