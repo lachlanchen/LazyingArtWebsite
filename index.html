@@ -2205,9 +2205,16 @@
             return m[lang] || '🏳️';
         }
 
-        function setLangFlagIcon(lang) {
+        function setLangFlagIcon(lang, visible) {
             const el = document.getElementById('langFlag');
             if (!el) return;
+            if (!visible) {
+                el.style.display = 'none';
+                el.className = '';
+                el.textContent = '';
+                return;
+            }
+            el.style.display = 'inline-block';
             const flagCss = document.querySelector('link[href*="flag-icons"]');
             if (flagCss) {
                 el.textContent = '';
@@ -2247,7 +2254,7 @@
             const link = document.createElement('link');
             link.rel = 'stylesheet';
             link.href = 'https://cdn.jsdelivr.net/npm/flag-icons@6.15.0/css/flag-icons.min.css';
-            link.onload = () => setLangFlagIcon(document.getElementById('langSelect').value || 'en');
+            link.onload = () => setLangFlagIcon(document.getElementById('langSelect').value || 'en', true);
             document.head.appendChild(link);
         }
 
@@ -2327,10 +2334,13 @@
             document.documentElement.lang = lang.startsWith('zh') ? 'zh' : lang;
             applyTranslations(lang);
             updateFooterCopy(lang);
-            setLangFlagIcon(lang);
-            if (!supportsEmojiFlags()) {
+            const emojiOk = supportsEmojiFlags();
+            if (!emojiOk) {
                 stripFlagEmojisFromOptions();
                 loadFlagIcons();
+                setLangFlagIcon(lang, true);
+            } else {
+                setLangFlagIcon(lang, false);
             }
             select.addEventListener('change', () => {
                 const l = select.value;
@@ -2338,7 +2348,7 @@
                 document.documentElement.lang = l.startsWith('zh') ? 'zh' : l;
                 applyTranslations(l);
                 updateFooterCopy(l);
-                setLangFlagIcon(l);
+                setLangFlagIcon(l, !emojiOk);
                 startTyping();
             });
         }
