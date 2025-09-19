@@ -1,0 +1,48 @@
+# GitHub Pages Configuration
+title: LazyingArt - Bridging Humanity Through AI Language Innovation
+description: LazyingArt creates innovative AI solutions that break down language barriers. Experience EchoMind - our flagship multilingual AI companion.
+url: https://lazying.art
+baseurl: ""
+
+# SEO and Social
+author: LazyingArt Team
+twitter:
+  username: lazyingart
+  card: summary_large_image
+social:
+  name: LazyingArt
+  links:
+    - https://twitter.com/lazyingart
+    - https://github.com/lazyingart
+    - https://linkedin.com/company/lazyingart
+
+# Google Analytics (replace with your ID)
+google_analytics: UA-XXXXXXXXX-X
+
+# Exclude files from build
+exclude:
+  - README.md
+  - LICENSE
+  - CNAME
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - .gitignore
+
+# Plugins (GitHub Pages supported)
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Compression
+compress_html:
+  clippings: all
+  comments: all
+  endings: all
+  startings: []
+  blanklines: false
+  profile: false
