@@ -121,6 +121,12 @@
             position: relative;
         }
 
+        .lang-wrap { display: flex; align-items: center; gap: 0.5rem; margin-left: 0.5rem; }
+        #langFlag { width: 20px; height: 14px; display: inline-block; border-radius: 2px; background-size: cover; background-position: center; }
+        /* flag-icons (CDN) support */
+        .fi { margin-right: 0; }
+        #langFlag.fi { width: 20px; height: 14px; background: none; }
+
         /* Language selector */
         .lang-select {
             appearance: none;
@@ -923,21 +929,24 @@
                 <a href="#contact" data-i18n="nav_contact">Contact</a>
                 <a href="https://chat.lazying.art" class="cta-button" data-i18n="nav_try">Try EchoMind</a>
             </div>
-            <select id="langSelect" class="lang-select" aria-label="Language">
-                <option value="en">🇺🇸 English</option>
-                <option value="ja">🇯🇵 日本語</option>
-                <option value="zh-Hans">🇨🇳 简体中文</option>
-                <option value="zh-Hant">🇹🇼 繁體中文</option>
-                <option value="ko">🇰🇷 한국어</option>
-                <option value="ar">🇸🇦 العربية</option>
-                <option value="vi">🇻🇳 Tiếng Việt</option>
-                <option value="fr">🇫🇷 Français</option>
-                <option value="es">🇪🇸 Español</option>
-                <option value="pt">🇵🇹 Português</option>
-                <option value="de">🇩🇪 Deutsch</option>
-                <option value="ru">🇷🇺 Русский</option>
-                <option value="tr">🇹🇷 Türkçe</option>
-            </select>
+            <div class="lang-wrap">
+                <span id="langFlag" aria-hidden="true"></span>
+                <select id="langSelect" class="lang-select" aria-label="Language">
+                    <option value="en">🇺🇸 English</option>
+                    <option value="ja">🇯🇵 日本語</option>
+                    <option value="zh-Hans">🇨🇳 简体中文</option>
+                    <option value="zh-Hant">🇹🇼 繁體中文</option>
+                    <option value="ko">🇰🇷 한국어</option>
+                    <option value="ar">🇸🇦 العربية</option>
+                    <option value="vi">🇻🇳 Tiếng Việt</option>
+                    <option value="fr">🇫🇷 Français</option>
+                    <option value="es">🇪🇸 Español</option>
+                    <option value="pt">🇵🇹 Português</option>
+                    <option value="de">🇩🇪 Deutsch</option>
+                    <option value="ru">🇷🇺 Русский</option>
+                    <option value="tr">🇹🇷 Türkçe</option>
+                </select>
+            </div>
             <button class="mobile-menu-toggle" id="menuToggle">
                 <span></span>
                 <span></span>
@@ -1010,19 +1019,19 @@
                     <div class="feature-icon">🧠</div>
                     <h3 class="feature-title" data-i18n="ecos_card_ai">EchoMind AI</h3>
                     <p data-i18n="ecos_card_ai_desc">Low-latency, multilingual conversation intelligence powering voice, text, and context memory.</p>
-                    <small><a href="#product" style="color: var(--accent); text-decoration: none;">Learn more →</a></small>
+                    <small><a href="#product" style="color: var(--accent); text-decoration: none;" data-i18n="ecos_learn_more">Learn more →</a></small>
                 </div>
                 <div class="ecosystem-card">
                     <div class="feature-icon">🧩</div>
                     <h3 class="feature-title" data-i18n="ecos_card_platform">Lazying Platform</h3>
                     <p data-i18n="ecos_card_platform_desc">Privacy-first software layer for profiles, terminology, and integrations across devices.</p>
-                    <small>Enterprise-ready with optional cloud features</small>
+                    <small data-i18n="ecos_enterprise_ready">Enterprise-ready with optional cloud features</small>
                 </div>
                 <div class="ecosystem-card">
                     <div class="feature-icon">👓</div>
                     <h3 class="feature-title" data-i18n="ecos_card_glass">Babel Glass</h3>
                     <p data-i18n="ecos_card_glass_desc">Hands-free translation glasses with on-lens subtitles and natural speech output.</p>
-                    <small><a href="#babelglass" style="color: var(--accent); text-decoration: none;">Explore Babel Glass →</a></small>
+                    <small><a href="#babelglass" style="color: var(--accent); text-decoration: none;" data-i18n="ecos_explore_glass">Explore Babel Glass →</a></small>
                 </div>
             </div>
         </div>
@@ -1134,31 +1143,31 @@
                     <div class="showcase-feature">
                         <div class="check-icon"></div>
                         <div>
-                            <strong>Real-time Voice Chat</strong>
-                            <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">Speak naturally and receive instant responses with advanced voice recognition</p>
+                            <strong data-i18n="prod_feat1_title">Real-time Voice Chat</strong>
+                            <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem;" data-i18n="prod_feat1_desc">Speak naturally and receive instant responses with advanced voice recognition</p>
                         </div>
                     </div>
                     <div class="showcase-feature">
                         <div class="check-icon"></div>
                         <div>
-                            <strong>Custom Voice Models</strong>
-                            <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">Choose from multiple AI personalities with distinct voice characteristics</p>
+                            <strong data-i18n="prod_feat2_title">Custom Voice Models</strong>
+                            <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem;" data-i18n="prod_feat2_desc">Choose from multiple AI personalities with distinct voice characteristics</p>
                         </div>
                     </div>
                     <div class="showcase-feature">
                         <div class="check-icon"></div>
                         <div>
-                            <strong>Language Enhancement</strong>
-                            <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">Automatic pronunciation guides and grammar analysis for language learners</p>
+                            <strong data-i18n="prod_feat3_title">Language Enhancement</strong>
+                            <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem;" data-i18n="prod_feat3_desc">Automatic pronunciation guides and grammar analysis for language learners</p>
                         </div>
                     </div>
                     <div class="showcase-feature">
                         <div class="check-icon"></div>
                         <div>
-                            <strong>Social Features</strong>
-                            <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">Connect with friends, share posts, and practice languages together</p>
-</div>
-                </div>
+                            <strong data-i18n="prod_feat4_title">Social Features</strong>
+                            <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem;" data-i18n="prod_feat4_desc">Connect with friends, share posts, and practice languages together</p>
+                        </div>
+                    </div>
             </div>
             <div class="product-info">
                 <span class="section-tag" data-i18n="product_tag">FLAGSHIP PRODUCT</span>
@@ -1186,10 +1195,10 @@
             </div>
             
             <div class="philosophy">
-                <p class="philosophy-text">
+                <p class="philosophy-text" data-i18n="company_quote">
                     "We're not just building AI; we're crafting bridges between hearts and minds across the globe. Every line of code, every algorithm, every feature is designed with one purpose: making human connection effortless, regardless of the language you speak."
                 </p>
-                <p class="philosophy-author">— LazyingArt Team</p>
+                <p class="philosophy-author" data-i18n="company_author">— LazyingArt Team</p>
             </div>
             
             <div class="features-grid" style="margin-top: 3rem;">
@@ -1231,7 +1240,7 @@
                     <span>🎨</span>
                     <span>LazyingArt</span>
                 </div>
-                <p style="color: rgba(255,255,255,0.7);">© 2024 LazyingArt. All rights reserved.</p>
+                <p id="footerCopy" style="color: rgba(255,255,255,0.7);" data-i18n="footer_copyright">© 2024 LazyingArt. All rights reserved.</p>
             </div>
             <div class="footer-links">
                 <a href="https://chat.lazying.art">EchoMind</a>
@@ -1316,6 +1325,22 @@
                 cta_button: 'Start Free with EchoMind',
                 footer_privacy: 'Privacy',
                 footer_terms: 'Terms',
+                ecos_learn_more: 'Learn more →',
+                ecos_enterprise_ready: 'Enterprise-ready with optional cloud features',
+                ecos_explore_glass: 'Explore Babel Glass →',
+                company_quote: "We're not just building AI; we're crafting bridges between hearts and minds across the globe. Every line of code, every algorithm, every feature is designed with one purpose: making human connection effortless, regardless of the language you speak.",
+                company_author: '— LazyingArt Team',
+                prod_feat1_title: 'Real-time Voice Chat',
+                prod_feat1_desc: 'Speak naturally and receive instant responses with advanced voice recognition',
+                prod_feat2_title: 'Custom Voice Models',
+                prod_feat2_desc: 'Choose from multiple AI personalities with distinct voice characteristics',
+                prod_feat3_title: 'Language Enhancement',
+                prod_feat3_desc: 'Automatic pronunciation guides and grammar analysis for language learners',
+                prod_feat4_title: 'Social Features',
+                prod_feat4_desc: 'Connect with friends, share posts, and practice languages together',
+                loading_echomind: 'Loading EchoMind...',
+                konami_alert: '🎨 Welcome to the LazyingArt family! Enjoy 50% off EchoMind Pro with code: KONAMI',
+                footer_copyright: '© {year} LazyingArt. All rights reserved.',
             },
             ja: {
                 document_title: 'LazyingArt - AI言語イノベーションで人と人をつなぐ',
@@ -1380,6 +1405,23 @@
                 cta_button: '無料で始める',
                 footer_privacy: 'プライバシー',
                 footer_terms: '利用規約',
+                ecos_learn_more: '詳細を見る →',
+                ecos_enterprise_ready: 'エンタープライズ対応（任意のクラウド機能）',
+                ecos_explore_glass: 'Babel Glass を見る →',
+                company_quote: '私たちはAIを作っているだけではありません。世界中の心と心をつなぐ橋を架けています。すべてのコード、すべてのアルゴリズム、すべての機能は、言語に関係なく人と人が楽に通じ合えるように、という一つの目的で設計されています。',
+                company_author: '— LazyingArt チーム',
+                prod_feat1_title: 'リアルタイム音声チャット',
+                prod_feat1_desc: '自然に話せば、先進的な音声認識で即時に応答',
+                prod_feat2_title: 'カスタム音声モデル',
+                prod_feat2_desc: '個性の異なるAIボイスを選択可能',
+                prod_feat3_title: '言語強化',
+                prod_feat3_desc: '発音ガイドや文法解析で学習をサポート',
+                prod_feat4_title: 'ソーシャル機能',
+                prod_feat4_desc: '友人とつながり、投稿や一緒の練習が可能',
+                loading_echomind: 'EchoMindを読み込み中...',
+                konami_alert: '🎨 LazyingArtファミリーへようこそ！KONAMIコードでEchoMind Proが50%オフ',
+                
+                footer_copyright: '© {year} LazyingArt. 無断転載を禁じます。',
             },
             'zh-Hans': {
                 document_title: 'LazyingArt - 用AI语言创新连接世界',
@@ -1444,6 +1486,24 @@
                 cta_button: '免费开始',
                 footer_privacy: '隐私',
                 footer_terms: '条款',
+                ecos_learn_more: '了解更多 →',
+                ecos_enterprise_ready: '企业级可用（可选云功能）',
+                ecos_explore_glass: '探索 Babel Glass →',
+                company_quote: '我们不只是构建AI，更是在世界各地的心与心之间搭桥。每一行代码、每一个算法、每一项功能，只有一个目的：让无论说哪种语言的人都能轻松沟通。',
+                company_author: '— LazyingArt 团队',
+                prod_feat1_title: '实时语音聊天',
+                prod_feat1_desc: '自然开口说话，先进语音识别即时响应',
+                prod_feat2_title: '自定义语音模型',
+                prod_feat2_desc: '多种AI声音个性可选',
+                prod_feat3_title: '语言增强',
+                prod_feat3_desc: '发音指导与语法分析，助你边聊边学',
+                prod_feat4_title: '社交功能',
+                prod_feat4_desc: '与朋友联络、分享、一起练习语言',
+                loading_echomind: '正在加载 EchoMind...',
+                konami_alert: '🎨 欢迎加入 LazyingArt！使用 KONAMI 代码享 EchoMind Pro 五折优惠',
+                
+                
+                footer_copyright: '© {year} LazyingArt. 保留所有权利。',
             },
             'zh-Hant': {
                 document_title: 'LazyingArt - 以AI語言創新連結世界',
@@ -1508,6 +1568,24 @@
                 cta_button: '免費開始',
                 footer_privacy: '隱私',
                 footer_terms: '條款',
+                ecos_learn_more: '瞭解更多 →',
+                ecos_enterprise_ready: '企業級可用（可選雲功能）',
+                ecos_explore_glass: '探索 Babel Glass →',
+                company_quote: '我們不只是打造AI，更是在世界各地的人心之間架橋。每一行程式、每一個演算法、每一項功能，都以一個目標為核心：不分語言，讓人與人能夠輕鬆連結。',
+                company_author: '— LazyingArt 團隊',
+                prod_feat1_title: '即時語音聊天',
+                prod_feat1_desc: '自然說話，進階語音辨識即時回應',
+                prod_feat2_title: '自訂語音模型',
+                prod_feat2_desc: '可選多種AI聲線與個性',
+                prod_feat3_title: '語言增強',
+                prod_feat3_desc: '發音指引與文法分析，邊聊邊學',
+                prod_feat4_title: '社群功能',
+                prod_feat4_desc: '與朋友連結、分享貼文、一起練習',
+                loading_echomind: '正在載入 EchoMind...',
+                konami_alert: '🎨 歡迎加入 LazyingArt！輸入 KONAMI 獲 EchoMind Pro 5 折',
+                
+                
+                footer_copyright: '© {year} LazyingArt. 版權所有。',
             },
             ko: {
                 document_title: 'LazyingArt - AI 언어 혁신으로 사람을 잇다',
@@ -2101,6 +2179,78 @@
 
         const supportedLangs = ['en','ja','zh-Hans','zh-Hant','ko','ar','vi','fr','es','pt','de','ru','tr'];
 
+        function mapLangToFlagCode(lang) {
+            switch (lang) {
+                case 'en': return 'us';
+                case 'ja': return 'jp';
+                case 'zh-Hans': return 'cn';
+                case 'zh-Hant': return 'tw';
+                case 'ko': return 'kr';
+                case 'ar': return 'sa';
+                case 'vi': return 'vn';
+                case 'fr': return 'fr';
+                case 'es': return 'es';
+                case 'pt': return 'pt';
+                case 'de': return 'de';
+                case 'ru': return 'ru';
+                case 'tr': return 'tr';
+                default: return 'us';
+            }
+        }
+
+        function langToEmoji(lang) {
+            const m = {
+                en: '🇺🇸', ja: '🇯🇵', 'zh-Hans': '🇨🇳', 'zh-Hant': '🇹🇼', ko: '🇰🇷', ar: '🇸🇦', vi: '🇻🇳', fr: '🇫🇷', es: '🇪🇸', pt: '🇵🇹', de: '🇩🇪', ru: '🇷🇺', tr: '🇹🇷'
+            };
+            return m[lang] || '🏳️';
+        }
+
+        function setLangFlagIcon(lang) {
+            const el = document.getElementById('langFlag');
+            if (!el) return;
+            const flagCss = document.querySelector('link[href*="flag-icons"]');
+            if (flagCss) {
+                el.textContent = '';
+                el.className = 'fi fi-' + mapLangToFlagCode(lang);
+            } else {
+                el.className = '';
+                el.textContent = langToEmoji(lang);
+            }
+        }
+
+        function supportsEmojiFlags() {
+            try {
+                const c = document.createElement('canvas');
+                c.width = c.height = 16;
+                const ctx = c.getContext('2d');
+                if (!ctx) return false;
+                ctx.fillStyle = '#000';
+                ctx.font = '16px Arial';
+                const flag = ctx.measureText('🇺🇸').width;
+                const letters = ctx.measureText('US').width;
+                return Math.abs(flag - letters) > 2; // if flag renders wider than letters, assume supported
+            } catch { return false; }
+        }
+
+        function stripFlagEmojisFromOptions() {
+            const sel = document.getElementById('langSelect');
+            if (!sel) return;
+            Array.from(sel.options).forEach(opt => {
+                const t = opt.textContent || '';
+                const idx = t.indexOf(' ');
+                if (idx > 0) opt.textContent = t.slice(idx + 1);
+            });
+        }
+
+        function loadFlagIcons() {
+            if (document.querySelector('link[href*="flag-icons"]')) return;
+            const link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = 'https://cdn.jsdelivr.net/npm/flag-icons@6.15.0/css/flag-icons.min.css';
+            link.onload = () => setLangFlagIcon(document.getElementById('langSelect').value || 'en');
+            document.head.appendChild(link);
+        }
+
         function chooseLangFromNavigator() {
             const prefs = (navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || 'en']).map(l => l.toLowerCase());
             for (const p of prefs) {
@@ -2176,11 +2326,19 @@
             select.value = lang;
             document.documentElement.lang = lang.startsWith('zh') ? 'zh' : lang;
             applyTranslations(lang);
+            updateFooterCopy(lang);
+            setLangFlagIcon(lang);
+            if (!supportsEmojiFlags()) {
+                stripFlagEmojisFromOptions();
+                loadFlagIcons();
+            }
             select.addEventListener('change', () => {
                 const l = select.value;
                 localStorage.setItem('lang', l);
                 document.documentElement.lang = l.startsWith('zh') ? 'zh' : l;
                 applyTranslations(l);
+                updateFooterCopy(l);
+                setLangFlagIcon(l);
                 startTyping();
             });
         }
@@ -2258,9 +2416,14 @@
             observer.observe(el);
         });
         
-        // Dynamic year in footer
-        const year = new Date().getFullYear();
-        document.querySelector('footer p').textContent = `© ${year} LazyingArt. All rights reserved.`;
+        // Dynamic year in footer (i18n-aware)
+        function updateFooterCopy(lang) {
+            const year = new Date().getFullYear();
+            const t = (translations[lang] && translations[lang].footer_copyright) || translations.en.footer_copyright;
+            const copy = t.replace('{year}', year);
+            const el = document.getElementById('footerCopy');
+            if (el) el.textContent = copy;
+        }
         
         // Add loading animation to CTA buttons
         document.querySelectorAll('.cta-button, .cta-button-white').forEach(button => {
@@ -2268,7 +2431,9 @@
                 if (this.href && this.href.includes('chat.lazying.art')) {
                     this.classList.add('shimmer');
                     this.style.pointerEvents = 'none';
-                    this.innerHTML = 'Loading EchoMind...';
+                    const l = document.getElementById('langSelect').value || 'en';
+                    const txt = (translations[l] && translations[l].loading_echomind) || translations.en.loading_echomind;
+                    this.innerHTML = txt;
                 }
             });
         });
@@ -2305,7 +2470,9 @@
             
             if (konamiCode.join(',') === konamiPattern.join(',')) {
                 document.body.style.animation = 'gradient-shift 2s ease infinite';
-                alert('🎨 Welcome to the LazyingArt family! Enjoy 50% off EchoMind Pro with code: KONAMI');
+                const l = document.getElementById('langSelect').value || 'en';
+                const msg = (translations[l] && translations[l].konami_alert) || translations.en.konami_alert;
+                alert(msg);
             }
         });
     </script>
