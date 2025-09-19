@@ -1,220 +1,4 @@
-</div>
-                </div>
-            </div>
-            <div class="product-info">
-                <span class="section-tag">FLAGSHIP PRODUCT</span>
-                <h2>Meet EchoMind: Where Language Barriers Dissolve</h2>
-                <p>EchoMind isn't just another chatbot – it's your gateway to effortless global communication. Built on our proprietary GPT-SoVITS technology and enhanced with advanced language processing, EchoMind understands not just what you say, but how you want to say it.</p>
-                
-                <p>Whether you're learning a new language, conducting international business, or simply exploring different cultures, EchoMind adapts to your needs with unprecedented flexibility and intelligence.</p>
-                
-                <div style="margin-top: 2rem;">
-                    <a href="https://chat.lazying.art" class="cta-button" style="font-size: 1.1rem; padding: 1rem 2.5rem;">
-                        Experience EchoMind Now →
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Company Philosophy Section -->
-    <section class="company" id="company">
-        <div class="company-container">
-            <div class="section-header">
-                <span class="section-tag">OUR PHILOSOPHY</span>
-                <h2 class="section-title">The Art of Effortless Innovation</h2>
-                <p class="section-subtitle">At LazyingArt, we believe the best technology is invisible – it just works</p>
-            </div>
-            
-            <div class="philosophy">
-                <p class="philosophy-text">
-                    "We're not just building AI; we're crafting bridges between hearts and minds across the globe. Every line of code, every algorithm, every feature is designed with one purpose: making human connection effortless, regardless of the language you speak."
-                </p>
-                <p class="philosophy-author">— LazyingArt Team</p>
-            </div>
-            
-            <div class="features-grid" style="margin-top: 3rem;">
-                <div class="feature-card">
-                    <div class="feature-icon">💡</div>
-                    <h3 class="feature-title">Innovation Through Simplicity</h3>
-                    <p class="feature-description">Complex technology should feel simple. We obsess over user experience so you don't have to think about it.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🤝</div>
-                    <h3 class="feature-title">Human-Centered AI</h3>
-                    <p class="feature-description">Technology serves humanity, not the other way around. Every feature is designed to enhance human connection.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🌈</div>
-                    <h3 class="feature-title">Inclusive by Design</h3>
-                    <p class="feature-description">Language should never be a barrier. We're building a world where everyone can communicate freely.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="cta-container">
-            <div class="cta-content">
-                <h2>Ready to Break Language Barriers?</h2>
-                <p>Join thousands of users already experiencing the future of multilingual AI communication</p>
-                <a href="https://chat.lazying.art" class="cta-button-white">Start Free with EchoMind</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer id="contact">
-        <div class="footer-container">
-            <div>
-                <div class="logo" style="margin-bottom: 1rem;">
-                    <span>🎨</span>
-                    <span>LazyingArt</span>
-                </div>
-                <p style="color: rgba(255,255,255,0.7);">© 2024 LazyingArt. All rights reserved.</p>
-            </div>
-            <div class="footer-links">
-                <a href="https://chat.lazying.art">EchoMind</a>
-                <a href="#features">Features</a>
-                <a href="#company">About</a>
-                <a href="mailto:contact@lazying.art">Contact</a>
-                <a href="#">Privacy</a>
-                <a href="#">Terms</a>
-            </div>
-            <div class="social-links">
-                <a href="#" class="social-link" aria-label="Twitter">𝕏</a>
-                <a href="#" class="social-link" aria-label="GitHub">⚡</a>
-                <a href="#" class="social-link" aria-label="Discord">💬</a>
-                <a href="#" class="social-link" aria-label="LinkedIn">in</a>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // Particle Animation
-        function createParticles() {
-            const container = document.getElementById('particles');
-            const particleCount = 50;
-            
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.animationDelay = Math.random() * 20 + 's';
-                particle.style.animationDuration = (15 + Math.random() * 10) + 's';
-                container.appendChild(particle);
-            }
-        }
-        
-        createParticles();
-        
-        // Navbar Scroll Effect
-        window.addEventListener('scroll', () => {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-        
-        // Mobile Menu Toggle
-        const menuToggle = document.getElementById('menuToggle');
-        const navLinks = document.getElementById('navLinks');
-        
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-        
-        // Smooth Scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                    navLinks.classList.remove('active');
-                }
-            });
-        });
-        
-        // Intersection Observer for Animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-        
-        // Observe feature cards and other elements
-        document.querySelectorAll('.feature-card, .showcase-feature, .stat').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-            observer.observe(el);
-        });
-        
-        // Dynamic year in footer
-        const year = new Date().getFullYear();
-        document.querySelector('footer p').textContent = `© ${year} LazyingArt. All rights reserved.`;
-        
-        // Add loading animation to CTA buttons
-        document.querySelectorAll('.cta-button, .cta-button-white').forEach(button => {
-            button.addEventListener('click', function(e) {
-                if (this.href && this.href.includes('chat.lazying.art')) {
-                    this.classList.add('shimmer');
-                    this.style.pointerEvents = 'none';
-                    this.innerHTML = 'Loading EchoMind...';
-                }
-            });
-        });
-        
-        // Add typing effect to hero title (optional enhancement)
-        const heroTitle = document.querySelector('.hero-text h1');
-        const originalText = heroTitle.textContent;
-        let charIndex = 0;
-        
-        function typeText() {
-            if (charIndex < originalText.length) {
-                heroTitle.textContent = originalText.slice(0, charIndex + 1);
-                charIndex++;
-                setTimeout(typeText, 30);
-            }
-        }
-        
-        // Start typing animation when page loads
-        window.addEventListener('load', () => {
-            heroTitle.textContent = '';
-            setTimeout(typeText, 500);
-        });
-        
-        // Easter egg: Konami code
-        let konamiCode = [];
-        const konamiPattern = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
-        
-        document.addEventListener('keydown', (e) => {
-            konamiCode.push(e.key);
-            konamiCode = konamiCode.slice(-10);
-            
-            if (konamiCode.join(',') === konamiPattern.join(',')) {
-                document.body.style.animation = 'gradient-shift 2s ease infinite';
-                alert('🎨 Welcome to the LazyingArt family! Enjoy 50% off EchoMind Pro with code: KONAMI');
-            }
-        });
-    </script>
-</body>
-</html><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -224,7 +8,9 @@
     <meta property="og:title" content="LazyingArt - AI Language Innovation">
     <meta property="og:description" content="Breaking language barriers with AI. Try EchoMind - your multilingual AI friend.">
     <meta property="og:image" content="https://lazying.art/assets/og-image.png">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎨</text></svg>">
+    <!-- Favicon: serve .ico from site root, keep SVG as fallback -->
+    <link rel="icon" href="/favicon.ico" sizes="any" type="image/x-icon">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎨</text></svg>" type="image/svg+xml">
     
     <style>
         * {
@@ -241,6 +27,11 @@
             --light: #ffffff;
             --glass: rgba(255, 255, 255, 0.1);
             --glass-border: rgba(255, 255, 255, 0.2);
+        }
+
+        html {
+            /* Prevent anchor targets from hiding under fixed nav */
+            scroll-padding-top: 80px;
         }
 
         body {
@@ -1174,3 +965,220 @@
                         <div>
                             <strong>Social Features</strong>
                             <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">Connect with friends, share posts, and practice languages together</p>
+</div>
+                </div>
+            </div>
+            <div class="product-info">
+                <span class="section-tag">FLAGSHIP PRODUCT</span>
+                <h2>Meet EchoMind: Where Language Barriers Dissolve</h2>
+                <p>EchoMind isn't just another chatbot – it's your gateway to effortless global communication. Built on our proprietary GPT-SoVITS technology and enhanced with advanced language processing, EchoMind understands not just what you say, but how you want to say it.</p>
+                
+                <p>Whether you're learning a new language, conducting international business, or simply exploring different cultures, EchoMind adapts to your needs with unprecedented flexibility and intelligence.</p>
+                
+                <div style="margin-top: 2rem;">
+                    <a href="https://chat.lazying.art" class="cta-button" style="font-size: 1.1rem; padding: 1rem 2.5rem;">
+                        Experience EchoMind Now →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Company Philosophy Section -->
+    <section class="company" id="company">
+        <div class="company-container">
+            <div class="section-header">
+                <span class="section-tag">OUR PHILOSOPHY</span>
+                <h2 class="section-title">The Art of Effortless Innovation</h2>
+                <p class="section-subtitle">At LazyingArt, we believe the best technology is invisible – it just works</p>
+            </div>
+            
+            <div class="philosophy">
+                <p class="philosophy-text">
+                    "We're not just building AI; we're crafting bridges between hearts and minds across the globe. Every line of code, every algorithm, every feature is designed with one purpose: making human connection effortless, regardless of the language you speak."
+                </p>
+                <p class="philosophy-author">— LazyingArt Team</p>
+            </div>
+            
+            <div class="features-grid" style="margin-top: 3rem;">
+                <div class="feature-card">
+                    <div class="feature-icon">💡</div>
+                    <h3 class="feature-title">Innovation Through Simplicity</h3>
+                    <p class="feature-description">Complex technology should feel simple. We obsess over user experience so you don't have to think about it.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🤝</div>
+                    <h3 class="feature-title">Human-Centered AI</h3>
+                    <p class="feature-description">Technology serves humanity, not the other way around. Every feature is designed to enhance human connection.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌈</div>
+                    <h3 class="feature-title">Inclusive by Design</h3>
+                    <p class="feature-description">Language should never be a barrier. We're building a world where everyone can communicate freely.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-container">
+            <div class="cta-content">
+                <h2>Ready to Break Language Barriers?</h2>
+                <p>Join thousands of users already experiencing the future of multilingual AI communication</p>
+                <a href="https://chat.lazying.art" class="cta-button-white">Start Free with EchoMind</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-container">
+            <div>
+                <div class="logo" style="margin-bottom: 1rem;">
+                    <span>🎨</span>
+                    <span>LazyingArt</span>
+                </div>
+                <p style="color: rgba(255,255,255,0.7);">© 2024 LazyingArt. All rights reserved.</p>
+            </div>
+            <div class="footer-links">
+                <a href="https://chat.lazying.art">EchoMind</a>
+                <a href="#features">Features</a>
+                <a href="#company">About</a>
+                <a href="mailto:contact@lazying.art">Contact</a>
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+            </div>
+            <div class="social-links">
+                <a href="#" class="social-link" aria-label="Twitter">𝕏</a>
+                <a href="#" class="social-link" aria-label="GitHub">⚡</a>
+                <a href="#" class="social-link" aria-label="Discord">💬</a>
+                <a href="#" class="social-link" aria-label="LinkedIn">in</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Particle Animation
+        function createParticles() {
+            const container = document.getElementById('particles');
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 20 + 's';
+                particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+                container.appendChild(particle);
+            }
+        }
+        
+        createParticles();
+        
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+        
+        // Intersection Observer for Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe feature cards and other elements
+        document.querySelectorAll('.feature-card, .showcase-feature, .stat').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(el);
+        });
+        
+        // Dynamic year in footer
+        const year = new Date().getFullYear();
+        document.querySelector('footer p').textContent = `© ${year} LazyingArt. All rights reserved.`;
+        
+        // Add loading animation to CTA buttons
+        document.querySelectorAll('.cta-button, .cta-button-white').forEach(button => {
+            button.addEventListener('click', function(e) {
+                if (this.href && this.href.includes('chat.lazying.art')) {
+                    this.classList.add('shimmer');
+                    this.style.pointerEvents = 'none';
+                    this.innerHTML = 'Loading EchoMind...';
+                }
+            });
+        });
+        
+        // Add typing effect to hero title (optional enhancement)
+        const heroTitle = document.querySelector('.hero-text h1');
+        const originalText = heroTitle.textContent;
+        let charIndex = 0;
+        
+        function typeText() {
+            if (charIndex < originalText.length) {
+                heroTitle.textContent = originalText.slice(0, charIndex + 1);
+                charIndex++;
+                setTimeout(typeText, 30);
+            }
+        }
+        
+        // Start typing animation when page loads
+        window.addEventListener('load', () => {
+            heroTitle.textContent = '';
+            setTimeout(typeText, 500);
+        });
+        
+        // Easter egg: Konami code
+        let konamiCode = [];
+        const konamiPattern = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+        
+        document.addEventListener('keydown', (e) => {
+            konamiCode.push(e.key);
+            konamiCode = konamiCode.slice(-10);
+            
+            if (konamiCode.join(',') === konamiPattern.join(',')) {
+                document.body.style.animation = 'gradient-shift 2s ease infinite';
+                alert('🎨 Welcome to the LazyingArt family! Enjoy 50% off EchoMind Pro with code: KONAMI');
+            }
+        });
+    </script>
+</body>
+</html>
