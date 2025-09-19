@@ -110,7 +110,8 @@
             text-decoration: none;
         }
 
-        .nav-links { display: flex; gap: 1.25rem; align-items: center; }
+        .nav-links { display: flex; gap: 1.1rem; align-items: center; }
+        .nav-links a { font-size: 0.95rem; }
 
         .nav-links a {
             color: var(--light);
@@ -894,6 +895,10 @@
             color: rgba(255,255,255,0.6); background: transparent; pointer-events: none; opacity: 0.6;
         }
 
+        @media (max-width: 1100px) {
+            .nav-links .cta-button { display: none; }
+        }
+
         @media (max-width: 900px) {
             .babel-container { grid-template-columns: 1fr; }
         }
@@ -923,6 +928,15 @@
                 <option value="ja">日本語</option>
                 <option value="zh-Hans">简体中文</option>
                 <option value="zh-Hant">繁體中文</option>
+                <option value="ko">한국어</option>
+                <option value="ar">العربية</option>
+                <option value="vi">Tiếng Việt</option>
+                <option value="fr">Français</option>
+                <option value="es">Español</option>
+                <option value="pt">Português</option>
+                <option value="de">Deutsch</option>
+                <option value="ru">Русский</option>
+                <option value="tr">Türkçe</option>
             </select>
             <button class="mobile-menu-toggle" id="menuToggle">
                 <span></span>
@@ -1494,6 +1508,582 @@
                 cta_button: '免費開始',
                 footer_privacy: '隱私',
                 footer_terms: '條款',
+            },
+            ko: {
+                document_title: 'LazyingArt - AI 언어 혁신으로 사람을 잇다',
+                nav_features: '기능',
+                nav_about: '소개',
+                nav_contact: '문의',
+                nav_try: 'EchoMind 체험',
+                hero_title: 'AI 언어 혁신으로 인간을 연결합니다',
+                hero_subtitle: 'LazyingArt는 쉽고 자연스러운 소통을 지향합니다. 우리의 AI는 언어 장벽을 없애 대화를 더 간단하게 만듭니다.',
+                hero_launch: 'EchoMind 실행',
+                hero_explore: '기능 살펴보기',
+                stats_languages: '지원 언어',
+                stats_active_users: '활성 사용자',
+                stats_ai_availability: 'AI 가동',
+                features_tag: '기능',
+                features_title: '최신 기술로 구현',
+                features_subtitle: '다국어 AI 커뮤니케이션의 미래를 경험하세요',
+                feat_voice_title: '음성 중심 인터페이스',
+                feat_voice_desc: '고급 VAD로 자연스러운 음성 대화. 문맥을 이해한 즉시 응답.',
+                feat_multi_title: '진정한 다국어 AI',
+                feat_multi_desc: '대화 중 언어를 자유롭게 전환. 경계를 넘는 문맥 이해.',
+                feat_memory_title: '컨텍스트 메모리',
+                feat_memory_desc: '대화 이력과 선호를 학습하여 지능적으로 적응.',
+                feat_learning_title: '언어 학습',
+                feat_learning_desc: '후리가나, 병음, 粤拼 지원. 대화로 자연스럽게 습득.',
+                feat_grammar_title: '문법 분석',
+                feat_grammar_desc: '실시간 문법 보조와 개선으로 이해도 향상.',
+                feat_privacy_title: '프라이버시 우선 설계',
+                feat_privacy_desc: '로컬 처리와 암호화 저장으로 안전 보장.',
+                ecosystem_tag: '에코시스템',
+                ecosystem_title: 'AI + 소프트웨어 + 하드웨어의 조합',
+                ecosystem_subtitle: 'EchoMind AI는 플랫폼과 Babel Glass와 연동해 핸즈프리 실시간 다국어 소통을 제공합니다',
+                ecos_card_ai: 'EchoMind AI',
+                ecos_card_ai_desc: '저지연 다국어 대화 지능. 음성·텍스트·문맥 기억.',
+                ecos_card_platform: 'Lazying 플랫폼',
+                ecos_card_platform_desc: '프로필·용어·연동을 담당하는 프라이버시 중심 소프트웨어.',
+                ecos_card_glass: 'Babel Glass',
+                ecos_card_glass_desc: '렌즈 자막과 자연스러운 음성 출력으로 핸즈프리 대화.',
+                hardware_tag: '하드웨어',
+                glass_title: '쓰면, 어떤 언어도 말하다',
+                glass_badge: '프로토타입',
+                glass_subtitle: '렌즈 자막과 자연 음성으로 실시간 번역 — 일본 우선 최적화',
+                glass_b1: '양방향 번역과 렌즈 자막, 중간 끼어들기 지원',
+                glass_b2: '다중 마이크, 빔포밍, 노이즈 억제',
+                glass_b3: '경어 지원과 산업 용어 최적화',
+                glass_b4: '프라이버시 중심 엣지 아키텍처',
+                glass_b5: '탭-투-차지, 자기 정렬 고속 충전',
+                glass_proto_title: '프로토타입 도크',
+                glass_proto_desc: '3D 모델과 데모 영상이 여기에 추가될 예정입니다. 현재도 사이트는 정상 동작합니다.',
+                glass_proto_view: '프로토타입 보기',
+                glass_proto_interest: '관심 등록',
+                product_tag: '플래그십',
+                product_title: 'EchoMind: 언어의 장벽을 녹이다',
+                product_p1: 'EchoMind는 단순한 챗봇이 아닙니다. GPT-SoVITS와 고급 언어 처리를 바탕으로, 당신의 “말하는 방식”까지 이해하는 다국어 AI입니다.',
+                product_p2: '학습, 비즈니스, 문화 교류 등 다양한 장면에서 유연하게 적응해 자연스러운 소통을 돕습니다.',
+                product_cta: '지금 바로 체험 →',
+                company_tag: '우리의 철학',
+                company_title: '힘들이지 않는 혁신의 아름다움',
+                company_subtitle: '최고의 기술은 “보이지 않는 것” — 그냥 잘 동작합니다',
+                cta_title: '언어의 벽, 함께 넘어봅시다',
+                cta_subtitle: '수많은 사용자가 이미 다국어 AI의 미래를 경험하고 있습니다',
+                cta_button: '무료로 시작',
+                footer_privacy: '개인정보',
+                footer_terms: '이용약관',
+            },
+            ar: {
+                document_title: 'LazyingArt - ربط البشر بابتكار لغوي مدعوم بالذكاء الاصطناعي',
+                nav_features: 'الميزات',
+                nav_about: 'من نحن',
+                nav_contact: 'اتصل بنا',
+                nav_try: 'جرّب EchoMind',
+                hero_title: 'نربط البشر بابتكار لغوي مدعوم بالذكاء الاصطناعي',
+                hero_subtitle: 'في LazyingArt نؤمن أن التواصل يجب أن يكون سهلاً وطبيعياً. نزيل حواجز اللغة لنجعل المحادثة أبسط.',
+                hero_launch: 'تشغيل EchoMind',
+                hero_explore: 'استكشف الميزات',
+                stats_languages: 'اللغات',
+                stats_active_users: 'المستخدمون النشطون',
+                stats_ai_availability: 'توفر الذكاء الاصطناعي',
+                features_tag: 'الميزات',
+                features_title: 'مدعوم بأحدث التقنيات',
+                features_subtitle: 'اختبر مستقبل الاتصال متعدد اللغات',
+                feat_voice_title: 'واجهة تعتمد على الصوت أولاً',
+                feat_voice_desc: 'تفاعل صوتي طبيعي مع VAD متقدم واستجابة فورية سياقية.',
+                feat_multi_title: 'ذكاء متعدد اللغات حقاً',
+                feat_multi_desc: 'تحويل سلس بين اللغات أثناء الحديث مع فهم للسياق.',
+                feat_memory_title: 'ذاكرة سياقية',
+                feat_memory_desc: 'يتعلم التفضيلات وسجل المحادثات ويتكيف بذكاء.',
+                feat_learning_title: 'تعلم اللغات',
+                feat_learning_desc: 'إرشادات نطق وتراكيب تساعدك على التعلم أثناء المحادثة.',
+                feat_grammar_title: 'تحليل نحوي',
+                feat_grammar_desc: 'تحسين وتحليل فوري للنحو لزيادة الفهم.',
+                feat_privacy_title: 'خصوصية أولاً',
+                feat_privacy_desc: 'معالجة محلية وتخزين مشفر لحماية محادثاتك.',
+                ecosystem_tag: 'المنظومة',
+                ecosystem_title: 'تعاون الذكاء الاصطناعي والبرمجيات والأجهزة',
+                ecosystem_subtitle: 'يتكامل EchoMind مع منصتنا ونظارات Babel لتواصل آلي دون استخدام اليدين',
+                ecos_card_ai: 'EchoMind AI',
+                ecos_card_ai_desc: 'ذكاء محادثة متعدد اللغات بزمن تأخير منخفض للصوت والنص والسياق.',
+                ecos_card_platform: 'منصة Lazying',
+                ecos_card_platform_desc: 'طبقة برمجية تركز على الخصوصية للحسابات والمصطلحات والتكاملات.',
+                ecos_card_glass: 'Babel Glass',
+                ecos_card_glass_desc: 'نصوص على العدسة وخروج صوت طبيعي لمحادثة دون استخدام اليدين.',
+                hardware_tag: 'الأجهزة',
+                glass_title: 'ارتدِها وتحدث أي لغة',
+                glass_badge: 'نموذج أوّلي',
+                glass_subtitle: 'ترجمة فورية بنص على العدسة وصوت طبيعي — مع تركيز أولي على اليابان',
+                glass_b1: 'ترجمة ثنائية الاتجاه تدعم المقاطعة مع نص على العدسة',
+                glass_b2: 'التقاط متعدد الميكروفونات وتشكيل الحزمة وتقليل الضجيج',
+                glass_b3: 'دعم اليابانية الشرفية ومصطلحات صناعية',
+                glass_b4: 'هيكلية خصوصية أولاً بمعالجة على الحافة',
+                glass_b5: 'شحن باللمس مع محاذاة مغناطيسية وشحن سريع',
+                glass_proto_title: 'منطقة النموذج',
+                glass_proto_desc: 'سيظهر هنا نموذج ثلاثي الأبعاد وفيديو تجريبي. يعمل الموقع طبيعياً بدونه.',
+                glass_proto_view: 'عرض النموذج',
+                glass_proto_interest: 'سجّل اهتمامك',
+                product_tag: 'المنتج الرائد',
+                product_title: 'تعرف على EchoMind: حيث تزول حواجز اللغة',
+                product_p1: 'EchoMind ليس مجرد روبوت محادثة؛ إنه بوابتك لاتصال عالمي سهل. يفهم كيف تقول، لا ما تقول فقط.',
+                product_p2: 'سواء للتعلم أو الأعمال أو الثقافة، يتكيف EchoMind بمرونة ليدعم تواصلك الطبيعي.',
+                product_cta: 'جرّبه الآن →',
+                company_tag: 'فلسفتنا',
+                company_title: 'بساطة الابتكار الفعّال',
+                company_subtitle: 'أفضل التقنيات غير مرئية — فقط تعمل',
+                cta_title: 'هل أنت مستعد لكسر حواجز اللغة؟',
+                cta_subtitle: 'انضم إلى الآلاف الذين يختبرون مستقبل الاتصال متعدد اللغات',
+                cta_button: 'ابدأ مجاناً',
+                footer_privacy: 'الخصوصية',
+                footer_terms: 'الشروط',
+            },
+            vi: {
+                document_title: 'LazyingArt - Kết nối con người bằng đổi mới ngôn ngữ AI',
+                nav_features: 'Tính năng',
+                nav_about: 'Giới thiệu',
+                nav_contact: 'Liên hệ',
+                nav_try: 'Dùng thử EchoMind',
+                hero_title: 'Kết nối con người bằng đổi mới ngôn ngữ AI',
+                hero_subtitle: 'Tại LazyingArt, chúng tôi tin giao tiếp phải đơn giản và tự nhiên. AI của chúng tôi xóa bỏ rào cản ngôn ngữ.',
+                hero_launch: 'Khởi chạy EchoMind',
+                hero_explore: 'Khám phá tính năng',
+                stats_languages: 'Ngôn ngữ',
+                stats_active_users: 'Người dùng hoạt động',
+                stats_ai_availability: 'Khả dụng AI',
+                features_tag: 'Tính năng',
+                features_title: 'Vận hành bởi công nghệ tiên tiến',
+                features_subtitle: 'Trải nghiệm tương lai giao tiếp đa ngôn ngữ',
+                feat_voice_title: 'Giao diện ưu tiên giọng nói',
+                feat_voice_desc: 'VAD tiên tiến cho hội thoại tự nhiên, phản hồi tức thì theo ngữ cảnh.',
+                feat_multi_title: 'AI đa ngôn ngữ thực sự',
+                feat_multi_desc: 'Chuyển đổi ngôn ngữ liền mạch trong cuộc trò chuyện.',
+                feat_memory_title: 'Bộ nhớ ngữ cảnh',
+                feat_memory_desc: 'Học sở thích và lịch sử đối thoại, thích nghi thông minh.',
+                feat_learning_title: 'Học ngôn ngữ',
+                feat_learning_desc: 'Hỗ trợ furigana, pinyin, jyutping. Học tự nhiên qua hội thoại.',
+                feat_grammar_title: 'Phân tích ngữ pháp',
+                feat_grammar_desc: 'Hỗ trợ và cải thiện ngữ pháp theo thời gian thực.',
+                feat_privacy_title: 'Thiết kế ưu tiên quyền riêng tư',
+                feat_privacy_desc: 'Xử lý cục bộ và lưu trữ mã hóa để bảo mật.',
+                ecosystem_tag: 'Hệ sinh thái',
+                ecosystem_title: 'AI + Phần mềm + Phần cứng phối hợp',
+                ecosystem_subtitle: 'EchoMind kết hợp với nền tảng và Babel Glass để giao tiếp rảnh tay, theo thời gian thực',
+                ecos_card_ai: 'EchoMind AI',
+                ecos_card_ai_desc: 'Trí tuệ hội thoại đa ngôn ngữ độ trễ thấp.',
+                ecos_card_platform: 'Nền tảng Lazying',
+                ecos_card_platform_desc: 'Lớp phần mềm ưu tiên quyền riêng tư.',
+                ecos_card_glass: 'Babel Glass',
+                ecos_card_glass_desc: 'Phụ đề trên kính và giọng nói tự nhiên, giao tiếp rảnh tay.',
+                hardware_tag: 'Phần cứng',
+                glass_title: 'Đeo lên và nói bất kỳ ngôn ngữ nào',
+                glass_badge: 'Nguyên mẫu',
+                glass_subtitle: 'Phiên dịch theo thời gian thực với phụ đề trên kính và giọng nói tự nhiên — tối ưu cho Nhật Bản',
+                glass_b1: 'Phiên dịch hai chiều, hỗ trợ chen ngang với phụ đề',
+                glass_b2: 'Nhiều mic, beamforming, khử ồn',
+                glass_b3: 'Hỗ trợ kính ngữ tiếng Nhật và thuật ngữ ngành',
+                glass_b4: 'Kiến trúc ưu tiên edge, bảo vệ quyền riêng tư',
+                glass_b5: 'Chạm để sạc, căn chỉnh từ tính, sạc nhanh',
+                glass_proto_title: 'Khu vực nguyên mẫu',
+                glass_proto_desc: 'Sẽ có mô hình 3D và video demo ở đây. Trang vẫn hoạt động bình thường.',
+                glass_proto_view: 'Xem nguyên mẫu',
+                glass_proto_interest: 'Đăng ký quan tâm',
+                product_tag: 'Sản phẩm chủ lực',
+                product_title: 'EchoMind: Xóa nhòa rào cản ngôn ngữ',
+                product_p1: 'Không chỉ là chatbot. EchoMind là cánh cửa đến giao tiếp toàn cầu.',
+                product_p2: 'Phù hợp linh hoạt cho học tập, kinh doanh, giao lưu văn hóa.',
+                product_cta: 'Trải nghiệm ngay →',
+                company_tag: 'Triết lý',
+                company_title: 'Nghệ thuật của đổi mới nhẹ nhàng',
+                company_subtitle: 'Công nghệ tốt nhất là “vô hình” — chỉ cần hoạt động',
+                cta_title: 'Sẵn sàng phá bỏ rào cản ngôn ngữ?',
+                cta_subtitle: 'Hàng chục nghìn người dùng đã trải nghiệm tương lai AI đa ngôn ngữ',
+                cta_button: 'Bắt đầu miễn phí',
+                footer_privacy: 'Quyền riêng tư',
+                footer_terms: 'Điều khoản',
+            },
+            fr: {
+                document_title: 'LazyingArt - Relier l’humanité grâce à l’IA linguistique',
+                nav_features: 'Fonctionnalités',
+                nav_about: 'À propos',
+                nav_contact: 'Contact',
+                nav_try: 'Essayer EchoMind',
+                hero_title: 'Relier l’humanité grâce à l’innovation linguistique IA',
+                hero_subtitle: 'Chez LazyingArt, nous croyons à une communication simple et naturelle. Notre IA supprime les barrières linguistiques.',
+                hero_launch: 'Lancer EchoMind',
+                hero_explore: 'Découvrir les fonctions',
+                stats_languages: 'Langues',
+                stats_active_users: 'Utilisateurs actifs',
+                stats_ai_availability: 'Disponibilité IA',
+                features_tag: 'FONCTIONNALITÉS',
+                features_title: 'Propulsé par des technologies de pointe',
+                features_subtitle: 'Vivez le futur de la communication multilingue',
+                feat_voice_title: 'Interface vocale d’abord',
+                feat_voice_desc: 'Interaction vocale naturelle avec VAD avancé et réponses contextuelles instantanées.',
+                feat_multi_title: 'Véritable IA multilingue',
+                feat_multi_desc: 'Basculement fluide entre les langues en cours de conversation.',
+                feat_memory_title: 'Mémoire contextuelle',
+                feat_memory_desc: 'Apprend vos préférences et s’adapte intelligemment.',
+                feat_learning_title: 'Apprentissage des langues',
+                feat_learning_desc: 'Guides de prononciation et aides intégrées pour progresser en parlant.',
+                feat_grammar_title: 'Analyse grammaticale',
+                feat_grammar_desc: 'Aide et amélioration grammaticales en temps réel.',
+                feat_privacy_title: 'Confidentialité d’abord',
+                feat_privacy_desc: 'Traitement local et stockage chiffré pour protéger vos échanges.',
+                ecosystem_tag: 'ÉCOSYSTÈME',
+                ecosystem_title: 'IA + Logiciel + Matériel, ensemble',
+                ecosystem_subtitle: 'EchoMind s’intègre à notre plateforme et à Babel Glass pour un dialogue mains libres',
+                ecos_card_ai: 'EchoMind IA',
+                ecos_card_ai_desc: 'Intelligence de conversation multilingue à faible latence.',
+                ecos_card_platform: 'Plateforme Lazying',
+                ecos_card_platform_desc: 'Couche logicielle axée sur la confidentialité.',
+                ecos_card_glass: 'Babel Glass',
+                ecos_card_glass_desc: 'Sous-titres sur la lentille et sortie vocale naturelle.',
+                hardware_tag: 'MATÉRIEL',
+                glass_title: 'Portez-la et parlez toute langue',
+                glass_badge: 'Prototype',
+                glass_subtitle: 'Traduction en temps réel avec sous-titres sur la lentille — optimisée pour le Japon',
+                glass_b1: 'Traduction bidirectionnelle avec sous-titres',
+                glass_b2: 'Microphones multiples, beamforming, réduction de bruit',
+                glass_b3: 'Japonais honorifique et termes métier',
+                glass_b4: 'Architecture edge respectant la vie privée',
+                glass_b5: 'Tap-to-charge avec alignement magnétique',
+                glass_proto_title: 'Zone prototype',
+                glass_proto_desc: 'Un modèle 3D et une vidéo apparaîtront ici. Le site fonctionne sans.',
+                glass_proto_view: 'Voir le prototype',
+                glass_proto_interest: 'Manifester son intérêt',
+                product_tag: 'PRODUIT PHARE',
+                product_title: 'Découvrez EchoMind : la fin des barrières linguistiques',
+                product_p1: 'EchoMind n’est pas un simple chatbot — c’est votre porte d’entrée vers une communication mondiale.',
+                product_p2: 'Pour l’apprentissage, les affaires ou la culture, EchoMind s’adapte pour un échange naturel.',
+                product_cta: 'Essayer maintenant →',
+                company_tag: 'NOTRE PHILOSOPHIE',
+                company_title: 'L’art d’une innovation sans effort',
+                company_subtitle: 'La meilleure technologie est « invisible » — elle fonctionne',
+                cta_title: 'Prêt à briser les barrières linguistiques ?',
+                cta_subtitle: 'Des milliers d’utilisateurs expérimentent déjà le futur',
+                cta_button: 'Commencer gratuitement',
+                footer_privacy: 'Confidentialité',
+                footer_terms: 'Conditions',
+            },
+            es: {
+                document_title: 'LazyingArt - Uniendo a la humanidad con innovación lingüística IA',
+                nav_features: 'Funciones',
+                nav_about: 'Acerca de',
+                nav_contact: 'Contacto',
+                nav_try: 'Probar EchoMind',
+                hero_title: 'Uniendo a la humanidad con innovación lingüística IA',
+                hero_subtitle: 'En LazyingArt creemos en una comunicación simple y natural. Nuestra IA elimina las barreras del idioma.',
+                hero_launch: 'Iniciar EchoMind',
+                hero_explore: 'Explorar funciones',
+                stats_languages: 'Idiomas',
+                stats_active_users: 'Usuarios activos',
+                stats_ai_availability: 'Disponibilidad IA',
+                features_tag: 'FUNCIONES',
+                features_title: 'Impulsado por tecnología de vanguardia',
+                features_subtitle: 'Vive el futuro de la comunicación multilingüe',
+                feat_voice_title: 'Interfaz centrada en la voz',
+                feat_voice_desc: 'Interacción natural con VAD avanzado y respuesta contextual inmediata.',
+                feat_multi_title: 'IA verdaderamente multilingüe',
+                feat_multi_desc: 'Cambio fluido de idioma durante la conversación.',
+                feat_memory_title: 'Memoria contextual',
+                feat_memory_desc: 'Aprende tus preferencias y se adapta inteligentemente.',
+                feat_learning_title: 'Aprendizaje de idiomas',
+                feat_learning_desc: 'Guías de pronunciación y ayudas para aprender conversando.',
+                feat_grammar_title: 'Análisis gramatical',
+                feat_grammar_desc: 'Mejora y asistencia gramatical en tiempo real.',
+                feat_privacy_title: 'Privacidad primero',
+                feat_privacy_desc: 'Procesamiento local y almacenamiento cifrado.',
+                ecosystem_tag: 'ECOSISTEMA',
+                ecosystem_title: 'IA + Software + Hardware, juntos',
+                ecosystem_subtitle: 'EchoMind se integra con nuestra plataforma y Babel Glass para un diálogo manos libres',
+                ecos_card_ai: 'EchoMind IA',
+                ecos_card_ai_desc: 'Inteligencia de conversación multilingüe de baja latencia.',
+                ecos_card_platform: 'Plataforma Lazying',
+                ecos_card_platform_desc: 'Capa de software centrada en la privacidad.',
+                ecos_card_glass: 'Babel Glass',
+                ecos_card_glass_desc: 'Subtítulos en lente y salida de voz natural.',
+                hardware_tag: 'HARDWARE',
+                glass_title: 'Póntelas y habla cualquier idioma',
+                glass_badge: 'Prototipo',
+                glass_subtitle: 'Traducción en tiempo real con subtítulos — optimizado para Japón',
+                glass_b1: 'Traducción bidireccional con subtítulos',
+                glass_b2: 'Múltiples micrófonos, beamforming y reducción de ruido',
+                glass_b3: 'Soporte de honoríficos japoneses y términos sectoriales',
+                glass_b4: 'Arquitectura edge que respeta la privacidad',
+                glass_b5: 'Tap-to-charge con alineación magnética',
+                glass_proto_title: 'Zona de prototipo',
+                glass_proto_desc: 'Aquí aparecerá un modelo 3D y un video. El sitio funciona sin ello.',
+                glass_proto_view: 'Ver prototipo',
+                glass_proto_interest: 'Registrar interés',
+                product_tag: 'PRODUCTO INSIGNIA',
+                product_title: 'Conoce EchoMind: donde desaparecen las barreras del idioma',
+                product_p1: 'No es solo un chatbot: es tu puerta a la comunicación global.',
+                product_p2: 'Aprendizaje, negocios y cultura — EchoMind se adapta para un diálogo natural.',
+                product_cta: 'Probar ahora →',
+                company_tag: 'FILOSOFÍA',
+                company_title: 'El arte de innovar sin esfuerzo',
+                company_subtitle: 'La mejor tecnología es “invisible” — simplemente funciona',
+                cta_title: '¿Listo para romper barreras idiomáticas?',
+                cta_subtitle: 'Miles de usuarios ya viven el futuro',
+                cta_button: 'Comenzar gratis',
+                footer_privacy: 'Privacidad',
+                footer_terms: 'Términos',
+            },
+            pt: {
+                document_title: 'LazyingArt - Conectando pessoas com inovação linguística IA',
+                nav_features: 'Recursos',
+                nav_about: 'Sobre',
+                nav_contact: 'Contato',
+                nav_try: 'Experimente o EchoMind',
+                hero_title: 'Conectando a humanidade com inovação linguística de IA',
+                hero_subtitle: 'Na LazyingArt, acreditamos em comunicação simples e natural. Nossa IA remove barreiras de idioma.',
+                hero_launch: 'Iniciar EchoMind',
+                hero_explore: 'Explorar recursos',
+                stats_languages: 'Idiomas',
+                stats_active_users: 'Usuários ativos',
+                stats_ai_availability: 'Disponibilidade da IA',
+                features_tag: 'RECURSOS',
+                features_title: 'Impulsionado por tecnologia de ponta',
+                features_subtitle: 'Experimente o futuro da comunicação multilíngue',
+                feat_voice_title: 'Interface focada em voz',
+                feat_voice_desc: 'Interação natural com VAD avançado e respostas contextuais imediatas.',
+                feat_multi_title: 'IA verdadeiramente multilíngue',
+                feat_multi_desc: 'Troca de idioma suave durante a conversa.',
+                feat_memory_title: 'Memória contextual',
+                feat_memory_desc: 'Aprende preferências e adapta-se inteligentemente.',
+                feat_learning_title: 'Aprendizagem de idiomas',
+                feat_learning_desc: 'Guias de pronúncia e apoio durante a conversa.',
+                feat_grammar_title: 'Análise gramatical',
+                feat_grammar_desc: 'Aprimoramento e ajuda gramatical em tempo real.',
+                feat_privacy_title: 'Privacidade em primeiro lugar',
+                feat_privacy_desc: 'Processamento local e armazenamento criptografado.',
+                ecosystem_tag: 'ECOSSISTEMA',
+                ecosystem_title: 'IA + Software + Hardware, juntos',
+                ecosystem_subtitle: 'EchoMind integra-se à plataforma e ao Babel Glass para diálogo sem as mãos',
+                ecos_card_ai: 'EchoMind IA',
+                ecos_card_ai_desc: 'Inteligência de conversa multilíngue de baixa latência.',
+                ecos_card_platform: 'Plataforma Lazying',
+                ecos_card_platform_desc: 'Camada de software com foco em privacidade.',
+                ecos_card_glass: 'Babel Glass',
+                ecos_card_glass_desc: 'Legendas na lente e saída de voz natural.',
+                hardware_tag: 'HARDWARE',
+                glass_title: 'Use e fale qualquer idioma',
+                glass_badge: 'Protótipo',
+                glass_subtitle: 'Tradução em tempo real com legendas — otimizado para o Japão',
+                glass_b1: 'Tradução bidirecional com legendas',
+                glass_b2: 'Múltiplos microfones, beamforming e redução de ruído',
+                glass_b3: 'Suporte a honoríficos japoneses e termos do setor',
+                glass_b4: 'Arquitetura edge com respeito à privacidade',
+                glass_b5: 'Tap-to-charge com alinhamento magnético',
+                glass_proto_title: 'Área de protótipo',
+                glass_proto_desc: 'Modelo 3D e vídeo de demonstração em breve. O site funciona sem isso.',
+                glass_proto_view: 'Ver protótipo',
+                glass_proto_interest: 'Registrar interesse',
+                product_tag: 'PRODUTO PRINCIPAL',
+                product_title: 'Conheça o EchoMind: fim das barreiras linguísticas',
+                product_p1: 'Não é apenas um chatbot — é a sua porta para a comunicação global.',
+                product_p2: 'Aprendizado, negócios e cultura — o EchoMind se adapta para diálogos naturais.',
+                product_cta: 'Experimentar agora →',
+                company_tag: 'NOSSA FILOSOFIA',
+                company_title: 'A arte da inovação sem esforço',
+                company_subtitle: 'A melhor tecnologia é “invisível” — simplesmente funciona',
+                cta_title: 'Pronto para quebrar barreiras linguísticas?',
+                cta_subtitle: 'Milhares já experimentam o futuro',
+                cta_button: 'Começar grátis',
+                footer_privacy: 'Privacidade',
+                footer_terms: 'Termos',
+            },
+            de: {
+                document_title: 'LazyingArt - Menschen verbinden durch KI-Sprachinnovation',
+                nav_features: 'Funktionen',
+                nav_about: 'Über uns',
+                nav_contact: 'Kontakt',
+                nav_try: 'EchoMind testen',
+                hero_title: 'Menschen verbinden durch KI-Sprachinnovation',
+                hero_subtitle: 'Bei LazyingArt setzen wir auf einfache, natürliche Kommunikation. Unsere KI beseitigt Sprachbarrieren.',
+                hero_launch: 'EchoMind starten',
+                hero_explore: 'Funktionen ansehen',
+                stats_languages: 'Sprachen',
+                stats_active_users: 'Aktive Nutzer',
+                stats_ai_availability: 'KI-Verfügbarkeit',
+                features_tag: 'FUNKTIONEN',
+                features_title: 'Angetrieben von Spitzentechnologie',
+                features_subtitle: 'Erleben Sie die Zukunft der mehrsprachigen Kommunikation',
+                feat_voice_title: 'Voice-First-Interface',
+                feat_voice_desc: 'Natürliche Sprachinteraktion mit fortschrittlichem VAD und kontextbezogenen Sofortantworten.',
+                feat_multi_title: 'Echte mehrsprachige KI',
+                feat_multi_desc: 'Nahtloser Sprachwechsel während des Gesprächs.',
+                feat_memory_title: 'Kontextgedächtnis',
+                feat_memory_desc: 'Lernt Vorlieben und passt sich intelligent an.',
+                feat_learning_title: 'Sprachlernen',
+                feat_learning_desc: 'Aussprachehilfen und Lernunterstützung im Gespräch.',
+                feat_grammar_title: 'Grammatik-Analyse',
+                feat_grammar_desc: 'Grammatikhilfe und -verbesserung in Echtzeit.',
+                feat_privacy_title: 'Datenschutz zuerst',
+                feat_privacy_desc: 'Lokale Verarbeitung und verschlüsselte Speicherung.',
+                ecosystem_tag: 'ÖKOSYSTEM',
+                ecosystem_title: 'KI + Software + Hardware zusammen',
+                ecosystem_subtitle: 'EchoMind arbeitet mit unserer Plattform und Babel Glass für freihändiges Gespräch',
+                ecos_card_ai: 'EchoMind KI',
+                ecos_card_ai_desc: 'Mehrsprachige Gesprächsintelligenz mit geringer Latenz.',
+                ecos_card_platform: 'Lazying-Plattform',
+                ecos_card_platform_desc: 'Softwareebene mit Fokus auf Privatsphäre.',
+                ecos_card_glass: 'Babel Glass',
+                ecos_card_glass_desc: 'Untertitel in der Linse und natürliche Sprachausgabe.',
+                hardware_tag: 'HARDWARE',
+                glass_title: 'Aufsetzen und jede Sprache sprechen',
+                glass_badge: 'Prototyp',
+                glass_subtitle: 'Echtzeitübersetzung mit Linsenuntertiteln — für Japan optimiert',
+                glass_b1: 'Zweiwege-Übersetzung mit Untertiteln',
+                glass_b2: 'Mehrere Mikrofone, Beamforming, Rauschunterdrückung',
+                glass_b3: 'Japanische Höflichkeit und Fachtermini',
+                glass_b4: 'Edge-Architektur mit Datenschutz',
+                glass_b5: 'Tap-to-Charge mit magnetischer Ausrichtung',
+                glass_proto_title: 'Prototypbereich',
+                glass_proto_desc: 'Hier erscheint ein 3D-Modell und ein Demo-Video. Die Website funktioniert auch ohne.',
+                glass_proto_view: 'Prototyp ansehen',
+                glass_proto_interest: 'Interesse anmelden',
+                product_tag: 'FLAGGSCHIFF',
+                product_title: 'EchoMind: Wo Sprachbarrieren verschwinden',
+                product_p1: 'Nicht nur ein Chatbot — Ihr Tor zur globalen Kommunikation.',
+                product_p2: 'Lernen, Business, Kultur — EchoMind passt sich an.',
+                product_cta: 'Jetzt testen →',
+                company_tag: 'UNSERE PHILOSOPHIE',
+                company_title: 'Die Kunst müheloser Innovation',
+                company_subtitle: 'Die beste Technologie ist „unsichtbar“ — sie funktioniert einfach',
+                cta_title: 'Bereit, Sprachbarrieren zu überwinden?',
+                cta_subtitle: 'Tausende erleben bereits die Zukunft',
+                cta_button: 'Kostenlos starten',
+                footer_privacy: 'Datenschutz',
+                footer_terms: 'Bedingungen',
+            },
+            ru: {
+                document_title: 'LazyingArt - Соединяем людей языковыми инновациями ИИ',
+                nav_features: 'Возможности',
+                nav_about: 'О нас',
+                nav_contact: 'Контакты',
+                nav_try: 'Попробовать EchoMind',
+                hero_title: 'Соединяем людей языковыми инновациями ИИ',
+                hero_subtitle: 'В LazyingArt мы верим в простой и естественный диалог. Наш ИИ убирает языковые барьеры.',
+                hero_launch: 'Запустить EchoMind',
+                hero_explore: 'Смотреть возможности',
+                stats_languages: 'Языки',
+                stats_active_users: 'Активные пользователи',
+                stats_ai_availability: 'Доступность ИИ',
+                features_tag: 'ВОЗМОЖНОСТИ',
+                features_title: 'На базе передовых технологий',
+                features_subtitle: 'Ощутите будущее многоязычного общения',
+                feat_voice_title: 'Интерфейс «голос прежде всего»',
+                feat_voice_desc: 'Естественное голосовое общение и мгновенные контекстные ответы.',
+                feat_multi_title: 'Настоящий многоязычный ИИ',
+                feat_multi_desc: 'Плавная смена языков прямо во время беседы.',
+                feat_memory_title: 'Контекстная память',
+                feat_memory_desc: 'Изучает предпочтения и умно адаптируется.',
+                feat_learning_title: 'Изучение языков',
+                feat_learning_desc: 'Подсказки и тренировка произношения в процессе беседы.',
+                feat_grammar_title: 'Грамматический анализ',
+                feat_grammar_desc: 'Улучшение и помощь в реальном времени.',
+                feat_privacy_title: 'Приватность прежде всего',
+                feat_privacy_desc: 'Локальная обработка и шифрованное хранение.',
+                ecosystem_tag: 'ЭКОСИСТЕМА',
+                ecosystem_title: 'ИИ + ПО + Устройства — вместе',
+                ecosystem_subtitle: 'EchoMind интегрируется с платформой и Babel Glass для общения без рук',
+                ecos_card_ai: 'EchoMind ИИ',
+                ecos_card_ai_desc: 'Многоязычный разговорный интеллект с низкой задержкой.',
+                ecos_card_platform: 'Платформа Lazying',
+                ecos_card_platform_desc: 'Программный уровень с приоритетом приватности.',
+                ecos_card_glass: 'Babel Glass',
+                ecos_card_glass_desc: 'Субтитры на линзе и естественный голос.',
+                hardware_tag: 'УСТРОЙСТВО',
+                glass_title: 'Надень — и говори на любом языке',
+                glass_badge: 'Прототип',
+                glass_subtitle: 'Перевод в реальном времени с субтитрами — оптимизировано для Японии',
+                glass_b1: 'Двунаправленный перевод с субтитрами',
+                glass_b2: 'Несколько микрофонов, beamforming и шумоподавление',
+                glass_b3: 'Поддержка японской вежливости и отраслевых терминов',
+                glass_b4: 'Edge-архитектура, сохраняющая приватность',
+                glass_b5: 'Tap-to-Charge с магнитным выравниванием',
+                glass_proto_title: 'Зона прототипа',
+                glass_proto_desc: 'Здесь появятся 3D‑модель и видео. Сайт работает и без них.',
+                glass_proto_view: 'Посмотреть прототип',
+                glass_proto_interest: 'Оставить интерес',
+                product_tag: 'ФЛАГМАН',
+                product_title: 'EchoMind: там, где исчезают языковые барьеры',
+                product_p1: 'Это не просто чат-бот — это ваш путь к глобальному общению.',
+                product_p2: 'Учёба, бизнес, культура — EchoMind адаптируется для естественного диалога.',
+                product_cta: 'Попробовать сейчас →',
+                company_tag: 'НАША ФИЛОСОФИЯ',
+                company_title: 'Искусство лёгкой инновации',
+                company_subtitle: 'Лучшая технология «невидима» — просто работает',
+                cta_title: 'Готовы преодолеть языковые барьеры?',
+                cta_subtitle: 'Тысячи уже пробуют будущее',
+                cta_button: 'Начать бесплатно',
+                footer_privacy: 'Конфиденциальность',
+                footer_terms: 'Условия',
+            },
+            tr: {
+                document_title: 'LazyingArt - Yapay zekâ dil inovasyonuyla insanları birleştiriyoruz',
+                nav_features: 'Özellikler',
+                nav_about: 'Hakkımızda',
+                nav_contact: 'İletişim',
+                nav_try: 'EchoMind’i Dene',
+                hero_title: 'Yapay zekâ dil inovasyonuyla insanları birleştiriyoruz',
+                hero_subtitle: 'LazyingArt, basit ve doğal iletişime inanır. Yapay zekâmız dil engellerini kaldırır.',
+                hero_launch: 'EchoMind’i Başlat',
+                hero_explore: 'Özellikleri Keşfet',
+                stats_languages: 'Diller',
+                stats_active_users: 'Aktif kullanıcılar',
+                stats_ai_availability: 'YZ kullanılabilirliği',
+                features_tag: 'ÖZELLİKLER',
+                features_title: 'Öncü teknoloji ile güçlendirildi',
+                features_subtitle: 'Çok dilli iletişimin geleceğini deneyimleyin',
+                feat_voice_title: 'Ses Öncelikli Arayüz',
+                feat_voice_desc: 'Gelişmiş VAD ile doğal sesli etkileşim ve anında bağlamsal yanıtlar.',
+                feat_multi_title: 'Gerçek Çok Dilli YZ',
+                feat_multi_desc: 'Konuşma sırasında diller arasında sorunsuz geçiş.',
+                feat_memory_title: 'Bağlamsal Bellek',
+                feat_memory_desc: 'Tercihlerinizi ve geçmişi öğrenir, akıllıca uyum sağlar.',
+                feat_learning_title: 'Dil Öğrenimi',
+                feat_learning_desc: 'Telaffuz rehberleriyle konuşurken öğrenin.',
+                feat_grammar_title: 'Dilbilgisi Analizi',
+                feat_grammar_desc: 'Gerçek zamanlı dilbilgisi desteği ve iyileştirme.',
+                feat_privacy_title: 'Önce Gizlilik',
+                feat_privacy_desc: 'Yerel işleme ve şifreli depolama.',
+                ecosystem_tag: 'EKOSİSTEM',
+                ecosystem_title: 'YZ + Yazılım + Donanım birlikte',
+                ecosystem_subtitle: 'EchoMind, platform ve Babel Glass ile entegre çalışır',
+                ecos_card_ai: 'EchoMind YZ',
+                ecos_card_ai_desc: 'Düşük gecikmeli, çok dilli konuşma zekâsı.',
+                ecos_card_platform: 'Lazying Platformu',
+                ecos_card_platform_desc: 'Gizlilik odaklı yazılım katmanı.',
+                ecos_card_glass: 'Babel Glass',
+                ecos_card_glass_desc: 'Lens üstü altyazılar ve doğal sesli çıkış.',
+                hardware_tag: 'DONANIM',
+                glass_title: 'Tak ve her dili konuş',
+                glass_badge: 'Prototip',
+                glass_subtitle: 'Gerçek zamanlı çeviri ve lens altyazıları — Japonya için optimize',
+                glass_b1: 'Altyazılı çift yönlü çeviri',
+                glass_b2: 'Çoklu mikrofon, beamforming ve gürültü azaltma',
+                glass_b3: 'Japonca hürmet dili ve sektör terimleri',
+                glass_b4: 'Gizlilik dostu edge mimarisi',
+                glass_b5: 'Manyetik hizalama ile dokun-yükle',
+                glass_proto_title: 'Prototip Alanı',
+                glass_proto_desc: 'Burada 3D model ve demo video olacak. Site onsuz da çalışır.',
+                glass_proto_view: 'Prototipi Gör',
+                glass_proto_interest: 'İlgi Bildir',
+                product_tag: 'AMİRAL ÜRÜN',
+                product_title: 'EchoMind: Dil engelleri burada erir',
+                product_p1: 'Sadece bir sohbet botu değil — küresel iletişime açılan kapınız.',
+                product_p2: 'Öğrenim, iş ve kültür — EchoMind doğal diyalog için uyum sağlar.',
+                product_cta: 'Hemen dene →',
+                company_tag: 'FELSEFEMİZ',
+                company_title: 'Çabasız inovasyonun sanatı',
+                company_subtitle: 'En iyi teknoloji “görünmezdir” — sadece çalışır',
+                cta_title: 'Dil engellerini aşmaya hazır mısınız?',
+                cta_subtitle: 'Binlercesi geleceği deneyimliyor',
+                cta_button: 'Ücretsiz başla',
+                footer_privacy: 'Gizlilik',
+                footer_terms: 'Koşullar',
             }
         };
 
@@ -1501,20 +2091,88 @@
             const dict = translations[lang] || translations.en;
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
-                const text = dict[key];
-                if (typeof text === 'string') {
-                    el.textContent = text;
-                }
+                const text = (dict && dict[key]) || translations.en[key] || '';
+                el.textContent = text;
             });
-            if (dict.document_title) document.title = dict.document_title;
+            const title = (dict && dict.document_title) || translations.en.document_title;
+            if (title) document.title = title;
+            document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
         }
 
-        function initLanguage() {
+        const supportedLangs = ['en','ja','zh-Hans','zh-Hant','ko','ar','vi','fr','es','pt','de','ru','tr'];
+
+        function chooseLangFromNavigator() {
+            const prefs = (navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || 'en']).map(l => l.toLowerCase());
+            for (const p of prefs) {
+                if (p.startsWith('ja')) return 'ja';
+                if (p.startsWith('zh')) return (p.includes('tw') || p.includes('hk') || p.includes('mo') || p.includes('hant')) ? 'zh-Hant' : 'zh-Hans';
+                if (p.startsWith('ko')) return 'ko';
+                if (p.startsWith('ar')) return 'ar';
+                if (p.startsWith('vi')) return 'vi';
+                if (p.startsWith('fr')) return 'fr';
+                if (p.startsWith('es')) return 'es';
+                if (p.startsWith('pt')) return 'pt';
+                if (p.startsWith('de')) return 'de';
+                if (p.startsWith('ru')) return 'ru';
+                if (p.startsWith('tr')) return 'tr';
+            }
+            return 'en';
+        }
+
+        function mapCountryToLang(country) {
+            switch (country) {
+                case 'JP': return 'ja';
+                case 'CN': return 'zh-Hans';
+                case 'HK': case 'MO': case 'TW': return 'zh-Hant';
+                case 'KR': return 'ko';
+                case 'SA': case 'AE': case 'EG': case 'MA': case 'DZ': case 'QA': case 'BH': case 'KW': case 'OM': case 'JO': case 'LB': case 'TN': case 'LY': case 'YE': case 'IQ': case 'SY': return 'ar';
+                case 'VN': return 'vi';
+                case 'FR': case 'BE': case 'CA': case 'CH': case 'LU': return 'fr';
+                case 'ES': case 'MX': case 'AR': case 'CL': case 'CO': case 'PE': case 'VE': case 'UY': case 'PY': case 'BO': case 'CR': case 'PA': case 'PR': case 'DO': case 'GT': case 'HN': case 'NI': case 'SV': case 'EC': return 'es';
+                case 'PT': case 'BR': case 'MZ': case 'AO': return 'pt';
+                case 'DE': case 'AT': case 'CH': case 'LI': case 'LU': return 'de';
+                case 'RU': case 'BY': case 'KZ': case 'KG': return 'ru';
+                case 'TR': return 'tr';
+                default: return 'en';
+            }
+        }
+
+        async function detectLangByIP(timeoutMs = 1200) {
+            const ctrl = new AbortController();
+            const to = setTimeout(() => ctrl.abort(), timeoutMs);
+            try {
+                const res = await fetch('https://ipapi.co/json/', { signal: ctrl.signal });
+                if (!res.ok) throw new Error('ipapi failed');
+                const json = await res.json();
+                return mapCountryToLang((json && json.country) || '');
+            } catch (e) {
+                try {
+                    const res2 = await fetch('https://ipwho.is/');
+                    if (!res2.ok) throw new Error('ipwho.is failed');
+                    const j2 = await res2.json();
+                    return mapCountryToLang((j2 && j2.country_code) || '');
+                } catch (e2) {
+                    return 'en';
+                } finally {
+                    clearTimeout(to);
+                }
+            } finally {
+                clearTimeout(to);
+            }
+        }
+
+        async function initLanguage() {
             const select = document.getElementById('langSelect');
             const saved = localStorage.getItem('lang');
-            const browser = (navigator.language || 'en').toLowerCase();
-            let lang = saved || (browser.startsWith('ja') ? 'ja' : browser.includes('zh') ? (browser.includes('tw') || browser.includes('hk') || browser.includes('hant') ? 'zh-Hant' : 'zh-Hans') : 'en');
-            if (!translations[lang]) lang = 'en';
+            let lang = saved || chooseLangFromNavigator();
+            if (!supportedLangs.includes(lang)) lang = 'en';
+            // If nothing saved and navigator suggests English, try IP geolocation as a hint
+            if (!saved && (lang === 'en')) {
+                try {
+                    const guessed = await detectLangByIP();
+                    if (supportedLangs.includes(guessed)) lang = guessed;
+                } catch (_) { /* ignore */ }
+            }
             select.value = lang;
             document.documentElement.lang = lang.startsWith('zh') ? 'zh' : lang;
             applyTranslations(lang);
@@ -1523,7 +2181,6 @@
                 localStorage.setItem('lang', l);
                 document.documentElement.lang = l.startsWith('zh') ? 'zh' : l;
                 applyTranslations(l);
-                // Re-run hero typing with new text
                 startTyping();
             });
         }
