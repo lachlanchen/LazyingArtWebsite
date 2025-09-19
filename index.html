@@ -77,7 +77,7 @@
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 1.5rem 5%;
+            padding: 1.1rem 5%;
             background: var(--glass);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--glass-border);
@@ -99,7 +99,7 @@
         }
 
         .logo {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: 800;
             background: linear-gradient(135deg, var(--primary), var(--accent));
             -webkit-background-clip: text;
@@ -110,11 +110,7 @@
             text-decoration: none;
         }
 
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-        }
+        .nav-links { display: flex; gap: 1.25rem; align-items: center; }
 
         .nav-links a {
             color: var(--light);
@@ -123,6 +119,22 @@
             transition: all 0.3s ease;
             position: relative;
         }
+
+        /* Language selector */
+        .lang-select {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background: rgba(255,255,255,0.06);
+            color: var(--light);
+            border: 1px solid var(--glass-border);
+            border-radius: 999px;
+            padding: 0.5rem 1rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .lang-select:focus { outline: none; box-shadow: 0 0 0 2px rgba(102,126,234,0.4); }
+        .lang-select option { color: #111; }
 
         .nav-links a::after {
             content: '';
@@ -899,13 +911,19 @@
                 <span>LazyingArt</span>
             </a>
             <div class="nav-links" id="navLinks">
-                <a href="#features">Features</a>
+                <a href="#features" data-i18n="nav_features">Features</a>
                 <a href="#product">EchoMind</a>
                 <a href="#babelglass">Babel Glass</a>
-                <a href="#company">About</a>
-                <a href="#contact">Contact</a>
-                <a href="https://chat.lazying.art" class="cta-button">Try EchoMind</a>
+                <a href="#company" data-i18n="nav_about">About</a>
+                <a href="#contact" data-i18n="nav_contact">Contact</a>
+                <a href="https://chat.lazying.art" class="cta-button" data-i18n="nav_try">Try EchoMind</a>
             </div>
+            <select id="langSelect" class="lang-select" aria-label="Language">
+                <option value="en">English</option>
+                <option value="ja">日本語</option>
+                <option value="zh-Hans">简体中文</option>
+                <option value="zh-Hant">繁體中文</option>
+            </select>
             <button class="mobile-menu-toggle" id="menuToggle">
                 <span></span>
                 <span></span>
@@ -918,24 +936,24 @@
     <section class="hero">
         <div class="hero-content">
             <div class="hero-text">
-                <h1>Bridging Humanity Through AI Language Innovation</h1>
-                <p>At LazyingArt, we believe communication should be effortless and universal. Our AI-powered solutions break down language barriers, making global connection as simple as a conversation.</p>
+                <h1 data-i18n="hero_title">Bridging Humanity Through AI Language Innovation</h1>
+                <p data-i18n="hero_subtitle">At LazyingArt, we believe communication should be effortless and universal. Our AI-powered solutions break down language barriers, making global connection as simple as a conversation.</p>
                 <div class="hero-buttons">
-                    <a href="https://chat.lazying.art" class="cta-button">Launch EchoMind</a>
-                    <a href="#product" class="secondary-button">Explore Features</a>
+                    <a href="https://chat.lazying.art" class="cta-button" data-i18n="hero_launch">Launch EchoMind</a>
+                    <a href="#product" class="secondary-button" data-i18n="hero_explore">Explore Features</a>
                 </div>
                 <div class="stats-grid" style="margin-top: 2rem;">
                     <div class="stat">
                         <div class="stat-number">10+</div>
-                        <div class="stat-label">Languages</div>
+                        <div class="stat-label" data-i18n="stats_languages">Languages</div>
                     </div>
                     <div class="stat">
                         <div class="stat-number">50K+</div>
-                        <div class="stat-label">Active Users</div>
+                        <div class="stat-label" data-i18n="stats_active_users">Active Users</div>
                     </div>
                     <div class="stat">
                         <div class="stat-number">24/7</div>
-                        <div class="stat-label">AI Availability</div>
+                        <div class="stat-label" data-i18n="stats_ai_availability">AI Availability</div>
                     </div>
                 </div>
             </div>
@@ -969,27 +987,27 @@
     <section class="ecosystem" id="ecosystem">
         <div class="ecosystem-container">
             <div class="section-header">
-                <span class="section-tag">ECOSYSTEM</span>
-                <h2 class="section-title">AI + Software + Hardware, Working Together</h2>
-                <p class="section-subtitle">EchoMind AI pairs with our platform and Babel Glass to deliver hands-free, real-time multilingual communication</p>
+                <span class="section-tag" data-i18n="ecosystem_tag">ECOSYSTEM</span>
+                <h2 class="section-title" data-i18n="ecosystem_title">AI + Software + Hardware, Working Together</h2>
+                <p class="section-subtitle" data-i18n="ecosystem_subtitle">EchoMind AI pairs with our platform and Babel Glass to deliver hands-free, real-time multilingual communication</p>
             </div>
             <div class="ecosystem-grid">
                 <div class="ecosystem-card">
                     <div class="feature-icon">🧠</div>
-                    <h3 class="feature-title">EchoMind AI</h3>
-                    <p>Low-latency, multilingual conversation intelligence powering voice, text, and context memory.</p>
+                    <h3 class="feature-title" data-i18n="ecos_card_ai">EchoMind AI</h3>
+                    <p data-i18n="ecos_card_ai_desc">Low-latency, multilingual conversation intelligence powering voice, text, and context memory.</p>
                     <small><a href="#product" style="color: var(--accent); text-decoration: none;">Learn more →</a></small>
                 </div>
                 <div class="ecosystem-card">
                     <div class="feature-icon">🧩</div>
-                    <h3 class="feature-title">Lazying Platform</h3>
-                    <p>Privacy-first software layer for profiles, terminology, and integrations across devices.</p>
+                    <h3 class="feature-title" data-i18n="ecos_card_platform">Lazying Platform</h3>
+                    <p data-i18n="ecos_card_platform_desc">Privacy-first software layer for profiles, terminology, and integrations across devices.</p>
                     <small>Enterprise-ready with optional cloud features</small>
                 </div>
                 <div class="ecosystem-card">
                     <div class="feature-icon">👓</div>
-                    <h3 class="feature-title">Babel Glass</h3>
-                    <p>Hands-free translation glasses with on-lens subtitles and natural speech output.</p>
+                    <h3 class="feature-title" data-i18n="ecos_card_glass">Babel Glass</h3>
+                    <p data-i18n="ecos_card_glass_desc">Hands-free translation glasses with on-lens subtitles and natural speech output.</p>
                     <small><a href="#babelglass" style="color: var(--accent); text-decoration: none;">Explore Babel Glass →</a></small>
                 </div>
             </div>
@@ -1023,22 +1041,22 @@
                 </div>
             </div>
             <div>
-                <span class="section-tag">HARDWARE</span>
-                <h2 class="section-title">Wear It, Speak Any Language<span class="badge-soon">Prototype</span></h2>
-                <p class="section-subtitle" style="margin-bottom: 1rem;">Real-time, hands-free translation with lens subtitles and natural speech output — designed for Japan-first deployments</p>
+                <span class="section-tag" data-i18n="hardware_tag">HARDWARE</span>
+                <h2 class="section-title"><span data-i18n="glass_title">Wear It, Speak Any Language</span><span class="badge-soon" data-i18n="glass_badge">Prototype</span></h2>
+                <p class="section-subtitle" style="margin-bottom: 1rem;" data-i18n="glass_subtitle">Real-time, hands-free translation with lens subtitles and natural speech output — designed for Japan-first deployments</p>
                 <ul class="babel-list">
-                    <li>Bidirectional, interruption-friendly translation with on-lens subtitles</li>
-                    <li>Multi-microphone pickup, beamforming, and noise suppression</li>
-                    <li>Honorific-aware Japanese support and industry terminology</li>
-                    <li>Edge-first architecture with privacy-preserving design</li>
-                    <li>Tap-to-charge with magnetic alignment and quick top-ups</li>
+                    <li data-i18n="glass_b1">Bidirectional, interruption-friendly translation with on-lens subtitles</li>
+                    <li data-i18n="glass_b2">Multi-microphone pickup, beamforming, and noise suppression</li>
+                    <li data-i18n="glass_b3">Honorific-aware Japanese support and industry terminology</li>
+                    <li data-i18n="glass_b4">Edge-first architecture with privacy-preserving design</li>
+                    <li data-i18n="glass_b5">Tap-to-charge with magnetic alignment and quick top-ups</li>
                 </ul>
                 <div class="prototype-placeholder">
-                    <strong>Prototype Dock</strong>
-                    <p style="margin-top: 0.25rem; color: rgba(255,255,255,0.75)">A live 3D model and demo video will appear here. The site runs normally without it.</p>
+                    <strong data-i18n="glass_proto_title">Prototype Dock</strong>
+                    <p style="margin-top: 0.25rem; color: rgba(255,255,255,0.75)" data-i18n="glass_proto_desc">A live 3D model and demo video will appear here. The site runs normally without it.</p>
                     <div class="prototype-actions">
-                        <button class="button-disabled" aria-disabled="true" title="Coming soon">View Prototype</button>
-                        <a href="mailto:contact@lazying.art" class="secondary-button">Register Interest</a>
+                        <button class="button-disabled" aria-disabled="true" title="Coming soon" data-i18n="glass_proto_view">View Prototype</button>
+                        <a href="mailto:contact@lazying.art" class="secondary-button" data-i18n="glass_proto_interest">Register Interest</a>
                     </div>
                 </div>
             </div>
@@ -1048,40 +1066,40 @@
     <section class="features" id="features">
         <div class="features-container">
             <div class="section-header">
-                <span class="section-tag">CAPABILITIES</span>
-                <h2 class="section-title">Powered by Cutting-Edge Technology</h2>
-                <p class="section-subtitle">Experience the future of multilingual AI communication with our advanced features</p>
+                <span class="section-tag" data-i18n="features_tag">CAPABILITIES</span>
+                <h2 class="section-title" data-i18n="features_title">Powered by Cutting-Edge Technology</h2>
+                <p class="section-subtitle" data-i18n="features_subtitle">Experience the future of multilingual AI communication with our advanced features</p>
             </div>
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">🎙️</div>
-                    <h3 class="feature-title">Voice-First Interface</h3>
-                    <p class="feature-description">Natural voice interaction with advanced VAD technology. Speak naturally in any language and receive instant, context-aware responses.</p>
+                    <h3 class="feature-title" data-i18n="feat_voice_title">Voice-First Interface</h3>
+                    <p class="feature-description" data-i18n="feat_voice_desc">Natural voice interaction with advanced VAD technology. Speak naturally in any language and receive instant, context-aware responses.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🌐</div>
-                    <h3 class="feature-title">True Multilingual AI</h3>
-                    <p class="feature-description">Seamlessly switch between languages mid-conversation. Our AI understands context across linguistic boundaries.</p>
+                    <h3 class="feature-title" data-i18n="feat_multi_title">True Multilingual AI</h3>
+                    <p class="feature-description" data-i18n="feat_multi_desc">Seamlessly switch between languages mid-conversation. Our AI understands context across linguistic boundaries.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🧠</div>
-                    <h3 class="feature-title">Contextual Memory</h3>
-                    <p class="feature-description">Intelligent conversation memory that learns and adapts. Your AI companion remembers preferences and past interactions.</p>
+                    <h3 class="feature-title" data-i18n="feat_memory_title">Contextual Memory</h3>
+                    <p class="feature-description" data-i18n="feat_memory_desc">Intelligent conversation memory that learns and adapts. Your AI companion remembers preferences and past interactions.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">📚</div>
-                    <h3 class="feature-title">Language Learning</h3>
-                    <p class="feature-description">Interactive pronunciation guides with furigana, pinyin, and jyutping. Master new languages through natural conversation.</p>
+                    <h3 class="feature-title" data-i18n="feat_learning_title">Language Learning</h3>
+                    <p class="feature-description" data-i18n="feat_learning_desc">Interactive pronunciation guides with furigana, pinyin, and jyutping. Master new languages through natural conversation.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">✍️</div>
-                    <h3 class="feature-title">Grammar Analysis</h3>
-                    <p class="feature-description">Real-time grammatical breakdown and enhancement. Understand language structure while you communicate.</p>
+                    <h3 class="feature-title" data-i18n="feat_grammar_title">Grammar Analysis</h3>
+                    <p class="feature-description" data-i18n="feat_grammar_desc">Real-time grammatical breakdown and enhancement. Understand language structure while you communicate.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🔒</div>
-                    <h3 class="feature-title">Privacy-First Design</h3>
-                    <p class="feature-description">Your conversations stay yours. Local processing options and encrypted data storage ensure complete privacy.</p>
+                    <h3 class="feature-title" data-i18n="feat_privacy_title">Privacy-First Design</h3>
+                    <p class="feature-description" data-i18n="feat_privacy_desc">Your conversations stay yours. Local processing options and encrypted data storage ensure complete privacy.</p>
                 </div>
             </div>
         </div>
@@ -1129,14 +1147,14 @@
                 </div>
             </div>
             <div class="product-info">
-                <span class="section-tag">FLAGSHIP PRODUCT</span>
-                <h2>Meet EchoMind: Where Language Barriers Dissolve</h2>
-                <p>EchoMind isn't just another chatbot – it's your gateway to effortless global communication. Built on our proprietary GPT-SoVITS technology and enhanced with advanced language processing, EchoMind understands not just what you say, but how you want to say it.</p>
+                <span class="section-tag" data-i18n="product_tag">FLAGSHIP PRODUCT</span>
+                <h2 data-i18n="product_title">Meet EchoMind: Where Language Barriers Dissolve</h2>
+                <p data-i18n="product_p1">EchoMind isn't just another chatbot – it's your gateway to effortless global communication. Built on our proprietary GPT-SoVITS technology and enhanced with advanced language processing, EchoMind understands not just what you say, but how you want to say it.</p>
                 
-                <p>Whether you're learning a new language, conducting international business, or simply exploring different cultures, EchoMind adapts to your needs with unprecedented flexibility and intelligence.</p>
+                <p data-i18n="product_p2">Whether you're learning a new language, conducting international business, or simply exploring different cultures, EchoMind adapts to your needs with unprecedented flexibility and intelligence.</p>
                 
                 <div style="margin-top: 2rem;">
-                    <a href="https://chat.lazying.art" class="cta-button" style="font-size: 1.1rem; padding: 1rem 2.5rem;">
+                    <a href="https://chat.lazying.art" class="cta-button" style="font-size: 1.1rem; padding: 1rem 2.5rem;" data-i18n="product_cta">
                         Experience EchoMind Now →
                     </a>
                 </div>
@@ -1148,9 +1166,9 @@
     <section class="company" id="company">
         <div class="company-container">
             <div class="section-header">
-                <span class="section-tag">OUR PHILOSOPHY</span>
-                <h2 class="section-title">The Art of Effortless Innovation</h2>
-                <p class="section-subtitle">At LazyingArt, we believe the best technology is invisible – it just works</p>
+                <span class="section-tag" data-i18n="company_tag">OUR PHILOSOPHY</span>
+                <h2 class="section-title" data-i18n="company_title">The Art of Effortless Innovation</h2>
+                <p class="section-subtitle" data-i18n="company_subtitle">At LazyingArt, we believe the best technology is invisible – it just works</p>
             </div>
             
             <div class="philosophy">
@@ -1184,9 +1202,9 @@
     <section class="cta-section">
         <div class="cta-container">
             <div class="cta-content">
-                <h2>Ready to Break Language Barriers?</h2>
-                <p>Join thousands of users already experiencing the future of multilingual AI communication</p>
-                <a href="https://chat.lazying.art" class="cta-button-white">Start Free with EchoMind</a>
+                <h2 data-i18n="cta_title">Ready to Break Language Barriers?</h2>
+                <p data-i18n="cta_subtitle">Join thousands of users already experiencing the future of multilingual AI communication</p>
+                <a href="https://chat.lazying.art" class="cta-button-white" data-i18n="cta_button">Start Free with EchoMind</a>
             </div>
         </div>
     </section>
@@ -1203,11 +1221,11 @@
             </div>
             <div class="footer-links">
                 <a href="https://chat.lazying.art">EchoMind</a>
-                <a href="#features">Features</a>
-                <a href="#company">About</a>
-                <a href="mailto:contact@lazying.art">Contact</a>
-                <a href="#">Privacy</a>
-                <a href="#">Terms</a>
+                <a href="#features" data-i18n="nav_features">Features</a>
+                <a href="#company" data-i18n="nav_about">About</a>
+                <a href="mailto:contact@lazying.art" data-i18n="nav_contact">Contact</a>
+                <a href="#" data-i18n="footer_privacy">Privacy</a>
+                <a href="#" data-i18n="footer_terms">Terms</a>
             </div>
             <div class="social-links">
                 <a href="#" class="social-link" aria-label="Twitter">𝕏</a>
@@ -1219,6 +1237,297 @@
     </footer>
 
     <script>
+        // i18n Translations
+        const translations = {
+            en: {
+                document_title: 'LazyingArt - Bridging Humanity Through AI Language Innovation',
+                nav_features: 'Features',
+                nav_about: 'About',
+                nav_contact: 'Contact',
+                nav_try: 'Try EchoMind',
+                hero_title: 'Bridging Humanity Through AI Language Innovation',
+                hero_subtitle: 'At LazyingArt, we believe communication should be effortless and universal. Our AI-powered solutions break down language barriers, making global connection as simple as a conversation.',
+                hero_launch: 'Launch EchoMind',
+                hero_explore: 'Explore Features',
+                stats_languages: 'Languages',
+                stats_active_users: 'Active Users',
+                stats_ai_availability: 'AI Availability',
+                features_tag: 'CAPABILITIES',
+                features_title: 'Powered by Cutting-Edge Technology',
+                features_subtitle: 'Experience the future of multilingual AI communication with our advanced features',
+                feat_voice_title: 'Voice-First Interface',
+                feat_voice_desc: 'Natural voice interaction with advanced VAD technology. Speak naturally in any language and receive instant, context-aware responses.',
+                feat_multi_title: 'True Multilingual AI',
+                feat_multi_desc: 'Seamlessly switch between languages mid-conversation. Our AI understands context across linguistic boundaries.',
+                feat_memory_title: 'Contextual Memory',
+                feat_memory_desc: 'Intelligent conversation memory that learns and adapts. Your AI companion remembers preferences and past interactions.',
+                feat_learning_title: 'Language Learning',
+                feat_learning_desc: 'Interactive pronunciation guides with furigana, pinyin, and jyutping. Master new languages through natural conversation.',
+                feat_grammar_title: 'Grammar Analysis',
+                feat_grammar_desc: 'Real-time grammatical breakdown and enhancement. Understand language structure while you communicate.',
+                feat_privacy_title: 'Privacy-First Design',
+                feat_privacy_desc: 'Your conversations stay yours. Local processing options and encrypted data storage ensure complete privacy.',
+                ecosystem_tag: 'ECOSYSTEM',
+                ecosystem_title: 'AI + Software + Hardware, Working Together',
+                ecosystem_subtitle: 'EchoMind AI pairs with our platform and Babel Glass to deliver hands-free, real-time multilingual communication',
+                ecos_card_ai: 'EchoMind AI',
+                ecos_card_ai_desc: 'Low-latency, multilingual conversation intelligence powering voice, text, and context memory.',
+                ecos_card_platform: 'Lazying Platform',
+                ecos_card_platform_desc: 'Privacy-first software layer for profiles, terminology, and integrations across devices.',
+                ecos_card_glass: 'Babel Glass',
+                ecos_card_glass_desc: 'Hands-free translation glasses with on-lens subtitles and natural speech output.',
+                hardware_tag: 'HARDWARE',
+                glass_title: 'Wear It, Speak Any Language',
+                glass_badge: 'Prototype',
+                glass_subtitle: 'Real-time, hands-free translation with lens subtitles and natural speech output — designed for Japan-first deployments',
+                glass_b1: 'Bidirectional, interruption-friendly translation with on-lens subtitles',
+                glass_b2: 'Multi-microphone pickup, beamforming, and noise suppression',
+                glass_b3: 'Honorific-aware Japanese support and industry terminology',
+                glass_b4: 'Edge-first architecture with privacy-preserving design',
+                glass_b5: 'Tap-to-charge with magnetic alignment and quick top-ups',
+                glass_proto_title: 'Prototype Dock',
+                glass_proto_desc: 'A live 3D model and demo video will appear here. The site runs normally without it.',
+                glass_proto_view: 'View Prototype',
+                glass_proto_interest: 'Register Interest',
+                product_tag: 'FLAGSHIP PRODUCT',
+                product_title: 'Meet EchoMind: Where Language Barriers Dissolve',
+                product_p1: "EchoMind isn't just another chatbot – it's your gateway to effortless global communication. Built on our proprietary GPT-SoVITS technology and enhanced with advanced language processing, EchoMind understands not just what you say, but how you want to say it.",
+                product_p2: 'Whether you\'re learning a new language, conducting international business, or simply exploring different cultures, EchoMind adapts to your needs with unprecedented flexibility and intelligence.',
+                product_cta: 'Experience EchoMind Now →',
+                company_tag: 'OUR PHILOSOPHY',
+                company_title: 'The Art of Effortless Innovation',
+                company_subtitle: 'At LazyingArt, we believe the best technology is invisible – it just works',
+                cta_title: 'Ready to Break Language Barriers?',
+                cta_subtitle: 'Join thousands of users already experiencing the future of multilingual AI communication',
+                cta_button: 'Start Free with EchoMind',
+                footer_privacy: 'Privacy',
+                footer_terms: 'Terms',
+            },
+            ja: {
+                document_title: 'LazyingArt - AI言語イノベーションで人と人をつなぐ',
+                nav_features: '機能',
+                nav_about: '私たちについて',
+                nav_contact: 'お問い合わせ',
+                nav_try: 'EchoMindを試す',
+                hero_title: 'AI言語イノベーションで人と人をつなぐ',
+                hero_subtitle: 'LazyingArtは、誰もが自然に通じ合える世界を目指しています。私たちのAIは言語の壁を取り払い、会話をもっとシンプルにします。',
+                hero_launch: 'EchoMindを起動',
+                hero_explore: '機能を見る',
+                stats_languages: '対応言語',
+                stats_active_users: 'アクティブユーザー',
+                stats_ai_availability: 'AI稼働',
+                features_tag: '機能',
+                features_title: '最先端技術で実現',
+                features_subtitle: '多言語AIコミュニケーションの未来を体験',
+                feat_voice_title: '音声ファーストの操作',
+                feat_voice_desc: '高度なVADで自然な音声対話。文脈に応じた即時応答。',
+                feat_multi_title: '真の多言語AI',
+                feat_multi_desc: '会話中に言語をシームレスに切替。文脈を理解して応答します。',
+                feat_memory_title: 'コンテキスト記憶',
+                feat_memory_desc: '会話の流れや好みを学習し、賢く適応。',
+                feat_learning_title: '言語学習',
+                feat_learning_desc: 'ふりがな・ピンイン等に対応。会話で自然に身につく学習体験。',
+                feat_grammar_title: '文法解析',
+                feat_grammar_desc: 'リアルタイムで文法を補助・改善し、理解を深めます。',
+                feat_privacy_title: 'プライバシー優先設計',
+                feat_privacy_desc: '会話はあなたのもの。ローカル処理と暗号化で安心。',
+                ecosystem_tag: 'エコシステム',
+                ecosystem_title: 'AI × ソフトウェア × ハードウェアの連携',
+                ecosystem_subtitle: 'EchoMind AIはプラットフォームとBabel Glassと連携し、ハンズフリーの多言語コミュニケーションを実現します',
+                ecos_card_ai: 'EchoMind AI',
+                ecos_card_ai_desc: '低遅延の多言語会話AI。音声・テキスト・文脈記憶を統合。',
+                ecos_card_platform: 'Lazyingプラットフォーム',
+                ecos_card_platform_desc: 'プロフィール・用語・連携を担うプライバシー重視のソフト基盤。',
+                ecos_card_glass: 'Babel Glass',
+                ecos_card_glass_desc: 'レンズ上に字幕表示。自然な音声出力でハンズフリー会話。',
+                hardware_tag: 'ハードウェア',
+                glass_title: 'かけるだけで、どんな言語も',
+                glass_badge: 'プロトタイプ',
+                glass_subtitle: 'レンズ字幕と自然音声でリアルタイム翻訳。まずは日本市場に最適化。',
+                glass_b1: '双方向・割り込みに強い翻訳とレンズ字幕',
+                glass_b2: '多マイク・ビームフォーミング・ノイズ抑制',
+                glass_b3: '敬語対応と業界用語のカスタマイズ',
+                glass_b4: 'プライバシー重視のエッジ処理設計',
+                glass_b5: 'タップで充電。マグネットで簡単アライン',
+                glass_proto_title: 'プロトタイプ・ドック',
+                glass_proto_desc: '将来的に3Dモデルやデモ動画を掲載予定。サイトは現在でも正常に動作します。',
+                glass_proto_view: 'プロトタイプを見る',
+                glass_proto_interest: '関心を登録する',
+                product_tag: 'フラッグシップ',
+                product_title: 'EchoMind — 言語の壁をとかす',
+                product_p1: 'EchoMindは単なるチャットボットではありません。GPT-SoVITSと先進言語処理により、あなたの「言い方」まで理解する多言語AIです。',
+                product_p2: '学習・ビジネス・文化交流—どんな場面でも柔軟に適応し、自然なコミュニケーションを支援します。',
+                product_cta: '今すぐ体験する →',
+                company_tag: '私たちの哲学',
+                company_title: '力まず、うまくいく技術を',
+                company_subtitle: '最高のテクノロジーは「見えない」もの—ただ、うまく動く',
+                cta_title: '言語の壁を、一緒に超えよう',
+                cta_subtitle: '多言語AIの未来を、今すぐ体験',
+                cta_button: '無料で始める',
+                footer_privacy: 'プライバシー',
+                footer_terms: '利用規約',
+            },
+            'zh-Hans': {
+                document_title: 'LazyingArt - 用AI语言创新连接世界',
+                nav_features: '功能',
+                nav_about: '关于',
+                nav_contact: '联系我们',
+                nav_try: '试用 EchoMind',
+                hero_title: '用AI语言创新连接世界',
+                hero_subtitle: '在LazyingArt，我们相信沟通应当简单而自然。我们的AI打破语言壁垒，让交流像对话一样轻松。',
+                hero_launch: '启动 EchoMind',
+                hero_explore: '浏览功能',
+                stats_languages: '支持语言',
+                stats_active_users: '活跃用户',
+                stats_ai_availability: 'AI可用性',
+                features_tag: '功能',
+                features_title: '由尖端技术驱动',
+                features_subtitle: '体验多语言AI沟通的未来',
+                feat_voice_title: '语音优先界面',
+                feat_voice_desc: '先进VAD带来自然语音交互。即时、上下文感知的响应。',
+                feat_multi_title: '真正多语言AI',
+                feat_multi_desc: '对话中无缝切换语言，跨语言理解上下文。',
+                feat_memory_title: '上下文记忆',
+                feat_memory_desc: '学习你的偏好与历史对话，智能适应。',
+                feat_learning_title: '语言学习',
+                feat_learning_desc: '支持注音、拼音、粤拼。在对话中自然掌握语言。',
+                feat_grammar_title: '语法分析',
+                feat_grammar_desc: '实时语法拆解与增强，边沟通边理解。',
+                feat_privacy_title: '隐私优先设计',
+                feat_privacy_desc: '会话只属于你。本地处理与加密存储确保安全。',
+                ecosystem_tag: '生态系统',
+                ecosystem_title: 'AI + 软件 + 硬件 协同',
+                ecosystem_subtitle: 'EchoMind与平台和Babel Glass协同，带来免手持的实时多语言沟通',
+                ecos_card_ai: 'EchoMind AI',
+                ecos_card_ai_desc: '低时延多语言会话智能，覆盖语音、文本与上下文记忆。',
+                ecos_card_platform: 'Lazying 平台',
+                ecos_card_platform_desc: '以隐私为先的账户、术语与集成管理。',
+                ecos_card_glass: 'Babel Glass',
+                ecos_card_glass_desc: '镜片字幕与自然语音输出，实现真正免手持沟通。',
+                hardware_tag: '硬件',
+                glass_title: '戴上即可说任何语言',
+                glass_badge: '原型',
+                glass_subtitle: '镜片字幕 + 自然语音的实时翻译，首先面向日本市场优化',
+                glass_b1: '双向翻译，支持打断与镜片字幕',
+                glass_b2: '多麦克风拾音、波束成形与降噪',
+                glass_b3: '敬语支持与行业术语定制',
+                glass_b4: '以边缘为先的隐私保护架构',
+                glass_b5: '轻触即充，磁吸对位快充',
+                glass_proto_title: '原型区',
+                glass_proto_desc: '未来将展示3D模型与演示视频。当前不影响网站正常使用。',
+                glass_proto_view: '查看原型',
+                glass_proto_interest: '登记意向',
+                product_tag: '旗舰产品',
+                product_title: '遇见 EchoMind：消融语言壁垒',
+                product_p1: 'EchoMind不仅是聊天机器人—它是你通向全球沟通的入口。基于GPT-SoVITS与先进语言处理，它理解你“怎么说”。',
+                product_p2: '无论学习、商务还是文化交流，EchoMind都能灵活适配，助你自然沟通。',
+                product_cta: '立即体验 EchoMind →',
+                company_tag: '我们的理念',
+                company_title: '不费力的创新之美',
+                company_subtitle: '最好的技术“无形”，只需好用',
+                cta_title: '准备好打破语言壁垒了吗？',
+                cta_subtitle: '数万用户已在体验多语言AI的未来',
+                cta_button: '免费开始',
+                footer_privacy: '隐私',
+                footer_terms: '条款',
+            },
+            'zh-Hant': {
+                document_title: 'LazyingArt - 以AI語言創新連結世界',
+                nav_features: '功能',
+                nav_about: '關於',
+                nav_contact: '聯絡我們',
+                nav_try: '試用 EchoMind',
+                hero_title: '以AI語言創新連結世界',
+                hero_subtitle: '在LazyingArt，我們相信溝通應當簡單而自然。我們的AI打破語言藩籬，讓交流像對話一樣輕鬆。',
+                hero_launch: '啟動 EchoMind',
+                hero_explore: '瀏覽功能',
+                stats_languages: '支援語言',
+                stats_active_users: '活躍用戶',
+                stats_ai_availability: 'AI可用性',
+                features_tag: '功能',
+                features_title: '以尖端技術驅動',
+                features_subtitle: '體驗多語言AI溝通的未來',
+                feat_voice_title: '語音優先介面',
+                feat_voice_desc: '先進VAD帶來自然語音互動。即時、脈絡感知回應。',
+                feat_multi_title: '真正多語言AI',
+                feat_multi_desc: '對話中無縫切換語言，跨語言理解脈絡。',
+                feat_memory_title: '情境記憶',
+                feat_memory_desc: '學習你的偏好與歷史對話，智慧適應。',
+                feat_learning_title: '語言學習',
+                feat_learning_desc: '支援注音、拼音、粵拼。在對話中自然掌握語言。',
+                feat_grammar_title: '語法分析',
+                feat_grammar_desc: '即時語法拆解與增強，邊溝通邊理解。',
+                feat_privacy_title: '隱私優先設計',
+                feat_privacy_desc: '對話只屬於你。本地處理與加密儲存確保安全。',
+                ecosystem_tag: '生態系',
+                ecosystem_title: 'AI＋軟體＋硬體 協同',
+                ecosystem_subtitle: 'EchoMind 與平台及 Babel Glass 協作，帶來免持的即時多語溝通',
+                ecos_card_ai: 'EchoMind AI',
+                ecos_card_ai_desc: '低延遲多語會話智慧，整合語音、文字與情境記憶。',
+                ecos_card_platform: 'Lazying 平台',
+                ecos_card_platform_desc: '以隱私為先的帳戶、術語與整合管理。',
+                ecos_card_glass: 'Babel Glass',
+                ecos_card_glass_desc: '鏡片字幕與自然語音輸出，實現真正免持溝通。',
+                hardware_tag: '硬體',
+                glass_title: '戴上即可說任何語言',
+                glass_badge: '原型',
+                glass_subtitle: '鏡片字幕＋自然語音的即時翻譯，率先針對日本市場最佳化',
+                glass_b1: '雙向翻譯，支援打斷與鏡片字幕',
+                glass_b2: '多麥克風收音、波束成形與降噪',
+                glass_b3: '敬語支援與產業術語客製',
+                glass_b4: '以邊緣為先的隱私保護架構',
+                glass_b5: '輕觸即充，磁吸對位快充',
+                glass_proto_title: '原型區',
+                glass_proto_desc: '未來將展示3D模型與示範影片。當前不影響網站正常使用。',
+                glass_proto_view: '檢視原型',
+                glass_proto_interest: '登記意向',
+                product_tag: '旗艦產品',
+                product_title: '遇見 EchoMind：消融語言藩籬',
+                product_p1: 'EchoMind 不僅是聊天機器人—更是通往全球溝通的入口。基於 GPT-SoVITS 與先進語言處理，連「怎麼說」都懂。',
+                product_p2: '無論學習、商務或文化交流，EchoMind 皆能靈活因應，助你自然溝通。',
+                product_cta: '立即體驗 EchoMind →',
+                company_tag: '我們的理念',
+                company_title: '不費力的創新之美',
+                company_subtitle: '最好的技術「無形」，只要好用',
+                cta_title: '準備好打破語言藩籬了嗎？',
+                cta_subtitle: '數萬用戶已在體驗多語AI的未來',
+                cta_button: '免費開始',
+                footer_privacy: '隱私',
+                footer_terms: '條款',
+            }
+        };
+
+        function applyTranslations(lang) {
+            const dict = translations[lang] || translations.en;
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                const text = dict[key];
+                if (typeof text === 'string') {
+                    el.textContent = text;
+                }
+            });
+            if (dict.document_title) document.title = dict.document_title;
+        }
+
+        function initLanguage() {
+            const select = document.getElementById('langSelect');
+            const saved = localStorage.getItem('lang');
+            const browser = (navigator.language || 'en').toLowerCase();
+            let lang = saved || (browser.startsWith('ja') ? 'ja' : browser.includes('zh') ? (browser.includes('tw') || browser.includes('hk') || browser.includes('hant') ? 'zh-Hant' : 'zh-Hans') : 'en');
+            if (!translations[lang]) lang = 'en';
+            select.value = lang;
+            document.documentElement.lang = lang.startsWith('zh') ? 'zh' : lang;
+            applyTranslations(lang);
+            select.addEventListener('change', () => {
+                const l = select.value;
+                localStorage.setItem('lang', l);
+                document.documentElement.lang = l.startsWith('zh') ? 'zh' : l;
+                applyTranslations(l);
+                // Re-run hero typing with new text
+                startTyping();
+            });
+        }
+
         // Particle Animation
         function createParticles() {
             const container = document.getElementById('particles');
@@ -1307,23 +1616,26 @@
             });
         });
         
-        // Add typing effect to hero title (optional enhancement)
-        const heroTitle = document.querySelector('.hero-text h1');
-        const originalText = heroTitle.textContent;
-        let charIndex = 0;
-        
-        function typeText() {
-            if (charIndex < originalText.length) {
-                heroTitle.textContent = originalText.slice(0, charIndex + 1);
-                charIndex++;
-                setTimeout(typeText, 30);
-            }
-        }
-        
-        // Start typing animation when page loads
-        window.addEventListener('load', () => {
+        // Add typing effect to hero title (i18n-aware)
+        let typingTimer = null;
+        function startTyping() {
+            const heroTitle = document.querySelector('.hero-text h1');
+            const lang = document.getElementById('langSelect').value || 'en';
+            const text = (translations[lang] && translations[lang].hero_title) || translations.en.hero_title;
+            let i = 0;
+            if (typingTimer) clearTimeout(typingTimer);
             heroTitle.textContent = '';
-            setTimeout(typeText, 500);
+            (function type() {
+                if (i < text.length) {
+                    heroTitle.textContent = text.slice(0, i + 1);
+                    i++;
+                    typingTimer = setTimeout(type, 30);
+                }
+            })();
+        }
+        window.addEventListener('load', () => {
+            initLanguage();
+            setTimeout(startTyping, 500);
         });
         
         // Easter egg: Konami code
