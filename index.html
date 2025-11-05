@@ -239,6 +239,7 @@
             display: flex;
             gap: 1rem;
             margin-bottom: 3rem;
+            flex-wrap: wrap;
         }
 
         .secondary-button {
@@ -257,6 +258,16 @@
         .secondary-button:hover {
             background: var(--glass);
             transform: translateY(-2px);
+        }
+
+        .onlyideas-button {
+            border-color: rgba(240, 147, 251, 0.6);
+            color: var(--accent);
+        }
+
+        .onlyideas-button:hover {
+            background: rgba(240, 147, 251, 0.12);
+            color: white;
         }
 
         .hero-visual {
@@ -966,6 +977,7 @@
                 <div class="hero-buttons">
                     <a href="https://chat.lazying.art" class="cta-button" data-i18n="hero_launch">Launch EchoMind</a>
                     <a href="#product" class="secondary-button" data-i18n="hero_explore">Explore Features</a>
+                    <a href="https://onlyideas.art" class="secondary-button onlyideas-button" target="_blank" rel="noopener noreferrer" data-i18n="hero_onlyideas">Visit OnlyIdeas</a>
                 </div>
                 <div class="stats-grid" style="margin-top: 2rem;">
                     <div class="stat">
@@ -1281,6 +1293,7 @@
                 hero_subtitle: 'At LazyingArt, we believe communication should be effortless and universal. Our AI-powered solutions break down language barriers, making global connection as simple as a conversation.',
                 hero_launch: 'Launch EchoMind',
                 hero_explore: 'Explore Features',
+                hero_onlyideas: 'Visit OnlyIdeas',
                 stats_languages: 'Languages',
                 stats_active_users: 'Active Users',
                 stats_ai_availability: 'AI Availability',
@@ -1362,6 +1375,7 @@
                 hero_subtitle: 'LazyingArtは、誰もが自然に通じ合える世界を目指しています。私たちのAIは言語の壁を取り払い、会話をもっとシンプルにします。',
                 hero_launch: 'EchoMindを起動',
                 hero_explore: '機能を見る',
+                hero_onlyideas: 'OnlyIdeasを訪れる',
                 stats_languages: '対応言語',
                 stats_active_users: 'アクティブユーザー',
                 stats_ai_availability: 'AI稼働',
@@ -1444,6 +1458,7 @@
                 hero_subtitle: '在LazyingArt，我们相信沟通应当简单而自然。我们的AI打破语言壁垒，让交流像对话一样轻松。',
                 hero_launch: '启动 EchoMind',
                 hero_explore: '浏览功能',
+                hero_onlyideas: '访问 OnlyIdeas',
                 stats_languages: '支持语言',
                 stats_active_users: '活跃用户',
                 stats_ai_availability: 'AI可用性',
@@ -1527,6 +1542,7 @@
                 hero_subtitle: '在LazyingArt，我們相信溝通應當簡單而自然。我們的AI打破語言藩籬，讓交流像對話一樣輕鬆。',
                 hero_launch: '啟動 EchoMind',
                 hero_explore: '瀏覽功能',
+                hero_onlyideas: '造訪 OnlyIdeas',
                 stats_languages: '支援語言',
                 stats_active_users: '活躍用戶',
                 stats_ai_availability: 'AI可用性',
@@ -1610,6 +1626,7 @@
                 hero_subtitle: 'LazyingArt는 쉽고 자연스러운 소통을 지향합니다. 우리의 AI는 언어 장벽을 없애 대화를 더 간단하게 만듭니다.',
                 hero_launch: 'EchoMind 실행',
                 hero_explore: '기능 살펴보기',
+                hero_onlyideas: 'OnlyIdeas 방문',
                 stats_languages: '지원 언어',
                 stats_active_users: '활성 사용자',
                 stats_ai_availability: 'AI 가동',
@@ -1675,6 +1692,7 @@
                 hero_subtitle: 'في LazyingArt نؤمن أن التواصل يجب أن يكون سهلاً وطبيعياً. نزيل حواجز اللغة لنجعل المحادثة أبسط.',
                 hero_launch: 'تشغيل EchoMind',
                 hero_explore: 'استكشف الميزات',
+                hero_onlyideas: 'زيارة OnlyIdeas',
                 stats_languages: 'اللغات',
                 stats_active_users: 'المستخدمون النشطون',
                 stats_ai_availability: 'توفر الذكاء الاصطناعي',
@@ -1740,6 +1758,7 @@
                 hero_subtitle: 'Tại LazyingArt, chúng tôi tin giao tiếp phải đơn giản và tự nhiên. AI của chúng tôi xóa bỏ rào cản ngôn ngữ.',
                 hero_launch: 'Khởi chạy EchoMind',
                 hero_explore: 'Khám phá tính năng',
+                hero_onlyideas: 'Ghé thăm OnlyIdeas',
                 stats_languages: 'Ngôn ngữ',
                 stats_active_users: 'Người dùng hoạt động',
                 stats_ai_availability: 'Khả dụng AI',
@@ -1805,6 +1824,7 @@
                 hero_subtitle: 'Chez LazyingArt, nous croyons à une communication simple et naturelle. Notre IA supprime les barrières linguistiques.',
                 hero_launch: 'Lancer EchoMind',
                 hero_explore: 'Découvrir les fonctions',
+                hero_onlyideas: 'Visiter OnlyIdeas',
                 stats_languages: 'Langues',
                 stats_active_users: 'Utilisateurs actifs',
                 stats_ai_availability: 'Disponibilité IA',
@@ -1870,6 +1890,7 @@
                 hero_subtitle: 'En LazyingArt creemos en una comunicación simple y natural. Nuestra IA elimina las barreras del idioma.',
                 hero_launch: 'Iniciar EchoMind',
                 hero_explore: 'Explorar funciones',
+                hero_onlyideas: 'Visitar OnlyIdeas',
                 stats_languages: 'Idiomas',
                 stats_active_users: 'Usuarios activos',
                 stats_ai_availability: 'Disponibilidad IA',
@@ -1935,6 +1956,7 @@
                 hero_subtitle: 'Na LazyingArt, acreditamos em comunicação simples e natural. Nossa IA remove barreiras de idioma.',
                 hero_launch: 'Iniciar EchoMind',
                 hero_explore: 'Explorar recursos',
+                hero_onlyideas: 'Visitar OnlyIdeas',
                 stats_languages: 'Idiomas',
                 stats_active_users: 'Usuários ativos',
                 stats_ai_availability: 'Disponibilidade da IA',
@@ -2000,6 +2022,7 @@
                 hero_subtitle: 'Bei LazyingArt setzen wir auf einfache, natürliche Kommunikation. Unsere KI beseitigt Sprachbarrieren.',
                 hero_launch: 'EchoMind starten',
                 hero_explore: 'Funktionen ansehen',
+                hero_onlyideas: 'OnlyIdeas besuchen',
                 stats_languages: 'Sprachen',
                 stats_active_users: 'Aktive Nutzer',
                 stats_ai_availability: 'KI-Verfügbarkeit',
@@ -2065,6 +2088,7 @@
                 hero_subtitle: 'В LazyingArt мы верим в простой и естественный диалог. Наш ИИ убирает языковые барьеры.',
                 hero_launch: 'Запустить EchoMind',
                 hero_explore: 'Смотреть возможности',
+                hero_onlyideas: 'Посетить OnlyIdeas',
                 stats_languages: 'Языки',
                 stats_active_users: 'Активные пользователи',
                 stats_ai_availability: 'Доступность ИИ',
@@ -2130,6 +2154,7 @@
                 hero_subtitle: 'LazyingArt, basit ve doğal iletişime inanır. Yapay zekâmız dil engellerini kaldırır.',
                 hero_launch: 'EchoMind’i Başlat',
                 hero_explore: 'Özellikleri Keşfet',
+                hero_onlyideas: 'OnlyIdeas\'i ziyaret et',
                 stats_languages: 'Diller',
                 stats_active_users: 'Aktif kullanıcılar',
                 stats_ai_availability: 'YZ kullanılabilirliği',
