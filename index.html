@@ -272,12 +272,88 @@
 
         .coin-button {
             border-color: rgba(91, 226, 255, 0.6);
-            color: var(--accent-secondary);
+            color: #7fe6ff;
         }
 
         .coin-button:hover {
             background: rgba(91, 226, 255, 0.12);
             color: white;
+        }
+
+        .metamask-button {
+            border-color: rgba(255, 179, 71, 0.6);
+            color: #ffb347;
+        }
+
+        .metamask-button:hover {
+            background: rgba(255, 179, 71, 0.16);
+            color: white;
+        }
+
+        /* Coin Section */
+        .coin-section {
+            padding: 5rem 5%;
+            position: relative;
+            z-index: 10;
+        }
+
+        .coin-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .coin-grid {
+            margin-top: 2.5rem;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .coin-card {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .coin-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 20% 10%, rgba(127, 230, 255, 0.15), transparent 55%);
+            pointer-events: none;
+        }
+
+        .coin-list {
+            list-style: none;
+            display: grid;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            color: rgba(255, 255, 255, 0.78);
+        }
+
+        .coin-list li {
+            display: flex;
+            gap: 0.75rem;
+            align-items: flex-start;
+        }
+
+        .coin-list li::before {
+            content: '◆';
+            color: var(--accent);
+            font-size: 0.85rem;
+            margin-top: 0.25rem;
+        }
+
+        .coin-actions {
+            margin-top: 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
 
         .hero-visual {
@@ -816,6 +892,10 @@
                 grid-template-columns: 1fr;
             }
 
+            .coin-grid {
+                grid-template-columns: 1fr;
+            }
+
             .mobile-menu-toggle {
                 display: flex;
             }
@@ -946,6 +1026,7 @@
             </a>
             <div class="nav-links" id="navLinks">
                 <a href="#features" data-i18n="nav_features">Features</a>
+                <a href="#coin" data-i18n="nav_coin">LAC</a>
                 <a href="#product">EchoMind</a>
                 <a href="#babelglass">IdeasGlass</a>
                 <a href="#company" data-i18n="nav_about">About</a>
@@ -989,7 +1070,7 @@
                     <a href="#product" class="secondary-button" data-i18n="hero_explore">Explore Features</a>
                     <a href="https://onlyideas.art" class="secondary-button onlyideas-button" target="_blank" rel="noopener noreferrer" data-i18n="hero_onlyideas">Visit OnlyIdeas</a>
                     <a href="https://coin.lazying.art" class="secondary-button coin-button" target="_blank" rel="noopener noreferrer" data-i18n="hero_coin">Explore LazyingArt Coin</a>
-                    <a href="https://coin.lazying.art" class="secondary-button" target="_blank" rel="noopener noreferrer" title="将 LAC 添加到 MetaMask — 导入 LazyingArtCoin 代币，在 MetaMask 中查看余额和转账记录。">添加到 MetaMask</a>
+                    <a href="https://coin.lazying.art" class="secondary-button metamask-button" target="_blank" rel="noopener noreferrer" data-i18n="hero_metamask">Add to MetaMask</a>
                 </div>
                 <div class="stats-grid" style="margin-top: 2rem;">
                     <div class="stat">
@@ -1304,6 +1385,35 @@
         </div>
     </section>
 
+    <!-- LazyingArt Coin Section -->
+    <section class="coin-section" id="coin">
+        <div class="coin-container">
+            <div class="section-header">
+                <span class="section-tag" data-i18n="coin_tag">TOKEN</span>
+                <h2 class="section-title" data-i18n="coin_title">LazyingArtCoin (LAC)</h2>
+                <p class="section-subtitle" data-i18n="coin_subtitle">A community token that powers the LazyingArt ecosystem and rewards meaningful creation.</p>
+            </div>
+            <div class="coin-grid">
+                <div class="coin-card">
+                    <h3 data-i18n="coin_card_title">Why LAC exists</h3>
+                    <ul class="coin-list">
+                        <li data-i18n="coin_b1">Align incentives across creators, contributors, and builders.</li>
+                        <li data-i18n="coin_b2">Unlock ecosystem perks, access, and future utilities.</li>
+                        <li data-i18n="coin_b3">Support open, local-first research tools like PaperAgent.</li>
+                    </ul>
+                </div>
+                <div class="coin-card">
+                    <h3 data-i18n="coin_card_cta_title">Add LazyingArtCoin</h3>
+                    <p style="color: rgba(255,255,255,0.75);" data-i18n="coin_cta_desc">Open the token hub to add LAC to MetaMask and view the latest contract details.</p>
+                    <div class="coin-actions">
+                        <a href="https://coin.lazying.art" class="cta-button" data-i18n="coin_cta_primary">Add to MetaMask</a>
+                        <a href="https://coin.lazying.art" class="secondary-button metamask-button" data-i18n="coin_cta_secondary">Open coin.lazying.art</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Company Philosophy Section -->
     <section class="company" id="company">
         <div class="company-container">
@@ -1384,6 +1494,7 @@
             en: {
                 document_title: 'LazyingArt - Bridging Humanity Through AI Language Innovation',
                 nav_features: 'Features',
+                nav_coin: 'LAC',
                 nav_about: 'About',
                 nav_contact: 'Contact',
                 nav_try: 'Try EchoMind',
@@ -1397,6 +1508,18 @@
                 hero_explore: 'Explore Features',
                 hero_onlyideas: 'Visit OnlyIdeas',
                 hero_coin: 'Explore LazyingArt Coin',
+                hero_metamask: 'Add to MetaMask',
+                coin_tag: 'TOKEN',
+                coin_title: 'LazyingArtCoin (LAC)',
+                coin_subtitle: 'A community token that powers the LazyingArt ecosystem and rewards meaningful creation.',
+                coin_card_title: 'Why LAC exists',
+                coin_b1: 'Align incentives across creators, contributors, and builders.',
+                coin_b2: 'Unlock ecosystem perks, access, and future utilities.',
+                coin_b3: 'Support open, local-first research tools like PaperAgent.',
+                coin_card_cta_title: 'Add LazyingArtCoin',
+                coin_cta_desc: 'Open the token hub to add LAC to MetaMask and view the latest contract details.',
+                coin_cta_primary: 'Add to MetaMask',
+                coin_cta_secondary: 'Open coin.lazying.art',
                 stats_languages: 'Languages',
                 stats_active_users: 'Active Users',
                 stats_ai_availability: 'AI Availability',
@@ -1470,6 +1593,7 @@
             ja: {
                 document_title: 'LazyingArt - AI言語イノベーションで人と人をつなぐ',
                 nav_features: '機能',
+                nav_coin: 'LAC',
                 nav_about: '私たちについて',
                 nav_contact: 'お問い合わせ',
                 nav_try: 'EchoMindを試す',
@@ -1480,6 +1604,18 @@
                 hero_explore: '機能を見る',
                 hero_onlyideas: 'OnlyIdeasを訪れる',
                 hero_coin: 'LazyingArt Coinを見る',
+                hero_metamask: 'MetaMaskに追加',
+                coin_tag: 'トークン',
+                coin_title: 'LazyingArtCoin (LAC)',
+                coin_subtitle: 'LazyingArtエコシステムを支え、創造への貢献を称えるコミュニティトークン。',
+                coin_card_title: 'LACの目的',
+                coin_b1: 'クリエイター・貢献者・開発者のインセンティブを揃える。',
+                coin_b2: '特典やアクセス、将来のユーティリティを解放。',
+                coin_b3: 'PaperAgentのようなローカルファースト研究ツールを支援。',
+                coin_card_cta_title: 'LazyingArtCoinを追加',
+                coin_cta_desc: 'トークンハブを開き、MetaMaskにLACを追加して最新のコントラクト情報を確認。',
+                coin_cta_primary: 'MetaMaskに追加',
+                coin_cta_secondary: 'coin.lazying.art を開く',
                 stats_languages: '対応言語',
                 stats_active_users: 'アクティブユーザー',
                 stats_ai_availability: 'AI稼働',
@@ -1554,6 +1690,7 @@
             'zh-Hans': {
                 document_title: 'LazyingArt - 用AI语言创新连接世界',
                 nav_features: '功能',
+                nav_coin: 'LAC',
                 nav_about: '关于',
                 nav_contact: '联系我们',
                 nav_try: '试用 EchoMind',
@@ -1564,6 +1701,18 @@
                 hero_explore: '浏览功能',
                 hero_onlyideas: '访问 OnlyIdeas',
                 hero_coin: '了解 LazyingArt Coin',
+                hero_metamask: '添加到 MetaMask',
+                coin_tag: '代币',
+                coin_title: 'LazyingArtCoin (LAC)',
+                coin_subtitle: '支持 LazyingArt 生态并奖励有价值创造的社区代币。',
+                coin_card_title: '为什么需要 LAC',
+                coin_b1: '对齐创作者、贡献者与建设者的激励。',
+                coin_b2: '解锁生态权益、访问与未来功能。',
+                coin_b3: '支持像 PaperAgent 这样的本地优先研究工具。',
+                coin_card_cta_title: '添加 LazyingArtCoin',
+                coin_cta_desc: '打开代币中心，将 LAC 添加到 MetaMask 并查看最新合约信息。',
+                coin_cta_primary: '添加到 MetaMask',
+                coin_cta_secondary: '打开 coin.lazying.art',
                 stats_languages: '支持语言',
                 stats_active_users: '活跃用户',
                 stats_ai_availability: 'AI可用性',
@@ -1639,6 +1788,7 @@
             'zh-Hant': {
                 document_title: 'LazyingArt - 以AI語言創新連結世界',
                 nav_features: '功能',
+                nav_coin: 'LAC',
                 nav_about: '關於',
                 nav_contact: '聯絡我們',
                 nav_try: '試用 EchoMind',
@@ -1649,6 +1799,18 @@
                 hero_explore: '瀏覽功能',
                 hero_onlyideas: '造訪 OnlyIdeas',
                 hero_coin: '了解 LazyingArt Coin',
+                hero_metamask: '加入 MetaMask',
+                coin_tag: '代幣',
+                coin_title: 'LazyingArtCoin (LAC)',
+                coin_subtitle: '支持 LazyingArt 生態並獎勵有價值創作的社群代幣。',
+                coin_card_title: '為什麼需要 LAC',
+                coin_b1: '對齊創作者、貢獻者與建設者的激勵。',
+                coin_b2: '解鎖生態權益、存取與未來功能。',
+                coin_b3: '支持像 PaperAgent 這樣的本地優先研究工具。',
+                coin_card_cta_title: '加入 LazyingArtCoin',
+                coin_cta_desc: '開啟代幣中心，將 LAC 加入 MetaMask 並查看最新合約資訊。',
+                coin_cta_primary: '加入 MetaMask',
+                coin_cta_secondary: '開啟 coin.lazying.art',
                 stats_languages: '支援語言',
                 stats_active_users: '活躍用戶',
                 stats_ai_availability: 'AI可用性',
@@ -1724,6 +1886,7 @@
             ko: {
                 document_title: 'LazyingArt - AI 언어 혁신으로 사람을 잇다',
                 nav_features: '기능',
+                nav_coin: 'LAC',
                 nav_about: '소개',
                 nav_contact: '문의',
                 nav_try: 'EchoMind 체험',
@@ -1734,6 +1897,18 @@
                 hero_explore: '기능 살펴보기',
                 hero_onlyideas: 'OnlyIdeas 방문',
                 hero_coin: 'LazyingArt Coin 살펴보기',
+                hero_metamask: 'MetaMask에 추가',
+                coin_tag: '토큰',
+                coin_title: 'LazyingArtCoin (LAC)',
+                coin_subtitle: 'LazyingArt 생태계를 지원하고 가치 있는 창작을 보상하는 커뮤니티 토큰.',
+                coin_card_title: 'LAC의 목적',
+                coin_b1: '크리에이터·기여자·빌더의 인센티브 정렬.',
+                coin_b2: '생태계 혜택, 접근, 미래 유틸리티를 해제.',
+                coin_b3: 'PaperAgent 같은 로컬 퍼스트 연구 도구를 지원.',
+                coin_card_cta_title: 'LazyingArtCoin 추가',
+                coin_cta_desc: '토큰 허브에서 LAC을 MetaMask에 추가하고 최신 컨트랙트 정보를 확인.',
+                coin_cta_primary: 'MetaMask에 추가',
+                coin_cta_secondary: 'coin.lazying.art 열기',
                 stats_languages: '지원 언어',
                 stats_active_users: '활성 사용자',
                 stats_ai_availability: 'AI 가동',
@@ -1807,6 +1982,7 @@
             ar: {
                 document_title: 'LazyingArt - ربط البشر بابتكار لغوي مدعوم بالذكاء الاصطناعي',
                 nav_features: 'الميزات',
+                nav_coin: 'LAC',
                 nav_about: 'من نحن',
                 nav_contact: 'اتصل بنا',
                 nav_try: 'جرّب EchoMind',
@@ -1817,6 +1993,18 @@
                 hero_explore: 'استكشف الميزات',
                 hero_onlyideas: 'زيارة OnlyIdeas',
                 hero_coin: 'استكشف LazyingArt Coin',
+                hero_metamask: 'أضف إلى MetaMask',
+                coin_tag: 'رمز',
+                coin_title: 'LazyingArtCoin (LAC)',
+                coin_subtitle: 'رمز مجتمعي يدعم منظومة LazyingArt ويكافئ الإبداع الهادف.',
+                coin_card_title: 'لماذا يوجد LAC',
+                coin_b1: 'مواءمة الحوافز بين المبدعين والمساهمين والبنّاءين.',
+                coin_b2: 'فتح مزايا المنظومة والوصول والاستخدامات المستقبلية.',
+                coin_b3: 'دعم أدوات البحث المحلية أولاً مثل PaperAgent.',
+                coin_card_cta_title: 'أضف LazyingArtCoin',
+                coin_cta_desc: 'افتح مركز الرمز لإضافة LAC إلى MetaMask ومراجعة أحدث تفاصيل العقد.',
+                coin_cta_primary: 'أضف إلى MetaMask',
+                coin_cta_secondary: 'افتح coin.lazying.art',
                 stats_languages: 'اللغات',
                 stats_active_users: 'المستخدمون النشطون',
                 stats_ai_availability: 'توفر الذكاء الاصطناعي',
@@ -1890,6 +2078,7 @@
             vi: {
                 document_title: 'LazyingArt - Kết nối con người bằng đổi mới ngôn ngữ AI',
                 nav_features: 'Tính năng',
+                nav_coin: 'LAC',
                 nav_about: 'Giới thiệu',
                 nav_contact: 'Liên hệ',
                 nav_try: 'Dùng thử EchoMind',
@@ -1900,6 +2089,18 @@
                 hero_explore: 'Khám phá tính năng',
                 hero_onlyideas: 'Ghé thăm OnlyIdeas',
                 hero_coin: 'Khám phá LazyingArt Coin',
+                hero_metamask: 'Thêm vào MetaMask',
+                coin_tag: 'TOKEN',
+                coin_title: 'LazyingArtCoin (LAC)',
+                coin_subtitle: 'Token cộng đồng hỗ trợ hệ sinh thái LazyingArt và ghi nhận sáng tạo có giá trị.',
+                coin_card_title: 'Vì sao có LAC',
+                coin_b1: 'Căn chỉnh động lực giữa người sáng tạo, đóng góp và xây dựng.',
+                coin_b2: 'Mở khóa ưu đãi hệ sinh thái, truy cập và tiện ích tương lai.',
+                coin_b3: 'Hỗ trợ các công cụ nghiên cứu local-first như PaperAgent.',
+                coin_card_cta_title: 'Thêm LazyingArtCoin',
+                coin_cta_desc: 'Mở trung tâm token để thêm LAC vào MetaMask và xem thông tin hợp đồng mới nhất.',
+                coin_cta_primary: 'Thêm vào MetaMask',
+                coin_cta_secondary: 'Mở coin.lazying.art',
                 stats_languages: 'Ngôn ngữ',
                 stats_active_users: 'Người dùng hoạt động',
                 stats_ai_availability: 'Khả dụng AI',
@@ -1973,6 +2174,7 @@
             fr: {
                 document_title: 'LazyingArt - Relier l’humanité grâce à l’IA linguistique',
                 nav_features: 'Fonctionnalités',
+                nav_coin: 'LAC',
                 nav_about: 'À propos',
                 nav_contact: 'Contact',
                 nav_try: 'Essayer EchoMind',
@@ -1983,6 +2185,18 @@
                 hero_explore: 'Découvrir les fonctions',
                 hero_onlyideas: 'Visiter OnlyIdeas',
                 hero_coin: 'Découvrir LazyingArt Coin',
+                hero_metamask: 'Ajouter à MetaMask',
+                coin_tag: 'JETON',
+                coin_title: 'LazyingArtCoin (LAC)',
+                coin_subtitle: 'Jeton communautaire qui alimente l’écosystème LazyingArt et récompense les créations utiles.',
+                coin_card_title: 'Pourquoi LAC existe',
+                coin_b1: 'Aligner les incitations entre créateurs, contributeurs et bâtisseurs.',
+                coin_b2: 'Débloquer des avantages, l’accès et de futures utilités.',
+                coin_b3: 'Soutenir des outils de recherche local‑first comme PaperAgent.',
+                coin_card_cta_title: 'Ajouter LazyingArtCoin',
+                coin_cta_desc: 'Ouvrez le hub pour ajouter LAC à MetaMask et voir les derniers détails du contrat.',
+                coin_cta_primary: 'Ajouter à MetaMask',
+                coin_cta_secondary: 'Ouvrir coin.lazying.art',
                 stats_languages: 'Langues',
                 stats_active_users: 'Utilisateurs actifs',
                 stats_ai_availability: 'Disponibilité IA',
@@ -2056,6 +2270,7 @@
             es: {
                 document_title: 'LazyingArt - Uniendo a la humanidad con innovación lingüística IA',
                 nav_features: 'Funciones',
+                nav_coin: 'LAC',
                 nav_about: 'Acerca de',
                 nav_contact: 'Contacto',
                 nav_try: 'Probar EchoMind',
@@ -2066,6 +2281,18 @@
                 hero_explore: 'Explorar funciones',
                 hero_onlyideas: 'Visitar OnlyIdeas',
                 hero_coin: 'Explorar LazyingArt Coin',
+                hero_metamask: 'Agregar a MetaMask',
+                coin_tag: 'TOKEN',
+                coin_title: 'LazyingArtCoin (LAC)',
+                coin_subtitle: 'Token comunitario que impulsa el ecosistema LazyingArt y recompensa la creación valiosa.',
+                coin_card_title: 'Por qué existe LAC',
+                coin_b1: 'Alinear incentivos entre creadores, colaboradores y constructores.',
+                coin_b2: 'Desbloquear beneficios del ecosistema, acceso y utilidades futuras.',
+                coin_b3: 'Apoyar herramientas de investigación local-first como PaperAgent.',
+                coin_card_cta_title: 'Agregar LazyingArtCoin',
+                coin_cta_desc: 'Abre el hub del token para agregar LAC a MetaMask y ver los últimos detalles del contrato.',
+                coin_cta_primary: 'Agregar a MetaMask',
+                coin_cta_secondary: 'Abrir coin.lazying.art',
                 stats_languages: 'Idiomas',
                 stats_active_users: 'Usuarios activos',
                 stats_ai_availability: 'Disponibilidad IA',
@@ -2139,6 +2366,7 @@
             pt: {
                 document_title: 'LazyingArt - Conectando pessoas com inovação linguística IA',
                 nav_features: 'Recursos',
+                nav_coin: 'LAC',
                 nav_about: 'Sobre',
                 nav_contact: 'Contato',
                 nav_try: 'Experimente o EchoMind',
@@ -2149,6 +2377,18 @@
                 hero_explore: 'Explorar recursos',
                 hero_onlyideas: 'Visitar OnlyIdeas',
                 hero_coin: 'Explorar LazyingArt Coin',
+                hero_metamask: 'Adicionar ao MetaMask',
+                coin_tag: 'TOKEN',
+                coin_title: 'LazyingArtCoin (LAC)',
+                coin_subtitle: 'Token comunitário que fortalece o ecossistema LazyingArt e recompensa criação de valor.',
+                coin_card_title: 'Por que LAC existe',
+                coin_b1: 'Alinhar incentivos entre criadores, contribuidores e construtores.',
+                coin_b2: 'Desbloquear benefícios do ecossistema, acesso e utilidades futuras.',
+                coin_b3: 'Apoiar ferramentas de pesquisa local-first como o PaperAgent.',
+                coin_card_cta_title: 'Adicionar LazyingArtCoin',
+                coin_cta_desc: 'Abra o hub do token para adicionar LAC ao MetaMask e ver os detalhes do contrato.',
+                coin_cta_primary: 'Adicionar ao MetaMask',
+                coin_cta_secondary: 'Abrir coin.lazying.art',
                 stats_languages: 'Idiomas',
                 stats_active_users: 'Usuários ativos',
                 stats_ai_availability: 'Disponibilidade da IA',
@@ -2222,6 +2462,7 @@
             de: {
                 document_title: 'LazyingArt - Menschen verbinden durch KI-Sprachinnovation',
                 nav_features: 'Funktionen',
+                nav_coin: 'LAC',
                 nav_about: 'Über uns',
                 nav_contact: 'Kontakt',
                 nav_try: 'EchoMind testen',
@@ -2232,6 +2473,18 @@
                 hero_explore: 'Funktionen ansehen',
                 hero_onlyideas: 'OnlyIdeas besuchen',
                 hero_coin: 'LazyingArt Coin entdecken',
+                hero_metamask: 'Zu MetaMask hinzufügen',
+                coin_tag: 'TOKEN',
+                coin_title: 'LazyingArtCoin (LAC)',
+                coin_subtitle: 'Community‑Token, der das LazyingArt‑Ökosystem stärkt und wertvolle Beiträge belohnt.',
+                coin_card_title: 'Warum es LAC gibt',
+                coin_b1: 'Anreize für Creator, Contributor und Builder ausrichten.',
+                coin_b2: 'Ökosystem‑Vorteile, Zugriff und künftige Utility freischalten.',
+                coin_b3: 'Local‑first‑Forschungstools wie PaperAgent unterstützen.',
+                coin_card_cta_title: 'LazyingArtCoin hinzufügen',
+                coin_cta_desc: 'Öffne den Token‑Hub, um LAC zu MetaMask hinzuzufügen und die Vertragsdetails zu sehen.',
+                coin_cta_primary: 'Zu MetaMask hinzufügen',
+                coin_cta_secondary: 'coin.lazying.art öffnen',
                 stats_languages: 'Sprachen',
                 stats_active_users: 'Aktive Nutzer',
                 stats_ai_availability: 'KI-Verfügbarkeit',
@@ -2307,6 +2560,7 @@
             ru: {
                 document_title: 'LazyingArt - Соединяем людей языковыми инновациями ИИ',
                 nav_features: 'Возможности',
+                nav_coin: 'LAC',
                 nav_about: 'О нас',
                 nav_contact: 'Контакты',
                 nav_try: 'Попробовать EchoMind',
@@ -2317,6 +2571,18 @@
                 hero_explore: 'Смотреть возможности',
                 hero_onlyideas: 'Посетить OnlyIdeas',
                 hero_coin: 'Изучить LazyingArt Coin',
+                hero_metamask: 'Добавить в MetaMask',
+                coin_tag: 'ТОКЕН',
+                coin_title: 'LazyingArtCoin (LAC)',
+                coin_subtitle: 'Комьюнити‑токен, который поддерживает экосистему LazyingArt и поощряет ценное творчество.',
+                coin_card_title: 'Зачем нужен LAC',
+                coin_b1: 'Согласовать стимулы для создателей, участников и строителей.',
+                coin_b2: 'Открыть доступ к преимуществам экосистемы и будущим утилитам.',
+                coin_b3: 'Поддержать local‑first инструменты исследований вроде PaperAgent.',
+                coin_card_cta_title: 'Добавить LazyingArtCoin',
+                coin_cta_desc: 'Откройте хаб токена, чтобы добавить LAC в MetaMask и увидеть детали контракта.',
+                coin_cta_primary: 'Добавить в MetaMask',
+                coin_cta_secondary: 'Открыть coin.lazying.art',
                 stats_languages: 'Языки',
                 stats_active_users: 'Активные пользователи',
                 stats_ai_availability: 'Доступность ИИ',
@@ -2390,6 +2656,7 @@
             tr: {
                 document_title: 'LazyingArt - Yapay zekâ dil inovasyonuyla insanları birleştiriyoruz',
                 nav_features: 'Özellikler',
+                nav_coin: 'LAC',
                 nav_about: 'Hakkımızda',
                 nav_contact: 'İletişim',
                 nav_try: 'EchoMind’i Dene',
@@ -2400,6 +2667,18 @@
                 hero_explore: 'Özellikleri Keşfet',
                 hero_onlyideas: 'OnlyIdeas\'i ziyaret et',
                 hero_coin: 'LazyingArt Coin\'i keşfet',
+                hero_metamask: 'MetaMask’e ekle',
+                coin_tag: 'TOKEN',
+                coin_title: 'LazyingArtCoin (LAC)',
+                coin_subtitle: 'LazyingArt ekosistemini güçlendiren ve değerli üretimi ödüllendiren topluluk tokeni.',
+                coin_card_title: 'LAC neden var',
+                coin_b1: 'Üretici, katkı veren ve inşa edenler arasında teşvikleri hizalamak.',
+                coin_b2: 'Ekosistem avantajlarını, erişimi ve gelecekteki kullanım alanlarını açmak.',
+                coin_b3: 'PaperAgent gibi local-first araştırma araçlarını desteklemek.',
+                coin_card_cta_title: 'LazyingArtCoin ekle',
+                coin_cta_desc: 'Token merkezini açarak LAC’i MetaMask’e ekleyin ve sözleşme detaylarını görün.',
+                coin_cta_primary: 'MetaMask’e ekle',
+                coin_cta_secondary: 'coin.lazying.art aç',
                 stats_languages: 'Diller',
                 stats_active_users: 'Aktif kullanıcılar',
                 stats_ai_availability: 'YZ kullanılabilirliği',
