@@ -635,10 +635,16 @@
         .product-container {
             max-width: 1400px;
             margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        .product-panels {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 2rem;
+            align-items: stretch;
         }
 
         .product-showcase {
@@ -669,6 +675,17 @@
             font-size: 2.5rem;
         }
 
+        .paperagent-logo {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #ff9a9e, #f6d365);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+        }
+
         .echomind-title {
             flex: 1;
         }
@@ -686,6 +703,14 @@
         .showcase-features {
             display: grid;
             gap: 1.5rem;
+        }
+
+        .showcase-actions {
+            margin-top: 1.5rem;
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+            flex-wrap: wrap;
         }
 
         .showcase-feature {
@@ -947,7 +972,7 @@
                 justify-content: center;
             }
 
-            .product-container {
+            .product-panels {
                 grid-template-columns: 1fr;
             }
 
@@ -1276,43 +1301,82 @@
     <!-- Product Section -->
     <section class="product" id="product">
         <div class="product-container">
-            <div class="product-showcase">
-                <div class="showcase-header">
-                    <div class="echomind-logo">🌍</div>
-                    <div class="echomind-title">
-                        <h3>EchoMind</h3>
-                        <p>Your Multilingual AI Companion</p>
+            <div class="product-panels">
+                <div class="product-showcase">
+                    <div class="showcase-header">
+                        <div class="echomind-logo">🌍</div>
+                        <div class="echomind-title">
+                            <h3>EchoMind</h3>
+                            <p>Your Multilingual AI Companion</p>
+                        </div>
+                    </div>
+                    <div class="showcase-features">
+                        <div class="showcase-feature">
+                            <div class="check-icon"></div>
+                            <div>
+                                <strong data-i18n="prod_feat1_title">Real-time Voice Chat</strong>
+                                <p style="color: var(--text-muted); font-size: 0.9rem;" data-i18n="prod_feat1_desc">Speak naturally and receive instant responses with advanced voice recognition</p>
+                            </div>
+                        </div>
+                        <div class="showcase-feature">
+                            <div class="check-icon"></div>
+                            <div>
+                                <strong data-i18n="prod_feat2_title">Custom Voice Models</strong>
+                                <p style="color: var(--text-muted); font-size: 0.9rem;" data-i18n="prod_feat2_desc">Choose from multiple AI personalities with distinct voice characteristics</p>
+                            </div>
+                        </div>
+                        <div class="showcase-feature">
+                            <div class="check-icon"></div>
+                            <div>
+                                <strong data-i18n="prod_feat3_title">Language Enhancement</strong>
+                                <p style="color: var(--text-muted); font-size: 0.9rem;" data-i18n="prod_feat3_desc">Automatic pronunciation guides and grammar analysis for language learners</p>
+                            </div>
+                        </div>
+                        <div class="showcase-feature">
+                            <div class="check-icon"></div>
+                            <div>
+                                <strong data-i18n="prod_feat4_title">Social Features</strong>
+                                <p style="color: var(--text-muted); font-size: 0.9rem;" data-i18n="prod_feat4_desc">Connect with friends, share posts, and practice languages together</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="showcase-features">
-                    <div class="showcase-feature">
-                        <div class="check-icon"></div>
-                        <div>
-                            <strong data-i18n="prod_feat1_title">Real-time Voice Chat</strong>
-                            <p style="color: var(--text-muted); font-size: 0.9rem;" data-i18n="prod_feat1_desc">Speak naturally and receive instant responses with advanced voice recognition</p>
+                <div class="product-showcase">
+                    <div class="showcase-header">
+                        <div class="paperagent-logo">📄</div>
+                        <div class="echomind-title">
+                            <h3>PaperAgent</h3>
+                            <p>Stay focused on ideas, not paper workflow</p>
                         </div>
                     </div>
-                    <div class="showcase-feature">
-                        <div class="check-icon"></div>
-                        <div>
-                            <strong data-i18n="prod_feat2_title">Custom Voice Models</strong>
-                            <p style="color: var(--text-muted); font-size: 0.9rem;" data-i18n="prod_feat2_desc">Choose from multiple AI personalities with distinct voice characteristics</p>
+                    <div class="showcase-features">
+                        <div class="showcase-feature">
+                            <div class="check-icon"></div>
+                            <div>
+                                <strong>Idea-first drafting</strong>
+                                <p style="color: var(--text-muted); font-size: 0.9rem;">Capture concepts fast, then expand with structured sections.</p>
+                            </div>
+                        </div>
+                        <div class="showcase-feature">
+                            <div class="check-icon"></div>
+                            <div>
+                                <strong>Reference management</strong>
+                                <p style="color: var(--text-muted); font-size: 0.9rem;">Organize sources and citations while you write.</p>
+                            </div>
+                        </div>
+                        <div class="showcase-feature">
+                            <div class="check-icon"></div>
+                            <div>
+                                <strong>Publish-ready outputs</strong>
+                                <p style="color: var(--text-muted); font-size: 0.9rem;">Export clean drafts for sharing or submission.</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="showcase-feature">
-                        <div class="check-icon"></div>
-                        <div>
-                            <strong data-i18n="prod_feat3_title">Language Enhancement</strong>
-                            <p style="color: var(--text-muted); font-size: 0.9rem;" data-i18n="prod_feat3_desc">Automatic pronunciation guides and grammar analysis for language learners</p>
-                        </div>
+                    <div class="showcase-actions">
+                        <small><a href="https://github.com/lachlanchen/PaperAgent" target="_blank" rel="noopener" style="color: var(--accent); text-decoration:none;">GitHub →</a></small>
+                        <a href="https://paper.lazying.art" class="secondary-button">paper.lazying.art</a>
                     </div>
-                    <div class="showcase-feature">
-                        <div class="check-icon"></div>
-                        <div>
-                            <strong data-i18n="prod_feat4_title">Social Features</strong>
-                            <p style="color: var(--text-muted); font-size: 0.9rem;" data-i18n="prod_feat4_desc">Connect with friends, share posts, and practice languages together</p>
-                        </div>
-                    </div>
+                </div>
             </div>
             <div class="product-info">
                 <span class="section-tag" data-i18n="product_tag">FLAGSHIP PRODUCT</span>
