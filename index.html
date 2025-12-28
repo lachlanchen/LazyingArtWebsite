@@ -264,6 +264,42 @@
             z-index: 10;
         }
 
+        .top-banner {
+            width: 100%;
+            padding: 6rem 5% 3.5rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .top-banner-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            gap: 2rem;
+        }
+
+        .top-banner-title {
+            font-size: clamp(2.4rem, 4.6vw, 3.6rem);
+            font-weight: 900;
+            line-height: 1.1;
+            background: linear-gradient(135deg, var(--light) 0%, var(--primary) 45%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .top-banner-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 760px;
+            line-height: 1.6;
+        }
+
+        .top-banner-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.85rem;
+        }
+
         .hero-content {
             max-width: 1400px;
             display: grid;
@@ -1170,6 +1206,34 @@
             </button>
         </div>
     </nav>
+
+    <section class="top-banner">
+        <div class="top-banner-inner">
+            <h1 class="top-banner-title">以AI創新連結世界</h1>
+            <p class="top-banner-subtitle">在LazyingArt，我們相信溝通應當簡單而自然。我們的AI打破藩籬，讓交流和创造像對話一樣輕鬆。</p>
+            <div class="top-banner-actions">
+                <a href="https://chat.lazying.art" class="cta-button">啟動 EchoMind</a>
+                <a href="#features" class="secondary-button">瀏覽功能</a>
+                <a href="https://onlyideas.art" class="secondary-button onlyideas-button" target="_blank" rel="noopener noreferrer">造訪 OnlyIdeas</a>
+                <a href="https://coin.lazying.art" class="secondary-button coin-button" target="_blank" rel="noopener noreferrer">了解 LazyingArt Coin</a>
+                <a href="https://coin.lazying.art" class="secondary-button metamask-button" target="_blank" rel="noopener noreferrer">加入 MetaMask</a>
+            </div>
+            <div class="stats-grid">
+                <div class="stat">
+                    <div class="stat-number">100+</div>
+                    <div class="stat-label">支援語言</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">50K+</div>
+                    <div class="stat-label">活躍用戶</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">AI 可用</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Product Section -->
     <section class="product" id="product">
