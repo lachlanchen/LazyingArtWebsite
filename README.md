@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="figs/banner.png" alt="LazyingArt banner" />
+</p>
+
 # LazyingArt - Official Website
 
 [![Website](https://img.shields.io/website?url=https%3A%2F%2Flazying.art)](https://lazying.art)
