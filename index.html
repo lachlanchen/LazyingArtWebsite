@@ -23,10 +23,35 @@
             --primary: #667eea;
             --secondary: #764ba2;
             --accent: #f093fb;
+            --bg-start: #f6f4ff;
+            --bg-end: #e7f2ff;
+            --dark: #f0f4ff;
+            --light: #0f172a;
+            --glass: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(15, 23, 42, 0.12);
+            --nav-solid: rgba(255, 255, 255, 0.92);
+            --control-bg: rgba(15, 23, 42, 0.06);
+            --control-border: rgba(15, 23, 42, 0.16);
+            --text-muted: rgba(15, 23, 42, 0.72);
+            --text-soft: rgba(15, 23, 42, 0.6);
+            --glow: rgba(15, 23, 42, 0.12);
+            --particle: rgba(102, 126, 234, 0.35);
+        }
+
+        body[data-theme="dark"] {
+            --bg-start: #0f0f23;
+            --bg-end: #1a1a3e;
             --dark: #0f0f23;
             --light: #ffffff;
             --glass: rgba(255, 255, 255, 0.1);
             --glass-border: rgba(255, 255, 255, 0.2);
+            --nav-solid: rgba(15, 15, 35, 0.95);
+            --control-bg: rgba(255, 255, 255, 0.06);
+            --control-border: rgba(255, 255, 255, 0.2);
+            --text-muted: rgba(255, 255, 255, 0.8);
+            --text-soft: rgba(255, 255, 255, 0.6);
+            --glow: rgba(255, 255, 255, 0.1);
+            --particle: rgba(240, 147, 251, 0.3);
         }
 
         html {
@@ -36,7 +61,7 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 100%);
+            background: linear-gradient(135deg, var(--bg-start) 0%, var(--bg-end) 100%);
             color: var(--light);
             overflow-x: hidden;
             position: relative;
@@ -57,7 +82,7 @@
             position: absolute;
             width: 4px;
             height: 4px;
-            background: var(--accent);
+            background: var(--particle);
             border-radius: 50%;
             animation: float 20s infinite linear;
             opacity: 0.3;
@@ -87,7 +112,7 @@
 
         nav.scrolled {
             padding: 1rem 5%;
-            background: rgba(15, 15, 35, 0.95);
+            background: var(--nav-solid);
         }
 
         .nav-container {
@@ -131,6 +156,7 @@
         }
 
         .lang-wrap { display: flex; align-items: center; gap: 0.5rem; margin-left: 0.5rem; }
+        .theme-wrap { display: flex; align-items: center; margin-left: 0.5rem; }
         #langFlag { width: 20px; height: 14px; display: inline-block; border-radius: 2px; background-size: cover; background-position: center; }
         /* flag-icons (CDN) support */
         .fi { margin-right: 0; }
@@ -141,9 +167,9 @@
             appearance: none;
             -webkit-appearance: none;
             -moz-appearance: none;
-            background: rgba(255,255,255,0.06);
+            background: var(--control-bg);
             color: var(--light);
-            border: 1px solid var(--glass-border);
+            border: 1px solid var(--control-border);
             border-radius: 999px;
             padding: 0.5rem 1rem;
             font-weight: 600;
@@ -151,6 +177,30 @@
         }
         .lang-select:focus { outline: none; box-shadow: 0 0 0 2px rgba(102,126,234,0.4); }
         .lang-select option { color: #111; }
+
+        .theme-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            padding: 0.45rem 0.9rem;
+            border-radius: 999px;
+            border: 1px solid var(--control-border);
+            background: var(--control-bg);
+            color: var(--light);
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .theme-toggle:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 8px 20px rgba(15, 23, 42, 0.1);
+        }
+
+        .theme-toggle .theme-icon {
+            font-size: 1rem;
+            line-height: 1;
+        }
 
         .nav-links a::after {
             content: '';
@@ -239,7 +289,7 @@
 
         .hero-text p {
             font-size: 1.25rem;
-            color: rgba(255, 255, 255, 0.8);
+            color: var(--text-muted);
             margin-bottom: 2rem;
             line-height: 1.6;
         }
@@ -256,7 +306,7 @@
             background: transparent;
             border: 2px solid var(--glass-border);
             border-radius: 50px;
-            color: white;
+            color: var(--light);
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -276,7 +326,7 @@
 
         .onlyideas-button:hover {
             background: rgba(240, 147, 251, 0.12);
-            color: white;
+            color: var(--light);
         }
 
         .coin-button {
@@ -342,7 +392,7 @@
             display: grid;
             gap: 1rem;
             margin-top: 1.5rem;
-            color: rgba(255, 255, 255, 0.78);
+            color: var(--text-muted);
         }
 
         .coin-list li {
@@ -507,7 +557,7 @@
 
         .section-subtitle {
             font-size: 1.1rem;
-            color: rgba(255, 255, 255, 0.7);
+            color: var(--text-muted);
             max-width: 600px;
             margin: 0 auto;
         }
@@ -571,7 +621,7 @@
         }
 
         .feature-description {
-            color: rgba(255, 255, 255, 0.7);
+            color: var(--text-muted);
             line-height: 1.6;
         }
 
@@ -630,7 +680,7 @@
         }
 
         .echomind-title p {
-            color: rgba(255, 255, 255, 0.7);
+            color: var(--text-muted);
         }
 
         .showcase-features {
@@ -673,7 +723,7 @@
 
         .product-info p {
             font-size: 1.1rem;
-            color: rgba(255, 255, 255, 0.8);
+            color: var(--text-muted);
             line-height: 1.6;
             margin-bottom: 2rem;
         }
@@ -698,7 +748,7 @@
         }
 
         .stat-label {
-            color: rgba(255, 255, 255, 0.7);
+            color: var(--text-muted);
             font-size: 0.9rem;
         }
 
@@ -774,7 +824,7 @@
             right: -50%;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            background: radial-gradient(circle, var(--glow) 0%, transparent 70%);
             animation: rotate 20s linear infinite;
         }
 
@@ -836,7 +886,7 @@
         }
 
         .footer-links a {
-            color: rgba(255, 255, 255, 0.7);
+            color: var(--text-soft);
             text-decoration: none;
             transition: color 0.3s ease;
         }
@@ -974,8 +1024,8 @@
             backdrop-filter: blur(16px);
         }
         .ecosystem-card h3 { margin-bottom: 0.5rem; }
-        .ecosystem-card p { color: rgba(255,255,255,0.8); }
-        .ecosystem-card small { color: rgba(255,255,255,0.6); }
+        .ecosystem-card p { color: var(--text-muted); }
+        .ecosystem-card small { color: var(--text-soft); }
 
         /* IdeasGlass Section */
         .babel {
@@ -992,7 +1042,7 @@
             align-items: center;
         }
         .babel-visual .hero-card { min-height: 360px; }
-        .babel-list { color: rgba(255,255,255,0.85); line-height: 1.6; }
+        .babel-list { color: var(--text-muted); line-height: 1.6; }
         .badge-soon {
             display: inline-block; margin-left: 0.5rem; padding: 0.2rem 0.6rem;
             border-radius: 999px; font-size: 0.75rem; color: #fff;
@@ -1003,12 +1053,12 @@
             border: 2px dashed var(--glass-border);
             border-radius: 16px;
             padding: 1.25rem;
-            background: rgba(255,255,255,0.04);
+            background: var(--control-bg);
         }
         .prototype-actions { display: flex; gap: 0.75rem; margin-top: 0.75rem; }
         .button-disabled {
             padding: 0.8rem 1.4rem; border-radius: 50px; border: 2px solid var(--glass-border);
-            color: rgba(255,255,255,0.6); background: transparent; pointer-events: none; opacity: 0.6;
+            color: var(--text-soft); background: transparent; pointer-events: none; opacity: 0.6;
         }
 
         .more-wrap { text-align: center; margin-top: 2rem; }
@@ -1022,7 +1072,7 @@
         }
     </style>
 </head>
-<body>
+<body data-theme="light">
     <!-- Animated Particles Background -->
     <div class="particles" id="particles"></div>
 
@@ -1059,6 +1109,12 @@
                     <option value="ru">🇷🇺 Русский</option>
                     <option value="tr">🇹🇷 Türkçe</option>
                 </select>
+            </div>
+            <div class="theme-wrap">
+                <button class="theme-toggle" id="themeToggle" type="button" aria-pressed="false" aria-label="Toggle theme">
+                    <span class="theme-icon" aria-hidden="true">☀️</span>
+                    <span class="theme-label">Light</span>
+                </button>
             </div>
             <button class="mobile-menu-toggle" id="menuToggle">
                 <span></span>
@@ -1279,7 +1335,7 @@
                 </ul>
                 <div class="prototype-placeholder">
                     <strong data-i18n="glass_proto_title">Prototype Dock</strong>
-                    <p style="margin-top: 0.25rem; color: rgba(255,255,255,0.75)" data-i18n="glass_proto_desc">A live 3D model and demo video will appear here. The site runs normally without it.</p>
+                    <p style="margin-top: 0.25rem; color: var(--text-muted);" data-i18n="glass_proto_desc">A live 3D model and demo video will appear here. The site runs normally without it.</p>
                     <div class="prototype-actions">
                         <button class="button-disabled" aria-disabled="true" title="Coming soon" data-i18n="glass_proto_view">View Prototype</button>
                         <a href="mailto:contact@lazying.art" class="secondary-button" data-i18n="glass_proto_interest">Register Interest</a>
@@ -1350,28 +1406,28 @@
                         <div class="check-icon"></div>
                         <div>
                             <strong data-i18n="prod_feat1_title">Real-time Voice Chat</strong>
-                            <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem;" data-i18n="prod_feat1_desc">Speak naturally and receive instant responses with advanced voice recognition</p>
+                            <p style="color: var(--text-muted); font-size: 0.9rem;" data-i18n="prod_feat1_desc">Speak naturally and receive instant responses with advanced voice recognition</p>
                         </div>
                     </div>
                     <div class="showcase-feature">
                         <div class="check-icon"></div>
                         <div>
                             <strong data-i18n="prod_feat2_title">Custom Voice Models</strong>
-                            <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem;" data-i18n="prod_feat2_desc">Choose from multiple AI personalities with distinct voice characteristics</p>
+                            <p style="color: var(--text-muted); font-size: 0.9rem;" data-i18n="prod_feat2_desc">Choose from multiple AI personalities with distinct voice characteristics</p>
                         </div>
                     </div>
                     <div class="showcase-feature">
                         <div class="check-icon"></div>
                         <div>
                             <strong data-i18n="prod_feat3_title">Language Enhancement</strong>
-                            <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem;" data-i18n="prod_feat3_desc">Automatic pronunciation guides and grammar analysis for language learners</p>
+                            <p style="color: var(--text-muted); font-size: 0.9rem;" data-i18n="prod_feat3_desc">Automatic pronunciation guides and grammar analysis for language learners</p>
                         </div>
                     </div>
                     <div class="showcase-feature">
                         <div class="check-icon"></div>
                         <div>
                             <strong data-i18n="prod_feat4_title">Social Features</strong>
-                            <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem;" data-i18n="prod_feat4_desc">Connect with friends, share posts, and practice languages together</p>
+                            <p style="color: var(--text-muted); font-size: 0.9rem;" data-i18n="prod_feat4_desc">Connect with friends, share posts, and practice languages together</p>
                         </div>
                     </div>
             </div>
@@ -1413,7 +1469,7 @@
                 </div>
                 <div class="coin-card">
                     <h3 data-i18n="coin_card_cta_title">Add LazyingArtCoin</h3>
-                    <p style="color: rgba(255,255,255,0.75);" data-i18n="coin_cta_desc">Open the token hub to add LAC to MetaMask and view the latest contract details.</p>
+                    <p style="color: var(--text-muted);" data-i18n="coin_cta_desc">Open the token hub to add LAC to MetaMask and view the latest contract details.</p>
                     <div class="coin-actions">
                         <a href="https://coin.lazying.art" class="cta-button" data-i18n="coin_cta_primary">Add to MetaMask</a>
                         <a href="https://coin.lazying.art" class="secondary-button metamask-button" data-i18n="coin_cta_secondary">Open coin.lazying.art</a>
@@ -1478,7 +1534,7 @@
                     <img src="logos/logo.png" alt="LazyingArt logo" />
                     <span class="logo-text">LazyingArt</span>
                 </div>
-                <p id="footerCopy" style="color: rgba(255,255,255,0.7);" data-i18n="footer_copyright">© 2024 LazyingArt. All rights reserved.</p>
+                <p id="footerCopy" style="color: var(--text-soft);" data-i18n="footer_copyright">© 2024 LazyingArt. All rights reserved.</p>
             </div>
             <div class="footer-links">
                 <a href="https://chat.lazying.art">EchoMind</a>
@@ -2949,6 +3005,24 @@
                 startTyping();
             });
         }
+
+        function applyTheme(theme) {
+            const toggle = document.getElementById('themeToggle');
+            const isDark = theme === 'dark';
+            document.body.dataset.theme = theme;
+            toggle.setAttribute('aria-pressed', isDark ? 'true' : 'false');
+            toggle.querySelector('.theme-icon').textContent = isDark ? '🌙' : '☀️';
+            toggle.querySelector('.theme-label').textContent = isDark ? 'Dark' : 'Light';
+        }
+
+        const savedTheme = localStorage.getItem('theme');
+        const initialTheme = savedTheme || 'light';
+        applyTheme(initialTheme);
+        document.getElementById('themeToggle').addEventListener('click', () => {
+            const nextTheme = document.body.dataset.theme === 'dark' ? 'light' : 'dark';
+            localStorage.setItem('theme', nextTheme);
+            applyTheme(nextTheme);
+        });
 
         // Particle Animation
         function createParticles() {
