@@ -776,6 +776,11 @@
             flex-wrap: wrap;
         }
 
+        .showcase-actions .link-sep {
+            color: var(--text-soft);
+            font-weight: 600;
+        }
+
         .showcase-feature {
             display: flex;
             align-items: start;
@@ -998,13 +1003,14 @@
             align-items: center;
             justify-content: center;
             text-decoration: none;
-            color: white;
+            color: var(--light);
             transition: all 0.3s ease;
         }
 
         .social-link:hover {
             background: var(--primary);
             transform: translateY(-3px);
+            color: #fff;
         }
 
         /* Mobile Menu */
@@ -1172,9 +1178,10 @@
                 <span class="logo-text">LazyingArt</span>
             </a>
             <div class="nav-links" id="navLinks">
-                <a href="#features" data-i18n="nav_features">Features</a>
+                <a href="#ecosystem" data-i18n="nav_features">Features</a>
                 <a href="#coin" data-i18n="nav_coin">LAC</a>
                 <a href="#product">EchoMind</a>
+                <a href="https://onlyideas.art" target="_blank" rel="noopener noreferrer">OnlyIdeas</a>
                 <a href="#babelglass">IdeasGlass</a>
                 <a href="#company" data-i18n="nav_about">About</a>
                 <a href="#contact" data-i18n="nav_contact">Contact</a>
@@ -1302,7 +1309,8 @@
                     </div>
                     <div class="showcase-actions">
                         <a href="https://paper.lazying.art" class="secondary-button">paper.lazying.art</a>
-                        <small><a href="https://github.com/lachlanchen/PaperAgent" target="_blank" rel="noopener" style="color: var(--accent); text-decoration:none;">GitHub →</a></small>
+                        <span class="link-sep" aria-hidden="true">→</span>
+                        <small><a href="https://github.com/lachlanchen/PaperAgent" target="_blank" rel="noopener" style="color: var(--accent); text-decoration:none;">GitHub</a></small>
                     </div>
                 </div>
             </div>
@@ -1644,7 +1652,7 @@
             </div>
             <div class="footer-links">
                 <a href="https://chat.lazying.art">EchoMind</a>
-                <a href="#features" data-i18n="nav_features">Features</a>
+                <a href="#ecosystem" data-i18n="nav_features">Features</a>
                 <a href="#company" data-i18n="nav_about">About</a>
                 <a href="mailto:contact@lazying.art" data-i18n="nav_contact">Contact</a>
                 <a href="#" data-i18n="footer_privacy">Privacy</a>
@@ -1664,7 +1672,7 @@
         const translations = {
             en: {
                 document_title: 'LazyingArt - Bridging Humanity Through AI Language Innovation',
-                nav_features: 'Features',
+                nav_features: 'Ecosystem',
                 nav_coin: 'LAC',
                 nav_about: 'About',
                 nav_contact: 'Contact',
@@ -1801,7 +1809,7 @@
             },
             ja: {
                 document_title: 'LazyingArt - AI言語イノベーションで人と人をつなぐ',
-                nav_features: '機能',
+                nav_features: 'エコシステム',
                 nav_coin: 'LAC',
                 nav_about: '私たちについて',
                 nav_contact: 'お問い合わせ',
@@ -1936,7 +1944,7 @@
             },
             'zh-Hans': {
                 document_title: 'LazyingArt - 用AI语言创新连接世界',
-                nav_features: '功能',
+                nav_features: '生态系统',
                 nav_coin: 'LAC',
                 nav_about: '关于',
                 nav_contact: '联系我们',
@@ -2072,7 +2080,7 @@
             },
             'zh-Hant': {
                 document_title: 'LazyingArt - 以AI語言創新連結世界',
-                nav_features: '功能',
+                nav_features: '生態系統',
                 nav_coin: 'LAC',
                 nav_about: '關於',
                 nav_contact: '聯絡我們',
@@ -2208,7 +2216,7 @@
             },
             ko: {
                 document_title: 'LazyingArt - AI 언어 혁신으로 사람을 잇다',
-                nav_features: '기능',
+                nav_features: '에코시스템',
                 nav_coin: 'LAC',
                 nav_about: '소개',
                 nav_contact: '문의',
@@ -2342,7 +2350,7 @@
             },
             ar: {
                 document_title: 'LazyingArt - ربط البشر بابتكار لغوي مدعوم بالذكاء الاصطناعي',
-                nav_features: 'الميزات',
+                nav_features: 'المنظومة',
                 nav_coin: 'LAC',
                 nav_about: 'من نحن',
                 nav_contact: 'اتصل بنا',
@@ -2476,7 +2484,7 @@
             },
             vi: {
                 document_title: 'LazyingArt - Kết nối con người bằng đổi mới ngôn ngữ AI',
-                nav_features: 'Tính năng',
+                nav_features: 'Hệ sinh thái',
                 nav_coin: 'LAC',
                 nav_about: 'Giới thiệu',
                 nav_contact: 'Liên hệ',
@@ -2610,7 +2618,7 @@
             },
             fr: {
                 document_title: 'LazyingArt - Relier l’humanité grâce à l’IA linguistique',
-                nav_features: 'Fonctionnalités',
+                nav_features: 'Écosystème',
                 nav_coin: 'LAC',
                 nav_about: 'À propos',
                 nav_contact: 'Contact',
@@ -2744,7 +2752,7 @@
             },
             es: {
                 document_title: 'LazyingArt - Uniendo a la humanidad con innovación lingüística IA',
-                nav_features: 'Funciones',
+                nav_features: 'Ecosistema',
                 nav_coin: 'LAC',
                 nav_about: 'Acerca de',
                 nav_contact: 'Contacto',
@@ -2878,7 +2886,7 @@
             },
             pt: {
                 document_title: 'LazyingArt - Conectando pessoas com inovação linguística IA',
-                nav_features: 'Recursos',
+                nav_features: 'Ecossistema',
                 nav_coin: 'LAC',
                 nav_about: 'Sobre',
                 nav_contact: 'Contato',
@@ -3012,7 +3020,7 @@
             },
             de: {
                 document_title: 'LazyingArt - Menschen verbinden durch KI-Sprachinnovation',
-                nav_features: 'Funktionen',
+                nav_features: 'Ökosystem',
                 nav_coin: 'LAC',
                 nav_about: 'Über uns',
                 nav_contact: 'Kontakt',
@@ -3148,7 +3156,7 @@
             },
             ru: {
                 document_title: 'LazyingArt - Соединяем людей языковыми инновациями ИИ',
-                nav_features: 'Возможности',
+                nav_features: 'Экосистема',
                 nav_coin: 'LAC',
                 nav_about: 'О нас',
                 nav_contact: 'Контакты',
@@ -3282,7 +3290,7 @@
             },
             tr: {
                 document_title: 'LazyingArt - Yapay zekâ dil inovasyonuyla insanları birleştiriyoruz',
-                nav_features: 'Özellikler',
+                nav_features: 'Ekosistem',
                 nav_coin: 'LAC',
                 nav_about: 'Hakkımızda',
                 nav_contact: 'İletişim',
