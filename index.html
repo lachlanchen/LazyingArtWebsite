@@ -101,7 +101,7 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: 0.6rem;
             text-decoration: none;
         }
 
@@ -109,6 +109,14 @@
             height: 36px;
             width: auto;
             display: block;
+        }
+
+        .logo-text {
+            font-size: 1.6rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .nav-links { display: flex; gap: 1.1rem; align-items: center; }
@@ -1022,7 +1030,8 @@
     <nav id="navbar">
         <div class="nav-container">
             <a href="#" class="logo" aria-label="LazyingArt">
-                <img src="logo.png" alt="LazyingArt logo" />
+                <img src="logos/logo.png" alt="LazyingArt logo" />
+                <span class="logo-text">LazyingArt</span>
             </a>
             <div class="nav-links" id="navLinks">
                 <a href="#features" data-i18n="nav_features">Features</a>
@@ -1466,7 +1475,8 @@
         <div class="footer-container">
             <div>
                 <div class="logo" style="margin-bottom: 1rem;" aria-label="LazyingArt">
-                    <img src="logo.png" alt="LazyingArt logo" />
+                    <img src="logos/logo.png" alt="LazyingArt logo" />
+                    <span class="logo-text">LazyingArt</span>
                 </div>
                 <p id="footerCopy" style="color: rgba(255,255,255,0.7);" data-i18n="footer_copyright">© 2024 LazyingArt. All rights reserved.</p>
             </div>
