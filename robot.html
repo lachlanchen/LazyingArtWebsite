@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LazyingArt Robot — LazyingArt</title>
+  <meta name="description" content="LazyingArt Robot — modular, programmable humanoid platform for creators and educators.">
+  <link rel="icon" href="favicon.ico" sizes="any" type="image/x-icon">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --primary: #667eea;
+      --secondary: #764ba2;
+      --accent: #f093fb;
+      --bg-start: #f6f4ff;
+      --bg-end: #e7f2ff;
+      --dark: #f0f4ff;
+      --light: #0f172a;
+      --glass: rgba(255, 255, 255, 0.7);
+      --glass-border: rgba(15, 23, 42, 0.12);
+      --nav-solid: rgba(255, 255, 255, 0.92);
+      --text-muted: rgba(15, 23, 42, 0.72);
+      --text-soft: rgba(15, 23, 42, 0.6);
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: linear-gradient(135deg, var(--bg-start) 0%, var(--bg-end) 100%);
+      color: var(--light);
+      min-height: 100vh;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      background: var(--nav-solid);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--glass-border);
+      z-index: 1000;
+      padding: 0.75rem 5%;
+    }
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--light);
+      font-weight: 700;
+    }
+
+    .logo img { height: 36px; width: 36px; }
+    .nav-links { display: flex; gap: 1rem; align-items: center; }
+    .nav-links a { color: var(--light); text-decoration: none; font-weight: 600; }
+
+    .cta-button {
+      padding: 0.6rem 1.4rem;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      display: inline-block;
+    }
+
+    .secondary-button {
+      padding: 0.5rem 1.2rem;
+      border-radius: 999px;
+      border: 2px solid var(--glass-border);
+      color: var(--light);
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-block;
+      background: transparent;
+    }
+
+    .mobile-menu-toggle { display: none; }
+
+    main {
+      max-width: 1200px;
+      margin: 2.5rem auto 4rem;
+      padding: 0 5%;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .product-hero {
+      width: 100%;
+      border-radius: 24px;
+      border: 1px solid var(--glass-border);
+      overflow: hidden;
+      background: var(--glass);
+    }
+
+    .product-hero img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .product-header h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 0.5rem;
+    }
+
+    .product-header p { color: var(--text-muted); }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .product-copy {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 24px;
+      padding: 2rem;
+      line-height: 1.7;
+      color: var(--text-muted);
+    }
+
+    .buy-card {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 24px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      align-items: center;
+      text-align: center;
+    }
+
+    .buy-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    .buy-links a { color: var(--accent); text-decoration: none; font-weight: 600; }
+
+    @media (max-width: 980px) {
+      .nav-links { display: none; }
+      .product-grid { grid-template-columns: 1fr; }
+      .mobile-menu-toggle { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-container">
+      <a href="index.html" class="logo" aria-label="LazyingArt">
+        <img src="logos/logo.png" alt="LazyingArt logo" />
+        <span>LazyingArt</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html#ecosystem">Ecosystem</a>
+        <a href="index.html#coin">LAC</a>
+        <a href="index.html#company">About</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="https://chat.lazying.art" class="cta-button">Try EchoMind</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <div class="product-header">
+      <h1>LazyingArt Robot</h1>
+      <p>Modular humanoid for creators and educators.</p>
+    </div>
+
+    <div class="product-hero">
+      <img src="demos/LazyingArtRobot.png" alt="LazyingArt Robot demo" />
+    </div>
+
+    <div class="product-grid">
+      <div class="product-copy">
+        <p>Modular, programmable humanoid platform with precision joints and an extensible control stack for AI experiments, classrooms, and creative motion. Built for The Art of Lazying so you can focus on ideas, interaction, and innovation as it evolves with LazyingArt software.</p>
+      </div>
+      <div class="buy-card">
+        <stripe-buy-button
+          buy-button-id="buy_btn_1SupA8PgZSaFNSv0mB7gMNq4"
+          publishable-key="pk_live_51SiAfEPgZSaFNSv0Z4SVoc1TyqawZcC34wl8dbd7NCZqFaEhfLhNJ0jIkgcGQcRp9yaDnno4yZTSuK1kI6EYkOhp00bsxcJePU"
+        >
+        </stripe-buy-button>
+        <div class="buy-links">
+          <a href="https://robot.lazying.art">robot.lazying.art</a>
+          <a href="https://github.com/lachlanchen/IdeasRobot" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script async src="https://js.stripe.com/v3/buy-button.js"></script>
+</body>
+</html>
