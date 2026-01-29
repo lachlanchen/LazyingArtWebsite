@@ -759,6 +759,37 @@
             display: block;
         }
 
+        .carousel-slide--placeholder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.18), rgba(240, 147, 251, 0.22));
+            color: var(--light);
+            text-align: center;
+        }
+
+        .carousel-placeholder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.65rem;
+            padding: 2rem;
+        }
+
+        .carousel-placeholder-icon {
+            font-size: 2.5rem;
+        }
+
+        .carousel-placeholder h4 {
+            font-size: clamp(1.2rem, 2vw, 1.6rem);
+            margin: 0;
+        }
+
+        .carousel-placeholder p {
+            margin: 0;
+            color: var(--text-muted);
+        }
+
         .carousel-dots {
             position: absolute;
             right: 1.25rem;
@@ -814,6 +845,18 @@
             flex-direction: column;
             justify-content: center;
             text-align: center;
+        }
+
+        .carousel-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .carousel-note {
+            color: var(--text-soft);
+            font-size: 0.85rem;
+            line-height: 1.4;
         }
 
         .carousel-buy-actions .secondary-button,
@@ -1456,26 +1499,34 @@
             <div class="product-carousel-wrap">
                 <div class="product-carousel" aria-label="Product demos" role="region">
                     <div class="carousel-track">
-                        <figure class="carousel-slide is-active">
-                            <img src="docs/demos/LazyingArtRobot.png" alt="LazyingArt Robot demo" loading="lazy">
-                        </figure>
-                        <figure class="carousel-slide">
-                            <img src="docs/demos/words_card_arabic.JPG" alt="EinkWordsGPT Arabic words card" loading="lazy">
-                        </figure>
-                    </div>
-                    <div class="carousel-controls">
-                        <button class="carousel-control carousel-prev" type="button" aria-label="Previous slide">‹</button>
-                        <button class="carousel-control carousel-next" type="button" aria-label="Next slide">›</button>
-                    </div>
-                    <div class="carousel-dots" role="tablist" aria-label="Carousel navigation">
-                        <button class="carousel-dot is-active" type="button" aria-label="Show slide 1"></button>
-                        <button class="carousel-dot" type="button" aria-label="Show slide 2"></button>
-                    </div>
+                    <figure class="carousel-slide is-active">
+                        <img src="docs/demos/LazyingArtRobot.png" alt="LazyingArt Robot demo" loading="lazy">
+                    </figure>
+                    <figure class="carousel-slide">
+                        <img src="docs/demos/words_card_arabic.JPG" alt="EinkWordsGPT Arabic words card" loading="lazy">
+                    </figure>
+                    <figure class="carousel-slide carousel-slide--placeholder">
+                        <div class="carousel-placeholder">
+                            <div class="carousel-placeholder-icon">🔬</div>
+                            <h4 data-i18n="openhi_title">LazyingArt Robot</h4>
+                            <p data-i18n="openhi_subtitle">Modular, programmable humanoid kit</p>
+                        </div>
+                    </figure>
                 </div>
-                <aside class="carousel-buy" aria-live="polite">
-                    <div class="carousel-buy-card is-active" data-slide="0">
-                        <h3 data-i18n="robot_title">LazyingArt Robot</h3>
-                        <p data-i18n="robot_subtitle">Modular humanoid for creators and educators</p>
+                <div class="carousel-controls">
+                    <button class="carousel-control carousel-prev" type="button" aria-label="Previous slide">‹</button>
+                    <button class="carousel-control carousel-next" type="button" aria-label="Next slide">›</button>
+                </div>
+                <div class="carousel-dots" role="tablist" aria-label="Carousel navigation">
+                    <button class="carousel-dot is-active" type="button" aria-label="Show slide 1"></button>
+                    <button class="carousel-dot" type="button" aria-label="Show slide 2"></button>
+                    <button class="carousel-dot" type="button" aria-label="Show slide 3"></button>
+                </div>
+            </div>
+            <aside class="carousel-buy" aria-live="polite">
+                <div class="carousel-buy-card is-active" data-slide="0">
+                    <h3 data-i18n="robot_title">LazyingArt Robot</h3>
+                    <p data-i18n="robot_subtitle">Modular humanoid for creators and educators</p>
                         <div class="carousel-buy-actions">
                             <stripe-buy-button
                               buy-button-id="buy_btn_1SupA8PgZSaFNSv0mB7gMNq4"
@@ -1486,21 +1537,35 @@
                             <small><a href="https://github.com/lachlanchen/IdeasRobot" target="_blank" rel="noopener" style="color: var(--accent); text-decoration:none;">GitHub →</a></small>
                         </div>
                     </div>
-                    <div class="carousel-buy-card" data-slide="1">
-                        <h3 data-i18n="eink_title">EinkWordsGPT</h3>
-                        <p data-i18n="eink_subtitle">E-ink vocabulary companion</p>
-                        <div class="carousel-buy-actions">
-                            <stripe-buy-button
-                              buy-button-id="buy_btn_1SuoaBPgZSaFNSv0CXSOHVMY"
-                              publishable-key="pk_live_51SiAfEPgZSaFNSv0Z4SVoc1TyqawZcC34wl8dbd7NCZqFaEhfLhNJ0jIkgcGQcRp9yaDnno4yZTSuK1kI6EYkOhp00bsxcJePU"
-                            >
-                            </stripe-buy-button>
-                            <a href="https://lazying.art/#einkwordsgpt" class="secondary-button">lazying.art</a>
-                            <small><a href="https://github.com/lachlanchen/EinkWordsGPT" target="_blank" rel="noopener" style="color: var(--accent); text-decoration:none;">GitHub →</a></small>
-                        </div>
+                <div class="carousel-buy-card" data-slide="1">
+                    <h3 data-i18n="eink_title">EinkWordsGPT</h3>
+                    <p data-i18n="eink_subtitle">E-ink vocabulary companion</p>
+                    <div class="carousel-buy-actions">
+                        <stripe-buy-button
+                          buy-button-id="buy_btn_1SuoaBPgZSaFNSv0CXSOHVMY"
+                          publishable-key="pk_live_51SiAfEPgZSaFNSv0Z4SVoc1TyqawZcC34wl8dbd7NCZqFaEhfLhNJ0jIkgcGQcRp9yaDnno4yZTSuK1kI6EYkOhp00bsxcJePU"
+                        >
+                        </stripe-buy-button>
+                        <a href="https://lazying.art/#einkwordsgpt" class="secondary-button">lazying.art</a>
+                        <small><a href="https://github.com/lachlanchen/EinkWordsGPT" target="_blank" rel="noopener" style="color: var(--accent); text-decoration:none;">GitHub →</a></small>
                     </div>
-                </aside>
-            </div>
+                </div>
+                <div class="carousel-buy-card" data-slide="2">
+                    <h3 data-i18n="openhi_title">LazyingArt Robot</h3>
+                    <p class="carousel-desc" data-i18n="openhi_desc">LazyingArt Robot is a modular, programmable humanoid robot designed for creators, educators, and researchers. Featuring precision joints, a stable humanoid structure, and an extensible control architecture, it supports AI experimentation, robotics education, and creative exploration. Built under the philosophy of The Art of Lazying, it lowers complexity so you can focus on ideas, interaction, and innovation. Designed to evolve with future LazyingArt software and AI agents.</p>
+                    <p class="carousel-note" data-i18n="openhi_note">* Note: No tube lens, camera, or optics table included. Kit includes the 3D-printed parts, 4f system, PCB, LED, and motor.</p>
+                    <div class="carousel-buy-actions">
+                        <stripe-buy-button
+                          buy-button-id="buy_btn_1SuptFPgZSaFNSv00AIp3rFy"
+                          publishable-key="pk_live_51SiAfEPgZSaFNSv0Z4SVoc1TyqawZcC34wl8dbd7NCZqFaEhfLhNJ0jIkgcGQcRp9yaDnno4yZTSuK1kI6EYkOhp00bsxcJePU"
+                        >
+                        </stripe-buy-button>
+                        <a href="https://robot.lazying.art" class="secondary-button">robot.lazying.art</a>
+                        <small><a href="https://github.com/lachlanchen/OpenHI" target="_blank" rel="noopener" style="color: var(--accent); text-decoration:none;">GitHub →</a></small>
+                    </div>
+                </div>
+            </aside>
+        </div>
             <div class="product-panels">
                 <div class="product-showcase" id="einkwordsgpt">
                     <div class="showcase-header">
@@ -2263,6 +2328,10 @@
                 robot_feat2_desc: 'Extensible architecture for AI experiments, robotics classes, and creative motion.',
                 robot_feat3_title: 'Built for The Art of Lazying',
                 robot_feat3_desc: 'Lower complexity so you can focus on ideas, interaction, and innovation.',
+                openhi_title: 'LazyingArt Robot',
+                openhi_subtitle: 'Modular, programmable humanoid kit',
+                openhi_desc: 'LazyingArt Robot is a modular, programmable humanoid robot designed for creators, educators, and researchers. Featuring precision joints, a stable humanoid structure, and an extensible control architecture, it supports AI experimentation, robotics education, and creative exploration. Built under the philosophy of The Art of Lazying, it lowers complexity so you can focus on ideas, interaction, and innovation. Designed to evolve with future LazyingArt software and AI agents.',
+                openhi_note: '* Note: No tube lens, camera, or optics table included. Kit includes the 3D-printed parts, 4f system, PCB, LED, and motor.',
                 hero_flagship_tag: 'FLAGSHIP PRODUCT',
                 hero_flagship_title: 'Bridging Humanity Through AI Language Innovation',
                 hero_flagship_p1: "EchoMind isn't just another chatbot – it's your gateway to effortless global communication. Built on our proprietary voice and language stack, EchoMind understands not just what you say, but how you want to say it.",
