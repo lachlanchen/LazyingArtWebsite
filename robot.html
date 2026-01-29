@@ -19,8 +19,28 @@
       --glass: rgba(255, 255, 255, 0.7);
       --glass-border: rgba(15, 23, 42, 0.12);
       --nav-solid: rgba(255, 255, 255, 0.92);
+      --control-bg: rgba(15, 23, 42, 0.06);
+      --control-border: rgba(15, 23, 42, 0.16);
       --text-muted: rgba(15, 23, 42, 0.72);
       --text-soft: rgba(15, 23, 42, 0.6);
+    }
+
+    body[data-theme="dark"] {
+      --bg-start: #0f0f23;
+      --bg-end: #1a1a3e;
+      --dark: #0f0f23;
+      --light: #ffffff;
+      --glass: rgba(255, 255, 255, 0.1);
+      --glass-border: rgba(255, 255, 255, 0.2);
+      --nav-solid: rgba(15, 15, 35, 0.95);
+      --control-bg: rgba(255, 255, 255, 0.06);
+      --control-border: rgba(255, 255, 255, 0.2);
+      --text-muted: rgba(255, 255, 255, 0.8);
+      --text-soft: rgba(255, 255, 255, 0.6);
+    }
+
+    html {
+      scroll-padding-top: 80px;
     }
 
     body {
@@ -28,64 +48,151 @@
       background: linear-gradient(135deg, var(--bg-start) 0%, var(--bg-end) 100%);
       color: var(--light);
       min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
     }
 
     nav {
-      position: sticky;
+      position: fixed;
       top: 0;
       width: 100%;
-      background: var(--nav-solid);
-      backdrop-filter: blur(12px);
+      padding: 1.1rem 5%;
+      background: var(--glass);
+      backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--glass-border);
       z-index: 1000;
-      padding: 0.75rem 5%;
+      transition: all 0.3s ease;
+    }
+
+    nav.scrolled {
+      padding: 1rem 5%;
+      background: var(--nav-solid);
     }
 
     .nav-container {
       max-width: 1400px;
       margin: 0 auto;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 1rem;
-      flex-wrap: wrap;
+      align-items: center;
     }
 
     .logo {
-      display: inline-flex;
+      display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 0.6rem;
       text-decoration: none;
+    }
+
+    .logo img {
+      height: 54px;
+      width: auto;
+      display: block;
+    }
+
+    .logo-text {
+      font-size: 1.6rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nav-links { display: flex; gap: 1.1rem; align-items: center; }
+    .nav-links a { font-size: 0.95rem; }
+
+    .nav-links a {
       color: var(--light);
-      font-weight: 700;
-    }
-
-    .logo img { height: 36px; width: 36px; }
-    .nav-links { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
-    .nav-links a { color: var(--light); text-decoration: none; font-weight: 600; }
-
-    .cta-button {
-      padding: 0.6rem 1.4rem;
-      border-radius: 999px;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      color: #fff;
       text-decoration: none;
-      font-weight: 700;
-      display: inline-block;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      position: relative;
     }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-controls { display: flex; align-items: center; gap: 0.5rem; margin-left: 0.5rem; }
+    .lang-wrap { display: flex; align-items: center; gap: 0.5rem; }
+    .theme-wrap { display: flex; align-items: center; }
+    #langFlag { width: 20px; height: 14px; display: inline-block; border-radius: 2px; }
 
     .lang-select {
-      border-radius: 999px;
-      border: 1px solid var(--glass-border);
-      background: rgba(255, 255, 255, 0.8);
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background: var(--control-bg);
       color: var(--light);
-      padding: 0.4rem 0.8rem;
+      border: 1px solid var(--control-border);
+      border-radius: 999px;
+      padding: 0.5rem 1rem;
       font-weight: 600;
+      cursor: pointer;
+    }
+    .lang-select:focus { outline: none; box-shadow: 0 0 0 2px rgba(102,126,234,0.4); }
+    .lang-select option { color: #111; }
+
+    .theme-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid var(--control-border);
+      background: var(--control-bg);
+      color: var(--light);
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .theme-toggle:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.1);
+    }
+
+    .theme-toggle .theme-icon { font-size: 1rem; line-height: 1; }
+
+    .cta-button {
+      padding: 0.8rem 2rem;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border: none;
+      border-radius: 50px;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .mobile-menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .mobile-menu-toggle span {
+      width: 24px;
+      height: 2px;
+      background: var(--light);
+      transition: all 0.3s ease;
     }
 
     main {
       max-width: 1200px;
-      margin: 2.5rem auto 4rem;
+      margin: 7rem auto 4rem;
       padding: 0 5%;
       display: flex;
       flex-direction: column;
@@ -208,42 +315,74 @@
       color: #fff;
     }
 
-    @media (max-width: 980px) {
-      .nav-links { display: none; }
+    @media (max-width: 968px) {
+      .mobile-menu-toggle { display: flex; }
+      .nav-controls { margin-left: auto; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(15, 15, 35, 0.98);
+        flex-direction: column;
+        padding: 2rem;
+        gap: 1rem;
+      }
+      .nav-links.active { display: flex; }
       .product-grid { grid-template-columns: 1fr; }
       .footer-container { flex-direction: column; text-align: center; }
     }
   </style>
 </head>
-<body>
-  <nav>
+<body data-theme="light">
+  <nav id="navbar">
     <div class="nav-container">
       <a href="index.html" class="logo" aria-label="LazyingArt">
-        <img src="logos/logo.png" alt="LazyingArt logo" />
-        <span>LazyingArt</span>
+        <img src="https://lazying.art/logos/logo.png" alt="LazyingArt logo" />
+        <span class="logo-text">LazyingArt</span>
       </a>
-      <div class="nav-links">
+      <div class="nav-links" id="navLinks">
         <a href="index.html#ecosystem" data-i18n="nav_features">Ecosystem</a>
         <a href="index.html#coin" data-i18n="nav_coin">LAC</a>
+        <a href="index.html#product">EchoMind</a>
+        <a href="https://onlyideas.art" target="_blank" rel="noopener noreferrer">OnlyIdeas</a>
+        <a href="index.html#babelglass">IdeasGlass</a>
         <a href="index.html#company" data-i18n="nav_about">About</a>
         <a href="index.html#contact" data-i18n="nav_contact">Contact</a>
         <a href="https://chat.lazying.art" class="cta-button" data-i18n="nav_try">Try EchoMind</a>
       </div>
-      <select id="langSelect" class="lang-select" aria-label="Language">
-        <option value="en">🇺🇸 English</option>
-        <option value="ja">🇯🇵 日本語</option>
-        <option value="zh-Hans">🇨🇳 简体中文</option>
-        <option value="zh-Hant">🇹🇼 繁體中文</option>
-        <option value="ko">🇰🇷 한국어</option>
-        <option value="ar">🇸🇦 العربية</option>
-        <option value="vi">🇻🇳 Tiếng Việt</option>
-        <option value="fr">🇫🇷 Français</option>
-        <option value="es">🇪🇸 Español</option>
-        <option value="pt">🇵🇹 Português</option>
-        <option value="de">🇩🇪 Deutsch</option>
-        <option value="ru">🇷🇺 Русский</option>
-        <option value="tr">🇹🇷 Türkçe</option>
-      </select>
+      <div class="nav-controls">
+        <div class="theme-wrap">
+          <button class="theme-toggle" id="themeToggle" type="button" aria-pressed="false" aria-label="Toggle theme">
+            <span class="theme-icon" aria-hidden="true">☀️</span>
+            <span class="theme-label">Light</span>
+          </button>
+        </div>
+        <div class="lang-wrap">
+          <span id="langFlag" aria-hidden="true"></span>
+          <select id="langSelect" class="lang-select" aria-label="Language">
+            <option value="en">🇺🇸 English</option>
+            <option value="ja">🇯🇵 日本語</option>
+            <option value="zh-Hans">🇨🇳 简体中文</option>
+            <option value="zh-Hant">🇹🇼 繁體中文</option>
+            <option value="ko">🇰🇷 한국어</option>
+            <option value="ar">🇸🇦 العربية</option>
+            <option value="vi">🇻🇳 Tiếng Việt</option>
+            <option value="fr">🇫🇷 Français</option>
+            <option value="es">🇪🇸 Español</option>
+            <option value="pt">🇵🇹 Português</option>
+            <option value="de">🇩🇪 Deutsch</option>
+            <option value="ru">🇷🇺 Русский</option>
+            <option value="tr">🇹🇷 Türkçe</option>
+          </select>
+        </div>
+      </div>
+      <button class="mobile-menu-toggle" id="menuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </nav>
 
@@ -279,8 +418,8 @@
     <div class="footer-container">
       <div>
         <div class="logo" style="margin-bottom: 1rem;" aria-label="LazyingArt">
-          <img src="logos/logo.png" alt="LazyingArt logo" />
-          <span>LazyingArt</span>
+          <img src="https://lazying.art/logos/logo.png" alt="LazyingArt logo" />
+          <span class="logo-text">LazyingArt</span>
         </div>
         <p id="footerCopy" style="color: var(--text-soft);" data-i18n="footer_copyright">© 2024 LazyingArt LLC. All rights reserved.</p>
       </div>
@@ -500,6 +639,22 @@
       });
       document.title = dict.document_title || translations.en.document_title;
       document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+      setLangFlagIcon(lang);
+    }
+
+    function langToEmoji(lang) {
+      const map = {
+        en: '🇺🇸', ja: '🇯🇵', 'zh-Hans': '🇨🇳', 'zh-Hant': '🇹🇼', ko: '🇰🇷', ar: '🇸🇦',
+        vi: '🇻🇳', fr: '🇫🇷', es: '🇪🇸', pt: '🇵🇹', de: '🇩🇪', ru: '🇷🇺', tr: '🇹🇷'
+      };
+      return map[lang] || '🏳️';
+    }
+
+    function setLangFlagIcon(lang) {
+      const el = document.getElementById('langFlag');
+      if (!el) return;
+      el.textContent = langToEmoji(lang);
+      el.style.display = 'inline-block';
     }
 
     function chooseLangFromNavigator() {
@@ -520,6 +675,42 @@
       document.documentElement.lang = next.startsWith('zh') ? 'zh' : next;
       applyTranslations(next);
     });
+
+    function applyTheme(theme) {
+      const toggle = document.getElementById('themeToggle');
+      const isDark = theme === 'dark';
+      document.body.dataset.theme = theme;
+      if (!toggle) return;
+      toggle.setAttribute('aria-pressed', isDark ? 'true' : 'false');
+      toggle.querySelector('.theme-icon').textContent = isDark ? '🌙' : '☀️';
+      toggle.querySelector('.theme-label').textContent = isDark ? 'Dark' : 'Light';
+    }
+
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    applyTheme(savedTheme);
+    const themeToggle = document.getElementById('themeToggle');
+    if (themeToggle) {
+      themeToggle.addEventListener('click', () => {
+        const nextTheme = document.body.dataset.theme === 'dark' ? 'light' : 'dark';
+        localStorage.setItem('theme', nextTheme);
+        applyTheme(nextTheme);
+      });
+    }
+
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+      });
+    }
+
+    const navBar = document.getElementById('navbar');
+    if (navBar) {
+      window.addEventListener('scroll', () => {
+        navBar.classList.toggle('scrolled', window.scrollY > 20);
+      });
+    }
   </script>
 </body>
 </html>
