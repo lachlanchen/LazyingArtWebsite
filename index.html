@@ -797,6 +797,8 @@
             border: 1px solid var(--glass-border);
             border-radius: 24px;
             padding: 2rem;
+            text-align: center;
+            align-items: center;
         }
 
         .carousel-buy-card.is-active {
@@ -809,6 +811,14 @@
             flex-wrap: wrap;
             gap: 0.75rem;
             align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .carousel-buy-actions .secondary-button,
+        .carousel-buy-actions small {
+            align-self: center;
         }
 
         @media (max-width: 980px) {
@@ -1485,6 +1495,7 @@
                               publishable-key="pk_live_51SiAfEPgZSaFNSv0Z4SVoc1TyqawZcC34wl8dbd7NCZqFaEhfLhNJ0jIkgcGQcRp9yaDnno4yZTSuK1kI6EYkOhp00bsxcJePU"
                             >
                             </stripe-buy-button>
+                            <a href="https://lazying.art/#einkwordsgpt" class="secondary-button">lazying.art</a>
                             <small><a href="https://github.com/lachlanchen/EinkWordsGPT" target="_blank" rel="noopener" style="color: var(--accent); text-decoration:none;">GitHub →</a></small>
                         </div>
                     </div>
