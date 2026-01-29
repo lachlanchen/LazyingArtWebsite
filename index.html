@@ -775,6 +775,26 @@
             z-index: 2;
         }
 
+        .carousel-toggle {
+            position: absolute;
+            left: 1.25rem;
+            bottom: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(15, 23, 42, 0.6);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 999px;
+            padding: 0.35rem 0.75rem;
+            font-size: 0.85rem;
+            z-index: 2;
+        }
+
+        .carousel-toggle input {
+            accent-color: var(--accent);
+        }
+
         .carousel-dot {
             width: 10px;
             height: 10px;
@@ -1516,6 +1536,10 @@
                     <button class="carousel-control carousel-prev" type="button" aria-label="Previous slide">‹</button>
                     <button class="carousel-control carousel-next" type="button" aria-label="Next slide">›</button>
                 </div>
+                <label class="carousel-toggle">
+                    <input type="checkbox" id="carouselAutoplay" checked>
+                    Autoplay
+                </label>
                 <div class="carousel-dots" role="tablist" aria-label="Carousel navigation">
                     <button class="carousel-dot is-active" type="button" aria-label="Show slide 1"></button>
                     <button class="carousel-dot" type="button" aria-label="Show slide 2"></button>
@@ -4897,6 +4921,7 @@
             const buyCards = document.querySelectorAll('.carousel-buy-card');
             const prevBtn = carousel.querySelector('.carousel-prev');
             const nextBtn = carousel.querySelector('.carousel-next');
+            const autoplayToggle = carousel.querySelector('#carouselAutoplay');
             let currentIndex = 0;
             let timerId = null;
             const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -4920,6 +4945,7 @@
 
             const startAutoPlay = () => {
                 if (prefersReducedMotion || slides.length < 2) return;
+                if (autoplayToggle && !autoplayToggle.checked) return;
                 stopAutoPlay();
                 timerId = setInterval(() => goToSlide(currentIndex + 1), 7000);
             };
@@ -4947,6 +4973,13 @@
 
             carousel.addEventListener('mouseenter', stopAutoPlay);
             carousel.addEventListener('mouseleave', startAutoPlay);
+
+            if (autoplayToggle) {
+                autoplayToggle.addEventListener('change', () => {
+                    if (autoplayToggle.checked) startAutoPlay();
+                    else stopAutoPlay();
+                });
+            }
 
             startAutoPlay();
         }
