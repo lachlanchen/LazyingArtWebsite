@@ -48,6 +48,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 1rem;
+      flex-wrap: wrap;
     }
 
     .logo {
@@ -60,7 +61,7 @@
     }
 
     .logo img { height: 36px; width: 36px; }
-    .nav-links { display: flex; gap: 1rem; align-items: center; }
+    .nav-links { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
     .nav-links a { color: var(--light); text-decoration: none; font-weight: 600; }
 
     .cta-button {
@@ -71,6 +72,15 @@
       text-decoration: none;
       font-weight: 700;
       display: inline-block;
+    }
+
+    .lang-select {
+      border-radius: 999px;
+      border: 1px solid var(--glass-border);
+      background: rgba(255, 255, 255, 0.8);
+      color: var(--light);
+      padding: 0.4rem 0.8rem;
+      font-weight: 600;
     }
 
     main {
@@ -160,19 +170,34 @@
         <span>LazyingArt</span>
       </a>
       <div class="nav-links">
-        <a href="index.html#ecosystem">Ecosystem</a>
-        <a href="index.html#coin">LAC</a>
-        <a href="index.html#company">About</a>
-        <a href="index.html#contact">Contact</a>
-        <a href="https://chat.lazying.art" class="cta-button">Try EchoMind</a>
+        <a href="index.html#ecosystem" data-i18n="nav_features">Ecosystem</a>
+        <a href="index.html#coin" data-i18n="nav_coin">LAC</a>
+        <a href="index.html#company" data-i18n="nav_about">About</a>
+        <a href="index.html#contact" data-i18n="nav_contact">Contact</a>
+        <a href="https://chat.lazying.art" class="cta-button" data-i18n="nav_try">Try EchoMind</a>
       </div>
+      <select id="langSelect" class="lang-select" aria-label="Language">
+        <option value="en">🇺🇸 English</option>
+        <option value="ja">🇯🇵 日本語</option>
+        <option value="zh-Hans">🇨🇳 简体中文</option>
+        <option value="zh-Hant">🇹🇼 繁體中文</option>
+        <option value="ko">🇰🇷 한국어</option>
+        <option value="ar">🇸🇦 العربية</option>
+        <option value="vi">🇻🇳 Tiếng Việt</option>
+        <option value="fr">🇫🇷 Français</option>
+        <option value="es">🇪🇸 Español</option>
+        <option value="pt">🇵🇹 Português</option>
+        <option value="de">🇩🇪 Deutsch</option>
+        <option value="ru">🇷🇺 Русский</option>
+        <option value="tr">🇹🇷 Türkçe</option>
+      </select>
     </div>
   </nav>
 
   <main>
     <div class="product-header">
-      <h1>OpenHI Kit</h1>
-      <p>Event-based hyperspectral microscope kit.</p>
+      <h1 data-i18n="page_title">OpenHI Kit</h1>
+      <p data-i18n="page_subtitle">Event-based hyperspectral microscope kit.</p>
     </div>
 
     <div class="product-hero">
@@ -181,8 +206,8 @@
 
     <div class="product-grid">
       <div class="product-copy">
-        <p>Event-based hyperspectral microscope kit with PCBs, 3D-printed parts, motors, LED illumination, grating, and a 4f relay for high-speed spectral imaging. Open hardware and software for researchers, educators, and innovators to explore customizable microscopy.</p>
-        <p class="product-note">* Note: Camera, tube lens, and optics table not included.</p>
+        <p data-i18n="page_desc">Event-based hyperspectral microscope kit with PCBs, 3D-printed parts, motors, LED illumination, grating, and a 4f relay for high-speed spectral imaging. Open hardware and software for researchers, educators, and innovators to explore customizable microscopy.</p>
+        <p class="product-note" data-i18n="page_note">* Note: Camera, tube lens, and optics table not included.</p>
       </div>
       <div class="buy-card">
         <stripe-buy-button
@@ -198,5 +223,195 @@
   </main>
 
   <script async src="https://js.stripe.com/v3/buy-button.js"></script>
+  <script>
+    const supportedLangs = ['en','ja','zh-Hans','zh-Hant','ko','ar','vi','fr','es','pt','de','ru','tr'];
+    const translations = {
+      en: {
+        document_title: 'OpenHI Kit — LazyingArt',
+        nav_features: 'Ecosystem',
+        nav_coin: 'LAC',
+        nav_about: 'About',
+        nav_contact: 'Contact',
+        nav_try: 'Try EchoMind',
+        page_title: 'OpenHI Kit',
+        page_subtitle: 'Event-based hyperspectral microscope kit.',
+        page_desc: 'Event-based hyperspectral microscope kit with PCBs, 3D-printed parts, motors, LED illumination, grating, and a 4f relay for high-speed spectral imaging. Open hardware and software for researchers, educators, and innovators to explore customizable microscopy.',
+        page_note: '* Note: Camera, tube lens, and optics table not included.'
+      },
+      ja: {
+        document_title: 'OpenHI Kit — LazyingArt',
+        nav_features: 'エコシステム',
+        nav_coin: 'LAC',
+        nav_about: '私たちについて',
+        nav_contact: 'お問い合わせ',
+        nav_try: 'EchoMindを試す',
+        page_title: 'OpenHI Kit',
+        page_subtitle: 'イベントベース・ハイパースペクトル顕微鏡キット',
+        page_desc: 'PCB、3Dプリント部品、モーター、LED照明、グレーティング、4fリレーを含む高速スペクトル顕微鏡キット。オープンなハード/ソフトで研究・教育・開発を支援。',
+        page_note: '* 注: カメラ、チューブレンズ、光学テーブルは含まれません。'
+      },
+      'zh-Hans': {
+        document_title: 'OpenHI Kit — LazyingArt',
+        nav_features: '生态系统',
+        nav_coin: 'LAC',
+        nav_about: '关于',
+        nav_contact: '联系我们',
+        nav_try: '试用 EchoMind',
+        page_title: 'OpenHI Kit',
+        page_subtitle: '事件驱动高光谱显微镜套件',
+        page_desc: '包含 PCB、3D 打印部件、电机、LED 照明、光栅与 4f 中继的高光谱显微镜套件，实现高速光谱成像。开源软硬件，面向研究、教育与创新。',
+        page_note: '* 注：不包含相机、筒镜与光学平台。'
+      },
+      'zh-Hant': {
+        document_title: 'OpenHI Kit — LazyingArt',
+        nav_features: '生態系統',
+        nav_coin: 'LAC',
+        nav_about: '關於',
+        nav_contact: '聯絡我們',
+        nav_try: '試用 EchoMind',
+        page_title: 'OpenHI Kit',
+        page_subtitle: '事件驅動高光譜顯微鏡套件',
+        page_desc: '包含 PCB、3D 列印部件、馬達、LED 照明、光柵與 4f 中繼的高光譜顯微鏡套件，支援高速光譜成像。開源軟硬體，面向研究、教育與創新。',
+        page_note: '* 註：不包含相機、筒鏡與光學平台。'
+      },
+      ko: {
+        document_title: 'OpenHI Kit — LazyingArt',
+        nav_features: '에코시스템',
+        nav_coin: 'LAC',
+        nav_about: '소개',
+        nav_contact: '문의',
+        nav_try: 'EchoMind 체험',
+        page_title: 'OpenHI Kit',
+        page_subtitle: '이벤트 기반 하이퍼스펙트럴 현미경 키트',
+        page_desc: 'PCB, 3D 프린트 부품, 모터, LED 조명, 회절격자, 4f 릴레이를 포함한 고속 스펙트럼 현미경 키트. 연구·교육·혁신을 위한 오픈 하드웨어/소프트웨어.',
+        page_note: '* 참고: 카메라, 튜브 렌즈, 광학 테이블은 포함되지 않습니다.'
+      },
+      ar: {
+        document_title: 'OpenHI Kit — LazyingArt',
+        nav_features: 'المنظومة',
+        nav_coin: 'LAC',
+        nav_about: 'من نحن',
+        nav_contact: 'اتصل بنا',
+        nav_try: 'جرّب EchoMind',
+        page_title: 'OpenHI Kit',
+        page_subtitle: 'مجموعة مجهر فائق الطيف قائم على الأحداث',
+        page_desc: 'مجموعة مجهر فائق الطيف تشمل لوحات PCB وأجزاء مطبوعة ثلاثيًا ومحركات وإضاءة LED ومحزز ومرحّل 4f لتصوير طيفي عالي السرعة. عتاد وبرمجيات مفتوحة للباحثين والمعلمين والمبتكرين.',
+        page_note: '* ملاحظة: لا تشمل الكاميرا أو عدسة الأنبوب أو طاولة البصريات.'
+      },
+      vi: {
+        document_title: 'OpenHI Kit — LazyingArt',
+        nav_features: 'Hệ sinh thái',
+        nav_coin: 'LAC',
+        nav_about: 'Giới thiệu',
+        nav_contact: 'Liên hệ',
+        nav_try: 'Dùng thử EchoMind',
+        page_title: 'OpenHI Kit',
+        page_subtitle: 'Bộ kit kính hiển vi siêu phổ theo sự kiện',
+        page_desc: 'Bộ kit kính hiển vi siêu phổ gồm PCB, chi tiết in 3D, động cơ, LED, cách tử và relay 4f cho ảnh phổ tốc độ cao. Phần cứng/phần mềm mở cho nghiên cứu và giáo dục.',
+        page_note: '* Lưu ý: Không bao gồm camera, tube lens và bàn quang học.'
+      },
+      fr: {
+        document_title: 'OpenHI Kit — LazyingArt',
+        nav_features: 'Écosystème',
+        nav_coin: 'LAC',
+        nav_about: 'À propos',
+        nav_contact: 'Contact',
+        nav_try: 'Essayer EchoMind',
+        page_title: 'OpenHI Kit',
+        page_subtitle: 'Kit de microscope hyperspectral basé sur événements',
+        page_desc: 'Kit avec PCB, pièces imprimées 3D, moteurs, LED, réseau de diffraction et relais 4f pour l’imagerie spectrale rapide. Matériel/logiciel open source pour recherche et éducation.',
+        page_note: '* Note : caméra, lentille tube et table optique non incluses.'
+      },
+      es: {
+        document_title: 'OpenHI Kit — LazyingArt',
+        nav_features: 'Ecosistema',
+        nav_coin: 'LAC',
+        nav_about: 'Acerca de',
+        nav_contact: 'Contacto',
+        nav_try: 'Probar EchoMind',
+        page_title: 'OpenHI Kit',
+        page_subtitle: 'Kit de microscopio hiperespectral basado en eventos',
+        page_desc: 'Kit con PCBs, piezas impresas en 3D, motores, iluminación LED, rejilla y relé 4f para imagen espectral de alta velocidad. Hardware y software abiertos para investigación y educación.',
+        page_note: '* Nota: no incluye cámara, lente tubo ni mesa óptica.'
+      },
+      pt: {
+        document_title: 'OpenHI Kit — LazyingArt',
+        nav_features: 'Ecossistema',
+        nav_coin: 'LAC',
+        nav_about: 'Sobre',
+        nav_contact: 'Contato',
+        nav_try: 'Experimente o EchoMind',
+        page_title: 'OpenHI Kit',
+        page_subtitle: 'Kit de microscópio hiperespectral baseado em eventos',
+        page_desc: 'Kit com PCBs, peças impressas em 3D, motores, iluminação LED, grade de difração e relé 4f para imagem espectral de alta velocidade. Hardware e software abertos para pesquisa e ensino.',
+        page_note: '* Nota: não inclui câmera, lente tubo e mesa óptica.'
+      },
+      de: {
+        document_title: 'OpenHI Kit — LazyingArt',
+        nav_features: 'Ökosystem',
+        nav_coin: 'LAC',
+        nav_about: 'Über uns',
+        nav_contact: 'Kontakt',
+        nav_try: 'EchoMind testen',
+        page_title: 'OpenHI Kit',
+        page_subtitle: 'Ereignisbasierter hyperspektraler Mikroskop‑Bausatz',
+        page_desc: 'Bausatz mit PCBs, 3D‑gedruckten Teilen, Motoren, LED‑Beleuchtung, Gitter und 4f‑Relais für schnelle Spektralbildgebung. Offene Hard‑/Software für Forschung und Lehre.',
+        page_note: '* Hinweis: Kamera, Tubuslinse und Optiktisch nicht enthalten.'
+      },
+      ru: {
+        document_title: 'OpenHI Kit — LazyingArt',
+        nav_features: 'Экосистема',
+        nav_coin: 'LAC',
+        nav_about: 'О нас',
+        nav_contact: 'Контакты',
+        nav_try: 'Попробовать EchoMind',
+        page_title: 'OpenHI Kit',
+        page_subtitle: 'Набор гиперспектрального микроскопа на событиях',
+        page_desc: 'Набор с печатными платами, 3D‑деталями, моторами, LED‑подсветкой, решёткой и 4f‑реле для высокоскоростной спектральной съёмки. Открытые хард/софт для исследований и обучения.',
+        page_note: '* Примечание: камера, трубная линза и оптический стол не входят.'
+      },
+      tr: {
+        document_title: 'OpenHI Kit — LazyingArt',
+        nav_features: 'Ekosistem',
+        nav_coin: 'LAC',
+        nav_about: 'Hakkımızda',
+        nav_contact: 'İletişim',
+        nav_try: 'EchoMind’i Dene',
+        page_title: 'OpenHI Kit',
+        page_subtitle: 'Olay tabanlı hiperspektral mikroskop kiti',
+        page_desc: 'PCB’ler, 3B baskı parçalar, motorlar, LED aydınlatma, ızgara ve 4f röle ile yüksek hızlı spektral görüntüleme kiti. Araştırma ve eğitim için açık donanım/yazılım.',
+        page_note: '* Not: Kamera, tüp lens ve optik tabla dahil değildir.'
+      }
+    };
+
+    function applyTranslations(lang) {
+      const dict = translations[lang] || translations.en;
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict && dict[key]) el.textContent = dict[key];
+      });
+      document.title = dict.document_title || translations.en.document_title;
+      document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+    }
+
+    function chooseLangFromNavigator() {
+      const nav = (navigator.languages && navigator.languages[0]) || navigator.language || 'en';
+      if (nav.startsWith('zh')) return nav.toLowerCase().includes('hant') ? 'zh-Hant' : 'zh-Hans';
+      return nav.split('-')[0];
+    }
+
+    const select = document.getElementById('langSelect');
+    let lang = localStorage.getItem('lang') || chooseLangFromNavigator();
+    if (!supportedLangs.includes(lang)) lang = 'en';
+    select.value = lang;
+    document.documentElement.lang = lang.startsWith('zh') ? 'zh' : lang;
+    applyTranslations(lang);
+    select.addEventListener('change', () => {
+      const next = select.value;
+      localStorage.setItem('lang', next);
+      document.documentElement.lang = next.startsWith('zh') ? 'zh' : next;
+      applyTranslations(next);
+    });
+  </script>
 </body>
 </html>

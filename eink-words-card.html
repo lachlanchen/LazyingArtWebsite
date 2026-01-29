@@ -48,6 +48,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 1rem;
+      flex-wrap: wrap;
     }
 
     .logo {
@@ -60,7 +61,7 @@
     }
 
     .logo img { height: 36px; width: 36px; }
-    .nav-links { display: flex; gap: 1rem; align-items: center; }
+    .nav-links { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
     .nav-links a { color: var(--light); text-decoration: none; font-weight: 600; }
 
     .cta-button {
@@ -73,15 +74,13 @@
       display: inline-block;
     }
 
-    .secondary-button {
-      padding: 0.5rem 1.2rem;
+    .lang-select {
       border-radius: 999px;
-      border: 2px solid var(--glass-border);
+      border: 1px solid var(--glass-border);
+      background: rgba(255, 255, 255, 0.8);
       color: var(--light);
-      text-decoration: none;
+      padding: 0.4rem 0.8rem;
       font-weight: 600;
-      display: inline-block;
-      background: transparent;
     }
 
     main {
@@ -165,19 +164,34 @@
         <span>LazyingArt</span>
       </a>
       <div class="nav-links">
-        <a href="index.html#ecosystem">Ecosystem</a>
-        <a href="index.html#coin">LAC</a>
-        <a href="index.html#company">About</a>
-        <a href="index.html#contact">Contact</a>
-        <a href="https://chat.lazying.art" class="cta-button">Try EchoMind</a>
+        <a href="index.html#ecosystem" data-i18n="nav_features">Ecosystem</a>
+        <a href="index.html#coin" data-i18n="nav_coin">LAC</a>
+        <a href="index.html#company" data-i18n="nav_about">About</a>
+        <a href="index.html#contact" data-i18n="nav_contact">Contact</a>
+        <a href="https://chat.lazying.art" class="cta-button" data-i18n="nav_try">Try EchoMind</a>
       </div>
+      <select id="langSelect" class="lang-select" aria-label="Language">
+        <option value="en">🇺🇸 English</option>
+        <option value="ja">🇯🇵 日本語</option>
+        <option value="zh-Hans">🇨🇳 简体中文</option>
+        <option value="zh-Hant">🇹🇼 繁體中文</option>
+        <option value="ko">🇰🇷 한국어</option>
+        <option value="ar">🇸🇦 العربية</option>
+        <option value="vi">🇻🇳 Tiếng Việt</option>
+        <option value="fr">🇫🇷 Français</option>
+        <option value="es">🇪🇸 Español</option>
+        <option value="pt">🇵🇹 Português</option>
+        <option value="de">🇩🇪 Deutsch</option>
+        <option value="ru">🇷🇺 Русский</option>
+        <option value="tr">🇹🇷 Türkçe</option>
+      </select>
     </div>
   </nav>
 
   <main>
     <div class="product-header">
-      <h1>Eink Words Card</h1>
-      <p>E-ink vocabulary companion.</p>
+      <h1 data-i18n="page_title">Eink Words Card</h1>
+      <p data-i18n="page_subtitle">E-ink vocabulary companion.</p>
     </div>
 
     <div class="product-hero">
@@ -186,7 +200,7 @@
 
     <div class="product-grid">
       <div class="product-copy">
-        <p>E-ink vocabulary display that surfaces daily words with phonetics and translations for low-distraction study. An always-on, low-power companion for desks and classrooms to build language habits at a glance.</p>
+        <p data-i18n="page_desc">E-ink vocabulary display that surfaces daily words with phonetics and translations for low-distraction study. An always-on, low-power companion for desks and classrooms to build language habits at a glance.</p>
       </div>
       <div class="buy-card">
         <stripe-buy-button
@@ -203,5 +217,182 @@
   </main>
 
   <script async src="https://js.stripe.com/v3/buy-button.js"></script>
+  <script>
+    const supportedLangs = ['en','ja','zh-Hans','zh-Hant','ko','ar','vi','fr','es','pt','de','ru','tr'];
+    const translations = {
+      en: {
+        document_title: 'Eink Words Card — LazyingArt',
+        nav_features: 'Ecosystem',
+        nav_coin: 'LAC',
+        nav_about: 'About',
+        nav_contact: 'Contact',
+        nav_try: 'Try EchoMind',
+        page_title: 'Eink Words Card',
+        page_subtitle: 'E-ink vocabulary companion.',
+        page_desc: 'E-ink vocabulary display that surfaces daily words with phonetics and translations for low-distraction study. An always-on, low-power companion for desks and classrooms to build language habits at a glance.'
+      },
+      ja: {
+        document_title: 'Eink Words Card — LazyingArt',
+        nav_features: 'エコシステム',
+        nav_coin: 'LAC',
+        nav_about: '私たちについて',
+        nav_contact: 'お問い合わせ',
+        nav_try: 'EchoMindを試す',
+        page_title: 'Eink Words Card',
+        page_subtitle: 'E-ink 単語コンパニオン',
+        page_desc: '毎日の単語・発音・翻訳を表示するE-ink語彙ディスプレイ。低消費電力でデスクや教室に常設し、習慣学習を支えます。'
+      },
+      'zh-Hans': {
+        document_title: 'Eink Words Card — LazyingArt',
+        nav_features: '生态系统',
+        nav_coin: 'LAC',
+        nav_about: '关于',
+        nav_contact: '联系我们',
+        nav_try: '试用 EchoMind',
+        page_title: 'Eink Words Card',
+        page_subtitle: 'E-ink 词汇伙伴',
+        page_desc: 'E-ink 词汇显示器，呈现每日单词、音标与翻译，低干扰学习。低功耗、可常驻桌面与课堂，帮助养成语言习惯。'
+      },
+      'zh-Hant': {
+        document_title: 'Eink Words Card — LazyingArt',
+        nav_features: '生態系統',
+        nav_coin: 'LAC',
+        nav_about: '關於',
+        nav_contact: '聯絡我們',
+        nav_try: '試用 EchoMind',
+        page_title: 'Eink Words Card',
+        page_subtitle: 'E-ink 詞彙夥伴',
+        page_desc: 'E-ink 詞彙顯示器，呈現每日單字、音標與翻譯，低干擾學習。低功耗、可常駐桌面與教室，幫助養成語言習慣。'
+      },
+      ko: {
+        document_title: 'Eink Words Card — LazyingArt',
+        nav_features: '에코시스템',
+        nav_coin: 'LAC',
+        nav_about: '소개',
+        nav_contact: '문의',
+        nav_try: 'EchoMind 체험',
+        page_title: 'Eink Words Card',
+        page_subtitle: 'E-ink 단어 동반자',
+        page_desc: '매일 단어, 발음, 번역을 보여주는 E-ink 어휘 디스플레이. 저전력으로 책상/교실에 상시 배치해 언어 습관을 만듭니다.'
+      },
+      ar: {
+        document_title: 'Eink Words Card — LazyingArt',
+        nav_features: 'المنظومة',
+        nav_coin: 'LAC',
+        nav_about: 'من نحن',
+        nav_contact: 'اتصل بنا',
+        nav_try: 'جرّب EchoMind',
+        page_title: 'Eink Words Card',
+        page_subtitle: 'رفيق مفردات بالحبر الإلكتروني',
+        page_desc: 'شاشة مفردات بالحبر الإلكتروني تعرض كلمات يومية مع النطق والترجمة لتعلّم منخفض التشتيت. منخفضة الطاقة ومناسبة للمكتب أو الصف لبناء عادة لغوية.'
+      },
+      vi: {
+        document_title: 'Eink Words Card — LazyingArt',
+        nav_features: 'Hệ sinh thái',
+        nav_coin: 'LAC',
+        nav_about: 'Giới thiệu',
+        nav_contact: 'Liên hệ',
+        nav_try: 'Dùng thử EchoMind',
+        page_title: 'Eink Words Card',
+        page_subtitle: 'Bạn đồng hành từ vựng E-ink',
+        page_desc: 'Màn hình từ vựng E-ink hiển thị từ mới mỗi ngày kèm phiên âm và dịch nghĩa cho việc học ít xao nhãng. Tiết kiệm điện, phù hợp bàn làm việc và lớp học.'
+      },
+      fr: {
+        document_title: 'Eink Words Card — LazyingArt',
+        nav_features: 'Écosystème',
+        nav_coin: 'LAC',
+        nav_about: 'À propos',
+        nav_contact: 'Contact',
+        nav_try: 'Essayer EchoMind',
+        page_title: 'Eink Words Card',
+        page_subtitle: 'Compagnon de vocabulaire E-ink',
+        page_desc: 'Écran E-ink qui affiche des mots quotidiens avec phonétique et traduction pour un apprentissage sans distraction. Faible consommation, idéal pour bureaux et salles de classe.'
+      },
+      es: {
+        document_title: 'Eink Words Card — LazyingArt',
+        nav_features: 'Ecosistema',
+        nav_coin: 'LAC',
+        nav_about: 'Acerca de',
+        nav_contact: 'Contacto',
+        nav_try: 'Probar EchoMind',
+        page_title: 'Eink Words Card',
+        page_subtitle: 'Compañero de vocabulario E-ink',
+        page_desc: 'Pantalla de vocabulario E-ink con palabras diarias, fonética y traducciones para estudio sin distracciones. Bajo consumo, ideal para escritorio y aula.'
+      },
+      pt: {
+        document_title: 'Eink Words Card — LazyingArt',
+        nav_features: 'Ecossistema',
+        nav_coin: 'LAC',
+        nav_about: 'Sobre',
+        nav_contact: 'Contato',
+        nav_try: 'Experimente o EchoMind',
+        page_title: 'Eink Words Card',
+        page_subtitle: 'Companheiro de vocabulário E-ink',
+        page_desc: 'Tela E-ink de vocabulário com palavras diárias, fonética e tradução para estudo sem distrações. Baixo consumo para mesa e sala de aula.'
+      },
+      de: {
+        document_title: 'Eink Words Card — LazyingArt',
+        nav_features: 'Ökosystem',
+        nav_coin: 'LAC',
+        nav_about: 'Über uns',
+        nav_contact: 'Kontakt',
+        nav_try: 'EchoMind testen',
+        page_title: 'Eink Words Card',
+        page_subtitle: 'E-ink Wortschatz‑Begleiter',
+        page_desc: 'E-ink Wortschatz‑Display mit täglichen Wörtern, Phonetik und Übersetzung für ablenkungsarmes Lernen. Stromsparend für Schreibtisch und Klassenraum.'
+      },
+      ru: {
+        document_title: 'Eink Words Card — LazyingArt',
+        nav_features: 'Экосистема',
+        nav_coin: 'LAC',
+        nav_about: 'О нас',
+        nav_contact: 'Контакты',
+        nav_try: 'Попробовать EchoMind',
+        page_title: 'Eink Words Card',
+        page_subtitle: 'E-ink помощник для словаря',
+        page_desc: 'E-ink дисплей словаря с ежедневными словами, фонетикой и переводом для обучения без отвлечений. Низкое энергопотребление для дома и класса.'
+      },
+      tr: {
+        document_title: 'Eink Words Card — LazyingArt',
+        nav_features: 'Ekosistem',
+        nav_coin: 'LAC',
+        nav_about: 'Hakkımızda',
+        nav_contact: 'İletişim',
+        nav_try: 'EchoMind’i Dene',
+        page_title: 'Eink Words Card',
+        page_subtitle: 'E-ink kelime yoldaşı',
+        page_desc: 'Günlük kelimeleri fonetik ve çeviriyle gösteren E-ink kelime ekranı. Düşük güçle masa ve sınıf için ideal, dikkat dağıtmaz.'
+      }
+    };
+
+    function applyTranslations(lang) {
+      const dict = translations[lang] || translations.en;
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict && dict[key]) el.textContent = dict[key];
+      });
+      document.title = dict.document_title || translations.en.document_title;
+      document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+    }
+
+    function chooseLangFromNavigator() {
+      const nav = (navigator.languages && navigator.languages[0]) || navigator.language || 'en';
+      if (nav.startsWith('zh')) return nav.toLowerCase().includes('hant') ? 'zh-Hant' : 'zh-Hans';
+      return nav.split('-')[0];
+    }
+
+    const select = document.getElementById('langSelect');
+    let lang = localStorage.getItem('lang') || chooseLangFromNavigator();
+    if (!supportedLangs.includes(lang)) lang = 'en';
+    select.value = lang;
+    document.documentElement.lang = lang.startsWith('zh') ? 'zh' : lang;
+    applyTranslations(lang);
+    select.addEventListener('change', () => {
+      const next = select.value;
+      localStorage.setItem('lang', next);
+      document.documentElement.lang = next.startsWith('zh') ? 'zh' : next;
+      applyTranslations(next);
+    });
+  </script>
 </body>
 </html>
