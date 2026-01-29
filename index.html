@@ -769,6 +769,17 @@
             font-size: 2.5rem;
         }
 
+        .eink-logo {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #6dd5ed, #2193b0);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+        }
+
         .lazyedit-logo {
             width: 80px;
             height: 80px;
@@ -805,6 +816,10 @@
             gap: 0.75rem;
             align-items: center;
             flex-wrap: wrap;
+        }
+
+        .showcase-actions stripe-buy-button {
+            display: inline-block;
         }
 
         .showcase-actions .link-sep {
@@ -1277,6 +1292,46 @@
     <section class="product" id="product">
         <div class="product-container">
             <div class="product-panels">
+                <div class="product-showcase" id="einkwordsgpt">
+                    <div class="showcase-header">
+                        <div class="eink-logo">🖥️</div>
+                        <div class="echomind-title">
+                            <h3 data-i18n="eink_title">EinkWordsGPT</h3>
+                            <p data-i18n="eink_subtitle">E-ink vocabulary companion</p>
+                        </div>
+                    </div>
+                    <div class="showcase-features">
+                        <div class="showcase-feature">
+                            <div class="check-icon"></div>
+                            <div>
+                                <strong data-i18n="eink_feat1_title">E-ink Focus</strong>
+                                <p style="color: var(--text-muted); font-size: 0.9rem;" data-i18n="eink_feat1_desc">Paper-like display for distraction-free reading and long battery life.</p>
+                            </div>
+                        </div>
+                        <div class="showcase-feature">
+                            <div class="check-icon"></div>
+                            <div>
+                                <strong data-i18n="eink_feat2_title">Daily Words + Phonetics</strong>
+                                <p style="color: var(--text-muted); font-size: 0.9rem;" data-i18n="eink_feat2_desc">Fresh vocabulary cards with clear definitions and pronunciation guides.</p>
+                            </div>
+                        </div>
+                        <div class="showcase-feature">
+                            <div class="check-icon"></div>
+                            <div>
+                                <strong data-i18n="eink_feat3_title">Always-On Learning</strong>
+                                <p style="color: var(--text-muted); font-size: 0.9rem;" data-i18n="eink_feat3_desc">Low-power, desk-friendly device for passive review and habit building.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="showcase-actions">
+                        <stripe-buy-button
+                          buy-button-id="buy_btn_1SuoaBPgZSaFNSv0CXSOHVMY"
+                          publishable-key="pk_live_51SiAfEPgZSaFNSv0Z4SVoc1TyqawZcC34wl8dbd7NCZqFaEhfLhNJ0jIkgcGQcRp9yaDnno4yZTSuK1kI6EYkOhp00bsxcJePU"
+                        >
+                        </stripe-buy-button>
+                        <small><a href="https://github.com/lachlanchen/EinkWordsGPT" target="_blank" rel="noopener" style="color: var(--accent); text-decoration:none;">GitHub →</a></small>
+                    </div>
+                </div>
                 <div class="product-showcase">
                     <div class="showcase-header">
                         <div class="echomind-logo">🌍</div>
@@ -1732,10 +1787,20 @@
                     </div>
                 </div>
                 <div class="feature-card">
+                    <div class="feature-icon">🖥️</div>
+                    <h3 class="feature-title" data-i18n="ecos_card_eink_title">EinkWordsGPT</h3>
+                    <p class="feature-description" data-i18n="ecos_card_eink_desc">E-ink vocabulary device for focused daily learning.</p>
+                    <div style="margin-top: .75rem; display:flex; gap:.5rem; align-items:center; flex-wrap:wrap;">
+                        <small><a href="https://github.com/lachlanchen/EinkWordsGPT" target="_blank" rel="noopener" style="color: var(--accent); text-decoration:none;">GitHub <span class="link-icon" aria-hidden="true">↗</span></a></small>
+                        <a href="#einkwordsgpt" class="secondary-button">Buy <span class="link-icon" aria-hidden="true">↗</span></a>
+                    </div>
+                </div>
+                <div class="feature-card">
                     <div class="feature-icon">📊</div>
                     <h3 class="feature-title" data-i18n="ecos_card_microquant_title">MicroQuant</h3>
                     <p class="feature-description" data-i18n="ecos_card_microquant_desc">LLM-guided quant research + execution, with data-driven guardrails and a MicroQuant UI.</p>
-                    <div style="margin-top: .75rem;">
+                    <div style="margin-top: .75rem; display:flex; gap:.5rem; align-items:center; flex-wrap:wrap;">
+                        <small><a href="https://github.com/lachlanchen/MicroQuant" target="_blank" rel="noopener" style="color: var(--accent); text-decoration:none;">GitHub <span class="link-icon" aria-hidden="true">↗</span></a></small>
                         <a href="https://quant.lazying.art" class="secondary-button">quant.lazying.art <span class="link-icon" aria-hidden="true">↗</span></a>
                     </div>
                 </div>
@@ -1744,8 +1809,8 @@
                     <h3 class="feature-title" data-i18n="ecos_card_aimemo_title">AiMemo</h3>
                     <p class="feature-description" data-i18n="ecos_card_aimemo_desc">Conversational ledger that turns chats, emails, and notes into structured tables for travel, fitness, and research.</p>
                     <div style="margin-top: .75rem; display:flex; gap:.5rem; align-items:center; flex-wrap:wrap;">
-                        <a href="https://memo.lazying.art" class="secondary-button">memo.lazying.art <span class="link-icon" aria-hidden="true">↗</span></a>
                         <small><a href="https://github.com/lachlanchen/AiMemo" target="_blank" rel="noopener" style="color: var(--accent); text-decoration:none;">GitHub <span class="link-icon" aria-hidden="true">↗</span></a></small>
+                        <a href="https://memo.lazying.art" class="secondary-button">memo.lazying.art <span class="link-icon" aria-hidden="true">↗</span></a>
                     </div>
                 </div>
                 <div class="feature-card">
@@ -1855,6 +1920,8 @@
         </div>
     </footer>
 
+    <script async src="https://js.stripe.com/v3/buy-button.js"></script>
+
     <script>
         // i18n Translations
         const translations = {
@@ -1939,6 +2006,14 @@
                 product_p1: "EchoMind isn't just another chatbot – it's your gateway to effortless global communication. Built on our proprietary voice and language stack, EchoMind understands not just what you say, but how you want to say it.",
                 product_p2: 'Whether you\'re learning a new language, conducting international business, or simply exploring different cultures, EchoMind adapts to your needs with unprecedented flexibility and intelligence.',
                 product_cta: 'Experience EchoMind Now →',
+                eink_title: 'EinkWordsGPT',
+                eink_subtitle: 'E-ink vocabulary companion',
+                eink_feat1_title: 'E-ink Focus',
+                eink_feat1_desc: 'Paper-like display for distraction-free reading and long battery life.',
+                eink_feat2_title: 'Daily Words + Phonetics',
+                eink_feat2_desc: 'Fresh vocabulary cards with clear definitions and pronunciation guides.',
+                eink_feat3_title: 'Always-On Learning',
+                eink_feat3_desc: 'Low-power, desk-friendly device for passive review and habit building.',
                 hero_flagship_tag: 'FLAGSHIP PRODUCT',
                 hero_flagship_title: 'Bridging Humanity Through AI Language Innovation',
                 hero_flagship_p1: "EchoMind isn't just another chatbot – it's your gateway to effortless global communication. Built on our proprietary voice and language stack, EchoMind understands not just what you say, but how you want to say it.",
@@ -1965,6 +2040,8 @@
                 ecos_card_lazyingart_desc: 'The studio behind OnlyIdeas, EchoMind, and LazyEdit.',
                 ecos_card_echomind_title: 'EchoMind',
                 ecos_card_echomind_desc: 'Multilingual AI companion for learning and creation.',
+                ecos_card_eink_title: 'EinkWordsGPT',
+                ecos_card_eink_desc: 'E-ink vocabulary device for focused daily learning.',
                 ecos_card_microquant_title: 'MicroQuant',
                 ecos_card_microquant_desc: 'LLM-guided quant research + execution, with data-driven guardrails and a MicroQuant UI.',
                 ecos_card_lazyedit_title: 'LazyEdit Studio',
