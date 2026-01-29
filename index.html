@@ -697,6 +697,8 @@
             border-radius: 24px;
             overflow: hidden;
             position: relative;
+            min-height: 420px;
+            height: 100%;
         }
 
         .carousel-track {
@@ -704,6 +706,7 @@
             width: 100%;
             aspect-ratio: 16 / 9;
             background: rgba(15, 23, 42, 0.06);
+            height: 100%;
         }
 
         .carousel-controls {
@@ -787,6 +790,7 @@
         .carousel-buy {
             display: flex;
             align-items: stretch;
+            height: 100%;
         }
 
         .carousel-buy-card {
@@ -800,6 +804,7 @@
             padding: 2rem;
             text-align: center;
             align-items: center;
+            height: 100%;
         }
 
         .carousel-buy-card.is-active {
@@ -845,6 +850,15 @@
 
             .carousel-buy-card {
                 padding: 1.75rem;
+                height: auto;
+            }
+
+            .product-carousel {
+                min-height: unset;
+            }
+
+            .product-showcase {
+                min-height: unset;
             }
         }
 
@@ -864,6 +878,9 @@
             position: relative;
             overflow: hidden;
             transition: transform 0.35s ease, box-shadow 0.35s ease;
+            min-height: 520px;
+            display: flex;
+            flex-direction: column;
         }
 
         .product-showcase:hover {
@@ -909,6 +926,14 @@
             align-items: center;
             gap: 1rem;
             margin-bottom: 2rem;
+        }
+
+        .showcase-features {
+            flex: 1;
+        }
+
+        .showcase-actions {
+            margin-top: auto;
         }
 
         .echomind-logo {
