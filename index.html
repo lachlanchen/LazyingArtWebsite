@@ -704,9 +704,8 @@
         .carousel-track {
             position: relative;
             width: 100%;
-            aspect-ratio: 16 / 9;
+            height: clamp(320px, 40vw, 520px);
             background: rgba(15, 23, 42, 0.06);
-            height: 100%;
         }
 
         .carousel-controls {
@@ -750,7 +749,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 0.75rem;
+            padding: 0;
         }
 
         .carousel-slide.is-active {
@@ -761,21 +760,9 @@
 
         .carousel-slide img {
             height: 100%;
-            width: auto;
-            max-width: 100%;
+            width: 100%;
             object-fit: contain;
             display: block;
-        }
-
-        .carousel-slide img.carousel-image--narrow {
-            max-width: 72%;
-        }
-
-        .carousel-slide img.carousel-image--fit {
-            height: auto;
-            max-height: 100%;
-            width: auto;
-            max-width: 72%;
         }
 
 
@@ -861,7 +848,7 @@
             }
 
             .carousel-track {
-                aspect-ratio: 4 / 3;
+                height: clamp(260px, 55vw, 420px);
             }
 
             .carousel-buy-card {
@@ -1517,7 +1504,7 @@
                         <img src="docs/demos/EinkWordsCard.JPG" alt="Eink Words Card Arabic words sample" loading="lazy">
                     </figure>
                     <figure class="carousel-slide">
-                        <img src="docs/demos/OpenHI.png" alt="OpenHI optical setup render" loading="lazy" class="carousel-image--fit">
+                        <img src="docs/demos/OpenHI.png" alt="OpenHI optical setup render" loading="lazy">
                     </figure>
                 </div>
                 <div class="carousel-controls">
