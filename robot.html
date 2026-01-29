@@ -236,6 +236,10 @@
       color: var(--text-muted);
     }
 
+    .product-copy p + p {
+      margin-top: 1rem;
+    }
+
     .buy-card {
       background: var(--glass);
       border: 1px solid var(--glass-border);
@@ -399,6 +403,7 @@
     <div class="product-grid">
       <div class="product-copy">
         <p data-i18n="page_desc">Modular, programmable humanoid platform with precision joints and an extensible control stack for AI experiments, classrooms, and creative motion. Built for The Art of Lazying so you can focus on ideas, interaction, and innovation as it evolves with LazyingArt software.</p>
+        <p data-i18n="page_desc2">Swap components fast, prototype motion in hours, and plug into future LazyingArt agents through an open control interface.</p>
       </div>
       <div class="buy-card">
         <stripe-buy-button
@@ -455,6 +460,7 @@
         page_title: 'LazyingArt Robot',
         page_subtitle: 'Modular humanoid for creators and educators.',
         page_desc: 'Modular, programmable humanoid platform with precision joints and an extensible control stack for AI experiments, classrooms, and creative motion. Built for The Art of Lazying so you can focus on ideas, interaction, and innovation as it evolves with LazyingArt software.',
+        page_desc2: 'Swap components fast, prototype motion in hours, and plug into future LazyingArt agents through an open control interface.',
         footer_privacy: 'Privacy',
         footer_terms: 'Terms',
         footer_copyright: '© {year} LazyingArt LLC. All rights reserved.'
@@ -469,6 +475,7 @@
         page_title: 'LazyingArt Robot',
         page_subtitle: 'クリエイターと教育向けのモジュール型ヒューマノイド',
         page_desc: '精密関節と拡張可能な制御スタックを備えたプログラマブルなヒューマノイド基盤。AI実験、授業、創作モーションに最適。The Art of Lazying の思想で、発想と対話に集中できるよう設計。',
+        page_desc2: 'モジュールを素早く交換し、数時間でモーションを試作。オープンな制御インターフェースで将来のLazyingArtエージェントにも接続できます。',
         footer_privacy: 'プライバシー',
         footer_terms: '利用規約',
         footer_copyright: '© {year} LazyingArt LLC. 無断転載を禁じます。'
@@ -483,6 +490,7 @@
         page_title: 'LazyingArt Robot',
         page_subtitle: '面向创作者与教育者的模块化类人机器人',
         page_desc: '模块化、可编程的人形平台，具备精密关节与可扩展控制栈，适用于 AI 实验、课堂教学与创意动作。遵循 The Art of Lazying，让你专注于想法、互动与创新。',
+        page_desc2: '快速更换模块、数小时完成动作原型，并通过开放控制接口接入未来的 LazyingArt 代理。',
         footer_privacy: '隐私',
         footer_terms: '条款',
         footer_copyright: '© {year} LazyingArt LLC. 保留所有权利。'
@@ -497,6 +505,7 @@
         page_title: 'LazyingArt Robot',
         page_subtitle: '面向創作者與教育者的模組化類人機器人',
         page_desc: '模組化、可程式化的人形平台，具備精密關節與可擴展控制堆疊，適用於 AI 實驗、課堂教學與創意動作。遵循 The Art of Lazying，讓你專注於想法、互動與創新。',
+        page_desc2: '快速更換模組、數小時完成動作原型，並透過開放控制介面接入未來的 LazyingArt 代理。',
         footer_privacy: '隱私',
         footer_terms: '條款',
         footer_copyright: '© {year} LazyingArt LLC. 版權所有。'
@@ -511,6 +520,7 @@
         page_title: 'LazyingArt Robot',
         page_subtitle: '크리에이터와 교육자를 위한 모듈형 휴머노이드',
         page_desc: '정밀 관절과 확장 가능한 제어 스택을 갖춘 모듈형 프로그래머블 휴머노이드 플랫폼. AI 실험, 수업, 창작 모션에 최적. The Art of Lazying 철학으로 아이디어와 인터랙션에 집중하도록 설계.',
+        page_desc2: '모듈을 빠르게 교체하고 몇 시간 내 모션을 시제품화하며, 개방형 제어 인터페이스로 미래 LazyingArt 에이전트와 연동합니다.',
         footer_privacy: '개인정보',
         footer_terms: '이용약관',
         footer_copyright: '© {year} LazyingArt LLC. 판권 소유.'
@@ -525,6 +535,7 @@
         page_title: 'LazyingArt Robot',
         page_subtitle: 'روبوت بشري معياري للمبدعين والمعلمين',
         page_desc: 'منصة بشرية قابلة للبرمجة بوصلات دقيقة وبنية تحكم قابلة للتوسّع لبحوث الذكاء الاصطناعي والتعليم والحركة الإبداعية. مصمم وفق فلسفة The Art of Lazying لتركيزك على الأفكار والتفاعل والابتكار.',
+        page_desc2: 'بدّل الوحدات بسرعة، وأنجز نماذج الحركة خلال ساعات، وتكامل مع وكلاء LazyingArt القادمين عبر واجهة تحكم مفتوحة.',
         footer_privacy: 'الخصوصية',
         footer_terms: 'الشروط',
         footer_copyright: '© {year} LazyingArt LLC. جميع الحقوق محفوظة.'
@@ -539,6 +550,7 @@
         page_title: 'LazyingArt Robot',
         page_subtitle: 'Robot hình người mô-đun cho người sáng tạo & giáo dục',
         page_desc: 'Nền tảng hình người lập trình được với khớp chính xác và hệ điều khiển mở rộng cho thí nghiệm AI, lớp học và chuyển động sáng tạo. Theo triết lý The Art of Lazying để bạn tập trung vào ý tưởng và tương tác.',
+        page_desc2: 'Hoán đổi mô-đun nhanh, dựng nguyên mẫu chuyển động trong vài giờ và kết nối với các tác nhân LazyingArt tương lai qua giao diện điều khiển mở.',
         footer_privacy: 'Quyền riêng tư',
         footer_terms: 'Điều khoản',
         footer_copyright: '© {year} LazyingArt LLC. Bảo lưu mọi quyền.'
@@ -553,6 +565,7 @@
         page_title: 'LazyingArt Robot',
         page_subtitle: 'Humanoïde modulaire pour créateurs et enseignants',
         page_desc: 'Plateforme humanoïde programmable avec articulations précises et pile de contrôle extensible pour IA, cours et mouvements créatifs. Conçue selon The Art of Lazying pour se concentrer sur l’idée et l’interaction.',
+        page_desc2: 'Changez rapidement de modules, prototypez des mouvements en quelques heures et connectez-vous à de futurs agents LazyingArt via une interface ouverte.',
         footer_privacy: 'Confidentialité',
         footer_terms: 'Conditions',
         footer_copyright: '© {year} LazyingArt LLC. Tous droits réservés.'
@@ -567,6 +580,7 @@
         page_title: 'LazyingArt Robot',
         page_subtitle: 'Humanoide modular para creadores y docentes',
         page_desc: 'Plataforma humanoide programable con articulaciones precisas y control extensible para IA, aulas y movimiento creativo. Diseñado con The Art of Lazying para enfocarte en ideas e interacción.',
+        page_desc2: 'Cambia módulos rápido, prototipa movimientos en horas y conéctalo a futuros agentes LazyingArt mediante una interfaz de control abierta.',
         footer_privacy: 'Privacidad',
         footer_terms: 'Términos',
         footer_copyright: '© {year} LazyingArt LLC. Todos los derechos reservados.'
@@ -581,6 +595,7 @@
         page_title: 'LazyingArt Robot',
         page_subtitle: 'Humanoide modular para criadores e educadores',
         page_desc: 'Plataforma humanoide programável com juntas precisas e controle extensível para IA, salas de aula e movimento criativo. Feita para The Art of Lazying, para você focar em ideias e interação.',
+        page_desc2: 'Troque módulos rapidamente, prototipe movimentos em horas e conecte-se a futuros agentes LazyingArt por uma interface de controle aberta.',
         footer_privacy: 'Privacidade',
         footer_terms: 'Termos',
         footer_copyright: '© {year} LazyingArt LLC. Todos os direitos reservados.'
@@ -595,6 +610,7 @@
         page_title: 'LazyingArt Robot',
         page_subtitle: 'Modularer humanoider Roboter für Kreative und Bildung',
         page_desc: 'Programmierbare humanoide Plattform mit Präzisionsgelenken und erweiterbarem Steuer‑Stack für KI‑Experimente, Unterricht und kreative Bewegung. The Art of Lazying hilft, sich auf Ideen und Interaktion zu konzentrieren.',
+        page_desc2: 'Module schnell tauschen, Bewegungen in Stunden prototypisieren und über eine offene Steuerschnittstelle mit künftigen LazyingArt‑Agenten verbinden.',
         footer_privacy: 'Datenschutz',
         footer_terms: 'Bedingungen',
         footer_copyright: '© {year} LazyingArt LLC. Alle Rechte vorbehalten.'
@@ -609,6 +625,7 @@
         page_title: 'LazyingArt Robot',
         page_subtitle: 'Модульный гуманоид для создателей и преподавателей',
         page_desc: 'Программируемая гуманоидная платформа с точными суставами и расширяемым стеком управления для ИИ‑экспериментов, занятий и творческих движений. The Art of Lazying помогает сосредоточиться на идеях и взаимодействии.',
+        page_desc2: 'Быстро меняйте модули, прототипируйте движения за часы и подключайтесь к будущим агентам LazyingArt через открытую систему управления.',
         footer_privacy: 'Конфиденциальность',
         footer_terms: 'Условия',
         footer_copyright: '© {year} LazyingArt LLC. Все права защищены.'
@@ -623,6 +640,7 @@
         page_title: 'LazyingArt Robot',
         page_subtitle: 'Yaratıcılar ve eğitimciler için modüler humanoid',
         page_desc: 'Hassas eklemler ve genişletilebilir kontrol yığınına sahip programlanabilir humanoid platform. YZ deneyleri, dersler ve yaratıcı hareket için tasarlandı. The Art of Lazying ile fikir ve etkileşime odaklanın.',
+        page_desc2: 'Modülleri hızlıca değiştirin, hareketleri saatler içinde prototipleyin ve açık kontrol arayüzüyle gelecekteki LazyingArt ajanlarına bağlanın.',
         footer_privacy: 'Gizlilik',
         footer_terms: 'Koşullar',
         footer_copyright: '© {year} LazyingArt LLC. Tüm hakları saklıdır.'
