@@ -156,9 +156,68 @@
 
     .buy-links a { color: var(--accent); text-decoration: none; font-weight: 600; }
 
+    footer {
+      padding: 3rem 5%;
+      background: var(--dark);
+      border-top: 1px solid var(--glass-border);
+      position: relative;
+      z-index: 10;
+    }
+
+    .footer-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .footer-links a {
+      color: var(--text-soft);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover { color: var(--accent); }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .social-link {
+      width: 40px;
+      height: 40px;
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: var(--light);
+      transition: all 0.3s ease;
+    }
+
+    .social-link:hover {
+      background: var(--primary);
+      transform: translateY(-3px);
+      color: #fff;
+    }
+
     @media (max-width: 980px) {
       .nav-links { display: none; }
       .product-grid { grid-template-columns: 1fr; }
+      .footer-container { flex-direction: column; text-align: center; }
     }
   </style>
 </head>
@@ -222,9 +281,36 @@
     </div>
   </main>
 
+  <footer id="contact">
+    <div class="footer-container">
+      <div>
+        <div class="logo" style="margin-bottom: 1rem;" aria-label="LazyingArt">
+          <img src="logos/logo.png" alt="LazyingArt logo" />
+          <span>LazyingArt</span>
+        </div>
+        <p id="footerCopy" style="color: var(--text-soft);" data-i18n="footer_copyright">© 2024 LazyingArt LLC. All rights reserved.</p>
+      </div>
+      <div class="footer-links">
+        <a href="https://chat.lazying.art">EchoMind</a>
+        <a href="index.html#ecosystem" data-i18n="nav_features">Ecosystem</a>
+        <a href="index.html#company" data-i18n="nav_about">About</a>
+        <a href="index.html#contact" data-i18n="nav_contact">Contact</a>
+        <a href="#" data-i18n="footer_privacy">Privacy</a>
+        <a href="#" data-i18n="footer_terms">Terms</a>
+      </div>
+      <div class="social-links">
+        <a href="#" class="social-link" aria-label="Twitter">𝕏</a>
+        <a href="#" class="social-link" aria-label="GitHub">⚡</a>
+        <a href="#" class="social-link" aria-label="Discord">💬</a>
+        <a href="#" class="social-link" aria-label="LinkedIn">in</a>
+      </div>
+    </div>
+  </footer>
+
   <script async src="https://js.stripe.com/v3/buy-button.js"></script>
   <script>
     const supportedLangs = ['en','ja','zh-Hans','zh-Hant','ko','ar','vi','fr','es','pt','de','ru','tr'];
+    const currentYear = new Date().getFullYear();
     const translations = {
       en: {
         document_title: 'OpenHI Kit — LazyingArt',
@@ -236,7 +322,10 @@
         page_title: 'OpenHI Kit',
         page_subtitle: 'Event-based hyperspectral microscope kit.',
         page_desc: 'Event-based hyperspectral microscope kit with PCBs, 3D-printed parts, motors, LED illumination, grating, and a 4f relay for high-speed spectral imaging. Open hardware and software for researchers, educators, and innovators to explore customizable microscopy.',
-        page_note: '* Note: Camera, tube lens, and optics table not included.'
+        page_note: '* Note: Camera, tube lens, and optics table not included.',
+        footer_privacy: 'Privacy',
+        footer_terms: 'Terms',
+        footer_copyright: '© {year} LazyingArt LLC. All rights reserved.'
       },
       ja: {
         document_title: 'OpenHI Kit — LazyingArt',
@@ -248,7 +337,10 @@
         page_title: 'OpenHI Kit',
         page_subtitle: 'イベントベース・ハイパースペクトル顕微鏡キット',
         page_desc: 'PCB、3Dプリント部品、モーター、LED照明、グレーティング、4fリレーを含む高速スペクトル顕微鏡キット。オープンなハード/ソフトで研究・教育・開発を支援。',
-        page_note: '* 注: カメラ、チューブレンズ、光学テーブルは含まれません。'
+        page_note: '* 注: カメラ、チューブレンズ、光学テーブルは含まれません。',
+        footer_privacy: 'プライバシー',
+        footer_terms: '利用規約',
+        footer_copyright: '© {year} LazyingArt LLC. 無断転載を禁じます。'
       },
       'zh-Hans': {
         document_title: 'OpenHI Kit — LazyingArt',
@@ -260,7 +352,10 @@
         page_title: 'OpenHI Kit',
         page_subtitle: '事件驱动高光谱显微镜套件',
         page_desc: '包含 PCB、3D 打印部件、电机、LED 照明、光栅与 4f 中继的高光谱显微镜套件，实现高速光谱成像。开源软硬件，面向研究、教育与创新。',
-        page_note: '* 注：不包含相机、筒镜与光学平台。'
+        page_note: '* 注：不包含相机、筒镜与光学平台。',
+        footer_privacy: '隐私',
+        footer_terms: '条款',
+        footer_copyright: '© {year} LazyingArt LLC. 保留所有权利。'
       },
       'zh-Hant': {
         document_title: 'OpenHI Kit — LazyingArt',
@@ -272,7 +367,10 @@
         page_title: 'OpenHI Kit',
         page_subtitle: '事件驅動高光譜顯微鏡套件',
         page_desc: '包含 PCB、3D 列印部件、馬達、LED 照明、光柵與 4f 中繼的高光譜顯微鏡套件，支援高速光譜成像。開源軟硬體，面向研究、教育與創新。',
-        page_note: '* 註：不包含相機、筒鏡與光學平台。'
+        page_note: '* 註：不包含相機、筒鏡與光學平台。',
+        footer_privacy: '隱私',
+        footer_terms: '條款',
+        footer_copyright: '© {year} LazyingArt LLC. 版權所有。'
       },
       ko: {
         document_title: 'OpenHI Kit — LazyingArt',
@@ -284,7 +382,10 @@
         page_title: 'OpenHI Kit',
         page_subtitle: '이벤트 기반 하이퍼스펙트럴 현미경 키트',
         page_desc: 'PCB, 3D 프린트 부품, 모터, LED 조명, 회절격자, 4f 릴레이를 포함한 고속 스펙트럼 현미경 키트. 연구·교육·혁신을 위한 오픈 하드웨어/소프트웨어.',
-        page_note: '* 참고: 카메라, 튜브 렌즈, 광학 테이블은 포함되지 않습니다.'
+        page_note: '* 참고: 카메라, 튜브 렌즈, 광학 테이블은 포함되지 않습니다.',
+        footer_privacy: '개인정보',
+        footer_terms: '이용약관',
+        footer_copyright: '© {year} LazyingArt LLC. 판권 소유.'
       },
       ar: {
         document_title: 'OpenHI Kit — LazyingArt',
@@ -296,7 +397,10 @@
         page_title: 'OpenHI Kit',
         page_subtitle: 'مجموعة مجهر فائق الطيف قائم على الأحداث',
         page_desc: 'مجموعة مجهر فائق الطيف تشمل لوحات PCB وأجزاء مطبوعة ثلاثيًا ومحركات وإضاءة LED ومحزز ومرحّل 4f لتصوير طيفي عالي السرعة. عتاد وبرمجيات مفتوحة للباحثين والمعلمين والمبتكرين.',
-        page_note: '* ملاحظة: لا تشمل الكاميرا أو عدسة الأنبوب أو طاولة البصريات.'
+        page_note: '* ملاحظة: لا تشمل الكاميرا أو عدسة الأنبوب أو طاولة البصريات.',
+        footer_privacy: 'الخصوصية',
+        footer_terms: 'الشروط',
+        footer_copyright: '© {year} LazyingArt LLC. جميع الحقوق محفوظة.'
       },
       vi: {
         document_title: 'OpenHI Kit — LazyingArt',
@@ -308,7 +412,10 @@
         page_title: 'OpenHI Kit',
         page_subtitle: 'Bộ kit kính hiển vi siêu phổ theo sự kiện',
         page_desc: 'Bộ kit kính hiển vi siêu phổ gồm PCB, chi tiết in 3D, động cơ, LED, cách tử và relay 4f cho ảnh phổ tốc độ cao. Phần cứng/phần mềm mở cho nghiên cứu và giáo dục.',
-        page_note: '* Lưu ý: Không bao gồm camera, tube lens và bàn quang học.'
+        page_note: '* Lưu ý: Không bao gồm camera, tube lens và bàn quang học.',
+        footer_privacy: 'Quyền riêng tư',
+        footer_terms: 'Điều khoản',
+        footer_copyright: '© {year} LazyingArt LLC. Bảo lưu mọi quyền.'
       },
       fr: {
         document_title: 'OpenHI Kit — LazyingArt',
@@ -320,7 +427,10 @@
         page_title: 'OpenHI Kit',
         page_subtitle: 'Kit de microscope hyperspectral basé sur événements',
         page_desc: 'Kit avec PCB, pièces imprimées 3D, moteurs, LED, réseau de diffraction et relais 4f pour l’imagerie spectrale rapide. Matériel/logiciel open source pour recherche et éducation.',
-        page_note: '* Note : caméra, lentille tube et table optique non incluses.'
+        page_note: '* Note : caméra, lentille tube et table optique non incluses.',
+        footer_privacy: 'Confidentialité',
+        footer_terms: 'Conditions',
+        footer_copyright: '© {year} LazyingArt LLC. Tous droits réservés.'
       },
       es: {
         document_title: 'OpenHI Kit — LazyingArt',
@@ -332,7 +442,10 @@
         page_title: 'OpenHI Kit',
         page_subtitle: 'Kit de microscopio hiperespectral basado en eventos',
         page_desc: 'Kit con PCBs, piezas impresas en 3D, motores, iluminación LED, rejilla y relé 4f para imagen espectral de alta velocidad. Hardware y software abiertos para investigación y educación.',
-        page_note: '* Nota: no incluye cámara, lente tubo ni mesa óptica.'
+        page_note: '* Nota: no incluye cámara, lente tubo ni mesa óptica.',
+        footer_privacy: 'Privacidad',
+        footer_terms: 'Términos',
+        footer_copyright: '© {year} LazyingArt LLC. Todos los derechos reservados.'
       },
       pt: {
         document_title: 'OpenHI Kit — LazyingArt',
@@ -344,7 +457,10 @@
         page_title: 'OpenHI Kit',
         page_subtitle: 'Kit de microscópio hiperespectral baseado em eventos',
         page_desc: 'Kit com PCBs, peças impressas em 3D, motores, iluminação LED, grade de difração e relé 4f para imagem espectral de alta velocidade. Hardware e software abertos para pesquisa e ensino.',
-        page_note: '* Nota: não inclui câmera, lente tubo e mesa óptica.'
+        page_note: '* Nota: não inclui câmera, lente tubo e mesa óptica.',
+        footer_privacy: 'Privacidade',
+        footer_terms: 'Termos',
+        footer_copyright: '© {year} LazyingArt LLC. Todos os direitos reservados.'
       },
       de: {
         document_title: 'OpenHI Kit — LazyingArt',
@@ -356,7 +472,10 @@
         page_title: 'OpenHI Kit',
         page_subtitle: 'Ereignisbasierter hyperspektraler Mikroskop‑Bausatz',
         page_desc: 'Bausatz mit PCBs, 3D‑gedruckten Teilen, Motoren, LED‑Beleuchtung, Gitter und 4f‑Relais für schnelle Spektralbildgebung. Offene Hard‑/Software für Forschung und Lehre.',
-        page_note: '* Hinweis: Kamera, Tubuslinse und Optiktisch nicht enthalten.'
+        page_note: '* Hinweis: Kamera, Tubuslinse und Optiktisch nicht enthalten.',
+        footer_privacy: 'Datenschutz',
+        footer_terms: 'Bedingungen',
+        footer_copyright: '© {year} LazyingArt LLC. Alle Rechte vorbehalten.'
       },
       ru: {
         document_title: 'OpenHI Kit — LazyingArt',
@@ -368,7 +487,10 @@
         page_title: 'OpenHI Kit',
         page_subtitle: 'Набор гиперспектрального микроскопа на событиях',
         page_desc: 'Набор с печатными платами, 3D‑деталями, моторами, LED‑подсветкой, решёткой и 4f‑реле для высокоскоростной спектральной съёмки. Открытые хард/софт для исследований и обучения.',
-        page_note: '* Примечание: камера, трубная линза и оптический стол не входят.'
+        page_note: '* Примечание: камера, трубная линза и оптический стол не входят.',
+        footer_privacy: 'Конфиденциальность',
+        footer_terms: 'Условия',
+        footer_copyright: '© {year} LazyingArt LLC. Все права защищены.'
       },
       tr: {
         document_title: 'OpenHI Kit — LazyingArt',
@@ -380,7 +502,10 @@
         page_title: 'OpenHI Kit',
         page_subtitle: 'Olay tabanlı hiperspektral mikroskop kiti',
         page_desc: 'PCB’ler, 3B baskı parçalar, motorlar, LED aydınlatma, ızgara ve 4f röle ile yüksek hızlı spektral görüntüleme kiti. Araştırma ve eğitim için açık donanım/yazılım.',
-        page_note: '* Not: Kamera, tüp lens ve optik tabla dahil değildir.'
+        page_note: '* Not: Kamera, tüp lens ve optik tabla dahil değildir.',
+        footer_privacy: 'Gizlilik',
+        footer_terms: 'Koşullar',
+        footer_copyright: '© {year} LazyingArt LLC. Tüm hakları saklıdır.'
       }
     };
 
@@ -388,7 +513,9 @@
       const dict = translations[lang] || translations.en;
       document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
-        if (dict && dict[key]) el.textContent = dict[key];
+        if (dict && dict[key]) {
+          el.textContent = dict[key].replace('{year}', currentYear);
+        }
       });
       document.title = dict.document_title || translations.en.document_title;
       document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';

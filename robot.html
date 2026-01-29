@@ -150,9 +150,68 @@
 
     .buy-links a { color: var(--accent); text-decoration: none; font-weight: 600; }
 
+    footer {
+      padding: 3rem 5%;
+      background: var(--dark);
+      border-top: 1px solid var(--glass-border);
+      position: relative;
+      z-index: 10;
+    }
+
+    .footer-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .footer-links a {
+      color: var(--text-soft);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover { color: var(--accent); }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .social-link {
+      width: 40px;
+      height: 40px;
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: var(--light);
+      transition: all 0.3s ease;
+    }
+
+    .social-link:hover {
+      background: var(--primary);
+      transform: translateY(-3px);
+      color: #fff;
+    }
+
     @media (max-width: 980px) {
       .nav-links { display: none; }
       .product-grid { grid-template-columns: 1fr; }
+      .footer-container { flex-direction: column; text-align: center; }
     }
   </style>
 </head>
@@ -216,9 +275,36 @@
     </div>
   </main>
 
+  <footer id="contact">
+    <div class="footer-container">
+      <div>
+        <div class="logo" style="margin-bottom: 1rem;" aria-label="LazyingArt">
+          <img src="logos/logo.png" alt="LazyingArt logo" />
+          <span>LazyingArt</span>
+        </div>
+        <p id="footerCopy" style="color: var(--text-soft);" data-i18n="footer_copyright">© 2024 LazyingArt LLC. All rights reserved.</p>
+      </div>
+      <div class="footer-links">
+        <a href="https://chat.lazying.art">EchoMind</a>
+        <a href="index.html#ecosystem" data-i18n="nav_features">Ecosystem</a>
+        <a href="index.html#company" data-i18n="nav_about">About</a>
+        <a href="index.html#contact" data-i18n="nav_contact">Contact</a>
+        <a href="#" data-i18n="footer_privacy">Privacy</a>
+        <a href="#" data-i18n="footer_terms">Terms</a>
+      </div>
+      <div class="social-links">
+        <a href="#" class="social-link" aria-label="Twitter">𝕏</a>
+        <a href="#" class="social-link" aria-label="GitHub">⚡</a>
+        <a href="#" class="social-link" aria-label="Discord">💬</a>
+        <a href="#" class="social-link" aria-label="LinkedIn">in</a>
+      </div>
+    </div>
+  </footer>
+
   <script async src="https://js.stripe.com/v3/buy-button.js"></script>
   <script>
     const supportedLangs = ['en','ja','zh-Hans','zh-Hant','ko','ar','vi','fr','es','pt','de','ru','tr'];
+    const currentYear = new Date().getFullYear();
     const translations = {
       en: {
         document_title: 'LazyingArt Robot — LazyingArt',
@@ -229,7 +315,10 @@
         nav_try: 'Try EchoMind',
         page_title: 'LazyingArt Robot',
         page_subtitle: 'Modular humanoid for creators and educators.',
-        page_desc: 'Modular, programmable humanoid platform with precision joints and an extensible control stack for AI experiments, classrooms, and creative motion. Built for The Art of Lazying so you can focus on ideas, interaction, and innovation as it evolves with LazyingArt software.'
+        page_desc: 'Modular, programmable humanoid platform with precision joints and an extensible control stack for AI experiments, classrooms, and creative motion. Built for The Art of Lazying so you can focus on ideas, interaction, and innovation as it evolves with LazyingArt software.',
+        footer_privacy: 'Privacy',
+        footer_terms: 'Terms',
+        footer_copyright: '© {year} LazyingArt LLC. All rights reserved.'
       },
       ja: {
         document_title: 'LazyingArt Robot — LazyingArt',
@@ -240,7 +329,10 @@
         nav_try: 'EchoMindを試す',
         page_title: 'LazyingArt Robot',
         page_subtitle: 'クリエイターと教育向けのモジュール型ヒューマノイド',
-        page_desc: '精密関節と拡張可能な制御スタックを備えたプログラマブルなヒューマノイド基盤。AI実験、授業、創作モーションに最適。The Art of Lazying の思想で、発想と対話に集中できるよう設計。'
+        page_desc: '精密関節と拡張可能な制御スタックを備えたプログラマブルなヒューマノイド基盤。AI実験、授業、創作モーションに最適。The Art of Lazying の思想で、発想と対話に集中できるよう設計。',
+        footer_privacy: 'プライバシー',
+        footer_terms: '利用規約',
+        footer_copyright: '© {year} LazyingArt LLC. 無断転載を禁じます。'
       },
       'zh-Hans': {
         document_title: 'LazyingArt Robot — LazyingArt',
@@ -251,7 +343,10 @@
         nav_try: '试用 EchoMind',
         page_title: 'LazyingArt Robot',
         page_subtitle: '面向创作者与教育者的模块化类人机器人',
-        page_desc: '模块化、可编程的人形平台，具备精密关节与可扩展控制栈，适用于 AI 实验、课堂教学与创意动作。遵循 The Art of Lazying，让你专注于想法、互动与创新。'
+        page_desc: '模块化、可编程的人形平台，具备精密关节与可扩展控制栈，适用于 AI 实验、课堂教学与创意动作。遵循 The Art of Lazying，让你专注于想法、互动与创新。',
+        footer_privacy: '隐私',
+        footer_terms: '条款',
+        footer_copyright: '© {year} LazyingArt LLC. 保留所有权利。'
       },
       'zh-Hant': {
         document_title: 'LazyingArt Robot — LazyingArt',
@@ -262,7 +357,10 @@
         nav_try: '試用 EchoMind',
         page_title: 'LazyingArt Robot',
         page_subtitle: '面向創作者與教育者的模組化類人機器人',
-        page_desc: '模組化、可程式化的人形平台，具備精密關節與可擴展控制堆疊，適用於 AI 實驗、課堂教學與創意動作。遵循 The Art of Lazying，讓你專注於想法、互動與創新。'
+        page_desc: '模組化、可程式化的人形平台，具備精密關節與可擴展控制堆疊，適用於 AI 實驗、課堂教學與創意動作。遵循 The Art of Lazying，讓你專注於想法、互動與創新。',
+        footer_privacy: '隱私',
+        footer_terms: '條款',
+        footer_copyright: '© {year} LazyingArt LLC. 版權所有。'
       },
       ko: {
         document_title: 'LazyingArt Robot — LazyingArt',
@@ -273,7 +371,10 @@
         nav_try: 'EchoMind 체험',
         page_title: 'LazyingArt Robot',
         page_subtitle: '크리에이터와 교육자를 위한 모듈형 휴머노이드',
-        page_desc: '정밀 관절과 확장 가능한 제어 스택을 갖춘 모듈형 프로그래머블 휴머노이드 플랫폼. AI 실험, 수업, 창작 모션에 최적. The Art of Lazying 철학으로 아이디어와 인터랙션에 집중하도록 설계.'
+        page_desc: '정밀 관절과 확장 가능한 제어 스택을 갖춘 모듈형 프로그래머블 휴머노이드 플랫폼. AI 실험, 수업, 창작 모션에 최적. The Art of Lazying 철학으로 아이디어와 인터랙션에 집중하도록 설계.',
+        footer_privacy: '개인정보',
+        footer_terms: '이용약관',
+        footer_copyright: '© {year} LazyingArt LLC. 판권 소유.'
       },
       ar: {
         document_title: 'LazyingArt Robot — LazyingArt',
@@ -284,7 +385,10 @@
         nav_try: 'جرّب EchoMind',
         page_title: 'LazyingArt Robot',
         page_subtitle: 'روبوت بشري معياري للمبدعين والمعلمين',
-        page_desc: 'منصة بشرية قابلة للبرمجة بوصلات دقيقة وبنية تحكم قابلة للتوسّع لبحوث الذكاء الاصطناعي والتعليم والحركة الإبداعية. مصمم وفق فلسفة The Art of Lazying لتركيزك على الأفكار والتفاعل والابتكار.'
+        page_desc: 'منصة بشرية قابلة للبرمجة بوصلات دقيقة وبنية تحكم قابلة للتوسّع لبحوث الذكاء الاصطناعي والتعليم والحركة الإبداعية. مصمم وفق فلسفة The Art of Lazying لتركيزك على الأفكار والتفاعل والابتكار.',
+        footer_privacy: 'الخصوصية',
+        footer_terms: 'الشروط',
+        footer_copyright: '© {year} LazyingArt LLC. جميع الحقوق محفوظة.'
       },
       vi: {
         document_title: 'LazyingArt Robot — LazyingArt',
@@ -295,7 +399,10 @@
         nav_try: 'Dùng thử EchoMind',
         page_title: 'LazyingArt Robot',
         page_subtitle: 'Robot hình người mô-đun cho người sáng tạo & giáo dục',
-        page_desc: 'Nền tảng hình người lập trình được với khớp chính xác và hệ điều khiển mở rộng cho thí nghiệm AI, lớp học và chuyển động sáng tạo. Theo triết lý The Art of Lazying để bạn tập trung vào ý tưởng và tương tác.'
+        page_desc: 'Nền tảng hình người lập trình được với khớp chính xác và hệ điều khiển mở rộng cho thí nghiệm AI, lớp học và chuyển động sáng tạo. Theo triết lý The Art of Lazying để bạn tập trung vào ý tưởng và tương tác.',
+        footer_privacy: 'Quyền riêng tư',
+        footer_terms: 'Điều khoản',
+        footer_copyright: '© {year} LazyingArt LLC. Bảo lưu mọi quyền.'
       },
       fr: {
         document_title: 'LazyingArt Robot — LazyingArt',
@@ -306,7 +413,10 @@
         nav_try: 'Essayer EchoMind',
         page_title: 'LazyingArt Robot',
         page_subtitle: 'Humanoïde modulaire pour créateurs et enseignants',
-        page_desc: 'Plateforme humanoïde programmable avec articulations précises et pile de contrôle extensible pour IA, cours et mouvements créatifs. Conçue selon The Art of Lazying pour se concentrer sur l’idée et l’interaction.'
+        page_desc: 'Plateforme humanoïde programmable avec articulations précises et pile de contrôle extensible pour IA, cours et mouvements créatifs. Conçue selon The Art of Lazying pour se concentrer sur l’idée et l’interaction.',
+        footer_privacy: 'Confidentialité',
+        footer_terms: 'Conditions',
+        footer_copyright: '© {year} LazyingArt LLC. Tous droits réservés.'
       },
       es: {
         document_title: 'LazyingArt Robot — LazyingArt',
@@ -317,7 +427,10 @@
         nav_try: 'Probar EchoMind',
         page_title: 'LazyingArt Robot',
         page_subtitle: 'Humanoide modular para creadores y docentes',
-        page_desc: 'Plataforma humanoide programable con articulaciones precisas y control extensible para IA, aulas y movimiento creativo. Diseñado con The Art of Lazying para enfocarte en ideas e interacción.'
+        page_desc: 'Plataforma humanoide programable con articulaciones precisas y control extensible para IA, aulas y movimiento creativo. Diseñado con The Art of Lazying para enfocarte en ideas e interacción.',
+        footer_privacy: 'Privacidad',
+        footer_terms: 'Términos',
+        footer_copyright: '© {year} LazyingArt LLC. Todos los derechos reservados.'
       },
       pt: {
         document_title: 'LazyingArt Robot — LazyingArt',
@@ -328,7 +441,10 @@
         nav_try: 'Experimente o EchoMind',
         page_title: 'LazyingArt Robot',
         page_subtitle: 'Humanoide modular para criadores e educadores',
-        page_desc: 'Plataforma humanoide programável com juntas precisas e controle extensível para IA, salas de aula e movimento criativo. Feita para The Art of Lazying, para você focar em ideias e interação.'
+        page_desc: 'Plataforma humanoide programável com juntas precisas e controle extensível para IA, salas de aula e movimento criativo. Feita para The Art of Lazying, para você focar em ideias e interação.',
+        footer_privacy: 'Privacidade',
+        footer_terms: 'Termos',
+        footer_copyright: '© {year} LazyingArt LLC. Todos os direitos reservados.'
       },
       de: {
         document_title: 'LazyingArt Robot — LazyingArt',
@@ -339,7 +455,10 @@
         nav_try: 'EchoMind testen',
         page_title: 'LazyingArt Robot',
         page_subtitle: 'Modularer humanoider Roboter für Kreative und Bildung',
-        page_desc: 'Programmierbare humanoide Plattform mit Präzisionsgelenken und erweiterbarem Steuer‑Stack für KI‑Experimente, Unterricht und kreative Bewegung. The Art of Lazying hilft, sich auf Ideen und Interaktion zu konzentrieren.'
+        page_desc: 'Programmierbare humanoide Plattform mit Präzisionsgelenken und erweiterbarem Steuer‑Stack für KI‑Experimente, Unterricht und kreative Bewegung. The Art of Lazying hilft, sich auf Ideen und Interaktion zu konzentrieren.',
+        footer_privacy: 'Datenschutz',
+        footer_terms: 'Bedingungen',
+        footer_copyright: '© {year} LazyingArt LLC. Alle Rechte vorbehalten.'
       },
       ru: {
         document_title: 'LazyingArt Robot — LazyingArt',
@@ -350,7 +469,10 @@
         nav_try: 'Попробовать EchoMind',
         page_title: 'LazyingArt Robot',
         page_subtitle: 'Модульный гуманоид для создателей и преподавателей',
-        page_desc: 'Программируемая гуманоидная платформа с точными суставами и расширяемым стеком управления для ИИ‑экспериментов, занятий и творческих движений. The Art of Lazying помогает сосредоточиться на идеях и взаимодействии.'
+        page_desc: 'Программируемая гуманоидная платформа с точными суставами и расширяемым стеком управления для ИИ‑экспериментов, занятий и творческих движений. The Art of Lazying помогает сосредоточиться на идеях и взаимодействии.',
+        footer_privacy: 'Конфиденциальность',
+        footer_terms: 'Условия',
+        footer_copyright: '© {year} LazyingArt LLC. Все права защищены.'
       },
       tr: {
         document_title: 'LazyingArt Robot — LazyingArt',
@@ -361,7 +483,10 @@
         nav_try: 'EchoMind’i Dene',
         page_title: 'LazyingArt Robot',
         page_subtitle: 'Yaratıcılar ve eğitimciler için modüler humanoid',
-        page_desc: 'Hassas eklemler ve genişletilebilir kontrol yığınına sahip programlanabilir humanoid platform. YZ deneyleri, dersler ve yaratıcı hareket için tasarlandı. The Art of Lazying ile fikir ve etkileşime odaklanın.'
+        page_desc: 'Hassas eklemler ve genişletilebilir kontrol yığınına sahip programlanabilir humanoid platform. YZ deneyleri, dersler ve yaratıcı hareket için tasarlandı. The Art of Lazying ile fikir ve etkileşime odaklanın.',
+        footer_privacy: 'Gizlilik',
+        footer_terms: 'Koşullar',
+        footer_copyright: '© {year} LazyingArt LLC. Tüm hakları saklıdır.'
       }
     };
 
@@ -369,7 +494,9 @@
       const dict = translations[lang] || translations.en;
       document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
-        if (dict && dict[key]) el.textContent = dict[key];
+        if (dict && dict[key]) {
+          el.textContent = dict[key].replace('{year}', currentYear);
+        }
       });
       document.title = dict.document_title || translations.en.document_title;
       document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
