@@ -842,6 +842,11 @@
             align-self: center;
         }
 
+        .carousel-buy-actions .link-sep {
+            color: var(--text-soft);
+            font-weight: 600;
+        }
+
         @media (max-width: 980px) {
             .product-carousel-wrap {
                 grid-template-columns: 1fr;
@@ -1529,7 +1534,8 @@
                             >
                             </stripe-buy-button>
                             <a href="https://robot.lazying.art" class="secondary-button">robot.lazying.art</a>
-                            <small><a href="https://github.com/lachlanchen/IdeasRobot" target="_blank" rel="noopener" style="color: var(--accent); text-decoration:none;">GitHub →</a></small>
+                            <span class="link-sep" aria-hidden="true">→</span>
+                            <small><a href="https://github.com/lachlanchen/IdeasRobot" target="_blank" rel="noopener" style="color: var(--accent); text-decoration:none;">GitHub</a></small>
                         </div>
                     </div>
                 <div class="carousel-buy-card" data-slide="1">
