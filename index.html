@@ -684,6 +684,66 @@
             gap: 3rem;
         }
 
+        .product-carousel {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .carousel-track {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background: rgba(15, 23, 42, 0.06);
+        }
+
+        .carousel-slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transform: scale(1.01);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .carousel-slide.is-active {
+            opacity: 1;
+            transform: scale(1);
+            position: relative;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .carousel-dots {
+            position: absolute;
+            right: 1.25rem;
+            bottom: 1.25rem;
+            display: flex;
+            gap: 0.5rem;
+            z-index: 2;
+        }
+
+        .carousel-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .carousel-dot.is-active {
+            background: rgba(255, 255, 255, 0.9);
+            border-color: rgba(255, 255, 255, 0.9);
+        }
+
         .product-panels {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1302,6 +1362,20 @@
     <!-- Product Section -->
     <section class="product" id="product">
         <div class="product-container">
+            <div class="product-carousel" aria-label="Product demos" role="region">
+                <div class="carousel-track">
+                    <figure class="carousel-slide is-active">
+                        <img src="demos/LazyingArtRobot.png" alt="LazyingArt Robot demo" loading="lazy">
+                    </figure>
+                    <figure class="carousel-slide">
+                        <img src="demos/words_card_arabic.JPG" alt="EinkWordsGPT Arabic words card" loading="lazy">
+                    </figure>
+                </div>
+                <div class="carousel-dots" role="tablist" aria-label="Carousel navigation">
+                    <button class="carousel-dot is-active" type="button" aria-label="Show slide 1"></button>
+                    <button class="carousel-dot" type="button" aria-label="Show slide 2"></button>
+                </div>
+            </div>
             <div class="product-panels">
                 <div class="product-showcase" id="einkwordsgpt">
                     <div class="showcase-header">
@@ -4483,6 +4557,46 @@
         menuToggle.addEventListener('click', () => {
             navLinks.classList.toggle('active');
         });
+
+        const carousel = document.querySelector('.product-carousel');
+        if (carousel) {
+            const slides = carousel.querySelectorAll('.carousel-slide');
+            const dots = carousel.querySelectorAll('.carousel-dot');
+            let currentIndex = 0;
+            let timerId = null;
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            const goToSlide = (idx) => {
+                currentIndex = (idx + slides.length) % slides.length;
+                slides.forEach((slide, i) => slide.classList.toggle('is-active', i === currentIndex));
+                dots.forEach((dot, i) => dot.classList.toggle('is-active', i === currentIndex));
+            };
+
+            const stopAutoPlay = () => {
+                if (timerId) {
+                    clearInterval(timerId);
+                    timerId = null;
+                }
+            };
+
+            const startAutoPlay = () => {
+                if (prefersReducedMotion || slides.length < 2) return;
+                stopAutoPlay();
+                timerId = setInterval(() => goToSlide(currentIndex + 1), 4500);
+            };
+
+            dots.forEach((dot, i) => {
+                dot.addEventListener('click', () => {
+                    goToSlide(i);
+                    startAutoPlay();
+                });
+            });
+
+            carousel.addEventListener('mouseenter', stopAutoPlay);
+            carousel.addEventListener('mouseleave', startAutoPlay);
+
+            startAutoPlay();
+        }
         
         // Smooth Scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
