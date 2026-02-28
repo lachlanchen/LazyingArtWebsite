@@ -1,9 +1,7 @@
 [English](../README.md) · [العربية](README.ar.md) · [Español](README.es.md) · [Français](README.fr.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · [Tiếng Việt](README.vi.md) · [中文 (简体)](README.zh-Hans.md) · [中文（繁體）](README.zh-Hant.md) · [Deutsch](README.de.md) · [Русский](README.ru.md)
 
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/lachlanchen/lachlanchen/main/logos/banner.png" alt="LazyingArt banner" />
-</p>
+[![LazyingArt banner](https://github.com/lachlanchen/lachlanchen/raw/main/figs/banner.png)](https://github.com/lachlanchen/lachlanchen/blob/main/figs/banner.png)
 
 # LazyingArt - 공식 웹사이트
 
@@ -15,66 +13,79 @@
   <img alt="Locales" src="https://img.shields.io/badge/Locales-13-blue">
 </p>
 
+![Project Shape](https://img.shields.io/badge/Project-Static%20Landing%20Site-0f766e?style=flat-square&logo=github&logoColor=white)
+![Deployment](https://img.shields.io/badge/Deployment-GitHub%20Pages-0f172a?style=flat-square&logo=github&logoColor=white)
+![Scope](https://img.shields.io/badge/Localization-13%20Locales-2563eb?style=flat-square&logo=googletranslate&logoColor=white)
+
+### 📌 한눈에 보기
+
+| 항목 | 정보 |
+| --- | --- |
+| ✅ 저장소 초점 | 제품 진입점이 포함된 LazyingArt 다국어 마케팅 사이트 |
+| 🌍 대상 | 방문자, 언어 학습자, 협업자, 기여자 |
+| 🧩 핵심 페이지 | `index.html`, `robot.html`, `eink-words-card.html`, `openhi-kit.html` |
+| 🧱 런타임 | 현지화된 텍스트 치환을 지원하는 HTML/CSS/바닐라 JS |
+
 ## 🎨 LazyingArt 소개
 
-LazyingArt는 다국어 AI 커뮤니케이션의 미래를 개척하고 있습니다. 우리는 기술이 장벽을 만들지 않고, 장벽을 허물어야 한다고 믿습니다. 우리의 미션은 전 세계 커뮤니케이션을 숨 쉬는 것처럼 자연스럽게 만드는 것입니다.
+LazyingArt는 다국어 AI 커뮤니케이션 플랫폼이자 랜딩사이트 생태계입니다. 이 저장소에는 플래그십 제품 **EchoMind** 체험판과 하드웨어 보조 페이지를 포함해 LazyingArt의 공개 웹사이트와 제품 페이지가 들어 있습니다.
 
-이 저장소에는 EchoMind와 하드웨어 제품 페이지를 포함한 LazyingArt 생태계의 공개 웹사이트 및 제품 랜딩 페이지가 담겨 있습니다.
+- **미션:** 언어 간 소통을 자연스럽고 빠르며 인간적인 경험으로 만듭니다.
+- **범위:** GitHub Pages로 배포되는 브라우저 우선 정적 웹사이트.
+- **대상:** 방문자, 제품 팀, 협업자, 기여자.
 
 ## 🌍 EchoMind - 대표 제품
 
-**EchoMind**는 다음 기능을 제공하는 혁신적인 다국어 AI 컴패니언입니다:
+**EchoMind**는 이 페이지들의 랜딩에서 소개되며 다음을 지원합니다.
 
-- 🎙️ 10개 이상 언어에서 실시간 음성 상호작용
-- 🧠 맥락 기반 메모리 및 개인화
-- 📚 발음 가이드가 포함된 인터랙티브 언어 학습
-- 🔤 문법 분석 및 개선
-- 💬 다른 사용자와 연결되는 소셜 기능
+- 🎙️ 10개 이상 언어의 실시간 음성 상호작용
+- 🧠 맥락 기반 메모리와 개인화
+- 📚 인터랙티브 언어 학습 기능 및 발음 단서
+- 🔤 문법 분석 및 텍스트 개선
+- 💬 커뮤니케이션 연습을 위한 소셜/커뮤니티 상호작용
 
-**EchoMind 체험하기**: [chat.lazying.art](https://chat.lazying.art)
+**EchoMind 체험하기:** [chat.lazying.art](https://chat.lazying.art)
 
 ## 🚀 빠른 시작
 
-이 저장소는 [lazying.art](https://lazying.art)에서 제공되는 LazyingArt 회사 웹사이트를 호스팅합니다.
+이 저장소는 [lazying.art](https://lazying.art)에서 제공되는 LazyingArt 웹사이트를 호스팅합니다.
 
 ### 로컬 개발
 
 ```bash
-# Clone the repository (canonical)
 git clone git@github.com:lachlanchen/LazyingArtWebsite.git
 cd LazyingArtWebsite
+```
 
-# Alternative clone format
-git clone https://github.com/YOUR_USERNAME/LazyingArt.git
-cd LazyingArt
+직접 열기:
 
-# Open in browser (no build process needed)
+```bash
+# macOS
 open index.html
-# or
+
+# 의존성 없는 대체 서버
 python -m http.server 8000
-# Visit http://localhost:8000
+# then open http://localhost:8000
 ```
 
 ### 배포
 
-`main` 브랜치에 변경 사항이 푸시되면 사이트는 GitHub Pages를 통해 자동 배포됩니다.
+GitHub Pages가 기본 배포 대상입니다. `main`에 푸시된 변경사항은 저장소의 Pages 설정과 `CNAME` 파일을 통해 사용자 지정 도메인으로 게시됩니다.
 
 ## ✨ 기능
 
 | 영역 | 상세 |
 |---|---|
 | 아키텍처 | 프레임워크 없는 정적 구현(HTML/CSS/vanilla JavaScript). |
-| 페이지 | 메인 마케팅 페이지 + 전용 제품 페이지: `index.html`, `robot.html`, `eink-words-card.html`, `openhi-kit.html` |
-| 현지화 | 페이지 스크립트에 13개 로케일 내장: `en`, `ja`, `zh-Hans`, `zh-Hant`, `ko`, `ar`, `vi`, `fr`, `es`, `pt`, `de`, `ru`, `tr` |
-| i18n 런타임 | `[data-i18n]` 키를 이용한 현지화 텍스트 치환 |
-| 지속성 | 언어/테마 선호도를 `localStorage`로 저장 |
-| 커머스 | 결제 흐름을 위한 Stripe Buy Button 통합 |
-| 스마트 기본값 | 메인 페이지에서 위치 기반 언어 감지 지원(`ipapi.co`, 실패 시 `ipwho.is` 대체) |
-| SEO/도메인 | `CNAME`, `_config.yml`, `sitemap.xml` |
+| 페이지 | 메인 랜딩 페이지 + 전용 페이지: `index.html`, `robot.html`, `eink-words-card.html`, `openhi-kit.html`. |
+| 현지화 | 런타임 언어 로직에서 13개 로케일 지원 (`en`, `ja`, `zh-Hans`, `zh-Hant`, `ko`, `ar`, `vi`, `fr`, `es`, `pt`, `de`, `ru`, `tr`). |
+| i18n 런타임 | 사전형 대체를 이용한 페이지 내 `[data-i18n]` 키 처리. |
+| 지속성 | 언어 + 테마 선호도를 `localStorage`에 저장. |
+| 커머스 | `https://js.stripe.com/v3/buy-button.js`를 통한 Stripe 구매 버튼 통합. |
+| 스마트 기본값 | 메인 페이지에서 지리 기반 언어 감지(`ipapi.co` + `ipwho.is` 대체). |
+| SEO/도메인 | `CNAME`, `_config.yml`, `sitemap.xml`을 통한 GitHub Pages 메타데이터 및 라우팅. |
 
 ## 📁 프로젝트 구조
-
-현재 저장소 레이아웃:
 
 ```text
 LazyingArtLanding/
@@ -89,56 +100,36 @@ LazyingArtLanding/
 ├── _config.yml
 ├── favicon.ico
 ├── favicon-32x32.png
-├── .github/
-│   └── FUNDING.yml
-├── demos/
-│   ├── LazyingArtRobot.png
-│   ├── OpenHI.png
-│   ├── demo.jpg
-│   ├── device_setup.png
-│   └── words_card_arabic.JPG
-├── figs/
 ├── logos/
 ├── logos-legacy/
+├── figs/
+├── demos/
 ├── app/
 │   └── donate/
 ├── donate/
 ├── product-assets/
-└── i18n/
+├── i18n/
+└── .github/
+    └── FUNDING.yml
 ```
 
-이전 README의 레거시 구조 블록(연속성 유지를 위해 보존):
-
-```text
-LazyingArt/
-├── index.html          # Main landing page
-├── CNAME              # Custom domain configuration
-├── robots.txt         # SEO configuration
-├── sitemap.xml        # SEO sitemap
-├── .nojekyll          # Disable Jekyll processing
-├── README.md          # This file
-└── assets/            # Images and resources (optional)
-    ├── logo.png
-    └── og-image.png
-```
+이전 초안의 오래된 참조(`robots.txt`, `.nojekyll`, `assets/`)는 현재 저장소 스냅샷에 더 이상 존재하지 않으며, 역사적 맥락으로만 유지됩니다.
 
 ## 🛠️ 기술 스택
 
-- 순수 HTML5/CSS3/JavaScript(프레임워크 의존성 없음)
-- 글래스모피즘 및 현대적인 CSS 효과
-- 반응형 디자인
-- 점진적 향상(Progressive enhancement)
-- SEO 최적화
-- Stripe 호스팅 Buy Button 위젯 (`https://js.stripe.com/v3/buy-button.js`)
-- 메타데이터/플러그인용 GitHub Pages + Jekyll 설정
+- HTML5 / CSS3 / vanilla JavaScript (프레임워크 의존성 없음)
+- 글래스모피즘 영감을 받은 시각 시스템과 반응형 레이아웃
+- 상호작용 영역을 위한 점진적 향상
+- SEO 지향 메타데이터, 사용자 지정 도메인 라우팅, 사이트맵 지원
+- Jekyll 호환 GitHub Pages 구성(`jekyll-sitemap`, `jekyll-seo-tag`)
 
 ## 📦 사전 요구사항
 
-- 최신 브라우저(Chrome, Firefox, Safari, Edge).
-- Python 3(선택 사항, 로컬 정적 서버용).
-- Git(클론 및 협업용).
+- 최신 브라우저 (Chrome, Firefox, Safari, Edge)
+- Git(클론 및 협업용)
+- Python 3(선택, 로컬 정적 서빙용)
 
-표준 로컬 편집/테스트에는 Node.js 빌드 툴체인이 필요하지 않습니다.
+일반적인 로컬 작업에는 Node.js 빌드 툴체인이 필요하지 않습니다.
 
 ## 🔧 설치
 
@@ -147,57 +138,48 @@ git clone git@github.com:lachlanchen/LazyingArtWebsite.git
 cd LazyingArtWebsite
 ```
 
-로컬 실행:
+저장소 경로와 clone URI는 포크마다 다를 수 있습니다. PR 기여 시 본인 저장소 URL을 사용하세요.
 
-```bash
-python -m http.server 8000
-# then open http://localhost:8000
-```
+## ▶️ 사용법
 
-## ▶️ 사용 방법
+주요 페이지 경로:
 
-주요 페이지:
+- 랜딩: `index.html`
+- 로봇: `robot.html`
+- 전자잉크 제품: `eink-words-card.html`
+- OpenHI 키트: `openhi-kit.html`
 
-- 랜딩 페이지: `http://localhost:8000/index.html`
-- Robot 제품 페이지: `http://localhost:8000/robot.html`
-- E-ink 제품 페이지: `http://localhost:8000/eink-words-card.html`
-- OpenHI kit 페이지: `http://localhost:8000/openhi-kit.html`
+로컬 동작:
 
-일반적인 사용자 흐름:
+1. `index.html` 열기
+2. 제품 생태계 섹션 탐색
+3. 페이지별 상세 및 외부 경험(`chat.lazying.art`, `onlyideas.art`, `coin.lazying.art`)으로 이동
+4. 제품 페이지의 호스팅 Stripe 버튼으로 결제 액션 수행
 
-1. `index.html`에 접속합니다.
-2. 생태계 섹션과 제품 카드를 둘러봅니다.
-3. 제품 상세 페이지로 이동하거나 외부 앱(`chat.lazying.art`, `onlyideas.art`, `coin.lazying.art`)을 엽니다.
-4. 제품 페이지의 Stripe buy button을 사용합니다.
-
-## ⚙️ 설정
-
-설정은 파일 기반이며 대부분 인라인으로 구성되어 있습니다:
+## ⚙️ 구성
 
 - `_config.yml`
-  - 사이트 메타데이터(`title`, `description`, `url`)
-  - 소셜 메타데이터
-  - GitHub Pages 플러그인(`jekyll-sitemap`, `jekyll-seo-tag`)
-  - HTML 압축 설정
-  - `google_analytics`는 현재 플레이스홀더(`UA-XXXXXXXXX-X`)
+  - 사이트 메타데이터 (`title`, `description`, `url`)
+  - SEO 및 소셜 메타데이터
+  - GitHub Pages 플러그인 설정
+  - 참고: `google_analytics`에는 현재 placeholder ID(`UA-XXXXXXXXX-X`)가 들어가 있습니다.
 - `CNAME`
-  - GitHub Pages용 커스텀 도메인 매핑(`lazying.art`)
-- 각 페이지의 인라인 JS
-  - `supportedLangs` 로케일 목록
-  - 번역 딕셔너리
-  - 언어/테마 상태 관리(`localStorage`)
+  - Pages용 사용자 지정 도메인(`lazying.art`) 바인딩
+- HTML에 임베드된 런타임 스크립트
+  - 언어/테마 초기화
+  - 로케일 메타데이터가 포함된 `supportedLangs`
+  - 번역 딕셔너리와 `[data-i18n]` 치환
+  - `localStorage`의 테마·언어 선호도 유지
 
-가정: 실제 분석 ID가 플레이스홀더를 대체하기 전까지 분석 기능은 활성화되지 않습니다.
+_가정:_ `google_analytics`는 실제 추적 ID로 placeholder가 교체될 때까지 활성화되지 않습니다.
 
 ## 🧪 예시
 
-전체 사이트를 로컬에서 서빙:
+로컬 서버를 시작해 빠르게 페이지를 검증합니다.
 
 ```bash
 python -m http.server 8000
 ```
-
-주요 엔드포인트 빠르게 검증:
 
 ```bash
 curl -I http://localhost:8000/
@@ -206,7 +188,7 @@ curl -I http://localhost:8000/eink-words-card.html
 curl -I http://localhost:8000/openhi-kit.html
 ```
 
-브라우저 콘솔에서 저장된 UI 선호도 초기화:
+브라우저 콘솔에서 저장된 환경 설정 초기화:
 
 ```js
 localStorage.removeItem('lang');
@@ -216,86 +198,62 @@ location.reload();
 
 ## 🧑‍💻 개발 노트
 
-- 이 프로젝트는 의도적으로 정적이며 프레임워크를 사용하지 않습니다.
-- 대부분의 동작(i18n, 테마, 제품 상호작용 UI)은 페이지별 인라인으로 구현되어 있습니다.
-- 현재 이 저장소에는 패키지 매니페스트(`package.json`)나 자동화 테스트 스위트가 없습니다.
-- `i18n/` 디렉터리는 존재하지만 현재 비어 있으며, 현지화 문자열은 HTML 파일에 내장되어 있습니다.
-- `donate/`, `app/donate/`, `product-assets/` 같은 빈 디렉터리는 향후 사용을 위해 예약된 것으로 보입니다.
-
-권장 편집 워크플로:
-
-1. 로컬 정적 서버를 실행합니다.
-2. 페이지를 수정합니다.
-3. 데스크톱/모바일 레이아웃 및 언어/테마 토글을 확인합니다.
-4. 외부 링크와 Stripe 위젯 로드를 확인합니다.
+- 정적 우선 아키텍처로 유지관리와 호스팅이 간단합니다.
+- 로케일 동작과 테마 전환은 각 페이지에 인라인으로 구현되어 있습니다.
+- `package.json`이 없고, 트랜스파일링 및 자동화된 테스트 스위트가 없습니다.
+- 페이지 번역은 현재 페이지 스크립트에 삽입되며, `i18n/README.*.md`는 번역 문서를 위한 보조 역할입니다.
+- `donate/`, `app/donate/`, `product-assets/`는 현재 예약된 placeholder로 보입니다.
+- 권장 워크플로: 로컬 정적 편집 → 브라우저 확인(데스크톱/모바일) → 링크 점검.
 
 ## 📊 성능
 
-이전 README의 목표 프로필에 따르면:
+이전 README 타겟 프로필을 기준으로 보면:
 
-- ⚡ <1s First Contentful Paint
-- 📱 100% Mobile-friendly
-- ♿ WCAG 2.1 AA Compliant
-- 🎯 100/100 Lighthouse Score
+- ⚡ < 1s First Contentful Paint
+- 📱 모바일 우선 반응형 레이아웃
+- ♿ 구조에서 WCAG 지향 접근성 관행 반영
+- 🎯 Lighthouse 중심 최적화 프로필
 
-가정: 주요 시각 요소 또는 스크립트 업데이트 이후에는 이 지표를 다시 측정해야 합니다.
+이 값들은 주요 UI 변경 후 다시 측정해야 합니다.
 
-## 🛠️ 문제 해결
+## 🛠️ 트러블슈팅
 
-| 증상 | 확인 사항 |
+| 증상 | 확인 항목 |
 |---|---|
-| 로컬 서버는 실행되지만 페이지 스타일이 깨져 보임 | 차단된 로컬 파일 컨텍스트가 아닌 `http://localhost:8000`으로 열고 있는지 확인하세요. |
-| Stripe buy button이 렌더링되지 않음 | 인터넷 연결과 `https://js.stripe.com/v3/buy-button.js` 접근 가능 여부를 확인하세요. |
-| 언어가 예상대로 변경되지 않음 | `localStorage` 키(`lang`, `theme`)를 지우고 다시 로드하세요. |
-| GitHub Pages 배포 결과가 기대와 다름 | `main` 브랜치 퍼블리싱 설정, `CNAME`, `_config.yml` 값을 확인하세요. |
-| SEO 파일이 오래된 것처럼 보임 | 페이지 추가/삭제 시 `sitemap.xml` 항목과 타임스탬프를 업데이트하세요. |
+| 배포 후 페이지가 스타일이 깨져 보임 | `http://localhost:8000`으로 서빙해서 열어보세요 (`file://`로 직접 열지 말 것). |
+| Stripe 버튼이 로드되지 않음 | `https://js.stripe.com/v3/buy-button.js` 접근성을 확인하세요. |
+| 언어가 전환되지 않음 | `localStorage` 키(`lang`, `theme`)를 지운 뒤 새로고침 |
+| Pages에서 라우트 불일치 | `CNAME`, 배포 브랜치 대상, `_config.yml` 값을 확인 |
+| SEO 메타데이터가 오래됨 | 페이지/콘텐츠 추가 후 `sitemap.xml` 갱신 |
 
 ## 🗺️ 로드맵
 
-- README와 저장소 구조 문서를 운영 중 페이지와 동기화 상태로 유지.
-- README 파이프라인 단계의 일부로 `i18n/` 다국어 README 변형을 추가/유지.
-- 중복을 줄이기 위해 반복되는 인라인 JS/CSS를 공용 자산으로 중앙화하는 방안 검토.
-- 깨진 링크 및 기본 HTML 검증을 위한 자동 점검 추가.
-- 운영 분석이 확정되면 플레이스홀더 분석 설정 교체.
+- README와 저장소 구조를 운영 페이지와 동기화 상태로 유지
+- `i18n/` 문서를 완성도 있게 확장하고 정기적으로 업데이트
+- 페이지 중복을 줄이기 위해 공통 런타임 로직을 재사용 가능한 모듈로 분리
+- 링크 점검과 가벼운 HTML/포맷 검증 CI 추가
+- 최종 확정 시 placeholder 분석 설정 교체
+- 현지화 QA 및 스크린샷 리뷰를 위한 기여 가이드 추가
 
-## 🤝 기여
-
-기여를 환영합니다! Pull Request를 자유롭게 제출해 주세요.
-
-권장 기여 흐름:
+## 🤝 기여하기
 
 1. 저장소를 포크합니다.
-2. 기능 브랜치를 생성합니다.
-3. 페이지를 로컬에서 테스트합니다.
-4. 시각 변경 사항에는 스크린샷을 포함해 PR을 엽니다.
+2. 설명이 명확한 브랜치를 생성합니다(예: `docs/update-landing-copy`).
+3. 관련 HTML과 `i18n` 문서를 수정합니다.
+4. 데스크톱/모바일 렌더링과 언어/테마 토글을 확인합니다.
+5. 사용자 노출 변경 시 명확한 스크린샷 또는 화면 녹화본을 첨부해 PR을 올립니다.
 
-## ❤️ 지원 / 스폰서십
+업데이트는 작고 집중적으로 유지하세요(콘텐츠, 접근성, 반응형 동작이 가장 우선적으로 검토됩니다).
 
-프로젝트를 지원하고 싶다면:
+## 📄 라이선스
 
-- GitHub Sponsors: [lachlanchen](https://github.com/sponsors/lachlanchen)
-- Website: [lazying.art](https://lazying.art)
-- Product: [chat.lazying.art](https://chat.lazying.art)
-- Ecosystem: [onlyideas.art](https://onlyideas.art)
+현재 저장소 스냅샷에는 전용 `LICENSE` 파일이 없습니다.
 
-펀딩 메타데이터 출처: `.github/FUNDING.yml`.
+프로젝트의 공식 라이선스는 프로젝트 소유자와 확인 후 여기에 전체 라이선스 정보를 추가하세요.
 
-## 📝 라이선스
 
-© 2024 LazyingArt. All rights reserved.
+## ❤️ Support
 
-## 📧 연락처
-
-- Website: [lazying.art](https://lazying.art)
-- Product: [chat.lazying.art](https://chat.lazying.art)
-- Email: contact@lazying.art
-- Twitter: [@lazyingart](https://twitter.com/lazyingart)
-
----
-
-<p align="center">Built with ❤️ by the LazyingArt Team</p>
-<p align="center">
-  <a href="https://lazying.art">Website</a> •
-  <a href="https://chat.lazying.art">Try EchoMind</a> •
-  <a href="https://twitter.com/lazyingart">Twitter</a>
-</p>
+| Donate | PayPal | Stripe |
+| --- | --- | --- |
+| [![Donate](https://camo.githubusercontent.com/24a4914f0b42c6f435f9e101621f1e52535b02c225764b2f6cc99416926004b7/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f446f6e6174652d4c617a79696e674172742d3045413545393f7374796c653d666f722d7468652d6261646765266c6f676f3d6b6f2d6669266c6f676f436f6c6f723d7768697465)](https://chat.lazying.art/donate) | [![PayPal](https://camo.githubusercontent.com/d0f57e8b016517a4b06961b24d0ca87d62fdba16e18bbdb6aba28e978dc0ea21/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f50617950616c2d526f6e677a686f754368656e2d3030343537433f7374796c653d666f722d7468652d6261646765266c6f676f3d70617970616c266c6f676f436f6c6f723d7768697465)](https://paypal.me/RongzhouChen) | [![Stripe](https://camo.githubusercontent.com/1152dfe04b6943afe3a8d2953676749603fb9f95e24088c92c97a01a897b4942/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f5374726970652d446f6e6174652d3633354246463f7374796c653d666f722d7468652d6261646765266c6f676f3d737472697065266c6f676f436f6c6f723d7768697465)](https://buy.stripe.com/aFadR8gIaflgfQV6T4fw400) |

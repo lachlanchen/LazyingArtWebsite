@@ -1,11 +1,7 @@
 [English](../README.md) · [العربية](README.ar.md) · [Español](README.es.md) · [Français](README.fr.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · [Tiếng Việt](README.vi.md) · [中文 (简体)](README.zh-Hans.md) · [中文（繁體）](README.zh-Hant.md) · [Deutsch](README.de.md) · [Русский](README.ru.md)
 
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/lachlanchen/lachlanchen/main/logos/banner.png" alt="LazyingArt banner" />
-</p>
-
-🌐 **Idiomas:** **Inglés (actual)** | Otros idiomas: planificados mediante el pipeline `i18n/`
+[![LazyingArt banner](https://github.com/lachlanchen/lachlanchen/raw/main/figs/banner.png)](https://github.com/lachlanchen/lachlanchen/blob/main/figs/banner.png)
 
 # LazyingArt - Sitio web oficial
 
@@ -17,66 +13,79 @@
   <img alt="Locales" src="https://img.shields.io/badge/Locales-13-blue">
 </p>
 
+![Project Shape](https://img.shields.io/badge/Project-Static%20Landing%20Site-0f766e?style=flat-square&logo=github&logoColor=white)
+![Deployment](https://img.shields.io/badge/Deployment-GitHub%20Pages-0f172a?style=flat-square&logo=github&logoColor=white)
+![Scope](https://img.shields.io/badge/Localization-13%20Locales-2563eb?style=flat-square&logo=googletranslate&logoColor=white)
+
+### 📌 De un vistazo
+
+| Elemento | Información |
+| --- | --- |
+| ✅ Foco del repositorio | Sitio de marketing multilingüe con puntos de entrada de producto para LazyingArt |
+| 🌍 Audiencia | Visitantes, personas que aprenden idiomas, colaboradores, contribuidores |
+| 🧩 Páginas principales | `index.html`, `robot.html`, `eink-words-card.html`, `openhi-kit.html` |
+| 🧱 Entorno | Sitio HTML/CSS/vanilla JS con interpolación de texto localizada |
+
 ## 🎨 Acerca de LazyingArt
 
-LazyingArt está liderando el futuro de la comunicación multilingüe con IA. Creemos que la tecnología debe derribar barreras, no crearlas. Nuestra misión es hacer que la comunicación global sea tan natural como respirar.
+LazyingArt es una plataforma de comunicación con IA y un ecosistema de landing pages multilingüe. Este repositorio contiene el sitio web público y las páginas de producto de LazyingArt, incluyendo la experiencia principal **EchoMind** y páginas de hardware de apoyo.
 
-Este repositorio contiene el sitio web público y las páginas de aterrizaje de productos del ecosistema LazyingArt, incluyendo EchoMind y páginas de productos de hardware.
+- **Misión:** Hacer que la comunicación entre idiomas sea natural, rápida y humana.
+- **Alcance:** Sitio web estático con prioridad de navegador desplegado con GitHub Pages.
+- **Audiencia:** Visitantes, equipos de producto, colaboradores y contribuidores.
 
-## 🌍 EchoMind - Nuestro producto insignia
+## 🌍 EchoMind - Nuestro producto principal
 
-**EchoMind** es nuestro revolucionario compañero de IA multilingüe que incluye:
+**EchoMind** se presenta a través de las landing pages de este repositorio y ofrece:
 
 - 🎙️ Interacción de voz en tiempo real en más de 10 idiomas
 - 🧠 Memoria contextual y personalización
-- 📚 Aprendizaje interactivo de idiomas con guías de pronunciación
-- 🔤 Análisis y mejora gramatical
-- 💬 Funciones sociales para conectar con otras personas
+- 📚 Funciones interactivas para aprender idiomas y ayudas de pronunciación
+- 🔤 Análisis gramatical y mejora de texto
+- 💬 Interacciones sociales/comunitarias para practicar comunicación
 
-**Prueba EchoMind**: [chat.lazying.art](https://chat.lazying.art)
+**Probar EchoMind:** [chat.lazying.art](https://chat.lazying.art)
 
 ## 🚀 Inicio rápido
 
-Este repositorio aloja el sitio web corporativo de LazyingArt en [lazying.art](https://lazying.art).
+Este repositorio aloja el sitio de LazyingArt en [lazying.art](https://lazying.art).
 
 ### Desarrollo local
 
 ```bash
-# Clone the repository (canonical)
 git clone git@github.com:lachlanchen/LazyingArtWebsite.git
 cd LazyingArtWebsite
+```
 
-# Alternative clone format
-git clone https://github.com/YOUR_USERNAME/LazyingArt.git
-cd LazyingArt
+Abrir directamente:
 
-# Open in browser (no build process needed)
+```bash
+# macOS
 open index.html
-# or
+
+# Servidor alternativo sin dependencias
 python -m http.server 8000
-# Visit http://localhost:8000
+# luego abre http://localhost:8000
 ```
 
 ### Despliegue
 
-El sitio se despliega automáticamente mediante GitHub Pages cuando los cambios se envían a la rama `main`.
+GitHub Pages es el objetivo principal de despliegue. Los cambios enviados a `main` deberían publicarse en el dominio personalizado mediante la configuración de Pages del repositorio y el archivo `CNAME`.
 
-## ✨ Funcionalidades
+## ✨ Características
 
 | Área | Detalles |
 |---|---|
-| Arquitectura | Implementación estática sin framework (HTML/CSS/JavaScript vanilla). |
-| Páginas | Página principal de marketing más páginas dedicadas de productos: `index.html`, `robot.html`, `eink-words-card.html`, `openhi-kit.html` |
-| Localización | Soporte de UI multilingüe con 13 locales embebidos en scripts de página: `en`, `ja`, `zh-Hans`, `zh-Hant`, `ko`, `ar`, `vi`, `fr`, `es`, `pt`, `de`, `ru`, `tr` |
-| Runtime i18n | Reemplazo de texto localizado usando claves `[data-i18n]` |
-| Persistencia | Preferencia de idioma + preferencia de tema persistidas mediante `localStorage` |
-| Comercio | Integración de Stripe Buy Button para flujos de compra |
-| Valores predeterminados inteligentes | Detección de idioma asistida por geolocalización en la página principal (`ipapi.co` con respaldo de `ipwho.is`) |
-| SEO/Dominio | `CNAME`, `_config.yml`, `sitemap.xml` |
+| Arquitectura | Implementación estática sin framework (HTML/CSS/vanilla JavaScript). |
+| Páginas | Página principal más páginas dedicadas: `index.html`, `robot.html`, `eink-words-card.html`, `openhi-kit.html`. |
+| Localización | 13 idiomas soportados en la lógica de runtime (`en`, `ja`, `zh-Hans`, `zh-Hant`, `ko`, `ar`, `vi`, `fr`, `es`, `pt`, `de`, `ru`, `tr`). |
+| Runtime i18n | Claves `[data-i18n]` con reemplazo de diccionario en la página. |
+| Persistencia | Preferencias de idioma y tema persistidas por `localStorage`. |
+| Comercio | Integración de botón de compra de Stripe mediante `https://js.stripe.com/v3/buy-button.js`. |
+| Valores predeterminados inteligentes | Detección de idioma asistida por geolocalización en la página principal (`ipapi.co` + fallback de `ipwho.is`). |
+| SEO/Dominio | `CNAME`, `_config.yml` y `sitemap.xml` para metadatos y enrutamiento de GitHub Pages. |
 
 ## 📁 Estructura del proyecto
-
-Diseño actual del repositorio:
 
 ```text
 LazyingArtLanding/
@@ -91,56 +100,36 @@ LazyingArtLanding/
 ├── _config.yml
 ├── favicon.ico
 ├── favicon-32x32.png
-├── .github/
-│   └── FUNDING.yml
-├── demos/
-│   ├── LazyingArtRobot.png
-│   ├── OpenHI.png
-│   ├── demo.jpg
-│   ├── device_setup.png
-│   └── words_card_arabic.JPG
-├── figs/
 ├── logos/
 ├── logos-legacy/
+├── figs/
+├── demos/
 ├── app/
 │   └── donate/
 ├── donate/
 ├── product-assets/
-└── i18n/
+├── i18n/
+└── .github/
+    └── FUNDING.yml
 ```
 
-Bloque de estructura heredada del README anterior (se mantiene por continuidad):
-
-```text
-LazyingArt/
-├── index.html          # Main landing page
-├── CNAME              # Custom domain configuration
-├── robots.txt         # SEO configuration
-├── sitemap.xml        # SEO sitemap
-├── .nojekyll          # Disable Jekyll processing
-├── README.md          # This file
-└── assets/            # Images and resources (optional)
-    ├── logo.png
-    └── og-image.png
-```
+Las referencias antiguas de borradores previos (por ejemplo, `robots.txt`, `.nojekyll`, `assets/`) ya no están presentes en la instantánea actual del repositorio y se mantienen solo como contexto histórico.
 
 ## 🛠️ Tecnologías
 
-- HTML5/CSS3/JavaScript puro (sin dependencias de framework)
-- Glassmorphism y efectos CSS modernos
-- Diseño responsivo
-- Mejora progresiva
-- SEO optimizado
-- Widgets de Stripe hosted buy button (`https://js.stripe.com/v3/buy-button.js`)
-- GitHub Pages + configuración Jekyll para metadatos/plugins
+- HTML5 / CSS3 / JavaScript vanilla (sin dependencia de framework)
+- Sistema visual inspirado en glassmorphism y diseños responsivos
+- Mejora progresiva para secciones interactivas
+- Metadatos orientados a SEO, enrutamiento de dominio personalizado y soporte de sitemap
+- Configuración compatible con Jekyll para GitHub Pages (`jekyll-sitemap`, `jekyll-seo-tag`)
 
 ## 📦 Requisitos previos
 
-- Un navegador moderno (Chrome, Firefox, Safari, Edge).
-- Python 3 (opcional, para servidor estático local).
-- Git (para clonado y colaboración).
+- Navegador moderno (Chrome, Firefox, Safari, Edge)
+- Git (para clonar y colaborar)
+- Python 3 (opcional, para servir localmente contenido estático)
 
-No se requiere una toolchain de build de Node.js para edición/pruebas locales estándar.
+No se requiere una cadena de herramientas de compilación Node.js para el trabajo local estándar.
 
 ## 🔧 Instalación
 
@@ -149,57 +138,48 @@ git clone git@github.com:lachlanchen/LazyingArtWebsite.git
 cd LazyingArtWebsite
 ```
 
-Ejecutar localmente:
-
-```bash
-python -m http.server 8000
-# then open http://localhost:8000
-```
+La ruta del repositorio y el URI de clonación pueden variar según el fork. Usa la URL de tu repositorio al contribuir mediante pull request.
 
 ## ▶️ Uso
 
-Páginas principales:
+Rutas principales:
 
-- Página de inicio: `http://localhost:8000/index.html`
-- Página de producto Robot: `http://localhost:8000/robot.html`
-- Página de producto E-ink: `http://localhost:8000/eink-words-card.html`
-- Página del kit OpenHI: `http://localhost:8000/openhi-kit.html`
+- Landing: `index.html`
+- Robot: `robot.html`
+- Producto de e-ink: `eink-words-card.html`
+- Kit OpenHI: `openhi-kit.html`
 
-Flujo típico de usuario:
+Flujo local:
 
-1. Visita `index.html`.
-2. Explora las secciones del ecosistema y las tarjetas de productos.
-3. Navega a los detalles del producto o abre apps externas (`chat.lazying.art`, `onlyideas.art`, `coin.lazying.art`).
-4. Usa los botones de compra de Stripe en las páginas de producto.
+1. Abre `index.html`
+2. Explora las secciones del ecosistema del producto
+3. Navega a detalles específicos de cada página y experiencias externas (`chat.lazying.art`, `onlyideas.art`, `coin.lazying.art`)
+4. Usa los botones de Stripe alojados para acciones de comercio en páginas de producto
 
 ## ⚙️ Configuración
 
-La configuración se basa en archivos y en su mayoría está en línea:
-
 - `_config.yml`
   - Metadatos del sitio (`title`, `description`, `url`)
-  - Metadatos sociales
-  - Plugins de GitHub Pages (`jekyll-sitemap`, `jekyll-seo-tag`)
-  - Ajustes de compresión HTML
-  - `google_analytics` actualmente es un marcador de posición (`UA-XXXXXXXXX-X`)
+  - Metadatos SEO y sociales
+  - Ajustes de plugins de GitHub Pages
+  - Nota: `google_analytics` actualmente contiene un ID de marcador de posición (`UA-XXXXXXXXX-X`)
 - `CNAME`
-  - Mapeo de dominio personalizado para GitHub Pages (`lazying.art`)
-- JS en línea en cada página
-  - Lista de locales `supportedLangs`
-  - Diccionarios de traducción
-  - Gestión del estado de idioma/tema (`localStorage`)
+  - Asocia el dominio personalizado (`lazying.art`) para Pages
+- Scripts de runtime embebidos en HTML
+  - Inicialización de idioma/tema
+  - `supportedLangs` con metadatos de locale
+  - Diccionarios de traducción y interpolación de `[data-i18n]`
+  - Persistencia de preferencias de tema e idioma en `localStorage`
 
-Suposición: analytics no está activo hasta que un ID real de analytics reemplace el marcador de posición.
+*Suposición:* `google_analytics` no está activo hasta que un ID real de seguimiento reemplace el marcador de posición.
 
 ## 🧪 Ejemplos
 
-Servir el sitio completo localmente:
+Inicia un servidor local y valida páginas rápidamente:
 
 ```bash
 python -m http.server 8000
 ```
-
-Validar rápidamente endpoints principales:
 
 ```bash
 curl -I http://localhost:8000/
@@ -208,7 +188,7 @@ curl -I http://localhost:8000/eink-words-card.html
 curl -I http://localhost:8000/openhi-kit.html
 ```
 
-Restablecer preferencias de UI guardadas en la consola del navegador:
+Reinicia preferencias persistentes desde la consola del navegador:
 
 ```js
 localStorage.removeItem('lang');
@@ -218,86 +198,61 @@ location.reload();
 
 ## 🧑‍💻 Notas de desarrollo
 
-- El proyecto es intencionalmente estático y sin frameworks.
-- La mayor parte del comportamiento (i18n, tema, UI de interacción de producto) está implementada en línea por página.
-- Actualmente no hay manifiesto de paquetes (`package.json`) ni suite de pruebas automatizadas en este repositorio.
-- `i18n/` existe, pero actualmente está vacío; las cadenas de localización están embebidas en archivos HTML.
-- Directorios vacíos como `donate/`, `app/donate/` y `product-assets/` parecen reservados para uso futuro.
+- La arquitectura de prioridad estática mantiene simple el mantenimiento y el hosting.
+- El comportamiento de locale y los cambios de tema se implementan de forma inline en cada página.
+- No existe `package.json`, no hay transpile y no hay suite automatizada de pruebas.
+- `i18n/README.*.md` existe para documentación traducida, mientras que las traducciones de páginas hoy permanecen embebidas en los scripts de cada página.
+- `donate/`, `app/donate/` y `product-assets/` aparecen actualmente como marcadores de posición.
+- Flujo recomendado: edición estática local → validación en navegador (escritorio/móvil) → revisiones de enlaces.
 
-Flujo de edición recomendado:
+## 🧪 Rendimiento
 
-1. Ejecutar un servidor estático local.
-2. Realizar ediciones de página.
-3. Verificar diseño desktop/mobile y toggles de idioma/tema.
-4. Verificar enlaces externos y carga del widget de Stripe.
+La versión objetivo declarada del README anterior indica:
 
-## 📊 Rendimiento
+- ⚡ Menos de 1s de First Contentful Paint
+- 📱 Diseño responsive con prioridad móvil
+- ♿ Prácticas de accesibilidad orientadas a WCAG en la estructura
+- 🎯 Perfil de optimización enfocado en Lighthouse
 
-Como se indica en el perfil objetivo del README anterior:
-
-- ⚡ <1s First Contentful Paint
-- 📱 100% compatible con móviles
-- ♿ Cumple con WCAG 2.1 AA
-- 🎯 Puntuación Lighthouse 100/100
-
-Suposición: volver a medir estas métricas tras cambios importantes de estilo o scripts.
+Estos valores deben medirse de nuevo después de cambios importantes de UI.
 
 ## 🛠️ Solución de problemas
 
 | Síntoma | Verificación |
 |---|---|
-| El servidor local inicia pero las páginas se ven sin estilos | Asegúrate de abrir mediante `http://localhost:8000` y no desde un contexto de archivo local bloqueado. |
-| El botón de compra de Stripe no se renderiza | Confirma acceso a internet y que `https://js.stripe.com/v3/buy-button.js` sea accesible. |
-| El idioma no cambia como se espera | Limpia las claves de `localStorage` (`lang`, `theme`) y recarga. |
-| Desajuste de despliegue en GitHub Pages | Verifica la configuración de publicación de la rama `main`, `CNAME` y los valores de `_config.yml`. |
-| Los archivos SEO parecen desactualizados | Actualiza entradas y marcas de tiempo de `sitemap.xml` al agregar/eliminar páginas. |
+| La página se ve sin estilos después de publicar | Sirve a través de `http://localhost:8000` (no la abras como `file://`) |
+| El botón de Stripe no carga | Confirma acceso de red a `https://js.stripe.com/v3/buy-button.js` |
+| El idioma no cambia | Borra las claves de `localStorage` (`lang`, `theme`) y recarga |
+| Discordancia de ruta en Pages | Confirma `CNAME`, destino de despliegue de branch y valores de `_config.yml` |
+| Metadatos SEO obsoletos | Actualiza `sitemap.xml` después de añadir rutas o contenido |
 
 ## 🗺️ Hoja de ruta
 
-- Mantener sincronizados el README y la documentación de estructura del repositorio con las páginas de producción.
-- Agregar/mantener variantes multilingües de README en `i18n/` como parte de los pasos del pipeline de README.
-- Considerar centralizar JS/CSS en línea repetido en assets compartidos para reducir duplicación.
-- Agregar comprobaciones automatizadas de enlaces rotos y validación básica de HTML.
-- Reemplazar la configuración placeholder de analytics cuando se finalice analytics de producción.
+- Mantener README y estructura del repositorio en sincronía con las páginas de producción
+- Expandir documentación en `i18n/` con paridad completa y actualizaciones regulares
+- Extraer lógica de runtime compartida en módulos reutilizables para reducir duplicación entre páginas
+- Añadir validaciones de enlaces y validación HTML/formato liviana en CI
+- Reemplazar configuración de analítica de marcador de posición cuando se finalice
+- Añadir guía para colaboradores sobre QA de localización y revisión de capturas de pantalla
 
-## 🤝 Contribuir
+## 🤝 Contribuciones
 
-¡Agradecemos contribuciones! No dudes en enviar un Pull Request.
+1. Haz un fork del repositorio.
+2. Crea una rama descriptiva (por ejemplo, `docs/update-landing-copy`).
+3. Edita el HTML relevante y la documentación `i18n`.
+4. Valida el renderizado en escritorio y móvil y los cambios de idioma/tema.
+5. Abre un PR con capturas de pantalla o grabaciones de pantalla para cambios visibles al usuario.
 
-Flujo de contribución recomendado:
+Mantén las actualizaciones pequeñas y enfocadas (contenido, accesibilidad y comportamiento responsive tienen la mayor prioridad de revisión).
 
-1. Haz fork del repo.
-2. Crea una rama de funcionalidad.
-3. Prueba las páginas localmente.
-4. Abre un PR con capturas de pantalla para cambios visuales.
+## ❤️ Support
 
-## ❤️ Soporte / Patrocinio
+| Donate | PayPal | Stripe |
+| --- | --- | --- |
+| [![Donate](https://camo.githubusercontent.com/24a4914f0b42c6f435f9e101621f1e52535b02c225764b2f6cc99416926004b7/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f446f6e6174652d4c617a79696e674172742d3045413545393f7374796c653d666f722d7468652d6261646765266c6f676f3d6b6f2d6669266c6f676f436f6c6f723d7768697465)](https://chat.lazying.art/donate) | [![PayPal](https://camo.githubusercontent.com/d0f57e8b016517a4b06961b24d0ca87d62fdba16e18bbdb6aba28e978dc0ea21/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f50617950616c2d526f6e677a686f754368656e2d3030343537433f7374796c653d666f722d7468652d6261646765266c6f676f3d70617970616c266c6f676f436f6c6f723d7768697465)](https://paypal.me/RongzhouChen) | [![Stripe](https://camo.githubusercontent.com/1152dfe04b6943afe3a8d2953676749603fb9f95e24088c92c97a01a897b4942/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f5374726970652d446f6e6174652d3633354246463f7374796c653d666f722d7468652d6261646765266c6f676f3d737472697065266c6f676f436f6c6f723d7768697465)](https://buy.stripe.com/aFadR8gIaflgfQV6T4fw400) |
 
-Si quieres apoyar el proyecto:
+## 📄 License
 
-- GitHub Sponsors: [lachlanchen](https://github.com/sponsors/lachlanchen)
-- Sitio web: [lazying.art](https://lazying.art)
-- Producto: [chat.lazying.art](https://chat.lazying.art)
-- Ecosistema: [onlyideas.art](https://onlyideas.art)
+No existe un archivo `LICENSE` dedicado en esta instantánea del repositorio.
 
-Fuente de metadatos de financiación: `.github/FUNDING.yml`.
-
-## 📝 Licencia
-
-© 2024 LazyingArt. Todos los derechos reservados.
-
-## 📧 Contacto
-
-- Sitio web: [lazying.art](https://lazying.art)
-- Producto: [chat.lazying.art](https://chat.lazying.art)
-- Email: contact@lazying.art
-- Twitter: [@lazyingart](https://twitter.com/lazyingart)
-
----
-
-<p align="center">Built with ❤️ by the LazyingArt Team</p>
-<p align="center">
-  <a href="https://lazying.art">Website</a> •
-  <a href="https://chat.lazying.art">Try EchoMind</a> •
-  <a href="https://twitter.com/lazyingart">Twitter</a>
-</p>
+Por favor, confirma la licencia oficial del proyecto con los responsables y añade aquí la referencia completa de la licencia.

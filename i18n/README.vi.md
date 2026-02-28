@@ -1,11 +1,7 @@
 [English](../README.md) · [العربية](README.ar.md) · [Español](README.es.md) · [Français](README.fr.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · [Tiếng Việt](README.vi.md) · [中文 (简体)](README.zh-Hans.md) · [中文（繁體）](README.zh-Hant.md) · [Deutsch](README.de.md) · [Русский](README.ru.md)
 
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/lachlanchen/lachlanchen/main/logos/banner.png" alt="LazyingArt banner" />
-</p>
-
-🌐 README này là bản tiếng Việt. Các ngôn ngữ khác được tạo qua pipeline `i18n/`.
+[![LazyingArt banner](https://github.com/lachlanchen/lachlanchen/raw/main/figs/banner.png)](https://github.com/lachlanchen/lachlanchen/blob/main/figs/banner.png)
 
 # LazyingArt - Trang web chính thức
 
@@ -17,66 +13,79 @@
   <img alt="Locales" src="https://img.shields.io/badge/Locales-13-blue">
 </p>
 
-## 🎨 Về LazyingArt
+![Project Shape](https://img.shields.io/badge/Project-Static%20Landing%20Site-0f766e?style=flat-square&logo=github&logoColor=white)
+![Deployment](https://img.shields.io/badge/Deployment-GitHub%20Pages-0f172a?style=flat-square&logo=github&logoColor=white)
+![Scope](https://img.shields.io/badge/Localization-13%20Locales-2563eb?style=flat-square&logo=googletranslate&logoColor=white)
 
-LazyingArt đang tiên phong cho tương lai giao tiếp AI đa ngôn ngữ. Chúng tôi tin rằng công nghệ phải phá bỏ rào cản, không phải tạo thêm rào cản. Sứ mệnh của chúng tôi là biến giao tiếp toàn cầu trở nên tự nhiên như hơi thở.
+### 📌 Tổng quan nhanh
 
-Kho mã này chứa website công khai và các trang landing sản phẩm của hệ sinh thái LazyingArt, bao gồm EchoMind và các trang sản phẩm phần cứng.
+| Mục | Thông tin |
+| --- | --- |
+| ✅ Mục tiêu repo | Trang web tiếp thị đa ngôn ngữ với các điểm truy cập sản phẩm của LazyingArt |
+| 🌍 Đối tượng | Khách truy cập, người học ngôn ngữ, cộng tác viên, người đóng góp |
+| 🧩 Trang chủ | `index.html`, `robot.html`, `eink-words-card.html`, `openhi-kit.html` |
+| 🧱 Chạy | HTML/CSS/vanilla JS với nội suy văn bản đã địa phương hóa |
 
-## 🌍 EchoMind - Sản phẩm chủ lực của chúng tôi
+## 🎨 Giới thiệu về LazyingArt
 
-**EchoMind** là trợ lý AI đa ngôn ngữ đột phá của chúng tôi, với các tính năng:
+LazyingArt là nền tảng giao tiếp AI đa ngôn ngữ và hệ sinh thái trang landing-site. Kho chứa này là website công khai và các trang sản phẩm của LazyingArt, bao gồm trải nghiệm chủ lực **EchoMind** và các trang phần cứng hỗ trợ.
 
-- 🎙️ Tương tác giọng nói thời gian thực với hơn 10 ngôn ngữ
+- **Sứ mệnh:** Giúp giao tiếp xuyên ngôn ngữ trở nên tự nhiên, nhanh chóng và gần gũi.
+- **Phạm vi:** Website tĩnh hướng tới trình duyệt, triển khai qua GitHub Pages.
+- **Đối tượng:** Khách truy cập, nhóm sản phẩm, cộng tác viên và người đóng góp.
+
+## 🌍 EchoMind - Sản phẩm nổi bật
+
+**EchoMind** được giới thiệu qua các trang landing tại đây và hỗ trợ:
+
+- 🎙️ Tương tác giọng nói thời gian thực bằng hơn 10 ngôn ngữ
 - 🧠 Bộ nhớ ngữ cảnh và cá nhân hóa
-- 📚 Học ngôn ngữ tương tác kèm hướng dẫn phát âm
-- 🔤 Phân tích và cải thiện ngữ pháp
-- 💬 Tính năng xã hội để kết nối với người khác
+- 📚 Tính năng học ngôn ngữ tương tác và gợi ý phát âm
+- 🔤 Phân tích ngữ pháp và cải thiện văn bản
+- 💬 Tương tác xã hội/cộng đồng để luyện tập giao tiếp
 
-**Dùng thử EchoMind**: [chat.lazying.art](https://chat.lazying.art)
+**Dùng thử EchoMind:** [chat.lazying.art](https://chat.lazying.art)
 
 ## 🚀 Bắt đầu nhanh
 
-Kho mã này lưu trữ website công ty LazyingArt tại [lazying.art](https://lazying.art).
+Kho chứa này lưu trữ website LazyingArt tại [lazying.art](https://lazying.art).
 
 ### Phát triển cục bộ
 
 ```bash
-# Clone repository (canonical)
 git clone git@github.com:lachlanchen/LazyingArtWebsite.git
 cd LazyingArtWebsite
+```
 
-# Alternative clone format
-git clone https://github.com/YOUR_USERNAME/LazyingArt.git
-cd LazyingArt
+Mở trực tiếp:
 
-# Open in browser (no build process needed)
+```bash
+# macOS
 open index.html
-# or
+
+# Máy chủ không cần phụ thuộc (tuỳ chọn)
 python -m http.server 8000
-# Visit http://localhost:8000
+# sau đó mở http://localhost:8000
 ```
 
 ### Triển khai
 
-Trang web được triển khai tự động qua GitHub Pages khi có thay đổi được đẩy lên nhánh `main`.
+GitHub Pages là điểm triển khai chính. Các thay đổi đẩy lên `main` nên được xuất bản trên miền tuỳ chỉnh qua cài đặt Pages của kho và tệp `CNAME`.
 
 ## ✨ Tính năng
 
 | Khu vực | Chi tiết |
 |---|---|
 | Kiến trúc | Triển khai tĩnh không dùng framework (HTML/CSS/vanilla JavaScript). |
-| Trang | Trang marketing chính cùng các trang sản phẩm chuyên biệt: `index.html`, `robot.html`, `eink-words-card.html`, `openhi-kit.html` |
-| Bản địa hóa | Hỗ trợ UI đa ngôn ngữ với 13 locale nhúng trong script trang: `en`, `ja`, `zh-Hans`, `zh-Hant`, `ko`, `ar`, `vi`, `fr`, `es`, `pt`, `de`, `ru`, `tr` |
-| Runtime i18n | Thay thế văn bản đã bản địa hóa bằng khóa `[data-i18n]` |
-| Lưu trữ | Tùy chọn ngôn ngữ + giao diện được lưu qua `localStorage` |
-| Thương mại | Tích hợp Stripe Buy Button cho luồng thanh toán |
-| Mặc định thông minh | Phát hiện ngôn ngữ chính với hỗ trợ định vị địa lý (`ipapi.co` và fallback `ipwho.is`) |
-| SEO/Tên miền | `CNAME`, `_config.yml`, `sitemap.xml` |
+| Trang | Trang đích chính kèm các trang chuyên biệt: `index.html`, `robot.html`, `eink-words-card.html`, `openhi-kit.html`. |
+| Đa ngôn ngữ | 13 locale được hỗ trợ trong logic ngôn ngữ runtime (`en`, `ja`, `zh-Hans`, `zh-Hant`, `ko`, `ar`, `vi`, `fr`, `es`, `pt`, `de`, `ru`, `tr`). |
+| Runtime i18n | Từ điển `[data-i18n]` nội tuyến trên mỗi trang. |
+| Lưu trữ | Tùy chọn ngôn ngữ + theme được lưu trong `localStorage`. |
+| Thương mại | Tích hợp nút thanh toán Stripe qua `https://js.stripe.com/v3/buy-button.js`. |
+| Mặc định thông minh | Nhận diện ngôn ngữ có hỗ trợ địa lý trên trang chính (`ipapi.co` + `ipwho.is` dự phòng). |
+| SEO/Tên miền | `CNAME`, `_config.yml`, và `sitemap.xml` cho metadata và định tuyến của GitHub Pages. |
 
 ## 📁 Cấu trúc dự án
-
-Bố cục kho mã hiện tại:
 
 ```text
 LazyingArtLanding/
@@ -91,56 +100,36 @@ LazyingArtLanding/
 ├── _config.yml
 ├── favicon.ico
 ├── favicon-32x32.png
-├── .github/
-│   └── FUNDING.yml
-├── demos/
-│   ├── LazyingArtRobot.png
-│   ├── OpenHI.png
-│   ├── demo.jpg
-│   ├── device_setup.png
-│   └── words_card_arabic.JPG
-├── figs/
 ├── logos/
 ├── logos-legacy/
+├── figs/
+├── demos/
 ├── app/
 │   └── donate/
 ├── donate/
 ├── product-assets/
-└── i18n/
+├── i18n/
+└── .github/
+    └── FUNDING.yml
 ```
 
-Khối cấu trúc cũ từ README trước đó (giữ lại để đảm bảo tính liên tục):
-
-```text
-LazyingArt/
-├── index.html          # Main landing page
-├── CNAME              # Custom domain configuration
-├── robots.txt         # SEO configuration
-├── sitemap.xml        # SEO sitemap
-├── .nojekyll          # Disable Jekyll processing
-├── README.md          # This file
-└── assets/            # Images and resources (optional)
-    ├── logo.png
-    └── og-image.png
-```
+Tham chiếu cũ trong các bản nháp trước (ví dụ `robots.txt`, `.nojekyll`, `assets/`) không còn xuất hiện trong bản snapshot kho hiện tại và chỉ được giữ lại như bối cảnh lịch sử.
 
 ## 🛠️ Công nghệ
 
-- HTML5/CSS3/JavaScript thuần (không phụ thuộc framework)
-- Glassmorphism và hiệu ứng CSS hiện đại
-- Thiết kế đáp ứng
-- Nâng cao dần (progressive enhancement)
-- Tối ưu SEO
-- Widget Stripe hosted buy button (`https://js.stripe.com/v3/buy-button.js`)
-- GitHub Pages + cấu hình Jekyll cho metadata/plugin
+- HTML5 / CSS3 / vanilla JavaScript (không phụ thuộc framework)
+- Hệ thống trực quan lấy cảm hứng từ Glassmorphism và bố cục responsive
+- Nâng cấp dần cho các phần tương tác
+- Metadata tối ưu cho SEO, định tuyến miền tuỳ chỉnh, và hỗ trợ sitemap
+- Cấu hình GitHub Pages tương thích Jekyll (`jekyll-sitemap`, `jekyll-seo-tag`)
 
-## 📦 Yêu cầu trước
+## 📦 Yêu cầu
 
-- Trình duyệt hiện đại (Chrome, Firefox, Safari, Edge).
-- Python 3 (tùy chọn, để chạy static server cục bộ).
-- Git (để clone và cộng tác).
+- Trình duyệt hiện đại (Chrome, Firefox, Safari, Edge)
+- Git (để clone và cộng tác)
+- Python 3 (tùy chọn, để chạy local tĩnh)
 
-Không cần toolchain build Node.js cho việc chỉnh sửa/kiểm thử cục bộ thông thường.
+Không cần hệ thống build Node.js cho công việc địa phương thông thường.
 
 ## 🔧 Cài đặt
 
@@ -149,57 +138,48 @@ git clone git@github.com:lachlanchen/LazyingArtWebsite.git
 cd LazyingArtWebsite
 ```
 
-Chạy cục bộ:
+Đường dẫn kho và URI clone có thể thay đổi theo fork. Hãy dùng URL kho của bạn khi đóng góp qua pull request.
 
-```bash
-python -m http.server 8000
-# then open http://localhost:8000
-```
+## ▶️ Cách sử dụng
 
-## ▶️ Cách dùng
+Các route chính:
 
-Các trang chính:
+- Landing: `index.html`
+- Robot: `robot.html`
+- Sản phẩm E-ink: `eink-words-card.html`
+- Bộ OpenHI: `openhi-kit.html`
 
-- Trang landing: `http://localhost:8000/index.html`
-- Trang sản phẩm Robot: `http://localhost:8000/robot.html`
-- Trang sản phẩm E-ink: `http://localhost:8000/eink-words-card.html`
-- Trang OpenHI kit: `http://localhost:8000/openhi-kit.html`
+Luồng làm việc cục bộ:
 
-Luồng sử dụng điển hình:
-
-1. Truy cập `index.html`.
-2. Khám phá các mục hệ sinh thái và thẻ sản phẩm.
-3. Điều hướng đến chi tiết sản phẩm hoặc mở ứng dụng bên ngoài (`chat.lazying.art`, `onlyideas.art`, `coin.lazying.art`).
-4. Sử dụng Stripe buy button trên các trang sản phẩm.
+1. Mở `index.html`
+2. Khám phá các khu vực hệ sinh thái sản phẩm
+3. Điều hướng đến chi tiết theo từng trang và trải nghiệm ngoài môi trường (`chat.lazying.art`, `onlyideas.art`, `coin.lazying.art`)
+4. Dùng các nút Stripe được host cho hành động thương mại trên trang sản phẩm
 
 ## ⚙️ Cấu hình
 
-Cấu hình dựa trên tệp và chủ yếu đặt inline:
-
 - `_config.yml`
-  - Metadata trang (`title`, `description`, `url`)
-  - Metadata mạng xã hội
-  - Plugin GitHub Pages (`jekyll-sitemap`, `jekyll-seo-tag`)
-  - Thiết lập nén HTML
-  - `google_analytics` hiện là placeholder (`UA-XXXXXXXXX-X`)
+  - Metadata site (`title`, `description`, `url`)
+  - Metadata SEO và social
+  - Cài đặt plugin GitHub Pages
+  - Lưu ý: `google_analytics` hiện đang chứa ID mẫu (`UA-XXXXXXXXX-X`)
 - `CNAME`
-  - Ánh xạ tên miền tùy chỉnh cho GitHub Pages (`lazying.art`)
-- JS inline trong từng trang
-  - Danh sách locale `supportedLangs`
-  - Từ điển bản dịch
-  - Quản lý trạng thái ngôn ngữ/giao diện (`localStorage`)
+  - Gắn miền tuỳ chỉnh (`lazying.art`) cho Pages
+- Script runtime nhúng trong HTML
+  - Khởi tạo ngôn ngữ/theme
+  - `supportedLangs` cùng metadata locale
+  - Từ điển dịch thuật và nội suy `[data-i18n]`
+  - Lưu trữ ngôn ngữ/theme trong `localStorage`
 
-Giả định: analytics chưa hoạt động cho đến khi ID analytics thật thay thế giá trị placeholder.
+_Giả định:_ `google_analytics` chưa hoạt động cho đến khi ID theo dõi thật thay thế placeholder.
 
 ## 🧪 Ví dụ
 
-Phục vụ toàn bộ trang cục bộ:
+Khởi chạy server cục bộ và kiểm tra nhanh các trang:
 
 ```bash
 python -m http.server 8000
 ```
-
-Kiểm tra nhanh các endpoint chính:
 
 ```bash
 curl -I http://localhost:8000/
@@ -208,7 +188,7 @@ curl -I http://localhost:8000/eink-words-card.html
 curl -I http://localhost:8000/openhi-kit.html
 ```
 
-Đặt lại tùy chọn UI đã lưu trong console trình duyệt:
+Đặt lại các tùy chọn đã lưu trong console trình duyệt:
 
 ```js
 localStorage.removeItem('lang');
@@ -218,86 +198,62 @@ location.reload();
 
 ## 🧑‍💻 Ghi chú phát triển
 
-- Dự án được thiết kế có chủ đích là tĩnh và không dùng framework.
-- Phần lớn hành vi (i18n, giao diện, UI tương tác sản phẩm) được triển khai inline theo từng trang.
-- Hiện tại chưa có package manifest (`package.json`) hoặc bộ kiểm thử tự động trong kho mã này.
-- `i18n/` đã tồn tại nhưng hiện đang trống; chuỗi bản địa hóa được nhúng trong các tệp HTML.
-- Các thư mục trống như `donate/`, `app/donate/`, và `product-assets/` có vẻ được dành cho mục đích sử dụng trong tương lai.
+- Kiến trúc static-first giúp việc bảo trì và hosting đơn giản hơn.
+- Hành vi locale và chuyển theme được triển khai nội tuyến trên từng trang.
+- Không có `package.json`, không có transpilation, và không có test suite tự động.
+- `i18n/README.*.md` tồn tại cho tài liệu đã dịch, trong khi bản dịch trang hiện đang nhúng trong script của từng trang.
+- `donate/`, `app/donate/`, và `product-assets/` hiện đang là các khu vực dự phòng.
+- Quy trình gợi ý: chỉnh sửa tĩnh cục bộ → kiểm tra qua trình duyệt (máy tính/di động) → kiểm tra liên kết.
 
-Quy trình chỉnh sửa được khuyến nghị:
+## 📊 Hiệu suất
 
-1. Chạy static server cục bộ.
-2. Thực hiện chỉnh sửa trang.
-3. Xác minh bố cục desktop/mobile và chuyển đổi ngôn ngữ/giao diện.
-4. Xác minh các liên kết ngoài và khả năng tải Stripe widget.
+Mục tiêu README trước đó nêu:
 
-## 📊 Hiệu năng
+- ⚡ Thời gian hiển thị nội dung đầu tiên (FCP) < 1 giây
+- 📱 Bố cục responsive theo nguyên tắc mobile-first
+- ♿ Thực hành tiếp cận theo hướng tiếp cận WCAG trong cấu trúc
+- 🎯 Hồ sơ tối ưu hóa tập trung vào Lighthouse
 
-Theo hồ sơ mục tiêu đã nêu trong README trước:
-
-- ⚡ <1s First Contentful Paint
-- 📱 100% Mobile-friendly
-- ♿ WCAG 2.1 AA Compliant
-- 🎯 100/100 Lighthouse Score
-
-Giả định: cần đo lại các chỉ số này sau các cập nhật lớn về giao diện hoặc script.
+Các giá trị này nên được đo lại sau khi có thay đổi lớn về UI.
 
 ## 🛠️ Khắc phục sự cố
 
 | Triệu chứng | Kiểm tra |
 |---|---|
-| Local server đã chạy nhưng trang hiển thị không có style | Đảm bảo bạn đang mở qua `http://localhost:8000` thay vì ngữ cảnh tệp cục bộ bị chặn. |
-| Stripe buy button không hiển thị | Xác nhận có internet và truy cập được `https://js.stripe.com/v3/buy-button.js`. |
-| Ngôn ngữ không thay đổi như mong đợi | Xóa các khóa `localStorage` (`lang`, `theme`) rồi tải lại. |
-| Triển khai trên GitHub Pages không khớp | Kiểm tra thiết lập publish nhánh `main`, `CNAME`, và giá trị trong `_config.yml`. |
-| Tệp SEO trông đã lỗi thời | Cập nhật các mục và dấu thời gian trong `sitemap.xml` khi thêm/xóa trang. |
+| Trang trông chưa được style sau khi triển khai | Chạy qua `http://localhost:8000` (không mở trực tiếp bằng `file://`) |
+| Nút Stripe không tải được | Kiểm tra kết nối mạng đến `https://js.stripe.com/v3/buy-button.js` |
+| Ngôn ngữ không chuyển đổi | Xóa khóa `localStorage` (`lang`, `theme`) và tải lại |
+| Đường dẫn trang lệch trên Pages | Xác nhận `CNAME`, target triển khai nhánh, và giá trị trong `_config.yml` |
+| Metadata SEO lỗi thời | Cập nhật `sitemap.xml` sau khi thêm route hoặc nội dung mới |
 
 ## 🗺️ Lộ trình
 
-- Giữ README và tài liệu cấu trúc kho mã luôn đồng bộ với các trang production.
-- Thêm/duy trì các biến thể README đa ngôn ngữ trong `i18n/` như một phần của các bước pipeline README.
-- Cân nhắc gom các JS/CSS inline lặp lại vào tài nguyên dùng chung để giảm trùng lặp.
-- Thêm kiểm tra tự động cho liên kết hỏng và xác thực HTML cơ bản.
-- Thay thế cấu hình analytics placeholder khi analytics production được chốt.
+- Giữ cho README và cấu trúc kho đồng bộ với các trang production
+- Mở rộng tài liệu `i18n/` với độ tương đương đầy đủ và cập nhật thường xuyên
+- Tách logic runtime dùng chung thành module tái sử dụng để giảm trùng lặp giữa các trang
+- Thêm kiểm tra liên kết và xác thực HTML/định dạng nhẹ trong CI
+- Thay thế cấu hình phân tích (analytics) mẫu khi hoàn thiện
+- Bổ sung hướng dẫn đóng góp cho QA địa phương hóa và xem lại ảnh chụp màn hình
 
 ## 🤝 Đóng góp
 
-Chúng tôi hoan nghênh mọi đóng góp! Bạn có thể gửi Pull Request bất cứ lúc nào.
+1. Fork repository.
+2. Tạo branch có mô tả (ví dụ `docs/update-landing-copy`).
+3. Chỉnh sửa các file HTML liên quan và tài liệu `i18n`.
+4. Kiểm tra hiển thị desktop/mobile và chuyển đổi giao diện/ngôn ngữ.
+5. Tạo PR kèm ảnh chụp màn hình hoặc bản ghi màn hình rõ ràng cho các thay đổi với người dùng.
 
-Quy trình đóng góp được khuyến nghị:
+Hãy giữ các cập nhật nhỏ và tập trung (nội dung, khả năng tiếp cận, và hành vi responsive là ưu tiên cao nhất trong review).
 
-1. Fork repo.
-2. Tạo nhánh tính năng.
-3. Kiểm thử trang cục bộ.
-4. Mở PR kèm ảnh chụp màn hình cho các thay đổi giao diện.
+## 📄 Giấy phép
 
-## ❤️ Hỗ trợ / Tài trợ
+Không có file `LICENSE` chuyên dụng nào trong snapshot kho này.
 
-Nếu bạn muốn hỗ trợ dự án:
+Vui lòng xác nhận giấy phép chính thức của dự án với ban sở hữu và thêm đầy đủ tham chiếu giấy phép tại đây.
 
-- GitHub Sponsors: [lachlanchen](https://github.com/sponsors/lachlanchen)
-- Website: [lazying.art](https://lazying.art)
-- Product: [chat.lazying.art](https://chat.lazying.art)
-- Ecosystem: [onlyideas.art](https://onlyideas.art)
 
-Nguồn metadata tài trợ: `.github/FUNDING.yml`.
+## ❤️ Support
 
-## 📝 Giấy phép
-
-© 2024 LazyingArt. Bảo lưu mọi quyền.
-
-## 📧 Liên hệ
-
-- Website: [lazying.art](https://lazying.art)
-- Product: [chat.lazying.art](https://chat.lazying.art)
-- Email: contact@lazying.art
-- Twitter: [@lazyingart](https://twitter.com/lazyingart)
-
----
-
-<p align="center">Được tạo nên với ❤️ bởi đội ngũ LazyingArt</p>
-<p align="center">
-  <a href="https://lazying.art">Website</a> •
-  <a href="https://chat.lazying.art">Try EchoMind</a> •
-  <a href="https://twitter.com/lazyingart">Twitter</a>
-</p>
+| Donate | PayPal | Stripe |
+| --- | --- | --- |
+| [![Donate](https://camo.githubusercontent.com/24a4914f0b42c6f435f9e101621f1e52535b02c225764b2f6cc99416926004b7/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f446f6e6174652d4c617a79696e674172742d3045413545393f7374796c653d666f722d7468652d6261646765266c6f676f3d6b6f2d6669266c6f676f436f6c6f723d7768697465)](https://chat.lazying.art/donate) | [![PayPal](https://camo.githubusercontent.com/d0f57e8b016517a4b06961b24d0ca87d62fdba16e18bbdb6aba28e978dc0ea21/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f50617950616c2d526f6e677a686f754368656e2d3030343537433f7374796c653d666f722d7468652d6261646765266c6f676f3d70617970616c266c6f676f436f6c6f723d7768697465)](https://paypal.me/RongzhouChen) | [![Stripe](https://camo.githubusercontent.com/1152dfe04b6943afe3a8d2953676749603fb9f95e24088c92c97a01a897b4942/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f5374726970652d446f6e6174652d3633354246463f7374796c653d666f722d7468652d6261646765266c6f676f3d737472697065266c6f676f436f6c6f723d7768697465)](https://buy.stripe.com/aFadR8gIaflgfQV6T4fw400) |

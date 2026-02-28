@@ -1,9 +1,7 @@
 [English](README.md) · [العربية](i18n/README.ar.md) · [Español](i18n/README.es.md) · [Français](i18n/README.fr.md) · [日本語](i18n/README.ja.md) · [한국어](i18n/README.ko.md) · [Tiếng Việt](i18n/README.vi.md) · [中文 (简体)](i18n/README.zh-Hans.md) · [中文（繁體）](i18n/README.zh-Hant.md) · [Deutsch](i18n/README.de.md) · [Русский](i18n/README.ru.md)
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/lachlanchen/lachlanchen/main/logos/banner.png" alt="LazyingArt banner" />
-</p>
 
+[![LazyingArt banner](https://github.com/lachlanchen/lachlanchen/raw/main/figs/banner.png)](https://github.com/lachlanchen/lachlanchen/blob/main/figs/banner.png)
 
 # LazyingArt - Official Website
 
@@ -15,66 +13,79 @@
   <img alt="Locales" src="https://img.shields.io/badge/Locales-13-blue">
 </p>
 
+![Project Shape](https://img.shields.io/badge/Project-Static%20Landing%20Site-0f766e?style=flat-square&logo=github&logoColor=white)
+![Deployment](https://img.shields.io/badge/Deployment-GitHub%20Pages-0f172a?style=flat-square&logo=github&logoColor=white)
+![Scope](https://img.shields.io/badge/Localization-13%20Locales-2563eb?style=flat-square&logo=googletranslate&logoColor=white)
+
+### 📌 At a glance
+
+| Item | Info |
+| --- | --- |
+| ✅ Repo focus | Multilingual marketing site with product entry points for LazyingArt |
+| 🌍 Audience | Visitors, language learners, collaborators, contributors |
+| 🧩 Core pages | `index.html`, `robot.html`, `eink-words-card.html`, `openhi-kit.html` |
+| 🧱 Runtime | HTML/CSS/vanilla JS with localized text interpolation |
+
 ## 🎨 About LazyingArt
 
-LazyingArt is pioneering the future of multilingual AI communication. We believe technology should break down barriers, not create them. Our mission is to make global communication as natural as breathing.
+LazyingArt is a multilingual AI communication platform and landing-site ecosystem. This repository contains the public website and product pages for LazyingArt, including the flagship **EchoMind** experience and supporting hardware pages.
 
-This repository contains the public website and product landing pages for the LazyingArt ecosystem, including EchoMind and hardware product pages.
+- **Mission:** Make cross-language communication feel natural, fast, and human.
+- **Scope:** Browser-first static website deployed with GitHub Pages.
+- **Audience:** Visitors, product teams, collaborators, and contributors.
 
 ## 🌍 EchoMind - Our Flagship Product
 
-**EchoMind** is our revolutionary multilingual AI companion that features:
+**EchoMind** is presented through the landing pages here and supports:
 
 - 🎙️ Real-time voice interaction in 10+ languages
 - 🧠 Contextual memory and personalization
-- 📚 Interactive language learning with pronunciation guides
-- 🔤 Grammar analysis and enhancement
-- 💬 Social features for connecting with others
+- 📚 Interactive language-learning features and pronunciation cues
+- 🔤 Grammar analysis and text enhancement
+- 💬 Social/community interactions for communication practice
 
-**Try EchoMind**: [chat.lazying.art](https://chat.lazying.art)
+**Try EchoMind:** [chat.lazying.art](https://chat.lazying.art)
 
 ## 🚀 Quick Start
 
-This repository hosts the LazyingArt company website at [lazying.art](https://lazying.art).
+This repository hosts the LazyingArt website at [lazying.art](https://lazying.art).
 
-### Local Development
+### Local development
 
 ```bash
-# Clone the repository (canonical)
 git clone git@github.com:lachlanchen/LazyingArtWebsite.git
 cd LazyingArtWebsite
+```
 
-# Alternative clone format
-git clone https://github.com/YOUR_USERNAME/LazyingArt.git
-cd LazyingArt
+Open directly:
 
-# Open in browser (no build process needed)
+```bash
+# macOS
 open index.html
-# or
+
+# Alternative no-dependency server
 python -m http.server 8000
-# Visit http://localhost:8000
+# then open http://localhost:8000
 ```
 
 ### Deployment
 
-The site is automatically deployed via GitHub Pages when changes are pushed to the `main` branch.
+GitHub Pages is the main deployment target. Changes pushed to `main` should publish to the custom domain through the repository’s Pages settings and `CNAME` file.
 
 ## ✨ Features
 
 | Area | Details |
 |---|---|
 | Architecture | Framework-free static implementation (HTML/CSS/vanilla JavaScript). |
-| Pages | Main marketing page plus dedicated product pages: `index.html`, `robot.html`, `eink-words-card.html`, `openhi-kit.html` |
-| Localization | Multilingual UI support with 13 locales embedded in page scripts: `en`, `ja`, `zh-Hans`, `zh-Hant`, `ko`, `ar`, `vi`, `fr`, `es`, `pt`, `de`, `ru`, `tr` |
-| i18n Runtime | Localized text replacement using `[data-i18n]` keys |
-| Persistence | Language preference + theme preference persisted via `localStorage` |
-| Commerce | Stripe Buy Button integration for checkout flows |
-| Smart Defaults | Geolocation-assisted language detection on main page (`ipapi.co` with `ipwho.is` fallback) |
-| SEO/Domain | `CNAME`, `_config.yml`, `sitemap.xml` |
+| Pages | Main landing page plus dedicated pages: `index.html`, `robot.html`, `eink-words-card.html`, `openhi-kit.html`. |
+| Localization | 13 locales supported in runtime language logic (`en`, `ja`, `zh-Hans`, `zh-Hant`, `ko`, `ar`, `vi`, `fr`, `es`, `pt`, `de`, `ru`, `tr`). |
+| i18n Runtime | In-page `[data-i18n]` keys with dictionary replacement. |
+| Persistence | Language + theme preferences persisted by `localStorage`. |
+| Commerce | Stripe buy button integration via `https://js.stripe.com/v3/buy-button.js`. |
+| Smart defaults | Geolocation-assisted language detection on the main page (`ipapi.co` + `ipwho.is` fallback). |
+| SEO/Domain | `CNAME`, `_config.yml`, and `sitemap.xml` for GitHub Pages metadata and routing. |
 
 ## 📁 Project Structure
-
-Current repository layout:
 
 ```text
 LazyingArtLanding/
@@ -89,56 +100,36 @@ LazyingArtLanding/
 ├── _config.yml
 ├── favicon.ico
 ├── favicon-32x32.png
-├── .github/
-│   └── FUNDING.yml
-├── demos/
-│   ├── LazyingArtRobot.png
-│   ├── OpenHI.png
-│   ├── demo.jpg
-│   ├── device_setup.png
-│   └── words_card_arabic.JPG
-├── figs/
 ├── logos/
 ├── logos-legacy/
+├── figs/
+├── demos/
 ├── app/
 │   └── donate/
 ├── donate/
 ├── product-assets/
-└── i18n/
+├── i18n/
+└── .github/
+    └── FUNDING.yml
 ```
 
-Legacy structure block from the previous README (kept for continuity):
-
-```text
-LazyingArt/
-├── index.html          # Main landing page
-├── CNAME              # Custom domain configuration
-├── robots.txt         # SEO configuration
-├── sitemap.xml        # SEO sitemap
-├── .nojekyll          # Disable Jekyll processing
-├── README.md          # This file
-└── assets/            # Images and resources (optional)
-    ├── logo.png
-    └── og-image.png
-```
+Older references in previous drafts (e.g., `robots.txt`, `.nojekyll`, `assets/`) are no longer present in the current repository snapshot and were kept only as historical context.
 
 ## 🛠️ Technologies
 
-- Pure HTML5/CSS3/JavaScript (no framework dependencies)
-- Glassmorphism and modern CSS effects
-- Responsive design
-- Progressive enhancement
-- SEO optimized
-- Stripe hosted buy button widgets (`https://js.stripe.com/v3/buy-button.js`)
-- GitHub Pages + Jekyll config for metadata/plugins
+- HTML5 / CSS3 / vanilla JavaScript (no framework dependency)
+- Glassmorphism-inspired visual system and responsive layouts
+- Progressive enhancement for interactive sections
+- SEO-oriented metadata, custom domain routing, and sitemap support
+- Jekyll-compatible GitHub Pages configuration (`jekyll-sitemap`, `jekyll-seo-tag`)
 
 ## 📦 Prerequisites
 
-- A modern browser (Chrome, Firefox, Safari, Edge).
-- Python 3 (optional, for local static server).
-- Git (for cloning and collaboration).
+- Modern browser (Chrome, Firefox, Safari, Edge)
+- Git (for cloning and collaboration)
+- Python 3 (optional, for local static serving)
 
-No Node.js build toolchain is required for standard local editing/testing.
+No Node.js build toolchain is required for standard local work.
 
 ## 🔧 Installation
 
@@ -147,57 +138,48 @@ git clone git@github.com:lachlanchen/LazyingArtWebsite.git
 cd LazyingArtWebsite
 ```
 
-Run locally:
-
-```bash
-python -m http.server 8000
-# then open http://localhost:8000
-```
+Repository path and clone URI may vary by fork. Use your repository URL when contributing via pull request.
 
 ## ▶️ Usage
 
-Primary pages:
+Primary page routes:
 
-- Landing page: `http://localhost:8000/index.html`
-- Robot product page: `http://localhost:8000/robot.html`
-- E-ink product page: `http://localhost:8000/eink-words-card.html`
-- OpenHI kit page: `http://localhost:8000/openhi-kit.html`
+- Landing: `index.html`
+- Robot: `robot.html`
+- E-ink product: `eink-words-card.html`
+- OpenHI kit: `openhi-kit.html`
 
-Typical user flow:
+Local flow:
 
-1. Visit `index.html`.
-2. Explore ecosystem sections and product cards.
-3. Navigate to product details or open external apps (`chat.lazying.art`, `onlyideas.art`, `coin.lazying.art`).
-4. Use Stripe buy buttons on product pages.
+1. Open `index.html`
+2. Explore product ecosystem sections
+3. Navigate to page-specific details and external experiences (`chat.lazying.art`, `onlyideas.art`, `coin.lazying.art`)
+4. Use hosted Stripe buttons for commerce actions on product pages
 
 ## ⚙️ Configuration
 
-Configuration is file-based and mostly inline:
-
 - `_config.yml`
   - Site metadata (`title`, `description`, `url`)
-  - Social metadata
-  - GitHub Pages plugins (`jekyll-sitemap`, `jekyll-seo-tag`)
-  - HTML compression settings
-  - `google_analytics` is currently placeholder (`UA-XXXXXXXXX-X`)
+  - SEO and social metadata
+  - GitHub Pages plugin settings
+  - Note: `google_analytics` currently contains placeholder ID (`UA-XXXXXXXXX-X`)
 - `CNAME`
-  - Custom domain mapping for GitHub Pages (`lazying.art`)
-- Inline JS in each page
-  - `supportedLangs` locale list
-  - translation dictionaries
-  - language/theme state management (`localStorage`)
+  - Binds custom domain (`lazying.art`) for Pages
+- Runtime scripts embedded in HTML
+  - Language/theme initialization
+  - `supportedLangs` with locale metadata
+  - Translation dictionaries and `[data-i18n]` interpolation
+  - Theme and language preference persistence in `localStorage`
 
-Assumption: analytics is not active until a real analytics ID replaces the placeholder.
+_Assumption:_ `google_analytics` is not active until a real tracking ID replaces the placeholder.
 
 ## 🧪 Examples
 
-Serve the full site locally:
+Start a local server and validate pages quickly:
 
 ```bash
 python -m http.server 8000
 ```
-
-Quickly validate main endpoints:
 
 ```bash
 curl -I http://localhost:8000/
@@ -206,7 +188,7 @@ curl -I http://localhost:8000/eink-words-card.html
 curl -I http://localhost:8000/openhi-kit.html
 ```
 
-Reset saved UI preferences in browser console:
+Reset persisted preferences in the browser console:
 
 ```js
 localStorage.removeItem('lang');
@@ -216,86 +198,61 @@ location.reload();
 
 ## 🧑‍💻 Development Notes
 
-- The project is intentionally static and framework-free.
-- Most behavior (i18n, theme, product interaction UI) is implemented inline per page.
-- There is currently no package manifest (`package.json`) or automated test suite in this repo.
-- `i18n/` exists but is currently empty; localization strings are embedded in HTML files.
-- Empty directories such as `donate/`, `app/donate/`, and `product-assets/` appear reserved for future use.
-
-Recommended editing workflow:
-
-1. Run local static server.
-2. Make page edits.
-3. Verify desktop/mobile layout and language/theme toggles.
-4. Verify external links and Stripe widget load.
+- Static-first architecture keeps maintenance and hosting simple.
+- Locale behavior and theme switches are implemented inline on each page.
+- There is no `package.json`, no transpilation, and no automated test suite.
+- `i18n/README.*.md` exists for translated docs, while page translations are currently embedded in page scripts.
+- `donate/`, `app/donate/`, and `product-assets/` currently appear as reserved placeholders.
+- Recommended workflow: local static edit → browser validation (desktop/mobile) → link checks.
 
 ## 📊 Performance
 
-As stated in the prior README target profile:
+Prior README target profile claims:
 
-- ⚡ <1s First Contentful Paint
-- 📱 100% Mobile-friendly
-- ♿ WCAG 2.1 AA Compliant
-- 🎯 100/100 Lighthouse Score
+- ⚡ < 1s First Contentful Paint
+- 📱 Mobile-first responsive layout
+- ♿ WCAG-oriented accessibility practices in structure
+- 🎯 Lighthouse-focused optimization profile
 
-Assumption: re-measure these metrics after major visual or script updates.
+These values should be re-measured after major UI changes.
 
 ## 🛠️ Troubleshooting
 
 | Symptom | Check |
 |---|---|
-| Local server starts but pages look unstyled | Ensure you are opening via `http://localhost:8000` and not a blocked local file context. |
-| Stripe buy button does not render | Confirm internet access and that `https://js.stripe.com/v3/buy-button.js` is reachable. |
-| Language does not change as expected | Clear `localStorage` keys (`lang`, `theme`) and reload. |
-| Deployment mismatch on GitHub Pages | Verify `main` branch publishing settings, `CNAME`, and `_config.yml` values. |
-| SEO files appear outdated | Update `sitemap.xml` entries and timestamps when adding/removing pages. |
+| Page looks unstyled after launch | Serve via `http://localhost:8000` (do not open as plain `file://`) |
+| Stripe button fails to load | Confirm network access to `https://js.stripe.com/v3/buy-button.js` |
+| Language does not switch | Clear `localStorage` keys (`lang`, `theme`) and reload |
+| Pages route mismatch on Pages | Confirm `CNAME`, branch deployment target, and `_config.yml` values |
+| SEO metadata stale | Update `sitemap.xml` after route or content additions |
 
 ## 🗺️ Roadmap
 
-- Keep README and repository structure documentation in sync with production pages.
-- Add/maintain multilingual README variants in `i18n/` as part of README pipeline steps.
-- Consider centralizing repeated inline JS/CSS into shared assets to reduce duplication.
-- Add automated checks for broken links and basic HTML validation.
-- Replace placeholder analytics configuration when production analytics is finalized.
+- Keep README and repository structure in sync with production pages
+- Expand `i18n/` docs with complete parity and regular updates
+- Extract shared runtime logic into reusable modules to reduce page duplication
+- Add link checks and lightweight HTML/format validation in CI
+- Replace placeholder analytics configuration when finalized
+- Add contributor guidance for localization QA and screenshot review
 
 ## 🤝 Contributing
 
-We welcome contributions! Please feel free to submit a Pull Request.
+1. Fork the repository.
+2. Create a descriptive branch (for example, `docs/update-landing-copy`).
+3. Edit the relevant HTML and `i18n` docs.
+4. Validate desktop and mobile rendering and language/theme toggles.
+5. Open a PR with clear screenshots or screen recordings for user-facing changes.
 
-Recommended contribution flow:
+Please keep updates small and focused (content, accessibility, and responsive behavior have highest review priority).
 
-1. Fork the repo.
-2. Create a feature branch.
-3. Test pages locally.
-4. Open a PR with screenshots for visual changes.
+## ❤️ Support
 
-## ❤️ Support / Sponsorship
+| Donate | PayPal | Stripe |
+| --- | --- | --- |
+| [![Donate](https://camo.githubusercontent.com/24a4914f0b42c6f435f9e101621f1e52535b02c225764b2f6cc99416926004b7/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f446f6e6174652d4c617a79696e674172742d3045413545393f7374796c653d666f722d7468652d6261646765266c6f676f3d6b6f2d6669266c6f676f436f6c6f723d7768697465)](https://chat.lazying.art/donate) | [![PayPal](https://camo.githubusercontent.com/d0f57e8b016517a4b06961b24d0ca87d62fdba16e18bbdb6aba28e978dc0ea21/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f50617950616c2d526f6e677a686f754368656e2d3030343537433f7374796c653d666f722d7468652d6261646765266c6f676f3d70617970616c266c6f676f436f6c6f723d7768697465)](https://paypal.me/RongzhouChen) | [![Stripe](https://camo.githubusercontent.com/1152dfe04b6943afe3a8d2953676749603fb9f95e24088c92c97a01a897b4942/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f5374726970652d446f6e6174652d3633354246463f7374796c653d666f722d7468652d6261646765266c6f676f3d737472697065266c6f676f436f6c6f723d7768697465)](https://buy.stripe.com/aFadR8gIaflgfQV6T4fw400) |
 
-If you want to support the project:
+## 📄 License
 
-- GitHub Sponsors: [lachlanchen](https://github.com/sponsors/lachlanchen)
-- Website: [lazying.art](https://lazying.art)
-- Product: [chat.lazying.art](https://chat.lazying.art)
-- Ecosystem: [onlyideas.art](https://onlyideas.art)
+No dedicated `LICENSE` file is present in this repository snapshot.
 
-Funding metadata source: `.github/FUNDING.yml`.
-
-## 📝 License
-
-© 2024 LazyingArt. All rights reserved.
-
-## 📧 Contact
-
-- Website: [lazying.art](https://lazying.art)
-- Product: [chat.lazying.art](https://chat.lazying.art)
-- Email: contact@lazying.art
-- Twitter: [@lazyingart](https://twitter.com/lazyingart)
-
----
-
-<p align="center">Built with ❤️ by the LazyingArt Team</p>
-<p align="center">
-  <a href="https://lazying.art">Website</a> •
-  <a href="https://chat.lazying.art">Try EchoMind</a> •
-  <a href="https://twitter.com/lazyingart">Twitter</a>
-</p>
+Please confirm the official project license with project ownership and add the full license reference here.

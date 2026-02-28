@@ -1,10 +1,7 @@
 [English](../README.md) · [العربية](README.ar.md) · [Español](README.es.md) · [Français](README.fr.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · [Tiếng Việt](README.vi.md) · [中文 (简体)](README.zh-Hans.md) · [中文（繁體）](README.zh-Hant.md) · [Deutsch](README.de.md) · [Русский](README.ru.md)
 
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/lachlanchen/lachlanchen/main/logos/banner.png" alt="LazyingArt banner" />
-</p>
-
+[![LazyingArt banner](https://github.com/lachlanchen/lachlanchen/raw/main/figs/banner.png)](https://github.com/lachlanchen/lachlanchen/blob/main/figs/banner.png)
 
 # LazyingArt - 官方網站
 
@@ -16,66 +13,79 @@
   <img alt="Locales" src="https://img.shields.io/badge/Locales-13-blue">
 </p>
 
+![Project Shape](https://img.shields.io/badge/Project-Static%20Landing%20Site-0f766e?style=flat-square&logo=github&logoColor=white)
+![Deployment](https://img.shields.io/badge/Deployment-GitHub%20Pages-0f172a?style=flat-square&logo=github&logoColor=white)
+![Scope](https://img.shields.io/badge/Localization-13%20Locales-2563eb?style=flat-square&logo=googletranslate&logoColor=white)
+
+### 📌 速覽
+
+| 項目 | 資訊 |
+| --- | --- |
+| ✅ 儲存庫重點 | 面向 LazyingArt 的多語言行銷網站，包含產品進入點 |
+| 🌍 受眾 | 訪客、語言學習者、合作夥伴、貢獻者 |
+| 🧩 核心頁面 | `index.html`、`robot.html`、`eink-words-card.html`、`openhi-kit.html` |
+| 🧱 運行方式 | 使用 HTML/CSS/原生 JS 的靜態網站，並含本地化文字插值 |
+
 ## 🎨 關於 LazyingArt
 
-LazyingArt 正在開創多語言 AI 溝通的未來。我們相信，科技應該打破隔閡，而不是製造隔閡。我們的使命是讓全球溝通如呼吸般自然。
+LazyingArt 是一個多語言 AI 溝通平台與落地頁生態系。本儲存庫包含 LazyingArt 的公開網站與產品頁面，涵蓋旗艦 **EchoMind** 體驗及支援的硬體頁面。
 
-此儲存庫包含 LazyingArt 生態系的公開網站與產品落地頁，包含 EchoMind 與硬體產品頁面。
+- **使命：** 讓跨語言溝通更自然、更快，也更有人味。
+- **範圍：** 以瀏覽器為先的靜態網站，透過 GitHub Pages 部署。
+- **受眾：** 訪客、產品團隊、合作夥伴與貢獻者。
 
 ## 🌍 EchoMind - 我們的旗艦產品
 
-**EchoMind** 是我們革命性的多語言 AI 夥伴，具備以下特點：
+**EchoMind** 透過此處的落地頁展示，支援：
 
-- 🎙️ 支援 10+ 種語言的即時語音互動
-- 🧠 情境記憶與個人化
-- 📚 具發音引導的互動式語言學習
-- 🔤 文法分析與優化
-- 💬 用於與他人連結的社交功能
+- 🎙️ 10+ 種語言的即時語音互動
+- 🧠 情境記憶與個人化體驗
+- 📚 互動式語言學習功能與發音提示
+- 🔤 語法分析與文字增強
+- 💬 用於溝通實練的社群互動
 
-**體驗 EchoMind**：[chat.lazying.art](https://chat.lazying.art)
+**試用 EchoMind：** [chat.lazying.art](https://chat.lazying.art)
 
 ## 🚀 快速開始
 
-此儲存庫託管了 LazyingArt 公司網站：[lazying.art](https://lazying.art)。
+此儲存庫託管 LazyingArt 網站於 [lazying.art](https://lazying.art)。
 
 ### 本機開發
 
 ```bash
-# Clone the repository (canonical)
 git clone git@github.com:lachlanchen/LazyingArtWebsite.git
 cd LazyingArtWebsite
+```
 
-# Alternative clone format
-git clone https://github.com/YOUR_USERNAME/LazyingArt.git
-cd LazyingArt
+直接開啟：
 
-# Open in browser (no build process needed)
+```bash
+# macOS
 open index.html
-# or
+
+# 無相依性替代方案
 python -m http.server 8000
-# Visit http://localhost:8000
+# 然後開啟 http://localhost:8000
 ```
 
 ### 部署
 
-當變更推送到 `main` 分支後，網站會透過 GitHub Pages 自動部署。
+GitHub Pages 是主要的部署目標。推送到 `main` 的變更應透過儲存庫的 Pages 設定與 `CNAME` 檔，發佈到自訂網域。
 
 ## ✨ 功能
 
-| 區塊 | 詳細說明 |
+| 領域 | 詳情 |
 |---|---|
-| Architecture | 無框架靜態實作（HTML/CSS/vanilla JavaScript）。 |
-| Pages | 主行銷頁與獨立產品頁：`index.html`、`robot.html`、`eink-words-card.html`、`openhi-kit.html` |
-| Localization | 多語 UI 支援，頁面腳本內嵌 13 個語系：`en`、`ja`、`zh-Hans`、`zh-Hant`、`ko`、`ar`、`vi`、`fr`、`es`、`pt`、`de`、`ru`、`tr` |
-| i18n Runtime | 使用 `[data-i18n]` 鍵進行在地化文字替換 |
-| Persistence | 語言偏好與主題偏好透過 `localStorage` 持久化 |
-| Commerce | 整合 Stripe Buy Button 作為結帳流程 |
-| Smart Defaults | 主頁具地理位置輔助語言偵測（`ipapi.co`，並以 `ipwho.is` 作為備援） |
-| SEO/Domain | `CNAME`、`_config.yml`、`sitemap.xml` |
+| 架構 | 無框架靜態實作（HTML/CSS/vanilla JavaScript）。 |
+| 頁面 | 主落地頁加上專用頁面：`index.html`、`robot.html`、`eink-words-card.html`、`openhi-kit.html`。 |
+| 本地化 | 執行期支援 13 種語系（`en`、`ja`、`zh-Hans`、`zh-Hant`、`ko`、`ar`、`vi`、`fr`、`es`、`pt`、`de`、`ru`、`tr`）。 |
+| i18n 執行期 | 頁面內 `[data-i18n]` 鍵值與字典替換。 |
+| 持久化 | 透過 `localStorage` 持久化語言與主題偏好。 |
+| 商務 | 透過 `https://js.stripe.com/v3/buy-button.js` 整合 Stripe 購買按鈕。 |
+| 智慧預設值 | 主頁支援地理定位輔助語言偵測（`ipapi.co` + `ipwho.is` 備援）。 |
+| SEO/網域 | `CNAME`、`_config.yml` 與 `sitemap.xml` 用於 GitHub Pages 的中繼資料與路由。 |
 
 ## 📁 專案結構
-
-目前儲存庫結構：
 
 ```text
 LazyingArtLanding/
@@ -90,56 +100,36 @@ LazyingArtLanding/
 ├── _config.yml
 ├── favicon.ico
 ├── favicon-32x32.png
-├── .github/
-│   └── FUNDING.yml
-├── demos/
-│   ├── LazyingArtRobot.png
-│   ├── OpenHI.png
-│   ├── demo.jpg
-│   ├── device_setup.png
-│   └── words_card_arabic.JPG
-├── figs/
 ├── logos/
 ├── logos-legacy/
+├── figs/
+├── demos/
 ├── app/
 │   └── donate/
 ├── donate/
 ├── product-assets/
-└── i18n/
+├── i18n/
+└── .github/
+    └── FUNDING.yml
 ```
 
-前一版 README 的舊版結構區塊（為了連續性而保留）：
-
-```text
-LazyingArt/
-├── index.html          # Main landing page
-├── CNAME              # Custom domain configuration
-├── robots.txt         # SEO configuration
-├── sitemap.xml        # SEO sitemap
-├── .nojekyll          # Disable Jekyll processing
-├── README.md          # This file
-└── assets/            # Images and resources (optional)
-    ├── logo.png
-    └── og-image.png
-```
+先前版本草案中的舊參考（例如 `robots.txt`、`.nojekyll`、`assets/`）已不再出現在目前的儲存庫快照中，僅保留作為歷史脈絡。
 
 ## 🛠️ 技術
 
-- 純 HTML5/CSS3/JavaScript（無框架依賴）
-- Glassmorphism 與現代 CSS 效果
-- 響應式設計
-- 漸進式增強
-- SEO 最佳化
-- Stripe 託管 Buy Button 元件（`https://js.stripe.com/v3/buy-button.js`）
-- GitHub Pages + Jekyll 設定，用於 metadata/plugins
+- HTML5 / CSS3 / vanilla JavaScript（無框架相依）
+- 受 Glassmorphism 啟發的視覺系統與響應式版面
+- 互動區塊的漸進式增強
+- 以 SEO 為導向的中繼資料、自訂網域路由與站點地圖支援
+- 與 Jekyll 相容的 GitHub Pages 設定（`jekyll-sitemap`、`jekyll-seo-tag`）
 
 ## 📦 先決條件
 
-- 現代瀏覽器（Chrome、Firefox、Safari、Edge）。
-- Python 3（可選，用於本機靜態伺服器）。
-- Git（用於 clone 與協作）。
+- 現代瀏覽器（Chrome、Firefox、Safari、Edge）
+- Git（用於複製與協作）
+- Python 3（可選，供本機靜態服務）
 
-進行一般本機編輯/測試不需要 Node.js 建置工具鏈。
+標準本機作業不需要 Node.js 建置工具鏈。
 
 ## 🔧 安裝
 
@@ -148,57 +138,48 @@ git clone git@github.com:lachlanchen/LazyingArtWebsite.git
 cd LazyingArtWebsite
 ```
 
-本機執行：
-
-```bash
-python -m http.server 8000
-# then open http://localhost:8000
-```
+儲存庫路徑與克隆 URI 可能因 fork 而異。透過提取請求貢獻時，請使用你的儲存庫網址。
 
 ## ▶️ 使用方式
 
-主要頁面：
+主要頁面路由：
 
-- 首頁：`http://localhost:8000/index.html`
-- Robot 產品頁：`http://localhost:8000/robot.html`
-- E-ink 產品頁：`http://localhost:8000/eink-words-card.html`
-- OpenHI kit 頁面：`http://localhost:8000/openhi-kit.html`
+- 落地頁：`index.html`
+- 機器人頁：`robot.html`
+- 電子紙產品頁：`eink-words-card.html`
+- OpenHI 套件頁：`openhi-kit.html`
 
-典型使用者流程：
+本機流程：
 
-1. 造訪 `index.html`。
-2. 探索生態系區塊與產品卡片。
-3. 前往產品詳情，或開啟外部應用（`chat.lazying.art`、`onlyideas.art`、`coin.lazying.art`）。
-4. 在產品頁使用 Stripe buy buttons。
+1. 開啟 `index.html`
+2. 瀏覽產品生態系區塊
+3. 跳轉到頁面細節與外部體驗（`chat.lazying.art`、`onlyideas.art`、`coin.lazying.art`）
+4. 使用產品頁上的託管 Stripe 按鈕進行商務操作
 
 ## ⚙️ 設定
 
-設定以檔案為主，且多數為內嵌：
-
 - `_config.yml`
-  - 網站 metadata（`title`、`description`、`url`）
-  - 社群 metadata
-  - GitHub Pages plugins（`jekyll-sitemap`、`jekyll-seo-tag`）
-  - HTML 壓縮設定
-  - `google_analytics` 目前為佔位值（`UA-XXXXXXXXX-X`）
+  - 站點中繼資料（`title`、`description`、`url`）
+  - SEO 與社群中繼資料
+  - GitHub Pages 插件設定
+  - 注意：`google_analytics` 目前為佔位符 ID（`UA-XXXXXXXXX-X`）
 - `CNAME`
-  - GitHub Pages 的自訂網域對應（`lazying.art`）
-- 每個頁面的內嵌 JS
-  - `supportedLangs` 語系列表
-  - 翻譯字典
-  - 語言/主題狀態管理（`localStorage`）
+  - 綁定 Pages 的自訂網域（`lazying.art`）
+- 內嵌於 HTML 的執行期腳本
+  - 語言與主題初始化
+  - 含元資料的 `supportedLangs`
+  - 翻譯字典與 `[data-i18n]` 插值
+  - 在 `localStorage` 持久化主題與語言偏好
 
-假設：在以真實 analytics ID 取代佔位值前，analytics 尚未啟用。
+_假設：_ 在真實追蹤 ID 替換佔位值前，`google_analytics` 不會生效。
 
 ## 🧪 範例
 
-在本機提供完整站點：
+啟動本機伺服器並快速驗證頁面：
 
 ```bash
 python -m http.server 8000
 ```
-
-快速驗證主要端點：
 
 ```bash
 curl -I http://localhost:8000/
@@ -207,7 +188,7 @@ curl -I http://localhost:8000/eink-words-card.html
 curl -I http://localhost:8000/openhi-kit.html
 ```
 
-在瀏覽器主控台重設已儲存的 UI 偏好：
+在瀏覽器主控台重置持久化偏好：
 
 ```js
 localStorage.removeItem('lang');
@@ -217,86 +198,62 @@ location.reload();
 
 ## 🧑‍💻 開發備註
 
-- 本專案刻意維持為靜態且無框架。
-- 多數行為（i18n、主題、產品互動 UI）以每頁內嵌方式實作。
-- 目前儲存庫沒有 package manifest（`package.json`）或自動化測試套件。
-- `i18n/` 目錄存在但目前為空；在地化字串嵌在 HTML 檔內。
-- `donate/`、`app/donate/`、`product-assets/` 等空目錄看起來保留作未來用途。
-
-建議編輯流程：
-
-1. 啟動本機靜態伺服器。
-2. 進行頁面修改。
-3. 檢查桌機/手機版面與語言/主題切換。
-4. 檢查外部連結與 Stripe 元件載入。
+- 靜態優先架構使維護與託管都更簡潔。
+- 語系行為與主題切換在每個頁面中內嵌實作。
+- 儲存庫中沒有 `package.json`，也沒有轉譯流程與自動測試套件。
+- `i18n/README.*.md` 用於文件翻譯，而頁面翻譯目前仍嵌入頁面腳本中。
+- `donate/`、`app/donate/` 與 `product-assets/` 目前看起來是預留佔位資料夾。
+- 建議流程：本機靜態編輯 → 瀏覽器驗證（桌機/行動）→ 連結檢查。
 
 ## 📊 效能
 
-如前一版 README 所述的目標設定：
+先前 README 的目標指標聲明：
 
-- ⚡ <1s First Contentful Paint
-- 📱 100% Mobile-friendly
-- ♿ WCAG 2.1 AA Compliant
-- 🎯 100/100 Lighthouse Score
+- ⚡ 小於 1 秒的首次有意義繪製
+- 📱 行動優先的響應式版面
+- ♿ 在結構上採用 WCAG 導向的可及性做法
+- 🎯 以 Lighthouse 為導向的最佳化目標
 
-假設：重大視覺或腳本更新後，應重新量測這些指標。
+在重大 UI 變更後應重新量測這些數值。
 
 ## 🛠️ 疑難排解
 
-| 症狀 | 檢查項目 |
+| 症狀 | 檢查 |
 |---|---|
-| 本機伺服器已啟動，但頁面樣式異常 | 請確認是透過 `http://localhost:8000` 開啟，而非受限的本機檔案情境。 |
-| Stripe buy button 未顯示 | 確認網路連線正常，且可存取 `https://js.stripe.com/v3/buy-button.js`。 |
-| 語言切換未如預期 | 清除 `localStorage` 鍵（`lang`、`theme`）後重新載入。 |
-| GitHub Pages 部署內容不一致 | 檢查 `main` 分支發佈設定、`CNAME` 與 `_config.yml` 值。 |
-| SEO 檔案看起來過期 | 新增/移除頁面時同步更新 `sitemap.xml` 項目與時間戳。 |
+| 上線後頁面看起來未套用樣式 | 透過 `http://localhost:8000` 提供服務（請勿直接以 `file://` 開啟） |
+| Stripe 按鈕載入失敗 | 確認可存取 `https://js.stripe.com/v3/buy-button.js` |
+| 語言未切換 | 清除 `localStorage` 鍵（`lang`、`theme`）並重新載入 |
+| Pages 路由不符 | 確認 `CNAME`、分支部署目標與 `_config.yml` 值 |
+| SEO 中繼資料過期 | 在路由或內容變更後更新 `sitemap.xml` |
 
 ## 🗺️ 路線圖
 
-- 讓 README 與儲存庫結構文件持續與正式頁面同步。
-- 在 README 流程中於 `i18n/` 新增/維護多語 README 版本。
-- 考慮將重複的內嵌 JS/CSS 集中到共用資產，以降低重複。
-- 新增自動化檢查（失效連結與基本 HTML 驗證）。
-- 當正式 analytics 定案後，替換佔位用 analytics 設定。
+- 維持 README 與儲存庫結構與正式頁面同步
+- 擴充 `i18n/` 文件，實現完整一致的版本更新
+- 將共用執行期邏輯提取為可複用模組，降低頁面重複
+- 加入連結檢查與輕量 HTML/格式驗證到 CI
+- 在分析設定確定後替換佔位的追蹤設定
+- 補充在地化 QA 與截圖複核的貢獻者指引
 
-## 🤝 貢獻
+## 🤝 貢獻指南
 
-我們歡迎貢獻！歡迎隨時提交 Pull Request。
+1. Fork 該儲存庫。
+2. 建立具有描述性的分支（例如 `docs/update-landing-copy`）。
+3. 編輯相關 HTML 與 `i18n` 文件。
+4. 驗證桌機與行動裝置的渲染、語言與主題切換。
+5. 對使用者介面變更提交帶有清晰截圖或螢幕錄製的 PR。
 
-建議的貢獻流程：
+請保持更新幅度小而聚焦（內容、可及性與響應行為為審核優先順序最高）。
 
-1. Fork 儲存庫。
-2. 建立功能分支。
-3. 在本機測試頁面。
-4. 提交 PR（視覺變更請附上截圖）。
+## 📄 授權
 
-## ❤️ 支援 / 贊助
+目前此儲存庫快照中未提供專用的 `LICENSE` 檔案。
 
-如果你想支持這個專案：
+請與專案擁有者確認正式授權條款，並在此處補上完整授權資訊。
 
-- GitHub Sponsors: [lachlanchen](https://github.com/sponsors/lachlanchen)
-- Website: [lazying.art](https://lazying.art)
-- Product: [chat.lazying.art](https://chat.lazying.art)
-- Ecosystem: [onlyideas.art](https://onlyideas.art)
 
-資助資訊來源：`.github/FUNDING.yml`。
+## ❤️ Support
 
-## 📝 授權
-
-© 2024 LazyingArt. All rights reserved.
-
-## 📧 聯絡方式
-
-- Website: [lazying.art](https://lazying.art)
-- Product: [chat.lazying.art](https://chat.lazying.art)
-- Email: contact@lazying.art
-- Twitter: [@lazyingart](https://twitter.com/lazyingart)
-
----
-
-<p align="center">Built with ❤️ by the LazyingArt Team</p>
-<p align="center">
-  <a href="https://lazying.art">Website</a> •
-  <a href="https://chat.lazying.art">Try EchoMind</a> •
-  <a href="https://twitter.com/lazyingart">Twitter</a>
-</p>
+| Donate | PayPal | Stripe |
+| --- | --- | --- |
+| [![Donate](https://camo.githubusercontent.com/24a4914f0b42c6f435f9e101621f1e52535b02c225764b2f6cc99416926004b7/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f446f6e6174652d4c617a79696e674172742d3045413545393f7374796c653d666f722d7468652d6261646765266c6f676f3d6b6f2d6669266c6f676f436f6c6f723d7768697465)](https://chat.lazying.art/donate) | [![PayPal](https://camo.githubusercontent.com/d0f57e8b016517a4b06961b24d0ca87d62fdba16e18bbdb6aba28e978dc0ea21/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f50617950616c2d526f6e677a686f754368656e2d3030343537433f7374796c653d666f722d7468652d6261646765266c6f676f3d70617970616c266c6f676f436f6c6f723d7768697465)](https://paypal.me/RongzhouChen) | [![Stripe](https://camo.githubusercontent.com/1152dfe04b6943afe3a8d2953676749603fb9f95e24088c92c97a01a897b4942/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f5374726970652d446f6e6174652d3633354246463f7374796c653d666f722d7468652d6261646765266c6f676f3d737472697065266c6f676f436f6c6f723d7768697465)](https://buy.stripe.com/aFadR8gIaflgfQV6T4fw400) |
