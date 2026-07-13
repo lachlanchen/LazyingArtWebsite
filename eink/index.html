@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f1ecdf">
+  <title>LazyingArt eInk - Kindle tools, LinguaLeaf books, and calmer hardware</title>
+  <meta name="description" content="Free Kindle book syncing, LinguaLeaf multilingual editions, and the LazyingArt eInk reading system. Built for focused reading across languages.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="LazyingArt eInk - Read across languages">
+  <meta property="og:description" content="Start with your Kindle. Discover LinguaLeaf books. Meet the LazyingArt eInk reading system.">
+  <meta property="og:image" content="https://lazying.art/eink/assets/lazyingart-eink-hero.png">
+  <meta property="og:url" content="https://lazying.art/eink/">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://lazying.art/eink/">
+  <link rel="icon" href="../favicon.ico" sizes="any">
+  <link rel="stylesheet" href="styles.css">
+  <script src="i18n.js" defer></script>
+  <script src="app.js" defer></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "LazyingArt eInk",
+    "url": "https://lazying.art/eink/",
+    "description": "Kindle book syncing, LinguaLeaf multilingual books, and LazyingArt eInk hardware.",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "LazyingArt",
+      "url": "https://lazying.art"
+    }
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <aside class="kindle-ribbon">
+    <span data-i18n="ribbon.copy">Already own a Kindle?</span>
+    <a href="https://lachlanchen.github.io/Kindle/" data-i18n="ribbon.link">Send books over Wi-Fi for free</a>
+  </aside>
+
+  <header class="site-header" data-header>
+    <div class="shell nav-inner">
+      <a class="brand" href="https://lazying.art" aria-label="LazyingArt home">
+        <img src="../logos/logo.svg" alt="">
+        <span>
+          <strong>LazyingArt</strong>
+          <small>eInk</small>
+        </span>
+      </a>
+
+      <nav class="site-nav" id="site-nav" data-nav>
+        <a href="#kindle" data-i18n="nav.kindle">Kindle tools</a>
+        <a href="#lingualeaf" data-i18n="nav.books">LinguaLeaf books</a>
+        <a href="#reader" data-i18n="nav.reader">Our reader</a>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="language-picker">
+          <label class="sr-only" for="language-select" data-i18n="a11y.language">Choose language</label>
+          <select id="language-select" aria-label="Choose language" data-language-select>
+            <option value="en">English</option>
+            <option value="ar">العربية</option>
+            <option value="es">Español</option>
+            <option value="fr">Français</option>
+            <option value="ja">日本語</option>
+            <option value="ko">한국어</option>
+            <option value="vi">Tiếng Việt</option>
+            <option value="zh-Hans">简体中文</option>
+            <option value="zh-Hant">繁體中文</option>
+            <option value="de">Deutsch</option>
+            <option value="ru">Русский</option>
+          </select>
+          <svg viewBox="0 0 12 8" aria-hidden="true"><path d="m1 1 5 5 5-5"></path></svg>
+        </div>
+        <a class="nav-cta" href="#early" data-i18n="nav.early">Early access</a>
+        <button class="menu-button" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Open menu" data-menu-button>
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="hero-wash" aria-hidden="true"></div>
+      <div class="shell hero-grid">
+        <div class="hero-copy reveal">
+          <p class="eyebrow" data-i18n="hero.eyebrow">LazyingArt eInk · in development</p>
+          <h1>
+            <span data-i18n="hero.title">One page.</span>
+            <em data-i18n="hero.accent">Every language.</em>
+          </h1>
+          <p class="hero-lead" data-i18n="hero.body">A calmer e-paper reading system for LinguaLeaf editions, built from the way multilingual readers actually use Kindle, Quaderno, and Bigme.</p>
+          <div class="hero-actions">
+            <a class="button button-solid" href="#reader" data-i18n="hero.reader">Meet the reader</a>
+            <a class="button button-line" href="https://lachlanchen.github.io/Kindle/" data-i18n="hero.sender">Get the free Kindle sender</a>
+          </div>
+          <p class="hero-note">
+            <span></span>
+            <span data-i18n="hero.note">Start with the e-paper device you already own.</span>
+          </p>
+        </div>
+
+        <figure class="product-hero reveal" data-delay="100">
+          <img src="assets/lazyingart-eink-hero.png" alt="LazyingArt eInk reader displaying a multilingual LinguaLeaf page">
+          <figcaption class="product-seal">
+            <img src="../logos/logo.svg" alt="">
+            <span><strong>LazyingArt eInk</strong><small data-i18n="reader.status">Hardware in development</small></span>
+          </figcaption>
+        </figure>
+      </div>
+      <div class="shell proof-strip reveal">
+        <div><strong>PDF</strong><span data-i18n="proof.paper">Paper-first books</span></div>
+        <div><strong>EN · 日 · 中</strong><span data-i18n="proof.layers">Language layers</span></div>
+        <div><strong>LOCAL</strong><span data-i18n="proof.local">Private transfer</span></div>
+      </div>
+    </section>
+
+    <section class="section kindle-section" id="kindle">
+      <div class="shell">
+        <div class="section-intro reveal">
+          <p class="eyebrow" data-i18n="kindle.eyebrow">Useful today</p>
+          <h2 data-i18n="kindle.title">Start with the Kindle you already own.</h2>
+          <p data-i18n="kindle.body">Our open-source sender removes the awkward part: finding your KOReader Kindle, pairing it once, and putting books in the right place.</p>
+        </div>
+
+        <div class="sender-card reveal">
+          <div class="sender-copy">
+            <span class="open-pill" data-i18n="sender.tag">Free · open source · local</span>
+            <h3>Kindle Book Sender</h3>
+            <p data-i18n="sender.body">Choose books on Windows, macOS, or Linux. The app discovers your Kindle on Wi-Fi and transfers them directly, without a cloud account.</p>
+            <div class="sender-actions">
+              <a class="button button-paper" href="https://lachlanchen.github.io/Kindle/" data-i18n="sender.download">Download the sender</a>
+              <a class="text-link" href="https://github.com/lachlanchen/Kindle" data-i18n="sender.source">View source and guides</a>
+            </div>
+          </div>
+          <div class="sender-ui" aria-hidden="true">
+            <div class="sender-top"><i></i><i></i><i></i><span>Kindle Book Sender</span></div>
+            <div class="sender-ready">
+              <span class="check">✓</span>
+              <div><strong>Kindle Paperwhite</strong><small>KOReader · Wi-Fi</small></div>
+              <b>READY</b>
+            </div>
+            <div class="sender-drop"><span>PDF · EPUB</span><strong>Choose books</strong></div>
+          </div>
+        </div>
+
+        <div class="compatibility reveal">
+          <h3 data-i18n="compat.title">One library, several kinds of paper.</h3>
+          <div class="device-grid">
+            <article>
+              <span class="device-mark">K</span>
+              <h4>Kindle + KOReader</h4>
+              <p data-i18n="compat.kindle">Use the free sender for direct local transfers and an easy reading shelf.</p>
+            </article>
+            <article>
+              <span class="device-mark">Q</span>
+              <h4>Fujitsu Quaderno</h4>
+              <p data-i18n="compat.quaderno">Open LinguaLeaf PDF editions through the device's normal document workflow.</p>
+            </article>
+            <article>
+              <span class="device-mark">B</span>
+              <h4>Bigme</h4>
+              <p data-i18n="compat.bigme">Bring the same grayscale-ready books to a larger Android e-paper canvas.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section books-section" id="lingualeaf">
+      <div class="shell books-grid">
+        <div class="book-page reveal" aria-label="LinguaLeaf multilingual page sample">
+          <div class="page-meta"><span>LINGUALEAF / 01</span><span>EN · JA · ZH</span></div>
+          <h3>The story stays first.</h3>
+          <p class="english-line">A quiet page can carry more than one language.</p>
+          <p class="annotation">しず　ページ　ことば</p>
+          <p class="japanese-line">静かなページは、いくつもの言葉を運べる。</p>
+          <p class="annotation">ān jìng · yè miàn · yǔ yán</p>
+          <p class="chinese-line">安静的页面，可以承载不止一种语言。</p>
+          <hr>
+          <p class="english-line second">Read the story. Notice a word. Keep moving.</p>
+          <p class="japanese-line small">物語を読み、言葉に気づき、そのまま進む。</p>
+          <p class="chinese-line small">读故事，留意词语，然后继续前行。</p>
+          <span class="page-number">12</span>
+        </div>
+        <div class="books-copy reveal" data-delay="100">
+          <p class="eyebrow" data-i18n="books.eyebrow">Books made for e-paper</p>
+          <h2 data-i18n="books.title">Learn without leaving the story.</h2>
+          <p data-i18n="books.body">LinguaLeaf editions layer English, Japanese, Chinese, furigana, and pinyin into deliberate black-and-white pages. Help is present when curiosity appears, not before.</p>
+          <div class="book-actions">
+            <a class="button button-solid" href="https://lachlanchen.github.io/LinguaLeaf/website/" data-i18n="books.browse">Browse LinguaLeaf books</a>
+            <a class="text-link" href="https://github.com/lachlanchen/LinguaLeaf" data-i18n="books.source">Explore the open book project</a>
+          </div>
+          <a class="learn-card" href="https://learn.lazying.art">
+            <span>learn.lazying.art</span>
+            <strong data-i18n="books.learn">Continue learning beyond the page</strong>
+            <i>↗</i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reader-section" id="reader">
+      <div class="shell">
+        <div class="reader-heading reveal">
+          <div>
+            <p class="eyebrow" data-i18n="reader.eyebrow">The integrated direction</p>
+            <h2 data-i18n="reader.title">The hardware we wanted for the books we make.</h2>
+          </div>
+          <p data-i18n="reader.body">LazyingArt eInk brings the typography, library, and transfer experience together in one focused reading object. No invented spectacle. Just better pages.</p>
+        </div>
+
+        <div class="reader-visual reveal">
+          <img src="assets/lazyingart-eink-hero.png" alt="LazyingArt eInk reader product concept">
+          <div class="reader-overlay">
+            <img src="../logos/logo.svg" alt="">
+            <span><strong>LazyingArt eInk</strong><small data-i18n="reader.status">Hardware in development</small></span>
+          </div>
+        </div>
+
+        <div class="feature-grid">
+          <article class="reveal">
+            <span>01</span>
+            <h3 data-i18n="feature.calm.title">Calm by default</h3>
+            <p data-i18n="feature.calm.body">A paper-like surface shaped for long reading sessions and fewer interruptions.</p>
+          </article>
+          <article class="reveal" data-delay="70">
+            <span>02</span>
+            <h3 data-i18n="feature.type.title">Typography is the interface</h3>
+            <p data-i18n="feature.type.body">Multilingual hierarchy designed for grayscale, annotation, and natural eye movement.</p>
+          </article>
+          <article class="reveal" data-delay="140">
+            <span>03</span>
+            <h3 data-i18n="feature.open.title">An open way into the shelf</h3>
+            <p data-i18n="feature.open.body">PDF-first books and local transfer paths keep the library useful beyond one device.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="early-section" id="early">
+      <div class="shell early-card reveal">
+        <img src="../logos/logo.svg" alt="">
+        <div>
+          <p class="eyebrow" data-i18n="early.eyebrow">Follow the build</p>
+          <h2 data-i18n="early.title">Read on Kindle now. Help shape what comes next.</h2>
+          <p data-i18n="early.body">Use the free tools and LinguaLeaf books today, or tell us what your ideal multilingual e-paper reader should do.</p>
+        </div>
+        <a class="button button-paper" href="mailto:contact@lazying.art?subject=LazyingArt%20eInk%20early%20access" data-i18n="early.button">Join early access</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell footer-grid">
+      <a class="brand footer-brand" href="https://lazying.art">
+        <img src="../logos/logo.svg" alt="">
+        <span><strong>LazyingArt</strong><small>eInk</small></span>
+      </a>
+      <p data-i18n="footer.tagline">Books, tools, and hardware for slower eyes and wider worlds.</p>
+      <div class="footer-links">
+        <a href="https://lazying.art">lazying.art</a>
+        <a href="https://learn.lazying.art">learn.lazying.art</a>
+        <a href="https://flow.lazying.art">flow.lazying.art</a>
+        <a href="https://github.com/lachlanchen/LazyingArtWebsite" data-i18n="footer.source">Source</a>
+      </div>
+      <small class="trademark" data-i18n="footer.trademark">Kindle, Quaderno, and Bigme are referenced for compatibility context; LazyingArt is not affiliated with their owners.</small>
+      <small>© <span data-year>2026</span> LazyingArt LLC</small>
+    </div>
+  </footer>
+</body>
+</html>
