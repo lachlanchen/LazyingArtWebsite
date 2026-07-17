@@ -446,6 +446,18 @@ html[dir="rtl"] .hero h1 em {
   background: rgba(255, 254, 248, 0.4);
 }
 
+.button-book {
+  border-color: rgba(92, 144, 48, 0.42);
+  color: var(--forest-dark);
+  background: rgba(211, 235, 181, 0.72);
+  box-shadow: 0 12px 27px rgba(74, 116, 38, 0.14);
+}
+
+.button-book:hover {
+  border-color: var(--leaf);
+  background: rgba(211, 235, 181, 0.95);
+}
+
 .button-paper {
   border-color: transparent;
   color: var(--forest-dark);

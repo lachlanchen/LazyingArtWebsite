@@ -660,4 +660,19 @@
     ru: { "sender.platformLabel": "Выберите компьютер", "sender.downloadFor": "Скачать для {platform}", "sender.detectedPlatform": "Автоматическая рекомендация: {platform}. Можно изменить.", "sender.selectedPlatform": "Выбрано: {platform}. Можно изменить в любое время.", "sender.allDownloads": "Все версии на GitHub", "sender.openReleases": "Выбрать загрузку на GitHub", "platform.windows": "Windows 10/11 · x64", "platform.macArm": "macOS · Apple Silicon", "platform.macIntel": "macOS · Intel", "platform.linux": "Linux · x86_64", "platform.all": "Другая система / все версии" }
   };
   Object.entries(senderDownloads).forEach(([language, strings]) => Object.assign(window.EINK_I18N[language], strings));
+
+  const learningCta = {
+    en: { "hero.books": "Download free LinguaLeaf books" },
+    ar: { "hero.books": "تنزيل كتب LinguaLeaf المجانية" },
+    es: { "hero.books": "Descargar libros gratuitos de LinguaLeaf" },
+    fr: { "hero.books": "Télécharger des livres LinguaLeaf gratuits" },
+    ja: { "hero.books": "LinguaLeaf の無料書籍をダウンロード" },
+    ko: { "hero.books": "무료 LinguaLeaf 책 다운로드" },
+    vi: { "hero.books": "Tải sách LinguaLeaf miễn phí" },
+    "zh-Hans": { "hero.books": "下载免费 LinguaLeaf 读物" },
+    "zh-Hant": { "hero.books": "下載免費 LinguaLeaf 讀物" },
+    de: { "hero.books": "Kostenlose LinguaLeaf-Bücher herunterladen" },
+    ru: { "hero.books": "Скачать бесплатные книги LinguaLeaf" }
+  };
+  Object.entries(learningCta).forEach(([language, strings]) => Object.assign(window.EINK_I18N[language], strings));
 })();
