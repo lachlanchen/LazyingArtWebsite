@@ -453,6 +453,81 @@ html[dir="rtl"] .hero h1 em {
   box-shadow: 0 11px 25px rgba(0, 0, 0, 0.1);
 }
 
+.download-control {
+  display: grid;
+  max-width: 520px;
+  margin-block-start: 26px;
+  padding: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.17);
+  border-radius: 14px;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+}
+
+.download-control > label {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.download-select-wrap {
+  position: relative;
+}
+
+.download-select-wrap select {
+  width: 100%;
+  min-height: 48px;
+  padding: 0 43px 0 14px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  appearance: none;
+  color: var(--forest-dark);
+  background: var(--white);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+html[dir="rtl"] .download-select-wrap select {
+  padding: 0 14px 0 43px;
+}
+
+.download-select-wrap svg {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  width: 12px;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+html[dir="rtl"] .download-select-wrap svg {
+  right: auto;
+  left: 15px;
+}
+
+.download-select-wrap path {
+  fill: none;
+  stroke: var(--forest);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+}
+
+.download-control > small {
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 10px;
+  line-height: 1.45;
+}
+
+.download-control + .sender-actions {
+  margin-block-start: 17px;
+}
+
 .hero-note {
   display: flex;
   margin: 18px 0 0;
@@ -1446,6 +1521,11 @@ footer {
 
   .button {
     width: 100%;
+  }
+
+  .download-control {
+    max-width: none;
+    padding: 12px;
   }
 
   .product-hero > img {
