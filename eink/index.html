@@ -37,7 +37,7 @@
 
   <aside class="kindle-ribbon">
     <span data-i18n="ribbon.copy">Already own a Kindle?</span>
-    <a href="https://lachlanchen.github.io/Kindle/" data-i18n="ribbon.link">Send books over Wi-Fi for free</a>
+    <a href="https://github.com/lachlanchen/Kindle/releases/latest" data-i18n="ribbon.link">Send books over Wi-Fi for free</a>
   </aside>
 
   <header class="site-header" data-header>
@@ -100,7 +100,7 @@
           </div>
           <div class="hero-actions">
             <a class="button button-solid" href="mailto:contact@lazying.art?subject=LazyingArt%20eInk%20order&amp;body=I%20would%20like%20to%20order%20LazyingArt%20eInk%20at%20%C2%A5999%20CNY%20%2F%20%24128%20USD.%0A%0AName%3A%0ACountry%3A%0AQuantity%3A" data-i18n="hero.reader">Order now</a>
-            <a class="button button-line" href="https://lachlanchen.github.io/Kindle/" data-i18n="hero.sender">Get the free Kindle sender</a>
+            <a class="button button-line" href="https://github.com/lachlanchen/Kindle/releases/latest" data-i18n="hero.sender">Get the free Kindle sender</a>
           </div>
           <p class="hero-note">
             <span></span>
@@ -131,10 +131,18 @@
           <div class="sender-copy">
             <span class="open-pill" data-i18n="sender.tag">Free · open source · local</span>
             <h3>Kindle Book Sender</h3>
-            <p data-i18n="sender.body">Choose books on Windows, macOS, or Linux. The app discovers your Kindle on Wi-Fi and transfers them directly, without a cloud account.</p>
+            <p data-i18n="sender.body">Version 1.3 speaks 11 languages, discovers KOReader over Wi-Fi, shows Kindle storage, remembers devices and transfer history, and sends books without a cloud account.</p>
+            <ul class="sender-feature-list">
+              <li><span>11</span><strong data-i18n="sender.languages">11-language interface</strong></li>
+              <li><span>◒</span><strong data-i18n="sender.storage">Live Kindle storage</strong></li>
+              <li><span>↺</span><strong data-i18n="sender.history">Remembered devices and transfers</strong></li>
+            </ul>
             <div class="sender-actions">
-              <a class="button button-paper" href="https://lachlanchen.github.io/Kindle/" data-i18n="sender.download">Download the sender</a>
+              <a class="button button-paper" href="https://github.com/lachlanchen/Kindle/releases/latest" data-i18n="sender.download">Download the sender</a>
               <a class="text-link" href="https://github.com/lachlanchen/Kindle" data-i18n="sender.source">View source and guides</a>
+              <a class="text-link" href="https://lachlanchen.github.io/Kindle/downloads/kindle-koreader-handoff.pdf">English PDF</a>
+              <a class="text-link" href="https://lachlanchen.github.io/Kindle/downloads/kindle-koreader-handoff-zh-CN.pdf">简体中文 PDF</a>
+              <a class="text-link" href="https://lachlanchen.github.io/Kindle/?stay=1" data-i18n="sender.original">Open the original Kindle site</a>
             </div>
           </div>
           <div class="sender-ui" aria-hidden="true">
@@ -143,6 +151,10 @@
               <span class="check">✓</span>
               <div><strong>Kindle Paperwhite</strong><small>KOReader · Wi-Fi</small></div>
               <b>READY</b>
+            </div>
+            <div class="sender-storage">
+              <div><span data-i18n="sender.ui.storage">Kindle storage</span><strong>6.2 GB <small data-i18n="sender.ui.free">free</small></strong></div>
+              <i><b></b></i>
             </div>
             <div class="sender-drop"><span>PDF · EPUB</span><strong>Choose books</strong></div>
           </div>
@@ -278,11 +290,3 @@
   </footer>
 </body>
 </html>
-@@
--</head>
-+  <link rel="stylesheet" href="jailbreak-assistant.css">
-+</head>
-@@
--</body>
-+  <script src="jailbreak-assistant.js"></script>
-+</body>
