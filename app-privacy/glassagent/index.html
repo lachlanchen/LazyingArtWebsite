@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="How GlassAgent handles local app data, optional backend requests, connected-glasses data, retention, and deletion.">
+  <meta name="theme-color" content="#087d59">
+  <title>GlassAgent App Privacy Notice</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f7f9f8;
+      color: #101713;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    main { width: min(100% - 40px, 820px); margin: 0 auto; padding: 56px 0 80px; }
+    nav { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-bottom: 44px; font-size: 14px; }
+    a { color: #087d59; text-underline-offset: 4px; }
+    header { margin-bottom: 44px; }
+    .eyebrow { margin: 0 0 14px; color: #087d59; font-size: 14px; font-weight: 700; text-transform: uppercase; }
+    h1 { margin: 0; max-width: 720px; font-size: clamp(38px, 7vw, 56px); line-height: 1.06; }
+    .effective { max-width: 680px; margin: 22px 0 0; color: #536058; font-size: 17px; line-height: 1.65; }
+    section { padding: 30px 0 0; margin-top: 30px; border-top: 1px solid #d9dedb; }
+    h2 { margin: 0 0 12px; font-size: 25px; line-height: 1.2; }
+    p { margin: 0 0 14px; color: #536058; font-size: 16px; line-height: 1.7; }
+    p:last-child { margin-bottom: 0; }
+    .contact { padding: 24px; border: 1px solid #cdd8d1; background: #ffffff; }
+    @media (max-width: 520px) {
+      main { width: min(100% - 28px, 820px); padding-top: 32px; }
+      h1 { font-size: 38px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <nav aria-label="Legal navigation">
+      <a href="/">LazyingArt home</a>
+    </nav>
+
+    <header>
+      <p class="eyebrow">GlassAgent</p>
+      <h1>App Privacy Notice</h1>
+      <p class="effective">Effective July 26, 2026. This notice explains how GlassAgent, published by LazyingArt LLC, handles information in the mobile companion and browser app.</p>
+    </header>
+
+    <section>
+      <h2>Summary</h2>
+      <p>GlassAgent is a local-first mobile companion. The app does not contain advertising, third-party analytics, cross-app tracking, or a publisher-operated user account. Core app features work without sending personal data to LazyingArt LLC.</p>
+      <p>This notice applies to the GlassAgent Android and iOS apps and their companion browser experience. It does not govern other LazyingArt products or information submitted to a separate LazyingArt service.</p>
+    </section>
+
+    <section>
+      <h2>Information handled on your device</h2>
+      <p>The app can process text you enter, assistant history, reminders, memory notes, a location label you type, language preferences, app interactions, and photos, videos, or audio that you choose to capture or import.</p>
+      <p>When you use compatible glasses, the app can process Bluetooth identity, connection state, battery level, firmware information, brightness and audio status, capture status, and media transferred from the glasses. Compatibility depends on the device model, firmware, companion software, permissions, and network.</p>
+      <p>This information remains in app-specific storage unless you explicitly export it, transmit it to compatible hardware, or submit it to an endpoint you configure.</p>
+    </section>
+
+    <section>
+      <h2>Optional network requests</h2>
+      <p>You can enable a backend URL and explicitly submit an assistant prompt or tool-session request. A request can include submitted text, language, a random local conversation or session identifier, selected capability, timestamps, and related interaction metadata. Media is included only when the selected workflow says it will be included.</p>
+      <p>The public release does not contain a default publisher-operated backend account or reusable hardware-provider credential. The destination, operator, purpose, retention, and deletion terms for a configured endpoint depend on the URL you choose. Do not use an endpoint you do not trust.</p>
+    </section>
+
+    <section>
+      <h2>Permissions and recording</h2>
+      <p>Bluetooth and Nearby Devices permissions connect the phone to supported glasses. Android 11 and earlier can require a location-related permission for Bluetooth discovery; GlassAgent does not use that permission to collect GPS location. Network and Wi-Fi permissions support local device communication and optional backend requests.</p>
+      <p>Photo, video, and audio actions begin only after a user action. Active recording is identified by the operating system or an in-app recording state. You are responsible for giving appropriate notice and obtaining consent before recording another person.</p>
+    </section>
+
+    <section>
+      <h2>Sharing and tracking</h2>
+      <p>LazyingArt LLC does not sell personal information and the app does not share information for advertising or cross-app tracking. Information leaves the device only when needed for a connection you initiate, when you export it, or when you explicitly submit it to a backend you select.</p>
+    </section>
+
+    <section>
+      <h2>Retention and deletion</h2>
+      <p>Local records remain until you delete them with available app controls, clear app or browser storage, or uninstall the app. Android cloud backup is disabled for app-local state. Backend bearer tokens are held only for the current app process or browser session and are not stored with job data.</p>
+      <p>Data sent to a configured backend is governed by that endpoint operator. Because this release has no GlassAgent publisher account, there is no app account record to delete from LazyingArt LLC.</p>
+    </section>
+
+    <section>
+      <h2>Security and international transfers</h2>
+      <p>Use HTTPS for any internet-accessible backend. Plain HTTP is available only for explicitly configured local-network development and does not protect content in transit. If you choose an endpoint in another country or region, submitted information may be processed there under that endpoint operator's terms.</p>
+    </section>
+
+    <section>
+      <h2>Children</h2>
+      <p>GlassAgent is not directed to children under 13. LazyingArt LLC does not knowingly collect children's personal information through the app.</p>
+    </section>
+
+    <section>
+      <h2>Changes</h2>
+      <p>Material changes to app data collection, cloud services, advertising, analytics, accounts, or tracking will be reflected in this notice and the applicable store disclosures before release.</p>
+    </section>
+
+    <section class="contact">
+      <h2>Contact</h2>
+      <p>Controller: LazyingArt LLC.</p>
+      <p>Privacy questions: <a href="mailto:lach@lazying.art">lach@lazying.art</a>.</p>
+      <p>Last updated: July 26, 2026.</p>
+    </section>
+  </main>
+</body>
+</html>
