@@ -423,6 +423,10 @@
             background: linear-gradient(135deg, #111827, #334155);
         }
 
+        .beta-download-button.google-play {
+            background: linear-gradient(135deg, #2563eb, #4f46e5);
+        }
+
         .beta-download-button.android {
             background: linear-gradient(135deg, #059669, #0f766e);
         }
@@ -1672,7 +1676,7 @@
                         <span class="beta-launch-badge" data-i18n="beta_badge">Public beta</span>
                         <strong class="beta-launch-title" id="beta-launch-title" data-i18n="beta_title">Test EchoMind on your phone</strong>
                     </div>
-                    <p class="beta-launch-subtitle" data-i18n="beta_subtitle">Join with TestFlight on iPhone or download the signed Android beta directly.</p>
+                    <p class="beta-launch-subtitle" data-i18n="beta_subtitle">Join TestFlight on iPhone, the public Google Play beta on Android, or download the signed APK.</p>
                 </div>
                 <div class="beta-launch-actions">
                     <a href="https://testflight.apple.com/join/bKGrC3Jn" class="beta-download-button apple" target="_blank" rel="noopener noreferrer">
@@ -1681,6 +1685,12 @@
                             <path d="M11 18h2"></path>
                         </svg>
                         <span data-i18n="beta_testflight">Test on iPhone</span>
+                    </a>
+                    <a href="https://play.google.com/apps/testing/art.lazying.echomind" class="beta-download-button google-play" target="_blank" rel="noopener noreferrer">
+                        <svg viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true">
+                            <path d="M4.7 3.3a1.6 1.6 0 0 0-.7 1.3v14.8c0 .5.3 1 .7 1.3l8.5-8.7-8.5-8.7Zm9.6 7.6 2.4-2.5-8.9-5a2 2 0 0 0-1.2-.3l7.7 7.8Zm0 2.2-7.7 7.8c.4 0 .8-.1 1.2-.3l8.9-5-2.4-2.5Zm3.8-3.9-2.7 2.8 2.7 2.8 1.6-.9c1.2-.7 1.2-2.4 0-3.1l-1.6-.9Z"></path>
+                        </svg>
+                        <span data-i18n="beta_google_play">Join Google Play beta</span>
                     </a>
                     <a href="downloads/EchoMind-0.1.0-build43-test.apk" class="beta-download-button android" download>
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
@@ -2470,8 +2480,9 @@
                 top_banner_metamask: 'Add MetaMask',
                 beta_badge: 'Public beta',
                 beta_title: 'Test EchoMind on your phone',
-                beta_subtitle: 'Join with TestFlight on iPhone or download the signed Android beta directly.',
+                beta_subtitle: 'Join TestFlight on iPhone, the public Google Play beta on Android, or download the signed APK.',
                 beta_testflight: 'Test on iPhone',
+                beta_google_play: 'Join Google Play beta',
                 beta_android: 'Download Android APK',
                 hero_launch: 'Launch EchoMind',
                 hero_explore: 'Explore Features',
@@ -2672,8 +2683,9 @@
                 top_banner_metamask: 'MetaMaskに追加',
                 beta_badge: '公開ベータ',
                 beta_title: 'EchoMindをスマートフォンで試す',
-                beta_subtitle: 'iPhoneはTestFlightに参加、Androidは署名済みベータ版を直接ダウンロードできます。',
+                beta_subtitle: 'iPhoneはTestFlight、AndroidはGoogle Play公開テストに参加するか、署名済みAPKを直接ダウンロードできます。',
                 beta_testflight: 'iPhoneでテスト',
+                beta_google_play: 'Google Playベータに参加',
                 beta_android: 'Android APKをダウンロード',
                 hero_launch: 'EchoMindを起動',
                 hero_explore: '機能を見る',
@@ -2861,8 +2873,9 @@
                 top_banner_metamask: '加入 MetaMask',
                 beta_badge: '公开测试版',
                 beta_title: '在手机上试用 EchoMind',
-                beta_subtitle: 'iPhone 可加入 TestFlight，Android 可直接下载已签名的测试版。',
+                beta_subtitle: 'iPhone 可加入 TestFlight；Android 可加入 Google Play 公开测试，或直接下载已签名 APK。',
                 beta_testflight: '在 iPhone 上测试',
+                beta_google_play: '加入 Google Play 测试',
                 beta_android: '下载 Android APK',
                 hero_launch: '启动 EchoMind',
                 hero_explore: '浏览功能',
@@ -3053,8 +3066,9 @@
                 top_banner_metamask: '加入 MetaMask',
                 beta_badge: '公開測試版',
                 beta_title: '在手機上試用 EchoMind',
-                beta_subtitle: 'iPhone 可加入 TestFlight，Android 可直接下載已簽署的測試版。',
+                beta_subtitle: 'iPhone 可加入 TestFlight；Android 可加入 Google Play 公開測試，或直接下載已簽署 APK。',
                 beta_testflight: '在 iPhone 上測試',
+                beta_google_play: '加入 Google Play 測試',
                 beta_android: '下載 Android APK',
                 hero_launch: '啟動 EchoMind',
                 hero_explore: '瀏覽功能',
@@ -3245,8 +3259,9 @@
                 top_banner_metamask: 'MetaMask에 추가',
                 beta_badge: '공개 베타',
                 beta_title: '휴대폰에서 EchoMind 테스트',
-                beta_subtitle: 'iPhone에서는 TestFlight에 참여하고 Android에서는 서명된 베타를 바로 다운로드하세요.',
+                beta_subtitle: 'iPhone에서는 TestFlight에, Android에서는 Google Play 공개 베타에 참여하거나 서명된 APK를 받으세요.',
                 beta_testflight: 'iPhone에서 테스트',
+                beta_google_play: 'Google Play 베타 참여',
                 beta_android: 'Android APK 다운로드',
                 hero_launch: 'EchoMind 실행',
                 hero_explore: '기능 살펴보기',
@@ -3435,8 +3450,9 @@
                 top_banner_metamask: 'أضف إلى MetaMask',
                 beta_badge: 'نسخة تجريبية عامة',
                 beta_title: 'جرّب EchoMind على هاتفك',
-                beta_subtitle: 'انضم عبر TestFlight على iPhone أو نزّل نسخة Android التجريبية الموقّعة مباشرة.',
+                beta_subtitle: 'انضم إلى TestFlight على iPhone أو اختبار Google Play العام على Android، أو نزّل ملف APK الموقّع.',
                 beta_testflight: 'الاختبار على iPhone',
+                beta_google_play: 'الانضمام إلى اختبار Google Play',
                 beta_android: 'تنزيل Android APK',
                 hero_launch: 'تشغيل EchoMind',
                 hero_explore: 'استكشف الميزات',
@@ -3625,8 +3641,9 @@
                 top_banner_metamask: 'Thêm MetaMask',
                 beta_badge: 'Bản beta công khai',
                 beta_title: 'Thử EchoMind trên điện thoại',
-                beta_subtitle: 'Tham gia TestFlight trên iPhone hoặc tải trực tiếp bản beta Android đã ký.',
+                beta_subtitle: 'Tham gia TestFlight trên iPhone, bản beta công khai Google Play trên Android, hoặc tải APK đã ký.',
                 beta_testflight: 'Thử trên iPhone',
+                beta_google_play: 'Tham gia beta Google Play',
                 beta_android: 'Tải Android APK',
                 hero_launch: 'Khởi chạy EchoMind',
                 hero_explore: 'Khám phá tính năng',
@@ -3815,8 +3832,9 @@
                 top_banner_metamask: 'Ajouter MetaMask',
                 beta_badge: 'Bêta publique',
                 beta_title: 'Testez EchoMind sur votre téléphone',
-                beta_subtitle: 'Rejoignez TestFlight sur iPhone ou téléchargez directement la bêta Android signée.',
+                beta_subtitle: 'Rejoignez TestFlight sur iPhone, la bêta publique Google Play sur Android, ou téléchargez l’APK signé.',
                 beta_testflight: 'Tester sur iPhone',
+                beta_google_play: 'Rejoindre la bêta Google Play',
                 beta_android: 'Télécharger l’APK Android',
                 hero_launch: 'Lancer EchoMind',
                 hero_explore: 'Découvrir les fonctions',
@@ -4005,8 +4023,9 @@
                 top_banner_metamask: 'Añadir MetaMask',
                 beta_badge: 'Beta pública',
                 beta_title: 'Prueba EchoMind en tu teléfono',
-                beta_subtitle: 'Únete con TestFlight en iPhone o descarga directamente la beta firmada para Android.',
+                beta_subtitle: 'Únete a TestFlight en iPhone, a la beta pública de Google Play en Android, o descarga el APK firmado.',
                 beta_testflight: 'Probar en iPhone',
+                beta_google_play: 'Unirse a la beta de Google Play',
                 beta_android: 'Descargar APK de Android',
                 hero_launch: 'Iniciar EchoMind',
                 hero_explore: 'Explorar funciones',
@@ -4195,8 +4214,9 @@
                 top_banner_metamask: 'Adicionar MetaMask',
                 beta_badge: 'Beta pública',
                 beta_title: 'Teste o EchoMind no seu telefone',
-                beta_subtitle: 'Entre pelo TestFlight no iPhone ou baixe diretamente a versão beta assinada para Android.',
+                beta_subtitle: 'Entre no TestFlight no iPhone, no beta público do Google Play no Android, ou baixe o APK assinado.',
                 beta_testflight: 'Testar no iPhone',
+                beta_google_play: 'Entrar no beta do Google Play',
                 beta_android: 'Baixar APK para Android',
                 hero_launch: 'Iniciar EchoMind',
                 hero_explore: 'Explorar recursos',
@@ -4385,8 +4405,9 @@
                 top_banner_metamask: 'MetaMask hinzufügen',
                 beta_badge: 'Öffentliche Beta',
                 beta_title: 'EchoMind auf dem Smartphone testen',
-                beta_subtitle: 'Auf dem iPhone über TestFlight teilnehmen oder die signierte Android-Beta direkt herunterladen.',
+                beta_subtitle: 'Auf dem iPhone per TestFlight oder auf Android an der öffentlichen Google-Play-Beta teilnehmen – alternativ die signierte APK laden.',
                 beta_testflight: 'Auf iPhone testen',
+                beta_google_play: 'Google-Play-Beta beitreten',
                 beta_android: 'Android-APK herunterladen',
                 hero_launch: 'EchoMind starten',
                 hero_explore: 'Funktionen ansehen',
@@ -4577,8 +4598,9 @@
                 top_banner_metamask: 'Добавить MetaMask',
                 beta_badge: 'Открытая бета',
                 beta_title: 'Попробуйте EchoMind на телефоне',
-                beta_subtitle: 'Присоединяйтесь через TestFlight на iPhone или скачайте подписанную Android-бета-версию напрямую.',
+                beta_subtitle: 'Присоединяйтесь к TestFlight на iPhone или публичной бета-версии Google Play на Android либо скачайте подписанный APK.',
                 beta_testflight: 'Тестировать на iPhone',
+                beta_google_play: 'Присоединиться к бета-тесту Google Play',
                 beta_android: 'Скачать Android APK',
                 hero_launch: 'Запустить EchoMind',
                 hero_explore: 'Смотреть возможности',
@@ -4767,8 +4789,9 @@
                 top_banner_metamask: 'MetaMask’e ekle',
                 beta_badge: 'Herkese açık beta',
                 beta_title: 'EchoMind’i telefonunuzda deneyin',
-                beta_subtitle: 'iPhone’da TestFlight’a katılın veya imzalı Android beta sürümünü doğrudan indirin.',
+                beta_subtitle: 'iPhone’da TestFlight’a, Android’de herkese açık Google Play betasına katılın veya imzalı APK’yı indirin.',
                 beta_testflight: 'iPhone’da test et',
+                beta_google_play: 'Google Play betasına katıl',
                 beta_android: 'Android APK’yı indir',
                 hero_launch: 'EchoMind’i Başlat',
                 hero_explore: 'Özellikleri Keşfet',
