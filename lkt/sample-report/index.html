@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#17231f">
+  <title>Sample collection-fit report · Local Knowledge Terminal</title>
+  <meta name="description" content="Inspect a concrete Local Knowledge Terminal collection-fit report: data and privacy map, representative browser proof, and a bounded go/no-go recommendation.">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Sample collection-fit report · Local Knowledge Terminal">
+  <meta property="og:description" content="A measured, project-owned example of the three deliverables in the USD 250 LKT collection-fit sprint.">
+  <meta property="og:image" content="https://lazying.art/lkt/assets/lkt-product-hero-v2.png">
+  <meta property="og:url" content="https://lazying.art/lkt/sample-report/">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://lazying.art/lkt/sample-report/">
+  <link rel="icon" href="../../favicon.ico" sizes="any">
+  <link rel="stylesheet" href="../styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Sample Local Knowledge Terminal collection-fit report",
+    "description": "A measured, project-owned example of a collection data and privacy map, representative browser proof, and bounded go/no-go recommendation.",
+    "url": "https://lazying.art/lkt/sample-report/",
+    "dateModified": "2026-09-01",
+    "author": {
+      "@type": "Organization",
+      "name": "LazyingArt LLC",
+      "url": "https://lazying.art/"
+    },
+    "isPartOf": {
+      "@type": "SoftwareApplication",
+      "name": "Local Knowledge Terminal",
+      "url": "https://lazying.art/lkt/"
+    }
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to report</a>
+
+  <header class="site-header">
+    <a class="brand" href="../" aria-label="Local Knowledge Terminal offer">
+      <img src="../../logos/logo.svg" alt="">
+      <span><strong>LazyingArt</strong><small>Local Knowledge Terminal</small></span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a href="../">Offer</a>
+      <a href="../fit-check/">Free fit check</a>
+      <a href="https://github.com/lachlanchen/LocalKnowledgeTerminal/blob/main/docs/sample-fit-report.md">Source report</a>
+      <a href="https://github.com/lachlanchen/LocalKnowledgeTerminal">Public code</a>
+    </nav>
+  </header>
+
+  <main class="report-main" id="main">
+    <section class="report-hero" aria-labelledby="report-title">
+      <p class="eyebrow">Project-owned sample · reference snapshot 2026-08-31</p>
+      <h1 id="report-title">A fit report<br><em>you can inspect.</em></h1>
+      <p class="lead">This concrete example applies the USD 250 sprint format to Local Knowledge Terminal's own documented reference collection. It shows the three deliverables before you share any customer material.</p>
+      <p class="report-boundary"><strong>Evidence boundary:</strong> this is not a customer result, testimonial, benchmark, sale, or claim of a paid engagement.</p>
+      <div class="hero-actions">
+        <a class="button primary" href="../fit-check/?utm_source=lkt_sample_report&amp;utm_medium=website&amp;utm_campaign=local_knowledge_terminal_pilot&amp;utm_content=report_hero">Start the free fit check</a>
+        <a class="button secondary" href="https://github.com/lachlanchen/LocalKnowledgeTerminal/blob/main/docs/sample-fit-report.md">Inspect the source report</a>
+      </div>
+    </section>
+
+    <section class="report-decision" aria-labelledby="decision-title">
+      <div>
+        <p class="eyebrow">Decision summary</p>
+        <h2 id="decision-title">GO, with a bounded scope.</h2>
+      </div>
+      <p>The existing structured records fit LKT's local exact and lexical retrieval plus cited-card workflow on the current Raspberry Pi 5 8 GB target. The useful first proof is a browser card backed by one retrieved record and its stored provenance.</p>
+      <p><strong>Do not expand this decision</strong> to image-only PDFs, custom OCR, unreviewed rights, hardware supply, or production operations. Those require a separate scope.</p>
+    </section>
+
+    <section class="metric-grid" aria-label="Reference collection summary">
+      <article><strong>19,119</strong><span>structured records</span></article>
+      <article><strong>5</strong><span>reviewed collection exports</span></article>
+      <article><strong>5.8 MB</strong><span>approximate runtime indexes</span></article>
+      <article><strong>Local</strong><span>source files and retrieval</span></article>
+    </section>
+
+    <section class="report-section" aria-labelledby="map-title">
+      <div class="report-heading">
+        <p class="eyebrow">Deliverable 01</p>
+        <h2 id="map-title">Collection, privacy, and citation map.</h2>
+        <p>The public proof uses five reviewed exports. Full books, images, model weights, generated indexes, and editorial queues remain outside the public repository.</p>
+      </div>
+      <div class="report-table-wrap">
+        <table class="report-table">
+          <caption>Documented reference snapshot</caption>
+          <thead>
+            <tr><th scope="col">Collection export</th><th scope="col">Records</th><th scope="col">Runtime treatment</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Word Origins</td><td>6,994</td><td>Exact headword and lexical FTS5</td></tr>
+            <tr><td>Book of Answers</td><td>318</td><td>Deterministic query-seeded draw</td></tr>
+            <tr><td>Book of Questions</td><td>291</td><td>Multilingual FTS5 and deterministic fallback</td></tr>
+            <tr><td>English Root Dictionary</td><td>6,327</td><td>Exact headword and morphology FTS5</td></tr>
+            <tr><td>English Affix Dictionary</td><td>5,189</td><td>Exact headword and morphology FTS5</td></tr>
+          </tbody>
+          <tfoot>
+            <tr><th scope="row">Total</th><td>19,119</td><td>Five local indexes, approximately 5.8 MB</td></tr>
+          </tfoot>
+        </table>
+      </div>
+      <div class="data-flow" aria-label="Local data flow">
+        <span>owned source files</span><b aria-hidden="true">→</b>
+        <span>reviewed export</span><b aria-hidden="true">→</b>
+        <span>local SQLite index</span><b aria-hidden="true">→</b>
+        <span>retrieved record + source ID</span><b aria-hidden="true">→</b>
+        <span>bounded composition</span><b aria-hidden="true">→</b>
+        <span>browser card</span>
+      </div>
+      <div class="report-grid">
+        <article class="report-panel">
+          <h3>What remains local</h3>
+          <ul>
+            <li>Private source files and generated indexes.</li>
+            <li>Model weights and runtime state.</li>
+            <li>Editorial workspaces and review queues.</li>
+          </ul>
+        </article>
+        <article class="report-panel">
+          <h3>What a citation retains</h3>
+          <ul>
+            <li>Corpus and record identifiers.</li>
+            <li>Source title, excerpt, and page when present.</li>
+            <li>The indexed-file hash used for retrieval.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="report-section report-proof" aria-labelledby="proof-title">
+      <div class="report-heading">
+        <p class="eyebrow">Deliverable 02</p>
+        <h2 id="proof-title">Representative browser proof.</h2>
+        <p>These reviewable captures use the current card contract. A paid sprint would instead use only a small, customer-approved sample after rights, format, privacy, readers, language goal, and existing hardware pass the free fit check.</p>
+      </div>
+      <div class="proof-gallery">
+        <figure>
+          <img src="https://raw.githubusercontent.com/lachlanchen/LocalKnowledgeTerminal/main/docs/assets/word-card.png" loading="lazy" alt="Local Knowledge Terminal multilingual Word Card interface">
+          <figcaption>Multilingual Word Card with bounded language fields.</figcaption>
+        </figure>
+        <figure>
+          <img src="https://raw.githubusercontent.com/lachlanchen/LocalKnowledgeTerminal/main/docs/assets/word-origin.png" loading="lazy" alt="Local Knowledge Terminal cited Word Origin graph interface">
+          <figcaption>Word Origin graph separating retrieved evidence from model context.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="report-section" aria-labelledby="boundary-title">
+      <div class="report-heading">
+        <p class="eyebrow">Deliverable 03</p>
+        <h2 id="boundary-title">A written go/no-go boundary.</h2>
+      </div>
+      <div class="report-grid">
+        <article class="report-panel go-panel">
+          <h3>Go when</h3>
+          <ul>
+            <li>You control the bounded source and have the right to use it.</li>
+            <li>Text is already extractable or structured.</li>
+            <li>A representative sample can be reviewed.</li>
+            <li>The goal is a small cited browser proof on an existing machine.</li>
+            <li>One language goal and reader group can be stated clearly.</li>
+          </ul>
+        </article>
+        <article class="report-panel no-panel">
+          <h3>No-go or separate scope</h3>
+          <ul>
+            <li>Source rights are unclear.</li>
+            <li>The material is mainly scanned images requiring custom OCR.</li>
+            <li>The request is an unbounded migration or production platform.</li>
+            <li>Shipped hardware, uptime commitments, or a production SLA are required.</li>
+            <li>The sample needs an unapproved handling environment.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="report-cta" aria-labelledby="cta-title">
+      <div>
+        <p class="eyebrow">The fixed paid scope</p>
+        <h2 id="cta-title">One collection. Three bounded artifacts. USD 250.</h2>
+        <p>After a positive free fit check, the sprint delivers a written data, citation, and privacy map; a small browser proof from a usable representative sample; and a written go/no-go decision. Hardware, shipping, custom OCR, and production deployment are excluded.</p>
+      </div>
+      <div class="report-cta-actions">
+        <a class="button primary" href="../fit-check/?utm_source=lkt_sample_report&amp;utm_medium=website&amp;utm_campaign=local_knowledge_terminal_pilot&amp;utm_content=report_footer">Start the free fit check</a>
+        <span>The fit-check page stores and sends nothing automatically.</span>
+      </div>
+    </section>
+
+    <section class="report-source" aria-labelledby="source-title">
+      <h2 id="source-title">Reproduce the public checks</h2>
+      <pre><code>python -m unittest discover -s tests -v
+python -m compileall -q lkt tests</code></pre>
+      <p>The tests cover indexing, retrieval, provenance, preparation, model boundaries, storage, outputs, and the browser service. They demonstrate the public implementation; they do not substitute for checking a customer's actual sample.</p>
+      <a class="text-link" href="https://github.com/lachlanchen/LocalKnowledgeTerminal/blob/main/docs/sample-fit-report.md">Read the source report and corpus ledger →</a>
+    </section>
+  </main>
+
+  <footer>
+    <span>Local Knowledge Terminal by LazyingArt LLC</span>
+    <a href="../">Offer</a>
+    <a href="../fit-check/">Free fit check</a>
+    <a href="https://github.com/lachlanchen/LocalKnowledgeTerminal">GitHub</a>
+  </footer>
+</body>
+</html>
