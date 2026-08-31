@@ -23,7 +23,7 @@
 | --- | --- |
 | ✅ Repo focus | Multilingual marketing site with product entry points for LazyingArt |
 | 🌍 Audience | Visitors, language learners, collaborators, contributors |
-| 🧩 Core pages | `index.html`, `robot.html`, `eink-words-card.html`, `openhi-kit.html` |
+| 🧩 Core pages | `index.html`, `eink/`, `lkt/`, `robot.html`, `eink-words-card.html`, `openhi-kit.html` |
 | 🧱 Runtime | HTML/CSS/vanilla JS with localized text interpolation |
 
 ## 🎨 About LazyingArt
@@ -145,6 +145,8 @@ Repository path and clone URI may vary by fork. Use your repository URL when con
 Primary page routes:
 
 - Landing: `index.html`
+- Multilingual e-ink reader: `eink/`
+- Local Knowledge Terminal pilot: `lkt/`
 - Robot: `robot.html`
 - E-ink product: `eink-words-card.html`
 - OpenHI kit: `openhi-kit.html`

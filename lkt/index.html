@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#17231f">
+  <title>Local Knowledge Terminal · Private, cited knowledge cards</title>
+  <meta name="description" content="A Raspberry Pi knowledge terminal that turns private books and reviewed dictionaries into cited multilingual cards, locally.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Local Knowledge Terminal · Knowledge that stays in the room">
+  <meta property="og:description" content="Private, book-grounded multilingual cards on local hardware. Explore the public code or ask about a pilot.">
+  <meta property="og:image" content="https://raw.githubusercontent.com/lachlanchen/LocalKnowledgeTerminal/main/docs/assets/word-card.png">
+  <meta property="og:url" content="https://lazying.art/lkt/">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://lazying.art/lkt/">
+  <link rel="icon" href="../favicon.ico" sizes="any">
+  <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Local Knowledge Terminal",
+    "url": "https://lazying.art/lkt/",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "Linux",
+    "description": "Local software for producing cited multilingual knowledge cards from private books and reviewed dictionaries.",
+    "codeRepository": "https://github.com/lachlanchen/LocalKnowledgeTerminal",
+    "author": {
+      "@type": "Organization",
+      "name": "LazyingArt LLC"
+    }
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <a class="brand" href="https://lazying.art" aria-label="LazyingArt home">
+      <img src="../logos/logo.svg" alt="">
+      <span><strong>LazyingArt</strong><small>Local Knowledge Terminal</small></span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a href="#proof">How it works</a>
+      <a href="#pilot">Pilot</a>
+      <a href="https://github.com/lachlanchen/LocalKnowledgeTerminal">Public code</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Private books · local models · visible citations</p>
+        <h1>Knowledge that<br><em>stays in the room.</em></h1>
+        <p class="lead">Local Knowledge Terminal turns reviewed books and dictionaries into calm, multilingual knowledge cards on a Raspberry Pi—without making the cloud your library.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#pilot">Ask about a pilot</a>
+          <a class="button secondary" href="https://github.com/lachlanchen/LocalKnowledgeTerminal">Inspect the code and tests</a>
+        </div>
+        <p class="status"><span></span>Working software; hardware product and pilot terms are still being defined.</p>
+      </div>
+      <figure class="terminal-frame">
+        <div class="frame-top"><i></i><i></i><i></i><span>LOCAL / CITED / MULTILINGUAL</span></div>
+        <img src="https://raw.githubusercontent.com/lachlanchen/LocalKnowledgeTerminal/main/docs/assets/word-card.png" alt="Local Knowledge Terminal multilingual word card interface">
+        <figcaption>One accepted card, one readable screen.</figcaption>
+      </figure>
+    </section>
+
+    <section class="proof-strip" aria-label="Product boundaries">
+      <article><strong>LOCAL</strong><span>Private corpora and model inference</span></article>
+      <article><strong>CITED</strong><span>Sources come from retrieved records</span></article>
+      <article><strong>EN · 日 · 中</strong><span>Multilingual cards with reading aids</span></article>
+      <article><strong>PI 5</strong><span>An 8 GB target, not a cloud dependency</span></article>
+    </section>
+
+    <section class="section" id="proof">
+      <div class="section-heading">
+        <p class="eyebrow">A terminal, not another chat tab</p>
+        <h2>Built around durable cards.</h2>
+        <p>The browser interface is the first display. E-paper, microphone, and audio remain separate adapters, so the knowledge core does not depend on one piece of hardware.</p>
+      </div>
+
+      <div class="feature-grid">
+        <article>
+          <span class="number">01</span>
+          <h3>Ground the answer</h3>
+          <p>Retrieve from a private book or reviewed dictionary first. Citations are attached from those records, not invented by the language model.</p>
+        </article>
+        <article>
+          <span class="number">02</span>
+          <h3>Compose one card</h3>
+          <p>Question, Answer, Word Card, Word Origin, Root, and Affix remain distinct modes with one clear teaching point per screen.</p>
+        </article>
+        <article>
+          <span class="number">03</span>
+          <h3>Keep it local</h3>
+          <p>SQLite stores accepted knowledge. A local Qwen model prepares bounded artifacts; private books, indexes, and model files stay outside the public repository.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="origin-section">
+      <figure>
+        <img src="https://raw.githubusercontent.com/lachlanchen/LocalKnowledgeTerminal/main/docs/assets/word-origin.png" alt="Local Knowledge Terminal word origin graph interface">
+      </figure>
+      <div>
+        <p class="eyebrow">Words with a memory</p>
+        <h2>See where a word came from.</h2>
+        <p>Word Origin uses a directed ancestry graph rather than a paragraph pretending to be one. Nodes can distinguish book evidence from model context, while the primary card stays readable.</p>
+        <ul>
+          <li>English meaning remains primary.</li>
+          <li>Japanese and Chinese can add pronunciation guides.</li>
+          <li>Root and affix views reuse accepted atomic evidence.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section use-section">
+      <div class="section-heading">
+        <p class="eyebrow">Who the pilot may fit</p>
+        <h2>A small, private place for a serious collection.</h2>
+      </div>
+      <div class="use-grid">
+        <article><h3>Language study</h3><p>Turn a reviewed lexicon or reading collection into large, calm cards with multilingual equivalents.</p></article>
+        <article><h3>Libraries and exhibits</h3><p>Explore a bounded collection through an ambient display without exposing the source books to a cloud service.</p></article>
+        <article><h3>Private research</h3><p>Build a focused terminal around material that should remain on local storage, with visible evidence boundaries.</p></article>
+      </div>
+    </section>
+
+    <section class="pilot" id="pilot">
+      <div>
+        <p class="eyebrow">Pilot inquiry</p>
+        <h2>Bring one collection and one real use case.</h2>
+        <p>This is not yet an off-the-shelf hardware listing. If you have a bounded book or dictionary collection, tell me the languages, the intended readers, and the hardware you already have. I will assess whether the current software is a genuine fit before discussing scope or price.</p>
+      </div>
+      <div class="pilot-actions">
+        <a class="button primary" href="mailto:contact@lazying.art?subject=Local%20Knowledge%20Terminal%20pilot&amp;body=Collection%20or%20use%20case%3A%0ALanguages%3A%0AReaders%3A%0AExisting%20hardware%3A">Describe your use case</a>
+        <a class="text-link" href="https://github.com/lachlanchen/LocalKnowledgeTerminal/blob/main/docs/product-brief.md">Read the product brief →</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>Local Knowledge Terminal by LazyingArt LLC</span>
+    <a href="https://github.com/lachlanchen/LocalKnowledgeTerminal">GitHub</a>
+    <a href="https://lazying.art">LazyingArt</a>
+  </footer>
+</body>
+</html>
