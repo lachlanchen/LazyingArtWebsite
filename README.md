@@ -251,6 +251,21 @@ These values should be re-measured after major UI changes.
 
 Please keep updates small and focused (content, accessibility, and responsive behavior have highest review priority).
 
+## Citation
+
+If you use the LazyingArt website or its source, cite the repository. GitHub reads [CITATION.cff](CITATION.cff) and shows a **Cite this repository** panel on the repository page.
+
+```bibtex
+@software{chen_lazyingartwebsite_2026,
+  author = {Chen, Lachlan},
+  title = {LazyingArt Official Website: Multilingual product and research showcase},
+  year = {2026},
+  url = {https://github.com/lachlanchen/LazyingArtWebsite}
+}
+```
+
+Ongoing development can also be supported through [GitHub Sponsors](https://github.com/sponsors/lachlanchen).
+
 ## ❤️ Support
 
 | Donate | PayPal | Stripe |

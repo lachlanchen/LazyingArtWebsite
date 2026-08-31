@@ -63,9 +63,9 @@ Ouverture directe :
 # macOS
 open index.html
 
-# Serveur sans dépendance alternative
+# Alternative no-dependency server
 python -m http.server 8000
-# puis ouvrir http://localhost:8000
+# then open http://localhost:8000
 ```
 
 ### Déploiement
@@ -251,6 +251,21 @@ Aucun fichier `LICENSE` dédié n’est présent dans cet instantané du dépôt
 
 Veuillez confirmer la licence officielle du projet auprès des responsables du projet et ajouter ici la référence complète.
 
+
+## Citation
+
+Si vous utilisez le site LazyingArt ou son code source, citez le dépôt. GitHub lit [CITATION.cff](../CITATION.cff) et affiche le panneau **Cite this repository** sur la page du dépôt.
+
+```bibtex
+@software{chen_lazyingartwebsite_2026,
+  author = {Chen, Lachlan},
+  title = {LazyingArt Official Website: Multilingual product and research showcase},
+  year = {2026},
+  url = {https://github.com/lachlanchen/LazyingArtWebsite}
+}
+```
+
+Vous pouvez également soutenir le développement continu via [GitHub Sponsors](https://github.com/sponsors/lachlanchen).
 
 ## ❤️ Support
 

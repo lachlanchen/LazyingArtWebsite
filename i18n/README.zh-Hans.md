@@ -63,9 +63,9 @@ cd LazyingArtWebsite
 # macOS
 open index.html
 
-# 无依赖替代方案
+# Alternative no-dependency server
 python -m http.server 8000
-# 然后打开 http://localhost:8000
+# then open http://localhost:8000
 ```
 
 ### 部署
@@ -251,6 +251,21 @@ location.reload();
 
 请与项目所有者确认官方项目许可，并在此处添加完整许可说明。
 
+
+## 引用
+
+如果你使用 LazyingArt 网站或其源码，请引用本仓库。GitHub 会读取 [CITATION.cff](../CITATION.cff)，并在仓库页面显示 **Cite this repository** 面板。
+
+```bibtex
+@software{chen_lazyingartwebsite_2026,
+  author = {Chen, Lachlan},
+  title = {LazyingArt Official Website: Multilingual product and research showcase},
+  year = {2026},
+  url = {https://github.com/lachlanchen/LazyingArtWebsite}
+}
+```
+
+你也可以通过 [GitHub Sponsors](https://github.com/sponsors/lachlanchen) 支持持续开发。
 
 ## ❤️ Support
 

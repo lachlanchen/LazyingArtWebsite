@@ -63,9 +63,9 @@ Abrir directamente:
 # macOS
 open index.html
 
-# Servidor alternativo sin dependencias
+# Alternative no-dependency server
 python -m http.server 8000
-# luego abre http://localhost:8000
+# then open http://localhost:8000
 ```
 
 ### Despliegue
@@ -244,6 +244,21 @@ Estos valores deben medirse de nuevo después de cambios importantes de UI.
 5. Abre un PR con capturas de pantalla o grabaciones de pantalla para cambios visibles al usuario.
 
 Mantén las actualizaciones pequeñas y enfocadas (contenido, accesibilidad y comportamiento responsive tienen la mayor prioridad de revisión).
+
+## Cita
+
+Si utilizas el sitio web de LazyingArt o su código fuente, cita el repositorio. GitHub lee [CITATION.cff](../CITATION.cff) y muestra el panel **Cite this repository** en la página del repositorio.
+
+```bibtex
+@software{chen_lazyingartwebsite_2026,
+  author = {Chen, Lachlan},
+  title = {LazyingArt Official Website: Multilingual product and research showcase},
+  year = {2026},
+  url = {https://github.com/lachlanchen/LazyingArtWebsite}
+}
+```
+
+También puedes apoyar el desarrollo continuo mediante [GitHub Sponsors](https://github.com/sponsors/lachlanchen).
 
 ## ❤️ Support
 

@@ -252,6 +252,21 @@ location.reload();
 يرجى تأكيد الترخيص الرسمي للمشروع مع مالكي المشروع وإضافة مرجع الترخيص الكامل هنا.
 
 
+## الاقتباس
+
+إذا استخدمت موقع LazyingArt أو مصدره، فاستشهد بالمستودع. يقرأ GitHub ملف [CITATION.cff](../CITATION.cff) ويعرض لوحة **Cite this repository** في صفحة المستودع.
+
+```bibtex
+@software{chen_lazyingartwebsite_2026,
+  author = {Chen, Lachlan},
+  title = {LazyingArt Official Website: Multilingual product and research showcase},
+  year = {2026},
+  url = {https://github.com/lachlanchen/LazyingArtWebsite}
+}
+```
+
+يمكنك أيضًا دعم التطوير المستمر عبر [GitHub Sponsors](https://github.com/sponsors/lachlanchen).
+
 ## ❤️ Support
 
 | Donate | PayPal | Stripe |

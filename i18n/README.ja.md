@@ -63,7 +63,7 @@ cd LazyingArtWebsite
 # macOS
 open index.html
 
-# 代替: 依存のない簡易サーバー
+# Alternative no-dependency server
 python -m http.server 8000
 # then open http://localhost:8000
 ```
@@ -251,6 +251,21 @@ Prior README で示された目標プロファイル:
 
 公式プロジェクトライセンスについては、プロジェクト所有者と確認し、ここに正式な参照を追加してください。
 
+
+## 引用
+
+LazyingArt のウェブサイトまたはソースを利用する場合は、このリポジトリを引用してください。GitHub は [CITATION.cff](../CITATION.cff) を読み込み、リポジトリページに **Cite this repository** パネルを表示します。
+
+```bibtex
+@software{chen_lazyingartwebsite_2026,
+  author = {Chen, Lachlan},
+  title = {LazyingArt Official Website: Multilingual product and research showcase},
+  year = {2026},
+  url = {https://github.com/lachlanchen/LazyingArtWebsite}
+}
+```
+
+継続的な開発は [GitHub Sponsors](https://github.com/sponsors/lachlanchen) からも支援できます。
 
 ## ❤️ Support
 

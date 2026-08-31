@@ -63,9 +63,9 @@ Mở trực tiếp:
 # macOS
 open index.html
 
-# Máy chủ không cần phụ thuộc (tuỳ chọn)
+# Alternative no-dependency server
 python -m http.server 8000
-# sau đó mở http://localhost:8000
+# then open http://localhost:8000
 ```
 
 ### Triển khai
@@ -251,6 +251,21 @@ Không có file `LICENSE` chuyên dụng nào trong snapshot kho này.
 
 Vui lòng xác nhận giấy phép chính thức của dự án với ban sở hữu và thêm đầy đủ tham chiếu giấy phép tại đây.
 
+
+## Trích dẫn
+
+Nếu bạn sử dụng trang web LazyingArt hoặc mã nguồn của nó, hãy trích dẫn kho lưu trữ. GitHub đọc [CITATION.cff](../CITATION.cff) và hiển thị bảng **Cite this repository** trên trang kho lưu trữ.
+
+```bibtex
+@software{chen_lazyingartwebsite_2026,
+  author = {Chen, Lachlan},
+  title = {LazyingArt Official Website: Multilingual product and research showcase},
+  year = {2026},
+  url = {https://github.com/lachlanchen/LazyingArtWebsite}
+}
+```
+
+Bạn cũng có thể hỗ trợ quá trình phát triển liên tục qua [GitHub Sponsors](https://github.com/sponsors/lachlanchen).
 
 ## ❤️ Support
 

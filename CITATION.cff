@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use the LazyingArt website or its source, please cite this repository."
+type: software
+title: "LazyingArt Official Website: Multilingual product and research showcase"
+version: 1.0.0
+date-released: 2026-09-01
+abstract: "The public multilingual website for LazyingArt products, open-source projects, and research prototypes."
+authors:
+  - family-names: Chen
+    given-names: Lachlan
+    alias: lachlanchen
+repository-code: "https://github.com/lachlanchen/LazyingArtWebsite"
+url: "https://lazying.art"
+keywords:
+  - multilingual website
+  - open source
+  - artificial intelligence
+  - language learning
+  - local knowledge
+  - lazying art

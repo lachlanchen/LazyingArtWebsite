@@ -63,7 +63,7 @@ cd LazyingArtWebsite
 # macOS
 open index.html
 
-# 의존성 없는 대체 서버
+# Alternative no-dependency server
 python -m http.server 8000
 # then open http://localhost:8000
 ```
@@ -251,6 +251,21 @@ location.reload();
 
 프로젝트의 공식 라이선스는 프로젝트 소유자와 확인 후 여기에 전체 라이선스 정보를 추가하세요.
 
+
+## 인용
+
+LazyingArt 웹사이트나 소스를 사용한다면 이 저장소를 인용해 주세요. GitHub는 [CITATION.cff](../CITATION.cff)를 읽어 저장소 페이지에 **Cite this repository** 패널을 표시합니다.
+
+```bibtex
+@software{chen_lazyingartwebsite_2026,
+  author = {Chen, Lachlan},
+  title = {LazyingArt Official Website: Multilingual product and research showcase},
+  year = {2026},
+  url = {https://github.com/lachlanchen/LazyingArtWebsite}
+}
+```
+
+지속적인 개발은 [GitHub Sponsors](https://github.com/sponsors/lachlanchen)를 통해서도 후원할 수 있습니다.
 
 ## ❤️ Support
 

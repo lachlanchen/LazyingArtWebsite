@@ -63,9 +63,9 @@ cd LazyingArtWebsite
 # macOS
 open index.html
 
-# Альтернативный запуск без зависимостей
+# Alternative no-dependency server
 python -m http.server 8000
-# затем откройте http://localhost:8000
+# then open http://localhost:8000
 ```
 
 ### Развёртывание
@@ -251,6 +251,21 @@ location.reload();
 
 Пожалуйста, подтвердите официальную лицензию проекта у владельца репозитория и добавьте полную ссылку на лицензию здесь.
 
+
+## Цитирование
+
+Если вы используете сайт LazyingArt или его исходный код, процитируйте репозиторий. GitHub читает [CITATION.cff](../CITATION.cff) и показывает панель **Cite this repository** на странице репозитория.
+
+```bibtex
+@software{chen_lazyingartwebsite_2026,
+  author = {Chen, Lachlan},
+  title = {LazyingArt Official Website: Multilingual product and research showcase},
+  year = {2026},
+  url = {https://github.com/lachlanchen/LazyingArtWebsite}
+}
+```
+
+Дальнейшую разработку также можно поддержать через [GitHub Sponsors](https://github.com/sponsors/lachlanchen).
 
 ## ❤️ Support
 

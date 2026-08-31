@@ -63,9 +63,9 @@ Direkt öffnen:
 # macOS
 open index.html
 
-# Server ohne Abhängigkeiten
+# Alternative no-dependency server
 python -m http.server 8000
-# dann http://localhost:8000 öffnen
+# then open http://localhost:8000
 ```
 
 ### Bereitstellung
@@ -251,6 +251,21 @@ Es ist in diesem Repository-Snapshot keine dedizierte `LICENSE`-Datei vorhanden.
 
 Bitte bestätigen Sie die offizielle Projektlizenz mit dem Projektverantwortlichen und ergänzen Sie hier den vollständigen Lizenzverweis.
 
+
+## Zitieren
+
+Wenn du die LazyingArt-Website oder ihren Quellcode verwendest, zitiere bitte das Repository. GitHub liest [CITATION.cff](../CITATION.cff) und zeigt auf der Repository-Seite den Bereich **Cite this repository** an.
+
+```bibtex
+@software{chen_lazyingartwebsite_2026,
+  author = {Chen, Lachlan},
+  title = {LazyingArt Official Website: Multilingual product and research showcase},
+  year = {2026},
+  url = {https://github.com/lachlanchen/LazyingArtWebsite}
+}
+```
+
+Die weitere Entwicklung kann außerdem über [GitHub Sponsors](https://github.com/sponsors/lachlanchen) unterstützt werden.
 
 ## ❤️ Support
 
