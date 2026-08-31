@@ -96,21 +96,17 @@ h1 em { color: var(--green); font-weight: 500; }
 .status { margin-top: 1.4rem; color: var(--muted); font-size: 0.82rem; display: flex; align-items: center; gap: 0.55rem; }
 .status span { width: 8px; height: 8px; border-radius: 50%; background: var(--orange); box-shadow: 0 0 0 5px rgba(237, 123, 67, 0.13); }
 
-.terminal-frame {
+.product-visual {
   margin: 0;
   overflow: hidden;
   border: 1px solid rgba(23, 35, 31, 0.22);
   border-radius: 24px;
-  background: #101713;
+  background: var(--white);
   box-shadow: 0 30px 80px rgba(23, 35, 31, 0.2);
   transform: rotate(1deg);
 }
-.frame-top { height: 44px; padding: 0 1rem; display: flex; align-items: center; gap: 0.4rem; color: #cbd3ce; font-size: 0.62rem; letter-spacing: 0.12em; }
-.frame-top i { width: 7px; height: 7px; border-radius: 50%; background: #738078; }
-.frame-top i:first-child { background: var(--orange); }
-.frame-top span { margin-left: auto; }
-.terminal-frame img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; background: white; }
-.terminal-frame figcaption { padding: 0.75rem 1rem 0.9rem; color: #cbd3ce; font-size: 0.72rem; }
+.product-visual img { width: 100%; aspect-ratio: 1672 / 940; object-fit: cover; background: white; }
+.product-visual figcaption { padding: 0.8rem 1rem 0.95rem; color: var(--muted); font-size: 0.72rem; line-height: 1.45; }
 
 .proof-strip {
   display: grid;
@@ -147,6 +143,7 @@ h2 { margin-bottom: 1rem; font-family: Georgia, "Times New Roman", serif; font-s
 
 .pilot { width: min(1180px, calc(100% - 2rem)); margin: 2rem auto 7rem; padding: clamp(2rem, 6vw, 5rem); border-radius: 28px; background: var(--lime); display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 3rem; align-items: end; }
 .pilot p { color: #34413b; max-width: 720px; }
+.pilot-scope { margin: 1.5rem 0 0; padding-left: 1.2rem; color: #34413b; font-size: 0.86rem; line-height: 1.65; }
 .pilot-actions { justify-content: flex-end; }
 .text-link { font-weight: 750; text-underline-offset: 4px; }
 
@@ -156,7 +153,7 @@ footer span { margin-right: auto; }
 @media (max-width: 900px) {
   .site-header nav { display: none; }
   .hero { padding-top: 4.5rem; grid-template-columns: 1fr; }
-  .terminal-frame { transform: none; }
+  .product-visual { transform: none; }
   .proof-strip { grid-template-columns: repeat(2, 1fr); }
   .proof-strip article:nth-child(2) { border-right: 0; }
   .proof-strip article:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
