@@ -201,6 +201,10 @@ location.reload();
 - Static-first architecture keeps maintenance and hosting simple.
 - Locale behavior and theme switches are implemented inline on each page.
 - There is no `package.json`, no transpilation, and no automated test suite.
+- `eink/checkout-config.js` keeps the eInk page inquiry-only by default. The
+  ignored Stripe operator output is exported from the sibling `Stripe` repo
+  only after it verifies live `buy.stripe.com` Payment Links; incomplete or
+  test-mode checkout data therefore cannot replace the safe email inquiry.
 - `i18n/README.*.md` exists for translated docs, while page translations are currently embedded in page scripts.
 - `donate/`, `app/donate/`, and `product-assets/` currently appear as reserved placeholders.
 - Recommended workflow: local static edit → browser validation (desktop/mobile) → link checks.

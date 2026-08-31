@@ -63,6 +63,7 @@
   }
 
   var currentLanguage = detectLanguage();
+  var checkout = window.LAZYINGART_EINK_CHECKOUT || {};
 
   var releasePage = "https://github.com/lachlanchen/Kindle/releases/latest";
   var downloads = {
@@ -123,6 +124,42 @@
 
   function translated(key) {
     return (bundle[currentLanguage] && bundle[currentLanguage][key]) || bundle.en[key] || key;
+  }
+
+  function isLiveStripeUrl(value) {
+    try {
+      var parsed = new URL(value);
+      return parsed.protocol === "https:" && parsed.hostname === "buy.stripe.com";
+    } catch (error) {
+      return false;
+    }
+  }
+
+  function orderDestination() {
+    if (checkout.mode === "checkout") {
+      var key = currentLanguage === "zh-Hans" ? "cny_zh_hans" : "usd_en";
+      var candidate = checkout.links && checkout.links[key] && checkout.links[key].url;
+      if (isLiveStripeUrl(candidate)) {
+        return { mode: "checkout", url: candidate };
+      }
+    }
+    return {
+      mode: "inquiry",
+      url: checkout.inquiryUrl || "mailto:contact@lazying.art?subject=LazyingArt%20eInk%20order"
+    };
+  }
+
+  function updateOrderLinks() {
+    var destination = orderDestination();
+    document.querySelectorAll("[data-order-link]").forEach(function (link) {
+      link.href = destination.url;
+      link.dataset.orderMode = destination.mode;
+      if (destination.mode === "checkout") {
+        link.rel = "noopener";
+      } else {
+        link.removeAttribute("rel");
+      }
+    });
   }
 
   function withPlatform(key, platformName) {
@@ -224,6 +261,7 @@
       menu.setAttribute("aria-label", translated("a11y.menu"));
     }
     updateDownloadUI();
+    updateOrderLinks();
 
     updateUrl(language);
     if (persist) {
