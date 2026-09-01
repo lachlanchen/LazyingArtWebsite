@@ -23,12 +23,15 @@ assert.match(fitCheck, /A Stripe payment request comes after scope acceptance, n
 assert.match(fitCheckScript, /event\.preventDefault\(\)/);
 assert.match(fitCheckScript, /mailto:contact@lazying\.art/);
 assert.match(fitCheckScript, /const attributionKeys = \["utm_source", "utm_medium", "utm_campaign", "utm_content"\]/);
-assert.match(offer, /button primary" href="sample-report\/">Read the complete sample fit report/);
-assert.match(offer, /button secondary" href="fit-check\/">Start the free fit check/);
+assert.match(offer, /button primary" href="fit-check\/">Check my collection/);
+assert.match(offer, /button secondary" href="sample-report\/">See the sample deliverable/);
+assert.match(offer, /No account or upload/);
+assert.match(offer, /sends nothing automatically/);
+assert.match(offer, /Hardware, shipping, custom OCR, and production deployment are excluded/);
 assert.ok(
-  offer.indexOf('href="sample-report/">Read the complete sample fit report') <
-    offer.indexOf('href="fit-check/">Start the free fit check'),
-  "the hero must present project-owned proof before the inquiry step",
+  offer.indexOf('href="fit-check/">Check my collection') <
+    offer.indexOf('href="sample-report/">See the sample deliverable'),
+  "the hero must make the low-risk fit check the primary action",
 );
 
 console.log("LKT offer contract tests passed");
