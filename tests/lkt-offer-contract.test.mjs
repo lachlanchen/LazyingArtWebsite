@@ -19,5 +19,12 @@ assert.match(fitCheck, /excludes hardware, shipping, custom OCR, and production 
 assert.match(fitCheckScript, /event\.preventDefault\(\)/);
 assert.match(fitCheckScript, /mailto:contact@lazying\.art/);
 assert.match(fitCheckScript, /const attributionKeys = \["utm_source", "utm_medium", "utm_campaign", "utm_content"\]/);
+assert.match(offer, /button primary" href="sample-report\/">Read the complete sample fit report/);
+assert.match(offer, /button secondary" href="fit-check\/">Start the free fit check/);
+assert.ok(
+  offer.indexOf('href="sample-report/">Read the complete sample fit report') <
+    offer.indexOf('href="fit-check/">Start the free fit check'),
+  "the hero must present project-owned proof before the inquiry step",
+);
 
 console.log("LKT offer contract tests passed");
