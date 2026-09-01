@@ -116,9 +116,18 @@
           <h3 tabindex="-1">Review before opening email</h3>
           <p>Check the exact text below. Opening your email app still does not send it; you remain responsible for the final send.</p>
           <pre class="request-preview" id="request-preview" data-testid="request-preview"></pre>
+          <p class="review-destination"><strong>Nothing has been sent.</strong> Send the reviewed text to <a href="mailto:contact@lazying.art?subject=Local%20Knowledge%20Terminal%20free%20fit%20check">contact@lazying.art</a>. Use “Copy request” if this device has no configured email app.</p>
           <div class="fit-actions">
             <a class="button primary" id="open-email" data-testid="open-email" href="mailto:contact@lazying.art">Open in email</a>
             <button class="button secondary" id="copy-request" data-testid="copy-request" type="button">Copy request</button>
+          </div>
+          <div class="review-next" aria-labelledby="review-next-title">
+            <h4 id="review-next-title">What happens after you send</h4>
+            <ol>
+              <li>LazyingArt reviews the collection description, source rights, format, privacy needs, language goal, and existing machine. Do not send source files yet.</li>
+              <li>You receive a fit/no-fit answer or a short list of questions needed to make that decision.</li>
+              <li>Only after a positive fit check do both sides review a written USD 250 sprint scope. A Stripe payment request comes after scope acceptance, never at this stage.</li>
+            </ol>
           </div>
           <p class="copy-status" id="copy-status" role="status"></p>
         </section>
