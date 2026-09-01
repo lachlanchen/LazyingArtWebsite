@@ -65,7 +65,7 @@
       constraints,
       "",
       "Rights confirmation: I have the right to use the source material.",
-      "Scope confirmation: I understand the fixed $250 sprint begins only after a free fit check and excludes hardware, shipping, custom OCR, and production deployment.",
+      "Scope confirmation: I understand the fixed USD 250 sprint begins only after a free fit check and excludes hardware, shipping, custom OCR, and production deployment.",
       ...(source.length ? ["", "Page attribution:", ...source] : []),
     ].join("\n");
   };
