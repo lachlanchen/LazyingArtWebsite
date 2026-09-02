@@ -23,7 +23,7 @@
 | --- | --- |
 | ✅ Repo focus | Multilingual marketing site with product entry points for LazyingArt |
 | 🌍 Audience | Visitors, language learners, collaborators, contributors |
-| 🧩 Core pages | `index.html`, `eink/`, `lkt/`, `robot.html`, `eink-words-card.html`, `openhi-kit.html` |
+| 🧩 Core pages | `index.html`, `eink/`, `lkt/`, `lecture-pack/`, `robot.html`, `eink-words-card.html`, `openhi-kit.html` |
 | 🧱 Runtime | HTML/CSS/vanilla JS with localized text interpolation |
 
 ## 🎨 About LazyingArt
@@ -77,7 +77,7 @@ GitHub Pages is the main deployment target. Changes pushed to `main` should publ
 | Area | Details |
 |---|---|
 | Architecture | Framework-free static implementation (HTML/CSS/vanilla JavaScript). |
-| Pages | Main landing page plus dedicated pages: `index.html`, `robot.html`, `eink-words-card.html`, `openhi-kit.html`. |
+| Pages | Main landing page plus dedicated product, pilot, fit-check, privacy, and review routes. |
 | Localization | 13 locales supported in runtime language logic (`en`, `ja`, `zh-Hans`, `zh-Hant`, `ko`, `ar`, `vi`, `fr`, `es`, `pt`, `de`, `ru`, `tr`). |
 | i18n Runtime | In-page `[data-i18n]` keys with dictionary replacement. |
 | Persistence | Language + theme preferences persisted by `localStorage`. |
@@ -94,6 +94,11 @@ LazyingArtLanding/
 ├── robot.html
 ├── eink-words-card.html
 ├── openhi-kit.html
+├── eink/
+├── lkt/
+├── lecture-pack/
+│   └── fit-check/
+├── tests/
 ├── 404.html
 ├── sitemap.xml
 ├── CNAME
@@ -147,6 +152,7 @@ Primary page routes:
 - Landing: `index.html`
 - Multilingual e-ink reader: `eink/`
 - Local Knowledge Terminal pilot: `lkt/`
+- Bilingual Lecture Pack pilot: `lecture-pack/`
 - Robot: `robot.html`
 - E-ink product: `eink-words-card.html`
 - OpenHI kit: `openhi-kit.html`

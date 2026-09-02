@@ -1,0 +1,58 @@
+@import url("../lkt/styles.css");
+
+.lecture-flow {
+  margin: 0;
+  padding: clamp(1.4rem, 4vw, 2.4rem);
+  border: 1px solid rgba(23, 35, 31, 0.22);
+  border-radius: 24px;
+  background: var(--ink);
+  color: var(--white);
+  box-shadow: 0 30px 80px rgba(23, 35, 31, 0.2);
+  transform: rotate(1deg);
+}
+
+.lecture-flow h2 {
+  margin-bottom: 1.8rem;
+  color: var(--white);
+  font-size: clamp(2rem, 4vw, 3.4rem);
+}
+
+.flow-step {
+  display: grid;
+  grid-template-columns: 3.4rem 1fr;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.flow-step:first-of-type { border-top: 0; }
+.flow-step strong { color: var(--lime); font-family: Georgia, serif; font-size: 1.35rem; }
+.flow-step span { color: #d6dfda; font-size: 0.92rem; line-height: 1.55; }
+.lecture-flow figcaption { margin-top: 1.4rem; color: #aebdb6; font-size: 0.74rem; line-height: 1.5; }
+
+.scope-band {
+  padding: 6rem max(1rem, calc((100vw - 1180px) / 2));
+  background: var(--ink);
+  color: var(--white);
+}
+
+.scope-band .eyebrow { color: var(--lime); }
+.scope-band h2 { max-width: 760px; }
+.scope-band > p { max-width: 760px; color: #c9d3ce; line-height: 1.7; }
+.scope-band .feature-grid article { border-color: rgba(255, 255, 255, 0.18); background: rgba(255, 255, 255, 0.05); }
+.scope-band .feature-grid h3 { color: var(--white); }
+.scope-band .feature-grid p { color: #bdc9c3; }
+
+.example-note {
+  margin-top: 1.4rem;
+  padding: 1rem 1.2rem;
+  border-left: 4px solid var(--orange);
+  background: rgba(237, 123, 67, 0.08);
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .lecture-flow { transform: none; }
+}

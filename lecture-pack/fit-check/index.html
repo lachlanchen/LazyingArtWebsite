@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#17231f">
+  <title>Free lecture fit check · Bilingual Lecture Pack</title>
+  <meta name="description" content="Describe one rights-cleared English lecture and review whether it fits the fixed USD 250 Bilingual Lecture Pack.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Free lecture fit check · Bilingual Lecture Pack">
+  <meta property="og:description" content="Review the exact request locally and choose whether to send it from your own email app. No upload or payment.">
+  <meta property="og:image" content="https://lazying.art/logos/banner.png">
+  <meta property="og:url" content="https://lazying.art/lecture-pack/fit-check/">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://lazying.art/lecture-pack/fit-check/">
+  <link rel="icon" href="../../favicon.ico" sizes="any">
+  <link rel="stylesheet" href="../styles.css">
+  <script src="fit-check.js" defer></script>
+</head>
+<body data-fit-state="editing">
+  <a class="skip-link" href="#fit-form">Skip to fit questions</a>
+
+  <header class="site-header">
+    <a class="brand" href="../" aria-label="Bilingual Lecture Pack offer">
+      <img src="../../logos/logo.svg" alt="">
+      <span><strong>LazyingArt</strong><small>Bilingual Lecture Pack</small></span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a href="../">Offer</a>
+      <a href="../#included">What's included</a>
+      <a href="../#example">Working example</a>
+      <a href="https://github.com/lachlanchen/Video2Book">Public workflow</a>
+    </nav>
+  </header>
+
+  <main class="fit-main">
+    <div class="fit-layout">
+      <section class="fit-intro" aria-labelledby="fit-title">
+        <p class="eyebrow">Free fit check · no upload or payment</p>
+        <h1 id="fit-title">Bring one<br><em>clear lecture.</em></h1>
+        <p class="lead">Describe the source, rights, learner, and language first. This page prepares a reviewable email draft and sends nothing automatically.</p>
+        <div class="scope-card">
+          <h2>The paid pack, if it fits</h2>
+          <ul>
+            <li>One English lecture up to 20 minutes.</li>
+            <li>One primary speaker.</li>
+            <li>Traditional Chinese or Japanese.</li>
+            <li>Transcript, subtitles, pocket companion, and preview clip.</li>
+            <li>One bounded correction pass.</li>
+          </ul>
+          <p class="scope-proof"><a href="../#example">See the public process evidence →</a><br>The examples show the workflow, not a paid-client outcome.</p>
+        </div>
+      </section>
+
+      <section class="fit-card" aria-labelledby="questions-title">
+        <h2 id="questions-title">Describe the lecture</h2>
+        <p class="privacy-note"><strong>Nothing is uploaded:</strong> do not paste a transcript or send the recording yet. “Review request” builds a draft only in this tab. You decide whether to open and send it from your own email app.</p>
+
+        <form class="fit-form" id="fit-form" data-testid="fit-form" novalidate>
+          <div class="field">
+            <label for="source">Source and rights <span aria-hidden="true">*</span></label>
+            <textarea id="source" name="source" required maxlength="1000" aria-describedby="source-help"></textarea>
+            <small id="source-help">Who owns the recording, voice, slides, music, and other material? If it is openly licensed, include the exact license URL.</small>
+          </div>
+
+          <div class="field">
+            <label for="format">Duration, format, speakers, and audio condition <span aria-hidden="true">*</span></label>
+            <input id="format" name="format" required maxlength="400" autocomplete="off">
+            <small>For example: 14-minute MP4, one speaker, clear lavalier audio, no music.</small>
+          </div>
+
+          <div class="field">
+            <label for="language">Target language and learner level <span aria-hidden="true">*</span></label>
+            <input id="language" name="language" required maxlength="300" autocomplete="off">
+            <small>Choose Traditional Chinese or Japanese and describe who will study it.</small>
+          </div>
+
+          <div class="field">
+            <label for="terms">Names, formulas, and protected terms</label>
+            <textarea id="terms" name="terms" maxlength="800"></textarea>
+            <small>Optional. List up to twenty terms that must be preserved exactly; do not paste confidential material.</small>
+          </div>
+
+          <div class="field">
+            <label for="excerpt">Preferred preview excerpt</label>
+            <input id="excerpt" name="excerpt" maxlength="300" autocomplete="off">
+            <small>Optional. Give a 30–45 second timestamp and confirm that its voice, images, and music may be reused.</small>
+          </div>
+
+          <div class="field">
+            <label for="use">Intended use and distribution <span aria-hidden="true">*</span></label>
+            <textarea id="use" name="intended_use" required maxlength="800"></textarea>
+            <small>Public, paid, or internal; where the pack and preview will appear; and any attribution requirement.</small>
+          </div>
+
+          <div class="field">
+            <label for="constraints">Other constraints</label>
+            <textarea id="constraints" name="constraints" maxlength="800"></textarea>
+            <small>Optional. Mention formulas, supplied figures, delivery formats, or accessibility needs that may change the fit.</small>
+          </div>
+
+          <div class="confirmations">
+            <label class="check-field" for="rights">
+              <input id="rights" name="rights" type="checkbox" required>
+              <span>I own the requested derivative-work rights, or I can identify an open license that permits the commercial translation and reuse described above.</span>
+            </label>
+            <label class="check-field" for="scope">
+              <input id="scope" name="scope" type="checkbox" required>
+              <span>I understand that the fixed USD 250 pack begins only after the free fit check and excludes rights clearance, certified translation, full-course work, hosting, account posting, and unlimited revisions.</span>
+            </label>
+          </div>
+
+          <div class="fit-actions">
+            <button class="button primary" type="submit" data-testid="review-request">Review request</button>
+            <a class="text-link" href="../">Return to the offer</a>
+          </div>
+        </form>
+
+        <section class="review-panel" id="review-panel" data-testid="review-panel" aria-live="polite" hidden>
+          <h3 tabindex="-1">Review before opening email</h3>
+          <p>Check the exact text below. Opening your email app still does not send it.</p>
+          <pre class="request-preview" id="request-preview" data-testid="request-preview"></pre>
+          <p class="review-destination"><strong>Nothing has been sent.</strong> Send the reviewed text to <a href="mailto:contact@lazying.art?subject=Bilingual%20Lecture%20Pack%20free%20fit%20check">contact@lazying.art</a>. Use “Copy request” if this device has no configured email app.</p>
+          <div class="fit-actions">
+            <a class="button primary" id="open-email" data-testid="open-email" href="mailto:contact@lazying.art">Open in email</a>
+            <button class="button secondary" id="copy-request" data-testid="copy-request" type="button">Copy request</button>
+          </div>
+          <div class="review-next" aria-labelledby="review-next-title">
+            <h4 id="review-next-title">What happens after you send</h4>
+            <ol>
+              <li>LazyingArt reviews the described rights, duration, speaker count, audio, language, learner, terminology, excerpt, and intended distribution. Do not send the source file yet.</li>
+              <li>You receive a fit/no-fit answer or a short list of questions needed to decide.</li>
+              <li>Only after a positive fit check do both sides review the exact USD 250 scope. A Stripe request and private source transfer come after scope acceptance.</li>
+            </ol>
+          </div>
+          <p class="copy-status" id="copy-status" role="status"></p>
+        </section>
+
+        <noscript>
+          <p class="fit-footer-note">JavaScript is required for the local review step. You can instead email <a href="mailto:contact@lazying.art?subject=Bilingual%20Lecture%20Pack%20free%20fit%20check">contact@lazying.art</a> with the answers above.</p>
+        </noscript>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <span>Bilingual Lecture Pack by LazyingArt LLC</span>
+    <a href="../">Offer</a>
+    <a href="https://github.com/lachlanchen/Video2Book">GitHub</a>
+  </footer>
+</body>
+</html>
