@@ -8,7 +8,8 @@ const read = (relative) =>
 const offer = read("../lecture-pack/index.html");
 const fitCheck = read("../lecture-pack/fit-check/index.html");
 const fitCheckScript = read("../lecture-pack/fit-check/fit-check.js");
-const publicOffer = [offer, fitCheck, fitCheckScript].join("\n");
+const attributionBridge = read("../lecture-pack/attribution-bridge.js");
+const publicOffer = [offer, fitCheck, fitCheckScript, attributionBridge].join("\n");
 
 assert.match(publicOffer, /USD 250/);
 assert.doesNotMatch(publicOffer, /\$250/);
@@ -28,5 +29,6 @@ assert.match(fitCheck, /Stripe request and private source transfer come after sc
 assert.match(fitCheckScript, /event\.preventDefault\(\)/);
 assert.match(fitCheckScript, /mailto:contact@lazying\.art/);
 assert.match(fitCheckScript, /const attributionKeys = \["utm_source", "utm_medium", "utm_campaign", "utm_content"\]/);
+assert.match(offer, /<script src="attribution-bridge\.js" defer><\/script>/);
 
 console.log("Bilingual Lecture Pack offer contract tests passed");
