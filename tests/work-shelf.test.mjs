@@ -44,6 +44,7 @@ assert.match(
   /\.\.\/manuscript-sprint\/\?utm_source=lazyingart&amp;utm_medium=website&amp;utm_campaign=manuscript_sprint_pilot&amp;utm_content=work_services/,
 );
 assert.doesNotMatch(html, /paid customer|customer result|client result|revenue|guaranteed/i);
+assert.match(html, /https:\/\/github\.com\/sponsors\/lachlanchen/);
 assert.match(sitemap, /<loc>https:\/\/lazying\.art\/work\/<\/loc>/);
 
 console.log("Work shelf contract passed");
