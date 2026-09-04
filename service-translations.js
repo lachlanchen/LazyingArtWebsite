@@ -1,6 +1,7 @@
 window.serviceTranslations = {
   en: {
     nav_services: "Services",
+    nav_work: "Work",
     services_tag: "FOCUSED SERVICES",
     services_title: "Choose one fixed-scope USD 250 sprint.",
     services_subtitle: "Bring a private collection, a LaTeX manuscript, or a rights-cleared English lecture. Read the public proof first, then start a free fit check.",
@@ -20,6 +21,7 @@ window.serviceTranslations = {
   },
   ja: {
     nav_services: "サービス",
+    nav_work: "実績",
     services_tag: "明確なサービス",
     services_title: "範囲を限定した250米ドルのスプリントを選べます。",
     services_subtitle: "非公開コレクション、LaTeX原稿、または利用権を確認できる英語講義をお持ちください。公開サンプルを確認してから、無料の適合チェックへ進めます。",
@@ -39,6 +41,7 @@ window.serviceTranslations = {
   },
   "zh-Hans": {
     nav_services: "服务",
+    nav_work: "作品",
     services_tag: "聚焦服务",
     services_title: "选择一项范围明确的 250 美元服务。",
     services_subtitle: "带来一套私人资料、一篇 LaTeX 论文，或一段已获使用权的英语讲座。先看公开样例，再做免费适配检查。",
@@ -58,6 +61,7 @@ window.serviceTranslations = {
   },
   "zh-Hant": {
     nav_services: "服務",
+    nav_work: "作品",
     services_tag: "聚焦服務",
     services_title: "選擇一項範圍明確的 250 美元服務。",
     services_subtitle: "帶來一套私人資料、一篇 LaTeX 論文，或一段已獲使用權的英語講座。先看公開樣例，再做免費適配檢查。",
@@ -77,6 +81,7 @@ window.serviceTranslations = {
   },
   ko: {
     nav_services: "서비스",
+    nav_work: "작업",
     services_tag: "집중 서비스",
     services_title: "범위가 명확한 미화 250달러 스프린트를 선택하세요.",
     services_subtitle: "비공개 자료 모음, LaTeX 원고 또는 사용 권리를 확인한 영어 강의를 가져오세요. 공개 예시를 먼저 보고 무료 적합성 확인을 시작합니다.",
@@ -96,6 +101,7 @@ window.serviceTranslations = {
   },
   ar: {
     nav_services: "الخدمات",
+    nav_work: "الأعمال",
     services_tag: "خدمات محددة",
     services_title: "اختر مهمة محددة النطاق بسعر 250 دولارًا أمريكيًا.",
     services_subtitle: "قدّم مجموعة خاصة أو مخطوطة LaTeX أو محاضرة إنجليزية تملك حق استخدامها. اطّلع على النموذج العلني أولًا، ثم ابدأ فحص الملاءمة المجاني.",
@@ -115,6 +121,7 @@ window.serviceTranslations = {
   },
   vi: {
     nav_services: "Dịch vụ",
+    nav_work: "Dự án",
     services_tag: "DỊCH VỤ TRỌNG TÂM",
     services_title: "Chọn một gói phạm vi cố định trị giá 250 USD.",
     services_subtitle: "Mang đến một bộ tài liệu riêng tư, bản thảo LaTeX hoặc bài giảng tiếng Anh có quyền sử dụng rõ ràng. Xem bằng chứng công khai trước, rồi bắt đầu kiểm tra phù hợp miễn phí.",
@@ -134,6 +141,7 @@ window.serviceTranslations = {
   },
   fr: {
     nav_services: "Services",
+    nav_work: "Projets",
     services_tag: "SERVICES CIBLÉS",
     services_title: "Choisissez un sprint à périmètre fixe de 250 USD.",
     services_subtitle: "Apportez une collection privée, un manuscrit LaTeX ou un cours en anglais dont vous détenez les droits d’usage. Consultez d’abord la preuve publique, puis lancez la vérification gratuite.",
@@ -153,6 +161,7 @@ window.serviceTranslations = {
   },
   es: {
     nav_services: "Servicios",
+    nav_work: "Proyectos",
     services_tag: "SERVICIOS CONCRETOS",
     services_title: "Elige un sprint de alcance fijo por 250 USD.",
     services_subtitle: "Trae una colección privada, un manuscrito LaTeX o una clase en inglés con derechos de uso claros. Revisa primero la prueba pública y después inicia la comprobación gratuita.",
@@ -172,6 +181,7 @@ window.serviceTranslations = {
   },
   pt: {
     nav_services: "Serviços",
+    nav_work: "Projetos",
     services_tag: "SERVIÇOS OBJETIVOS",
     services_title: "Escolha um sprint de escopo fixo por USD 250.",
     services_subtitle: "Traga uma coleção privada, um manuscrito LaTeX ou uma aula em inglês com direitos de uso claros. Veja primeiro a prova pública e depois inicie a verificação gratuita.",
@@ -191,6 +201,7 @@ window.serviceTranslations = {
   },
   de: {
     nav_services: "Services",
+    nav_work: "Projekte",
     services_tag: "KLAR UMRISSENE SERVICES",
     services_title: "Wählen Sie einen Sprint mit festem Umfang für 250 USD.",
     services_subtitle: "Bringen Sie eine private Sammlung, ein LaTeX-Manuskript oder eine englische Vorlesung mit geklärten Nutzungsrechten. Prüfen Sie zuerst den öffentlichen Nachweis und starten Sie dann den kostenlosen Eignungscheck.",
@@ -210,6 +221,7 @@ window.serviceTranslations = {
   },
   ru: {
     nav_services: "Услуги",
+    nav_work: "Проекты",
     services_tag: "ЧЁТКИЕ УСЛУГИ",
     services_title: "Выберите услугу с фиксированным объёмом за 250 USD.",
     services_subtitle: "Предоставьте частную коллекцию, рукопись LaTeX или англоязычную лекцию с подтверждёнными правами. Сначала изучите публичный пример, затем начните бесплатную проверку соответствия.",
@@ -229,6 +241,7 @@ window.serviceTranslations = {
   },
   tr: {
     nav_services: "Hizmetler",
+    nav_work: "Projeler",
     services_tag: "ODAKLI HİZMETLER",
     services_title: "Kapsamı sabit 250 USD’lik bir çalışma seçin.",
     services_subtitle: "Özel bir koleksiyon, LaTeX makalesi veya kullanım hakkı açık bir İngilizce ders getirin. Önce herkese açık örneği inceleyin, ardından ücretsiz uygunluk kontrolünü başlatın.",

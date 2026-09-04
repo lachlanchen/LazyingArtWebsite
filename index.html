@@ -1676,12 +1676,13 @@
     <!-- Navigation -->
     <nav id="navbar">
         <div class="nav-container">
-            <a href="#" class="logo" aria-label="LazyingArt">
+            <a href="/" class="logo" aria-label="LazyingArt">
                 <img src="https://lazying.art/logos/logo.png" alt="LazyingArt logo" />
                 <span class="logo-text">LazyingArt</span>
             </a>
             <div class="nav-links" id="navLinks">
                 <a href="#services" data-i18n="nav_services">Services</a>
+                <a href="work/" data-i18n="nav_work">Work</a>
                 <a href="#ecosystem" data-i18n="nav_features">Ecosystem</a>
                 <a href="#coin" data-i18n="nav_coin">LAC</a>
                 <a href="#product">EchoMind</a>
@@ -1842,11 +1843,7 @@
                     <p class="carousel-desc" data-i18n="robot_desc">Modular, programmable humanoid platform with precision joints and an extensible control stack for AI experiments, classrooms, and creative motion. Built for The Art of Lazying so you can focus on ideas, interaction, and innovation as it evolves with LazyingArt software.</p>
                     <a href="robot.html" class="secondary-button carousel-detail-link" data-i18n="detail_link">View details →</a>
                         <div class="carousel-buy-actions">
-                            <stripe-buy-button
-                              buy-button-id="buy_btn_1SupA8PgZSaFNSv0mB7gMNq4"
-                              publishable-key="pk_live_51SiAfEPgZSaFNSv0Z4SVoc1TyqawZcC34wl8dbd7NCZqFaEhfLhNJ0jIkgcGQcRp9yaDnno4yZTSuK1kI6EYkOhp00bsxcJePU"
-                            >
-                            </stripe-buy-button>
+                            <a href="mailto:contact@lazying.art?subject=LazyingArt%20Robot%20availability" class="secondary-button" data-i18n="nav_contact">Contact</a>
                             <a href="https://robot.lazying.art" class="secondary-button">robot.lazying.art</a>
                             <span class="link-sep" aria-hidden="true">→</span>
                             <small><a href="https://github.com/lachlanchen/IdeasRobot" target="_blank" rel="noopener" style="color: var(--accent); text-decoration:none;">GitHub</a></small>
@@ -1858,11 +1855,7 @@
                     <p class="carousel-desc" data-i18n="eink_desc">E-ink vocabulary display that surfaces daily words with phonetics and translations for low-distraction study. An always-on, low-power companion for desks and classrooms to build language habits at a glance.</p>
                         <a href="eink/" class="secondary-button carousel-detail-link" data-i18n="detail_link">View details →</a>
                     <div class="carousel-buy-actions">
-                        <stripe-buy-button
-                          buy-button-id="buy_btn_1SuoaBPgZSaFNSv0CXSOHVMY"
-                          publishable-key="pk_live_51SiAfEPgZSaFNSv0Z4SVoc1TyqawZcC34wl8dbd7NCZqFaEhfLhNJ0jIkgcGQcRp9yaDnno4yZTSuK1kI6EYkOhp00bsxcJePU"
-                        >
-                        </stripe-buy-button>
+                        <a href="mailto:contact@lazying.art?subject=Eink%20Words%20Card%20availability" class="secondary-button" data-i18n="nav_contact">Contact</a>
                         <a href="https://lazying.art/#einkwordsgpt" class="secondary-button">lazying.art</a>
                         <small><a href="https://github.com/lachlanchen/EinkWordsGPT" target="_blank" rel="noopener" style="color: var(--accent); text-decoration:none;">GitHub →</a></small>
                     </div>
@@ -1873,12 +1866,8 @@
                     <p class="carousel-note" data-i18n="openhi_note">* Note: Camera, tube lens, and optics table not included.</p>
                     <a href="openhi-kit.html" class="secondary-button carousel-detail-link" data-i18n="detail_link">View details →</a>
                     <div class="carousel-buy-actions">
-                        <stripe-buy-button
-                          buy-button-id="buy_btn_1SuptFPgZSaFNSv00AIp3rFy"
-                          publishable-key="pk_live_51SiAfEPgZSaFNSv0Z4SVoc1TyqawZcC34wl8dbd7NCZqFaEhfLhNJ0jIkgcGQcRp9yaDnno4yZTSuK1kI6EYkOhp00bsxcJePU"
-                        >
-                        </stripe-buy-button>
-                        <a href="https://robot.lazying.art" class="secondary-button">robot.lazying.art</a>
+                        <a href="mailto:contact@lazying.art?subject=OpenHI%20Kit%20availability" class="secondary-button" data-i18n="nav_contact">Contact</a>
+                        <a href="openhi-kit.html" class="secondary-button" data-i18n="detail_link">View details →</a>
                         <small><a href="https://github.com/lachlanchen/OpenHI" target="_blank" rel="noopener" style="color: var(--accent); text-decoration:none;">GitHub →</a></small>
                     </div>
                 </div>
@@ -2161,16 +2150,16 @@
                 </div>
                 <div class="stats-grid" style="margin-top: 2rem;">
                     <div class="stat">
+                        <div class="stat-number">13</div>
+                        <div class="stat-label" data-i18n="stats_languages">Site languages</div>
+                    </div>
+                    <div class="stat">
                         <div class="stat-number">100+</div>
-                        <div class="stat-label" data-i18n="stats_languages">支援語言</div>
+                        <div class="stat-label" data-i18n="stats_active_users">Public repositories</div>
                     </div>
                     <div class="stat">
-                        <div class="stat-number">50K+</div>
-                        <div class="stat-label" data-i18n="stats_active_users">活躍用戶</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number">24/7</div>
-                        <div class="stat-label" data-i18n="stats_ai_availability">AI可用性</div>
+                        <div class="stat-number">3</div>
+                        <div class="stat-label" data-i18n="stats_ai_availability">Fixed-scope sprints</div>
                     </div>
                 </div>
             </div>
@@ -2289,7 +2278,7 @@
                 <div class="feature-card">
                     <div class="feature-icon">🔒</div>
                     <h3 class="feature-title" data-i18n="feat_privacy_title">Privacy-First Design</h3>
-                    <p class="feature-description" data-i18n="feat_privacy_desc">Your conversations stay yours. Local processing options and encrypted data storage ensure complete privacy.</p>
+                    <p class="feature-description" data-i18n="feat_privacy_desc">Privacy requirements vary by project. Review the public implementation and choose the deployment that fits your data.</p>
                 </div>
             </div>
         </div>
@@ -2300,7 +2289,7 @@
         <div class="cta-container">
             <div class="cta-content">
                 <h2 data-i18n="cta_title">Ready to Break Language Barriers?</h2>
-                <p data-i18n="cta_subtitle">Join thousands of users already experiencing the future of multilingual AI communication</p>
+                <p data-i18n="cta_subtitle">Explore the public tools and working examples, or start with one focused service.</p>
                 <a href="https://chat.lazying.art" class="cta-button-white" data-i18n="cta_button">Start Free with EchoMind</a>
             </div>
         </div>
@@ -2416,7 +2405,7 @@
                     <p class="feature-description" data-i18n="ecos_card_eink_desc">E-ink vocabulary device for focused daily learning.</p>
                     <div style="margin-top: .75rem; display:flex; gap:.5rem; align-items:center; flex-wrap:wrap;">
                         <small><a href="https://github.com/lachlanchen/EinkWordsGPT" target="_blank" rel="noopener" style="color: var(--accent); text-decoration:none;">GitHub <span class="link-icon" aria-hidden="true">↗</span></a></small>
-                        <a href="#einkwordsgpt" class="secondary-button">Buy <span class="link-icon" aria-hidden="true">↗</span></a>
+                        <a href="eink/" class="secondary-button">View details <span class="link-icon" aria-hidden="true">↗</span></a>
                     </div>
                 </div>
                 <div class="feature-card">
@@ -2539,22 +2528,18 @@
             <div class="footer-links">
                 <a href="https://chat.lazying.art">EchoMind</a>
                 <a href="#services" data-i18n="nav_services">Services</a>
+                <a href="work/" data-i18n="nav_work">Work</a>
                 <a href="#ecosystem" data-i18n="nav_features">Ecosystem</a>
                 <a href="#company" data-i18n="nav_about">About</a>
                 <a href="mailto:contact@lazying.art" data-i18n="nav_contact">Contact</a>
-                <a href="#" data-i18n="footer_privacy">Privacy</a>
-                <a href="#" data-i18n="footer_terms">Terms</a>
             </div>
             <div class="social-links">
-                <a href="#" class="social-link" aria-label="Twitter">𝕏</a>
-                <a href="#" class="social-link" aria-label="GitHub">⚡</a>
-                <a href="#" class="social-link" aria-label="Discord">💬</a>
-                <a href="#" class="social-link" aria-label="LinkedIn">in</a>
+                <a href="https://github.com/lachlanchen" class="social-link" aria-label="GitHub">GH</a>
+                <a href="https://github.com/sponsors/lachlanchen" class="social-link" aria-label="Sponsor LazyingArt">♡</a>
             </div>
         </div>
     </footer>
 
-    <script async src="https://js.stripe.com/v3/buy-button.js"></script>
     <script src="service-translations.js"></script>
 
     <script>
@@ -2619,9 +2604,9 @@
                 coin_cta_desc: 'Open the token hub to add LAC to MetaMask and view the latest contract details.',
                 coin_cta_primary: 'Add to MetaMask',
                 coin_cta_secondary: 'Open coin.lazying.art',
-                stats_languages: 'Languages',
-                stats_active_users: 'Active Users',
-                stats_ai_availability: 'AI Availability',
+                stats_languages: 'Site languages',
+                stats_active_users: 'Public repositories',
+                stats_ai_availability: 'Fixed-scope sprints',
                 features_tag: 'CAPABILITIES',
                 features_title: 'Powered by Cutting-Edge Technology',
                 features_subtitle: 'Experience the future of multilingual AI communication with our advanced features',
@@ -2636,7 +2621,7 @@
                 feat_grammar_title: 'Grammar Analysis',
                 feat_grammar_desc: 'Real-time grammatical breakdown and enhancement. Understand language structure while you communicate.',
                 feat_privacy_title: 'Privacy-First Design',
-                feat_privacy_desc: 'Your conversations stay yours. Local processing options and encrypted data storage ensure complete privacy.',
+                feat_privacy_desc: 'Privacy requirements vary by project. Review the public implementation and choose the deployment that fits your data.',
                 ecosystem_tag: 'ECOSYSTEM',
                 ecosystem_title: 'AI + Software + Hardware, Working Together',
                 ecosystem_subtitle: 'EchoMind AI pairs with our platform and IdeasGlass to deliver hands-free, real-time multilingual communication',
@@ -2702,7 +2687,7 @@
                 company_feat3_title: 'Inclusive by Design',
                 company_feat3_desc: "Language should never be a barrier. We're building a world where everyone can communicate freely.",
                 cta_title: 'Ready to Break Language Barriers?',
-                cta_subtitle: 'Join thousands of users already experiencing the future of multilingual AI communication',
+                cta_subtitle: 'Explore the public tools and working examples, or start with one focused service.',
                 cta_button: 'Start Free with EchoMind',
                 footer_privacy: 'Privacy',
                 footer_terms: 'Terms',
@@ -2782,7 +2767,7 @@
                 aimemo_feat3_title: 'AI secretary DNA',
                 aimemo_feat3_desc: 'Built on AISecretary inbox triage and IdeasGlass LLM triggers for email-to-knowledge automation.',
                 loading_echomind: 'Loading EchoMind...',
-                konami_alert: '🎨 Welcome to the LazyingArt family! Enjoy 50% off EchoMind Pro with code: KONAMI',
+                konami_alert: '🎨 You found a hidden corner of LazyingArt. Welcome.',
                 footer_copyright: '© {year} LazyingArt LLC. All rights reserved.',
             },
             ja: {
@@ -2824,9 +2809,9 @@
                 coin_cta_desc: 'トークンハブを開き、MetaMaskにLACを追加して最新のコントラクト情報を確認。',
                 coin_cta_primary: 'MetaMaskに追加',
                 coin_cta_secondary: 'coin.lazying.art を開く',
-                stats_languages: '対応言語',
-                stats_active_users: 'アクティブユーザー',
-                stats_ai_availability: 'AI稼働',
+                stats_languages: 'サイト言語',
+                stats_active_users: '公開リポジトリ',
+                stats_ai_availability: '定額サービス',
                 features_tag: '機能',
                 features_title: '最先端技術で実現',
                 features_subtitle: '多言語AIコミュニケーションの未来を体験',
@@ -2841,7 +2826,7 @@
                 feat_grammar_title: '文法解析',
                 feat_grammar_desc: 'リアルタイムで文法を補助・改善し、理解を深めます。',
                 feat_privacy_title: 'プライバシー優先設計',
-                feat_privacy_desc: '会話はあなたのもの。ローカル処理と暗号化で安心。',
+                feat_privacy_desc: '必要なプライバシー水準はプロジェクトごとに異なります。公開実装を確認し、データに合う運用方法を選んでください。',
                 ecosystem_tag: 'エコシステム',
                 ecosystem_title: 'AI × ソフトウェア × ハードウェアの連携',
                 ecosystem_subtitle: 'EchoMind AIはプラットフォームとIdeasGlassと連携し、ハンズフリーの多言語コミュニケーションを実現します',
@@ -2895,7 +2880,7 @@
                 company_feat3_title: 'インクルーシブな設計',
                 company_feat3_desc: '言語が壁であってはなりません。誰もが自由にコミュニケーションできる世界を築いています。',
                 cta_title: '言語の壁を、一緒に超えよう',
-                cta_subtitle: '多言語AIの未来を、今すぐ体験',
+                cta_subtitle: '公開ツールと実例を見るか、目的に合うサービスから始めてください。',
                 cta_button: '無料で始める',
                 footer_privacy: 'プライバシー',
                 footer_terms: '利用規約',
@@ -2971,7 +2956,7 @@
                 aimemo_feat3_title: 'AI秘書DNA',
                 aimemo_feat3_desc: 'AISecretaryの受信箱トリアージとIdeasGlassのLLMトリガーを基盤に、メール→知識の自動化を実現。',
                 loading_echomind: 'EchoMindを読み込み中...',
-                konami_alert: '🎨 LazyingArtファミリーへようこそ！KONAMIコードでEchoMind Proが50%オフ',
+                konami_alert: '🎨 LazyingArtの隠れた場所を見つけました。ようこそ。',
                 
                 footer_copyright: '© {year} LazyingArt LLC. 無断転載を禁じます。',
             },
@@ -3014,9 +2999,9 @@
                 coin_cta_desc: '打开代币中心，将 LAC 添加到 MetaMask 并查看最新合约信息。',
                 coin_cta_primary: '添加到 MetaMask',
                 coin_cta_secondary: '打开 coin.lazying.art',
-                stats_languages: '支持语言',
-                stats_active_users: '活跃用户',
-                stats_ai_availability: 'AI可用性',
+                stats_languages: '网站语言',
+                stats_active_users: '公开代码仓库',
+                stats_ai_availability: '定价明确的服务',
                 features_tag: '功能',
                 features_title: '由尖端技术驱动',
                 features_subtitle: '体验多语言AI沟通的未来',
@@ -3031,7 +3016,7 @@
                 feat_grammar_title: '语法分析',
                 feat_grammar_desc: '实时语法拆解与增强，边沟通边理解。',
                 feat_privacy_title: '隐私优先设计',
-                feat_privacy_desc: '会话只属于你。本地处理与加密存储确保安全。',
+                feat_privacy_desc: '不同项目的隐私要求不同。请查看公开实现，并选择适合你数据的部署方式。',
                 ecosystem_tag: '生态系统',
                 ecosystem_title: 'AI + 软件 + 硬件 协同',
                 ecosystem_subtitle: 'EchoMind与平台和IdeasGlass协同，带来免手持的实时多语言沟通',
@@ -3085,7 +3070,7 @@
                 company_feat3_title: '包容性设计',
                 company_feat3_desc: '语言不该成为障碍。我们正在构建一个人人都能自由沟通的世界。',
                 cta_title: '准备好打破语言壁垒了吗？',
-                cta_subtitle: '数万用户已在体验多语言AI的未来',
+                cta_subtitle: '浏览公开工具和真实示例，或从一项聚焦服务开始。',
                 cta_button: '免费开始',
                 footer_privacy: '隐私',
                 footer_terms: '条款',
@@ -3163,7 +3148,7 @@
                 aimemo_feat3_title: 'AI 秘书 DNA',
                 aimemo_feat3_desc: '基于 AISecretary 的收件箱分流与 IdeasGlass 的 LLM 触发器，实现邮件到知识的自动化。',
                 loading_echomind: '正在加载 EchoMind...',
-                konami_alert: '🎨 欢迎加入 LazyingArt！使用 KONAMI 代码享 EchoMind Pro 五折优惠',
+                konami_alert: '🎨 你发现了 LazyingArt 的隐藏角落。欢迎。',
                 
                 
                 footer_copyright: '© {year} LazyingArt LLC. 保留所有权利。',
@@ -3207,9 +3192,9 @@
                 coin_cta_desc: '開啟代幣中心，將 LAC 加入 MetaMask 並查看最新合約資訊。',
                 coin_cta_primary: '加入 MetaMask',
                 coin_cta_secondary: '開啟 coin.lazying.art',
-                stats_languages: '支援語言',
-                stats_active_users: '活躍用戶',
-                stats_ai_availability: 'AI可用性',
+                stats_languages: '網站語言',
+                stats_active_users: '公開程式碼儲存庫',
+                stats_ai_availability: '定價明確的服務',
                 features_tag: '功能',
                 features_title: '以尖端技術驅動',
                 features_subtitle: '體驗多語言AI溝通的未來',
@@ -3224,7 +3209,7 @@
                 feat_grammar_title: '語法分析',
                 feat_grammar_desc: '即時語法拆解與增強，邊溝通邊理解。',
                 feat_privacy_title: '隱私優先設計',
-                feat_privacy_desc: '對話只屬於你。本地處理與加密儲存確保安全。',
+                feat_privacy_desc: '不同專案的隱私要求不同。請查看公開實作，並選擇適合你資料的部署方式。',
                 ecosystem_tag: '生態系',
                 ecosystem_title: 'AI＋軟體＋硬體 協同',
                 ecosystem_subtitle: 'EchoMind 與平台及 IdeasGlass 協作，帶來免持的即時多語溝通',
@@ -3278,7 +3263,7 @@
                 company_feat3_title: '包容性設計',
                 company_feat3_desc: '語言不該成為障礙。我們正打造一個人人都能自由溝通的世界。',
                 cta_title: '準備好打破語言藩籬了嗎？',
-                cta_subtitle: '數萬用戶已在體驗多語AI的未來',
+                cta_subtitle: '瀏覽公開工具和實際範例，或從一項聚焦服務開始。',
                 cta_button: '免費開始',
                 footer_privacy: '隱私',
                 footer_terms: '條款',
@@ -3356,7 +3341,7 @@
                 aimemo_feat3_title: 'AI 秘書 DNA',
                 aimemo_feat3_desc: '基於 AISecretary 的收件匣分流與 IdeasGlass 的 LLM 觸發器，實現郵件到知識的自動化。',
                 loading_echomind: '正在載入 EchoMind...',
-                konami_alert: '🎨 歡迎加入 LazyingArt！輸入 KONAMI 獲 EchoMind Pro 5 折',
+                konami_alert: '🎨 你發現了 LazyingArt 的隱藏角落。歡迎。',
                 
                 
                 footer_copyright: '© {year} LazyingArt LLC. 版權所有。',
@@ -3400,9 +3385,9 @@
                 coin_cta_desc: '토큰 허브에서 LAC을 MetaMask에 추가하고 최신 컨트랙트 정보를 확인.',
                 coin_cta_primary: 'MetaMask에 추가',
                 coin_cta_secondary: 'coin.lazying.art 열기',
-                stats_languages: '지원 언어',
-                stats_active_users: '활성 사용자',
-                stats_ai_availability: 'AI 가동',
+                stats_languages: '사이트 언어',
+                stats_active_users: '공개 저장소',
+                stats_ai_availability: '고정 범위 서비스',
                 features_tag: '기능',
                 features_title: '최신 기술로 구현',
                 features_subtitle: '다국어 AI 커뮤니케이션의 미래를 경험하세요',
@@ -3417,7 +3402,7 @@
                 feat_grammar_title: '문법 분석',
                 feat_grammar_desc: '실시간 문법 보조와 개선으로 이해도 향상.',
                 feat_privacy_title: '프라이버시 우선 설계',
-                feat_privacy_desc: '로컬 처리와 암호화 저장으로 안전 보장.',
+                feat_privacy_desc: '개인정보 요구사항은 프로젝트마다 다릅니다. 공개 구현을 확인하고 데이터에 맞는 배포 방식을 선택하세요.',
                 ecosystem_tag: '에코시스템',
                 ecosystem_title: 'AI + 소프트웨어 + 하드웨어의 조합',
                 ecosystem_subtitle: 'EchoMind AI는 플랫폼과 IdeasGlass와 연동해 핸즈프리 실시간 다국어 소통을 제공합니다',
@@ -3471,7 +3456,7 @@
                 company_feat3_title: '포용적 설계',
                 company_feat3_desc: '언어는 장벽이 되어서는 안 됩니다. 누구나 자유롭게 소통할 수 있는 세상을 만들고 있습니다.',
                 cta_title: '언어의 벽, 함께 넘어봅시다',
-                cta_subtitle: '수많은 사용자가 이미 다국어 AI의 미래를 경험하고 있습니다',
+                cta_subtitle: '공개 도구와 실제 예시를 살펴보거나 한 가지 집중 서비스로 시작하세요.',
                 cta_button: '무료로 시작',
                 footer_privacy: '개인정보',
                 footer_terms: '이용약관',
@@ -3549,7 +3534,7 @@
                 aimemo_feat3_title: 'AI 비서 DNA',
                 aimemo_feat3_desc: 'AISecretary 받은편지함 분류와 IdeasGlass LLM 트리거를 기반으로 이메일-지식 자동화를 구현합니다.',
                 loading_echomind: 'EchoMind 불러오는 중...',
-                konami_alert: '🎨 LazyingArt에 오신 것을 환영합니다! 코드 KONAMI로 EchoMind Pro 50% 할인',
+                konami_alert: '🎨 LazyingArt의 숨겨진 공간을 찾았습니다. 환영합니다.',
                 footer_copyright: '© {year} LazyingArt LLC. 판권 소유.',
             },
             ar: {
@@ -3591,9 +3576,9 @@
                 coin_cta_desc: 'افتح مركز الرمز لإضافة LAC إلى MetaMask ومراجعة أحدث تفاصيل العقد.',
                 coin_cta_primary: 'أضف إلى MetaMask',
                 coin_cta_secondary: 'افتح coin.lazying.art',
-                stats_languages: 'اللغات',
-                stats_active_users: 'المستخدمون النشطون',
-                stats_ai_availability: 'توفر الذكاء الاصطناعي',
+                stats_languages: 'لغات الموقع',
+                stats_active_users: 'مستودعات عامة',
+                stats_ai_availability: 'خدمات محددة النطاق',
                 features_tag: 'الميزات',
                 features_title: 'مدعوم بأحدث التقنيات',
                 features_subtitle: 'اختبر مستقبل الاتصال متعدد اللغات',
@@ -3608,7 +3593,7 @@
                 feat_grammar_title: 'تحليل نحوي',
                 feat_grammar_desc: 'تحسين وتحليل فوري للنحو لزيادة الفهم.',
                 feat_privacy_title: 'خصوصية أولاً',
-                feat_privacy_desc: 'معالجة محلية وتخزين مشفر لحماية محادثاتك.',
+                feat_privacy_desc: 'تختلف متطلبات الخصوصية من مشروع لآخر. راجع التنفيذ العلني واختر طريقة النشر المناسبة لبياناتك.',
                 ecosystem_tag: 'المنظومة',
                 ecosystem_title: 'تعاون الذكاء الاصطناعي والبرمجيات والأجهزة',
                 ecosystem_subtitle: 'يتكامل EchoMind مع منصتنا ونظارات IdeasGlass لتواصل آلي دون استخدام اليدين',
@@ -3662,7 +3647,7 @@
                 company_feat3_title: 'تصميم شامل للجميع',
                 company_feat3_desc: 'لا ينبغي أن تكون اللغة عائقاً. نبني عالماً يستطيع فيه الجميع التواصل بحرية.',
                 cta_title: 'هل أنت مستعد لكسر حواجز اللغة؟',
-                cta_subtitle: 'انضم إلى الآلاف الذين يختبرون مستقبل الاتصال متعدد اللغات',
+                cta_subtitle: 'استكشف الأدوات العامة والأمثلة العملية، أو ابدأ بخدمة واحدة محددة.',
                 cta_button: 'ابدأ مجاناً',
                 footer_privacy: 'الخصوصية',
                 footer_terms: 'الشروط',
@@ -3740,7 +3725,7 @@
                 aimemo_feat3_title: 'حمض نووي لسكرتير الذكاء الاصطناعي',
                 aimemo_feat3_desc: 'مبني على فرز صندوق وارد AISecretary ومحفزات LLM في IdeasGlass لأتمتة البريد إلى معرفة.',
                 loading_echomind: '...جاري تحميل EchoMind',
-                konami_alert: '🎨 أهلاً بك في LazyingArt! احصل على خصم 50% على EchoMind Pro باستخدام الرمز: KONAMI',
+                konami_alert: '🎨 لقد وجدت زاوية مخفية من LazyingArt. أهلًا بك.',
                 footer_copyright: '© {year} LazyingArt LLC. جميع الحقوق محفوظة.',
             },
             vi: {
@@ -3782,9 +3767,9 @@
                 coin_cta_desc: 'Mở trung tâm token để thêm LAC vào MetaMask và xem thông tin hợp đồng mới nhất.',
                 coin_cta_primary: 'Thêm vào MetaMask',
                 coin_cta_secondary: 'Mở coin.lazying.art',
-                stats_languages: 'Ngôn ngữ',
-                stats_active_users: 'Người dùng hoạt động',
-                stats_ai_availability: 'Khả dụng AI',
+                stats_languages: 'Ngôn ngữ trang web',
+                stats_active_users: 'Kho mã nguồn công khai',
+                stats_ai_availability: 'Dịch vụ phạm vi cố định',
                 features_tag: 'Tính năng',
                 features_title: 'Vận hành bởi công nghệ tiên tiến',
                 features_subtitle: 'Trải nghiệm tương lai giao tiếp đa ngôn ngữ',
@@ -3799,7 +3784,7 @@
                 feat_grammar_title: 'Phân tích ngữ pháp',
                 feat_grammar_desc: 'Hỗ trợ và cải thiện ngữ pháp theo thời gian thực.',
                 feat_privacy_title: 'Thiết kế ưu tiên quyền riêng tư',
-                feat_privacy_desc: 'Xử lý cục bộ và lưu trữ mã hóa để bảo mật.',
+                feat_privacy_desc: 'Yêu cầu riêng tư khác nhau theo từng dự án. Hãy xem cách triển khai công khai và chọn phương án phù hợp với dữ liệu của bạn.',
                 ecosystem_tag: 'Hệ sinh thái',
                 ecosystem_title: 'AI + Phần mềm + Phần cứng phối hợp',
                 ecosystem_subtitle: 'EchoMind kết hợp với nền tảng và IdeasGlass để giao tiếp rảnh tay, theo thời gian thực',
@@ -3853,7 +3838,7 @@
                 company_feat3_title: 'Thiết kế bao trùm',
                 company_feat3_desc: 'Ngôn ngữ không nên là rào cản. Chúng tôi đang xây dựng một thế giới nơi mọi người có thể giao tiếp tự do.',
                 cta_title: 'Sẵn sàng phá bỏ rào cản ngôn ngữ?',
-                cta_subtitle: 'Hàng chục nghìn người dùng đã trải nghiệm tương lai AI đa ngôn ngữ',
+                cta_subtitle: 'Khám phá công cụ công khai và ví dụ thực tế, hoặc bắt đầu với một dịch vụ tập trung.',
                 cta_button: 'Bắt đầu miễn phí',
                 footer_privacy: 'Quyền riêng tư',
                 footer_terms: 'Điều khoản',
@@ -3931,7 +3916,7 @@
                 aimemo_feat3_title: 'DNA thư ký AI',
                 aimemo_feat3_desc: 'Xây trên phân luồng hộp thư AISecretary và các kích hoạt LLM của IdeasGlass để tự động hóa email thành tri thức.',
                 loading_echomind: 'Đang tải EchoMind...',
-                konami_alert: '🎨 Chào mừng đến với LazyingArt! Giảm 50% EchoMind Pro với mã: KONAMI',
+                konami_alert: '🎨 Bạn đã tìm thấy một góc ẩn của LazyingArt. Chào mừng.',
                 footer_copyright: '© {year} LazyingArt LLC. Bảo lưu mọi quyền.',
             },
             fr: {
@@ -3973,9 +3958,9 @@
                 coin_cta_desc: 'Ouvrez le hub pour ajouter LAC à MetaMask et voir les derniers détails du contrat.',
                 coin_cta_primary: 'Ajouter à MetaMask',
                 coin_cta_secondary: 'Ouvrir coin.lazying.art',
-                stats_languages: 'Langues',
-                stats_active_users: 'Utilisateurs actifs',
-                stats_ai_availability: 'Disponibilité IA',
+                stats_languages: 'Langues du site',
+                stats_active_users: 'Dépôts publics',
+                stats_ai_availability: 'Services à périmètre fixe',
                 features_tag: 'FONCTIONNALITÉS',
                 features_title: 'Propulsé par des technologies de pointe',
                 features_subtitle: 'Vivez le futur de la communication multilingue',
@@ -3990,7 +3975,7 @@
                 feat_grammar_title: 'Analyse grammaticale',
                 feat_grammar_desc: 'Aide et amélioration grammaticales en temps réel.',
                 feat_privacy_title: 'Confidentialité d’abord',
-                feat_privacy_desc: 'Traitement local et stockage chiffré pour protéger vos échanges.',
+                feat_privacy_desc: 'Les besoins de confidentialité varient selon le projet. Examinez l’implémentation publique et choisissez le déploiement adapté à vos données.',
                 ecosystem_tag: 'ÉCOSYSTÈME',
                 ecosystem_title: 'IA + Logiciel + Matériel, ensemble',
                 ecosystem_subtitle: 'EchoMind s’intègre à notre plateforme et à IdeasGlass pour un dialogue mains libres',
@@ -4044,7 +4029,7 @@
                 company_feat3_title: 'Conçue pour l’inclusion',
                 company_feat3_desc: 'La langue ne devrait jamais être un obstacle. Nous construisons un monde où chacun peut communiquer librement.',
                 cta_title: 'Prêt à briser les barrières linguistiques ?',
-                cta_subtitle: 'Des milliers d’utilisateurs expérimentent déjà le futur',
+                cta_subtitle: 'Explorez les outils publics et les exemples concrets, ou commencez par un service ciblé.',
                 cta_button: 'Commencer gratuitement',
                 footer_privacy: 'Confidentialité',
                 footer_terms: 'Conditions',
@@ -4122,7 +4107,7 @@
                 aimemo_feat3_title: 'ADN de secrétaire IA',
                 aimemo_feat3_desc: 'Basé sur le tri de boîte de réception d’AISecretary et les déclencheurs LLM d’IdeasGlass pour automatiser l’e‑mail vers la connaissance.',
                 loading_echomind: 'Chargement d’EchoMind...',
-                konami_alert: '🎨 Bienvenue chez LazyingArt ! -50% sur EchoMind Pro avec le code : KONAMI',
+                konami_alert: '🎨 Vous avez trouvé un coin caché de LazyingArt. Bienvenue.',
                 footer_copyright: '© {year} LazyingArt LLC. Tous droits réservés.',
             },
             es: {
@@ -4164,9 +4149,9 @@
                 coin_cta_desc: 'Abre el hub del token para agregar LAC a MetaMask y ver los últimos detalles del contrato.',
                 coin_cta_primary: 'Agregar a MetaMask',
                 coin_cta_secondary: 'Abrir coin.lazying.art',
-                stats_languages: 'Idiomas',
-                stats_active_users: 'Usuarios activos',
-                stats_ai_availability: 'Disponibilidad IA',
+                stats_languages: 'Idiomas del sitio',
+                stats_active_users: 'Repositorios públicos',
+                stats_ai_availability: 'Servicios de alcance fijo',
                 features_tag: 'FUNCIONES',
                 features_title: 'Impulsado por tecnología de vanguardia',
                 features_subtitle: 'Vive el futuro de la comunicación multilingüe',
@@ -4181,7 +4166,7 @@
                 feat_grammar_title: 'Análisis gramatical',
                 feat_grammar_desc: 'Mejora y asistencia gramatical en tiempo real.',
                 feat_privacy_title: 'Privacidad primero',
-                feat_privacy_desc: 'Procesamiento local y almacenamiento cifrado.',
+                feat_privacy_desc: 'Las necesidades de privacidad varían según el proyecto. Revisa la implementación pública y elige el despliegue adecuado para tus datos.',
                 ecosystem_tag: 'ECOSISTEMA',
                 ecosystem_title: 'IA + Software + Hardware, juntos',
                 ecosystem_subtitle: 'EchoMind se integra con nuestra plataforma y IdeasGlass para un diálogo manos libres',
@@ -4235,7 +4220,7 @@
                 company_feat3_title: 'Inclusiva por diseño',
                 company_feat3_desc: 'El idioma no debe ser una barrera. Estamos construyendo un mundo donde todos puedan comunicarse libremente.',
                 cta_title: '¿Listo para romper barreras idiomáticas?',
-                cta_subtitle: 'Miles de usuarios ya viven el futuro',
+                cta_subtitle: 'Explora las herramientas públicas y ejemplos reales, o empieza con un servicio concreto.',
                 cta_button: 'Comenzar gratis',
                 footer_privacy: 'Privacidad',
                 footer_terms: 'Términos',
@@ -4313,7 +4298,7 @@
                 aimemo_feat3_title: 'ADN de secretaria IA',
                 aimemo_feat3_desc: 'Basado en la clasificación de bandeja de entrada de AISecretary y los disparadores LLM de IdeasGlass para automatizar el email a conocimiento.',
                 loading_echomind: 'Cargando EchoMind...',
-                konami_alert: '🎨 ¡Bienvenido a LazyingArt! 50% de descuento en EchoMind Pro con el código: KONAMI',
+                konami_alert: '🎨 Encontraste un rincón oculto de LazyingArt. Bienvenido.',
                 footer_copyright: '© {year} LazyingArt LLC. Todos los derechos reservados.',
             },
             pt: {
@@ -4355,9 +4340,9 @@
                 coin_cta_desc: 'Abra o hub do token para adicionar LAC ao MetaMask e ver os detalhes do contrato.',
                 coin_cta_primary: 'Adicionar ao MetaMask',
                 coin_cta_secondary: 'Abrir coin.lazying.art',
-                stats_languages: 'Idiomas',
-                stats_active_users: 'Usuários ativos',
-                stats_ai_availability: 'Disponibilidade da IA',
+                stats_languages: 'Idiomas do site',
+                stats_active_users: 'Repositórios públicos',
+                stats_ai_availability: 'Serviços de escopo fixo',
                 features_tag: 'RECURSOS',
                 features_title: 'Impulsionado por tecnologia de ponta',
                 features_subtitle: 'Experimente o futuro da comunicação multilíngue',
@@ -4372,7 +4357,7 @@
                 feat_grammar_title: 'Análise gramatical',
                 feat_grammar_desc: 'Aprimoramento e ajuda gramatical em tempo real.',
                 feat_privacy_title: 'Privacidade em primeiro lugar',
-                feat_privacy_desc: 'Processamento local e armazenamento criptografado.',
+                feat_privacy_desc: 'Os requisitos de privacidade variam por projeto. Analise a implementação pública e escolha a implantação adequada aos seus dados.',
                 ecosystem_tag: 'ECOSSISTEMA',
                 ecosystem_title: 'IA + Software + Hardware, juntos',
                 ecosystem_subtitle: 'EchoMind integra-se à plataforma e ao IdeasGlass para diálogo sem as mãos',
@@ -4426,7 +4411,7 @@
                 company_feat3_title: 'Inclusivo por design',
                 company_feat3_desc: 'A língua nunca deve ser uma barreira. Estamos construindo um mundo em que todos possam se comunicar livremente.',
                 cta_title: 'Pronto para quebrar barreiras linguísticas?',
-                cta_subtitle: 'Milhares já experimentam o futuro',
+                cta_subtitle: 'Explore as ferramentas públicas e os exemplos práticos, ou comece por um serviço focado.',
                 cta_button: 'Começar grátis',
                 footer_privacy: 'Privacidade',
                 footer_terms: 'Termos',
@@ -4504,7 +4489,7 @@
                 aimemo_feat3_title: 'DNA de secretária IA',
                 aimemo_feat3_desc: 'Baseado na triagem de inbox do AISecretary e nos gatilhos LLM do IdeasGlass para automatizar email → conhecimento.',
                 loading_echomind: 'Carregando EchoMind...',
-                konami_alert: '🎨 Bem-vindo ao LazyingArt! 50% de desconto no EchoMind Pro com o código: KONAMI',
+                konami_alert: '🎨 Você encontrou um canto escondido do LazyingArt. Bem-vindo.',
                 footer_copyright: '© {year} LazyingArt LLC. Todos os direitos reservados.',
             },
             de: {
@@ -4546,9 +4531,9 @@
                 coin_cta_desc: 'Öffne den Token‑Hub, um LAC zu MetaMask hinzuzufügen und die Vertragsdetails zu sehen.',
                 coin_cta_primary: 'Zu MetaMask hinzufügen',
                 coin_cta_secondary: 'coin.lazying.art öffnen',
-                stats_languages: 'Sprachen',
-                stats_active_users: 'Aktive Nutzer',
-                stats_ai_availability: 'KI-Verfügbarkeit',
+                stats_languages: 'Website-Sprachen',
+                stats_active_users: 'Öffentliche Repositories',
+                stats_ai_availability: 'Fest umrissene Services',
                 features_tag: 'FUNKTIONEN',
                 features_title: 'Angetrieben von Spitzentechnologie',
                 features_subtitle: 'Erleben Sie die Zukunft der mehrsprachigen Kommunikation',
@@ -4563,7 +4548,7 @@
                 feat_grammar_title: 'Grammatik-Analyse',
                 feat_grammar_desc: 'Grammatikhilfe und -verbesserung in Echtzeit.',
                 feat_privacy_title: 'Datenschutz zuerst',
-                feat_privacy_desc: 'Lokale Verarbeitung und verschlüsselte Speicherung.',
+                feat_privacy_desc: 'Datenschutzanforderungen unterscheiden sich je nach Projekt. Prüfen Sie die öffentliche Implementierung und wählen Sie die passende Bereitstellung für Ihre Daten.',
                 ecosystem_tag: 'ÖKOSYSTEM',
                 ecosystem_title: 'KI + Software + Hardware zusammen',
                 ecosystem_subtitle: 'EchoMind arbeitet mit unserer Plattform und IdeasGlass für freihändiges Gespräch',
@@ -4617,7 +4602,7 @@
                 company_feat3_title: 'Inklusiv gestaltet',
                 company_feat3_desc: 'Sprache darf niemals eine Barriere sein. Wir bauen eine Welt, in der alle frei kommunizieren können.',
                 cta_title: 'Bereit, Sprachbarrieren zu überwinden?',
-                cta_subtitle: 'Tausende erleben bereits die Zukunft',
+                cta_subtitle: 'Entdecken Sie öffentliche Werkzeuge und praktische Beispiele oder starten Sie mit einem fokussierten Service.',
                 cta_button: 'Kostenlos starten',
                 footer_privacy: 'Datenschutz',
                 footer_terms: 'Bedingungen',
@@ -4695,7 +4680,7 @@
                 aimemo_feat3_title: 'KI‑Sekretär‑DNA',
                 aimemo_feat3_desc: 'Basiert auf der Inbox‑Triage von AISecretary und IdeasGlass‑LLM‑Triggern für die Automatisierung von E‑Mail‑zu‑Wissen.',
                 loading_echomind: 'EchoMind wird geladen...',
-                konami_alert: '🎨 Willkommen bei LazyingArt! 50% Rabatt auf EchoMind Pro mit Code: KONAMI',
+                konami_alert: '🎨 Sie haben eine versteckte Ecke von LazyingArt gefunden. Willkommen.',
                 
                 
                 footer_copyright: '© {year} LazyingArt LLC. Alle Rechte vorbehalten.',
@@ -4739,9 +4724,9 @@
                 coin_cta_desc: 'Откройте хаб токена, чтобы добавить LAC в MetaMask и увидеть детали контракта.',
                 coin_cta_primary: 'Добавить в MetaMask',
                 coin_cta_secondary: 'Открыть coin.lazying.art',
-                stats_languages: 'Языки',
-                stats_active_users: 'Активные пользователи',
-                stats_ai_availability: 'Доступность ИИ',
+                stats_languages: 'Языки сайта',
+                stats_active_users: 'Публичные репозитории',
+                stats_ai_availability: 'Услуги с фиксированным объёмом',
                 features_tag: 'ВОЗМОЖНОСТИ',
                 features_title: 'На базе передовых технологий',
                 features_subtitle: 'Ощутите будущее многоязычного общения',
@@ -4756,7 +4741,7 @@
                 feat_grammar_title: 'Грамматический анализ',
                 feat_grammar_desc: 'Улучшение и помощь в реальном времени.',
                 feat_privacy_title: 'Приватность прежде всего',
-                feat_privacy_desc: 'Локальная обработка и шифрованное хранение.',
+                feat_privacy_desc: 'Требования к конфиденциальности зависят от проекта. Изучите открытую реализацию и выберите подходящий для ваших данных способ развёртывания.',
                 ecosystem_tag: 'ЭКОСИСТЕМА',
                 ecosystem_title: 'ИИ + ПО + Устройства — вместе',
                 ecosystem_subtitle: 'EchoMind интегрируется с платформой и IdeasGlass для общения без рук',
@@ -4810,7 +4795,7 @@
                 company_feat3_title: 'Инклюзивно по замыслу',
                 company_feat3_desc: 'Язык не должен быть преградой. Мы строим мир, где каждый может свободно общаться.',
                 cta_title: 'Готовы преодолеть языковые барьеры?',
-                cta_subtitle: 'Тысячи уже пробуют будущее',
+                cta_subtitle: 'Изучите открытые инструменты и рабочие примеры или начните с одной конкретной услуги.',
                 cta_button: 'Начать бесплатно',
                 footer_privacy: 'Конфиденциальность',
                 footer_terms: 'Условия',
@@ -4888,7 +4873,7 @@
                 aimemo_feat3_title: 'ДНК AI‑секретаря',
                 aimemo_feat3_desc: 'Основано на разборе входящих AISecretary и LLM‑триггерах IdeasGlass для автоматизации email‑to‑knowledge.',
                 loading_echomind: 'Загрузка EchoMind...',
-                konami_alert: '🎨 Добро пожаловать в LazyingArt! Скидка 50% на EchoMind Pro по коду: KONAMI',
+                konami_alert: '🎨 Вы нашли скрытый уголок LazyingArt. Добро пожаловать.',
                 footer_copyright: '© {year} LazyingArt LLC. Все права защищены.',
             },
             tr: {
@@ -4930,9 +4915,9 @@
                 coin_cta_desc: 'Token merkezini açarak LAC’i MetaMask’e ekleyin ve sözleşme detaylarını görün.',
                 coin_cta_primary: 'MetaMask’e ekle',
                 coin_cta_secondary: 'coin.lazying.art aç',
-                stats_languages: 'Diller',
-                stats_active_users: 'Aktif kullanıcılar',
-                stats_ai_availability: 'YZ kullanılabilirliği',
+                stats_languages: 'Site dilleri',
+                stats_active_users: 'Herkese açık depolar',
+                stats_ai_availability: 'Sabit kapsamlı hizmetler',
                 features_tag: 'ÖZELLİKLER',
                 features_title: 'Öncü teknoloji ile güçlendirildi',
                 features_subtitle: 'Çok dilli iletişimin geleceğini deneyimleyin',
@@ -4947,7 +4932,7 @@
                 feat_grammar_title: 'Dilbilgisi Analizi',
                 feat_grammar_desc: 'Gerçek zamanlı dilbilgisi desteği ve iyileştirme.',
                 feat_privacy_title: 'Önce Gizlilik',
-                feat_privacy_desc: 'Yerel işleme ve şifreli depolama.',
+                feat_privacy_desc: 'Gizlilik gereksinimleri projeye göre değişir. Açık uygulamayı inceleyin ve verilerinize uygun dağıtımı seçin.',
                 ecosystem_tag: 'EKOSİSTEM',
                 ecosystem_title: 'YZ + Yazılım + Donanım birlikte',
                 ecosystem_subtitle: 'EchoMind, platform ve IdeasGlass ile entegre çalışır',
@@ -5001,7 +4986,7 @@
                 company_feat3_title: 'Tasarımda kapsayıcılık',
                 company_feat3_desc: 'Dil asla bir engel olmamalı. Herkesin özgürce iletişim kurabildiği bir dünya inşa ediyoruz.',
                 cta_title: 'Dil engellerini aşmaya hazır mısınız?',
-                cta_subtitle: 'Binlercesi geleceği deneyimliyor',
+                cta_subtitle: 'Açık araçları ve çalışan örnekleri inceleyin ya da tek bir odaklı hizmetle başlayın.',
                 cta_button: 'Ücretsiz başla',
                 footer_privacy: 'Gizlilik',
                 footer_terms: 'Koşullar',
@@ -5079,7 +5064,7 @@
                 aimemo_feat3_title: 'AI sekreter DNA\'sı',
                 aimemo_feat3_desc: 'AISecretary gelen kutusu ayrıştırması ve IdeasGlass LLM tetikleyicileri üzerine kurulu, e-postadan bilgiye otomasyon.',
                 loading_echomind: 'EchoMind yükleniyor...',
-                konami_alert: '🎨 LazyingArt’a hoş geldiniz! KONAMI koduyla EchoMind Pro %50 indirim',
+                konami_alert: '🎨 LazyingArt’ın gizli bir köşesini buldunuz. Hoş geldiniz.',
                 
                 
                 footer_copyright: '© {year} LazyingArt LLC. Tüm hakları saklıdır.',
@@ -5089,6 +5074,7 @@
         function applyTranslations(lang) {
             const dict = translations[lang] || translations.en;
             const serviceDict = window.serviceTranslations?.[lang] || window.serviceTranslations?.en || {};
+            document.documentElement.lang = lang;
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
                 const text = (dict && dict[key]) || serviceDict[key] || translations.en[key] || window.serviceTranslations?.en?.[key] || '';
