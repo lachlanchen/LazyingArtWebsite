@@ -9,6 +9,10 @@ const html = fs.readFileSync(path.join(root, "wenyan", "index.html"), "utf8");
 assert.match(html, /<link rel="canonical" href="https:\/\/lazying\.art\/wenyan\/">/);
 assert.match(html, /https:\/\/lachlanchen\.github\.io\/LinguaLeaf\/website\//);
 assert.match(html, /https:\/\/github\.com\/lachlanchen\/PocketPolyglot/);
+assert.match(
+  html,
+  /\.\.\/lkt\/passage-graph\/\?utm_source=wenyan&amp;utm_medium=owned_guide&amp;utm_campaign=wenyan_history&amp;utm_content=passage_graph/,
+);
 assert.match(html, /https:\/\/raw\.githubusercontent\.com\/lachlanchen\/LinguaLeaf\/main\/assets\/max-language-previews\/zizhi-tongjian-part-03\.png/);
 
 for (const title of ["資治通鑑", "漢書", "後漢書", "三國志裴松之注", "春秋左氏傳"]) {

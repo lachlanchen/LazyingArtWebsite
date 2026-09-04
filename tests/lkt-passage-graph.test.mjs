@@ -57,6 +57,7 @@ assert.match(page, new RegExp(sourceCommit));
 assert.match(page, /id="artifact-fallback"/);
 assert.match(page, /lkt-passage-graph-social-4x5\.png/);
 assert.match(page, /twitter:card" content="summary_large_image/);
+assert.match(page, /<script src="\.\.\/attribution-bridge\.js" defer><\/script>/);
 
 assert.match(offer, /href="passage-graph\/">Trace one passage graph/);
 assert.match(sampleReport, /href="\.\.\/passage-graph\/">Trace one hand-reviewed relation/);

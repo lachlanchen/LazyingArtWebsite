@@ -51,4 +51,16 @@ function run(pageUrl, hrefs) {
   assert.equal(target.searchParams.get("utm_medium"), "social");
 }
 
+{
+  const [result] = run(
+    "https://lazying.art/lkt/passage-graph/?utm_source=wenyan&utm_medium=owned_guide&utm_campaign=wenyan_history&utm_content=passage_graph",
+    ["https://lazying.art/lkt/fit-check/"],
+  );
+  const target = new URL(result);
+  assert.equal(target.searchParams.get("utm_source"), "wenyan");
+  assert.equal(target.searchParams.get("utm_medium"), "owned_guide");
+  assert.equal(target.searchParams.get("utm_campaign"), "wenyan_history");
+  assert.equal(target.searchParams.get("utm_content"), "passage_graph");
+}
+
 console.log("LKT attribution bridge tests passed");
