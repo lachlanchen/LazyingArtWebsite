@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#17231f">
+  <title>Passage provenance graph · Local Knowledge Terminal</title>
+  <meta name="description" content="Inspect a hand-reviewed Local Knowledge Terminal concept graph whose relations resolve to exact source excerpts, locators, and file hashes.">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Passage provenance graph · Local Knowledge Terminal">
+  <meta property="og:description" content="A small project-owned passage graph with inspectable relation evidence and pinned source provenance.">
+  <meta property="og:url" content="https://lazying.art/lkt/passage-graph/">
+  <link rel="canonical" href="https://lazying.art/lkt/passage-graph/">
+  <link rel="icon" href="../../favicon.ico" sizes="any">
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="passage-graph.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to proof</a>
+
+  <header class="site-header">
+    <a class="brand" href="../" aria-label="Local Knowledge Terminal offer">
+      <img src="../../logos/logo.svg" alt="">
+      <span><strong>LazyingArt</strong><small>Local Knowledge Terminal</small></span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a href="../">Offer</a>
+      <a href="../sample-report/">Sample report</a>
+      <a href="../fit-check/">Free fit check</a>
+    </nav>
+  </header>
+
+  <main id="main" data-passage-graph>
+    <section class="intro" aria-labelledby="page-title">
+      <p class="eyebrow">Project-owned sample · hand-reviewed relations</p>
+      <h1 id="page-title">Follow a relation<br><em>back to its words.</em></h1>
+      <p class="lead">This hand-reviewed sample turns one project-owned aligned passage into a small concept graph. Every reviewed relation resolves to the exact passage unit, excerpt, and source-file hash.</p>
+      <div class="intro-links" aria-label="Proof sources and next steps">
+        <a href="https://github.com/lachlanchen/LocalKnowledgeTerminal/blob/02334df74094a3ad75cf9073a7096794db79a5f4/examples/artifacts/pocketpolyglot-passage-graph.json">Pinned artifact</a>
+        <a href="https://github.com/lachlanchen/PocketPolyglot/blob/a437cbfa62aee4cb147bc6dea2188aea12791752/data/interlinear/sample.json">Pinned source</a>
+        <a href="../sample-report/">Sample fit report</a>
+        <a class="primary-link" href="../fit-check/">Check your collection</a>
+      </div>
+    </section>
+
+    <p class="load-status" id="load-status" role="status" aria-live="polite">Verifying the pinned proof…</p>
+
+    <section class="proof" id="proof" hidden aria-labelledby="graph-heading">
+      <div class="passage-card">
+        <p class="eyebrow">Source passage</p>
+        <p id="source-passage" lang="zh-Hans"></p>
+        <p class="integrity-note" id="integrity-note"></p>
+      </div>
+
+      <div class="proof-layout">
+        <section class="graph-panel" aria-labelledby="graph-heading">
+          <div class="section-heading">
+            <p class="eyebrow">Concept view</p>
+            <h2 id="graph-heading">One passage, visible connections.</h2>
+          </div>
+          <svg id="concept-graph" viewBox="0 0 900 560" role="img" aria-labelledby="graph-title graph-description">
+            <title id="graph-title">Concept graph for the aligned Chinese passage</title>
+            <desc id="graph-description">The source passage and its hand-reviewed concepts are connected by selectable relations listed beside the graph.</desc>
+          </svg>
+        </section>
+
+        <section class="relations-panel" aria-labelledby="relations-heading">
+          <div class="section-heading">
+            <p class="eyebrow">Reviewed relations</p>
+            <h2 id="relations-heading">Select one to inspect its evidence.</h2>
+          </div>
+          <ol class="relation-list" id="relation-list" aria-label="Passage relations"></ol>
+        </section>
+      </div>
+
+      <section class="evidence-panel" id="evidence-detail" tabindex="-1" aria-labelledby="evidence-heading" aria-live="polite">
+        <p class="eyebrow">Resolved provenance</p>
+        <h2 id="evidence-heading">Relation evidence</h2>
+        <div id="evidence-content"></div>
+      </section>
+    </section>
+
+    <aside class="fallback" aria-labelledby="fallback-title">
+      <h2 id="fallback-title">Inspect the immutable records</h2>
+      <p>If the interactive proof cannot load, the exact bytes and their source remain available:</p>
+      <a id="artifact-fallback" href="https://raw.githubusercontent.com/lachlanchen/LocalKnowledgeTerminal/02334df74094a3ad75cf9073a7096794db79a5f4/examples/artifacts/pocketpolyglot-passage-graph.json">Open the pinned JSON artifact</a>
+      <a href="https://github.com/lachlanchen/PocketPolyglot/blob/a437cbfa62aee4cb147bc6dea2188aea12791752/data/interlinear/sample.json">Open the pinned source passage</a>
+    </aside>
+
+    <noscript>
+      <p class="noscript-note">JavaScript is needed for local integrity verification and relation selection. The pinned artifact and source links above remain available.</p>
+    </noscript>
+  </main>
+
+  <footer>
+    <span>Local Knowledge Terminal by LazyingArt LLC</span>
+    <a href="../">Offer</a>
+    <a href="../sample-report/">Sample report</a>
+    <a href="../fit-check/">Free fit check</a>
+  </footer>
+</body>
+</html>
