@@ -55,6 +55,12 @@
         <priority>0.7</priority>
     </url>
     <url>
+        <loc>https://lazying.art/wenyan/</loc>
+        <lastmod>2026-09-04</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
         <loc>https://lazying.art/app-privacy/glassagent/</loc>
         <lastmod>2026-07-26</lastmod>
         <changefreq>monthly</changefreq>
