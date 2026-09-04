@@ -28,6 +28,10 @@ assert.match(offer, /button secondary" href="sample-report\/">See the sample del
 assert.match(offer, /No account or upload/);
 assert.match(offer, /sends nothing automatically/);
 assert.match(offer, /Hardware, shipping, custom OCR, and production deployment are excluded/);
+assert.match(
+  offer,
+  /3788\/test-research-pdf-collection-before-local-rag\.html\?utm_source=lkt&amp;utm_medium=website&amp;utm_campaign=scientific_pdf_integrity&amp;utm_content=research_use_case/,
+);
 assert.ok(
   offer.indexOf('href="fit-check/">Check my collection') <
     offer.indexOf('href="sample-report/">See the sample deliverable'),
