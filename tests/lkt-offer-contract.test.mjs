@@ -56,6 +56,11 @@ assert.match(
 );
 assert.match(sampleReport, /Twenty fixed questions/);
 assert.match(sampleReport, /no-go boundary for OCR/);
+assert.match(offer, /16,800 current-code structured records/);
+assert.match(sampleReport, /<strong>16,800<\/strong><span>current-code records<\/span>/);
+assert.match(sampleReport, /<td>4,018<\/td>/);
+assert.match(sampleReport, /<td>5,179<\/td>/);
+assert.doesNotMatch(publicOffer, /19,119|6,327|5,189|5\.8 MB/);
 assert.ok(
   offer.indexOf('href="fit-check/">Check my collection') <
     offer.indexOf('href="sample-report/">See the sample deliverable'),
