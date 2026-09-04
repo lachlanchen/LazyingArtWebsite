@@ -20,6 +20,11 @@ assert.match(offer, /30–45 second/);
 assert.match(offer, /up to ten consolidated corrections/i);
 assert.match(offer, /customer-owned material or a clearly identified open license/);
 assert.match(offer, /not paid-customer results/);
+assert.match(offer, /One video, 45 aligned lines/);
+assert.match(
+  offer,
+  /https:\/\/lachlanchen\.github\.io\/LalaMedias\/videos\/aginti-autonomous-lab-ai-glasses-2b85b0d9\.html/,
+);
 assert.match(fitCheck, /Free fit check · no upload or payment/);
 assert.match(fitCheck, /do not paste a transcript or send the recording yet/);
 assert.match(fitCheck, /Nothing has been sent/);
