@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#17231f">
+  <title>Selected Work · LazyingArt</title>
+  <meta name="description" content="Selected LazyingArt work in local knowledge, multilingual books, study media, reproducible research, and practical agents—arranged by the problem it solves.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Selected Work · LazyingArt">
+  <meta property="og:description" content="Public code, books, media, and research tools, with three small fixed-scope ways to work together.">
+  <meta property="og:image" content="https://lazying.art/logos/banner.png">
+  <meta property="og:image:alt" content="LazyingArt">
+  <meta property="og:url" content="https://lazying.art/work/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://lazying.art/logos/banner.png">
+  <link rel="canonical" href="https://lazying.art/work/">
+  <link rel="icon" href="../favicon.ico" sizes="any">
+  <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Selected Work by LazyingArt",
+    "url": "https://lazying.art/work/",
+    "description": "Selected public code, books, media, research workflows, and agent tools arranged by the problem they solve.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "LazyingArt LLC",
+      "url": "https://lazying.art/"
+    }
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <a class="brand" href="../" aria-label="LazyingArt home">
+      <img src="../logos/logo.svg" alt="">
+      <span><strong>LazyingArt</strong><small>Selected work</small></span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a href="#knowledge">Knowledge</a>
+      <a href="#media">Media</a>
+      <a href="#research">Research</a>
+      <a href="#agents">Agents</a>
+      <a href="#services">Work together</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero work-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">A short shelf of public work</p>
+        <h1>Start with the problem.<br><em>Follow the work.</em></h1>
+        <p class="lead">LazyingArt builds inspectable tools around books, language, media, research, and local agents. This is a short shelf, not a catalogue of every experiment: open the source, read the output, or start with one small piece of work.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#services">Choose a fixed sprint</a>
+          <a class="button secondary" href="https://github.com/lachlanchen">Browse public repositories</a>
+        </div>
+      </div>
+
+      <aside class="shelf-map" aria-label="How the work fits together">
+        <p class="eyebrow">One working pattern</p>
+        <ol>
+          <li><strong>Keep the source</strong><span>A passage, timestamp, revision, or instrument record stays attached.</span></li>
+          <li><strong>Make it useful</strong><span>Turn it into a card, book, subtitle, build, figure, or reusable tool.</span></li>
+          <li><strong>Leave it inspectable</strong><span>Deliver editable files and a route back to the evidence.</span></li>
+        </ol>
+      </aside>
+    </section>
+
+    <section class="proof-strip" aria-label="Kinds of work on this page">
+      <article><strong>CODE</strong><span>Tools you can inspect</span></article>
+      <article><strong>BOOKS</strong><span>Aligned reading editions</span></article>
+      <article><strong>MEDIA</strong><span>Text tied to time</span></article>
+      <article><strong>RESEARCH</strong><span>Rebuildable evidence</span></article>
+    </section>
+
+    <section class="work-section" id="knowledge">
+      <div class="work-heading">
+        <div>
+          <p class="eyebrow">Books and local knowledge</p>
+          <h2>Find the passage,<br>not just an answer.</h2>
+        </div>
+        <p>Private libraries and multilingual books become much more useful when every card, note, and translation can lead back to its source.</p>
+      </div>
+      <div class="work-grid">
+        <article>
+          <p class="work-kind">Local knowledge · code</p>
+          <h3>Local Knowledge Terminal</h3>
+          <p>Builds cited multilingual cards from a collection while keeping the books, indexes, and model on local hardware.</p>
+          <a href="https://github.com/lachlanchen/LocalKnowledgeTerminal">Inspect the terminal →</a>
+        </article>
+        <article>
+          <p class="work-kind">Multilingual books · code</p>
+          <h3>PocketPolyglot</h3>
+          <p>Turns aligned text into compact editions with pinyin, furigana, grammar colour, editable source, and reproducible PDF output.</p>
+          <a href="https://github.com/lachlanchen/PocketPolyglot">Inspect the book pipeline →</a>
+        </article>
+        <article>
+          <p class="work-kind">Reading · public shelf</p>
+          <h3>LinguaLeaf and Susskind</h3>
+          <p>Browse multilingual Chinese classics and history, or follow physics lectures through transcripts, subtitles, notes, TeX, and PDFs.</p>
+          <div class="link-row">
+            <a href="https://lachlanchen.github.io/LinguaLeaf/website/">Open LinguaLeaf →</a>
+            <a href="https://github.com/lachlanchen/leonardsusskind">Open the lecture archive →</a>
+          </div>
+        </article>
+      </div>
+      <a class="section-route" href="../lkt/?utm_source=lazyingart&amp;utm_medium=website&amp;utm_campaign=local_knowledge_terminal_pilot&amp;utm_content=work_shelf">Need to test your own collection? See the Local Knowledge Terminal sprint →</a>
+    </section>
+
+    <section class="work-section work-section-dark" id="media">
+      <div class="work-heading">
+        <div>
+          <p class="eyebrow">Lecture and study media</p>
+          <h2>Make one recording<br>worth returning to.</h2>
+        </div>
+        <p>A useful lecture pack keeps the transcript, translation, subtitles, and notes on one timed source instead of letting each become a separate copy.</p>
+      </div>
+      <div class="work-grid">
+        <article>
+          <p class="work-kind">Long-form media · code</p>
+          <h3>Video2Book</h3>
+          <p>A pipeline from media and timestamped transcripts to structured notes, subtitles, PDFs, EPUBs, and pocket editions.</p>
+          <a href="https://github.com/lachlanchen/Video2Book">Inspect Video2Book →</a>
+        </article>
+        <article>
+          <p class="work-kind">Captions and clips · code</p>
+          <h3>LazyEdit</h3>
+          <p>Keeps transcription, subtitle translation, review copies, caption burn-in, and publishing preparation in one editable workflow.</p>
+          <a href="https://github.com/lachlanchen/LazyEdit">Inspect LazyEdit →</a>
+        </article>
+        <article>
+          <p class="work-kind">Timed text · working example</p>
+          <h3>Three-language media proof</h3>
+          <p>Search Japanese, English, and Chinese lines, then jump from a result or concept pointer to the exact second in the video.</p>
+          <a href="https://lachlanchen.github.io/LalaMedias/videos/aginti-autonomous-lab-ai-glasses-2b85b0d9.html">Try the timed-text page →</a>
+        </article>
+      </div>
+      <a class="section-route" href="../lecture-pack/?utm_source=lazyingart&amp;utm_medium=website&amp;utm_campaign=bilingual_lecture_pack_pilot&amp;utm_content=work_shelf">Have one rights-cleared lecture? See the Bilingual Lecture Pack →</a>
+    </section>
+
+    <section class="work-section" id="research">
+      <div class="work-heading">
+        <div>
+          <p class="eyebrow">Research and manuscripts</p>
+          <h2>Keep the clean paper<br>and the change trail.</h2>
+        </div>
+        <p>Revision is safer when the baseline, current manuscript, generated redline, commands, logs, and open issues remain separate and rebuildable.</p>
+      </div>
+      <div class="work-grid">
+        <article>
+          <p class="work-kind">Revision workflow · agent skill</p>
+          <h3>Paper revision skill</h3>
+          <p>A plan-gated workflow for LaTeX revisions, response letters, proof corrections, build checks, and visible unresolved issues.</p>
+          <a href="https://github.com/lachlanchen/paper-revision-skill">Inspect the workflow →</a>
+        </article>
+        <article>
+          <p class="work-kind">Redline · reproducible sample</p>
+          <h3>Three-build LaTeX proof</h3>
+          <p>Baseline, clean revision, generated redline, final logs, pinned tooling, and hashes in a small synthetic example.</p>
+          <a href="https://github.com/lachlanchen/LazyPromotion/tree/main/examples/latex-redline">Inspect the three builds →</a>
+        </article>
+        <article>
+          <p class="work-kind">Local workspace · code</p>
+          <h3>PaperAgent</h3>
+          <p>Edit LaTeX and code in the browser, run Python or R, compile on the backend, and inspect the PDF beside its build log.</p>
+          <a href="https://github.com/lachlanchen/PaperAgent">Inspect PaperAgent →</a>
+        </article>
+      </div>
+      <a class="section-route" href="../manuscript-sprint/?utm_source=lazyingart&amp;utm_medium=website&amp;utm_campaign=manuscript_sprint_pilot&amp;utm_content=work_shelf">Need one bounded manuscript repaired? See the Build &amp; Redline Sprint →</a>
+    </section>
+
+    <section class="work-section work-section-soft" id="agents">
+      <div class="work-heading">
+        <div>
+          <p class="eyebrow">Agents and instruments</p>
+          <h2>Give an agent<br>something real to operate.</h2>
+        </div>
+        <p>Useful agents need bounded tools, visible state, recoverable actions, and outputs that survive the chat that created them.</p>
+      </div>
+      <div class="work-grid">
+        <article>
+          <p class="work-kind">Reusable workflows · code</p>
+          <h3>LazySkills</h3>
+          <p>Portable working instructions for books, publishing, media, browser operation, research, hardware, and other long-running tasks.</p>
+          <a href="https://github.com/lachlanchen/LazySkills">Browse the skills →</a>
+        </article>
+        <article>
+          <p class="work-kind">Scientific design · code</p>
+          <h3>AgInTi LabCanvas</h3>
+          <p>An agentic studio for editable scientific figures, CAD devices, and experiment design where the artifact remains open to revision.</p>
+          <a href="https://github.com/lachlanchen/AgInTi-LabCanvas">Inspect LabCanvas →</a>
+        </article>
+        <article>
+          <p class="work-kind">Imaging research · code</p>
+          <h3>OpenHI</h3>
+          <p>A hyperspectral event-camera pipeline covering RAW segmentation, timing compensation, spectral views, and synchronized capture.</p>
+          <a href="https://github.com/lachlanchen/OpenHI">Inspect OpenHI →</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="services" id="services" aria-labelledby="services-title">
+      <div class="services-copy">
+        <p class="eyebrow">Three small ways to begin</p>
+        <h2 id="services-title">Bring one bounded problem.</h2>
+        <p>Each fixed-scope USD 250 sprint starts with a free fit check. Source transfer and payment come only after the exact scope is accepted.</p>
+      </div>
+      <div class="service-list">
+        <article>
+          <span>01</span>
+          <div><h3>Local Knowledge Terminal</h3><p>Test one private collection, one language goal, and one existing machine.</p></div>
+          <a href="../lkt/?utm_source=lazyingart&amp;utm_medium=website&amp;utm_campaign=local_knowledge_terminal_pilot&amp;utm_content=work_services">See the sprint →</a>
+        </article>
+        <article>
+          <span>02</span>
+          <div><h3>Bilingual Lecture Pack</h3><p>Turn one short, rights-cleared English lecture into linked study material.</p></div>
+          <a href="../lecture-pack/?utm_source=lazyingart&amp;utm_medium=website&amp;utm_campaign=bilingual_lecture_pack_pilot&amp;utm_content=work_services">See the pack →</a>
+        </article>
+        <article>
+          <span>03</span>
+          <div><h3>Manuscript Build &amp; Redline</h3><p>Repair one bounded LaTeX build and leave a reproducible change trail.</p></div>
+          <a href="../manuscript-sprint/?utm_source=lazyingart&amp;utm_medium=website&amp;utm_campaign=manuscript_sprint_pilot&amp;utm_content=work_services">See the sprint →</a>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>Selected work by LazyingArt LLC</span>
+    <a href="../">Home</a>
+    <a href="https://blog.lazying.art">Writing</a>
+    <a href="https://github.com/lachlanchen">GitHub</a>
+  </footer>
+</body>
+</html>
