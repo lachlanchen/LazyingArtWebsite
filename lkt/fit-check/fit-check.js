@@ -118,7 +118,7 @@
       payload.constraints || "None stated.",
       "",
       "Rights confirmation: I have the right to use the source material.",
-      "Scope confirmation: I understand the fixed USD 250 sprint begins only after a free fit check and excludes hardware, shipping, custom OCR, and production deployment.",
+      "Scope confirmation: I understand the fixed USD 250 sprint begins only after a free fit check, caps the agreed sample at 12 source units and 20 test questions with up to two cited browser cards and one factual correction pass, and excludes hardware, shipping, custom OCR, bulk conversion, production deployment, and ongoing support.",
       ...(source.length ? ["", "Page attribution:", ...source] : []),
     ].join("\n");
   };
