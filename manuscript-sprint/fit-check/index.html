@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#17231f">
+  <title>Free manuscript fit check · Build &amp; Redline Sprint</title>
+  <meta name="description" content="Describe one bounded LaTeX manuscript and review whether it fits the fixed USD 250 Manuscript Build & Redline Sprint.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Free manuscript fit check · Build &amp; Redline Sprint">
+  <meta property="og:description" content="Review the request locally and choose whether to send it from your own email app. No source upload or payment.">
+  <meta property="og:image" content="https://lazying.art/logos/banner.png">
+  <meta property="og:url" content="https://lazying.art/manuscript-sprint/fit-check/">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://lazying.art/manuscript-sprint/fit-check/">
+  <link rel="icon" href="../../favicon.ico" sizes="any">
+  <link rel="stylesheet" href="../../lecture-pack/styles.css">
+  <script src="fit-check.js" defer></script>
+</head>
+<body data-fit-state="editing">
+  <a class="skip-link" href="#fit-form">Skip to fit questions</a>
+
+  <header class="site-header">
+    <a class="brand" href="../" aria-label="Manuscript Build and Redline Sprint offer">
+      <img src="../../logos/logo.svg" alt="">
+      <span><strong>LazyingArt</strong><small>Manuscript Build &amp; Redline Sprint</small></span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a href="../">Offer</a>
+      <a href="../#included">What's included</a>
+      <a href="../#example">Working proof</a>
+      <a href="https://github.com/lachlanchen/LazyPromotion/tree/main/examples/latex-redline">Public sample</a>
+    </nav>
+  </header>
+
+  <main class="fit-main">
+    <div class="fit-layout">
+      <section class="fit-intro" aria-labelledby="fit-title">
+        <p class="eyebrow">Free fit check · no source upload or payment</p>
+        <h1 id="fit-title">Describe the<br><em>build problem.</em></h1>
+        <p class="lead">Share the source shape, target template, and deadline—not the manuscript itself. This page prepares a reviewable email draft and sends nothing automatically.</p>
+        <div class="scope-card">
+          <h2>The paid sprint, if it fits</h2>
+          <ul>
+            <li>One LaTeX manuscript up to 7,500 words.</li>
+            <li>One named journal or venue template.</li>
+            <li>One supplied baseline and current revision.</li>
+            <li>Clean build, issue ledger, and reproducible redline.</li>
+            <li>One pass of up to ten consolidated build or formatting corrections.</li>
+          </ul>
+          <p class="scope-proof"><a href="../#example">Inspect the public three-build proof →</a></p>
+        </div>
+      </section>
+
+      <section class="fit-card" aria-labelledby="questions-title">
+        <h2 id="questions-title">Check the manuscript</h2>
+        <p class="privacy-note"><strong>Do not paste manuscript text:</strong> describe the project only. “Review request” builds a draft in this tab. You choose whether to send it from your own email app.</p>
+
+        <form class="fit-form" id="fit-form" data-testid="fit-form" novalidate>
+          <div class="field">
+            <label for="role">Your role and source rights <span aria-hidden="true">*</span></label>
+            <textarea id="role" name="role" required maxlength="700" aria-describedby="role-help"></textarea>
+            <small id="role-help">For example: corresponding author with permission to share the source privately.</small>
+          </div>
+
+          <div class="field">
+            <label for="shape">Length and source shape <span aria-hidden="true">*</span></label>
+            <input id="shape" name="shape" required maxlength="400" autocomplete="off">
+            <small>Word count, main TeX file, number of figures/tables, bibliography format, and whether both baseline and revision exist.</small>
+          </div>
+
+          <div class="field">
+            <label for="venue">Target journal, template, and deadline <span aria-hidden="true">*</span></label>
+            <textarea id="venue" name="venue" required maxlength="700"></textarea>
+            <small>Include a public instructions URL if available. Do not include submission credentials.</small>
+          </div>
+
+          <div class="field">
+            <label for="problem">Current build or redline problem <span aria-hidden="true">*</span></label>
+            <textarea id="problem" name="problem" required maxlength="1000"></textarea>
+            <small>Describe the first error, missing asset, template conflict, or requested editor artifact without pasting confidential text.</small>
+          </div>
+
+          <div class="field">
+            <label for="outputs">Required outputs</label>
+            <textarea id="outputs" name="outputs" maxlength="700"></textarea>
+            <small>Optional. Clean PDF, source archive, redline PDF, log, issue ledger, or venue checklist.</small>
+          </div>
+
+          <div class="field">
+            <label for="handling">Confidentiality and automation policy <span aria-hidden="true">*</span></label>
+            <textarea id="handling" name="handling" required maxlength="800"></textarea>
+            <small>State local-only requirements, retention needs, and any journal or employer policy governing automated tools.</small>
+          </div>
+
+          <div class="field">
+            <label for="constraints">Other constraints</label>
+            <textarea id="constraints" name="constraints" maxlength="800"></textarea>
+          </div>
+
+          <div class="confirmations">
+            <label class="check-field" for="rights">
+              <input id="rights" name="rights" type="checkbox" required>
+              <span>I am authorized to request work on this manuscript and will not send source files until handling and scope are accepted.</span>
+            </label>
+            <label class="check-field" for="scope">
+              <input id="scope" name="scope" type="checkbox" required>
+              <span>I understand that the fixed USD 250 sprint excludes substantive research, ghostwriting, statistical analysis, portal submission, and publication guarantees.</span>
+            </label>
+          </div>
+
+          <div class="fit-actions">
+            <button class="button primary" type="submit" data-testid="review-request">Review request</button>
+            <a class="text-link" href="../">Return to the offer</a>
+          </div>
+        </form>
+
+        <section class="review-panel" id="review-panel" data-testid="review-panel" aria-live="polite" hidden>
+          <h3 tabindex="-1">Review before opening email</h3>
+          <p>Check the exact text below. Opening your email app still does not send it.</p>
+          <pre class="request-preview" id="request-preview" data-testid="request-preview"></pre>
+          <p class="review-destination"><strong>Nothing has been sent.</strong> Send the reviewed text to <a href="mailto:contact@lazying.art?subject=Manuscript%20Build%20%26%20Redline%20Sprint%20%E2%80%94%20free%20fit%20check">contact@lazying.art</a>. Use “Copy request” if this device has no configured email app.</p>
+          <div class="fit-actions">
+            <a class="button primary" id="open-email" data-testid="open-email" href="mailto:contact@lazying.art">Open in email</a>
+            <button class="button secondary" id="copy-request" data-testid="copy-request" type="button">Copy request</button>
+          </div>
+          <div class="review-next" aria-labelledby="review-next-title">
+            <h4 id="review-next-title">What happens next</h4>
+            <ol>
+              <li>LazyingArt checks the source shape, template, deadline, rights, and handling constraints. Do not send manuscript files yet.</li>
+              <li>You receive a fit/no-fit answer or the few questions needed to decide.</li>
+              <li>Only after a positive fit check do both sides accept the exact scope and handling terms. A Stripe request and private source transfer come afterward.</li>
+            </ol>
+          </div>
+          <p class="copy-status" id="copy-status" role="status"></p>
+        </section>
+
+        <noscript>
+          <p class="fit-footer-note">JavaScript is required for the local review step. You can instead email <a href="mailto:contact@lazying.art?subject=Manuscript%20Build%20%26%20Redline%20Sprint%20%E2%80%94%20free%20fit%20check">contact@lazying.art</a> with the answers above.</p>
+        </noscript>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <span>Manuscript Build &amp; Redline Sprint by LazyingArt LLC</span>
+    <a href="../">Offer</a>
+    <a href="https://github.com/lachlanchen/paper-revision-skill">GitHub</a>
+  </footer>
+</body>
+</html>

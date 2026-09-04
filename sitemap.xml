@@ -43,6 +43,18 @@
         <priority>0.7</priority>
     </url>
     <url>
+        <loc>https://lazying.art/manuscript-sprint/</loc>
+        <lastmod>2026-09-04</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://lazying.art/manuscript-sprint/fit-check/</loc>
+        <lastmod>2026-09-04</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
         <loc>https://lazying.art/app-privacy/glassagent/</loc>
         <lastmod>2026-07-26</lastmod>
         <changefreq>monthly</changefreq>

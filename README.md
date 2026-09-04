@@ -21,9 +21,9 @@
 
 | Item | Info |
 | --- | --- |
-| ✅ Repo focus | Multilingual marketing site with product entry points for LazyingArt |
+| ✅ Repo focus | Multilingual marketing site with product and fixed-scope service entry points for LazyingArt |
 | 🌍 Audience | Visitors, language learners, collaborators, contributors |
-| 🧩 Core pages | `index.html`, `eink/`, `lkt/`, `lecture-pack/`, `robot.html`, `eink-words-card.html`, `openhi-kit.html` |
+| 🧩 Core pages | `index.html`, `eink/`, `lkt/`, `lecture-pack/`, `manuscript-sprint/`, `robot.html`, `eink-words-card.html`, `openhi-kit.html` |
 | 🧱 Runtime | HTML/CSS/vanilla JS with localized text interpolation |
 
 ## 🎨 About LazyingArt
@@ -98,6 +98,8 @@ LazyingArtLanding/
 ├── lkt/
 ├── lecture-pack/
 │   └── fit-check/
+├── manuscript-sprint/
+│   └── fit-check/
 ├── tests/
 ├── 404.html
 ├── sitemap.xml
@@ -153,6 +155,7 @@ Primary page routes:
 - Multilingual e-ink reader: `eink/`
 - Local Knowledge Terminal pilot: `lkt/`
 - Bilingual Lecture Pack pilot: `lecture-pack/`
+- Manuscript Build & Redline Sprint: `manuscript-sprint/`
 - Robot: `robot.html`
 - E-ink product: `eink-words-card.html`
 - OpenHI kit: `openhi-kit.html`
