@@ -32,6 +32,12 @@ assert.match(
   offer,
   /3788\/test-research-pdf-collection-before-local-rag\.html\?utm_source=lkt&amp;utm_medium=website&amp;utm_campaign=scientific_pdf_integrity&amp;utm_content=research_use_case/,
 );
+assert.match(
+  sampleReport,
+  /github\.com\/lachlanchen\/LazyPromotion\/tree\/main\/examples\/lkt-scientific-pdf-fit/,
+);
+assert.match(sampleReport, /Twenty fixed questions/);
+assert.match(sampleReport, /no-go boundary for OCR/);
 assert.ok(
   offer.indexOf('href="fit-check/">Check my collection') <
     offer.indexOf('href="sample-report/">See the sample deliverable'),
