@@ -61,6 +61,9 @@ assert.match(sampleReport, /<strong>16,800<\/strong><span>current-code records<\
 assert.match(sampleReport, /<td>4,018<\/td>/);
 assert.match(sampleReport, /<td>5,179<\/td>/);
 assert.doesNotMatch(publicOffer, /19,119|6,327|5,189|5\.8 MB/);
+assert.match(offer, /Terminology and language study/);
+assert.match(offer, /rights-cleared glossary, dictionary, or reading collection/);
+assert.match(offer, /When the source supports it/);
 assert.ok(
   offer.indexOf('href="fit-check/">Check my collection') <
     offer.indexOf('href="sample-report/">See the sample deliverable'),
