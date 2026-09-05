@@ -44,6 +44,14 @@ assert.match(offer, /sends nothing automatically/);
 assert.match(offer, /Hardware, shipping, custom OCR, bulk conversion, production deployment, and ongoing support are excluded/);
 assert.match(offer, /A supplied device is a separate, quote-only product/);
 assert.match(offer, /A tested reference build, not included hardware/);
+assert.match(offer, /Delivery is ten business days after the scope is accepted/);
+assert.match(offer, /one consolidated list of up to ten factual corrections within seven calendar days/);
+assert.match(offer, /Cancel before source transfer or processing begins for a full refund/);
+assert.match(offer, /USD 75 for the map, USD 125 for the evaluation and cards, and USD 50 for the report and correction pass/);
+assert.match(offer, /Working source copies are deleted within fourteen calendar days/);
+assert.match(offer, /hosting, maintenance, hardware support, and ongoing operation are excluded/);
+assert.match(fitCheck, /href="\.\.\/#terms">Read timing, cancellation, retention, and support terms/);
+assert.match(offer, /width="1672" height="941"/);
 assert.match(homepage, /A collection-fit service for private, book-grounded multilingual cards on your existing machine/);
 assert.match(homepage, />Service pilot <span/);
 assert.match(
