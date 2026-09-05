@@ -12,6 +12,7 @@ const fitCheck = read("../manuscript-sprint/fit-check/index.html");
 const fitCheckScript = read("../manuscript-sprint/fit-check/fit-check.js");
 const attributionBridge = read("../manuscript-sprint/attribution-bridge.js");
 const socialImage = readBuffer("../manuscript-sprint/assets/manuscript-sprint-social.png");
+const sampleImage = readBuffer("../manuscript-sprint/assets/manuscript-redline-sample.png");
 const publicOffer = [offer, fitCheck, fitCheckScript, attributionBridge].join("\n");
 
 assert.match(publicOffer, /USD 250/);
@@ -22,6 +23,22 @@ assert.match(offer, /three clean builds/i);
 assert.match(offer, /up to ten build or formatting corrections/i);
 assert.match(offer, /No ghostwriting\. No acceptance promises\./);
 assert.match(offer, /not a client result or a journal outcome/);
+assert.match(offer, /See exactly what comes back/);
+assert.match(offer, /Download the sample packet/);
+assert.match(
+  offer,
+  /Open build blockers<\/strong><span>This one-page sample<\/span><b>0<\/b>/,
+);
+assert.match(offer, /manuscript-redline-sample\.png/);
+assert.match(
+  offer,
+  /LazyPromotion\/raw\/183d64325f4e943f14beb6a975a518eb593175f0\/examples\/latex-redline\/artifacts\/sample-delivery\.zip/,
+);
+assert.match(offer, /sample-delivery\.zip\.sha256/);
+assert.match(
+  offer,
+  /not customer work, scientific review, journal compliance, or a publication result/,
+);
 assert.match(offer, /Delivery is ten business days/);
 assert.match(offer, /Only one manuscript sprint is active at a time/);
 assert.match(offer, /one consolidated list of up to ten build or formatting corrections within seven calendar days/);
@@ -52,5 +69,8 @@ assert.match(
 assert.equal(socialImage.subarray(1, 4).toString("ascii"), "PNG");
 assert.equal(socialImage.readUInt32BE(16), 1200);
 assert.equal(socialImage.readUInt32BE(20), 630);
+assert.equal(sampleImage.subarray(1, 4).toString("ascii"), "PNG");
+assert.equal(sampleImage.readUInt32BE(16), 993);
+assert.equal(sampleImage.readUInt32BE(20), 1404);
 
 console.log("Manuscript Build & Redline Sprint offer contract tests passed");
