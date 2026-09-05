@@ -19,6 +19,7 @@ for (const project of [
   "LocalKnowledgeTerminal",
   "PocketPolyglot",
   "leonardsusskind",
+  "L-and-N",
   "Video2Book",
   "LazyEdit",
   "paper-revision-skill",
@@ -35,6 +36,13 @@ assert.match(html, /fixed-scope USD 250 sprint/);
 assert.match(html, /Auditable content coding/);
 assert.match(html, /<h3>Proofline<\/h3>/);
 assert.match(html, /href="\.\.\/proofline\/"/);
+assert.match(html, /L &amp; N speech practice/);
+assert.match(
+  html,
+  /https:\/\/l-and-n\.lazying\.art\/\?utm_source=lazyingart&amp;utm_medium=website&amp;utm_campaign=l_and_n_pronunciation_launch&amp;utm_content=work_shelf/,
+);
+assert.match(html, /Try the no-signup practice/);
+assert.doesNotMatch(html, /diagnos|clinical|guaranteed pronunciation/i);
 assert.match(
   html,
   /\.\.\/lkt\/\?utm_source=lazyingart&amp;utm_medium=website&amp;utm_campaign=local_knowledge_terminal_pilot&amp;utm_content=work_services/,
