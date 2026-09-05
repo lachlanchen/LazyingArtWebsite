@@ -18,8 +18,14 @@ const chooser = chooserMatch[0];
 assert.match(chooser, /fixed-scope USD 250 sprint/);
 assert.match(chooser, /private collection/);
 assert.match(chooser, /LaTeX manuscript/);
-assert.match(chooser, /rights-cleared English lecture/);
+assert.match(chooser, /rights-cleared lecture/);
+assert.match(chooser, /recording you own/);
 assert.match(chooser, /No source upload or payment before both sides accept the scope/);
+assert.equal(
+  (chooser.match(/<article class="service-card">/g) || []).length,
+  4,
+  "homepage should expose all four bounded service routes",
+);
 
 assert.match(
   chooser,
@@ -32,6 +38,10 @@ assert.match(
 assert.match(
   chooser,
   /lecture-pack\/\?utm_source=lazyingart&amp;utm_medium=website&amp;utm_campaign=bilingual_lecture_pack_pilot&amp;utm_content=service_chooser/,
+);
+assert.match(
+  chooser,
+  /story-clip\/\?utm_source=lazyingart&amp;utm_medium=website&amp;utm_campaign=story_clip_pilot&amp;utm_content=service_chooser/,
 );
 assert.doesNotMatch(chooser, /fit-check\//);
 assert.match(homepage, /href="#services" data-i18n="nav_services"/);
