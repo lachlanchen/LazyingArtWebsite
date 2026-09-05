@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#14221e">
+  <title>Meeting to knowledge · project-owned proof</title>
+  <meta name="description" content="Inspect a scripted bilingual meeting, ten manually reviewed knowledge units, exact timestamped evidence, lifecycle history, and a portable verified JSON artifact.">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Meeting to knowledge · project-owned proof">
+  <meta property="og:description" content="A synthetic bilingual meeting proof with exact evidence, review states, and portable JSON.">
+  <meta property="og:image" content="https://lazying.art/figs/banner.png">
+  <meta property="og:image:alt" content="LazyingArt — open tools for durable, inspectable knowledge">
+  <meta property="og:url" content="https://lazying.art/meeting-intelligence/">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://lazying.art/meeting-intelligence/">
+  <link rel="icon" href="../favicon.ico" sizes="any">
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="meeting-intelligence.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#proof">Skip to the interactive proof</a>
+
+  <header class="site-header">
+    <a class="brand" href="../" aria-label="LazyingArt home">
+      <img src="../logos/logo.svg" alt="">
+      <span><strong>LazyingArt</strong><small>Meeting-to-knowledge proof</small></span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a href="#proof">Open proof</a>
+      <a href="meeting-intelligence-demo.json" download>Download JSON</a>
+      <a href="../lkt/sample-report/">Sample report</a>
+      <a class="nav-action" href="../lkt/fit-check/?utm_source=lazyingart&amp;utm_medium=owned_proof&amp;utm_campaign=meeting_intelligence&amp;utm_content=header">Free fit check</a>
+    </nav>
+  </header>
+
+  <main data-meeting-proof data-testid="meeting-proof" data-status="loading" data-filter="all">
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <p class="eyebrow">One short meeting · ten inspectable units</p>
+        <h1 id="page-title">The summary ends.<br><em>The evidence stays.</em></h1>
+        <p class="lead">Move from a bilingual conversation to decisions, actions, risks, and constraints without losing the speaker, exact time, original words, or review history.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#proof">Inspect the meeting</a>
+          <a class="button secondary" href="meeting-intelligence-demo.json" download="lazyingart-synthetic-meeting-proof.json">Download portable JSON</a>
+        </div>
+      </div>
+
+      <aside class="proof-boundary" aria-labelledby="boundary-title">
+        <p class="eyebrow">What this proves</p>
+        <h2 id="boundary-title">A reviewable record design.</h2>
+        <p>The meeting is scripted, project-owned, and manually reviewed. It demonstrates provenance, lifecycle, and export—not automatic extraction, ASR, diarization, or translation accuracy, and not a customer result.</p>
+        <dl>
+          <div><dt>Source</dt><dd>10 synthetic turns</dd></div>
+          <div><dt>Languages</dt><dd>English + 中文</dd></div>
+          <div><dt>Output</dt><dd>10 typed units</dd></div>
+          <div><dt>Media</dt><dd>None attached</dd></div>
+        </dl>
+      </aside>
+    </section>
+
+    <section class="lifecycle-strip" aria-label="Knowledge review lifecycle">
+      <p>Knowledge changes state. The source does not.</p>
+      <ol>
+        <li><span>01</span><strong>Draft</strong></li>
+        <li><span>02</span><strong>Pending</strong></li>
+        <li><span>03</span><strong>Confirmed</strong></li>
+        <li><span>04</span><strong>Superseded</strong></li>
+      </ol>
+    </section>
+
+    <section class="proof-section" id="proof" aria-labelledby="proof-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Project-owned interactive proof</p>
+          <h2 id="proof-title">Trace a unit back to the room.</h2>
+        </div>
+        <p>Select any knowledge unit to see the exact source turn, speaker, timestamp, excerpt, source hash, and lifecycle. Filtering changes only this view; it never edits the downloadable source record.</p>
+      </div>
+
+      <p class="load-status" id="load-status" data-testid="load-status" role="status" aria-live="polite">Verifying the local artifact and transcript…</p>
+
+      <div class="proof-workspace" id="proof-workspace" data-testid="proof-workspace" hidden>
+        <section class="source-panel" aria-labelledby="transcript-title">
+          <div class="panel-heading">
+            <div>
+              <p class="panel-kicker">Immutable source</p>
+              <h3 id="transcript-title">Timestamped transcript</h3>
+            </div>
+            <span class="source-lock">Read only</span>
+          </div>
+          <p class="meeting-name" id="meeting-title"></p>
+          <ol class="transcript-list" id="transcript-list" data-testid="transcript-list"></ol>
+        </section>
+
+        <section class="knowledge-panel" aria-labelledby="units-title">
+          <div class="panel-heading">
+            <div>
+              <p class="panel-kicker">Reviewed layer</p>
+              <h3 id="units-title">Typed knowledge units</h3>
+            </div>
+            <span class="unit-count" id="unit-count">10 units</span>
+          </div>
+
+          <div class="status-summary" id="status-summary" aria-label="Knowledge units represented in each lifecycle state"></div>
+          <div class="filter-row" id="type-filters" data-testid="type-filters" aria-label="Filter knowledge units by type"></div>
+          <ol class="unit-list" id="unit-list" data-testid="unit-list"></ol>
+        </section>
+
+        <section class="detail-panel" id="unit-detail" data-testid="unit-detail" tabindex="-1" aria-labelledby="detail-title" aria-live="polite">
+          <div class="detail-heading">
+            <div>
+              <p class="panel-kicker" id="detail-type">Knowledge unit</p>
+              <h3 id="detail-title">Select a unit</h3>
+            </div>
+            <span class="status-badge" id="detail-status">Draft</span>
+          </div>
+          <p class="detail-statement" id="detail-statement"></p>
+
+          <div class="detail-grid">
+            <div class="evidence-card">
+              <p class="panel-kicker">Exact evidence excerpt</p>
+              <blockquote id="detail-evidence"></blockquote>
+              <dl class="source-metadata" id="detail-source"></dl>
+            </div>
+            <div class="lifecycle-card">
+              <p class="panel-kicker">Review history</p>
+              <ol class="detail-lifecycle" id="detail-lifecycle"></ol>
+            </div>
+          </div>
+        </section>
+
+        <section class="integrity-panel" aria-labelledby="integrity-title">
+          <div>
+            <p class="panel-kicker">Portable by design</p>
+            <h3 id="integrity-title">Two hashes, one inspectable record.</h3>
+            <p>The interface verifies the downloaded file before parsing it, checks every excerpt against the embedded transcript, and confirms that units, evidence, and graph edges resolve through the same source hash.</p>
+          </div>
+          <dl>
+            <div><dt>Artifact SHA-256</dt><dd><code id="artifact-hash"></code></dd></div>
+            <div><dt>Transcript SHA-256</dt><dd><code id="source-hash"></code></dd></div>
+          </dl>
+          <a class="button secondary" href="meeting-intelligence-demo.json" download="lazyingart-synthetic-meeting-proof.json">Keep the JSON artifact</a>
+        </section>
+      </div>
+
+      <aside class="fallback" aria-labelledby="fallback-title">
+        <div>
+          <p class="panel-kicker">No lock-in</p>
+          <h3 id="fallback-title">The record works without this interface.</h3>
+          <p>If the interactive view cannot load, the local JSON still contains the transcript, ten units, evidence pointers, lifecycle history, and proof boundary.</p>
+        </div>
+        <a href="meeting-intelligence-demo.json" download="lazyingart-synthetic-meeting-proof.json">Download the portable record →</a>
+      </aside>
+
+      <noscript>
+        <p class="noscript-note">JavaScript is needed for local integrity verification, filters, and selection. The portable JSON download remains available above.</p>
+      </noscript>
+    </section>
+
+    <section class="related-section" aria-labelledby="related-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Inspectable foundations</p>
+          <h2 id="related-title">Related public work.</h2>
+        </div>
+        <p>These repositories show relevant components and working patterns. They are not presented as an existing end-to-end enterprise meeting deployment.</p>
+      </div>
+      <div class="related-grid">
+        <article>
+          <span>Knowledge + provenance</span>
+          <h3>Local Knowledge Terminal</h3>
+          <p>Typed records, exact evidence, source hashes, and reviewable knowledge graphs.</p>
+          <div class="card-links">
+            <a href="https://github.com/lachlanchen/LocalKnowledgeTerminal/blob/907e0b3ba6a48cc1d42e37cdaa22b28416264ab6/examples/artifacts/scripted-bilingual-meeting-knowledge.json">Open the pinned artifact →</a>
+            <a href="https://github.com/lachlanchen/LocalKnowledgeTerminal">Inspect the public code →</a>
+          </div>
+        </article>
+        <article>
+          <span>Timed source material</span>
+          <h3>Video2Book</h3>
+          <p>Timestamped transcripts and source-linked material that can travel beyond one interface.</p>
+          <a href="https://github.com/lachlanchen/Video2Book">Inspect the public code →</a>
+        </article>
+        <article>
+          <span>Private deployment edge</span>
+          <h3>LazyEdge</h3>
+          <p>A default-deny path for exposing selected private services without claiming enterprise IAM or compliance certification.</p>
+          <a href="https://github.com/lachlanchen/LazyEdge">Inspect the public code →</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="next-section" aria-labelledby="next-title">
+      <div>
+        <p class="eyebrow">Start with the source you actually have</p>
+        <h2 id="next-title">Test one bounded collection first.</h2>
+        <p>The current Local Knowledge Terminal sprint evaluates one rights-cleared collection on an existing machine. Read the project-owned sample, then use the free fit check before any source transfer or payment.</p>
+      </div>
+      <div class="next-actions">
+        <a class="button primary" href="../lkt/fit-check/?utm_source=lazyingart&amp;utm_medium=owned_proof&amp;utm_campaign=meeting_intelligence&amp;utm_content=closing">Start the free fit check</a>
+        <a href="../lkt/sample-report/?utm_source=lazyingart&amp;utm_medium=owned_proof&amp;utm_campaign=meeting_intelligence&amp;utm_content=closing">Read the sample report →</a>
+        <a href="../lkt/?utm_source=lazyingart&amp;utm_medium=owned_proof&amp;utm_campaign=meeting_intelligence&amp;utm_content=closing">See the USD 250 sprint →</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>Project-owned proof by LazyingArt LLC</span>
+    <a href="../">Home</a>
+    <a href="../work/">Selected work</a>
+    <a href="https://github.com/lachlanchen">GitHub</a>
+  </footer>
+</body>
+</html>
