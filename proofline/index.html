@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#14221e">
+  <title>Proofline · offline source-to-claim verification</title>
+  <meta name="description" content="Inspect a small MIT-licensed verifier for local file hashes, transformation edges, and source-located claim evidence. No account and no upload.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Proofline · offline source-to-claim verification">
+  <meta property="og:description" content="A small offline provenance contract for source files, derived artifacts, transformations, and claims.">
+  <meta property="og:image" content="https://lazying.art/figs/banner.png">
+  <meta property="og:image:alt" content="LazyingArt — open tools for durable, inspectable knowledge">
+  <meta property="og:url" content="https://lazying.art/proofline/">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://lazying.art/proofline/">
+  <link rel="icon" href="../favicon.ico" sizes="any">
+  <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareSourceCode",
+    "name": "Proofline",
+    "description": "An offline verifier for local file hashes, transformation edges, and source-located claim evidence.",
+    "codeRepository": "https://github.com/lachlanchen/LazyPromotion/blob/a062c7110d3c814b66ae9732f88eb891fe32b973/proofline.py",
+    "license": "https://github.com/lachlanchen/LazyPromotion/blob/a062c7110d3c814b66ae9732f88eb891fe32b973/LICENSE",
+    "programmingLanguage": "Python",
+    "author": {
+      "@type": "Organization",
+      "name": "LazyingArt LLC",
+      "url": "https://lazying.art/"
+    }
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#proof">Skip to the proof</a>
+
+  <header class="site-header">
+    <a class="brand" href="../" aria-label="LazyingArt home">
+      <img src="../logos/logo.svg" alt="">
+      <span><strong>LazyingArt</strong><small>Proofline</small></span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a href="#proof">Example</a>
+      <a href="#boundary">Boundary</a>
+      <a href="https://github.com/lachlanchen/LazyPromotion/tree/a062c7110d3c814b66ae9732f88eb891fe32b973/examples/proofline">Files</a>
+      <a class="nav-action" href="https://github.com/lachlanchen/LazyPromotion/blob/a062c7110d3c814b66ae9732f88eb891fe32b973/proofline.py">Inspect the code</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Two files · one transformation · one verified claim</p>
+        <h1 id="page-title">Keep the claim.<br><em>Keep its trail.</em></h1>
+        <p class="lead">Proofline checks a small source-to-claim manifest on your machine. It hashes the named files, follows each transformation edge, and refuses a verified claim that cannot point to an inspectable file and locator.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#proof">Read the passing example</a>
+          <a class="button secondary" href="https://github.com/lachlanchen/LazyPromotion">Open the MIT-licensed repository</a>
+        </div>
+      </div>
+
+      <aside class="proof-boundary" aria-labelledby="hero-boundary-title">
+        <p class="eyebrow">Local by design</p>
+        <h2 id="hero-boundary-title">No account.<br>No upload.</h2>
+        <p>The verifier reads only the manifest and files below its directory. A broken hash, path escape, unknown file, or missing locator produces a non-zero exit.</p>
+        <dl>
+          <div><dt>Runtime</dt><dd>Python 3.10+</dd></div>
+          <div><dt>Network</dt><dd>Not used</dd></div>
+          <div><dt>License</dt><dd>MIT</dd></div>
+          <div><dt>Format</dt><dd>JSON</dd></div>
+        </dl>
+      </aside>
+    </section>
+
+    <section class="integrity-strip" aria-label="Proofline sequence">
+      <span>source file</span><b>→</b><span>recorded transformation</span><b>→</b><span>derived artifact</span><b>→</b><span>located evidence</span>
+    </section>
+
+    <section class="proof-section" id="proof" aria-labelledby="proof-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Project-owned example</p>
+          <h2 id="proof-title">Small enough to inspect.</h2>
+        </div>
+        <p>The checked example starts with a two-line passage, derives one study-card JSON file, records the relationship, and keeps the source identifier and locator inside the card.</p>
+      </div>
+
+      <div class="proof-grid">
+        <article class="terminal-card" aria-labelledby="run-title">
+          <p class="panel-kicker">Run from a clean checkout</p>
+          <h3 id="run-title">One command</h3>
+          <pre><code>python proofline.py \
+  examples/proofline/manifest.json</code></pre>
+          <div class="terminal-result" aria-label="Expected verifier result">
+            <strong>Proofline PASS</strong>
+            <span>Checked: 2 files, 2 claims, 1 transformation</span>
+          </div>
+          <a href="https://github.com/lachlanchen/LazyPromotion/blob/a062c7110d3c814b66ae9732f88eb891fe32b973/examples/proofline/manifest.json">Inspect the pinned manifest →</a>
+        </article>
+
+        <article class="reject-card" aria-labelledby="reject-title">
+          <p class="panel-kicker">Fail closed</p>
+          <h3 id="reject-title">What breaks the check</h3>
+          <ul>
+            <li>A named file is missing or its SHA-256 no longer matches.</li>
+            <li>A path is absolute or escapes the manifest directory.</li>
+            <li>A transformation points to an unknown input or output.</li>
+            <li>A verified claim has no known file and human-readable locator.</li>
+            <li>Two records reuse the same identity.</li>
+          </ul>
+          <a href="https://github.com/lachlanchen/LazyPromotion/blob/a062c7110d3c814b66ae9732f88eb891fe32b973/tests/test_proofline.py">Read the pinned tests →</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="boundary-section" id="boundary" aria-labelledby="boundary-title">
+      <div>
+        <p class="eyebrow">An integrity check, not an oracle</p>
+        <h2 id="boundary-title">A passing chain is a bounded claim.</h2>
+      </div>
+      <div class="boundary-copy">
+        <p>Proofline can establish that the recorded local files still match their hashes and that a claim points to the evidence the manifest names.</p>
+        <p>It cannot establish that a source is true, that its author is trustworthy, that the operator owns redistribution rights, that the transformation was fair, or that a learner or customer achieved an outcome. Those questions still need human review and separate evidence.</p>
+      </div>
+    </section>
+
+    <section class="next-section" aria-labelledby="next-title">
+      <div>
+        <p class="eyebrow">Use the source, not the screenshot</p>
+        <h2 id="next-title">Inspect it or break it.</h2>
+        <p>The implementation, manifest, fixture, and tests are pinned to one public commit. Change a byte in either checked file and the same command must fail.</p>
+      </div>
+      <div class="next-actions">
+        <a class="button primary" href="https://github.com/lachlanchen/LazyPromotion/tree/a062c7110d3c814b66ae9732f88eb891fe32b973/examples/proofline">Open the complete example</a>
+        <a href="https://github.com/lachlanchen/LazyPromotion/commit/a062c7110d3c814b66ae9732f88eb891fe32b973">See the introducing commit →</a>
+        <a href="../work/">Browse selected LazyingArt work →</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>Project-owned proof by LazyingArt LLC</span>
+    <a href="../">Home</a>
+    <a href="../work/">Selected work</a>
+    <a href="https://github.com/lachlanchen/LazyPromotion">GitHub</a>
+  </footer>
+</body>
+</html>

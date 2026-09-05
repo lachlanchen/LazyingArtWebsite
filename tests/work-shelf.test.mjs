@@ -33,6 +33,8 @@ for (const project of [
 
 assert.match(html, /fixed-scope USD 250 sprint/);
 assert.match(html, /Auditable content coding/);
+assert.match(html, /<h3>Proofline<\/h3>/);
+assert.match(html, /href="\.\.\/proofline\/"/);
 assert.match(
   html,
   /\.\.\/lkt\/\?utm_source=lazyingart&amp;utm_medium=website&amp;utm_campaign=local_knowledge_terminal_pilot&amp;utm_content=work_services/,
@@ -48,5 +50,6 @@ assert.match(
 assert.doesNotMatch(html, /paid customer|customer result|client result|revenue|guaranteed/i);
 assert.match(html, /https:\/\/github\.com\/sponsors\/lachlanchen/);
 assert.match(sitemap, /<loc>https:\/\/lazying\.art\/work\/<\/loc>/);
+assert.match(sitemap, /<loc>https:\/\/lazying\.art\/proofline\/<\/loc>/);
 
 console.log("Work shelf contract passed");
