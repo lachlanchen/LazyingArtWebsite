@@ -22,6 +22,10 @@ assert.doesNotMatch(
   /数万用户|數萬用戶|Hàng chục nghìn|Des milliers|Miles de usuarios|Milhares já|Tausende erleben|Тысячи уже|Binlercesi/,
 );
 assert.doesNotMatch(homepage, /KONAMI.*(?:50%|五折|5 折)|(?:50%|五折|5 折).*KONAMI/);
+assert.doesNotMatch(
+  homepage,
+  /community token that powers|Unlock ecosystem perks|rewards and payouts|turn small wins into income/i,
+);
 assert.doesNotMatch(homepage, /href="#"/);
 assert.match(homepage, /https:\/\/github\.com\/lachlanchen/);
 assert.match(homepage, /https:\/\/github\.com\/sponsors\/lachlanchen/);
@@ -34,6 +38,11 @@ for (const [language, dictionary] of Object.entries(translations)) {
     "stats_ai_availability",
     "feat_privacy_desc",
     "cta_subtitle",
+    "coin_subtitle",
+    "coin_b2",
+    "coin_b3",
+    "ecos_card_coin_desc",
+    "ecos_card_earn_desc",
     "konami_alert",
   ]) {
     assert.ok(dictionary[key]?.trim(), `${language}.${key} must not fall back to another language`);
