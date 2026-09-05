@@ -6,8 +6,11 @@ const read = (relative) =>
   fs.readFileSync(fileURLToPath(new URL(relative, import.meta.url)), "utf8");
 
 const offer = read("../story-clip/index.html");
+const fitCheck = read("../story-clip/fit-check/index.html");
+const fitCheckScript = read("../story-clip/fit-check/fit-check.js");
 const work = read("../work/index.html");
 const sitemap = read("../sitemap.xml");
+const publicOffer = [offer, fitCheck, fitCheckScript].join("\n");
 
 assert.match(offer, /<link rel="canonical" href="https:\/\/lazying\.art\/story-clip\/">/);
 assert.match(offer, /Story Clip Pilot/);
@@ -45,13 +48,20 @@ for (const proof of [
 
 assert.match(offer, /These are LazyingArt project pieces, not customer results/i);
 assert.match(offer, /do not prove sales, reach, or viral performance/i);
-assert.match(offer, /mailto:lach@lazying\.art\?subject=Story%20Clip%20Pilot/);
-assert.match(offer, /does not send automatically/i);
-assert.match(offer, /Do not attach the recording until the scope and handling terms are accepted/i);
-assert.doesNotMatch(offer, /\/fit-check\//);
+assert.match(offer, /href="fit-check\/\?utm_source=lazyingart&amp;utm_medium=website&amp;utm_campaign=story_clip_fit_check&amp;utm_content=pilot_hero">Check the recording/);
+assert.match(offer, /Nothing is uploaded, and no answer is sent until you review it and choose Send/i);
+assert.match(fitCheck, /Free fit check · no upload or payment/);
+assert.match(fitCheck, /Do not upload or attach the recording yet/i);
+assert.match(fitCheck, /data-testid="send-fit-check" type="button" disabled/);
+assert.match(fitCheck, /encrypted private intake/i);
+assert.match(fitCheck, />lach@lazying\.art<\/a>/);
+assert.match(fitCheck, /Email is outside the encrypted intake/);
+assert.match(fitCheckScript, /offer: "story_clip"/);
+assert.match(fitCheckScript, /Request received for review\./);
+assert.match(fitCheckScript, /https:\/\/blog\.lazying\.art\/wp-json\/lazyingart\/v1\/lkt-fit-check/);
 assert.doesNotMatch(offer, /checkout|payment link|buy now/i);
 
-const emails = [...offer.matchAll(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/gi)].map(
+const emails = [...publicOffer.matchAll(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/gi)].map(
   (match) => match[0].toLowerCase(),
 );
 assert.deepEqual([...new Set(emails)], ["lach@lazying.art"]);
@@ -62,5 +72,6 @@ assert.match(
   /\.\.\/story-clip\/\?utm_source=lazyingart&amp;utm_medium=website&amp;utm_campaign=story_clip_pilot&amp;utm_content=work_services/,
 );
 assert.match(sitemap, /<loc>https:\/\/lazying\.art\/story-clip\/<\/loc>/);
+assert.match(sitemap, /<loc>https:\/\/lazying\.art\/story-clip\/fit-check\/<\/loc>/);
 
 console.log("Story Clip Pilot offer contract passed");

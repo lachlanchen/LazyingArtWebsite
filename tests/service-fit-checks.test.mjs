@@ -49,6 +49,7 @@ class FakeElement {
 const cases = [
   {
     name: "manuscript",
+    email: "contact@lazying.art",
     path: "../manuscript-sprint/fit-check/fit-check.js",
     pageUrl: "https://lazying.art/manuscript-sprint/fit-check/",
     values: {
@@ -72,6 +73,7 @@ const cases = [
   },
   {
     name: "lecture",
+    email: "contact@lazying.art",
     path: "../lecture-pack/fit-check/fit-check.js",
     pageUrl: "https://lazying.art/lecture-pack/fit-check/",
     values: {
@@ -91,6 +93,29 @@ const cases = [
       "client_elapsed_ms", "constraints", "contact_email", "excerpt", "format",
       "intended_use", "language", "offer", "rights_confirmed", "scope_confirmed",
       "source", "terms", "utm_campaign", "utm_source", "website",
+    ],
+  },
+  {
+    name: "story_clip",
+    email: "lach@lazying.art",
+    path: "../story-clip/fit-check/fit-check.js",
+    pageUrl: "https://lazying.art/story-clip/fit-check/",
+    values: {
+      contact_email: "founder@example.com",
+      source: "Twenty-minute MP4 interview recorded by our team.",
+      language: "English, with supplied product names.",
+      rights_scope: "We control the recording, voices, faces, music, locations, and marks requested for this clip.",
+      audience_platform: "Prospective customers on LinkedIn and Instagram.",
+      goal: "Show the moment the founder explains why the product exists.",
+      constraints: "Avoid performance claims and keep the supplied spelling.",
+      rights: true,
+      scope: true,
+      website: "",
+    },
+    expectedKeys: [
+      "audience_platform", "client_elapsed_ms", "constraints", "contact_email",
+      "goal", "language", "offer", "rights_confirmed", "rights_scope",
+      "scope_confirmed", "source", "utm_campaign", "utm_source", "website",
     ],
   },
 ];
@@ -198,7 +223,10 @@ for (const testCase of cases) {
   assert.equal(fixture.elements.panel.hidden, false);
   assert.equal(fixture.elements.sendButton.disabled, true);
   assert.match(fixture.elements.preview.textContent, /Contact email:/);
-  assert.match(fixture.elements.openEmail.href, /^mailto:contact@lazying\.art\?/);
+  assert.match(
+    fixture.elements.openEmail.href,
+    new RegExp(`^mailto:${testCase.email.replace(".", "\\.")}\\?`),
+  );
 
   await fixture.elements.sendButton.dispatch("click");
   assert.equal(fixture.calls.length, 0, `${testCase.name}: confirmation gate holds`);
