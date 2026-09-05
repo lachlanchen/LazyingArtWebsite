@@ -68,7 +68,8 @@
 
 .sample-preview { margin: 0; }
 
-.sample-preview img {
+.sample-preview img,
+.sample-preview video {
   display: block;
   width: 100%;
   height: auto;
@@ -76,6 +77,8 @@
   background: var(--white);
   box-shadow: 0 16px 40px rgba(23, 35, 31, 0.13);
 }
+
+.sample-preview video { aspect-ratio: 16 / 9; }
 
 .sample-preview figcaption {
   margin-top: 0.8rem;
