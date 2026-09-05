@@ -131,9 +131,13 @@ assert.match(page, /Draft/);
 assert.match(page, /Pending/);
 assert.match(page, /Confirmed/);
 assert.match(page, /Superseded/);
-assert.match(page, /\.\.\/lkt\/sample-report\//);
-assert.match(page, /\.\.\/lkt\/fit-check\//);
 assert.match(page, /\.\.\/lkt\/\?utm_source=/);
+assert.match(page, /Test one representative meeting first\./);
+assert.match(page, /Send only metadata first; do not attach confidential audio until scope and handling are agreed\./);
+assert.match(page, /mailto:contact@lazying\.art\?subject=Meeting%20intelligence%20fit%20check/);
+assert.match(page, /Languages%3A/);
+assert.match(page, /Rights%2Fconsent%20confirmed%3A%20yes%2Fno/);
+assert.doesNotMatch(page, /\.\.\/lkt\/fit-check\//);
 assert.match(page, new RegExp(LKT_COMMIT));
 assert.match(
   lktOffer,
