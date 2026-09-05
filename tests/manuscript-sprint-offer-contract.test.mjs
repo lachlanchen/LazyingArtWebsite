@@ -50,11 +50,17 @@ assert.match(offer, /written clarification during the seven-day correction windo
 assert.match(fitCheck, /no source upload or payment/i);
 assert.match(fitCheck, /Do not paste manuscript text/);
 assert.match(fitCheck, /Nothing has been sent/);
+assert.match(fitCheck, /name="contact_email" type="email" required maxlength="254"/);
+assert.match(fitCheck, /data-testid="send-fit-check" type="button" disabled/);
+assert.match(fitCheck, /encrypted for LazyingArt’s private intake/);
 assert.match(fitCheck, />contact@lazying\.art<\/a>/);
 assert.match(fitCheck, /Do not send manuscript files yet/);
 assert.match(fitCheck, /href="\.\.\/#terms">delivery, correction, cancellation, refund, retention, and support terms/);
 assert.match(fitCheck, /Stripe request and private source transfer come afterward/);
 assert.match(fitCheckScript, /event\.preventDefault\(\)/);
+assert.match(fitCheckScript, /offer: "manuscript"/);
+assert.match(fitCheckScript, /Request received for review\./);
+assert.match(fitCheckScript, /https:\/\/blog\.lazying\.art\/wp-json\/lazyingart\/v1\/lkt-fit-check/);
 assert.match(fitCheckScript, /mailto:contact@lazying\.art/);
 assert.match(fitCheckScript, /const attributionKeys = \["utm_source", "utm_medium", "utm_campaign", "utm_content"\]/);
 assert.match(offer, /<script src="attribution-bridge\.js" defer><\/script>/);

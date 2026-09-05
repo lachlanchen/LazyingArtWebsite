@@ -1,19 +1,45 @@
 (() => {
   "use strict";
 
+  const endpoint = "https://blog.lazying.art/wp-json/lazyingart/v1/lkt-fit-check";
+  const subject = "Bilingual Lecture Pack — free fit check";
+  const maxBodyBytes = 12288;
+  const attributionKeys = ["utm_source", "utm_medium", "utm_campaign", "utm_content"];
+  const loadedAt = Date.now();
+
   const form = document.querySelector("[data-testid='fit-form']");
+  const formStatus = document.querySelector("#fit-form-status");
   const panel = document.querySelector("[data-testid='review-panel']");
+  const heading = document.querySelector("[data-testid='review-heading']");
   const preview = document.querySelector("[data-testid='request-preview']");
+  const reviewConfirmed = document.querySelector("[data-testid='review-confirmed']");
+  const sendButton = document.querySelector("[data-testid='send-fit-check']");
   const openEmail = document.querySelector("[data-testid='open-email']");
   const copyButton = document.querySelector("[data-testid='copy-request']");
-  const copyStatus = document.querySelector("#copy-status");
+  const submissionStatus = document.querySelector("#submission-status");
 
-  if (!form || !panel || !preview || !openEmail || !copyButton || !copyStatus) {
+  if (
+    !form ||
+    !formStatus ||
+    !panel ||
+    !heading ||
+    !preview ||
+    !reviewConfirmed ||
+    !sendButton ||
+    !openEmail ||
+    !copyButton ||
+    !submissionStatus
+  ) {
     return;
   }
 
+  let preparedPayload = null;
+  let preparedBody = "";
+  let preparedRequest = "";
+  let sending = false;
+  let accepted = false;
+
   const clean = (value) => String(value || "").replace(/\r\n?/g, "\n").trim();
-  const attributionKeys = ["utm_source", "utm_medium", "utm_campaign", "utm_content"];
 
   const attributionParams = () => {
     const current = new URLSearchParams(window.location.search);
@@ -30,29 +56,59 @@
 
   const attribution = () => {
     const params = attributionParams();
-    return attributionKeys
-      .map((key) => {
-        const value = clean(params.get(key)).replace(/[^\p{L}\p{N} ._/-]/gu, "").slice(0, 80);
-        return value ? `${key}: ${value}` : "";
-      })
-      .filter(Boolean);
+    const result = {};
+    attributionKeys.forEach((key) => {
+      const value = clean(params.get(key));
+      if (
+        value &&
+        Array.from(value).length <= 80 &&
+        /^[\p{L}\p{N} ._/-]+$/u.test(value)
+      ) {
+        result[key] = value;
+      }
+    });
+    return result;
   };
 
-  const buildRequest = () => {
+  const buildPayload = () => {
     const data = new FormData(form);
-    const optional = (name) => clean(data.get(name)) || "None stated.";
-    const source = attribution();
+    return {
+      offer: "lecture",
+      contact_email: clean(data.get("contact_email")),
+      source: clean(data.get("source")),
+      format: clean(data.get("format")),
+      language: clean(data.get("language")),
+      terms: clean(data.get("terms")),
+      excerpt: clean(data.get("excerpt")),
+      intended_use: clean(data.get("intended_use")),
+      constraints: clean(data.get("constraints")),
+      rights_confirmed: Boolean(data.get("rights")),
+      scope_confirmed: Boolean(data.get("scope")),
+      website: String(data.get("website") || ""),
+      client_elapsed_ms: Math.min(86400000, Math.max(0, Date.now() - loadedAt)),
+      ...attribution(),
+    };
+  };
+
+  const buildRequest = (payload) => {
+    const optional = (name) => payload[name] || "None stated.";
+    const source = attributionKeys
+      .filter((key) => payload[key])
+      .map((key) => `${key}: ${payload[key]}`);
     return [
-      "Bilingual Lecture Pack — free fit check",
+      subject,
+      "",
+      "Contact email:",
+      payload.contact_email,
       "",
       "Source and rights:",
-      clean(data.get("source")),
+      payload.source,
       "",
       "Duration, format, speakers, and audio condition:",
-      clean(data.get("format")),
+      payload.format,
       "",
       "Target language and learner level:",
-      clean(data.get("language")),
+      payload.language,
       "",
       "Names, formulas, and protected terms:",
       optional("terms"),
@@ -61,7 +117,7 @@
       optional("excerpt"),
       "",
       "Intended use and distribution:",
-      clean(data.get("intended_use")),
+      payload.intended_use,
       "",
       "Other constraints:",
       optional("constraints"),
@@ -72,12 +128,33 @@
     ].join("\n");
   };
 
+  const updateSendAvailability = () => {
+    sendButton.disabled =
+      sending || accepted || !preparedPayload || !reviewConfirmed.checked;
+  };
+
+  const setFormDisabled = (disabled) => {
+    form.querySelectorAll("input, textarea, button").forEach((control) => {
+      control.disabled = disabled;
+    });
+  };
+
   const resetReview = () => {
-    if (document.body.dataset.fitState === "reviewed") {
-      document.body.dataset.fitState = "editing";
-      panel.hidden = true;
-      copyStatus.textContent = "";
+    if (sending || accepted) {
+      return;
     }
+    formStatus.textContent = "";
+    if (!preparedPayload) {
+      return;
+    }
+    preparedPayload = null;
+    preparedBody = "";
+    preparedRequest = "";
+    panel.hidden = true;
+    reviewConfirmed.checked = false;
+    sendButton.disabled = true;
+    submissionStatus.textContent = "";
+    document.body.dataset.fitState = "editing";
   };
 
   form.addEventListener("input", resetReview);
@@ -85,32 +162,113 @@
 
   form.addEventListener("submit", (event) => {
     event.preventDefault();
+    if (sending) {
+      return;
+    }
     if (!form.checkValidity()) {
       document.body.dataset.fitState = "invalid";
       form.reportValidity();
       return;
     }
 
-    const request = buildRequest();
-    const subject = "Bilingual Lecture Pack — free fit check";
-    preview.textContent = request;
-    openEmail.href = `mailto:contact@lazying.art?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(request)}`;
+    const payload = buildPayload();
+    const body = JSON.stringify(payload);
+    if (new TextEncoder().encode(body).byteLength > maxBodyBytes) {
+      document.body.dataset.fitState = "invalid";
+      formStatus.textContent = "Please shorten the answers and review again.";
+      formStatus.focus?.({ preventScroll: true });
+      return;
+    }
+
+    preparedPayload = Object.freeze(payload);
+    preparedBody = body;
+    preparedRequest = buildRequest(preparedPayload);
+    accepted = false;
+    preview.textContent = preparedRequest;
+    openEmail.href = `mailto:contact@lazying.art?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(preparedRequest)}`;
+    reviewConfirmed.checked = false;
+    reviewConfirmed.disabled = false;
     panel.hidden = false;
-    copyStatus.textContent = "";
+    panel.removeAttribute("aria-busy");
+    formStatus.textContent = "";
+    submissionStatus.textContent = "";
     document.body.dataset.fitState = "reviewed";
+    updateSendAvailability();
     panel.scrollIntoView({ behavior: "smooth", block: "start" });
-    panel.querySelector("h3").focus?.({ preventScroll: true });
+    heading.focus?.({ preventScroll: true });
+  });
+
+  reviewConfirmed.addEventListener("change", updateSendAvailability);
+
+  sendButton.addEventListener("click", async () => {
+    if (
+      sending ||
+      accepted ||
+      !preparedPayload ||
+      !preparedBody ||
+      !reviewConfirmed.checked
+    ) {
+      return;
+    }
+
+    sending = true;
+    setFormDisabled(true);
+    reviewConfirmed.disabled = true;
+    panel.setAttribute("aria-busy", "true");
+    submissionStatus.textContent = "Sending fit check…";
+    updateSendAvailability();
+
+    try {
+      const response = await fetch(endpoint, {
+        method: "POST",
+        mode: "cors",
+        credentials: "omit",
+        cache: "no-store",
+        referrerPolicy: "strict-origin-when-cross-origin",
+        headers: { "Content-Type": "application/json" },
+        body: preparedBody,
+      });
+      if (response.status !== 202) {
+        throw new Error("request not accepted");
+      }
+
+      const result = await response.json();
+      if (
+        !result ||
+        result.status !== "accepted" ||
+        result.message !== "Request received for review." ||
+        !/^[a-f0-9]{32}$/.test(String(result.receipt || ""))
+      ) {
+        throw new Error("invalid acceptance receipt");
+      }
+
+      accepted = true;
+      document.body.dataset.fitState = "accepted";
+      submissionStatus.textContent = `${result.message} Reference: ${result.receipt}`;
+    } catch (_error) {
+      document.body.dataset.fitState = "error";
+      submissionStatus.textContent =
+        "We couldn’t submit the request. Use Open in email or Copy request below.";
+      setFormDisabled(false);
+      reviewConfirmed.disabled = false;
+    } finally {
+      sending = false;
+      panel.removeAttribute("aria-busy");
+      updateSendAvailability();
+      submissionStatus.focus?.({ preventScroll: true });
+    }
   });
 
   copyButton.addEventListener("click", async () => {
-    const request = preview.textContent;
-    if (!request) return;
+    if (!preparedRequest) {
+      return;
+    }
     try {
-      await navigator.clipboard.writeText(request);
-      copyStatus.textContent = "Request copied. Nothing has been sent.";
+      await navigator.clipboard.writeText(preparedRequest);
+      submissionStatus.textContent = "Request copied. Nothing was sent by copying.";
     } catch (_error) {
       const helper = document.createElement("textarea");
-      helper.value = request;
+      helper.value = preparedRequest;
       helper.setAttribute("readonly", "");
       helper.style.position = "fixed";
       helper.style.opacity = "0";
@@ -118,8 +276,8 @@
       helper.select();
       const copied = document.execCommand("copy");
       helper.remove();
-      copyStatus.textContent = copied
-        ? "Request copied. Nothing has been sent."
+      submissionStatus.textContent = copied
+        ? "Request copied. Nothing was sent by copying."
         : "Copy was blocked. Select the request text above and copy it manually.";
     }
   });

@@ -259,6 +259,7 @@ assert.doesNotMatch(html, /backend is live/i);
     "contact_email",
     "hardware",
     "language_goal",
+    "offer",
     "readers",
     "rights_confirmed",
     "sample",
@@ -269,6 +270,7 @@ assert.doesNotMatch(html, /backend is live/i);
     "website",
   ]);
   assert.equal(payload.client_elapsed_ms, 5000);
+  assert.equal(payload.offer, "lkt");
   assert.equal(payload.utm_source, "instagram");
   assert.equal(payload.utm_medium, undefined);
   assert.equal(payload.utm_term, undefined);

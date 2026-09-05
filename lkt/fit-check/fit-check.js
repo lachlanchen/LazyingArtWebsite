@@ -74,6 +74,7 @@
   const buildPayload = () => {
     const data = new FormData(form);
     return {
+      offer: "lkt",
       contact_email: clean(data.get("contact_email")),
       collection: clean(data.get("collection")),
       language_goal: clean(data.get("language_goal")),

@@ -38,13 +38,19 @@ assert.match(
   /https:\/\/lachlanchen\.github\.io\/LalaMedias\/videos\/aginti-autonomous-lab-ai-glasses-2b85b0d9\.html/,
 );
 assert.match(fitCheck, /Free fit check · no upload or payment/);
-assert.match(fitCheck, /do not paste a transcript or send the recording yet/);
+assert.match(fitCheck, /do not paste a transcript or send the recording yet/i);
 assert.match(fitCheck, /Nothing has been sent/);
+assert.match(fitCheck, /name="contact_email" type="email" required maxlength="254"/);
+assert.match(fitCheck, /data-testid="send-fit-check" type="button" disabled/);
+assert.match(fitCheck, /encrypted for LazyingArt’s private intake/);
 assert.match(fitCheck, />contact@lazying\.art<\/a>/);
 assert.match(fitCheck, /Do not send the source file yet/);
 assert.match(fitCheck, /href="\.\.\/#terms">delivery, correction, cancellation, refund, retention, and support terms/);
 assert.match(fitCheck, /Stripe request and private source transfer come after scope acceptance/);
 assert.match(fitCheckScript, /event\.preventDefault\(\)/);
+assert.match(fitCheckScript, /offer: "lecture"/);
+assert.match(fitCheckScript, /Request received for review\./);
+assert.match(fitCheckScript, /https:\/\/blog\.lazying\.art\/wp-json\/lazyingart\/v1\/lkt-fit-check/);
 assert.match(fitCheckScript, /mailto:contact@lazying\.art/);
 assert.match(fitCheckScript, /const attributionKeys = \["utm_source", "utm_medium", "utm_campaign", "utm_content"\]/);
 assert.match(offer, /<script src="attribution-bridge\.js" defer><\/script>/);

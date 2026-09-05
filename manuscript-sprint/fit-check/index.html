@@ -8,7 +8,7 @@
   <meta name="description" content="Describe one bounded LaTeX manuscript and review whether it fits the fixed USD 250 Manuscript Build & Redline Sprint.">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Free manuscript fit check · Build &amp; Redline Sprint">
-  <meta property="og:description" content="Review the request locally and choose whether to send it from your own email app. No source upload or payment.">
+  <meta property="og:description" content="Review the exact request, then send it through encrypted private intake or use your own email app. No source upload or payment.">
   <meta property="og:image" content="https://lazying.art/manuscript-sprint/assets/manuscript-sprint-social.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -44,7 +44,7 @@
       <section class="fit-intro" aria-labelledby="fit-title">
         <p class="eyebrow">Free fit check · no source upload or payment</p>
         <h1 id="fit-title">Describe the<br><em>build problem.</em></h1>
-        <p class="lead">Share the source shape, target template, and deadline—not the manuscript itself. This page prepares a reviewable email draft and sends nothing automatically.</p>
+        <p class="lead">Share the source shape, target template, and deadline—not the manuscript itself. Review the exact request, then choose whether to send it securely or use your own email app.</p>
         <div class="scope-card">
           <h2>The paid sprint, if it fits</h2>
           <ul>
@@ -60,9 +60,20 @@
 
       <section class="fit-card" aria-labelledby="questions-title">
         <h2 id="questions-title">Check the manuscript</h2>
-        <p class="privacy-note"><strong>Do not paste manuscript text:</strong> describe the project only. “Review request” builds a draft in this tab. You choose whether to send it from your own email app.</p>
+        <p class="privacy-note"><strong>Review first:</strong> nothing is sent while you fill in the form or choose “Review request.” If you then choose “Send fit check,” the reviewed answers are encrypted for LazyingArt’s private intake. Do not paste manuscript text or upload source files.</p>
 
         <form class="fit-form" id="fit-form" data-testid="fit-form" novalidate>
+          <div class="field">
+            <label for="contact-email">Contact email <span aria-hidden="true">*</span></label>
+            <input id="contact-email" name="contact_email" type="email" required maxlength="254" autocomplete="email">
+            <small>Used only to reply to this fit check.</small>
+          </div>
+
+          <div class="field honeypot-field" aria-hidden="true">
+            <label for="website">Website</label>
+            <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+          </div>
+
           <div class="field">
             <label for="role">Your role and source rights <span aria-hidden="true">*</span></label>
             <textarea id="role" name="role" required maxlength="700" aria-describedby="role-help"></textarea>
@@ -119,17 +130,24 @@
             <button class="button primary" type="submit" data-testid="review-request">Review request</button>
             <a class="text-link" href="../">Return to the offer</a>
           </div>
+          <p class="fit-form-status" id="fit-form-status" role="status" tabindex="-1"></p>
         </form>
 
         <section class="review-panel" id="review-panel" data-testid="review-panel" aria-live="polite" hidden>
-          <h3 tabindex="-1">Review before opening email</h3>
-          <p>Check the exact text below. Opening your email app still does not send it.</p>
+          <h3 data-testid="review-heading" tabindex="-1">Review before sending</h3>
+          <p>Check the exact request below. Nothing has been sent.</p>
           <pre class="request-preview" id="request-preview" data-testid="request-preview"></pre>
-          <p class="review-destination"><strong>Nothing has been sent.</strong> Send the reviewed text to <a href="mailto:contact@lazying.art?subject=Manuscript%20Build%20%26%20Redline%20Sprint%20%E2%80%94%20free%20fit%20check">contact@lazying.art</a>. Use “Copy request” if this device has no configured email app.</p>
+          <label class="review-confirmation" for="review-confirmed">
+            <input id="review-confirmed" data-testid="review-confirmed" type="checkbox">
+            <span>I reviewed the request above and want to make “Send fit check” available.</span>
+          </label>
+          <p class="review-destination"><strong>Choose how to continue.</strong> “Send fit check” encrypts and submits these answers to LazyingArt’s private intake. “Open in email” prepares the same request in your email app without sending it.</p>
           <div class="fit-actions">
-            <a class="button primary" id="open-email" data-testid="open-email" href="mailto:contact@lazying.art">Open in email</a>
+            <button class="button primary" id="send-fit-check" data-testid="send-fit-check" type="button" disabled>Send fit check</button>
+            <a class="button secondary" id="open-email" data-testid="open-email" href="mailto:contact@lazying.art">Open in email</a>
             <button class="button secondary" id="copy-request" data-testid="copy-request" type="button">Copy request</button>
           </div>
+          <p class="submission-status" id="submission-status" role="status" aria-live="polite" tabindex="-1"></p>
           <div class="review-next" aria-labelledby="review-next-title">
             <h4 id="review-next-title">What happens next</h4>
             <ol>
@@ -139,7 +157,6 @@
               <li>Only after a positive fit check do both sides accept the exact scope and handling terms. A Stripe request and private source transfer come afterward.</li>
             </ol>
           </div>
-          <p class="copy-status" id="copy-status" role="status"></p>
         </section>
 
         <noscript>
