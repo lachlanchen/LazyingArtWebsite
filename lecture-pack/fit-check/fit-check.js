@@ -2,6 +2,7 @@
   "use strict";
 
   const endpoint = "https://blog.lazying.art/wp-json/lazyingart/v1/lkt-fit-check";
+  const encryptedIntakeAvailable = false;
   const subject = "Bilingual Lecture Pack — free fit check";
   const maxBodyBytes = 12288;
   const attributionKeys = ["utm_source", "utm_medium", "utm_campaign", "utm_content"];
@@ -130,7 +131,11 @@
 
   const updateSendAvailability = () => {
     sendButton.disabled =
-      sending || accepted || !preparedPayload || !reviewConfirmed.checked;
+      !encryptedIntakeAvailable ||
+      sending ||
+      accepted ||
+      !preparedPayload ||
+      !reviewConfirmed.checked;
   };
 
   const setFormDisabled = (disabled) => {
@@ -187,11 +192,13 @@
     preview.textContent = preparedRequest;
     openEmail.href = `mailto:contact@lazying.art?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(preparedRequest)}`;
     reviewConfirmed.checked = false;
-    reviewConfirmed.disabled = false;
+    reviewConfirmed.disabled = !encryptedIntakeAvailable;
     panel.hidden = false;
     panel.removeAttribute("aria-busy");
     formStatus.textContent = "";
-    submissionStatus.textContent = "";
+    submissionStatus.textContent = encryptedIntakeAvailable
+      ? ""
+      : "Continue with Open in email or Copy request. Nothing has been sent.";
     document.body.dataset.fitState = "reviewed";
     updateSendAvailability();
     panel.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -202,6 +209,7 @@
 
   sendButton.addEventListener("click", async () => {
     if (
+      !encryptedIntakeAvailable ||
       sending ||
       accepted ||
       !preparedPayload ||

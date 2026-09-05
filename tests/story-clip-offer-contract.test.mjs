@@ -63,16 +63,16 @@ for (const proof of [
 assert.match(offer, /These are LazyingArt project pieces, not customer results/i);
 assert.match(offer, /do not prove sales, reach, or viral performance/i);
 assert.match(offer, /href="fit-check\/\?utm_source=lazyingart&amp;utm_medium=website&amp;utm_campaign=story_clip_fit_check&amp;utm_content=pilot_hero">Check the recording/);
-assert.match(offer, /Nothing is uploaded, and no answer is sent until you review it and choose Send/i);
+assert.match(offer, /Nothing is uploaded or sent while you fill it in/i);
 assert.match(fitCheck, /Free fit check · no upload or payment/);
 assert.match(fitCheck, /Do not upload or attach the recording yet/i);
 assert.match(fitCheck, /data-testid="send-fit-check" type="button" disabled/);
-assert.match(fitCheck, /encrypted private intake/i);
+assert.match(fitCheck, /Continue with your email app or copy the reviewed request/i);
 assert.match(fitCheck, />lach@lazying\.art<\/a>/);
-assert.match(fitCheck, /Email is outside the encrypted intake/);
 assert.match(fitCheckScript, /offer: "story_clip"/);
 assert.match(fitCheckScript, /Request received for review\./);
 assert.match(fitCheckScript, /https:\/\/blog\.lazying\.art\/wp-json\/lazyingart\/v1\/lkt-fit-check/);
+assert.match(fitCheckScript, /const encryptedIntakeAvailable = false;/);
 assert.doesNotMatch(offer, /checkout|payment link|buy now/i);
 
 const emails = [...publicOffer.matchAll(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/gi)].map(

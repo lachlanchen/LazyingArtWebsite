@@ -200,19 +200,10 @@ function setup(testCase, fetchImpl) {
   };
 }
 
-const acceptedResponse = async () => ({
-  status: 202,
-  async json() {
-    return {
-      status: "accepted",
-      message: "Request received for review.",
-      receipt: "0123456789abcdef0123456789abcdef",
-    };
-  },
-});
-
 for (const testCase of cases) {
-  const fixture = setup(testCase, acceptedResponse);
+  const fixture = setup(testCase, async () => {
+    throw new Error("disabled encrypted intake must not call fetch");
+  });
   await fixture.elements.sendButton.dispatch("click");
   assert.equal(fixture.calls.length, 0, `${testCase.name}: send is inert before review`);
 
@@ -232,49 +223,18 @@ for (const testCase of cases) {
   assert.equal(fixture.calls.length, 0, `${testCase.name}: confirmation gate holds`);
   fixture.elements.reviewConfirmed.checked = true;
   await fixture.elements.reviewConfirmed.dispatch("change");
-  assert.equal(fixture.elements.sendButton.disabled, false);
+  assert.equal(fixture.elements.sendButton.disabled, true);
   await fixture.elements.sendButton.dispatch("click");
 
-  assert.equal(fixture.calls.length, 1);
-  const [url, options] = fixture.calls[0];
-  assert.equal(url, "https://blog.lazying.art/wp-json/lazyingart/v1/lkt-fit-check");
-  assert.equal(options.method, "POST");
-  assert.equal(options.credentials, "omit");
-  const payload = JSON.parse(options.body);
-  assert.deepEqual(Object.keys(payload).sort(), testCase.expectedKeys);
-  assert.equal(payload.offer, testCase.name);
-  assert.equal(payload.contact_email, testCase.values.contact_email);
-  assert.equal(payload.rights_confirmed, true);
-  assert.equal(payload.scope_confirmed, true);
-  assert.equal(payload.client_elapsed_ms, 5000);
-  assert.equal(payload.utm_source, "owned_page");
-  assert.equal(payload.utm_campaign, "service_fit");
-  assert.equal(payload.bad, undefined);
-  assert.equal(fixture.body.dataset.fitState, "accepted");
-  assert.match(fixture.elements.submissionStatus.textContent, /Reference: 0123456789abcdef/);
-
-  await fixture.elements.sendButton.dispatch("click");
-  assert.equal(fixture.calls.length, 1, `${testCase.name}: accepted request is not repeated`);
-}
-
-for (const testCase of cases) {
-  const responses = [
-    async () => ({ status: 503 }),
-    acceptedResponse,
-  ];
-  const fixture = setup(testCase, (...args) => responses.shift()(...args));
-  fixture.advance(4000);
-  await fixture.elements.form.dispatch("submit");
-  fixture.elements.reviewConfirmed.checked = true;
-  await fixture.elements.reviewConfirmed.dispatch("change");
-  await fixture.elements.sendButton.dispatch("click");
-  assert.equal(fixture.body.dataset.fitState, "error");
-  assert.match(fixture.elements.submissionStatus.textContent, /Open in email or Copy request/);
-  const frozenBody = fixture.calls[0][1].body;
-  fixture.elements.form.values.contact_email = "changed@example.com";
-  await fixture.elements.sendButton.dispatch("click");
-  assert.equal(fixture.calls[1][1].body, frozenBody, `${testCase.name}: retry uses reviewed body`);
-  assert.equal(fixture.body.dataset.fitState, "accepted");
+  assert.equal(fixture.calls.length, 0);
+  assert.equal(fixture.body.dataset.fitState, "reviewed");
+  assert.match(fixture.elements.preview.textContent, /utm_source: owned_page/);
+  assert.match(fixture.elements.preview.textContent, /utm_campaign: service_fit/);
+  assert.doesNotMatch(fixture.elements.preview.textContent, /bad:/);
+  assert.match(
+    fixture.elements.submissionStatus.textContent,
+    /Continue with Open in email or Copy request/,
+  );
 }
 
 console.log("Routed service fit-check frontend tests passed");

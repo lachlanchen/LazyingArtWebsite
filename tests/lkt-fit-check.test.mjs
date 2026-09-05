@@ -201,22 +201,24 @@ async function review(fixture) {
   assert.equal(event.defaultPrevented, true);
 }
 
-async function confirmAndSend(fixture) {
+async function attemptHiddenSend(fixture) {
   fixture.elements.reviewConfirmed.checked = true;
   await fixture.elements.reviewConfirmed.dispatch("change");
-  assert.equal(fixture.elements.sendButton.disabled, false);
+  assert.equal(fixture.elements.sendButton.disabled, true);
   await fixture.elements.sendButton.dispatch("click");
+  assert.equal(fixture.calls.length, 0);
 }
 
 assert.match(
   script,
   /https:\/\/blog\.lazying\.art\/wp-json\/lazyingart\/v1\/lkt-fit-check/,
 );
+assert.match(script, /const encryptedIntakeAvailable = false;/);
 assert.match(html, /name="contact_email" type="email" required maxlength="254"/);
 assert.match(html, /name="website" type="text" tabindex="-1" autocomplete="off"/);
-assert.match(html, /data-testid="send-fit-check" type="button" disabled/);
+assert.match(html, /data-testid="send-fit-check" type="button" disabled hidden/);
 assert.match(html, /nothing is sent while you fill in the form or choose “Review request.”/);
-assert.match(html, /reviewed answers are encrypted for LazyingArt’s private intake/);
+assert.match(html, /Continue with your email app or copy the reviewed request/);
 assert.doesNotMatch(html, /type="file"/);
 assert.doesNotMatch(html, /backend is live/i);
 
@@ -240,127 +242,16 @@ assert.doesNotMatch(html, /backend is live/i);
       "https://lazying.art/lkt/fit-check/?utm_source=instagram&utm_medium=social%3Fbad&utm_campaign=local_knowledge_terminal&utm_content=report_hero&utm_term=ignored",
   });
   await review(fixture);
-  await confirmAndSend(fixture);
-  assert.equal(fixture.calls.length, 1);
-  const [url, options] = fixture.calls[0];
-  assert.equal(
-    url,
-    "https://blog.lazying.art/wp-json/lazyingart/v1/lkt-fit-check",
-  );
-  assert.equal(options.method, "POST");
-  assert.equal(options.credentials, "omit");
-  assert.deepEqual(Object.keys(options.headers), ["Content-Type"]);
-  assert.equal(options.headers["Content-Type"], "application/json");
-  const payload = JSON.parse(options.body);
-  assert.deepEqual(Object.keys(payload).sort(), [
-    "client_elapsed_ms",
-    "collection",
-    "constraints",
-    "contact_email",
-    "hardware",
-    "language_goal",
-    "offer",
-    "readers",
-    "rights_confirmed",
-    "sample",
-    "scope_confirmed",
-    "utm_campaign",
-    "utm_content",
-    "utm_source",
-    "website",
-  ]);
-  assert.equal(payload.client_elapsed_ms, 5000);
-  assert.equal(payload.offer, "lkt");
-  assert.equal(payload.utm_source, "instagram");
-  assert.equal(payload.utm_medium, undefined);
-  assert.equal(payload.utm_term, undefined);
-  assert.equal(payload.rights_confirmed, true);
-  assert.equal(payload.scope_confirmed, true);
-  assert.equal(payload.website, "");
-  assert.equal(fixture.body.dataset.fitState, "accepted");
-  assert.equal(
+  await attemptHiddenSend(fixture);
+  assert.equal(fixture.body.dataset.fitState, "reviewed");
+  assert.match(fixture.elements.preview.textContent, /utm_source: instagram/);
+  assert.match(fixture.elements.preview.textContent, /utm_campaign: local_knowledge_terminal/);
+  assert.doesNotMatch(fixture.elements.preview.textContent, /utm_medium:/);
+  assert.doesNotMatch(fixture.elements.preview.textContent, /utm_term:/);
+  assert.match(
     fixture.elements.submissionStatus.textContent,
-    "Request received for review. Reference: 0123456789abcdef0123456789abcdef",
+    /Continue with Open in email or Copy request/,
   );
-  assert.equal(fixture.elements.submissionStatus.focusCount, 1);
-}
-
-{
-  const responses = [
-    { status: 503 },
-    {
-      status: 202,
-      async json() {
-        return {
-          status: "accepted",
-          message: "Request received for review.",
-          receipt: "fedcba9876543210fedcba9876543210",
-        };
-      },
-    },
-  ];
-  const fixture = setup({
-    fetchImpl: async () => responses.shift(),
-  });
-  await review(fixture);
-  await confirmAndSend(fixture);
-  assert.equal(fixture.body.dataset.fitState, "error");
-  assert.match(fixture.elements.submissionStatus.textContent, /Open in email or Copy request/);
-  assert.equal(fixture.elements.sendButton.disabled, false, "reviewed retry is available");
-  const firstBody = fixture.calls[0][1].body;
-  fixture.elements.form.values.collection = "Changed after review";
-  await fixture.elements.sendButton.dispatch("click");
-  assert.equal(fixture.calls.length, 2);
-  assert.equal(fixture.calls[1][1].body, firstBody, "retry reuses frozen body");
-  assert.equal(JSON.parse(firstBody).collection, "中英日 research notes and papers");
-  assert.equal(fixture.body.dataset.fitState, "accepted");
-}
-
-{
-  let resolveFetch;
-  const fixture = setup({
-    fetchImpl: () =>
-      new Promise((resolve) => {
-        resolveFetch = resolve;
-      }),
-  });
-  await review(fixture);
-  fixture.elements.reviewConfirmed.checked = true;
-  await fixture.elements.reviewConfirmed.dispatch("change");
-  const first = fixture.elements.sendButton.dispatch("click");
-  const second = fixture.elements.sendButton.dispatch("click");
-  assert.equal(fixture.calls.length, 1, "double send is suppressed synchronously");
-  resolveFetch({
-    status: 202,
-    async json() {
-      return {
-        status: "accepted",
-        message: "Request received for review.",
-        receipt: "11111111111111111111111111111111",
-      };
-    },
-  });
-  await Promise.all([first, second]);
-  assert.equal(fixture.calls.length, 1);
-}
-
-{
-  const fixture = setup({
-    fetchImpl: async () => ({
-      status: 202,
-      async json() {
-        return {
-          status: "accepted",
-          message: "Request received for review.",
-          receipt: "not-a-receipt",
-        };
-      },
-    }),
-  });
-  await review(fixture);
-  await confirmAndSend(fixture);
-  assert.equal(fixture.body.dataset.fitState, "error");
-  assert.match(fixture.elements.submissionStatus.textContent, /Open in email or Copy request/);
 }
 
 {

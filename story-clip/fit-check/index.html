@@ -8,7 +8,7 @@
   <meta name="description" content="Describe one recording you control and check whether it fits the fixed USD 250 Story Clip Pilot before uploading or paying.">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Free recording fit check · Story Clip Pilot">
-  <meta property="og:description" content="Review the request, then send it through encrypted private intake or use your own email app. No upload or payment.">
+  <meta property="og:description" content="Review the request, then open it in your own email app or copy it. No upload or payment.">
   <meta property="og:image" content="https://lazying.art/logos/banner.png">
   <meta property="og:image:alt" content="LazyingArt">
   <meta property="og:url" content="https://lazying.art/story-clip/fit-check/">
@@ -57,7 +57,7 @@
 
       <section class="fit-card" aria-labelledby="questions-title">
         <h2 id="questions-title">Describe the recording</h2>
-        <p class="privacy-note"><strong>Review first:</strong> nothing is sent while you fill in the form or choose “Review request.” “Send fit check” sends only the reviewed answers through encrypted private intake. Do not upload or attach the recording yet.</p>
+        <p class="privacy-note"><strong>Review first:</strong> nothing is sent while you fill in the form or choose “Review request.” Continue with your email app or copy the reviewed request. Do not upload or attach the recording yet.</p>
 
         <form class="fit-form" id="fit-form" data-testid="fit-form" novalidate>
           <div class="field">
@@ -129,14 +129,14 @@
           <h3 data-testid="review-heading" tabindex="-1">Review before sending</h3>
           <p>Check the exact request below. Nothing has been sent.</p>
           <pre class="request-preview" id="request-preview" data-testid="request-preview"></pre>
-          <label class="review-confirmation" for="review-confirmed">
+          <label class="review-confirmation" for="review-confirmed" hidden>
             <input id="review-confirmed" data-testid="review-confirmed" type="checkbox">
             <span>I reviewed the request above and want to make “Send fit check” available.</span>
           </label>
-          <p class="review-destination"><strong>Choose how to continue.</strong> “Send fit check” encrypts and submits these answers to LazyingArt’s private intake. “Open in email” prepares the same request in your email app without sending it.</p>
+          <p class="review-destination"><strong>Choose how to continue.</strong> “Open in email” prepares the reviewed request in your email app without sending it. “Copy request” lets you paste it into another mail app.</p>
           <div class="fit-actions">
-            <button class="button primary" id="send-fit-check" data-testid="send-fit-check" type="button" disabled>Send fit check</button>
-            <a class="button secondary" id="open-email" data-testid="open-email" href="mailto:lach@lazying.art">Open in email</a>
+            <button class="button primary" id="send-fit-check" data-testid="send-fit-check" type="button" disabled hidden>Send fit check</button>
+            <a class="button primary" id="open-email" data-testid="open-email" href="mailto:lach@lazying.art">Open in email</a>
             <button class="button secondary" id="copy-request" data-testid="copy-request" type="button">Copy request</button>
           </div>
           <p class="submission-status" id="submission-status" role="status" aria-live="polite" tabindex="-1"></p>
@@ -152,7 +152,7 @@
         </section>
 
         <noscript>
-          <p class="fit-footer-note">JavaScript is required for local review. You can instead email <a href="mailto:lach@lazying.art?subject=Story%20Clip%20Pilot%20free%20fit%20check">lach@lazying.art</a> with the answers above. Email is outside the encrypted intake.</p>
+          <p class="fit-footer-note">JavaScript is required for local review. You can instead email <a href="mailto:lach@lazying.art?subject=Story%20Clip%20Pilot%20free%20fit%20check">lach@lazying.art</a> with the answers above.</p>
         </noscript>
       </section>
     </div>
