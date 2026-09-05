@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import crypto from "node:crypto";
 import fs from "node:fs";
 import { fileURLToPath } from "node:url";
 
@@ -11,6 +12,10 @@ const fitCheckScript = read("../story-clip/fit-check/fit-check.js");
 const work = read("../work/index.html");
 const sitemap = read("../sitemap.xml");
 const publicOffer = [offer, fitCheck, fitCheckScript].join("\n");
+const sampleVideo = fileURLToPath(new URL("../story-clip/sample/selected-provenance-clip.mp4", import.meta.url));
+const samplePoster = fileURLToPath(new URL("../story-clip/sample/poster.png", import.meta.url));
+const samplePacket = fileURLToPath(new URL("../story-clip/sample/story-clip-pilot-sample.zip", import.meta.url));
+const sha256 = (path) => crypto.createHash("sha256").update(fs.readFileSync(path)).digest("hex");
 
 assert.match(offer, /<link rel="canonical" href="https:\/\/lazying\.art\/story-clip\/">/);
 assert.match(offer, /Story Clip Pilot/);
@@ -24,6 +29,15 @@ assert.match(offer, /corrected burned-in captions in the recording's source lang
 assert.match(offer, /matching SRT file/i);
 assert.match(offer, /Caption and source ledger/);
 assert.match(offer, /one consolidated list of caption, timing, or cut corrections within seven calendar days/i);
+assert.match(offer, /id="sample"/);
+assert.match(offer, /Two candidate notes\. One finished clip\. Every decision attached\./);
+assert.match(offer, /sample\/selected-provenance-clip\.mp4/);
+assert.match(offer, /sample\/story-clip-pilot-sample\.zip/);
+assert.match(offer, /a51ac6f33ce28d9a42143cfc4651e859ec35b6bb\/examples\/story-clip-pilot/);
+assert.match(offer, /project-owned synthetic process evidence, not customer work/i);
+assert.equal(sha256(sampleVideo), "dc6f1ae24cd33947b56d3f52dae66926ce04958b8fd9a326462488462d0d3bfe");
+assert.equal(sha256(samplePoster), "fb0d9636efdc7dcbeb485b5bc158b14b49efd9e87d987de4b7b09339440d0c58");
+assert.equal(sha256(samplePacket), "17c50e951e555a09d841e28278edd0248e5c19c08e6de0ae3ba5ec6f35f68969");
 
 for (const exclusion of [
   "translation unless separately scoped",

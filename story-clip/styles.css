@@ -1,0 +1,21 @@
+@import url("../lecture-pack/styles.css");
+
+.story-sample {
+  grid-template-columns: minmax(240px, 0.62fr) minmax(0, 1.38fr);
+}
+
+.story-sample .sample-preview {
+  max-width: 360px;
+}
+
+.story-sample .sample-preview video {
+  aspect-ratio: 9 / 16;
+  border-radius: 18px;
+  object-fit: cover;
+}
+
+@media (max-width: 900px) {
+  .story-sample {
+    grid-template-columns: 1fr;
+  }
+}
