@@ -23,6 +23,7 @@ for (const project of [
   "LazyEdit",
   "paper-revision-skill",
   "PaperAgent",
+  "LazyPromotion/tree/main/examples/auditable-policy-coding",
   "LazySkills",
   "AgInTi-LabCanvas",
   "OpenHI",
@@ -31,6 +32,7 @@ for (const project of [
 }
 
 assert.match(html, /fixed-scope USD 250 sprint/);
+assert.match(html, /Auditable content coding/);
 assert.match(
   html,
   /\.\.\/lkt\/\?utm_source=lazyingart&amp;utm_medium=website&amp;utm_campaign=local_knowledge_terminal_pilot&amp;utm_content=work_services/,
