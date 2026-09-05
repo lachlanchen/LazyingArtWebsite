@@ -77,7 +77,7 @@ GitHub Pages ist das primäre Deployment-Ziel. Änderungen, die nach `main` gepu
 | Bereich | Details |
 |---|---|
 | Architektur | Framework-freie statische Umsetzung (HTML/CSS/vanilla JavaScript). |
-| Seiten | Haupt-Landingpage plus dedizierte Seiten: `index.html`, `robot.html`, `eink-words-card.html`, `openhi-kit.html`. |
+| Seiten | Haupt-Landingpage sowie eigene Produkt-, Pilot-, Fit-Check-, Datenschutz- und Review-Seiten. |
 | Lokalisierung | 13 aktive Sprachfassungen im Laufzeit-Selektor (`en`, `ja`, `zh-Hans`, `zh-Hant`, `ko`, `ar`, `vi`, `fr`, `es`, `pt`, `de`, `ru`, `tr`). |
 | i18n Runtime | In-page-Schlüssel `[data-i18n]` mit Wörterbuchersatz. |
 | Persistenz | Sprach- und Theme-Einstellungen werden in `localStorage` gespeichert. |
@@ -200,7 +200,7 @@ location.reload();
 
 - Static-first-Architektur hält Wartung und Hosting einfach.
 - Locale-Verhalten und Theme-Umschalter sind direkt auf jeder Seite inline implementiert.
-- Es gibt keine `package.json`, kein Transpiling und keine automatisierte Test-Suite.
+- Es gibt keine `package.json` und keinen Transpiling-Schritt; die Node-Tests in `tests/` schützen die öffentlichen Angebots-, Übersetzungs-, Routing- und Vertrauensverträge.
 - `i18n/README.*.md` ist für übersetzte Dokumente vorhanden, während Seitenübersetzungen aktuell in Seitenskripten eingebettet sind.
 - `donate/`, `app/donate/` und `product-assets/` sind derzeit vor allem als Platzhalterbereiche vorhanden.
 - Empfohlener Ablauf: lokale statische Bearbeitung → Browser-Validierung (Desktop/Mobil) → Link-Checks.

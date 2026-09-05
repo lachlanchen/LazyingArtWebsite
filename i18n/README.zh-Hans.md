@@ -77,7 +77,7 @@ GitHub Pages 是主要部署目标。推送到 `main` 的变更应通过仓库�
 | 范围 | 详情 |
 |---|---|
 | 架构 | 无框架静态实现（HTML/CSS/vanilla JavaScript）。 |
-| 页面 | 除主着陆页外，还包括专用页面：`index.html`、`robot.html`、`eink-words-card.html`、`openhi-kit.html`。 |
+| 页面 | 除主着陆页外，还包括产品、试用服务、适配评估、隐私与审核专用页面。 |
 | 本地化 | 运行时支持 13 种语言（`en`、`ja`、`zh-Hans`、`zh-Hant`、`ko`、`ar`、`vi`、`fr`、`es`、`pt`、`de`、`ru`、`tr`）。 |
 | i18n 运行时 | 页面内 `[data-i18n]` 键值与字典替换。 |
 | 持久化 | 通过 `localStorage` 持久化语言与主题偏好。 |
@@ -200,7 +200,7 @@ location.reload();
 
 - 静态优先架构保持了维护与托管的简洁。
 - 区域设置与主题切换在每个页面内联实现。
-- 仓库中没有 `package.json`，也没有转译步骤和自动化测试套件。
+- 仓库中没有 `package.json` 或转译步骤；`tests/` 中的 Node 测试保护公开报价、翻译、路由与可信度约束。
 - `i18n/README.*.md` 用于文档翻译，而页面翻译目前嵌入页面脚本。
 - `donate/`、`app/donate/` 与 `product-assets/` 当前看起来是预留占位目录。
 - 推荐工作流：本地静态编辑 → 浏览器验证（桌面/移动）→ 链接检查。

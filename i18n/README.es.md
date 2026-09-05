@@ -77,7 +77,7 @@ GitHub Pages es el objetivo principal de despliegue. Los cambios enviados a `mai
 | Área | Detalles |
 |---|---|
 | Arquitectura | Implementación estática sin framework (HTML/CSS/vanilla JavaScript). |
-| Páginas | Página principal más páginas dedicadas: `index.html`, `robot.html`, `eink-words-card.html`, `openhi-kit.html`. |
+| Páginas | Página principal y rutas dedicadas a productos, pilotos, evaluación de encaje, privacidad y revisión. |
 | Localización | 13 idiomas soportados en la lógica de runtime (`en`, `ja`, `zh-Hans`, `zh-Hant`, `ko`, `ar`, `vi`, `fr`, `es`, `pt`, `de`, `ru`, `tr`). |
 | Runtime i18n | Claves `[data-i18n]` con reemplazo de diccionario en la página. |
 | Persistencia | Preferencias de idioma y tema persistidas por `localStorage`. |
@@ -200,7 +200,7 @@ location.reload();
 
 - La arquitectura de prioridad estática mantiene simple el mantenimiento y el hosting.
 - El comportamiento de locale y los cambios de tema se implementan de forma inline en cada página.
-- No existe `package.json`, no hay transpile y no hay suite automatizada de pruebas.
+- No existe `package.json` ni paso de transpilación; las pruebas de Node en `tests/` protegen los contratos públicos de oferta, traducción, rutas y confianza.
 - `i18n/README.*.md` existe para documentación traducida, mientras que las traducciones de páginas hoy permanecen embebidas en los scripts de cada página.
 - `donate/`, `app/donate/` y `product-assets/` aparecen actualmente como marcadores de posición.
 - Flujo recomendado: edición estática local → validación en navegador (escritorio/móvil) → revisiones de enlaces.

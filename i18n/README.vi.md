@@ -77,7 +77,7 @@ GitHub Pages là điểm triển khai chính. Các thay đổi đẩy lên `main
 | Khu vực | Chi tiết |
 |---|---|
 | Kiến trúc | Triển khai tĩnh không dùng framework (HTML/CSS/vanilla JavaScript). |
-| Trang | Trang đích chính kèm các trang chuyên biệt: `index.html`, `robot.html`, `eink-words-card.html`, `openhi-kit.html`. |
+| Trang | Trang đích chính cùng các trang riêng cho sản phẩm, chương trình thử nghiệm, kiểm tra độ phù hợp, quyền riêng tư và đánh giá. |
 | Đa ngôn ngữ | 13 locale được hỗ trợ trong logic ngôn ngữ runtime (`en`, `ja`, `zh-Hans`, `zh-Hant`, `ko`, `ar`, `vi`, `fr`, `es`, `pt`, `de`, `ru`, `tr`). |
 | Runtime i18n | Từ điển `[data-i18n]` nội tuyến trên mỗi trang. |
 | Lưu trữ | Tùy chọn ngôn ngữ + theme được lưu trong `localStorage`. |
@@ -200,7 +200,7 @@ location.reload();
 
 - Kiến trúc static-first giúp việc bảo trì và hosting đơn giản hơn.
 - Hành vi locale và chuyển theme được triển khai nội tuyến trên từng trang.
-- Không có `package.json`, không có transpilation, và không có test suite tự động.
+- Không có `package.json` hay bước transpilation; các bài kiểm thử Node trong `tests/` bảo vệ hợp đồng công khai về ưu đãi, bản dịch, định tuyến và độ tin cậy.
 - `i18n/README.*.md` tồn tại cho tài liệu đã dịch, trong khi bản dịch trang hiện đang nhúng trong script của từng trang.
 - `donate/`, `app/donate/`, và `product-assets/` hiện đang là các khu vực dự phòng.
 - Quy trình gợi ý: chỉnh sửa tĩnh cục bộ → kiểm tra qua trình duyệt (máy tính/di động) → kiểm tra liên kết.

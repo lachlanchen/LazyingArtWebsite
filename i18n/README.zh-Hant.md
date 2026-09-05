@@ -77,7 +77,7 @@ GitHub Pages 是主要的部署目標。推送到 `main` 的變更應透過儲�
 | 領域 | 詳情 |
 |---|---|
 | 架構 | 無框架靜態實作（HTML/CSS/vanilla JavaScript）。 |
-| 頁面 | 主落地頁加上專用頁面：`index.html`、`robot.html`、`eink-words-card.html`、`openhi-kit.html`。 |
+| 頁面 | 主落地頁之外，另有產品、試用服務、適配評估、隱私與審核專用頁面。 |
 | 本地化 | 執行期支援 13 種語系（`en`、`ja`、`zh-Hans`、`zh-Hant`、`ko`、`ar`、`vi`、`fr`、`es`、`pt`、`de`、`ru`、`tr`）。 |
 | i18n 執行期 | 頁面內 `[data-i18n]` 鍵值與字典替換。 |
 | 持久化 | 透過 `localStorage` 持久化語言與主題偏好。 |
@@ -200,7 +200,7 @@ location.reload();
 
 - 靜態優先架構使維護與託管都更簡潔。
 - 語系行為與主題切換在每個頁面中內嵌實作。
-- 儲存庫中沒有 `package.json`，也沒有轉譯流程與自動測試套件。
+- 儲存庫中沒有 `package.json` 或轉譯流程；`tests/` 中的 Node 測試保護公開報價、翻譯、路由與可信度約束。
 - `i18n/README.*.md` 用於文件翻譯，而頁面翻譯目前仍嵌入頁面腳本中。
 - `donate/`、`app/donate/` 與 `product-assets/` 目前看起來是預留佔位資料夾。
 - 建議流程：本機靜態編輯 → 瀏覽器驗證（桌機/行動）→ 連結檢查。

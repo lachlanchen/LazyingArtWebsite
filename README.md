@@ -211,7 +211,7 @@ location.reload();
 
 - Static-first architecture keeps maintenance and hosting simple.
 - Locale behavior and theme switches are implemented inline on each page.
-- There is no `package.json`, no transpilation, and no automated test suite.
+- There is no `package.json` or transpilation step; the Node test files in `tests/` protect the public offer, translation, routing, and trust contracts.
 - `eink/checkout-config.js` keeps the eInk page inquiry-only by default. The
   ignored Stripe operator output is exported from the sibling `Stripe` repo
   only after it verifies live `buy.stripe.com` Payment Links; incomplete or

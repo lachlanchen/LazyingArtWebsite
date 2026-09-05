@@ -77,7 +77,7 @@ GitHub Pages est la cible principale de déploiement. Les changements poussés s
 | Domaine | Détails |
 |---|---|
 | Architecture | Implémentation statique sans framework (HTML/CSS/vanilla JavaScript). |
-| Pages | Page principale de destination + pages dédiées : `index.html`, `robot.html`, `eink-words-card.html`, `openhi-kit.html`. |
+| Pages | Page d’accueil et pages dédiées aux produits, pilotes, vérifications d’adéquation, règles de confidentialité et revues. |
 | Localisation | 13 locales prises en charge dans la logique i18n runtime (`en`, `ja`, `zh-Hans`, `zh-Hant`, `ko`, `ar`, `vi`, `fr`, `es`, `pt`, `de`, `ru`, `tr`). |
 | Runtime i18n | Remplacement des textes via les clés `[data-i18n]` dans la page. |
 | Persistance | Préférences de langue + thème conservées via `localStorage`. |
@@ -200,7 +200,7 @@ location.reload();
 
 - L’architecture statique-first maintient la maintenance et l’hébergement simples.
 - Le comportement des locales et les changements de thème sont implémentés directement dans chaque page.
-- Il n’existe pas de `package.json`, pas de transpilation, et pas de suite de tests automatisée.
+- Il n’y a ni `package.json` ni étape de transpilation ; les tests Node dans `tests/` protègent les contrats publics d’offre, de traduction, de routage et de confiance.
 - `i18n/README.*.md` existe pour la documentation traduite, tandis que les traductions de pages sont pour l’instant intégrées dans les scripts des pages.
 - `donate/`, `app/donate/` et `product-assets/` apparaissent actuellement comme des espaces réservés.
 - Flux de travail recommandé : édition statique locale → validation navigateur (desktop/mobile) → vérifications de liens.

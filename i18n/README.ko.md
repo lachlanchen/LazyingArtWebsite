@@ -77,7 +77,7 @@ GitHub Pages가 기본 배포 대상입니다. `main`에 푸시된 변경사항�
 | 영역 | 상세 |
 |---|---|
 | 아키텍처 | 프레임워크 없는 정적 구현(HTML/CSS/vanilla JavaScript). |
-| 페이지 | 메인 랜딩 페이지 + 전용 페이지: `index.html`, `robot.html`, `eink-words-card.html`, `openhi-kit.html`. |
+| 페이지 | 메인 랜딩 페이지와 제품, 파일럿, 적합성 확인, 개인정보 보호, 검토 전용 페이지. |
 | 현지화 | 런타임 언어 로직에서 13개 로케일 지원 (`en`, `ja`, `zh-Hans`, `zh-Hant`, `ko`, `ar`, `vi`, `fr`, `es`, `pt`, `de`, `ru`, `tr`). |
 | i18n 런타임 | 사전형 대체를 이용한 페이지 내 `[data-i18n]` 키 처리. |
 | 지속성 | 언어 + 테마 선호도를 `localStorage`에 저장. |
@@ -200,7 +200,7 @@ location.reload();
 
 - 정적 우선 아키텍처로 유지관리와 호스팅이 간단합니다.
 - 로케일 동작과 테마 전환은 각 페이지에 인라인으로 구현되어 있습니다.
-- `package.json`이 없고, 트랜스파일링 및 자동화된 테스트 스위트가 없습니다.
+- `package.json`과 트랜스파일 단계는 없으며, `tests/`의 Node 테스트가 공개 제안, 번역, 라우팅, 신뢰 계약을 보호합니다.
 - 페이지 번역은 현재 페이지 스크립트에 삽입되며, `i18n/README.*.md`는 번역 문서를 위한 보조 역할입니다.
 - `donate/`, `app/donate/`, `product-assets/`는 현재 예약된 placeholder로 보입니다.
 - 권장 워크플로: 로컬 정적 편집 → 브라우저 확인(데스크톱/모바일) → 링크 점검.

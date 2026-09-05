@@ -82,6 +82,7 @@ for (const file of [
     /js\.stripe\.com\/v3\/buy-button|hosted Stripe buttons|Stripe Buy-Button-Integration|boutons Stripe hébergés|botones de Stripe alojados|Stripe ボタンで決済|Stripe 버튼으로 결제|кнопки Stripe|nút Stripe được host|Stripe 按钮进行商业操作|Stripe 按鈕進行商務操作/i,
     `${file} must describe the review-first payment flow`,
   );
+  assert.match(readme, /`tests\/`/, `${file} must document the Node contract tests`);
 }
 
 assert.match(homepage, /href="openhi-kit\.html" class="secondary-button"/);
