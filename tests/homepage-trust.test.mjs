@@ -26,6 +26,10 @@ assert.doesNotMatch(
   homepage,
   /community token that powers|Unlock ecosystem perks|rewards and payouts|turn small wins into income/i,
 );
+assert.doesNotMatch(
+  homepage,
+  /proprietary voice|unprecedented flexibility|Speak naturally in any language|instant, context-aware|Master new languages|Start Free with EchoMind/i,
+);
 assert.doesNotMatch(homepage, /href="#"/);
 assert.match(homepage, /https:\/\/github\.com\/lachlanchen/);
 assert.match(homepage, /https:\/\/github\.com\/sponsors\/lachlanchen/);
@@ -36,8 +40,17 @@ for (const [language, dictionary] of Object.entries(translations)) {
     "stats_languages",
     "stats_active_users",
     "stats_ai_availability",
+    "glass_notice",
+    "hero_flagship_p1",
+    "hero_flagship_p2",
+    "feat_voice_desc",
+    "feat_multi_desc",
+    "feat_memory_desc",
+    "feat_learning_desc",
+    "feat_grammar_desc",
     "feat_privacy_desc",
     "cta_subtitle",
+    "cta_button",
     "coin_subtitle",
     "coin_b2",
     "coin_b3",
