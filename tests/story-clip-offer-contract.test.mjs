@@ -45,7 +45,7 @@ for (const proof of [
 
 assert.match(offer, /These are LazyingArt project pieces, not customer results/i);
 assert.match(offer, /do not prove sales, reach, or viral performance/i);
-assert.match(offer, /mailto:contact@lazying\.art\?subject=Story%20Clip%20Pilot/);
+assert.match(offer, /mailto:lach@lazying\.art\?subject=Story%20Clip%20Pilot/);
 assert.match(offer, /does not send automatically/i);
 assert.match(offer, /Do not attach the recording until the scope and handling terms are accepted/i);
 assert.doesNotMatch(offer, /\/fit-check\//);
@@ -54,7 +54,7 @@ assert.doesNotMatch(offer, /checkout|payment link|buy now/i);
 const emails = [...offer.matchAll(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/gi)].map(
   (match) => match[0].toLowerCase(),
 );
-assert.deepEqual([...new Set(emails)], ["contact@lazying.art"]);
+assert.deepEqual([...new Set(emails)], ["lach@lazying.art"]);
 
 assert.match(work, /Four small ways to begin/);
 assert.match(
