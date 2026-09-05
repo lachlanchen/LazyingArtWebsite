@@ -39,8 +39,13 @@ assert.match(fitCheckScript, /https:\/\/blog\.lazying\.art\/wp-json\/lazyingart\
 assert.match(fitCheckScript, /Request received for review\./);
 assert.match(offer, /button primary" href="fit-check\/">Check my collection/);
 assert.match(offer, /button secondary" href="sample-report\/">See the sample deliverable/);
-assert.match(offer, /No account or upload/);
-assert.match(offer, /sends nothing automatically/);
+assert.match(offer, /No account or source upload/);
+assert.match(offer, /Nothing is sent while you fill in or review the fit check/);
+assert.match(offer, /encrypted private intake/);
+assert.match(offer, /open the same request in your email app/);
+assert.match(sampleReport, /If you choose Send, the answers are encrypted for LazyingArt’s private intake/);
+assert.match(sampleReport, /email and copy remain available/);
+assert.doesNotMatch(offer + sampleReport, /sends nothing automatically/);
 assert.match(offer, /Hardware, shipping, custom OCR, bulk conversion, production deployment, and ongoing support are excluded/);
 assert.match(offer, /A supplied device is a separate, quote-only product/);
 assert.match(offer, /A tested reference build, not included hardware/);
