@@ -81,7 +81,7 @@ GitHub Pages est la cible principale de déploiement. Les changements poussés s
 | Localisation | 13 locales prises en charge dans la logique i18n runtime (`en`, `ja`, `zh-Hans`, `zh-Hant`, `ko`, `ar`, `vi`, `fr`, `es`, `pt`, `de`, `ru`, `tr`). |
 | Runtime i18n | Remplacement des textes via les clés `[data-i18n]` dans la page. |
 | Persistance | Préférences de langue + thème conservées via `localStorage`. |
-| Commerce | Intégration de boutons d’achat Stripe via `https://js.stripe.com/v3/buy-button.js`. |
+| Commerce | L’achat de matériel passe par une vérification de disponibilité ; les services au périmètre fixe commencent par une vérification d’adéquation avant paiement. |
 | Réglages intelligents | Détection de langue assistée par géolocalisation sur la page d’accueil (`ipapi.co` + repli `ipwho.is`). |
 | SEO/Domaine | `CNAME`, `_config.yml` et `sitemap.xml` pour les métadonnées GitHub Pages et le routage. |
 
@@ -154,7 +154,7 @@ Flux local :
 1. Ouvrir `index.html`
 2. Explorer les sections de l’écosystème produit
 3. Naviguer vers les pages de détails spécifiques et les expériences externes (`chat.lazying.art`, `onlyideas.art`, `coin.lazying.art`)
-4. Utiliser les boutons Stripe hébergés pour les actions commerciales sur les pages produits
+4. Demander une vérification d’adéquation ou de disponibilité avant tout paiement
 
 ## ⚙️ Configuration
 
@@ -221,7 +221,7 @@ Ces valeurs devraient être re-mesurées après des changements d’UI majeurs.
 | Symptôme | Vérification |
 |---|---|
 | La page apparaît sans style après le lancement | Servir via `http://localhost:8000` (ne pas ouvrir comme `file://`) |
-| Le bouton Stripe ne se charge pas | Vérifier l’accès réseau à `https://js.stripe.com/v3/buy-button.js` |
+| Un lien de disponibilité ou d’adéquation ne s’ouvre pas | Vérifier le navigateur ou le client de messagerie, puis écrire à `contact@lazying.art` |
 | La langue ne se bascule pas | Effacer les clés `localStorage` (`lang`, `theme`) puis recharger |
 | Discordance de routage sur Pages | Vérifier `CNAME`, la cible de déploiement de la branche, et les valeurs de `_config.yml` |
 | Métadonnées SEO obsolètes | Mettre à jour `sitemap.xml` après ajouts/suppressions de routes ou de contenu |

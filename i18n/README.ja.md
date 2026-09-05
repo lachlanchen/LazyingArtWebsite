@@ -81,7 +81,7 @@ GitHub Pages が主要なデプロイ先です。`main` への変更は、リポ
 | ローカライズ | 実行時言語ロジックで 13 ロケールをサポート（`en`, `ja`, `zh-Hans`, `zh-Hant`, `ko`, `ar`, `vi`, `fr`, `es`, `pt`, `de`, `ru`, `tr`）。 |
 | i18n ランタイム | ページ内の `[data-i18n]` キーと辞書置換。 |
 | 永続化 | 言語・テーマ設定を `localStorage` に保存。 |
-| 決済 | `https://js.stripe.com/v3/buy-button.js` による Stripe ボタン連携。 |
+| 決済 | ハードウェアは在庫確認後、範囲を限定したサービスは適合確認後に支払いへ進みます。 |
 | スマートデフォルト | メインページでの位置情報補助言語検出（`ipapi.co` + `ipwho.is` フォールバック）。 |
 | SEO/ドメイン | `CNAME`、`_config.yml`、`sitemap.xml` による Pages メタとルーティング。 |
 
@@ -154,7 +154,7 @@ cd LazyingArtWebsite
 1. `index.html` を開く
 2. 製品エコシステムのセクションを確認する
 3. ページ別の詳細と外部体験（`chat.lazying.art`、`onlyideas.art`、`coin.lazying.art`）へ移動する
-4. 製品ページ上の Stripe ボタンで決済アクションを実行する
+4. 支払い前に適合確認または在庫確認を依頼する
 
 ## ⚙️ 設定
 
@@ -221,7 +221,7 @@ Prior README で示された目標プロファイル:
 | 症状 | 確認 |
 |---|---|
 | 起動後にページが未スタイル表示になる | `http://localhost:8000` 経由で提供しているか確認する（`file://` で開かない）。 |
-| Stripe ボタンが読み込まれない | `https://js.stripe.com/v3/buy-button.js` へのネットワーク到達性を確認する |
+| 在庫確認・適合確認のリンクが開かない | ブラウザまたはメールアプリを確認し、`contact@lazying.art` へ連絡する |
 | 言語が切り替わらない | `localStorage` キー（`lang`、`theme`）を削除して再読込 |
 | Pages でページルート不一致 | `CNAME`、デプロイ対象ブランチ、`_config.yml` の値を確認 |
 | SEO メタデータが古い | ルートや内容追加後に `sitemap.xml` を更新 |

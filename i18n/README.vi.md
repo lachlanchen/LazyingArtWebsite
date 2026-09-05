@@ -81,7 +81,7 @@ GitHub Pages là điểm triển khai chính. Các thay đổi đẩy lên `main
 | Đa ngôn ngữ | 13 locale được hỗ trợ trong logic ngôn ngữ runtime (`en`, `ja`, `zh-Hans`, `zh-Hant`, `ko`, `ar`, `vi`, `fr`, `es`, `pt`, `de`, `ru`, `tr`). |
 | Runtime i18n | Từ điển `[data-i18n]` nội tuyến trên mỗi trang. |
 | Lưu trữ | Tùy chọn ngôn ngữ + theme được lưu trong `localStorage`. |
-| Thương mại | Tích hợp nút thanh toán Stripe qua `https://js.stripe.com/v3/buy-button.js`. |
+| Thương mại | Phần cứng cần được kiểm tra tình trạng trước; dịch vụ có phạm vi cố định bắt đầu bằng bước kiểm tra độ phù hợp trước khi thanh toán. |
 | Mặc định thông minh | Nhận diện ngôn ngữ có hỗ trợ địa lý trên trang chính (`ipapi.co` + `ipwho.is` dự phòng). |
 | SEO/Tên miền | `CNAME`, `_config.yml`, và `sitemap.xml` cho metadata và định tuyến của GitHub Pages. |
 
@@ -154,7 +154,7 @@ Luồng làm việc cục bộ:
 1. Mở `index.html`
 2. Khám phá các khu vực hệ sinh thái sản phẩm
 3. Điều hướng đến chi tiết theo từng trang và trải nghiệm ngoài môi trường (`chat.lazying.art`, `onlyideas.art`, `coin.lazying.art`)
-4. Dùng các nút Stripe được host cho hành động thương mại trên trang sản phẩm
+4. Yêu cầu kiểm tra độ phù hợp hoặc tình trạng trước khi thanh toán
 
 ## ⚙️ Cấu hình
 
@@ -221,7 +221,7 @@ Các giá trị này nên được đo lại sau khi có thay đổi lớn về 
 | Triệu chứng | Kiểm tra |
 |---|---|
 | Trang trông chưa được style sau khi triển khai | Chạy qua `http://localhost:8000` (không mở trực tiếp bằng `file://`) |
-| Nút Stripe không tải được | Kiểm tra kết nối mạng đến `https://js.stripe.com/v3/buy-button.js` |
+| Liên kết kiểm tra tình trạng hoặc độ phù hợp không mở | Kiểm tra trình duyệt hoặc ứng dụng thư, rồi gửi email đến `contact@lazying.art` |
 | Ngôn ngữ không chuyển đổi | Xóa khóa `localStorage` (`lang`, `theme`) và tải lại |
 | Đường dẫn trang lệch trên Pages | Xác nhận `CNAME`, target triển khai nhánh, và giá trị trong `_config.yml` |
 | Metadata SEO lỗi thời | Cập nhật `sitemap.xml` sau khi thêm route hoặc nội dung mới |

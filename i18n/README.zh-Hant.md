@@ -81,7 +81,7 @@ GitHub Pages 是主要的部署目標。推送到 `main` 的變更應透過儲�
 | 本地化 | 執行期支援 13 種語系（`en`、`ja`、`zh-Hans`、`zh-Hant`、`ko`、`ar`、`vi`、`fr`、`es`、`pt`、`de`、`ru`、`tr`）。 |
 | i18n 執行期 | 頁面內 `[data-i18n]` 鍵值與字典替換。 |
 | 持久化 | 透過 `localStorage` 持久化語言與主題偏好。 |
-| 商務 | 透過 `https://js.stripe.com/v3/buy-button.js` 整合 Stripe 購買按鈕。 |
+| 商務 | 硬體先確認供貨情況；固定範圍服務先做適配評估，再付款。 |
 | 智慧預設值 | 主頁支援地理定位輔助語言偵測（`ipapi.co` + `ipwho.is` 備援）。 |
 | SEO/網域 | `CNAME`、`_config.yml` 與 `sitemap.xml` 用於 GitHub Pages 的中繼資料與路由。 |
 
@@ -154,7 +154,7 @@ cd LazyingArtWebsite
 1. 開啟 `index.html`
 2. 瀏覽產品生態系區塊
 3. 跳轉到頁面細節與外部體驗（`chat.lazying.art`、`onlyideas.art`、`coin.lazying.art`）
-4. 使用產品頁上的託管 Stripe 按鈕進行商務操作
+4. 付款前先提交適配評估或供貨查詢
 
 ## ⚙️ 設定
 
@@ -221,7 +221,7 @@ location.reload();
 | 症狀 | 檢查 |
 |---|---|
 | 上線後頁面看起來未套用樣式 | 透過 `http://localhost:8000` 提供服務（請勿直接以 `file://` 開啟） |
-| Stripe 按鈕載入失敗 | 確認可存取 `https://js.stripe.com/v3/buy-button.js` |
+| 適配評估或供貨連結無法開啟 | 檢查瀏覽器或郵件用戶端，再聯絡 `contact@lazying.art` |
 | 語言未切換 | 清除 `localStorage` 鍵（`lang`、`theme`）並重新載入 |
 | Pages 路由不符 | 確認 `CNAME`、分支部署目標與 `_config.yml` 值 |
 | SEO 中繼資料過期 | 在路由或內容變更後更新 `sitemap.xml` |

@@ -81,7 +81,7 @@ GitHub Pages es el objetivo principal de despliegue. Los cambios enviados a `mai
 | Localización | 13 idiomas soportados en la lógica de runtime (`en`, `ja`, `zh-Hans`, `zh-Hant`, `ko`, `ar`, `vi`, `fr`, `es`, `pt`, `de`, `ru`, `tr`). |
 | Runtime i18n | Claves `[data-i18n]` con reemplazo de diccionario en la página. |
 | Persistencia | Preferencias de idioma y tema persistidas por `localStorage`. |
-| Comercio | Integración de botón de compra de Stripe mediante `https://js.stripe.com/v3/buy-button.js`. |
+| Comercio | La compra de hardware requiere revisar la disponibilidad; los servicios de alcance fijo comienzan con una evaluación antes del pago. |
 | Valores predeterminados inteligentes | Detección de idioma asistida por geolocalización en la página principal (`ipapi.co` + fallback de `ipwho.is`). |
 | SEO/Dominio | `CNAME`, `_config.yml` y `sitemap.xml` para metadatos y enrutamiento de GitHub Pages. |
 
@@ -154,7 +154,7 @@ Flujo local:
 1. Abre `index.html`
 2. Explora las secciones del ecosistema del producto
 3. Navega a detalles específicos de cada página y experiencias externas (`chat.lazying.art`, `onlyideas.art`, `coin.lazying.art`)
-4. Usa los botones de Stripe alojados para acciones de comercio en páginas de producto
+4. Solicita una evaluación o confirma la disponibilidad antes de cualquier pago
 
 ## ⚙️ Configuración
 
@@ -221,7 +221,7 @@ Estos valores deben medirse de nuevo después de cambios importantes de UI.
 | Síntoma | Verificación |
 |---|---|
 | La página se ve sin estilos después de publicar | Sirve a través de `http://localhost:8000` (no la abras como `file://`) |
-| El botón de Stripe no carga | Confirma acceso de red a `https://js.stripe.com/v3/buy-button.js` |
+| No se abre el enlace de disponibilidad o evaluación | Revisa el navegador o el cliente de correo y escribe a `contact@lazying.art` |
 | El idioma no cambia | Borra las claves de `localStorage` (`lang`, `theme`) y recarga |
 | Discordancia de ruta en Pages | Confirma `CNAME`, destino de despliegue de branch y valores de `_config.yml` |
 | Metadatos SEO obsoletos | Actualiza `sitemap.xml` después de añadir rutas o contenido |

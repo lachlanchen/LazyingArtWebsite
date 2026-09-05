@@ -70,6 +70,20 @@ for (const file of ["index.html", "robot.html", "eink-words-card.html", "openhi-
   assert.match(html, /mailto:contact@lazying\.art\?subject=/, `${file} must offer a pre-payment availability check`);
 }
 
+for (const file of [
+  "README.md",
+  ...fs.readdirSync(path.join(root, "i18n"))
+    .filter((name) => /^README\..+\.md$/.test(name))
+    .map((name) => path.join("i18n", name)),
+]) {
+  const readme = fs.readFileSync(path.join(root, file), "utf8");
+  assert.doesNotMatch(
+    readme,
+    /js\.stripe\.com\/v3\/buy-button|hosted Stripe buttons|Stripe Buy-Button-Integration|boutons Stripe hébergés|botones de Stripe alojados|Stripe ボタンで決済|Stripe 버튼으로 결제|кнопки Stripe|nút Stripe được host|Stripe 按钮进行商业操作|Stripe 按鈕進行商務操作/i,
+    `${file} must describe the review-first payment flow`,
+  );
+}
+
 assert.match(homepage, /href="openhi-kit\.html" class="secondary-button"/);
 assert.match(homepage, /href="eink\/" class="secondary-button">View details/);
 

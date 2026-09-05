@@ -81,7 +81,7 @@ GitHub Pages 是主要部署目标。推送到 `main` 的变更应通过仓库�
 | 本地化 | 运行时支持 13 种语言（`en`、`ja`、`zh-Hans`、`zh-Hant`、`ko`、`ar`、`vi`、`fr`、`es`、`pt`、`de`、`ru`、`tr`）。 |
 | i18n 运行时 | 页面内 `[data-i18n]` 键值与字典替换。 |
 | 持久化 | 通过 `localStorage` 持久化语言与主题偏好。 |
-| 电商 | 通过 `https://js.stripe.com/v3/buy-button.js` 集成 Stripe 购买按钮。 |
+| 电商 | 硬件先确认供货情况；固定范围服务先做适配评估，再付款。 |
 | 智能默认值 | 主页面支持基于地理位置辅助语言检测（`ipapi.co` + `ipwho.is` 兜底）。 |
 | SEO/域名 | `CNAME`、`_config.yml`、`sitemap.xml` 用于 GitHub Pages 的元数据与路由。 |
 
@@ -154,7 +154,7 @@ cd LazyingArtWebsite
 1. 打开 `index.html`
 2. 浏览产品生态系统区域
 3. 跳转到页面详情及外部体验（`chat.lazying.art`、`onlyideas.art`、`coin.lazying.art`）
-4. 在产品页使用托管的 Stripe 按钮进行商业操作
+4. 付款前先提交适配评估或供货咨询
 
 ## ⚙️ 配置
 
@@ -221,7 +221,7 @@ location.reload();
 | 症状 | 检查项 |
 |---|---|
 | 页面发布后样式消失 | 通过 `http://localhost:8000` 提供服务（避免直接以 `file://` 打开） |
-| Stripe 按钮加载失败 | 确认可访问 `https://js.stripe.com/v3/buy-button.js` |
+| 适配评估或供货链接无法打开 | 检查浏览器或邮件客户端，再联系 `contact@lazying.art` |
 | 语言未切换 | 清除 `localStorage` 键（`lang`、`theme`）并刷新 |
 | Pages 路由不匹配 | 确认 `CNAME`、分支部署目标和 `_config.yml` 配置 |
 | SEO 元数据过期 | 在路由或内容变更后更新 `sitemap.xml` |

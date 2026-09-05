@@ -81,7 +81,7 @@ GitHub Pages is the main deployment target. Changes pushed to `main` should publ
 | Localization | 13 locales supported in runtime language logic (`en`, `ja`, `zh-Hans`, `zh-Hant`, `ko`, `ar`, `vi`, `fr`, `es`, `pt`, `de`, `ru`, `tr`). |
 | i18n Runtime | In-page `[data-i18n]` keys with dictionary replacement. |
 | Persistence | Language + theme preferences persisted by `localStorage`. |
-| Commerce | Stripe buy button integration via `https://js.stripe.com/v3/buy-button.js`. |
+| Commerce | Hardware checkout is gated by an availability review; fixed-scope services use a fit check before payment. |
 | Smart defaults | Geolocation-assisted language detection on the main page (`ipapi.co` + `ipwho.is` fallback). |
 | SEO/Domain | `CNAME`, `_config.yml`, and `sitemap.xml` for GitHub Pages metadata and routing. |
 
@@ -165,7 +165,7 @@ Local flow:
 1. Open `index.html`
 2. Explore product ecosystem sections
 3. Navigate to page-specific details and external experiences (`chat.lazying.art`, `onlyideas.art`, `coin.lazying.art`)
-4. Use hosted Stripe buttons for commerce actions on product pages
+4. Use a fit check or availability request before any payment
 
 ## ⚙️ Configuration
 
@@ -236,7 +236,7 @@ These values should be re-measured after major UI changes.
 | Symptom | Check |
 |---|---|
 | Page looks unstyled after launch | Serve via `http://localhost:8000` (do not open as plain `file://`) |
-| Stripe button fails to load | Confirm network access to `https://js.stripe.com/v3/buy-button.js` |
+| An availability or fit-check link does not open | Check the browser or mail client, then write to `contact@lazying.art` |
 | Language does not switch | Clear `localStorage` keys (`lang`, `theme`) and reload |
 | Pages route mismatch on Pages | Confirm `CNAME`, branch deployment target, and `_config.yml` values |
 | SEO metadata stale | Update `sitemap.xml` after route or content additions |

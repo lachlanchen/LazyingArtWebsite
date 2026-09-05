@@ -81,7 +81,7 @@ GitHub Pages ist das primäre Deployment-Ziel. Änderungen, die nach `main` gepu
 | Lokalisierung | 13 aktive Sprachfassungen im Laufzeit-Selektor (`en`, `ja`, `zh-Hans`, `zh-Hant`, `ko`, `ar`, `vi`, `fr`, `es`, `pt`, `de`, `ru`, `tr`). |
 | i18n Runtime | In-page-Schlüssel `[data-i18n]` mit Wörterbuchersatz. |
 | Persistenz | Sprach- und Theme-Einstellungen werden in `localStorage` gespeichert. |
-| Commerce | Stripe Buy-Button-Integration über `https://js.stripe.com/v3/buy-button.js`. |
+| Commerce | Hardware-Käufe setzen eine Verfügbarkeitsprüfung voraus; klar begrenzte Services beginnen vor der Zahlung mit einem Fit-Check. |
 | Intelligente Standardwerte | Geolocation-unterstützte Sprachenerkennung auf der Hauptseite (`ipapi.co` + `ipwho.is` Fallback). |
 | SEO/Domain | `CNAME`, `_config.yml` und `sitemap.xml` für GitHub Pages-Metadaten und Routing. |
 
@@ -154,7 +154,7 @@ Lokaler Ablauf:
 1. `index.html` öffnen
 2. Produkt-Ökosystem-Bereiche erkunden
 3. Zu seiten-spezifischen Details und externen Erlebnissen navigieren (`chat.lazying.art`, `onlyideas.art`, `coin.lazying.art`)
-4. Auf Produktseiten die bereitgestellten Stripe-Buttons für Kaufvorgänge verwenden
+4. Vor jeder Zahlung einen Fit-Check oder eine Verfügbarkeitsanfrage nutzen
 
 ## ⚙️ Konfiguration
 
@@ -221,7 +221,7 @@ Diese Werte sollten nach größeren UI-Änderungen erneut gemessen werden.
 | Symptom | Prüfung |
 |---|---|
 | Seite erscheint nach dem Start ungestylt | Über `http://localhost:8000` bereitstellen (nicht als reine `file://` öffnen) |
-| Stripe-Button lädt nicht | Netzwerkzugriff auf `https://js.stripe.com/v3/buy-button.js` prüfen |
+| Ein Verfügbarkeits- oder Fit-Check-Link öffnet sich nicht | Browser oder Mailprogramm prüfen und dann an `contact@lazying.art` schreiben |
 | Sprache wechselt nicht | `localStorage`-Schlüssel (`lang`, `theme`) löschen und neu laden |
 | Seitenroutenfehler auf Pages | `CNAME`, Ziel-Branch für Deployment und Werte in `_config.yml` prüfen |
 | SEO-Metadaten veraltet | `sitemap.xml` nach Inhalts- oder Routenänderungen aktualisieren |

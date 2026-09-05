@@ -81,7 +81,7 @@ GitHub Pages가 기본 배포 대상입니다. `main`에 푸시된 변경사항�
 | 현지화 | 런타임 언어 로직에서 13개 로케일 지원 (`en`, `ja`, `zh-Hans`, `zh-Hant`, `ko`, `ar`, `vi`, `fr`, `es`, `pt`, `de`, `ru`, `tr`). |
 | i18n 런타임 | 사전형 대체를 이용한 페이지 내 `[data-i18n]` 키 처리. |
 | 지속성 | 언어 + 테마 선호도를 `localStorage`에 저장. |
-| 커머스 | `https://js.stripe.com/v3/buy-button.js`를 통한 Stripe 구매 버튼 통합. |
+| 커머스 | 하드웨어는 재고 확인 후, 범위가 정해진 서비스는 적합성 확인 후 결제를 진행합니다. |
 | 스마트 기본값 | 메인 페이지에서 지리 기반 언어 감지(`ipapi.co` + `ipwho.is` 대체). |
 | SEO/도메인 | `CNAME`, `_config.yml`, `sitemap.xml`을 통한 GitHub Pages 메타데이터 및 라우팅. |
 
@@ -154,7 +154,7 @@ cd LazyingArtWebsite
 1. `index.html` 열기
 2. 제품 생태계 섹션 탐색
 3. 페이지별 상세 및 외부 경험(`chat.lazying.art`, `onlyideas.art`, `coin.lazying.art`)으로 이동
-4. 제품 페이지의 호스팅 Stripe 버튼으로 결제 액션 수행
+4. 결제 전에 적합성 또는 재고 확인 요청
 
 ## ⚙️ 구성
 
@@ -221,7 +221,7 @@ location.reload();
 | 증상 | 확인 항목 |
 |---|---|
 | 배포 후 페이지가 스타일이 깨져 보임 | `http://localhost:8000`으로 서빙해서 열어보세요 (`file://`로 직접 열지 말 것). |
-| Stripe 버튼이 로드되지 않음 | `https://js.stripe.com/v3/buy-button.js` 접근성을 확인하세요. |
+| 재고 또는 적합성 확인 링크가 열리지 않음 | 브라우저나 메일 앱을 확인한 뒤 `contact@lazying.art`로 문의하세요. |
 | 언어가 전환되지 않음 | `localStorage` 키(`lang`, `theme`)를 지운 뒤 새로고침 |
 | Pages에서 라우트 불일치 | `CNAME`, 배포 브랜치 대상, `_config.yml` 값을 확인 |
 | SEO 메타데이터가 오래됨 | 페이지/콘텐츠 추가 후 `sitemap.xml` 갱신 |
