@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#17231f">
+  <title>Read-only Markdown vault proof · Local Knowledge Terminal</title>
+  <meta name="description" content="Inspect a project-owned multilingual Markdown sample indexed locally with exact file, heading, line, excerpt, and SHA-256 provenance.">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Keep the notes. Rebuild the index.">
+  <meta property="og:description" content="A read-only Markdown source with a disposable local search index and inspectable provenance.">
+  <meta property="og:image" content="https://lazying.art/lkt/assets/lkt-collection-fit-service-cover-v1.png">
+  <meta property="og:url" content="https://lazying.art/lkt/markdown-vault/">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://lazying.art/lkt/markdown-vault/">
+  <link rel="icon" href="../../favicon.ico" sizes="any">
+  <link rel="stylesheet" href="styles.css">
+  <script src="../attribution-bridge.js" defer></script>
+  <script type="module" src="markdown-vault.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to proof</a>
+
+  <header class="site-header">
+    <a class="brand" href="../" aria-label="Local Knowledge Terminal offer">
+      <img src="../../logos/logo.svg" alt="">
+      <span><strong>LazyingArt</strong><small>Local Knowledge Terminal</small></span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a href="../">Offer</a>
+      <a href="../sample-report/">Sample report</a>
+      <a href="../passage-graph/">Passage graph</a>
+      <a href="../fit-check/">Free fit check</a>
+    </nav>
+  </header>
+
+  <main id="main" data-markdown-vault>
+    <section class="intro" aria-labelledby="page-title">
+      <p class="eyebrow">Project-owned sample · read-only source</p>
+      <h1 id="page-title">Keep the notes.<br><em>Rebuild the index.</em></h1>
+      <p class="lead">Two small multilingual Markdown files remain the source of truth. Local Knowledge Terminal builds a disposable full-text index and returns each result with its file, heading, exact line range, excerpt, and source-file hash.</p>
+      <div class="intro-links" aria-label="Proof sources and next steps">
+        <a href="https://github.com/lachlanchen/LocalKnowledgeTerminal/blob/b36bed6d794621994060c289ea788a2c71760cbf/examples/artifacts/markdown-vault-index.json">Pinned artifact</a>
+        <a href="https://github.com/lachlanchen/LocalKnowledgeTerminal/tree/b36bed6d794621994060c289ea788a2c71760cbf/examples/fixtures/markdown-vault">Pinned notes</a>
+        <a href="https://github.com/lachlanchen/LocalKnowledgeTerminal/blob/b36bed6d794621994060c289ea788a2c71760cbf/docs/markdown-vault.md">Build notes</a>
+        <a class="primary-link" href="../fit-check/">Check your collection</a>
+      </div>
+    </section>
+
+    <p class="load-status" id="load-status" role="status" aria-live="polite">Verifying the pinned proof…</p>
+
+    <section class="proof" id="proof" hidden aria-labelledby="results-heading">
+      <div class="proof-strip" aria-label="Proof summary">
+        <article><strong id="file-count">—</strong><span>canonical files</span></article>
+        <article><strong id="section-count">—</strong><span>searchable sections</span></article>
+        <article><strong id="wikilink-count">—</strong><span>explicit wikilink</span></article>
+        <article><strong>0</strong><span>writes to the vault</span></article>
+      </div>
+
+      <section class="results-section" aria-labelledby="results-heading">
+        <div class="section-heading">
+          <p class="eyebrow">Resolved retrieval</p>
+          <h2 id="results-heading">The result carries its source trail.</h2>
+          <p>These are deterministic searches over a project-owned fixture. Open either source file and compare the returned lines and SHA-256.</p>
+        </div>
+        <div class="result-grid" id="result-grid"></div>
+      </section>
+
+      <section class="link-section" aria-labelledby="link-heading">
+        <div>
+          <p class="eyebrow">Explicit structure only</p>
+          <h2 id="link-heading">One written link becomes one edge.</h2>
+          <p>The index records a link only when the note contains a recognized <code>[[target]]</code> or <code>[[target|label]]</code> outside code and comments. It does not infer a relationship.</p>
+        </div>
+        <div class="link-card" id="link-card"></div>
+      </section>
+
+      <section class="boundary-section" aria-labelledby="boundary-heading">
+        <div class="section-heading">
+          <p class="eyebrow">Current boundary</p>
+          <h2 id="boundary-heading">Small enough to verify.</h2>
+        </div>
+        <div class="boundary-grid">
+          <article>
+            <h3>What this proves</h3>
+            <ul>
+              <li>Read-only Markdown scanning</li>
+              <li>Local lexical retrieval</li>
+              <li>Exact file, heading, line, excerpt, and hash provenance</li>
+              <li>Atomic, rebuildable SQLite projection</li>
+            </ul>
+          </article>
+          <article>
+            <h3>What it does not claim</h3>
+            <ul>
+              <li>Native Obsidian integration or write-back</li>
+              <li>Semantic or vector search</li>
+              <li>Automatic concept discovery</li>
+              <li>Whole-vault answers or a customer result</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+    </section>
+
+    <aside class="fallback" aria-labelledby="fallback-title">
+      <h2 id="fallback-title">Inspect the immutable records</h2>
+      <p>If the interactive proof cannot load, the pinned artifact and its project-owned source notes remain public.</p>
+      <a href="https://raw.githubusercontent.com/lachlanchen/LocalKnowledgeTerminal/b36bed6d794621994060c289ea788a2c71760cbf/examples/artifacts/markdown-vault-index.json">Open the pinned JSON artifact</a>
+      <a href="https://github.com/lachlanchen/LocalKnowledgeTerminal/tree/b36bed6d794621994060c289ea788a2c71760cbf/examples/fixtures/markdown-vault">Open the pinned notes</a>
+    </aside>
+
+    <noscript>
+      <p class="noscript-note">JavaScript is needed for local integrity verification. The pinned artifact and source links above remain available.</p>
+    </noscript>
+  </main>
+
+  <footer>
+    <span>Local Knowledge Terminal by LazyingArt LLC</span>
+    <a href="../">Offer</a>
+    <a href="../sample-report/">Sample report</a>
+    <a href="../fit-check/">Free fit check</a>
+  </footer>
+</body>
+</html>
