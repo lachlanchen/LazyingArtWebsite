@@ -4,11 +4,14 @@ import { fileURLToPath } from "node:url";
 
 const read = (relative) =>
   fs.readFileSync(fileURLToPath(new URL(relative, import.meta.url)), "utf8");
+const readBuffer = (relative) =>
+  fs.readFileSync(fileURLToPath(new URL(relative, import.meta.url)));
 
 const offer = read("../manuscript-sprint/index.html");
 const fitCheck = read("../manuscript-sprint/fit-check/index.html");
 const fitCheckScript = read("../manuscript-sprint/fit-check/fit-check.js");
 const attributionBridge = read("../manuscript-sprint/attribution-bridge.js");
+const socialImage = readBuffer("../manuscript-sprint/assets/manuscript-sprint-social.png");
 const publicOffer = [offer, fitCheck, fitCheckScript, attributionBridge].join("\n");
 
 assert.match(publicOffer, /USD 250/);
@@ -29,5 +32,16 @@ assert.match(fitCheckScript, /event\.preventDefault\(\)/);
 assert.match(fitCheckScript, /mailto:contact@lazying\.art/);
 assert.match(fitCheckScript, /const attributionKeys = \["utm_source", "utm_medium", "utm_campaign", "utm_content"\]/);
 assert.match(offer, /<script src="attribution-bridge\.js" defer><\/script>/);
+assert.match(
+  offer,
+  /https:\/\/lazying\.art\/manuscript-sprint\/assets\/manuscript-sprint-social\.png/,
+);
+assert.match(
+  fitCheck,
+  /https:\/\/lazying\.art\/manuscript-sprint\/assets\/manuscript-sprint-social\.png/,
+);
+assert.equal(socialImage.subarray(1, 4).toString("ascii"), "PNG");
+assert.equal(socialImage.readUInt32BE(16), 1200);
+assert.equal(socialImage.readUInt32BE(20), 630);
 
 console.log("Manuscript Build & Redline Sprint offer contract tests passed");
