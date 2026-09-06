@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#17231f">
+  <title>Free clip fit check · AI Clip Assembly</title>
+  <meta name="description" content="Describe up to six AI-generated clips you control and review whether they fit the fixed USD 500 assembly pilot before transferring files or paying.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Free clip fit check · AI Clip Assembly">
+  <meta property="og:description" content="Review a clip inventory, rights, story, destination, and delivery needs before opening the request in your own email app.">
+  <meta property="og:image" content="https://lazying.art/logos/banner.png">
+  <meta property="og:url" content="https://lazying.art/video/brand-film/fit-check/">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://lazying.art/video/brand-film/fit-check/">
+  <link rel="icon" href="../../../favicon.ico" sizes="any">
+  <link rel="stylesheet" href="../../../lecture-pack/styles.css">
+  <script src="fit-check.js" defer></script>
+</head>
+<body data-fit-state="editing">
+  <a class="skip-link" href="#fit-form">Skip to fit questions</a>
+
+  <header class="site-header">
+    <a class="brand" href="../" aria-label="AI Clip Assembly offer">
+      <img src="../../../logos/logo.svg" alt="">
+      <span><strong>LazyingArt</strong><small>AI Clip Assembly</small></span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a href="../">Offer</a>
+      <a href="../#included">Included</a>
+      <a href="../#boundary">Boundary</a>
+      <a href="../../">Video work</a>
+    </nav>
+  </header>
+
+  <main class="fit-main">
+    <div class="fit-layout">
+      <section class="fit-intro" aria-labelledby="fit-title">
+        <p class="eyebrow">Free fit check · no file transfer or payment</p>
+        <h1 id="fit-title">Start with<br><em>the six clips.</em></h1>
+        <p class="lead">Describe the clips, rights, story, audience, and required handoff. Review the exact request, then open it in your own email app or copy it.</p>
+        <div class="scope-card">
+          <h2>The paid pilot, if it fits</h2>
+          <ul>
+            <li>Up to six existing AI-generated clips you control.</li>
+            <li>No more than 45 seconds of combined source.</li>
+            <li>One 30–45 second 16:9 master.</li>
+            <li>One 25–30 second web cut from the same edit.</li>
+            <li>Finishing, source manifest, and one correction pass.</li>
+          </ul>
+          <p class="scope-proof"><a href="../../">Watch the project-owned video work →</a><br>The examples are LazyingArt work, not customer campaign results.</p>
+        </div>
+      </section>
+
+      <section class="fit-card" aria-labelledby="questions-title">
+        <h2 id="questions-title">Describe the assembly</h2>
+        <p class="privacy-note"><strong>Review first:</strong> nothing is sent while you type or choose “Review request.” Do not upload or attach original clips yet.</p>
+
+        <form class="fit-form" id="fit-form" data-testid="fit-form" novalidate>
+          <div class="field">
+            <label for="contact-email">Contact email <span aria-hidden="true">*</span></label>
+            <input id="contact-email" name="contact_email" type="email" required maxlength="254" autocomplete="email">
+            <small>Used only to reply to this fit check.</small>
+          </div>
+
+          <div class="field honeypot-field" aria-hidden="true">
+            <label for="website">Website</label>
+            <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+          </div>
+
+          <div class="field">
+            <label for="clip-inventory">Clip count, durations, and aspect ratios <span aria-hidden="true">*</span></label>
+            <textarea id="clip-inventory" name="clip_inventory" required maxlength="800"></textarea>
+            <small>List up to six filenames or labels with duration and dimensions. A contact sheet or private preview route can be mentioned, but do not attach sources.</small>
+          </div>
+
+          <div class="field">
+            <label for="rights-scope">Rights controlled for the requested use <span aria-hidden="true">*</span></label>
+            <textarea id="rights-scope" name="rights_scope" required maxlength="1000"></textarea>
+            <small>Cover footage, faces, voices, logos, music, marks, models, and the intended commercial use. Identify anything uncertain.</small>
+          </div>
+
+          <div class="field">
+            <label for="audience-destination">Audience and destination <span aria-hidden="true">*</span></label>
+            <textarea id="audience-destination" name="audience_destination" required maxlength="600"></textarea>
+            <small>Who should understand the film, where it will appear, and whether the use is public, paid, or internal.</small>
+          </div>
+
+          <div class="field">
+            <label for="story">What changes from the first frame to the last? <span aria-hidden="true">*</span></label>
+            <textarea id="story" name="story" required maxlength="800"></textarea>
+            <small>Write one before-and-after sentence plus the final action, claim, or impression the film should support.</small>
+          </div>
+
+          <div class="field">
+            <label for="finish">Finishing inputs and constraints</label>
+            <textarea id="finish" name="finish" maxlength="800"></textarea>
+            <small>Optional. Mention supplied logo, titles, brand colours, licensed music, captions, safe areas, or claims to avoid.</small>
+          </div>
+
+          <div class="field">
+            <label for="delivery">Deadline and native-project requirement <span aria-hidden="true">*</span></label>
+            <textarea id="delivery" name="delivery" required maxlength="500"></textarea>
+            <small>Name the deadline and say whether MP4 delivery is enough. If a native project is required, name the editor and exact version.</small>
+          </div>
+
+          <div class="confirmations">
+            <label class="check-field" for="rights">
+              <input id="rights" name="rights" type="checkbox" required>
+              <span>I control the requested edit and distribution rights, or I can identify the licenses and permissions that allow them.</span>
+            </label>
+            <label class="check-field" for="scope">
+              <input id="scope" name="scope" type="checkbox" required>
+              <span>I understand the USD 500 pilot starts only after a positive fit check and excludes new generation, shot recreation, voice cloning, paid stock, translation, extra formats, publishing, and performance promises.</span>
+            </label>
+          </div>
+
+          <div class="fit-actions">
+            <button class="button primary" type="submit" data-testid="review-request">Review request</button>
+            <a class="text-link" href="../">Return to the offer</a>
+          </div>
+          <p class="fit-form-status" id="fit-form-status" role="status" tabindex="-1"></p>
+        </form>
+
+        <section class="review-panel" id="review-panel" data-testid="review-panel" aria-live="polite" hidden>
+          <h3 data-testid="review-heading" tabindex="-1">Review before continuing</h3>
+          <p>Check the exact request below. Nothing has been sent.</p>
+          <pre class="request-preview" id="request-preview" data-testid="request-preview"></pre>
+          <p class="review-destination"><strong>Choose how to continue.</strong> “Open in email” prepares the request without sending it. “Copy request” lets you paste it elsewhere.</p>
+          <div class="fit-actions">
+            <a class="button primary" id="open-email" data-testid="open-email" href="mailto:lach@lazying.art">Open in email</a>
+            <button class="button secondary" id="copy-request" data-testid="copy-request" type="button">Copy request</button>
+          </div>
+          <p class="submission-status" id="submission-status" role="status" aria-live="polite" tabindex="-1"></p>
+          <div class="review-next" aria-labelledby="review-next-title">
+            <h4 id="review-next-title">What happens next</h4>
+            <ol>
+              <li>LazyingArt reviews the inventory, rights, story, destination, and delivery needs. Do not send source clips yet.</li>
+              <li>You receive a fit/no-fit answer or the shortest questions needed to decide.</li>
+              <li>Both sides accept the usable clips, story sentence, delivery, source handling, correction, cancellation, and refund terms.</li>
+              <li>Payment and private source transfer come only after the exact USD 500 scope is accepted.</li>
+            </ol>
+          </div>
+        </section>
+
+        <noscript>
+          <p class="fit-footer-note">JavaScript is required for local review. You can instead email <a href="mailto:lach@lazying.art?subject=AI%20Clip%20Assembly%20free%20fit%20check">lach@lazying.art</a> with the answers above.</p>
+        </noscript>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <span>AI Clip Assembly Pilot by LazyingArt LLC</span>
+    <a href="../">Offer</a>
+    <a href="../../">Video work</a>
+    <a href="../../../">LazyingArt</a>
+  </footer>
+</body>
+</html>
