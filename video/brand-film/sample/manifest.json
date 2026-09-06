@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "title": "Madeira six-clip assembly sample",
+  "evidence_type": "project-owned editorial assembly demonstration",
+  "source_project": "LALACHAN",
+  "source_story": "Madeira: the island that keeps going up",
+  "rights_note": "LazyingArt project-owned source material; not customer footage",
+  "claim_boundary": "Demonstrates an editing process and output specification, not customer work or advertising performance.",
+  "source_total_seconds": 43.2,
+  "sources": [
+    {
+      "order": 1,
+      "filename": "shot-01-attempt-01.mp4",
+      "story_job": "establish",
+      "source_duration_seconds": 8.0,
+      "selected_range_seconds": [0.0, 7.2],
+      "sha256": "4caaa3213702a378b3d0fc3ce5b2f98acbbb6a62e0d753c7630fccdb0e64b37b"
+    },
+    {
+      "order": 2,
+      "filename": "shot-02-attempt-01.mp4",
+      "story_job": "move",
+      "source_duration_seconds": 8.0,
+      "selected_range_seconds": [0.0, 7.2],
+      "sha256": "27d392f672ebedf6196432be3997ed34f0a7f0892fe5f8415fdd834ea93a9826"
+    },
+    {
+      "order": 3,
+      "filename": "shot-03-attempt-01.mp4",
+      "story_job": "expand",
+      "source_duration_seconds": 8.0,
+      "selected_range_seconds": [0.0, 7.2],
+      "sha256": "53c05085a47bb167a50bd6cb007c6952003c0d4ca76a360f82a57a877826d057"
+    },
+    {
+      "order": 4,
+      "filename": "shot-04-attempt-01.mp4",
+      "story_job": "turn inward",
+      "source_duration_seconds": 8.0,
+      "selected_range_seconds": [0.0, 7.2],
+      "sha256": "b62d47c378ed915c81df74a7ef652293073dd52f86773ab426f025307b0d1c7a"
+    },
+    {
+      "order": 5,
+      "filename": "shot-05-attempt-01.mp4",
+      "story_job": "slow",
+      "source_duration_seconds": 8.0,
+      "selected_range_seconds": [0.0, 7.2],
+      "sha256": "15329db528d17055677f5884d1a15f1641d677233bfdc580794e304cbfaa63d9"
+    },
+    {
+      "order": 6,
+      "filename": "shot-08-attempt-02.mp4",
+      "story_job": "resolve",
+      "source_duration_seconds": 8.0,
+      "selected_range_seconds": [0.0, 7.2],
+      "sha256": "5e45c9d4c8ae0ce765c5e9fd5d0789cee74fd1d84892b58c48aec78dd148e44f"
+    }
+  ],
+  "edit": {
+    "source_frame": "1024x768",
+    "crop": "1024:576:0:48",
+    "output_frame": "1280x720",
+    "visual_overlap_seconds": 0.25,
+    "audio_overlap_seconds": 0.25,
+    "web_cut_master_ranges_seconds": [[0.0, 13.9], [28.05, 41.95]],
+    "audio": "source dialogue, ambience, and music retained"
+  },
+  "outputs": [
+    {
+      "role": "master",
+      "filename": "madeira-six-clip-master.mp4",
+      "duration_seconds": 41.958333,
+      "bytes": 23345988,
+      "video": "H.264 High, 1280x720, 24 fps, yuv420p",
+      "audio": "AAC, 48000 Hz, stereo",
+      "sha256": "ceb4f23f963e2571ac57b2a3023d76c00dba813c74e728a6371482e03a4d2f47"
+    },
+    {
+      "role": "web_cut",
+      "filename": "madeira-four-beat-web-cut.mp4",
+      "duration_seconds": 27.816,
+      "bytes": 13149413,
+      "video": "H.264 High, 1280x720, 24 fps, yuv420p",
+      "audio": "AAC, 48000 Hz, stereo",
+      "sha256": "836af75cd57bcba8d72a50b3bd57020d92614d54fbe280dadb8347c6765fa653"
+    }
+  ],
+  "build": {
+    "script": "build-sample.sh",
+    "ffmpeg_version": "6.1.1-3ubuntu5"
+  }
+}
