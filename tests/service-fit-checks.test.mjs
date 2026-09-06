@@ -48,6 +48,30 @@ class FakeElement {
 
 const cases = [
   {
+    name: "book_specimen",
+    email: "contact@lazying.art",
+    path: "../book-specimen/fit-check/fit-check.js",
+    pageUrl: "https://lazying.art/book-specimen/fit-check/",
+    values: {
+      contact_email: "publisher@example.com",
+      role: "Author and rights holder.",
+      shape: "4,200 words in DOCX with six supplied images and captions.",
+      language: "English primary text; no companion language.",
+      output: "Black-and-white 6 × 9 print specimen and reflowable EPUB.",
+      deadline: "Specimen needed in three weeks; full book is 55,000 words.",
+      handling: "Delete working source copies after delivery.",
+      constraints: "Preserve footnote numbering.",
+      rights: true,
+      scope: true,
+      website: "",
+    },
+    expectedKeys: [
+      "client_elapsed_ms", "constraints", "contact_email", "deadline",
+      "handling", "language", "offer", "output", "rights_confirmed", "role",
+      "scope_confirmed", "shape", "utm_campaign", "utm_source", "website",
+    ],
+  },
+  {
     name: "manuscript",
     email: "contact@lazying.art",
     path: "../manuscript-sprint/fit-check/fit-check.js",

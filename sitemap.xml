@@ -121,6 +121,18 @@
         <priority>0.7</priority>
     </url>
     <url>
+        <loc>https://lazying.art/book-specimen/</loc>
+        <lastmod>2026-09-07</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://lazying.art/book-specimen/fit-check/</loc>
+        <lastmod>2026-09-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
         <loc>https://lazying.art/wenyan/</loc>
         <lastmod>2026-09-05</lastmod>
         <changefreq>monthly</changefreq>

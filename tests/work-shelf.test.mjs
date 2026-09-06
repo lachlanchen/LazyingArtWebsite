@@ -49,6 +49,10 @@ assert.match(
 );
 assert.match(
   html,
+  /\.\.\/book-specimen\/\?utm_source=lazyingart&amp;utm_medium=website&amp;utm_campaign=book_specimen_pilot&amp;utm_content=work_services/,
+);
+assert.match(
+  html,
   /\.\.\/lecture-pack\/\?utm_source=lazyingart&amp;utm_medium=website&amp;utm_campaign=bilingual_lecture_pack_pilot&amp;utm_content=work_services/,
 );
 assert.match(
