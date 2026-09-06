@@ -96,6 +96,7 @@ LazyingArtLanding/
 ├── openhi-kit.html
 ├── eink/
 ├── lkt/
+│   └── lexical-ingest/
 ├── lecture-pack/
 │   └── fit-check/
 ├── manuscript-sprint/

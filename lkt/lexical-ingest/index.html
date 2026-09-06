@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#17231f">
+  <title>Lexical data without losing the source · LazyingArt</title>
+  <meta name="description" content="A reproducible lexical-ingestion proof that keeps raw fields and source locators, separates normalization, quarantines rejects, and can be rerun safely.">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Lexical data without losing the source">
+  <meta property="og:description" content="See a small, reproducible path from mixed lexical files to SQLite while keeping each decision traceable to its source.">
+  <meta property="og:image" content="https://lazying.art/lkt/assets/lkt-collection-fit-service-cover-v1.png">
+  <meta property="og:image:alt" content="Local Knowledge Terminal collection-fit sprint">
+  <meta property="og:url" content="https://lazying.art/lkt/lexical-ingest/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://lazying.art/lkt/assets/lkt-collection-fit-service-cover-v1.png">
+  <link rel="canonical" href="https://lazying.art/lkt/lexical-ingest/">
+  <link rel="icon" href="../../favicon.ico" sizes="any">
+  <link rel="stylesheet" href="../styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Lexical data without losing the source",
+    "description": "A reproducible lexical-ingestion proof that preserves raw fields, source locators, transformation notes, rejects, and rollback behavior.",
+    "datePublished": "2026-09-07",
+    "dateModified": "2026-09-07",
+    "url": "https://lazying.art/lkt/lexical-ingest/",
+    "author": {
+      "@type": "Organization",
+      "name": "LazyingArt LLC"
+    }
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <a class="brand" href="../" aria-label="Local Knowledge Terminal offer">
+      <img src="../../logos/logo.svg" alt="">
+      <span><strong>LazyingArt</strong><small>Lexical ingestion proof</small></span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a href="#problem">The problem</a>
+      <a href="#proof">The proof</a>
+      <a href="#fit">Test a collection</a>
+      <a href="../sample-report/">Sample report</a>
+    </nav>
+  </header>
+
+  <main id="main" class="report-main">
+    <section class="report-hero lexical-hero">
+      <p class="eyebrow">Lexical data carpentry · reproducible sample</p>
+      <h1>Clean the data.<br><em>Keep the evidence.</em></h1>
+      <p class="lead">A dictionary rarely arrives as one tidy table. Fields drift, glosses mix languages, records repeat, and one harmless-looking cleanup can erase where a reading came from. This small proof takes mixed lexical files into SQLite while keeping every accepted value traceable.</p>
+      <div class="hero-actions">
+        <a class="button primary" href="https://github.com/lachlanchen/LazyPromotion/tree/main/examples/lexical-ingest-proof">Inspect the runnable proof</a>
+        <a class="button secondary" href="../fit-check/?utm_source=lexical_ingest&amp;utm_medium=owned_proof&amp;utm_campaign=lexical_data_carpentry&amp;utm_content=hero">Check your collection</a>
+      </div>
+      <p class="report-boundary">The sample is synthetic and project-owned. It demonstrates workflow behavior, not compatibility with a particular database, linguistic accuracy, or a customer result.</p>
+    </section>
+
+    <section class="metric-grid" aria-label="Verified sample results">
+      <article><strong>2</strong><span>different source formats</span></article>
+      <article><strong>42</strong><span>raw source fields retained</span></article>
+      <article><strong>2</strong><span>incomplete records quarantined</span></article>
+      <article><strong>0</strong><span>writes on an identical replay</span></article>
+    </section>
+
+    <section class="report-section" id="problem">
+      <div class="report-heading">
+        <p class="eyebrow">The useful distinction</p>
+        <h2>Source data and display data are not the same thing.</h2>
+        <p>Normalizing a gloss can make a browser easier to use. Overwriting the original gloss makes later review harder. The proof stores the cleaned English display value separately and points the transformation back to the exact raw field.</p>
+      </div>
+      <div class="report-grid">
+        <article class="report-panel go-panel">
+          <h3>Keep</h3>
+          <ul>
+            <li>the source file hash and record ID;</li>
+            <li>a stable locator for every field;</li>
+            <li>the exact raw value as received;</li>
+            <li>the canonical field name and transformation note;</li>
+            <li>rejected records and the reason they stopped.</li>
+          </ul>
+        </article>
+        <article class="report-panel no-panel">
+          <h3>Do not silently invent</h3>
+          <ul>
+            <li>a missing lemma;</li>
+            <li>a pronunciation that was never supplied;</li>
+            <li>a translation with no source trail;</li>
+            <li>a successful record after partial failure;</li>
+            <li>compatibility before the real field map is reviewed.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="report-decision" id="proof">
+      <div>
+        <p class="eyebrow">One small pipeline</p>
+        <h2>Dry-run first. Commit once.</h2>
+      </div>
+      <p>The builder parses and validates both sources before opening the output database. Four complete records become lexemes. Two records with no lemma stay visible in the source ledger but never become canonical entries.</p>
+      <p><strong>Failure stays boring.</strong> A deliberate interruption after three writes leaves every ingestion table empty. Running the accepted data a second time makes no new writes and leaves the database bytes unchanged.</p>
+    </section>
+
+    <section class="report-section">
+      <div class="report-heading">
+        <p class="eyebrow">A reviewable path</p>
+        <h2>Each step leaves something a person can inspect.</h2>
+      </div>
+      <div class="data-flow" aria-label="Lexical ingestion flow">
+        <span>Toolbox-style text + CSV</span><b>→</b><span>dry run</span><b>→</b><span>field map + validation</span><b>→</b><span>one SQLite transaction</span><b>→</b><span>manifest + report</span>
+      </div>
+      <div class="feature-grid lexical-detail-grid">
+        <article>
+          <span class="number">PROVENANCE</span>
+          <h3>Trace one value back</h3>
+          <p>A canonical gloss can resolve to its original record, field locator, raw text, and source hash without relying on memory or a parallel spreadsheet.</p>
+        </article>
+        <article>
+          <span class="number">PRONUNCIATION</span>
+          <h3>Preserve what was supplied</h3>
+          <p>IPA is copied into a clearly named raw field. The sample does not infer, convert, or validate pronunciation.</p>
+        </article>
+        <article>
+          <span class="number">REPLAY</span>
+          <h3>Rerun without duplicates</h3>
+          <p>Stable keys turn an identical replay into zero writes. A later source change can be compared against a known prior state.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="report-source">
+      <h2>Run it locally</h2>
+      <p>The builder uses the Python standard library. The repository includes both synthetic inputs, the generated SQLite database, validation and rollback ledgers, a manifest, and tests.</p>
+      <pre><code>python examples/lexical-ingest-proof/build.py --check
+python -m unittest tests.test_lexical_ingest_proof</code></pre>
+      <p><a class="text-link" href="https://github.com/lachlanchen/LazyPromotion/tree/main/examples/lexical-ingest-proof">Open the code, inputs, artifacts, and report →</a></p>
+    </section>
+
+    <section class="report-cta" id="fit">
+      <div>
+        <p class="eyebrow">Bring the source before choosing the system</p>
+        <h2>Does your glossary or dictionary fit?</h2>
+        <p>Start with a free fit check for one rights-cleared collection, one language goal, and one existing machine. If it fits, the USD 250 Local Knowledge Terminal sprint maps the data and provenance, tests an agreed sample, and builds up to two cited browser cards. Custom adapters, bulk conversion, OCR, production deployment, and hardware are separate work.</p>
+      </div>
+      <div class="report-cta-actions">
+        <a class="button primary" href="../fit-check/?utm_source=lexical_ingest&amp;utm_medium=owned_proof&amp;utm_campaign=lexical_data_carpentry&amp;utm_content=closing">Start the free fit check</a>
+        <a class="text-link" href="../sample-report/">See the sprint deliverable →</a>
+        <span>No source upload or payment at the fit-check stage.</span>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>Local Knowledge Terminal by LazyingArt LLC</span>
+    <a href="../">LKT sprint</a>
+    <a href="https://github.com/lachlanchen/LazyPromotion/tree/main/examples/lexical-ingest-proof">GitHub proof</a>
+    <a href="https://lazying.art">LazyingArt</a>
+  </footer>
+</body>
+</html>
