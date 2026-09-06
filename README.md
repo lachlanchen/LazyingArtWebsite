@@ -21,9 +21,9 @@
 
 | Item | Info |
 | --- | --- |
-| ✅ Repo focus | Multilingual marketing site with product and fixed-scope service entry points for LazyingArt |
+| ✅ Repo focus | Multilingual marketing site with product, portfolio, and fixed-scope service entry points for LazyingArt |
 | 🌍 Audience | Visitors, language learners, collaborators, contributors |
-| 🧩 Core pages | `index.html`, `eink/`, `lkt/`, `lecture-pack/`, `manuscript-sprint/`, `robot.html`, `eink-words-card.html`, `openhi-kit.html` |
+| 🧩 Core pages | `index.html`, `work/`, `video/`, `eink/`, `lkt/`, `lecture-pack/`, `manuscript-sprint/`, `robot.html`, `eink-words-card.html`, `openhi-kit.html` |
 | 🧱 Runtime | HTML/CSS/vanilla JS with localized text interpolation |
 
 ## 🎨 About LazyingArt
