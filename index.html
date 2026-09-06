@@ -1607,6 +1607,7 @@
             background: var(--control-bg);
             text-align: left;
         }
+        .service-card-wide { grid-column: 1 / -1; }
         .service-card h3 { margin: 0.35rem 0 0.75rem; font-size: 1.25rem; }
         .service-card p { color: var(--text-muted); line-height: 1.65; }
         .service-kicker {
@@ -1650,6 +1651,7 @@
             .beta-launch-actions { width: 100%; }
             .beta-download-button { flex: 1 1 0; }
             .service-grid { grid-template-columns: 1fr; }
+            .service-card-wide { grid-column: auto; }
         }
 
         @media (max-width: 620px) {
@@ -1775,8 +1777,8 @@
         <div class="service-chooser-inner">
             <div class="section-header">
                 <span class="section-tag" data-i18n="services_tag">FOCUSED SERVICES</span>
-                <h2 class="section-title" id="services-title" data-i18n="services_title">Choose one fixed-scope USD 250 sprint.</h2>
-                <p class="section-subtitle" data-i18n="services_subtitle">Bring one source you control—a private collection, manuscript, lecture, or recording. Read the public proof first, then start a free fit check.</p>
+                <h2 class="section-title" id="services-title" data-i18n="services_title">Choose one bounded service.</h2>
+                <p class="section-subtitle" data-i18n="services_subtitle">Bring one source you control—a collection, manuscript, lecture, recording, or up to six AI clips. Read the public proof first, then request a free fit check.</p>
             </div>
             <div class="service-grid">
                 <article class="service-card">
@@ -1802,6 +1804,12 @@
                     <h3 data-i18n="services_story_title">Story clip pilot</h3>
                     <p data-i18n="services_story_desc">Choose one moment from a recording you own and receive a reviewed, captioned vertical clip up to 60 seconds.</p>
                     <a class="service-link" href="story-clip/?utm_source=lazyingart&amp;utm_medium=website&amp;utm_campaign=story_clip_pilot&amp;utm_content=service_chooser" data-i18n="services_story_cta">See scope and sample packet →</a>
+                </article>
+                <article class="service-card service-card-wide">
+                    <p class="service-kicker" data-i18n="services_ai_kicker">AI footage + editing</p>
+                    <h3 data-i18n="services_ai_title">AI clip assembly</h3>
+                    <p data-i18n="services_ai_desc">Turn up to six AI-generated clips you control into one coherent 16:9 master and a shorter web cut.</p>
+                    <a class="service-link" href="video/brand-film/?utm_source=lazyingart&amp;utm_medium=website&amp;utm_campaign=ai_clip_assembly&amp;utm_content=service_chooser" data-i18n="services_ai_cta">See the USD 500 scope and video proof →</a>
                 </article>
             </div>
             <p class="service-note" data-i18n="services_note">No source upload or payment before both sides accept the scope.</p>
@@ -2558,8 +2566,8 @@
                 nav_try: 'Try EchoMind',
                 btn_more: 'More →',
                 services_tag: 'FOCUSED SERVICES',
-                services_title: 'Choose one fixed-scope USD 250 sprint.',
-                services_subtitle: 'Bring one source you control—a private collection, manuscript, lecture, or recording. Read the public proof first, then start a free fit check.',
+                services_title: 'Choose one bounded service.',
+                services_subtitle: 'Bring one source you control—a collection, manuscript, lecture, recording, or up to six AI clips. Read the public proof first, then request a free fit check.',
                 services_lkt_kicker: 'Books + local AI',
                 services_lkt_title: 'Collection-fit sprint',
                 services_lkt_desc: 'Map one collection into private, cited multilingual cards and a provenance-aware browser proof on your existing machine.',
@@ -2576,6 +2584,10 @@
                 services_story_title: 'Story clip pilot',
                 services_story_desc: 'Choose one moment from a recording you own and receive a reviewed, captioned vertical clip up to 60 seconds.',
                 services_story_cta: 'See scope and sample packet →',
+                services_ai_kicker: 'AI footage + editing',
+                services_ai_title: 'AI clip assembly',
+                services_ai_desc: 'Turn up to six AI-generated clips you control into one coherent 16:9 master and a shorter web cut.',
+                services_ai_cta: 'See the USD 500 scope and video proof →',
                 services_note: 'No source upload or payment before both sides accept the scope.',
                 ecosystem_tag: 'ECOSYSTEM',
                 ecosystem_title: 'Explore the LazyingArt Network',
