@@ -10,10 +10,10 @@ test("video portfolio has one canonical direct-view page", () => {
   assert.match(html, /<link rel="canonical" href="https:\/\/lazying\.art\/video\/">/);
   assert.equal((html.match(/<iframe /g) || []).length, 3);
   assert.equal((html.match(/<video /g) || []).length, 1);
-  assert.match(html, /youtube-nocookie\.com\/embed\/UuVa-DaSAvI/);
-  assert.match(html, /youtube-nocookie\.com\/embed\/da0vnv1lQ_E/);
+  assert.match(html, /youtube-nocookie\.com\/embed\/qrzGXl5y-Ok/);
   assert.match(html, /youtube-nocookie\.com\/embed\/9FjVTAgD9QE/);
-  assert.match(html, /LalaMedias\/releases\/download\/media-v1/);
+  assert.match(html, /youtube-nocookie\.com\/embed\/rVU37lPKPo8/);
+  assert.match(html, /story-clip\/sample\/selected-provenance-clip\.mp4/);
 });
 
 test("video portfolio states roles and keeps claims bounded", () => {
