@@ -10,6 +10,12 @@ const homepage = read("../index.html");
 const fitCheck = read("../lkt/fit-check/index.html");
 const fitCheckScript = read("../lkt/fit-check/fit-check.js");
 const sampleReport = read("../lkt/sample-report/index.html");
+const serviceCard = fs.readFileSync(
+  fileURLToPath(
+    new URL("../lkt/assets/lkt-collection-fit-service-instagram-v1.png", import.meta.url),
+  ),
+);
+const serviceCardRenderer = read("../lkt/assets/render_service_card.py");
 const publicOffer = [offer, fitCheck, fitCheckScript, sampleReport].join("\n");
 
 assert.match(publicOffer, /USD 250/);
@@ -56,6 +62,10 @@ assert.match(offer, /Working source copies are deleted within fourteen calendar 
 assert.match(offer, /hosting, maintenance, hardware support, and ongoing operation are excluded/);
 assert.match(fitCheck, /href="\.\.\/#terms">Read timing, cancellation, retention, and support terms/);
 assert.match(offer, /width="1672" height="941"/);
+assert.equal(serviceCard.readUInt32BE(16), 1080);
+assert.equal(serviceCard.readUInt32BE(20), 1350);
+assert.match(serviceCardRenderer, /USD 250 · SOFTWARE SERVICE/);
+assert.match(serviceCardRenderer, /HARDWARE NOT INCLUDED/);
 assert.match(homepage, /A collection-fit service for private, book-grounded multilingual cards on your existing machine/);
 assert.match(homepage, />Service pilot <span/);
 assert.match(
