@@ -97,6 +97,7 @@ const cases = [
   },
   {
     name: "lecture",
+    encryptedIntakeAvailable: true,
     email: "contact@lazying.art",
     path: "../lecture-pack/fit-check/fit-check.js",
     pageUrl: "https://lazying.art/lecture-pack/fit-check/",
@@ -225,9 +226,17 @@ function setup(testCase, fetchImpl) {
 }
 
 for (const testCase of cases) {
-  const fixture = setup(testCase, async () => {
-    throw new Error("disabled encrypted intake must not call fetch");
-  });
+  const receipt = "ab".repeat(16);
+  const fixture = setup(testCase, async () => ({
+    status: 202,
+    async json() {
+      return {
+        status: "accepted",
+        message: "Request received for review.",
+        receipt,
+      };
+    },
+  }));
   await fixture.elements.sendButton.dispatch("click");
   assert.equal(fixture.calls.length, 0, `${testCase.name}: send is inert before review`);
 
@@ -247,18 +256,50 @@ for (const testCase of cases) {
   assert.equal(fixture.calls.length, 0, `${testCase.name}: confirmation gate holds`);
   fixture.elements.reviewConfirmed.checked = true;
   await fixture.elements.reviewConfirmed.dispatch("change");
-  assert.equal(fixture.elements.sendButton.disabled, true);
+  assert.equal(
+    fixture.elements.sendButton.disabled,
+    !testCase.encryptedIntakeAvailable,
+  );
   await fixture.elements.sendButton.dispatch("click");
 
-  assert.equal(fixture.calls.length, 0);
-  assert.equal(fixture.body.dataset.fitState, "reviewed");
   assert.match(fixture.elements.preview.textContent, /utm_source: owned_page/);
   assert.match(fixture.elements.preview.textContent, /utm_campaign: service_fit/);
   assert.doesNotMatch(fixture.elements.preview.textContent, /bad:/);
-  assert.match(
-    fixture.elements.submissionStatus.textContent,
-    /Continue with Open in email or Copy request/,
-  );
+  if (testCase.encryptedIntakeAvailable) {
+    assert.equal(fixture.calls.length, 1);
+    assert.equal(fixture.body.dataset.fitState, "accepted");
+    assert.match(fixture.elements.submissionStatus.textContent, new RegExp(receipt));
+    const [endpoint, request] = fixture.calls[0];
+    assert.equal(
+      endpoint,
+      "https://blog.lazying.art/wp-json/lazyingart/v1/lkt-fit-check",
+    );
+    assert.equal(request.method, "POST");
+    assert.equal(request.credentials, "omit");
+    const payload = JSON.parse(request.body);
+    assert.equal(payload.offer, testCase.name);
+    assert.deepEqual(Object.keys(payload).sort(), testCase.expectedKeys.sort());
+  } else {
+    assert.equal(fixture.calls.length, 0);
+    assert.equal(fixture.body.dataset.fitState, "reviewed");
+    assert.match(
+      fixture.elements.submissionStatus.textContent,
+      /Continue with Open in email or Copy request/,
+    );
+  }
+}
+
+{
+  const lecture = cases.find((item) => item.name === "lecture");
+  const fixture = setup(lecture, async () => ({ status: 503 }));
+  await fixture.elements.form.dispatch("submit");
+  fixture.elements.reviewConfirmed.checked = true;
+  await fixture.elements.reviewConfirmed.dispatch("change");
+  await fixture.elements.sendButton.dispatch("click");
+  assert.equal(fixture.calls.length, 1);
+  assert.equal(fixture.body.dataset.fitState, "error");
+  assert.match(fixture.elements.submissionStatus.textContent, /Open in email or Copy request/);
+  assert.equal(fixture.elements.reviewConfirmed.disabled, false);
 }
 
 console.log("Routed service fit-check frontend tests passed");
