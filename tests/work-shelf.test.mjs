@@ -11,9 +11,19 @@ assert.match(html, /<link rel="canonical" href="https:\/\/lazying\.art\/work\/">
 assert.match(html, /Start with the problem\./);
 assert.match(html, /not a catalogue of every experiment/i);
 
-for (const section of ["knowledge", "media", "research", "agents", "services"]) {
+for (const section of ["writing", "knowledge", "media", "research", "agents", "services"]) {
   assert.match(html, new RegExp(`id="${section}"`));
 }
+
+for (const publication of [
+  "i-got-tired-of-agent-limits-so-i-built-agintiflow.html",
+  "search-confidential-pdfs-locally-without-overbuilding-rag.html",
+  "latex-latexdiff-redline-compiles-overleaf.html",
+]) {
+  assert.match(html, new RegExp(`https://blog\\.lazying\\.art/[^\"]+/${publication}`));
+}
+assert.match(html, /Selected technical writing/);
+assert.match(html, /Developer tools · first-person build story/);
 
 for (const project of [
   "LocalKnowledgeTerminal",
