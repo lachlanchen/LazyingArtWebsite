@@ -146,6 +146,7 @@ const cases = [
     ],
   },
   {
+    encryptedIntakeAvailable: true,
     name: "story_clip",
     email: "lach@lazying.art",
     path: "../story-clip/fit-check/fit-check.js",

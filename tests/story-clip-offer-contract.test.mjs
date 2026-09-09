@@ -72,7 +72,7 @@ assert.match(fitCheck, />lach@lazying\.art<\/a>/);
 assert.match(fitCheckScript, /offer: "story_clip"/);
 assert.match(fitCheckScript, /Request received for review\./);
 assert.match(fitCheckScript, /https:\/\/blog\.lazying\.art\/wp-json\/lazyingart\/v1\/lkt-fit-check/);
-assert.match(fitCheckScript, /const encryptedIntakeAvailable = false;/);
+assert.match(fitCheckScript, /const encryptedIntakeAvailable = true;/);
 assert.doesNotMatch(offer, /checkout|payment link|buy now/i);
 
 const emails = [...publicOffer.matchAll(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/gi)].map(
