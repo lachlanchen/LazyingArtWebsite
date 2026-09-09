@@ -169,6 +169,30 @@ const cases = [
       "scope_confirmed", "source", "utm_campaign", "utm_source", "website",
     ],
   },
+  {
+    encryptedIntakeAvailable: true,
+    name: "openhi",
+    email: "contact@lazying.art",
+    path: "../openhi-reproducibility/fit-check/fit-check.js",
+    pageUrl: "https://lazying.art/openhi-reproducibility/fit-check/",
+    values: {
+      contact_email: "lab@example.com",
+      role: "Principal investigator authorized to share the test data.",
+      environment: "Ubuntu 24.04, Python 3.11, NVIDIA GPU with 24 GB VRAM.",
+      source: "One rights-cleared event-camera RAW recording and its metadata.",
+      target_stage: "Reproduce segmentation and its documented diagnostic plot.",
+      dependencies: "Metavision SDK is installed under the lab license.",
+      constraints: "Keep supplied data local and delete working copies after delivery.",
+      rights: true,
+      scope: true,
+      website: "",
+    },
+    expectedKeys: [
+      "client_elapsed_ms", "constraints", "contact_email", "dependencies",
+      "environment", "offer", "rights_confirmed", "role", "scope_confirmed",
+      "source", "target_stage", "utm_campaign", "utm_source", "website",
+    ],
+  },
 ];
 
 function setup(testCase, fetchImpl) {

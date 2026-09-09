@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#17231f">
+  <title>Free OpenHI setup fit check · Software Reproducibility Sprint</title>
+  <meta name="description" content="Describe one existing workstation, one rights-cleared dataset, and one OpenHI pipeline stage before the fixed USD 500 software sprint.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Free OpenHI setup fit check">
+  <meta property="og:description" content="Review the exact request before sending. No dataset upload or payment.">
+  <meta property="og:image" content="https://lazying.art/demos/OpenHI.png">
+  <meta property="og:url" content="https://lazying.art/openhi-reproducibility/fit-check/">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://lazying.art/openhi-reproducibility/fit-check/">
+  <link rel="icon" href="../../favicon.ico" sizes="any">
+  <link rel="stylesheet" href="../../lecture-pack/styles.css">
+  <script src="fit-check.js" defer></script>
+</head>
+<body data-fit-state="editing">
+  <a class="skip-link" href="#fit-form">Skip to fit questions</a>
+
+  <header class="site-header">
+    <a class="brand" href="../" aria-label="OpenHI Software Reproducibility Sprint offer">
+      <img src="../../logos/logo.svg" alt="">
+      <span><strong>LazyingArt</strong><small>OpenHI reproducibility</small></span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a href="../">Offer</a>
+      <a href="../#included">Deliverables</a>
+      <a href="../#proof">Public proof</a>
+      <a href="../#terms">Terms</a>
+      <a href="https://github.com/lachlanchen/OpenHI">OpenHI</a>
+    </nav>
+  </header>
+
+  <main class="fit-main">
+    <div class="fit-layout">
+      <section class="fit-intro" aria-labelledby="fit-title">
+        <p class="eyebrow">Free fit check · no data upload or payment</p>
+        <h1 id="fit-title">Describe the<br><em>smallest useful run.</em></h1>
+        <p class="lead">Share the setup metadata and target stage, not the dataset itself. The goal is to decide whether one bounded software reproduction can answer your next decision.</p>
+        <div class="scope-card">
+          <h2>The paid sprint, if it fits</h2>
+          <ul>
+            <li>One existing workstation.</li>
+            <li>One rights-cleared dataset or public sample.</li>
+            <li>One named OpenHI repository stage.</li>
+            <li>Environment, commands, outputs, and failure ledger.</li>
+            <li>One go/no-go report and one factual correction pass.</li>
+          </ul>
+          <p class="scope-proof"><a href="../#proof">Inspect the public OpenHI proof →</a></p>
+        </div>
+      </section>
+
+      <section class="fit-card" aria-labelledby="questions-title">
+        <h2 id="questions-title">Check the setup</h2>
+        <p class="privacy-note"><strong>Review first:</strong> nothing is sent while you fill in the form or choose “Review request.” Do not include raw data, credentials, license keys, unpublished results, or confidential source text.</p>
+
+        <form class="fit-form" id="fit-form" data-testid="fit-form" novalidate>
+          <div class="field">
+            <label for="contact-email">Contact email <span aria-hidden="true">*</span></label>
+            <input id="contact-email" name="contact_email" type="email" required maxlength="254" autocomplete="email">
+            <small>Used only to reply to this fit check.</small>
+          </div>
+
+          <div class="field honeypot-field" aria-hidden="true">
+            <label for="website">Website</label>
+            <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+          </div>
+
+          <div class="field">
+            <label for="role">Your role and authority to share the data <span aria-hidden="true">*</span></label>
+            <textarea id="role" name="role" required maxlength="700"></textarea>
+            <small>For example: principal investigator or engineer authorized to provide the agreed test sample.</small>
+          </div>
+
+          <div class="field">
+            <label for="environment">Existing workstation and software environment <span aria-hidden="true">*</span></label>
+            <textarea id="environment" name="environment" required maxlength="500"></textarea>
+            <small>Operating system, Python version, CPU/GPU, memory, repository revision, and installed SDKs if known.</small>
+          </div>
+
+          <div class="field">
+            <label for="source">Dataset shape and rights <span aria-hidden="true">*</span></label>
+            <textarea id="source" name="source" required maxlength="1000"></textarea>
+            <small>Format, approximate size, acquisition device, metadata available, and your right to use it. Do not paste or upload the data.</small>
+          </div>
+
+          <div class="field">
+            <label for="target-stage">One target pipeline stage and decision <span aria-hidden="true">*</span></label>
+            <textarea id="target-stage" name="target_stage" required maxlength="1000"></textarea>
+            <small>Name the stage, expected output, current failure if any, and what a pass or no-go would let you decide.</small>
+          </div>
+
+          <div class="field">
+            <label for="dependencies">Vendor or licensed dependencies</label>
+            <textarea id="dependencies" name="dependencies" maxlength="800"></textarea>
+            <small>Optional. State what is already installed under your license. Do not include keys or credentials.</small>
+          </div>
+
+          <div class="field">
+            <label for="constraints">Confidentiality, retention, and other constraints</label>
+            <textarea id="constraints" name="constraints" maxlength="800"></textarea>
+          </div>
+
+          <div class="confirmations">
+            <label class="check-field" for="rights">
+              <input id="rights" name="rights" type="checkbox" required>
+              <span>I am authorized to request this work and to provide the agreed dataset; I will not send data or credentials at this stage.</span>
+            </label>
+            <label class="check-field" for="scope">
+              <input id="scope" name="scope" type="checkbox" required>
+              <span>I understand that the fixed USD 500 sprint covers one workstation, one dataset, and one named software pipeline stage. Hardware, acquisition, optical calibration, licensed SDK procurement, custom algorithms, production integration, and scientific or publication guarantees are excluded.</span>
+            </label>
+          </div>
+
+          <div class="fit-actions">
+            <button class="button primary" type="submit" data-testid="review-request">Review request</button>
+            <a class="text-link" href="../">Return to the offer</a>
+          </div>
+          <p class="fit-form-status" id="fit-form-status" role="status" tabindex="-1"></p>
+        </form>
+
+        <section class="review-panel" id="review-panel" data-testid="review-panel" aria-live="polite" hidden>
+          <h3 data-testid="review-heading" tabindex="-1">Review before sending</h3>
+          <p>Check the exact request below. Nothing has been sent.</p>
+          <pre class="request-preview" id="request-preview" data-testid="request-preview"></pre>
+          <label class="review-confirmation" for="review-confirmed">
+            <input id="review-confirmed" data-testid="review-confirmed" type="checkbox">
+            <span>I reviewed the request above and want to make “Send fit check” available.</span>
+          </label>
+          <p class="review-destination"><strong>Choose how to continue.</strong> “Send fit check” encrypts the reviewed request for private review. You can also prepare it in your email app or copy it.</p>
+          <div class="fit-actions">
+            <button class="button primary" id="send-fit-check" data-testid="send-fit-check" type="button" disabled>Send fit check</button>
+            <a class="button primary" id="open-email" data-testid="open-email" href="mailto:contact@lazying.art">Open in email</a>
+            <button class="button secondary" id="copy-request" data-testid="copy-request" type="button">Copy request</button>
+          </div>
+          <p class="submission-status" id="submission-status" role="status" aria-live="polite" tabindex="-1"></p>
+          <div class="review-next" aria-labelledby="review-next-title">
+            <h4 id="review-next-title">What happens next</h4>
+            <ol>
+              <li>LazyingArt checks the environment, data shape, rights, dependencies, target stage, and handling constraints.</li>
+              <li>You receive a fit/no-fit answer or the few questions needed to decide. Do not send data yet.</li>
+              <li>Only after a positive fit check do both sides accept the exact stage, success signal, delivery, refund, and handling terms. A Stripe request and private transfer come afterward.</li>
+            </ol>
+          </div>
+        </section>
+
+        <noscript>
+          <p class="fit-footer-note">JavaScript is required for the local review step. You can instead email <a href="mailto:contact@lazying.art?subject=OpenHI%20Software%20Reproducibility%20%E2%80%94%20free%20fit%20check">contact@lazying.art</a> with the answers above.</p>
+        </noscript>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <span>OpenHI Software Reproducibility Sprint by LazyingArt LLC</span>
+    <a href="../">Offer</a>
+    <a href="https://github.com/lachlanchen/OpenHI">GitHub</a>
+  </footer>
+</body>
+</html>
