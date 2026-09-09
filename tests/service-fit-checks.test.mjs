@@ -96,6 +96,7 @@ const cases = [
     ],
   },
   {
+    encryptedIntakeAvailable: true,
     name: "manuscript",
     email: "contact@lazying.art",
     path: "../manuscript-sprint/fit-check/fit-check.js",
