@@ -193,6 +193,30 @@ const cases = [
       "source", "target_stage", "utm_campaign", "utm_source", "website",
     ],
   },
+  {
+    encryptedIntakeAvailable: true,
+    name: "lazyremote",
+    email: "contact@lazying.art",
+    path: "../lazyremote/fit-check/fit-check.js",
+    pageUrl: "https://lazying.art/lazyremote/fit-check/",
+    values: {
+      contact_email: "owner@example.com",
+      target: "A private development workstation and its local web console.",
+      endpoints: "Ubuntu 24.04 host, macOS client, and Android client.",
+      relay: "One customer-controlled Debian VPS is already reachable.",
+      network: "The workstation is behind CGNAT; no inbound ports are available.",
+      goal: "SSH and a browser console for two named operators with separate access.",
+      constraints: "Do not expose SSH or noVNC publicly.",
+      rights: true,
+      scope: true,
+      website: "",
+    },
+    expectedKeys: [
+      "client_elapsed_ms", "constraints", "contact_email", "endpoints", "goal",
+      "network", "offer", "relay", "rights_confirmed", "scope_confirmed",
+      "target", "utm_campaign", "utm_source", "website",
+    ],
+  },
 ];
 
 function setup(testCase, fetchImpl) {
