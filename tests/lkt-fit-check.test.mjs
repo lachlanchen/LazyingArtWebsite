@@ -201,24 +201,25 @@ async function review(fixture) {
   assert.equal(event.defaultPrevented, true);
 }
 
-async function attemptHiddenSend(fixture) {
+async function confirmAndSend(fixture) {
   fixture.elements.reviewConfirmed.checked = true;
   await fixture.elements.reviewConfirmed.dispatch("change");
-  assert.equal(fixture.elements.sendButton.disabled, true);
+  assert.equal(fixture.elements.sendButton.disabled, false);
   await fixture.elements.sendButton.dispatch("click");
-  assert.equal(fixture.calls.length, 0);
+  assert.equal(fixture.calls.length, 1);
 }
 
 assert.match(
   script,
   /https:\/\/blog\.lazying\.art\/wp-json\/lazyingart\/v1\/lkt-fit-check/,
 );
-assert.match(script, /const encryptedIntakeAvailable = false;/);
+assert.match(script, /const encryptedIntakeAvailable = true;/);
 assert.match(html, /name="contact_email" type="email" required maxlength="254"/);
 assert.match(html, /name="website" type="text" tabindex="-1" autocomplete="off"/);
-assert.match(html, /data-testid="send-fit-check" type="button" disabled hidden/);
+assert.match(html, /data-testid="send-fit-check" type="button" disabled/);
+assert.doesNotMatch(html, /data-testid="send-fit-check" type="button" disabled hidden/);
 assert.match(html, /nothing is sent while you fill in the form or choose “Review request.”/);
-assert.match(html, /Continue with your email app or copy the reviewed request/);
+assert.match(html, /send the encrypted request here or continue with your own email app/i);
 assert.doesNotMatch(html, /type="file"/);
 assert.doesNotMatch(html, /backend is live/i);
 
@@ -242,16 +243,30 @@ assert.doesNotMatch(html, /backend is live/i);
       "https://lazying.art/lkt/fit-check/?utm_source=instagram&utm_medium=social%3Fbad&utm_campaign=local_knowledge_terminal&utm_content=report_hero&utm_term=ignored",
   });
   await review(fixture);
-  await attemptHiddenSend(fixture);
-  assert.equal(fixture.body.dataset.fitState, "reviewed");
+  await confirmAndSend(fixture);
+  assert.equal(fixture.body.dataset.fitState, "accepted");
   assert.match(fixture.elements.preview.textContent, /utm_source: instagram/);
   assert.match(fixture.elements.preview.textContent, /utm_campaign: local_knowledge_terminal/);
   assert.doesNotMatch(fixture.elements.preview.textContent, /utm_medium:/);
   assert.doesNotMatch(fixture.elements.preview.textContent, /utm_term:/);
-  assert.match(
-    fixture.elements.submissionStatus.textContent,
-    /Continue with Open in email or Copy request/,
-  );
+  assert.match(fixture.elements.submissionStatus.textContent, /Request received for review/);
+  const [endpoint, request] = fixture.calls[0];
+  assert.equal(endpoint, "https://blog.lazying.art/wp-json/lazyingart/v1/lkt-fit-check");
+  assert.equal(request.method, "POST");
+  assert.equal(request.credentials, "omit");
+  const payload = JSON.parse(request.body);
+  assert.equal(payload.offer, "lkt");
+  assert.equal(payload.utm_source, "instagram");
+  assert.equal(payload.utm_campaign, "local_knowledge_terminal");
+}
+
+{
+  const fixture = setup({ fetchImpl: async () => ({ status: 503 }) });
+  await review(fixture);
+  await confirmAndSend(fixture);
+  assert.equal(fixture.body.dataset.fitState, "error");
+  assert.match(fixture.elements.submissionStatus.textContent, /Open in email or Copy request/);
+  assert.equal(fixture.elements.reviewConfirmed.disabled, false);
 }
 
 {

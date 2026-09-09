@@ -40,7 +40,7 @@
       <section class="fit-intro" aria-labelledby="fit-title">
         <p class="eyebrow">Free fit check · no payment</p>
         <h1 id="fit-title">Bring one<br><em>real collection.</em></h1>
-        <p class="lead">Five practical answers are enough to decide whether the fixed USD 250 sprint is worth discussing. No account or source upload is involved, and nothing is sent automatically.</p>
+        <p class="lead">Five practical answers are enough to decide whether the fixed USD 250 sprint is worth discussing. No account or source upload is involved. Nothing is sent until you review the request and choose “Send fit check.”</p>
         <div class="scope-card">
           <h2>The paid sprint, if it fits</h2>
           <ul>
@@ -56,7 +56,7 @@
 
       <section class="fit-card" aria-labelledby="questions-title">
         <h2 id="questions-title">Describe the collection</h2>
-        <p class="privacy-note"><strong>Review first:</strong> nothing is sent while you fill in the form or choose “Review request.” Continue with your email app or copy the reviewed request. Do not include source files or confidential source text.</p>
+        <p class="privacy-note"><strong>Review first:</strong> nothing is sent while you fill in the form or choose “Review request.” After reviewing, send the encrypted request here or continue with your own email app. Do not include source files or confidential source text.</p>
 
         <form class="fit-form" id="fit-form" data-testid="fit-form" novalidate>
           <div class="field">
@@ -128,13 +128,13 @@
           <h3 data-testid="review-heading" tabindex="-1">Review before sending</h3>
           <p>Check the exact request below. Nothing has been sent.</p>
           <pre class="request-preview" id="request-preview" data-testid="request-preview"></pre>
-          <label class="review-confirmation" for="review-confirmed" hidden>
+          <label class="review-confirmation" for="review-confirmed">
             <input id="review-confirmed" data-testid="review-confirmed" type="checkbox">
             <span>I reviewed the request above and want to make “Send fit check” available.</span>
           </label>
-          <p class="review-destination"><strong>Choose how to continue.</strong> “Open in email” prepares the reviewed request in your email app without sending it. “Copy request” lets you paste it into another mail app.</p>
+          <p class="review-destination"><strong>Choose how to continue.</strong> “Send fit check” encrypts the reviewed request before it is stored for review. “Open in email” and “Copy request” remain available if you prefer your own mail app.</p>
           <div class="fit-actions">
-            <button class="button primary" id="send-fit-check" data-testid="send-fit-check" type="button" disabled hidden>Send fit check</button>
+            <button class="button primary" id="send-fit-check" data-testid="send-fit-check" type="button" disabled>Send fit check</button>
             <a class="button primary" id="open-email" data-testid="open-email" href="mailto:contact@lazying.art">Open in email</a>
             <button class="button secondary" id="copy-request" data-testid="copy-request" type="button">Copy request</button>
           </div>

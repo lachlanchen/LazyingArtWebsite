@@ -2,7 +2,7 @@
   "use strict";
 
   const endpoint = "https://blog.lazying.art/wp-json/lazyingart/v1/lkt-fit-check";
-  const encryptedIntakeAvailable = false;
+  const encryptedIntakeAvailable = true;
   const subject = "Local Knowledge Terminal — free collection fit check";
   const maxBodyBytes = 12288;
   const attributionKeys = ["utm_source", "utm_medium", "utm_campaign", "utm_content"];
