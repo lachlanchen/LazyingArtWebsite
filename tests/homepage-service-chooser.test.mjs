@@ -16,7 +16,9 @@ assert.ok(chooserMatch, "homepage should expose a focused services section");
 const chooser = chooserMatch[0];
 
 assert.match(chooser, /Choose one bounded service/);
-assert.match(chooser, /one source you control—a collection/);
+assert.match(chooser, /one software stage or source you control/);
+assert.match(chooser, /one named OpenHI stage/);
+assert.match(chooser, /USD 500 scope and executed sample/);
 assert.match(chooser, /one rights-cleared chapter/);
 assert.match(chooser, /LaTeX manuscript/);
 assert.match(chooser, /rights-cleared lecture/);
@@ -26,10 +28,14 @@ assert.match(chooser, /USD 500 scope and video proof/);
 assert.match(chooser, /No source upload or payment before both sides accept the scope/);
 assert.equal(
   (chooser.match(/<article class="service-card(?: service-card-wide)?">/g) || []).length,
-  6,
-  "homepage should expose all six bounded service routes",
+  7,
+  "homepage should expose all seven bounded service routes",
 );
 
+assert.match(
+  chooser,
+  /openhi-reproducibility\/\?utm_source=lazyingart&amp;utm_medium=website&amp;utm_campaign=openhi_reproducibility&amp;utm_content=service_chooser/,
+);
 assert.match(
   chooser,
   /lkt\/\?utm_source=lazyingart&amp;utm_medium=website&amp;utm_campaign=local_knowledge_terminal_pilot&amp;utm_content=service_chooser/,
