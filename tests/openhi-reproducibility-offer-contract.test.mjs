@@ -24,6 +24,8 @@ assert.match(offer, /one named OpenHI pipeline stage/i);
 assert.match(offer, /Hardware remains a separate decision/);
 assert.match(offer, /one consolidated list of factual corrections/i);
 assert.match(offer, /within ten business days/i);
+assert.match(offer, /any generated outputs/i);
+assert.match(offer, /marketplace clients keep the contract and payment on that marketplace/i);
 assert.match(offer, /USD 150 for the environment record/i);
 assert.match(offer, /USD 225 for the reproduction packet/i);
 assert.match(offer, /USD 125 for the go\/no-go report/i);
@@ -55,6 +57,7 @@ assert.match(fit, /name="target_stage"/);
 assert.match(fit, /name="rights"/);
 assert.match(fit, /name="scope"/);
 assert.match(fit, /No data upload or payment/i);
+assert.match(fit, /marketplace clients keep the contract and payment on that marketplace/i);
 assert.match(legacy, /href="openhi-reproducibility\/"/);
 assert.match(homepage, /href="openhi-reproducibility\/"/);
 
