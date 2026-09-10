@@ -13,6 +13,7 @@ const summary = JSON.parse(fs.readFileSync(path.join(sampleRoot, "assets", "summ
 const manifest = JSON.parse(fs.readFileSync(path.join(sampleRoot, "assets", "manifest.json"), "utf8"));
 const legacy = fs.readFileSync(path.join(root, "openhi-kit.html"), "utf8");
 const homepage = fs.readFileSync(path.join(root, "index.html"), "utf8");
+const sitemap = fs.readFileSync(path.join(root, "sitemap.xml"), "utf8");
 
 assert.match(offer, /OpenHI Software Reproducibility Sprint/);
 assert.match(offer, /Software-only · one stage · USD 500/);
@@ -60,5 +61,13 @@ assert.match(fit, /No data upload or payment/i);
 assert.match(fit, /marketplace clients keep the contract and payment on that marketplace/i);
 assert.match(legacy, /href="openhi-reproducibility\/"/);
 assert.match(homepage, /href="openhi-reproducibility\/"/);
+
+for (const url of [
+  "https://lazying.art/openhi-reproducibility/",
+  "https://lazying.art/openhi-reproducibility/sample-report/",
+  "https://lazying.art/openhi-reproducibility/fit-check/",
+]) {
+  assert.equal(sitemap.split(`<loc>${url}</loc>`).length - 1, 1);
+}
 
 console.log("OpenHI reproducibility offer contract passed");
