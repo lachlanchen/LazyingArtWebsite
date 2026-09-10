@@ -8,14 +8,14 @@ const html = fs.readFileSync(new URL("index.html", root), "utf8");
 const match = html.match(/const translations = (\{[\s\S]*?\n        \});\n\n        function applyTranslations/);
 assert.ok(match, "homepage translations remain parseable");
 const translations = vm.runInNewContext(`(${match[1]})`);
-const file = "downloads/EchoMind-0.1.0-build77-test.apk";
+const file = "downloads/EchoMind-0.1.0-build78-test.apk";
 assert.ok(html.includes(`href="${file}"`));
 assert.ok(html.includes('href="https://testflight.apple.com/join/bKGrC3Jn"'));
 assert.ok(html.includes('href="https://play.google.com/apps/internaltest/4701510550966449647"'));
 assert.ok(!html.includes('href="https://play.google.com/apps/testing/art.lazying.echomind"'));
 assert.equal(crypto.createHash("sha256").update(fs.readFileSync(new URL(file, root))).digest("hex"),
-  "e74bb5c9d9a75383a9667dd9969f62258906afde5c7868318d00a7b2ac0c5eb6");
-assert.ok(fs.existsSync(new URL("downloads/EchoMind-0.1.0-build76-test.apk", root)), "prior link remains recoverable");
+  "448d573def31ce2c9a42e8ed79f8e985eb634a5662ea82aa50698af09ac60b8d");
+assert.ok(fs.existsSync(new URL("downloads/EchoMind-0.1.0-build77-test.apk", root)), "prior link remains recoverable");
 assert.equal(Object.keys(translations).length, 13);
 for (const [locale, dictionary] of Object.entries(translations)) {
   for (const key of ["beta_subtitle", "beta_google_play", "beta_testflight", "beta_android"]) {
