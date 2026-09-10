@@ -13,6 +13,7 @@ const summary = JSON.parse(fs.readFileSync(path.join(sampleRoot, "assets", "summ
 const manifest = JSON.parse(fs.readFileSync(path.join(sampleRoot, "assets", "manifest.json"), "utf8"));
 const legacy = fs.readFileSync(path.join(root, "openhi-kit.html"), "utf8");
 const homepage = fs.readFileSync(path.join(root, "index.html"), "utf8");
+const work = fs.readFileSync(path.join(root, "work", "index.html"), "utf8");
 const sitemap = fs.readFileSync(path.join(root, "sitemap.xml"), "utf8");
 
 assert.match(offer, /OpenHI Software Reproducibility Sprint/);
@@ -61,6 +62,14 @@ assert.match(fit, /No data upload or payment/i);
 assert.match(fit, /marketplace clients keep the contract and payment on that marketplace/i);
 assert.match(legacy, /href="openhi-reproducibility\/"/);
 assert.match(homepage, /href="openhi-reproducibility\/"/);
+assert.match(
+  work,
+  /\.\.\/openhi-reproducibility\/\?utm_source=lazyingart&amp;utm_medium=website&amp;utm_campaign=openhi_reproducibility&amp;utm_content=work_services/,
+);
+assert.match(
+  work,
+  /\.\.\/openhi-reproducibility\/sample-report\/\?utm_source=lazyingart&amp;utm_medium=website&amp;utm_campaign=openhi_reproducibility&amp;utm_content=work_research_sample/,
+);
 
 for (const url of [
   "https://lazying.art/openhi-reproducibility/",

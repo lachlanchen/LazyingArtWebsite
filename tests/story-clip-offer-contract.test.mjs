@@ -80,7 +80,7 @@ const emails = [...publicOffer.matchAll(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/g
 );
 assert.deepEqual([...new Set(emails)], ["lach@lazying.art"]);
 
-assert.match(work, /Five small ways to begin/);
+assert.match(work, /Six small ways to begin/);
 assert.match(
   work,
   /\.\.\/story-clip\/\?utm_source=lazyingart&amp;utm_medium=website&amp;utm_campaign=story_clip_pilot&amp;utm_content=work_services/,

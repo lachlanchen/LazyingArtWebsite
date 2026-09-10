@@ -42,7 +42,9 @@ for (const project of [
   assert.match(html, new RegExp(`https://github\\.com/lachlanchen/${project}`));
 }
 
-assert.match(html, /fixed-scope USD 250 sprint/);
+assert.match(html, /Six small ways to begin/);
+assert.match(html, /OpenHI Software Reproducibility · USD 500/);
+assert.match(html, /environment, command, output, failures, and go\/no-go/);
 assert.match(html, /Auditable content coding/);
 assert.match(html, /<h3>Proofline<\/h3>/);
 assert.match(html, /href="\.\.\/proofline\/"/);
@@ -68,6 +70,19 @@ assert.match(
 assert.match(
   html,
   /\.\.\/manuscript-sprint\/\?utm_source=lazyingart&amp;utm_medium=website&amp;utm_campaign=manuscript_sprint_pilot&amp;utm_content=work_services/,
+);
+assert.match(
+  html,
+  /\.\.\/openhi-reproducibility\/\?utm_source=lazyingart&amp;utm_medium=website&amp;utm_campaign=openhi_reproducibility&amp;utm_content=work_services/,
+);
+assert.match(
+  html,
+  /\.\.\/openhi-reproducibility\/sample-report\/\?utm_source=lazyingart&amp;utm_medium=website&amp;utm_campaign=openhi_reproducibility&amp;utm_content=work_research_sample/,
+);
+assert.equal(
+  (html.match(/<div class="service-list">[\s\S]*?<\/div>\s*<\/section>/)?.[0].match(/<article>/g) || []).length,
+  6,
+  "work shelf should expose all six selected fixed-scope routes",
 );
 assert.doesNotMatch(html, /paid customer|customer result|client result|revenue|guaranteed/i);
 assert.match(html, /https:\/\/github\.com\/sponsors\/lachlanchen/);
