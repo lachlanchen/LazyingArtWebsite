@@ -48,6 +48,7 @@
     </a>
     <nav aria-label="Primary navigation">
       <a href="#proof">How it works</a>
+      <a href="#agent">Agent access</a>
       <a href="#sample">Sample report</a>
       <a href="#evidence">Related work</a>
       <a href="#terms">Working terms</a>
@@ -121,6 +122,35 @@
           <li>Japanese and Chinese can add pronunciation guides.</li>
           <li>Root and affix views reuse accepted atomic evidence.</li>
         </ul>
+      </div>
+    </section>
+
+    <section class="section agent-section" id="agent">
+      <div class="section-heading">
+        <p class="eyebrow">Read-only MCP bridge</p>
+        <h2>Let an agent ask—and show its sources.</h2>
+        <p>A compatible MCP client can search the accepted part of an LKT collection and trace a returned claim to its source evidence. The bridge is deliberately small: it reads the local knowledge ledger, never invokes a model, and cannot change the collection.</p>
+      </div>
+      <div class="feature-grid">
+        <article>
+          <span class="number">01</span>
+          <h3>Ask the collection</h3>
+          <p>Search accepted multilingual records with bounded results instead of handing an agent unrestricted access to your files.</p>
+        </article>
+        <article>
+          <span class="number">02</span>
+          <h3>Open the evidence</h3>
+          <p>Trace a returned claim to an accepted source excerpt, safe locator, and validated content hash.</p>
+        </article>
+        <article>
+          <span class="number">03</span>
+          <h3>Keep the boundary</h3>
+          <p>The public bridge has two read-only tools and no file, shell, ingestion, generation, review, or write access. Network mode stays on loopback by default.</p>
+        </article>
+      </div>
+      <div class="sample-actions">
+        <a class="button secondary" href="https://github.com/lachlanchen/LocalKnowledgeTerminal/blob/main/docs/mcp.md">Inspect the MCP contract</a>
+        <span>Open-source implementation and tests. Remote access needs a separate authenticated boundary.</span>
       </div>
     </section>
 

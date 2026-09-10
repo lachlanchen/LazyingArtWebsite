@@ -91,6 +91,14 @@ assert.doesNotMatch(publicOffer, /19,119|6,327|5,189|5\.8 MB/);
 assert.match(offer, /Terminology and language study/);
 assert.match(offer, /rights-cleared glossary, dictionary, or reading collection/);
 assert.match(offer, /When the source supports it/);
+assert.match(offer, /Let an agent ask—and show its sources/);
+assert.match(offer, /compatible MCP client can search the accepted part of an LKT collection/);
+assert.match(offer, /never invokes a model, and cannot change the collection/);
+assert.match(offer, /two read-only tools and no file, shell, ingestion, generation, review, or write access/);
+assert.match(offer, /Network mode stays on loopback by default/);
+assert.match(offer, /github\.com\/lachlanchen\/LocalKnowledgeTerminal\/blob\/main\/docs\/mcp\.md/);
+assert.match(offer, /Remote access needs a separate authenticated boundary/);
+assert.doesNotMatch(offer, /Alexa\+|Alexa skill|Alexa support/);
 assert.ok(
   offer.indexOf('href="fit-check/">Check my collection') <
     offer.indexOf('href="sample-report/">See the sample deliverable'),
