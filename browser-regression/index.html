@@ -99,7 +99,7 @@
         <h2>The same pattern now guards a real trilingual site.</h2>
         <p>LazyTravel's Lanzhou site is generated from canonical multilingual content. Its public regression suite checks all eleven chapters, desktop and 390px mobile-width navigation, ruby controls, the interactive map, console errors, and failed requests.</p>
       </div>
-      <div class="sample-delivery">
+      <div class="sample-delivery copy-only">
         <div class="sample-copy">
           <p class="eyebrow">Clean GitHub Actions run</p>
           <h3>Built from source, then passed three consecutive browser runs.</h3>
@@ -110,6 +110,18 @@
           </div>
           <p><a class="text-link" href="https://lanzhou.lazying.art/">Open the tested site →</a></p>
           <p class="example-note">This is LazyingArt's own site and workflow evidence, not a customer result or a promise that an unfamiliar site will have the same shape.</p>
+        </div>
+      </div>
+      <div class="sample-delivery copy-only" id="stateful-proof">
+        <div class="sample-copy">
+          <p class="eyebrow">Companion recovery fixture</p>
+          <h3>A reload, failed write, and account switch all get their own test.</h3>
+          <p>A second project-owned specimen saves an unsent draft across reload, interrupts one write and retries it with the same id without a duplicate, then checks that changing accounts hides the previous account's cached state. The suite passed three consecutive Chromium runs and keeps JUnit plus a screenshot and Playwright trace when a check fails.</p>
+          <div class="sample-actions">
+            <a class="button primary" href="https://github.com/lachlanchen/LazyPromotion/actions/runs/34651573895">Inspect the successful run</a>
+            <a class="text-link" href="https://github.com/lachlanchen/LazyPromotion/tree/1929c3565ba1c9db5fdb77f832587265ff1fe835/examples/stateful-pwa-recovery">Read the fixture and tests →</a>
+          </div>
+          <p class="example-note">This is a synthetic fixture with no customer data or private AiMemo source. Authenticated staging, offline queues, and account-scoped storage are outside the fixed USD 250 public-site baseline and require a separately agreed scope.</p>
         </div>
       </div>
     </section>

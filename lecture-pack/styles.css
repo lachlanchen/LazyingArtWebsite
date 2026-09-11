@@ -66,6 +66,9 @@
   box-shadow: 0 24px 70px rgba(23, 35, 31, 0.1);
 }
 
+.sample-delivery.copy-only { grid-template-columns: 1fr; }
+.sample-delivery.copy-only .sample-copy { max-width: 820px; }
+
 .sample-preview { margin: 0; }
 
 .sample-preview img,
