@@ -1,5 +1,7 @@
 import assert from "node:assert/strict";
+import crypto from "node:crypto";
 import fs from "node:fs";
+import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const read = (relative) =>
@@ -10,6 +12,9 @@ const homepage = read("../index.html");
 const fitCheck = read("../lkt/fit-check/index.html");
 const fitCheckScript = read("../lkt/fit-check/fit-check.js");
 const sampleReport = read("../lkt/sample-report/index.html");
+const sampleRoot = fileURLToPath(new URL("../lkt/sample-report/", import.meta.url));
+const packetPath = path.join(sampleRoot, "assets", "lkt-scientific-pdf-fit-sample.zip");
+const packetChecksum = fs.readFileSync(`${packetPath}.sha256`, "utf8");
 const serviceCard = fs.readFileSync(
   fileURLToPath(
     new URL("../lkt/assets/lkt-collection-fit-service-instagram-v1.png", import.meta.url),
@@ -83,6 +88,16 @@ assert.match(
 );
 assert.match(sampleReport, /Twenty fixed questions/);
 assert.match(sampleReport, /no-go boundary for OCR/);
+assert.match(sampleReport, /href="assets\/lkt-scientific-pdf-fit-sample\.zip" download/);
+assert.match(sampleReport, /href="assets\/lkt-scientific-pdf-fit-sample\.zip\.sha256"/);
+assert.match(
+  packetChecksum,
+  /^[0-9a-f]{64}  lkt-scientific-pdf-fit-sample\.zip\n$/,
+);
+assert.equal(
+  crypto.createHash("sha256").update(fs.readFileSync(packetPath)).digest("hex"),
+  packetChecksum.slice(0, 64),
+);
 assert.match(offer, /16,800 current-code structured records/);
 assert.match(sampleReport, /<strong>16,800<\/strong><span>current-code records<\/span>/);
 assert.match(sampleReport, /<td>4,018<\/td>/);
