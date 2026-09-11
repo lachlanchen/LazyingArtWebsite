@@ -23,7 +23,7 @@ assert.match(offer, /30–45 second/);
 assert.match(offer, /up to ten consolidated corrections/i);
 assert.match(offer, /customer-owned material or a clearly identified open license/);
 assert.match(offer, /not paid-customer work/);
-assert.match(offer, /15 timed lines across three languages/);
+assert.match(offer, /One timeline, every derivative/);
 assert.doesNotMatch(offer, /45 aligned lines/);
 assert.match(offer, /Download the sample packet/);
 assert.match(offer, /2\.54 MB packet/);
@@ -43,9 +43,10 @@ assert.match(offer, /USD 100 for the transcript and subtitles, USD 75 for the st
 assert.match(offer, /Working source copies are deleted within fourteen calendar days/);
 assert.match(offer, /never reused as public proof without separate permission/);
 assert.match(offer, /written clarification during the seven-day correction window/);
+assert.doesNotMatch(offer, /LalaMedias\/videos\/aginti-autonomous-lab-ai-glasses/);
 assert.match(
   offer,
-  /https:\/\/lachlanchen\.github\.io\/LalaMedias\/videos\/aginti-autonomous-lab-ai-glasses-2b85b0d9\.html/,
+  /LazyPromotion\/tree\/ab36ac63c57f7acbd9d82238fdbf0c80c0349c6c\/examples\/bilingual-lecture-pack/,
 );
 assert.match(fitCheck, /Free fit check · no upload or payment/);
 assert.match(fitCheck, /do not paste a transcript or send the recording yet/i);

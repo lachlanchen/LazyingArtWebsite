@@ -23,13 +23,13 @@ assert.match(chooser, /one rights-cleared chapter/);
 assert.match(chooser, /LaTeX manuscript/);
 assert.match(chooser, /rights-cleared lecture/);
 assert.match(chooser, /recording you own/);
-assert.match(chooser, /up to six AI-generated clips you control/);
-assert.match(chooser, /USD 500 scope and video proof/);
+assert.doesNotMatch(chooser, /up to six AI-generated clips you control/);
+assert.doesNotMatch(chooser, /USD 500 scope and video proof/);
 assert.match(chooser, /No source upload or payment before both sides accept the scope/);
 assert.equal(
   (chooser.match(/<article class="service-card(?: service-card-wide)?">/g) || []).length,
-  7,
-  "homepage should expose all seven bounded service routes",
+  6,
+  "homepage should expose the six currently supported bounded service routes",
 );
 
 assert.match(
@@ -56,10 +56,7 @@ assert.match(
   chooser,
   /story-clip\/\?utm_source=lazyingart&amp;utm_medium=website&amp;utm_campaign=story_clip_pilot&amp;utm_content=service_chooser/,
 );
-assert.match(
-  chooser,
-  /video\/brand-film\/\?utm_source=lazyingart&amp;utm_medium=website&amp;utm_campaign=ai_clip_assembly&amp;utm_content=service_chooser/,
-);
+assert.doesNotMatch(chooser, /utm_campaign=ai_clip_assembly/);
 assert.doesNotMatch(chooser, /fit-check\//);
 assert.match(homepage, /href="#services" data-i18n="nav_services"/);
 
