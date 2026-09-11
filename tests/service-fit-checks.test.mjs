@@ -48,6 +48,7 @@ class FakeElement {
 
 const cases = [
   {
+    encryptedIntakeAvailable: true,
     name: "book_specimen",
     email: "contact@lazying.art",
     path: "../book-specimen/fit-check/fit-check.js",

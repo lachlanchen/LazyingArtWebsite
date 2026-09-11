@@ -8,7 +8,7 @@
   <meta name="description" content="Describe one rights-cleared chapter and review whether it fits the fixed USD 250 Book Specimen Sprint. No manuscript upload or payment.">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Free book fit check · Book Specimen Sprint">
-  <meta property="og:description" content="Review the exact request, then open it in your own email app or copy it. No source upload or payment.">
+  <meta property="og:description" content="Review the exact request, then explicitly send it for private fit review or continue by email. No source upload or payment.">
   <meta property="og:image" content="https://raw.githubusercontent.com/lachlanchen/LazyPromotion/e8512197cabe988ee597291364c0dab373e261ed/examples/source-aware-book-specimen/source/cover.png">
   <meta property="og:image:alt" content="Abstract textless cover for the LazyingArt source-aware book specimen">
   <meta property="og:url" content="https://lazying.art/book-specimen/fit-check/">
@@ -40,7 +40,7 @@
       <section class="fit-intro" aria-labelledby="fit-title">
         <p class="eyebrow">Free fit check · no source upload or payment</p>
         <h1 id="fit-title">Describe the<br><em>chapter.</em></h1>
-        <p class="lead">Share the source shape, language, image count, and intended outputs—not the chapter itself. Review the exact request, then choose whether to open it in your email app or copy it.</p>
+        <p class="lead">Share the source shape, language, image count, and intended outputs—not the chapter itself. Review the exact request, then choose whether to send it privately, open it in your email app, or copy it.</p>
         <div class="scope-card">
           <h2>The paid sprint, if it fits</h2>
           <ul>
@@ -56,7 +56,7 @@
 
       <section class="fit-card" aria-labelledby="questions-title">
         <h2 id="questions-title">Check the chapter</h2>
-        <p class="privacy-note"><strong>Review first:</strong> nothing is sent while you fill in the form or choose “Review request.” Continue with your email app or copy the reviewed request. Do not paste manuscript text or upload files.</p>
+        <p class="privacy-note"><strong>Review first:</strong> nothing is sent while you fill in the form or choose “Review request.” Sending becomes available only after you review the exact request and confirm it. Email and copy remain available. Do not paste manuscript text or upload files.</p>
 
         <form class="fit-form" id="fit-form" data-testid="fit-form" novalidate>
           <div class="field">
@@ -133,13 +133,13 @@
           <h3 data-testid="review-heading" tabindex="-1">Review before sending</h3>
           <p>Check the exact request below. Nothing has been sent.</p>
           <pre class="request-preview" id="request-preview" data-testid="request-preview"></pre>
-          <label class="review-confirmation" for="review-confirmed" hidden>
+          <label class="review-confirmation" for="review-confirmed">
             <input id="review-confirmed" data-testid="review-confirmed" type="checkbox">
             <span>I reviewed the request above and want to make “Send fit check” available.</span>
           </label>
-          <p class="review-destination"><strong>Choose how to continue.</strong> “Open in email” prepares the reviewed request in your email app without sending it. “Copy request” lets you paste it into another mail app.</p>
+          <p class="review-destination"><strong>Choose how to continue.</strong> “Send fit check” privately submits only the reviewed answers. “Open in email” prepares the same request without sending it. “Copy request” lets you move it yourself.</p>
           <div class="fit-actions">
-            <button class="button primary" id="send-fit-check" data-testid="send-fit-check" type="button" disabled hidden>Send fit check</button>
+            <button class="button primary" id="send-fit-check" data-testid="send-fit-check" type="button" disabled>Send fit check</button>
             <a class="button primary" id="open-email" data-testid="open-email" href="mailto:contact@lazying.art">Open in email</a>
             <button class="button secondary" id="copy-request" data-testid="copy-request" type="button">Copy request</button>
           </div>

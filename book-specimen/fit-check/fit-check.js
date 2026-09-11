@@ -1,7 +1,8 @@
 (() => {
   "use strict";
 
-  const encryptedIntakeAvailable = false;
+  const endpoint = "https://blog.lazying.art/wp-json/lazyingart/v1/lkt-fit-check";
+  const encryptedIntakeAvailable = true;
   const subject = "Book Specimen Sprint — free fit check";
   const maxBodyBytes = 12288;
   const attributionKeys = ["utm_source", "utm_medium", "utm_campaign", "utm_content"];
@@ -26,7 +27,10 @@
   }
 
   let preparedPayload = null;
+  let preparedBody = "";
   let preparedRequest = "";
+  let sending = false;
+  let accepted = false;
 
   const clean = (value) => String(value || "").replace(/\r\n?/g, "\n").trim();
 
@@ -103,9 +107,27 @@
     ].join("\n");
   };
 
+  const updateSendAvailability = () => {
+    sendButton.disabled =
+      !encryptedIntakeAvailable ||
+      sending ||
+      accepted ||
+      !preparedPayload ||
+      !reviewConfirmed.checked;
+  };
+
+  const setFormDisabled = (disabled) => {
+    form.querySelectorAll("input, textarea, button").forEach((control) => {
+      control.disabled = disabled;
+    });
+  };
+
   const resetReview = () => {
+    if (sending || accepted) return;
+    formStatus.textContent = "";
     if (!preparedPayload) return;
     preparedPayload = null;
+    preparedBody = "";
     preparedRequest = "";
     panel.hidden = true;
     reviewConfirmed.checked = false;
@@ -120,6 +142,7 @@
 
   form.addEventListener("submit", (event) => {
     event.preventDefault();
+    if (sending) return;
     if (!form.checkValidity()) {
       document.body.dataset.fitState = "invalid";
       form.reportValidity();
@@ -136,25 +159,83 @@
     }
 
     preparedPayload = Object.freeze(payload);
+    preparedBody = body;
     preparedRequest = buildRequest(preparedPayload);
+    accepted = false;
     preview.textContent = preparedRequest;
     openEmail.href = `mailto:contact@lazying.art?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(preparedRequest)}`;
     reviewConfirmed.checked = false;
     reviewConfirmed.disabled = !encryptedIntakeAvailable;
-    sendButton.disabled = true;
     panel.hidden = false;
-    submissionStatus.textContent = "Continue with Open in email or Copy request. Nothing has been sent.";
+    panel.removeAttribute("aria-busy");
+    formStatus.textContent = "";
+    submissionStatus.textContent = encryptedIntakeAvailable
+      ? ""
+      : "Continue with Open in email or Copy request. Nothing has been sent.";
     document.body.dataset.fitState = "reviewed";
+    updateSendAvailability();
     panel.scrollIntoView({ behavior: "smooth", block: "start" });
     heading.focus?.({ preventScroll: true });
   });
 
-  reviewConfirmed.addEventListener("change", () => {
-    sendButton.disabled = true;
-  });
+  reviewConfirmed.addEventListener("change", updateSendAvailability);
 
-  sendButton.addEventListener("click", () => {
-    if (!encryptedIntakeAvailable) return;
+  sendButton.addEventListener("click", async () => {
+    if (
+      !encryptedIntakeAvailable ||
+      sending ||
+      accepted ||
+      !preparedPayload ||
+      !preparedBody ||
+      !reviewConfirmed.checked
+    ) {
+      return;
+    }
+
+    sending = true;
+    setFormDisabled(true);
+    reviewConfirmed.disabled = true;
+    panel.setAttribute("aria-busy", "true");
+    submissionStatus.textContent = "Sending fit check…";
+    updateSendAvailability();
+
+    try {
+      const response = await fetch(endpoint, {
+        method: "POST",
+        mode: "cors",
+        credentials: "omit",
+        cache: "no-store",
+        referrerPolicy: "strict-origin-when-cross-origin",
+        headers: { "Content-Type": "application/json" },
+        body: preparedBody,
+      });
+      if (response.status !== 202) throw new Error("request not accepted");
+
+      const result = await response.json();
+      if (
+        !result ||
+        result.status !== "accepted" ||
+        result.message !== "Request received for review." ||
+        !/^[a-f0-9]{32}$/.test(String(result.receipt || ""))
+      ) {
+        throw new Error("invalid acceptance receipt");
+      }
+
+      accepted = true;
+      document.body.dataset.fitState = "accepted";
+      submissionStatus.textContent = `${result.message} Reference: ${result.receipt}`;
+    } catch (_error) {
+      document.body.dataset.fitState = "error";
+      submissionStatus.textContent =
+        "We couldn’t submit the request. Use Open in email or Copy request below.";
+      setFormDisabled(false);
+      reviewConfirmed.disabled = false;
+    } finally {
+      sending = false;
+      panel.removeAttribute("aria-busy");
+      updateSendAvailability();
+      submissionStatus.focus?.({ preventScroll: true });
+    }
   });
 
   copyButton.addEventListener("click", async () => {
