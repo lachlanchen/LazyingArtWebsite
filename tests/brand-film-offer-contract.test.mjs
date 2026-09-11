@@ -66,7 +66,7 @@ assert.match(fitCheckScript, /Nothing has been sent/);
 assert.doesNotMatch(fitCheckScript, /fetch\(|endpoint|XMLHttpRequest/);
 
 assert.match(portfolio, /href="brand-film\/">See the USD 500 assembly pilot/);
-assert.match(portfolio, /Five finished pieces/);
+assert.match(portfolio, /Four finished pieces/);
 assert.match(portfolio, /brand-film\/sample\/madeira-six-clip-master\.mp4/);
 assert.match(portfolio, /href="brand-film\/#sample">Watch both cuts and inspect the build/);
 assert.match(sitemap, /<loc>https:\/\/lazying\.art\/video\/brand-film\/<\/loc>/);

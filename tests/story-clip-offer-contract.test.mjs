@@ -53,7 +53,6 @@ for (const exclusion of [
 
 for (const proof of [
   "https://www.youtube.com/watch?v=da0vnv1lQ_E",
-  "https://www.youtube.com/watch?v=rVU37lPKPo8",
   "https://www.youtube.com/watch?v=9FjVTAgD9QE",
   'href="../work/"',
 ]) {
