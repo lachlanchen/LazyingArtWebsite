@@ -139,6 +139,11 @@ h2 { margin-bottom: 1rem; font-family: Georgia, "Times New Roman", serif; font-s
 .origin-section .eyebrow { color: var(--lime); }
 .origin-section p { color: #bdc9c3; }
 .origin-section ul { padding-left: 1.2rem; color: #dae1dd; line-height: 1.9; }
+.atlas-section { grid-template-columns: 0.88fr 1.12fr; }
+.atlas-section figure img { aspect-ratio: 16 / 9; }
+.atlas-links { display: flex; flex-wrap: wrap; gap: 0.8rem 1.4rem; margin-top: 1.5rem; }
+.atlas-links a { color: var(--lime); font-size: 0.88rem; font-weight: 750; text-underline-offset: 4px; }
+.origin-section .atlas-boundary { margin-top: 1.2rem; color: #94a69d; font-size: 0.76rem; line-height: 1.55; }
 
 .evidence-section { padding-bottom: 4rem; }
 .evidence-grid article { min-height: 270px; display: flex; flex-direction: column; }
@@ -272,7 +277,7 @@ body[data-fit-state="error"] .submission-status { color: var(--orange); }
   .proof-strip article:nth-child(2) { border-right: 0; }
   .proof-strip article:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
   .feature-grid, .use-grid, .evidence-grid { grid-template-columns: 1fr; }
-  .origin-section, .pilot { grid-template-columns: 1fr; }
+  .origin-section, .atlas-section, .pilot { grid-template-columns: 1fr; }
   .report-decision { grid-template-columns: 1fr; }
   .metric-grid { grid-template-columns: repeat(2, 1fr); }
   .metric-grid article:nth-child(2) { border-right: 0; }

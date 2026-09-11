@@ -63,6 +63,12 @@ assert.doesNotMatch(
 assert.doesNotMatch(offer + sampleReport, /sends nothing automatically/);
 assert.match(offer, /Hardware, shipping, custom OCR, bulk conversion, production deployment, and ongoing support are excluded/);
 assert.match(offer, /A supplied device is a separate, quote-only product/);
+assert.match(offer, /From books and dictionaries to one connected atlas/);
+assert.match(offer, /15,925 entities/);
+assert.match(offer, /15,197 typed edges/);
+assert.match(offer, /13,431 evidence records/);
+assert.match(offer, /github\.com\/lachlanchen\/LexiconAtlas\/releases\/latest/);
+assert.match(offer, /not a finished etymological dictionary/);
 assert.match(offer, /A tested reference build, not included hardware/);
 assert.match(offer, /Delivery is ten business days after the scope is accepted/);
 assert.match(offer, /one consolidated list of up to ten factual corrections within seven calendar days/);
