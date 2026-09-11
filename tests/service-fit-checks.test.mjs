@@ -218,6 +218,32 @@ const cases = [
       "target", "utm_campaign", "utm_source", "website",
     ],
   },
+  {
+    encryptedIntakeAvailable: true,
+    name: "pronunciation_lesson",
+    email: "contact@lazying.art",
+    path: "../pronunciation-mini-lesson/fit-check/fit-check.js",
+    pageUrl: "https://lazying.art/pronunciation-mini-lesson/fit-check/",
+    values: {
+      contact_email: "tutor@example.com",
+      contrast: "light/night",
+      learner_context: "Adult Cantonese speakers at intermediate English level; no learner names or recordings.",
+      language: "English plus Traditional Chinese",
+      intended_use: "A reusable browser and print lesson for weekly small-group tutoring.",
+      source: "We own the school word list and may reuse its brand colours.",
+      deadline: "Needed in three weeks; our team will deploy the static files.",
+      constraints: "Keep the practice suitable for a four-minute lesson.",
+      rights: true,
+      scope: true,
+      website: "",
+    },
+    expectedKeys: [
+      "client_elapsed_ms", "constraints", "contact_email", "contrast",
+      "deadline", "intended_use", "language", "learner_context", "offer",
+      "rights_confirmed", "scope_confirmed", "source", "utm_campaign",
+      "utm_source", "website",
+    ],
+  },
 ];
 
 function setup(testCase, fetchImpl) {
