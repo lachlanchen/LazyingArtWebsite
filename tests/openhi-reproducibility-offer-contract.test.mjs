@@ -11,6 +11,8 @@ const sampleRoot = path.join(root, "openhi-reproducibility", "sample-report");
 const sample = fs.readFileSync(path.join(sampleRoot, "index.html"), "utf8");
 const summary = JSON.parse(fs.readFileSync(path.join(sampleRoot, "assets", "summary.json"), "utf8"));
 const manifest = JSON.parse(fs.readFileSync(path.join(sampleRoot, "assets", "manifest.json"), "utf8"));
+const packetPath = path.join(sampleRoot, "assets", "openhi-reproducibility-sample.zip");
+const packetChecksum = fs.readFileSync(`${packetPath}.sha256`, "utf8");
 const legacy = fs.readFileSync(path.join(root, "openhi-kit.html"), "utf8");
 const homepage = fs.readFileSync(path.join(root, "index.html"), "utf8");
 const work = fs.readFileSync(path.join(root, "work", "index.html"), "utf8");
@@ -44,6 +46,16 @@ assert.match(sample, /does not establish acquisition, segmentation, learned comp
 assert.match(sample, /assets\/synthetic-events\.npz/);
 assert.match(sample, /assets\/environment\.json/);
 assert.match(sample, /assets\/manifest\.json/);
+assert.match(sample, /href="assets\/openhi-reproducibility-sample\.zip" download/);
+assert.match(sample, /href="assets\/openhi-reproducibility-sample\.zip\.sha256"/);
+assert.match(
+  packetChecksum,
+  /^[0-9a-f]{64}  openhi-reproducibility-sample\.zip\n$/,
+);
+assert.equal(
+  crypto.createHash("sha256").update(fs.readFileSync(packetPath)).digest("hex"),
+  packetChecksum.slice(0, 64),
+);
 assert.equal(summary.openhi_commit, "080ad074a4581f34e3b87e6f23be64321eda5222");
 assert.equal(summary.checks.events, 4096);
 assert.equal(summary.checks.stage_exit_code, 0);
