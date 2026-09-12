@@ -66,6 +66,10 @@ assert.match(fit, /Do not include source code, credentials, tokens, private data
 
 assert.match(sample, /GO locally/);
 assert.match(sample, /NO-GO remotely/);
+assert.match(sample, /og:image" content="https:\/\/lazying\.art\/mcp-boundary-review\/assets\/mcp-boundary-review-social\.png"/);
+assert.match(sample, /og:image:width" content="1200"/);
+assert.match(sample, /og:image:height" content="630"/);
+assert.match(sample, /twitter:image" content="https:\/\/lazying\.art\/mcp-boundary-review\/assets\/mcp-boundary-review-social\.png"/);
 assert.match(sample, /not a customer result, penetration test, security certification/i);
 assert.match(sample, /read-only does not mean private/i);
 assert.match(sample, /assets\/lkt-mcp-boundary-review-sample\.zip" download/);
