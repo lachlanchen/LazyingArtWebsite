@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#17231f">
+  <title>Free MCP server fit check · MCP Boundary Review</title>
+  <meta name="description" content="Describe one MCP server and its intended client before the fixed USD 500 boundary review. No source upload, credentials, or payment.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Free MCP server fit check">
+  <meta property="og:description" content="Review the exact request before sending. No repository upload, credentials, or payment.">
+  <meta property="og:image" content="https://lazying.art/lkt/assets/lkt-product-hero-v2.png">
+  <meta property="og:url" content="https://lazying.art/mcp-boundary-review/fit-check/">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://lazying.art/mcp-boundary-review/fit-check/">
+  <link rel="icon" href="../../favicon.ico" sizes="any">
+  <link rel="stylesheet" href="../../lecture-pack/styles.css">
+  <script src="fit-check.js" defer></script>
+</head>
+<body data-fit-state="editing">
+  <a class="skip-link" href="#fit-form">Skip to fit questions</a>
+
+  <header class="site-header">
+    <a class="brand" href="../" aria-label="MCP Boundary Review offer">
+      <img src="../../logos/logo.svg" alt="">
+      <span><strong>LazyingArt</strong><small>MCP boundary review</small></span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a href="../">Offer</a>
+      <a href="../#included">Deliverables</a>
+      <a href="../#proof">Public sample</a>
+      <a href="../#terms">Terms</a>
+      <a href="https://github.com/lachlanchen/LocalKnowledgeTerminal">LKT example</a>
+    </nav>
+  </header>
+
+  <main class="fit-main">
+    <div class="fit-layout">
+      <section class="fit-intro" aria-labelledby="fit-title">
+        <p class="eyebrow">Free fit check · no source upload or payment</p>
+        <h1 id="fit-title">Describe the<br><em>boundary that matters.</em></h1>
+        <p class="lead">Share repository and runtime metadata, not credentials or private source. The goal is to decide whether ten bounded checks can answer your next deployment decision.</p>
+        <div class="scope-card">
+          <h2>The paid review, if it fits</h2>
+          <ul>
+            <li>One rights-cleared repository revision.</li>
+            <li>One MCP server with up to eight tools and resources.</li>
+            <li>One disposable environment and ten agreed checks.</li>
+            <li>Authority map, sanitized protocol packet, and failure ledger.</li>
+            <li>One go/no-go report and one factual correction pass.</li>
+          </ul>
+          <p class="scope-proof"><a href="../sample-report/">Inspect the executed LKT sample →</a></p>
+        </div>
+      </section>
+
+      <section class="fit-card" aria-labelledby="questions-title">
+        <h2 id="questions-title">Check the server</h2>
+        <p class="privacy-note"><strong>Review first:</strong> nothing is sent while you fill in the form or choose “Review request.” Do not include source code, credentials, tokens, private data, production endpoints, exploit details, or confidential logs.</p>
+
+        <form class="fit-form" id="fit-form" data-testid="fit-form" novalidate>
+          <div class="field">
+            <label for="contact-email">Contact email <span aria-hidden="true">*</span></label>
+            <input id="contact-email" name="contact_email" type="email" required maxlength="254" autocomplete="email">
+            <small>Used only to reply to this fit check.</small>
+          </div>
+
+          <div class="field honeypot-field" aria-hidden="true">
+            <label for="website">Website</label>
+            <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+          </div>
+
+          <div class="field">
+            <label for="role">Your role and authority <span aria-hidden="true">*</span></label>
+            <textarea id="role" name="role" required maxlength="700"></textarea>
+            <small>For example: maintainer authorized to provide the agreed repository revision for review.</small>
+          </div>
+
+          <div class="field">
+            <label for="repository">Repository and exact revision <span aria-hidden="true">*</span></label>
+            <textarea id="repository" name="repository" required maxlength="900"></textarea>
+            <small>Public URL and commit, or describe how a private revision could be provided later. Do not paste source code.</small>
+          </div>
+
+          <div class="field">
+            <label for="surface">MCP tools and resources to review <span aria-hidden="true">*</span></label>
+            <textarea id="surface" name="surface" required maxlength="1200"></textarea>
+            <small>List up to eight names and what each is intended to read, change, or call.</small>
+          </div>
+
+          <div class="field">
+            <label for="environment">Disposable test environment <span aria-hidden="true">*</span></label>
+            <textarea id="environment" name="environment" required maxlength="700"></textarea>
+            <small>Operating system, language/runtime, package manager, setup command, and safe fixture availability.</small>
+          </div>
+
+          <div class="field">
+            <label for="client-transport">Intended client and transport <span aria-hidden="true">*</span></label>
+            <textarea id="client-transport" name="client_transport" required maxlength="700"></textarea>
+            <small>For example: local desktop client over stdio, or an internal service over authenticated HTTP.</small>
+          </div>
+
+          <div class="field">
+            <label for="risk">Decision, sensitive boundary, and known concern <span aria-hidden="true">*</span></label>
+            <textarea id="risk" name="risk" required maxlength="900"></textarea>
+            <small>What decision should the report support? Describe sensitive data or actions without sharing them.</small>
+          </div>
+
+          <div class="field">
+            <label for="constraints">Network, retention, deadline, and other constraints</label>
+            <textarea id="constraints" name="constraints" maxlength="800"></textarea>
+          </div>
+
+          <div class="confirmations">
+            <label class="check-field" for="rights">
+              <input id="rights" name="rights" type="checkbox" required>
+              <span>I am authorized to request this review and provide the agreed revision; I will not send source, credentials, production data, or access at this stage.</span>
+            </label>
+            <label class="check-field" for="scope">
+              <input id="scope" name="scope" type="checkbox" required>
+              <span>I understand that the fixed USD 500 review covers one revision, one MCP server, up to eight tools/resources, ten agreed checks, and one correction pass. Fix implementation, penetration testing, security certification, production deployment, destructive live testing, authentication builds, and ongoing monitoring are excluded.</span>
+            </label>
+          </div>
+
+          <div class="fit-actions">
+            <button class="button primary" type="submit" data-testid="review-request">Review request</button>
+            <a class="text-link" href="../">Return to the offer</a>
+          </div>
+          <p class="fit-form-status" id="fit-form-status" role="status" tabindex="-1"></p>
+        </form>
+
+        <section class="review-panel" id="review-panel" data-testid="review-panel" aria-live="polite" hidden>
+          <h3 data-testid="review-heading" tabindex="-1">Review before sending</h3>
+          <p>Check the exact request below. Nothing has been sent.</p>
+          <pre class="request-preview" id="request-preview" data-testid="request-preview"></pre>
+          <label class="review-confirmation" for="review-confirmed">
+            <input id="review-confirmed" data-testid="review-confirmed" type="checkbox">
+            <span>I reviewed the request above and want to make “Send fit check” available.</span>
+          </label>
+          <p class="review-destination"><strong>Choose how to continue.</strong> “Send fit check” encrypts the reviewed request for private review. You can also prepare it in your email app or copy it.</p>
+          <div class="fit-actions">
+            <button class="button primary" id="send-fit-check" data-testid="send-fit-check" type="button" disabled>Send fit check</button>
+            <a class="button primary" id="open-email" data-testid="open-email" href="mailto:contact@lazying.art">Open in email</a>
+            <button class="button secondary" id="copy-request" data-testid="copy-request" type="button">Copy request</button>
+          </div>
+          <p class="submission-status" id="submission-status" role="status" tabindex="-1"></p>
+        </section>
+      </section>
+    </div>
+
+    <section class="pilot">
+      <div>
+        <p class="eyebrow">Before any paid review</p>
+        <h2>The exact ten checks are written down.</h2>
+        <p>If the server fits, the accepted scope names the revision, surface, environment, protocol cases, network boundary, handling rules, delivery, timing, and refund allocation. Direct-site clients receive a Stripe request; marketplace clients keep the contract and payment on that marketplace.</p>
+      </div>
+      <div class="pilot-actions">
+        <a class="text-link" href="../#terms">Read the fixed terms →</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>MCP Boundary Review by LazyingArt LLC</span>
+    <a href="../">Offer</a>
+    <a href="../sample-report/">Public sample</a>
+    <a href="mailto:contact@lazying.art">contact@lazying.art</a>
+  </footer>
+</body>
+</html>

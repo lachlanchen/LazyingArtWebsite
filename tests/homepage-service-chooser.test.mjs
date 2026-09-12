@@ -19,10 +19,12 @@ assert.match(chooser, /Choose one bounded service/);
 assert.match(chooser, /one software stage or source you control/);
 assert.match(chooser, /one named OpenHI stage/);
 assert.match(chooser, /USD 500 scope and executed sample/);
+assert.match(chooser, /one MCP server can read or change/);
+assert.match(chooser, /ten protocol checks/);
 assert.match(chooser, /one rights-cleared chapter/);
 assert.match(chooser, /LaTeX manuscript/);
 assert.match(chooser, /rights-cleared lecture/);
-assert.match(chooser, /recording you own/);
+assert.doesNotMatch(chooser, /recording you own/);
 assert.doesNotMatch(chooser, /up to six AI-generated clips you control/);
 assert.doesNotMatch(chooser, /USD 500 scope and video proof/);
 assert.match(chooser, /No source upload or payment before both sides accept the scope/);
@@ -54,8 +56,9 @@ assert.match(
 );
 assert.match(
   chooser,
-  /story-clip\/\?utm_source=lazyingart&amp;utm_medium=website&amp;utm_campaign=story_clip_pilot&amp;utm_content=service_chooser/,
+  /mcp-boundary-review\/\?utm_source=lazyingart&amp;utm_medium=website&amp;utm_campaign=mcp_boundary_review&amp;utm_content=service_chooser/,
 );
+assert.doesNotMatch(chooser, /utm_campaign=story_clip_pilot/);
 assert.doesNotMatch(chooser, /utm_campaign=ai_clip_assembly/);
 assert.doesNotMatch(chooser, /fit-check\//);
 assert.match(homepage, /href="#services" data-i18n="nav_services"/);
