@@ -26,6 +26,8 @@ assert.match(offer, /one MCP server/i);
 assert.match(offer, /up to eight tools\/resources/i);
 assert.match(offer, /ten agreed checks/i);
 assert.match(offer, /Default ten-check set/i);
+assert.match(offer, /pagination or resource handoff/i);
+assert.match(offer, /intended client can resolve every returned locator/i);
 assert.match(offer, /one base revision/i);
 assert.match(offer, /same server, transport, and reviewed surface/i);
 assert.match(offer, /review-mcp-server-before-deployment\.html\?utm_source=lazyingart&amp;utm_medium=website&amp;utm_campaign=mcp_boundary_review&amp;utm_content=offer_guide/);
