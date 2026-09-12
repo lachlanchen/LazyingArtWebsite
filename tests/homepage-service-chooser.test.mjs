@@ -21,7 +21,9 @@ assert.match(chooser, /one named OpenHI stage/);
 assert.match(chooser, /USD 500 scope and executed sample/);
 assert.match(chooser, /one MCP server can read or change/);
 assert.match(chooser, /ten protocol checks/);
-assert.match(chooser, /one rights-cleared chapter/);
+assert.match(chooser, /one reachable relay/);
+assert.match(chooser, /up to three existing computers/);
+assert.match(chooser, /USD 250 scope and complete sample/);
 assert.match(chooser, /LaTeX manuscript/);
 assert.match(chooser, /rights-cleared lecture/);
 assert.doesNotMatch(chooser, /recording you own/);
@@ -31,7 +33,7 @@ assert.match(chooser, /No source upload or payment before both sides accept the 
 assert.equal(
   (chooser.match(/<article class="service-card(?: service-card-wide)?">/g) || []).length,
   6,
-  "homepage should expose the six currently supported bounded service routes",
+  "homepage should expose the six strongest currently supported bounded service routes",
 );
 
 assert.match(
@@ -44,7 +46,7 @@ assert.match(
 );
 assert.match(
   chooser,
-  /book-specimen\/\?utm_source=lazyingart&amp;utm_medium=website&amp;utm_campaign=book_specimen_pilot&amp;utm_content=service_chooser/,
+  /https:\/\/remote\.lazying\.art\/\?utm_source=lazyingart&amp;utm_medium=website&amp;utm_campaign=lazyremote_network_review&amp;utm_content=service_chooser#review/,
 );
 assert.match(
   chooser,
