@@ -5,6 +5,7 @@
   const encryptedIntakeAvailable = true;
   const subject = "MCP Server Pre-Deployment Review — free fit check";
   const maxBodyBytes = 12288;
+  const publicPreflightMarker = "Public GitHub repository preflight requested.";
   const attributionKeys = ["utm_source", "utm_medium", "utm_campaign", "utm_content"];
   const loadedAt = Date.now();
 
@@ -18,9 +19,13 @@
   const openEmail = document.querySelector("[data-testid='open-email']");
   const copyButton = document.querySelector("[data-testid='copy-request']");
   const submissionStatus = document.querySelector("#submission-status");
+  const publicPreflight = document.querySelector("#public-preflight");
+  const clientTransport = document.querySelector("#client-transport");
+  const risk = document.querySelector("#risk");
 
   if (!form || !formStatus || !panel || !heading || !preview || !reviewConfirmed ||
-      !sendButton || !openEmail || !copyButton || !submissionStatus) {
+      !sendButton || !openEmail || !copyButton || !submissionStatus ||
+      !publicPreflight || !clientTransport || !risk) {
     return;
   }
 
@@ -31,6 +36,12 @@
   let accepted = false;
 
   const clean = (value) => String(value || "").replace(/\r\n?/g, "\n").trim();
+  const syncRequestPath = () => {
+    const privateMetadataRequired = !publicPreflight.checked;
+    clientTransport.required = privateMetadataRequired;
+    risk.required = privateMetadataRequired;
+    form.dataset.requestPath = privateMetadataRequired ? "private_metadata" : "public_preflight";
+  };
   const attributionParams = () => {
     const current = new URLSearchParams(window.location.search);
     if (attributionKeys.some((key) => current.has(key))) return current;
@@ -60,7 +71,7 @@
       contact_email: clean(data.get("contact_email")),
       role: "",
       repository: clean(data.get("repository")),
-      surface: "",
+      surface: publicPreflight.checked ? publicPreflightMarker : "",
       environment: "",
       client_transport: clean(data.get("client_transport")),
       risk: clean(data.get("risk")),
@@ -74,6 +85,7 @@
   };
 
   const buildRequest = (payload) => {
+    const publicPreflightRequested = payload.surface === publicPreflightMarker;
     const source = attributionKeys
       .filter((key) => payload[key])
       .map((key) => `${key}: ${payload[key]}`);
@@ -82,7 +94,11 @@
       "",
       "Contact email:", payload.contact_email,
       "",
-      "Repository and exact revision:", payload.repository,
+      "Request path:", publicPreflightRequested
+        ? "Public GitHub repository preflight"
+        : "Private repository metadata review",
+      "",
+      "Repository URL or private revision:", payload.repository,
       "",
       "Intended client and transport:", payload.client_transport,
       "",
@@ -93,6 +109,9 @@
       ...(source.length ? ["", "Page attribution:", ...source] : []),
     ].join("\n");
   };
+
+  publicPreflight.addEventListener("change", syncRequestPath);
+  syncRequestPath();
 
   const updateSendAvailability = () => {
     sendButton.disabled = !encryptedIntakeAvailable || sending || accepted ||

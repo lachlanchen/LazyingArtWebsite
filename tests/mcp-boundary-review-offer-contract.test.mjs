@@ -50,15 +50,17 @@ assert.doesNotMatch(offer, /guaranteed secure|fully secure|zero risk/i);
 
 assert.match(fit, /data-testid="fit-form"/);
 for (const name of [
-  "repository", "client_transport", "risk", "rights",
+  "repository", "public_preflight", "client_transport", "risk", "rights",
 ]) {
   assert.match(fit, new RegExp(`name="${name}"`));
 }
 for (const name of ["role", "surface", "environment", "constraints", "scope"]) {
   assert.doesNotMatch(fit, new RegExp(`name="${name}"`));
 }
-assert.match(fit, /derive the first tool inventory and proposed checks from a public repository/i);
-assert.match(fit, /private source, the first reply asks for a metadata-only surface manifest/i);
+assert.match(fit, /public GitHub URL is enough for the first reply/i);
+assert.match(fit, /pin a revision, list the MCP surface, and propose the ten checks/i);
+assert.match(fit, /Optional for a public preflight\. Required for a private repository/i);
+assert.match(fit, /for private source, the first reply requests a metadata-only surface manifest/i);
 assert.match(offer, /UP TO 3/);
 assert.match(offer, /ten agreed checks including calls, rejection cases, and inspected controls/i);
 assert.match(fit, /fixed USD 500 pre-deployment review/i);

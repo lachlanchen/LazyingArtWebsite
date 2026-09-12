@@ -7,6 +7,7 @@ class FakeElement {
   constructor() {
     this.attributes = new Map();
     this.checked = false;
+    this.dataset = {};
     this.disabled = false;
     this.focusCount = 0;
     this.handlers = new Map();
@@ -202,13 +203,10 @@ const cases = [
     pageUrl: "https://lazying.art/mcp-boundary-review/fit-check/",
     values: {
       contact_email: "maintainer@example.com",
-      role: "Repository maintainer authorized to request the review.",
-      repository: "https://example.com/server at commit abc123.",
-      surface: "search_docs reads the fixture; publish_note writes one sandbox record.",
-      environment: "Python 3.12 on Ubuntu with a disposable SQLite fixture.",
-      client_transport: "Local desktop agent over stdio.",
-      risk: "Decide whether the server can be enabled for internal writers without exposing source paths.",
-      constraints: "No production credentials or external writes.",
+      repository: "https://github.com/lachlanchen/LocalKnowledgeTerminal",
+      client_transport: "",
+      risk: "",
+      public_preflight: true,
       rights: true,
       scope: true,
       website: "",
@@ -334,10 +332,14 @@ function setup(testCase, fetchImpl) {
     openEmail: new FakeElement(),
     copyButton: new FakeElement(),
     submissionStatus: new FakeElement(),
+    publicPreflight: new FakeElement(),
+    clientTransport: new FakeElement(),
+    risk: new FakeElement(),
   };
   elements.panel.hidden = true;
   elements.sendButton.disabled = true;
   elements.form.values = { ...testCase.values };
+  elements.publicPreflight.checked = Boolean(testCase.values.public_preflight);
   elements.form.checkValidity = () => true;
   elements.form.reportValidity = () => {};
   elements.form.controls = Array.from({ length: 12 }, () => new FakeElement());
@@ -354,6 +356,9 @@ function setup(testCase, fetchImpl) {
     ["[data-testid='open-email']", elements.openEmail],
     ["[data-testid='copy-request']", elements.copyButton],
     ["#submission-status", elements.submissionStatus],
+    ["#public-preflight", elements.publicPreflight],
+    ["#client-transport", elements.clientTransport],
+    ["#risk", elements.risk],
   ]);
   const page = new URL(`${testCase.pageUrl}?utm_source=owned_page&utm_campaign=service_fit&bad=x`);
   const body = new FakeElement();
@@ -423,6 +428,11 @@ for (const testCase of cases) {
   assert.equal(fixture.elements.panel.hidden, false);
   assert.equal(fixture.elements.sendButton.disabled, true);
   assert.match(fixture.elements.preview.textContent, /Contact email:/);
+  if (testCase.name === "mcp_boundary_review") {
+    assert.equal(fixture.elements.clientTransport.required, false);
+    assert.equal(fixture.elements.risk.required, false);
+    assert.match(fixture.elements.preview.textContent, /Public GitHub repository preflight/);
+  }
   assert.match(
     fixture.elements.openEmail.href,
     new RegExp(`^mailto:${testCase.email.replace(".", "\\.")}\\?`),
@@ -463,6 +473,16 @@ for (const testCase of cases) {
       /Continue with Open in email or Copy request/,
     );
   }
+}
+
+{
+  const mcp = cases.find((item) => item.name === "mcp_boundary_review");
+  const fixture = setup(mcp, async () => ({ status: 202 }));
+  fixture.elements.publicPreflight.checked = false;
+  await fixture.elements.publicPreflight.dispatch("change");
+  assert.equal(fixture.elements.clientTransport.required, true);
+  assert.equal(fixture.elements.risk.required, true);
+  assert.equal(fixture.elements.form.dataset.requestPath, "private_metadata");
 }
 
 {
