@@ -47,6 +47,12 @@ assert.match(offer, /No credentials, production data, payment, or server access/
 assert.match(offer, /No fix implementation, penetration test, security certification/i);
 assert.match(offer, /Direct-site clients receive a Stripe request; marketplace clients keep the contract and payment on that marketplace/i);
 assert.doesNotMatch(offer, /guaranteed secure|fully secure|zero risk/i);
+assert.match(offer, /Free public-source preflight/i);
+assert.match(offer, /pins the default-branch revision/i);
+assert.match(offer, /never clones the repository or executes its code/i);
+assert.match(offer, /blob\/8b06e0bfb6485dc30fa15f425c37394bb1dd223c\/mcp_public_preflight\.py/);
+assert.match(offer, /blob\/8b06e0bfb6485dc30fa15f425c37394bb1dd223c\/docs\/mcp-public-preflight\.md/);
+assert.match(offer, /starting inventory, not the paid review or a security verdict/i);
 
 assert.match(fit, /data-testid="fit-form"/);
 for (const name of [
