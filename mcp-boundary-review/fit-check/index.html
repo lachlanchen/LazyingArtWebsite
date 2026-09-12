@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#17231f">
-  <title>Free MCP server fit check · MCP Boundary Review</title>
+  <title>Free MCP server fit check · Pre-Deployment Review</title>
   <meta name="description" content="Describe one MCP server and its intended client before the fixed USD 500 boundary review. No source upload, credentials, or payment.">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Free MCP server fit check">
@@ -21,9 +21,9 @@
   <a class="skip-link" href="#fit-form">Skip to fit questions</a>
 
   <header class="site-header">
-    <a class="brand" href="../" aria-label="MCP Boundary Review offer">
+    <a class="brand" href="../" aria-label="MCP Server Pre-Deployment Review offer">
       <img src="../../logos/logo.svg" alt="">
-      <span><strong>LazyingArt</strong><small>MCP boundary review</small></span>
+      <span><strong>LazyingArt</strong><small>MCP pre-deployment review</small></span>
     </a>
     <nav aria-label="Primary navigation">
       <a href="../">Offer</a>
@@ -39,15 +39,15 @@
       <section class="fit-intro" aria-labelledby="fit-title">
         <p class="eyebrow">Free fit check · no source upload or payment</p>
         <h1 id="fit-title">Describe the<br><em>boundary that matters.</em></h1>
-        <p class="lead">Share repository and runtime metadata, not credentials or private source. The goal is to decide whether ten bounded checks can answer your next deployment decision.</p>
+        <p class="lead">Share the repository, intended client, and decision you need to make—not credentials or private source. We can derive the first tool inventory and proposed checks from a public repository; for private source, the first reply asks for a metadata-only surface manifest.</p>
         <div class="scope-card">
           <h2>The paid review, if it fits</h2>
           <ul>
-            <li>One rights-cleared repository revision.</li>
+            <li>One rights-cleared base repository revision.</li>
             <li>One MCP server with up to eight tools and resources.</li>
             <li>One disposable environment and ten agreed checks.</li>
             <li>Authority map, sanitized protocol packet, and failure ledger.</li>
-            <li>One go/no-go report and one factual correction pass.</li>
+            <li>One go/no-go report and a limited follow-up recheck.</li>
           </ul>
           <p class="scope-proof"><a href="../sample-report/">Inspect the executed LKT sample →</a></p>
         </div>
@@ -70,27 +70,9 @@
           </div>
 
           <div class="field">
-            <label for="role">Your role and authority <span aria-hidden="true">*</span></label>
-            <textarea id="role" name="role" required maxlength="700"></textarea>
-            <small>For example: maintainer authorized to provide the agreed repository revision for review.</small>
-          </div>
-
-          <div class="field">
             <label for="repository">Repository and exact revision <span aria-hidden="true">*</span></label>
             <textarea id="repository" name="repository" required maxlength="900"></textarea>
             <small>Public URL and commit, or describe how a private revision could be provided later. Do not paste source code.</small>
-          </div>
-
-          <div class="field">
-            <label for="surface">MCP tools and resources to review <span aria-hidden="true">*</span></label>
-            <textarea id="surface" name="surface" required maxlength="1200"></textarea>
-            <small>List up to eight names and what each is intended to read, change, or call.</small>
-          </div>
-
-          <div class="field">
-            <label for="environment">Disposable test environment <span aria-hidden="true">*</span></label>
-            <textarea id="environment" name="environment" required maxlength="700"></textarea>
-            <small>Operating system, language/runtime, package manager, setup command, and safe fixture availability.</small>
           </div>
 
           <div class="field">
@@ -105,19 +87,10 @@
             <small>What decision should the report support? Describe sensitive data or actions without sharing them.</small>
           </div>
 
-          <div class="field">
-            <label for="constraints">Network, retention, deadline, and other constraints</label>
-            <textarea id="constraints" name="constraints" maxlength="800"></textarea>
-          </div>
-
           <div class="confirmations">
             <label class="check-field" for="rights">
               <input id="rights" name="rights" type="checkbox" required>
-              <span>I am authorized to request this review and provide the agreed revision; I will not send source, credentials, production data, or access at this stage.</span>
-            </label>
-            <label class="check-field" for="scope">
-              <input id="scope" name="scope" type="checkbox" required>
-              <span>I understand that the fixed USD 500 review covers one revision, one MCP server, up to eight tools/resources, ten agreed checks, and one correction pass. Fix implementation, penetration testing, security certification, production deployment, destructive live testing, authentication builds, and ongoing monitoring are excluded.</span>
+              <span>I am authorized to request the review and provide the agreed revision. I understand this is a fixed USD 500 pre-deployment review—not fix implementation, penetration testing, security certification, production deployment, or ongoing monitoring—and I will not send source, credentials, production data, or access at this stage.</span>
             </label>
           </div>
 
@@ -150,8 +123,8 @@
     <section class="pilot">
       <div>
         <p class="eyebrow">Before any paid review</p>
-        <h2>The exact ten checks are written down.</h2>
-        <p>If the server fits, the accepted scope names the revision, surface, environment, protocol cases, network boundary, handling rules, delivery, timing, and refund allocation. Direct-site clients receive a Stripe request; marketplace clients keep the contract and payment on that marketplace.</p>
+        <h2>The proposed ten checks come back with the fit reply.</h2>
+        <p>For a public repository, the fit reply names the discovered surface and any proposed substitutions to the <a href="../#checks">default checks</a>. For private source, the first reply requests a metadata-only surface manifest. The written scope then fixes the environment, network boundary, handling rules, delivery, timing, and refund allocation. Direct-site clients receive a Stripe request only after that scope is accepted; marketplace clients keep the contract and payment on that marketplace.</p>
       </div>
       <div class="pilot-actions">
         <a class="text-link" href="../#terms">Read the fixed terms →</a>
@@ -160,7 +133,7 @@
   </main>
 
   <footer>
-    <span>MCP Boundary Review by LazyingArt LLC</span>
+    <span>MCP Server Pre-Deployment Review by LazyingArt LLC</span>
     <a href="../">Offer</a>
     <a href="../sample-report/">Public sample</a>
     <a href="mailto:contact@lazying.art">contact@lazying.art</a>

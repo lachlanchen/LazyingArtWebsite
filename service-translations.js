@@ -26,7 +26,7 @@ window.serviceTranslations = {
     services_lecture_desc: "Turn one rights-cleared lecture into reviewed subtitles, an editable bilingual source, a pocket study PDF, and a short preview.",
     services_lecture_cta: "See scope and working proof →",
     services_mcp_kicker: "MCP + agent safety",
-    services_mcp_title: "MCP boundary review",
+    services_mcp_title: "MCP server pre-deployment review",
     services_mcp_desc: "Map what one MCP server can read or change, run ten protocol checks, and receive an evidence-backed go/no-go report.",
     services_mcp_cta: "See the USD 500 scope and executed sample →",
     services_story_kicker: "Video + subtitles",

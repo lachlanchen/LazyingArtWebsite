@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#17231f">
-  <title>MCP Boundary Review · USD 500</title>
-  <meta name="description" content="A fixed USD 500 review of one MCP server: authority map, protocol checks, failure ledger, evidence packet, and go/no-go report.">
+  <title>MCP Server Pre-Deployment Review · USD 500</title>
+  <meta name="description" content="A fixed USD 500 pre-deployment review of one MCP server: authority map, protocol checks, failure ledger, evidence packet, go/no-go report, and a limited recheck.">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="MCP Boundary Review">
+  <meta property="og:title" content="MCP Server Pre-Deployment Review">
   <meta property="og:description" content="Know what one MCP server can read, change, and disclose before an agent uses it.">
   <meta property="og:image" content="https://lazying.art/lkt/assets/lkt-product-hero-v2.png">
   <meta property="og:image:alt" content="Local Knowledge Terminal interface showing multilingual, source-grounded knowledge">
@@ -20,7 +20,7 @@
   {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "MCP Boundary Review",
+    "name": "MCP Server Pre-Deployment Review",
     "url": "https://lazying.art/mcp-boundary-review/",
     "description": "A bounded code-and-protocol review for one Model Context Protocol server.",
     "provider": {"@type": "Organization", "name": "LazyingArt LLC"},
@@ -28,7 +28,7 @@
       "@type": "Offer",
       "price": "500",
       "priceCurrency": "USD",
-      "description": "One repository revision, one MCP server, up to eight tools and resources, ten protocol checks, and one correction pass."
+      "description": "One base repository revision, one MCP server, up to eight tools and resources, ten protocol checks, and one limited follow-up recheck on one successor revision."
     }
   }
   </script>
@@ -39,10 +39,11 @@
   <header class="site-header">
     <a class="brand" href="https://lazying.art" aria-label="LazyingArt home">
       <img src="../logos/logo.svg" alt="">
-      <span><strong>LazyingArt</strong><small>MCP boundary review</small></span>
+      <span><strong>LazyingArt</strong><small>MCP pre-deployment review</small></span>
     </a>
     <nav aria-label="Primary navigation">
       <a href="#included">Deliverables</a>
+      <a href="#checks">Ten checks</a>
       <a href="#proof">Public sample</a>
       <a href="#terms">Terms</a>
       <a href="fit-check/">Free fit check</a>
@@ -52,7 +53,7 @@
   <main id="main">
     <section class="hero">
       <div class="hero-copy">
-        <p class="eyebrow">One MCP server · software-only · USD 500</p>
+        <p class="eyebrow">MCP boundary review · software-only · USD 500</p>
         <h1>Know what it can do<br><em>before an agent does it.</em></h1>
         <p class="lead">We inspect one MCP server at one revision, map what each tool and resource can read or change, run ten agreed protocol checks in a disposable environment, and return an evidence-backed go/no-go report.</p>
         <div class="hero-actions">
@@ -60,7 +61,7 @@
           <a class="button secondary" href="sample-report/">Inspect a completed sample</a>
         </div>
         <p class="scope-proof">Start with metadata or a public repository. No credentials, production data, payment, or server access until the scope and handling rules are accepted in writing.</p>
-        <p class="status"><span></span>One revision · up to eight tools/resources · ten checks · one correction pass.</p>
+        <p class="status"><span></span>One base revision · up to eight tools/resources · ten checks · limited successor recheck.</p>
       </div>
 
       <figure class="lecture-flow" aria-labelledby="flow-title">
@@ -75,10 +76,26 @@
     </section>
 
     <section class="proof-strip" aria-label="Fixed offer boundaries">
-      <article><strong>1</strong><span>Repository revision</span></article>
+      <article><strong>1</strong><span>Base repository revision</span></article>
       <article><strong>1</strong><span>MCP server</span></article>
       <article><strong>10</strong><span>Agreed checks</span></article>
-      <article><strong>1 PASS</strong><span>Factual corrections</span></article>
+      <article><strong>UP TO 3</strong><span>Failed checks re-run</span></article>
+    </section>
+
+    <section class="section" id="checks" aria-labelledby="checks-title">
+      <div class="section-heading">
+        <p class="eyebrow">Default ten-check set</p>
+        <h2 id="checks-title">The cases are visible before you buy.</h2>
+        <p>These are the defaults. A fit review may substitute a case when the server has a different risk, but the total stays at ten.</p>
+      </div>
+      <div class="feature-grid">
+        <article><span class="number">01–02</span><h3>Handshake and discovery</h3><p>Negotiate the supported protocol version, then compare the live tool and resource inventory with the advertised surface.</p></article>
+        <article><span class="number">03–04</span><h3>Valid calls and source bounds</h3><p>Exercise an agreed valid tool call and resource read, checking returned structure, locators, output bounds, and actual data access.</p></article>
+        <article><span class="number">05–06</span><h3>Invalid requests</h3><p>Send an unknown name and malformed or missing input, then record rejection behavior, messages, and any unintended side effect.</p></article>
+        <article><span class="number">07–08</span><h3>Authority and disclosure</h3><p>Trace reads, writes, external calls, and approval gates; inspect agreed outputs and logs for credentials, paths, or private context that should not escape.</p></article>
+        <article><span class="number">09–10</span><h3>Failure and deployment boundary</h3><p>Exercise one safe failure or timeout case, then decide whether the intended client and transport have the authentication and isolation the server assumes.</p></article>
+        <article><span class="number">+1</span><h3>Limited follow-up recheck</h3><p>Within fourteen calendar days, provide one successor revision of the same server and surface. We re-run up to three checks that failed in the original report.</p></article>
+      </div>
     </section>
 
     <section class="section" id="included">
@@ -89,7 +106,7 @@
       </div>
       <div class="feature-grid">
         <article><span class="number">01</span><h3>Authority map</h3><p>For each reviewed tool and resource: inputs, outputs, reads, writes, external calls, credential use, human approval points, and worst credible failure.</p></article>
-        <article><span class="number">02</span><h3>Protocol packet</h3><p>Frozen revision and environment, tool/resource inventory, ten agreed calls or rejection cases, sanitized logs, observed outputs, and reproducible commands.</p></article>
+        <article><span class="number">02</span><h3>Protocol packet</h3><p>Frozen revision and environment, tool/resource inventory, ten agreed checks including calls, rejection cases, and inspected controls, sanitized logs, observed outputs, and reproducible commands.</p></article>
         <article><span class="number">03</span><h3>Go/no-go report</h3><p>A failure ledger ranked by impact, the safe operating boundary for this revision, and the smallest next fix or separate implementation scope.</p></article>
       </div>
     </section>
@@ -140,7 +157,7 @@
       </div>
       <div class="feature-grid">
         <article><span class="number">01</span><h3>Timing</h3><p>Delivery is within seven business days after secured payment, repository access, working setup instructions, and every agreed test dependency are available. Only one MCP review is active at a time.</p></article>
-        <article><span class="number">02</span><h3>Correction pass</h3><p>One consolidated list of factual corrections is included within seven calendar days after delivery. A new revision, server, transport, tool, resource, or test case is a new scope.</p></article>
+        <article><span class="number">02</span><h3>Follow-up recheck</h3><p>Within fourteen calendar days, one successor revision of the same server, transport, and reviewed surface may re-run up to three checks that failed in the original report. New tools, resources, cases, or implementation work are a new scope.</p></article>
         <article><span class="number">03</span><h3>Cancellation and refund</h3><p>Cancel before private access or execution begins for a full refund. Once work starts, USD 100 covers environment setup, USD 150 the authority map, USD 150 the protocol packet, and USD 100 the final report; only undelivered items are refunded.</p></article>
         <article><span class="number">04</span><h3>Exclusions</h3><p>No fix implementation, penetration test, security certification, OAuth build, production deployment, destructive live testing, SLA, performance guarantee, or ongoing monitoring is included.</p></article>
       </div>
@@ -148,7 +165,7 @@
 
     <section class="pilot">
       <div>
-        <p class="eyebrow">MCP Boundary Review · USD 500</p>
+        <p class="eyebrow">MCP Server Pre-Deployment Review · USD 500</p>
         <h2>Start with the smallest server boundary that matters.</h2>
         <p>Describe the repository, protocol surface, and intended client first. If it fits, both sides accept the exact checks, handling rules, and delivery terms before payment. Direct-site clients receive a Stripe request; marketplace clients keep the contract and payment on that marketplace.</p>
       </div>
@@ -160,7 +177,7 @@
   </main>
 
   <footer>
-    <span>MCP Boundary Review by LazyingArt LLC</span>
+    <span>MCP Server Pre-Deployment Review by LazyingArt LLC</span>
     <a href="sample-report/">Public sample</a>
     <a href="https://github.com/lachlanchen/LocalKnowledgeTerminal">GitHub</a>
     <a href="https://lazying.art">LazyingArt</a>

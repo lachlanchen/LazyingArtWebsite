@@ -19,12 +19,15 @@ const homepage = fs.readFileSync(path.join(root, "index.html"), "utf8");
 const sitemap = fs.readFileSync(path.join(root, "sitemap.xml"), "utf8");
 
 assert.match(offer, /<link rel="canonical" href="https:\/\/lazying\.art\/mcp-boundary-review\/">/);
-assert.match(offer, /MCP Boundary Review/);
+assert.match(offer, /MCP Server Pre-Deployment Review/);
+assert.match(offer, /MCP boundary review/i);
 assert.match(offer, /USD 500/);
 assert.match(offer, /one MCP server/i);
 assert.match(offer, /up to eight tools\/resources/i);
 assert.match(offer, /ten agreed checks/i);
-assert.match(offer, /one correction pass/i);
+assert.match(offer, /Default ten-check set/i);
+assert.match(offer, /one successor revision/i);
+assert.match(offer, /up to three checks that failed/i);
 assert.match(offer, /No credentials, production data, payment, or server access/i);
 assert.match(offer, /No fix implementation, penetration test, security certification/i);
 assert.match(offer, /Direct-site clients receive a Stripe request; marketplace clients keep the contract and payment on that marketplace/i);
@@ -32,11 +35,18 @@ assert.doesNotMatch(offer, /guaranteed secure|fully secure|zero risk/i);
 
 assert.match(fit, /data-testid="fit-form"/);
 for (const name of [
-  "role", "repository", "surface", "environment", "client_transport", "risk",
-  "constraints", "rights", "scope",
+  "repository", "client_transport", "risk", "rights",
 ]) {
   assert.match(fit, new RegExp(`name="${name}"`));
 }
+for (const name of ["role", "surface", "environment", "constraints", "scope"]) {
+  assert.doesNotMatch(fit, new RegExp(`name="${name}"`));
+}
+assert.match(fit, /derive the first tool inventory and proposed checks from a public repository/i);
+assert.match(fit, /private source, the first reply asks for a metadata-only surface manifest/i);
+assert.match(offer, /UP TO 3/);
+assert.match(offer, /ten agreed checks including calls, rejection cases, and inspected controls/i);
+assert.match(fit, /fixed USD 500 pre-deployment review/i);
 assert.match(fit, /No source upload or payment/i);
 assert.match(fit, /Do not include source code, credentials, tokens, private data/i);
 
@@ -46,6 +56,8 @@ assert.match(sample, /not a customer result, penetration test, security certific
 assert.match(sample, /read-only does not mean private/i);
 assert.match(sample, /assets\/lkt-mcp-boundary-review-sample\.zip" download/);
 assert.match(sample, /assets\/lkt-mcp-boundary-review-sample\.zip\.sha256/);
+assert.match(sample, /assets\/report\.pdf" download/);
+assert.ok(fs.statSync(path.join(assets, "report.pdf")).size > 10_000);
 
 assert.equal(summary.lkt_commit, "e750e5ae24b780e45de896f7dc3a769d2410dabd");
 assert.equal(summary.checks.tests_passed, 14);

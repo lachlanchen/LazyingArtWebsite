@@ -3,7 +3,7 @@
 
   const endpoint = "https://blog.lazying.art/wp-json/lazyingart/v1/lkt-fit-check";
   const encryptedIntakeAvailable = true;
-  const subject = "MCP Boundary Review — free fit check";
+  const subject = "MCP Server Pre-Deployment Review — free fit check";
   const maxBodyBytes = 12288;
   const attributionKeys = ["utm_source", "utm_medium", "utm_campaign", "utm_content"];
   const loadedAt = Date.now();
@@ -58,15 +58,15 @@
     return {
       offer: "mcp_boundary_review",
       contact_email: clean(data.get("contact_email")),
-      role: clean(data.get("role")),
+      role: "",
       repository: clean(data.get("repository")),
-      surface: clean(data.get("surface")),
-      environment: clean(data.get("environment")),
+      surface: "",
+      environment: "",
       client_transport: clean(data.get("client_transport")),
       risk: clean(data.get("risk")),
-      constraints: clean(data.get("constraints")),
+      constraints: "",
       rights_confirmed: Boolean(data.get("rights")),
-      scope_confirmed: Boolean(data.get("scope")),
+      scope_confirmed: Boolean(data.get("rights")),
       website: String(data.get("website") || ""),
       client_elapsed_ms: Math.min(86400000, Math.max(0, Date.now() - loadedAt)),
       ...attribution(),
@@ -74,7 +74,6 @@
   };
 
   const buildRequest = (payload) => {
-    const optional = (name) => payload[name] || "None stated.";
     const source = attributionKeys
       .filter((key) => payload[key])
       .map((key) => `${key}: ${payload[key]}`);
@@ -83,22 +82,14 @@
       "",
       "Contact email:", payload.contact_email,
       "",
-      "Role and authority:", payload.role,
-      "",
       "Repository and exact revision:", payload.repository,
-      "",
-      "MCP tools and resources:", payload.surface,
-      "",
-      "Disposable test environment:", payload.environment,
       "",
       "Intended client and transport:", payload.client_transport,
       "",
       "Decision, sensitive boundary, and known concern:", payload.risk,
       "",
-      "Network, retention, deadline, and other constraints:", optional("constraints"),
-      "",
       "Rights confirmation: I am authorized to request the review and provide the agreed revision.",
-      "Scope confirmation: I understand the fixed USD 500 review covers one revision, one MCP server, up to eight tools/resources, ten agreed checks, and one correction pass. Fix implementation, penetration testing, security certification, production deployment, destructive live testing, authentication builds, and ongoing monitoring are excluded.",
+      "Scope awareness: I understand this is a fixed USD 500 pre-deployment review, not fix implementation, penetration testing, security certification, production deployment, or ongoing monitoring.",
       ...(source.length ? ["", "Page attribution:", ...source] : []),
     ].join("\n");
   };
