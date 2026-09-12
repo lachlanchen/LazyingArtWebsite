@@ -6,6 +6,7 @@ import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const offer = fs.readFileSync(path.join(root, "mcp-boundary-review", "index.html"), "utf8");
+const socialCard = path.join(root, "mcp-boundary-review", "assets", "mcp-boundary-review-social.png");
 const fit = fs.readFileSync(path.join(root, "mcp-boundary-review", "fit-check", "index.html"), "utf8");
 const sampleRoot = path.join(root, "mcp-boundary-review", "sample-report");
 const sample = fs.readFileSync(path.join(sampleRoot, "index.html"), "utf8");
@@ -20,6 +21,14 @@ const sitemap = fs.readFileSync(path.join(root, "sitemap.xml"), "utf8");
 
 assert.match(offer, /<link rel="canonical" href="https:\/\/lazying\.art\/mcp-boundary-review\/">/);
 assert.match(offer, /MCP Server Pre-Deployment Review/);
+assert.match(offer, /og:image" content="https:\/\/lazying\.art\/mcp-boundary-review\/assets\/mcp-boundary-review-social\.png"/);
+assert.match(offer, /og:image:width" content="1200"/);
+assert.match(offer, /og:image:height" content="630"/);
+assert.match(offer, /twitter:image" content="https:\/\/lazying\.art\/mcp-boundary-review\/assets\/mcp-boundary-review-social\.png"/);
+const png = fs.readFileSync(socialCard);
+assert.equal(png.readUInt32BE(16), 1200);
+assert.equal(png.readUInt32BE(20), 630);
+assert.ok(png.length > 20_000);
 assert.match(offer, /MCP boundary review/i);
 assert.match(offer, /USD 500/);
 assert.match(offer, /one MCP server/i);
