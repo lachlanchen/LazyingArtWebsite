@@ -268,6 +268,32 @@ const cases = [
       "utm_source", "website",
     ],
   },
+  {
+    encryptedIntakeAvailable: false,
+    name: "kicad_plugin_evaluation",
+    email: "contact@lazying.art",
+    path: "../kicad-plugin-evaluation/fit-check/fit-check.js",
+    pageUrl: "https://lazying.art/kicad-plugin-evaluation/fit-check/",
+    values: {
+      contact_email: "vendor@example.com",
+      plugin: "Track geometry plugin 1.2; https://example.com/plugin",
+      authorization: "Plugin vendor; package license permits evaluation in the agreed environment.",
+      environment: "KiCad 10 on Ubuntu Linux.",
+      presets: "1. Radius 0.5 mm. 2. Radius 1.0 mm. 3. Clamp. 4. Reject.",
+      expected_behavior: "Preserve nets, widths, layers, and endpoints; reject infeasible radii with a clear warning.",
+      delivery: "Markdown report and evidence archive within three weeks.",
+      constraints: "Do not redistribute the plugin package.",
+      rights: true,
+      scope: true,
+      website: "",
+    },
+    expectedKeys: [
+      "authorization", "client_elapsed_ms", "constraints", "contact_email",
+      "delivery", "environment", "expected_behavior", "offer", "plugin",
+      "presets", "rights_confirmed", "scope_confirmed", "utm_campaign",
+      "utm_source", "website",
+    ],
+  },
 ];
 
 function setup(testCase, fetchImpl) {

@@ -23,7 +23,7 @@
 | --- | --- |
 | ✅ Repo focus | Multilingual marketing site with product, portfolio, and fixed-scope service entry points for LazyingArt |
 | 🌍 Audience | Visitors, language learners, collaborators, contributors |
-| 🧩 Core pages | `index.html`, `work/`, `video/`, `video/brand-film/`, `eink/`, `lkt/`, `browser-regression/`, `lecture-pack/`, `manuscript-sprint/`, `robot.html`, `eink-words-card.html`, `openhi-kit.html` |
+| 🧩 Core pages | `index.html`, `work/`, `video/`, `video/brand-film/`, `eink/`, `lkt/`, `browser-regression/`, `kicad-plugin-evaluation/`, `lecture-pack/`, `manuscript-sprint/`, `robot.html`, `eink-words-card.html`, `openhi-kit.html` |
 | 🧱 Runtime | HTML/CSS/vanilla JS with localized text interpolation |
 
 ## 🎨 About LazyingArt
@@ -156,6 +156,7 @@ Primary page routes:
 - Multilingual e-ink reader: `eink/`
 - Local Knowledge Terminal pilot: `lkt/`
 - Browser Regression Baseline: `browser-regression/`
+- KiCad Plugin Evaluation: `kicad-plugin-evaluation/`
 - Bilingual Lecture Pack pilot: `lecture-pack/`
 - Manuscript Build & Redline Sprint: `manuscript-sprint/`
 - Robot: `robot.html`

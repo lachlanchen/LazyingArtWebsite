@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#17231f">
+  <title>Free fit check · KiCad Plugin Evaluation</title>
+  <meta name="description" content="Describe one authorized KiCad geometry plugin and up to four setting presets before the fixed USD 400 evaluation.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Free fit check · KiCad Plugin Evaluation">
+  <meta property="og:description" content="Review plugin metadata before opening it in email. No plugin upload, buyer board, customer data, or payment.">
+  <meta property="og:image" content="https://raw.githubusercontent.com/lachlanchen/LazyPromotion/d97f76ec6cfe16fad0e4e3308f085413adb51e0c/examples/kicad-plugin-evaluation/artifacts/track-rounding-fixture-3d.png">
+  <meta property="og:url" content="https://lazying.art/kicad-plugin-evaluation/fit-check/">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://lazying.art/kicad-plugin-evaluation/fit-check/">
+  <link rel="icon" href="../../favicon.ico" sizes="any">
+  <link rel="stylesheet" href="../../lecture-pack/styles.css">
+  <script src="fit-check.js" defer></script>
+</head>
+<body data-fit-state="editing">
+  <a class="skip-link" href="#fit-form">Skip to fit questions</a>
+
+  <header class="site-header">
+    <a class="brand" href="../" aria-label="KiCad Plugin Evaluation offer">
+      <img src="../../logos/logo.svg" alt="">
+      <span><strong>LazyingArt</strong><small>KiCad plugin evaluation</small></span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a href="../">Offer</a>
+      <a href="../#included">Deliverables</a>
+      <a href="../#proof">Fixture proof</a>
+      <a href="../#terms">Terms</a>
+    </nav>
+  </header>
+
+  <main class="fit-main">
+    <div class="fit-layout">
+      <section class="fit-intro" aria-labelledby="fit-title">
+        <p class="eyebrow">Free fit check · metadata only</p>
+        <h1 id="fit-title">Name the plugin.<br><em>Keep the package private.</em></h1>
+        <p class="lead">Share version, authorization, environment, presets, and expected behavior. Do not send the plugin, buyer boards, credentials, customer data, or payment information.</p>
+        <div class="scope-card">
+          <h2>The paid evaluation, if it fits</h2>
+          <ul>
+            <li>One authorized geometry-plugin version.</li>
+            <li>One agreed KiCad 10/Linux environment.</li>
+            <li>Up to four agreed setting presets on the project-owned seven-case fixture.</li>
+            <li>Before-and-after captures, settings ledger, geometry and DRC comparison, and concise issue report.</li>
+            <li>One consolidated factual correction pass.</li>
+          </ul>
+          <p class="scope-proof"><a href="../#proof">Inspect the project-owned fixture →</a></p>
+        </div>
+      </section>
+
+      <section class="fit-card" aria-labelledby="questions-title">
+        <h2 id="questions-title">Check the plugin fit</h2>
+        <p class="privacy-note"><strong>Review first:</strong> nothing is sent while you fill in the form or choose “Review request.” Include public or non-confidential metadata only. Do not paste plugin code, private download links, license keys, credentials, buyer-board details, or personal data.</p>
+
+        <form class="fit-form" id="fit-form" data-testid="fit-form" novalidate>
+          <div class="field">
+            <label for="contact-email">Contact email <span aria-hidden="true">*</span></label>
+            <input id="contact-email" name="contact_email" type="email" required maxlength="254" autocomplete="email">
+            <small>Used only to reply to this fit check.</small>
+          </div>
+
+          <div class="field honeypot-field" aria-hidden="true">
+            <label for="website">Website</label>
+            <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+          </div>
+
+          <div class="field">
+            <label for="plugin">Plugin name, version, and public page <span aria-hidden="true">*</span></label>
+            <textarea id="plugin" name="plugin" required maxlength="700"></textarea>
+            <small>Metadata only. Do not paste source, a private package URL, keys, or credentials.</small>
+          </div>
+
+          <div class="field">
+            <label for="authorization">Your role, authorization, and package license <span aria-hidden="true">*</span></label>
+            <textarea id="authorization" name="authorization" required maxlength="900"></textarea>
+            <small>State how you are authorized to request the evaluation and whether the package may be installed in the agreed test environment.</small>
+          </div>
+
+          <div class="field">
+            <label for="environment">Supported KiCad version and operating system <span aria-hidden="true">*</span></label>
+            <textarea id="environment" name="environment" required maxlength="700"></textarea>
+            <small>The fixed offer uses one agreed KiCad 10/Linux environment.</small>
+          </div>
+
+          <div class="field">
+            <label for="presets">Up to four setting presets <span aria-hidden="true">*</span></label>
+            <textarea id="presets" name="presets" required maxlength="1200"></textarea>
+            <small>List the public setting names and values only. Do not include license keys or confidential configuration.</small>
+          </div>
+
+          <div class="field">
+            <label for="expected-behavior">Expected behavior, including infeasible radii <span aria-hidden="true">*</span></label>
+            <textarea id="expected-behavior" name="expected_behavior" required maxlength="1200"></textarea>
+            <small>Describe what should change, remain unchanged, clamp, reject, warn, or fail for the agreed cases.</small>
+          </div>
+
+          <div class="field">
+            <label for="delivery">Preferred delivery and deadline <span aria-hidden="true">*</span></label>
+            <textarea id="delivery" name="delivery" required maxlength="700"></textarea>
+            <small>Name the practical deadline and whether you prefer a Markdown/PDF report plus an evidence archive.</small>
+          </div>
+
+          <div class="field">
+            <label for="constraints">Other constraints</label>
+            <textarea id="constraints" name="constraints" maxlength="800"></textarea>
+          </div>
+
+          <div class="confirmations">
+            <label class="check-field" for="rights">
+              <input id="rights" name="rights" type="checkbox" required>
+              <span>I am authorized to request this evaluation and, after written acceptance, to provide the plugin package under terms that allow installation and testing in the agreed environment.</span>
+            </label>
+            <label class="check-field" for="scope">
+              <input id="scope" name="scope" type="checkbox" required>
+              <span>I understand that the fixed USD 400 evaluation covers one plugin version, one KiCad 10/Linux environment, the project-owned seven-case fixture, up to four agreed presets, evidence, a report, and one correction pass. Buyer boards, code repair, security certification, electrical or fabrication review, production installation, redistribution, guarantees, ongoing support, and unlimited revisions are excluded.</span>
+            </label>
+          </div>
+
+          <div class="fit-actions">
+            <button class="button primary" type="submit" data-testid="review-request">Review request</button>
+            <a class="text-link" href="../">Return to the offer</a>
+          </div>
+          <p class="fit-form-status" id="fit-form-status" role="status" tabindex="-1"></p>
+        </form>
+
+        <section class="review-panel" id="review-panel" data-testid="review-panel" aria-live="polite" hidden>
+          <h3 data-testid="review-heading" tabindex="-1">Review before continuing</h3>
+          <p>Check the exact request below. Nothing has been sent.</p>
+          <pre class="request-preview" id="request-preview" data-testid="request-preview"></pre>
+          <label class="review-confirmation" for="review-confirmed">
+            <input id="review-confirmed" data-testid="review-confirmed" type="checkbox">
+            <span>I reviewed the request above and confirmed it contains metadata only.</span>
+          </label>
+          <p class="review-destination"><strong>Choose how to continue.</strong> “Open in email” prepares the reviewed request in your email app without sending it. “Copy request” lets you paste it into another mail app.</p>
+          <div class="fit-actions">
+            <button class="button primary" id="send-fit-check" data-testid="send-fit-check" type="button" disabled>Direct send unavailable</button>
+            <a class="button primary" id="open-email" data-testid="open-email" href="mailto:contact@lazying.art">Open in email</a>
+            <button class="button secondary" id="copy-request" data-testid="copy-request" type="button">Copy request</button>
+          </div>
+          <p class="submission-status" id="submission-status" role="status" aria-live="polite" tabindex="-1"></p>
+          <div class="scope-card next-steps">
+            <h3>What happens next</h3>
+            <ol>
+              <li>I review only the metadata above and reply with fit/no-fit or the short questions needed to decide.</li>
+              <li>If it fits, both sides accept the exact environment, authorized transfer method, presets, evidence, timing, cancellation, and refund terms.</li>
+              <li>The plugin package and payment come only after acceptance. Marketplace work keeps its contract and payment on that marketplace.</li>
+              <li>No buyer board or customer data is needed for this fixed evaluation.</li>
+            </ol>
+          </div>
+        </section>
+
+        <noscript>
+          <p class="fit-footer-note">JavaScript is required for local review. You can instead email <a href="mailto:contact@lazying.art?subject=KiCad%20Plugin%20Evaluation%20free%20fit%20check">contact@lazying.art</a> with public metadata only.</p>
+        </noscript>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <span>KiCad Plugin Evaluation by LazyingArt LLC</span>
+    <a href="../">Offer</a>
+    <a href="../../work/">Selected work</a>
+  </footer>
+</body>
+</html>

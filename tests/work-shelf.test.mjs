@@ -42,8 +42,9 @@ for (const project of [
   assert.match(html, new RegExp(`https://github\\.com/lachlanchen/${project}`));
 }
 
-assert.match(html, /Six small ways to begin/);
+assert.match(html, /Seven small ways to begin/);
 assert.match(html, /OpenHI Software Reproducibility · USD 500/);
+assert.match(html, /KiCad Plugin Evaluation · USD 400/);
 assert.match(html, /environment, command, output, failures, and go\/no-go/);
 assert.match(html, /Auditable content coding/);
 assert.match(html, /<h3>Proofline<\/h3>/);
@@ -77,12 +78,16 @@ assert.match(
 );
 assert.match(
   html,
+  /\.\.\/kicad-plugin-evaluation\/\?utm_source=lazyingart&amp;utm_medium=website&amp;utm_campaign=kicad_plugin_evaluation&amp;utm_content=work_services/,
+);
+assert.match(
+  html,
   /\.\.\/openhi-reproducibility\/sample-report\/\?utm_source=lazyingart&amp;utm_medium=website&amp;utm_campaign=openhi_reproducibility&amp;utm_content=work_research_sample/,
 );
 assert.equal(
   (html.match(/<div class="service-list">[\s\S]*?<\/div>\s*<\/section>/)?.[0].match(/<article>/g) || []).length,
-  6,
-  "work shelf should expose all six selected fixed-scope routes",
+  7,
+  "work shelf should expose all seven selected fixed-scope routes",
 );
 assert.doesNotMatch(html, /paid customer|customer result|client result|revenue|guaranteed/i);
 assert.match(html, /https:\/\/github\.com\/sponsors\/lachlanchen/);
