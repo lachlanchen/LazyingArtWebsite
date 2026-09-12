@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#17231f">
+  <title>MCP public-repository preflight sample · LazyingArt</title>
+  <meta name="description" content="A static, revision-pinned first look at an MCP server repository before an executed review: surface candidates, transport clues, and ten proposed checks.">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="MCP public-repository preflight sample">
+  <meta property="og:description" content="See what the free static preflight recovers without cloning or executing repository code.">
+  <meta property="og:image" content="https://lazying.art/mcp-boundary-review/assets/mcp-boundary-review-social.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="https://lazying.art/mcp-boundary-review/preflight-sample/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://lazying.art/mcp-boundary-review/assets/mcp-boundary-review-social.png">
+  <link rel="canonical" href="https://lazying.art/mcp-boundary-review/preflight-sample/">
+  <link rel="icon" href="../../favicon.ico" sizes="any">
+  <link rel="stylesheet" href="../../lecture-pack/styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "MCP public-repository preflight sample",
+    "description": "A static, revision-pinned preflight of the public Local Knowledge Terminal MCP server repository.",
+    "url": "https://lazying.art/mcp-boundary-review/preflight-sample/",
+    "dateModified": "2026-09-13",
+    "author": {"@type": "Organization", "name": "LazyingArt LLC", "url": "https://lazying.art/"},
+    "isPartOf": {"@type": "Service", "name": "MCP Server Pre-Deployment Review", "url": "https://lazying.art/mcp-boundary-review/"}
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to sample</a>
+
+  <header class="site-header">
+    <a class="brand" href="../" aria-label="MCP Server Pre-Deployment Review">
+      <img src="../../logos/logo.svg" alt="">
+      <span><strong>LazyingArt</strong><small>Public-source preflight</small></span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a href="../">Offer</a>
+      <a href="#surface">Recovered surface</a>
+      <a href="#boundary">Boundary</a>
+      <a href="../fit-check/">Free fit check</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Free static sample · public source only</p>
+        <h1>The first boundary map,<br><em>before anything runs.</em></h1>
+        <p class="lead">This preflight pinned the public Local Knowledge Terminal repository, read sixteen selected text files through the GitHub API, and recovered the likely MCP surface and transport clues. It did not clone or execute repository code.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="report.md" download>Download the preflight (.md)</a>
+          <a class="button secondary" href="https://github.com/lachlanchen/LazyPromotion/blob/8b06e0bfb6485dc30fa15f425c37394bb1dd223c/mcp_public_preflight.py">Inspect the source</a>
+        </div>
+        <p class="scope-proof">Static discovery can prepare a scope. It cannot establish runtime behavior, a vulnerability, or a production go/no-go.</p>
+      </div>
+
+      <figure class="lecture-flow" aria-labelledby="snapshot-title">
+        <p class="eyebrow">Pinned snapshot</p>
+        <h2 id="snapshot-title">Three surface candidates.<br>Two transport clues.</h2>
+        <div class="flow-step"><strong>2</strong><span>Likely tools: <code>query_private_knowledge</code> and <code>trace_private_claim</code>.</span></div>
+        <div class="flow-step"><strong>1</strong><span>Likely resource: <code>lkt://collections/status</code>.</span></div>
+        <div class="flow-step"><strong>2</strong><span>Transport clues: stdio and Streamable HTTP.</span></div>
+        <div class="flow-step"><strong>0</strong><span>Repository code cloned or executed.</span></div>
+        <figcaption>Repository commit <code>625a8d6e4c9ed1e1047ccacff32f982fea959d81</code>.</figcaption>
+      </figure>
+    </section>
+
+    <section class="proof-strip" aria-label="Static preflight summary">
+      <article><strong>16</strong><span>Public text files read</span></article>
+      <article><strong>3</strong><span>Surface candidates</span></article>
+      <article><strong>10</strong><span>Checks proposed</span></article>
+      <article><strong>0</strong><span>Code executions</span></article>
+    </section>
+
+    <section class="section evidence-section" id="surface">
+      <div class="section-heading">
+        <p class="eyebrow">Recovered surface</p>
+        <h2>Enough evidence to prepare the right questions.</h2>
+        <p>The preflight found tool and resource declarations in <code>lkt/mcp_server.py</code>, transport references in the repository documentation, and the configuration name <code>LKT_KNOWLEDGE_DB</code>. Configuration values were never requested.</p>
+      </div>
+      <div class="feature-grid">
+        <article><span class="number">TOOLS</span><h3>Two likely calls</h3><p><code>query_private_knowledge</code> and <code>trace_private_claim</code>, both tied to an exact public evidence file.</p></article>
+        <article><span class="number">RESOURCE</span><h3>One likely URI</h3><p><code>lkt://collections/status</code>, recovered from the same pinned server source.</p></article>
+        <article><span class="number">TRANSPORT</span><h3>Two paths to inspect</h3><p>stdio and Streamable HTTP appear in the selected documentation. The preflight does not claim either is enabled in production.</p></article>
+      </div>
+    </section>
+
+    <section class="scope-band" id="boundary" aria-labelledby="boundary-title">
+      <p class="eyebrow">Where static inspection stops</p>
+      <h2 id="boundary-title">The remaining decisions belong to the real deployment.</h2>
+      <p>Before an executed review, the owner still needs to name the client and version, transport and network boundary, in-scope tools and resources, allowed fixtures and network calls, and the decision the report must support.</p>
+      <div class="feature-grid">
+        <article><h3>Not executed</h3><p>No handshake, tool call, resource read, invalid request, timeout, or external call was performed.</p></article>
+        <article><h3>Not inferred</h3><p>A capability name is not proof of read-only behavior, authentication, isolation, or production fitness.</p></article>
+        <article><h3>Next useful step</h3><p>Use the static inventory to agree ten runtime checks, then execute only the accepted scope in a disposable environment.</p></article>
+      </div>
+    </section>
+
+    <section class="pilot">
+      <div>
+        <p class="eyebrow">Your public repository · free first look</p>
+        <h2>Send the repository URL, not the source.</h2>
+        <p>The fit check needs only a clean public GitHub repository URL, contact email, and confirmation that you are authorized to request the review. No source upload, credentials, server access, or payment.</p>
+      </div>
+      <div class="pilot-actions">
+        <a class="button primary" href="../fit-check/?utm_source=mcp_preflight_sample&amp;utm_medium=website&amp;utm_campaign=mcp_boundary_review&amp;utm_content=sample_footer">Start the free fit check</a>
+        <a class="text-link" href="../sample-report/">Compare the executed review →</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>MCP public-repository preflight by LazyingArt LLC</span>
+    <a href="../">Offer</a>
+    <a href="report.md">Markdown report</a>
+    <a href="../sample-report/">Executed sample</a>
+  </footer>
+</body>
+</html>

@@ -8,6 +8,9 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const offer = fs.readFileSync(path.join(root, "mcp-boundary-review", "index.html"), "utf8");
 const socialCard = path.join(root, "mcp-boundary-review", "assets", "mcp-boundary-review-social.png");
 const fit = fs.readFileSync(path.join(root, "mcp-boundary-review", "fit-check", "index.html"), "utf8");
+const preflightRoot = path.join(root, "mcp-boundary-review", "preflight-sample");
+const preflight = fs.readFileSync(path.join(preflightRoot, "index.html"), "utf8");
+const preflightMarkdown = fs.readFileSync(path.join(preflightRoot, "report.md"), "utf8");
 const sampleRoot = path.join(root, "mcp-boundary-review", "sample-report");
 const sample = fs.readFileSync(path.join(sampleRoot, "index.html"), "utf8");
 const assets = path.join(sampleRoot, "assets");
@@ -50,9 +53,26 @@ assert.doesNotMatch(offer, /guaranteed secure|fully secure|zero risk/i);
 assert.match(offer, /Free public-source preflight/i);
 assert.match(offer, /pins the default-branch revision/i);
 assert.match(offer, /never clones the repository or executes its code/i);
+assert.match(offer, /href="preflight-sample\/">See a sample preflight<\/a>/);
 assert.match(offer, /blob\/8b06e0bfb6485dc30fa15f425c37394bb1dd223c\/mcp_public_preflight\.py/);
 assert.match(offer, /blob\/8b06e0bfb6485dc30fa15f425c37394bb1dd223c\/docs\/mcp-public-preflight\.md/);
 assert.match(offer, /starting inventory, not the paid review or a security verdict/i);
+
+assert.match(preflight, /<link rel="canonical" href="https:\/\/lazying\.art\/mcp-boundary-review\/preflight-sample\/">/);
+assert.match(preflight, /The first boundary map/i);
+assert.match(preflight, /sixteen selected text files/i);
+assert.match(preflight, /did not clone or execute repository code/i);
+assert.match(preflight, /Static discovery can prepare a scope/i);
+assert.match(preflight, /It cannot establish runtime behavior, a vulnerability, or a production go\/no-go/i);
+assert.match(preflight, /name <code>LKT_KNOWLEDGE_DB<\/code>\. Configuration values were never requested/i);
+assert.match(preflight, /href="report\.md" download/);
+assert.match(preflight, /utm_source=mcp_preflight_sample&amp;utm_medium=website&amp;utm_campaign=mcp_boundary_review&amp;utm_content=sample_footer/);
+assert.match(preflightMarkdown, /No repository code was cloned or executed/);
+assert.match(preflightMarkdown, /Static text files inspected: `16` of `16` selected/);
+assert.match(preflightMarkdown, /\| tool \| `query_private_knowledge` \| `lkt\/mcp_server\.py` \|/);
+assert.match(preflightMarkdown, /## Proposed ten-check review/);
+assert.match(preflightMarkdown, /## Missing decisions before scope/);
+assert.doesNotMatch(preflight + preflightMarkdown, /security certification[^,.]*included|production-ready decision[^,.]*confirmed/i);
 
 assert.match(fit, /data-testid="fit-form"/);
 for (const name of [
@@ -123,6 +143,7 @@ assert.match(
 );
 for (const url of [
   "https://lazying.art/mcp-boundary-review/",
+  "https://lazying.art/mcp-boundary-review/preflight-sample/",
   "https://lazying.art/mcp-boundary-review/sample-report/",
   "https://lazying.art/mcp-boundary-review/fit-check/",
 ]) {
