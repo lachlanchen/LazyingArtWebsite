@@ -73,6 +73,11 @@ assert.match(sample, /twitter:image" content="https:\/\/lazying\.art\/mcp-bounda
 assert.match(sample, /not a customer result, penetration test, security certification/i);
 assert.match(sample, /read-only does not mean private/i);
 assert.match(sample, /assets\/lkt-mcp-boundary-review-sample\.zip" download/);
+assert.match(
+  sample,
+  /\.\.\/fit-check\/\?utm_source=mcp_sample_report&amp;utm_medium=website&amp;utm_campaign=mcp_boundary_review&amp;utm_content=sample_hero">Check my server<\/a>/,
+);
+assert.equal(sample.split("utm_content=sample_hero").length - 1, 1);
 assert.match(sample, /assets\/lkt-mcp-boundary-review-sample\.zip\.sha256/);
 assert.match(sample, /assets\/report\.pdf" download/);
 assert.ok(fs.statSync(path.join(assets, "report.pdf")).size > 10_000);
