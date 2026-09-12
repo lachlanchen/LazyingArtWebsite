@@ -21,6 +21,7 @@ const sitemap = fs.readFileSync(path.join(root, "sitemap.xml"), "utf8");
 
 assert.match(offer, /<link rel="canonical" href="https:\/\/lazying\.art\/mcp-boundary-review\/">/);
 assert.match(offer, /MCP Server Pre-Deployment Review/);
+assert.match(offer, /<script src="attribution-bridge\.js" defer><\/script>/);
 assert.match(offer, /og:image" content="https:\/\/lazying\.art\/mcp-boundary-review\/assets\/mcp-boundary-review-social\.png"/);
 assert.match(offer, /og:image:width" content="1200"/);
 assert.match(offer, /og:image:height" content="630"/);
@@ -65,6 +66,7 @@ assert.match(fit, /No source upload or payment/i);
 assert.match(fit, /Do not include source code, credentials, tokens, private data/i);
 
 assert.match(sample, /GO locally/);
+assert.match(sample, /<script src="\.\.\/attribution-bridge\.js" defer><\/script>/);
 assert.match(sample, /NO-GO remotely/);
 assert.match(sample, /og:image" content="https:\/\/lazying\.art\/mcp-boundary-review\/assets\/mcp-boundary-review-social\.png"/);
 assert.match(sample, /og:image:width" content="1200"/);
