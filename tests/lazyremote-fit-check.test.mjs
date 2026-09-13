@@ -44,4 +44,18 @@ assert.match(chinese, /data-fit-language-link href="\.\.\/"/);
 assert.match(chinese, /id="send-fit-check"[^>]+disabled/);
 assert.match(chinese, /USD 250/);
 
+// Mail fallback must use the same subject as the reviewed JavaScript path,
+// so inquiry routing does not depend on the visitor's script settings.
+const subjects = script.match(/const subject = localize\("([^"]+)", "([^"]+)"\)/);
+assert.ok(subjects, "Both localized inquiry subjects must be declared");
+for (const [page, subject] of [[html, subjects[1]], [chinese, subjects[2]]]) {
+  const fallback = page.match(/<noscript>([\s\S]*?)<\/noscript>/)?.[1];
+  assert.ok(fallback, "A no-script email fallback must be present");
+  const href = fallback.match(/href="(mailto:[^"]+)"/)?.[1];
+  assert.ok(href, "The fallback must link to the business inbox");
+  const mail = new URL(href.replaceAll("&amp;", "&"));
+  assert.equal(mail.pathname, "contact@lazying.art");
+  assert.equal(mail.searchParams.get("subject"), subject);
+}
+
 console.log("LazyRemote fit-check contract tests passed");
