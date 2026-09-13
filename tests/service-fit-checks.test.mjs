@@ -319,6 +319,23 @@ const cases = [
   },
 ];
 
+const remoteCase = cases.find((item) => item.name === "lazyremote");
+const chineseRemoteCase = {
+  ...remoteCase,
+  language: "zh-Hans",
+  pageUrl: "https://lazying.art/lazyremote/fit-check/zh-Hans/",
+  values: {
+    ...remoteCase.values,
+    target: "家里的 Ubuntu 工作站。",
+    endpoints: "一台 Ubuntu 工作站和一台 Windows 笔记本。",
+    relay: "已有一台自己管理的可连接云服务器。",
+    network: "工作站没有公网 IP，不能修改路由器。",
+    goal: "两位操作人员分别使用 SSH 访问。",
+    constraints: "不公开 SSH 或桌面端口。",
+  },
+};
+cases.push(chineseRemoteCase);
+
 function setup(testCase, fetchImpl) {
   const script = fs.readFileSync(fileURLToPath(new URL(testCase.path, import.meta.url)), "utf8");
   const elements = {
@@ -335,7 +352,11 @@ function setup(testCase, fetchImpl) {
     publicPreflight: new FakeElement(),
     clientTransport: new FakeElement(),
     risk: new FakeElement(),
+    languageLink: new FakeElement(),
   };
+  elements.languageLink.href = testCase.language === "zh-Hans"
+    ? "https://lazying.art/lazyremote/fit-check/"
+    : "https://lazying.art/lazyremote/fit-check/zh-Hans/";
   elements.panel.hidden = true;
   elements.sendButton.disabled = true;
   elements.form.values = { ...testCase.values };
@@ -385,10 +406,12 @@ function setup(testCase, fetchImpl) {
     URLSearchParams,
     document: {
       body,
+      documentElement: { lang: testCase.language || "en" },
       referrer: "",
       createElement: () => new FakeElement(),
       execCommand: () => true,
       querySelector: (selector) => selectors.get(selector) || null,
+      querySelectorAll: (selector) => selector === "[data-fit-language-link]" ? [elements.languageLink] : [],
     },
     fetch: (...args) => {
       calls.push(args);
@@ -427,7 +450,17 @@ for (const testCase of cases) {
   assert.equal(fixture.calls.length, 0, `${testCase.name}: review does not send`);
   assert.equal(fixture.elements.panel.hidden, false);
   assert.equal(fixture.elements.sendButton.disabled, true);
-  assert.match(fixture.elements.preview.textContent, /Contact email:/);
+  assert.match(fixture.elements.preview.textContent, testCase.language === "zh-Hans" ? /联系邮箱：/ : /Contact email:/);
+  if (testCase.language === "zh-Hans") {
+    assert.match(fixture.elements.preview.textContent, /两位操作人员分别使用 SSH 访问/);
+    assert.match(fixture.elements.preview.textContent, /固定价格 USD 250/);
+    assert.doesNotMatch(fixture.elements.preview.textContent, /Authorization:|Scope:|Contact email:/);
+    const languageHref = new URL(fixture.elements.languageLink.href);
+    assert.equal(languageHref.pathname, "/lazyremote/fit-check/");
+    assert.equal(languageHref.searchParams.get("utm_source"), "owned_page");
+    assert.equal(languageHref.searchParams.get("utm_campaign"), "service_fit");
+    assert.equal(languageHref.searchParams.has("bad"), false);
+  }
   if (testCase.name === "mcp_boundary_review") {
     assert.equal(fixture.elements.clientTransport.required, false);
     assert.equal(fixture.elements.risk.required, false);
@@ -464,6 +497,7 @@ for (const testCase of cases) {
     assert.equal(request.credentials, "omit");
     const payload = JSON.parse(request.body);
     assert.equal(payload.offer, testCase.name);
+    assert.equal(payload.target, testCase.values.target);
     assert.deepEqual(Object.keys(payload).sort(), testCase.expectedKeys.sort());
   } else {
     assert.equal(fixture.calls.length, 0);
@@ -473,6 +507,25 @@ for (const testCase of cases) {
       /Continue with Open in email or Copy request/,
     );
   }
+}
+
+{
+  const fixture = setup(chineseRemoteCase, async () => ({ status: 503 }));
+  await fixture.elements.form.dispatch("submit");
+  await fixture.elements.copyButton.dispatch("click");
+  assert.equal(fixture.calls.length, 0);
+  assert.match(fixture.elements.submissionStatus.textContent, /内容已复制/);
+  fixture.elements.reviewConfirmed.checked = true;
+  await fixture.elements.reviewConfirmed.dispatch("change");
+  await fixture.elements.sendButton.dispatch("click");
+  assert.equal(fixture.calls.length, 1);
+  assert.equal(fixture.body.dataset.fitState, "error");
+  assert.match(fixture.elements.submissionStatus.textContent, /暂时无法提交/);
+  assert.equal(fixture.elements.reviewConfirmed.disabled, false);
+  await fixture.elements.form.dispatch("input");
+  assert.equal(fixture.body.dataset.fitState, "editing");
+  assert.equal(fixture.elements.sendButton.disabled, true);
+  assert.equal(fixture.elements.panel.hidden, true);
 }
 
 {

@@ -3,7 +3,9 @@
 
   const endpoint = "https://blog.lazying.art/wp-json/lazyingart/v1/lkt-fit-check";
   const encryptedIntakeAvailable = true;
-  const subject = "LazyRemote Network Fit Review — free fit check";
+  const isChinese = document.documentElement?.lang === "zh-Hans";
+  const localize = (english, chinese) => isChinese ? chinese : english;
+  const subject = localize("LazyRemote Network Fit Review — free fit check", "LazyRemote 网络适配评估 — 免费适配确认");
   const maxBodyBytes = 12288;
   const attributionKeys = ["utm_source", "utm_medium", "utm_campaign", "utm_content"];
   const loadedAt = Date.now();
@@ -53,6 +55,12 @@
     return result;
   };
 
+  document.querySelectorAll("[data-fit-language-link]").forEach((link) => {
+    const target = new URL(link.href);
+    Object.entries(attribution()).forEach(([key, value]) => target.searchParams.set(key, value));
+    link.href = target.toString();
+  });
+
   const buildPayload = () => {
     const data = new FormData(form);
     return {
@@ -79,23 +87,23 @@
     return [
       subject,
       "",
-      "Contact email: / 联系邮箱", payload.contact_email,
+      localize("Contact email: / 联系邮箱", "联系邮箱："), payload.contact_email,
       "",
-      "Device or service to reach / 需要访问的设备或服务:", payload.target,
+      localize("Device or service to reach / 需要访问的设备或服务:", "需要访问的设备或服务："), payload.target,
       "",
-      "Existing endpoints / 现有终端:", payload.endpoints,
+      localize("Existing endpoints / 现有终端:", "现有终端："), payload.endpoints,
       "",
-      "Reachable relay / 可连接的中继:", payload.relay,
+      localize("Reachable relay / 可连接的中继:", "可连接的中继："), payload.relay,
       "",
-      "NAT, CGNAT, and port constraints / 网络与端口限制:", payload.network,
+      localize("NAT, CGNAT, and port constraints / 网络与端口限制:", "网络与端口限制："), payload.network,
       "",
-      "Required access and users / 访问目标与用户:", payload.goal,
+      localize("Required access and users / 访问目标与用户:", "访问目标与用户："), payload.goal,
       "",
-      "Other constraints / 其他限制:", payload.constraints || "None stated / 未说明",
+      localize("Other constraints / 其他限制:", "其他限制："), payload.constraints || localize("None stated / 未说明", "未说明"),
       "",
-      "Authorization: I own or am authorized to assess these computers and networks.",
-      "Scope: I understand the fixed USD 250 review covers one reachable relay and up to three existing computers. It returns a topology and exposure map, identity and host-verification review, and recovery, rollback, and acceptance checklist. Deployment, hardware, hosting, router or firewall changes, wake-on-LAN, desktop capture, ongoing support, and connectivity guarantees are excluded.",
-      ...(source.length ? ["", "Page attribution:", ...source] : []),
+      localize("Authorization: I own or am authorized to assess these computers and networks.", "授权：这些电脑和网络归我所有，或我已获得评估授权。"),
+      localize("Scope: I understand the fixed USD 250 review covers one reachable relay and up to three existing computers. It returns a topology and exposure map, identity and host-verification review, and recovery, rollback, and acceptance checklist. Deployment, hardware, hosting, router or firewall changes, wake-on-LAN, desktop capture, ongoing support, and connectivity guarantees are excluded.", "范围：我了解固定价格 USD 250 的评估涵盖一台可连接的中继和最多三台现有电脑，交付网络拓扑与监听暴露图、密钥角色与主机验证审查，以及恢复、回滚和验收清单。不含部署、硬件、托管、路由器或防火墙改动、网络唤醒、桌面捕获、持续支持或连通性保证。"),
+      ...(source.length ? ["", localize("Page attribution:", "来源标记："), ...source] : []),
     ].join("\n");
   };
 
@@ -136,7 +144,7 @@
     const body = JSON.stringify(payload);
     if (new TextEncoder().encode(body).byteLength > maxBodyBytes) {
       document.body.dataset.fitState = "invalid";
-      formStatus.textContent = "Please shorten the answers and review again.";
+      formStatus.textContent = localize("Please shorten the answers and review again.", "请精简回答后重新预览。");
       formStatus.focus?.({ preventScroll: true });
       return;
     }
@@ -152,7 +160,7 @@
     panel.removeAttribute("aria-busy");
     formStatus.textContent = "";
     submissionStatus.textContent = encryptedIntakeAvailable ? "" :
-      "Continue with Open in email or Copy request. Nothing has been sent.";
+      localize("Continue with Open in email or Copy request. Nothing has been sent.", "请用“用邮件发送”或“复制内容”继续。目前尚未发送。");
     document.body.dataset.fitState = "reviewed";
     updateSendAvailability();
     panel.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -167,7 +175,7 @@
     setFormDisabled(true);
     reviewConfirmed.disabled = true;
     panel.setAttribute("aria-busy", "true");
-    submissionStatus.textContent = "Sending fit check…";
+    submissionStatus.textContent = localize("Sending fit check…", "正在发送适配请求……");
     updateSendAvailability();
     try {
       const response = await fetch(endpoint, {
@@ -188,11 +196,11 @@
       }
       accepted = true;
       document.body.dataset.fitState = "accepted";
-      submissionStatus.textContent = `${result.message} Reference: ${result.receipt}`;
+      submissionStatus.textContent = localize(`${result.message} Reference: ${result.receipt}`, `已收到适配请求。查询编号：${result.receipt}`);
     } catch (_error) {
       document.body.dataset.fitState = "error";
       submissionStatus.textContent =
-        "We couldn’t submit the request. Use Open in email or Copy request below.";
+        localize("We couldn’t submit the request. Use Open in email or Copy request below.", "暂时无法提交。请使用下方“用邮件发送”或“复制内容”。");
       setFormDisabled(false);
       reviewConfirmed.disabled = false;
     } finally {
@@ -207,7 +215,7 @@
     if (!preparedRequest) return;
     try {
       await navigator.clipboard.writeText(preparedRequest);
-      submissionStatus.textContent = "Request copied. Nothing was sent by copying.";
+      submissionStatus.textContent = localize("Request copied. Nothing was sent by copying.", "内容已复制；复制操作不会发送请求。");
     } catch (_error) {
       const helper = document.createElement("textarea");
       helper.value = preparedRequest;
@@ -219,8 +227,8 @@
       const copied = document.execCommand("copy");
       helper.remove();
       submissionStatus.textContent = copied
-        ? "Request copied. Nothing was sent by copying."
-        : "Copy was blocked. Select the request text above and copy it manually.";
+        ? localize("Request copied. Nothing was sent by copying.", "内容已复制；复制操作不会发送请求。")
+        : localize("Copy was blocked. Select the request text above and copy it manually.", "无法自动复制，请选中上方内容并手动复制。");
     }
   });
 })();
