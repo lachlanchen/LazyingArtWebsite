@@ -35,6 +35,10 @@ assert.equal(png.readUInt32BE(20), 630);
 assert.ok(png.length > 20_000);
 assert.match(offer, /MCP boundary review/i);
 assert.match(offer, /USD 500/);
+for (const page of [offer, fit]) {
+  assert.match(page, /The fit check and review happen in writing\. No call required\./);
+  assert.doesNotMatch(page, /before a sales call|book a call|schedule a call/i);
+}
 assert.match(offer, /one MCP server/i);
 assert.match(offer, /up to eight tools\/resources/i);
 assert.match(offer, /ten agreed checks/i);
