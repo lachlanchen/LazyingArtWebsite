@@ -55,6 +55,8 @@ assert.match(
   /https:\/\/l-and-n\.lazying\.art\/\?utm_source=lazyingart&amp;utm_medium=website&amp;utm_campaign=l_and_n_pronunciation_launch&amp;utm_content=work_shelf/,
 );
 assert.match(html, /Try the no-signup practice/);
+assert.match(html, /href="https:\/\/play\.google\.com\/store\/apps\/details\?id=art\.lazying\.landn"/);
+assert.match(html, /href="https:\/\/apps\.apple\.com\/app\/l-n-speech-practice\/id6808872450"/);
 assert.doesNotMatch(html, /diagnos|clinical|guaranteed pronunciation/i);
 assert.match(
   html,
