@@ -79,6 +79,12 @@ assert.match(preflightMarkdown, /## Missing decisions before scope/);
 assert.doesNotMatch(preflight + preflightMarkdown, /security certification[^,.]*included|production-ready decision[^,.]*confirmed/i);
 
 assert.match(fit, /data-testid="fit-form"/);
+for (const tag of ["og:image", "twitter:image"]) {
+  assert.match(fit, new RegExp(`${tag}" content="https://lazying\\.art/mcp-boundary-review/assets/mcp-boundary-review-social\\.png"`));
+}
+assert.match(fit, /og:image:width" content="1200"/);
+assert.match(fit, /og:image:height" content="630"/);
+assert.doesNotMatch(fit, /lkt-product-hero/);
 for (const name of [
   "repository", "public_preflight", "client_transport", "risk", "rights",
 ]) {
