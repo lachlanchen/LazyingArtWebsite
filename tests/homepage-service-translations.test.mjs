@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import fs from "node:fs";
 import vm from "node:vm";
+import { createHash } from "node:crypto";
 import { fileURLToPath } from "node:url";
 
 const source = fs.readFileSync(
@@ -9,6 +10,16 @@ const source = fs.readFileSync(
 );
 const context = { window: {} };
 vm.runInNewContext(source, context);
+
+const homepage = fs.readFileSync(
+  fileURLToPath(new URL("../index.html", import.meta.url)),
+  "utf8",
+);
+const revision = createHash("sha256").update(source).digest("hex").slice(0, 12);
+assert.ok(
+  homepage.includes(`src="service-translations.js?v=${revision}"`),
+  "translation changes must invalidate the previous browser-cached asset",
+);
 
 const translations = context.window.serviceTranslations;
 const languages = [

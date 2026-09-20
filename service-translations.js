@@ -41,6 +41,7 @@ window.serviceTranslations = {
     services_ai_title: "AI clip assembly",
     services_ai_desc: "Turn up to six AI-generated clips you control into one coherent 16:9 master and a shorter web cut.",
     services_ai_cta: "See the USD 500 scope and video proof →",
+    services_more: "More examples and services →",
     services_note: "No source upload or payment before both sides accept the scope.",
   },
   ja: {
@@ -85,6 +86,7 @@ window.serviceTranslations = {
     services_ai_title: "AIクリップ編集",
     services_ai_desc: "権利を持つAI生成クリップ最大6本を、統一感のある16:9本編と短いウェブ版に仕上げます。",
     services_ai_cta: "500米ドルの範囲と映像例を見る →",
+    services_more: "その他の制作例とサービス →",
     services_note: "双方が範囲に合意するまで、原稿や素材の送信も支払いも不要です。",
   },
   "zh-Hans": {
@@ -129,6 +131,7 @@ window.serviceTranslations = {
     services_ai_title: "AI 视频片段组接",
     services_ai_desc: "把最多 6 段你有权使用的 AI 生成视频，组成一支风格连贯的 16:9 主片和一支更短的网页版。",
     services_ai_cta: "查看 500 美元范围和视频样例 →",
+    services_more: "更多作品与服务 →",
     services_note: "双方确认范围之前，无需上传源文件或付款。",
   },
   "zh-Hant": {
@@ -173,6 +176,7 @@ window.serviceTranslations = {
     services_ai_title: "AI 影片片段組接",
     services_ai_desc: "把最多 6 段你有權使用的 AI 生成影片，組成一支風格連貫的 16:9 主片和一支較短的網頁版。",
     services_ai_cta: "查看 500 美元範圍和影片樣例 →",
+    services_more: "更多作品與服務 →",
     services_note: "雙方確認範圍之前，無需上傳原始檔案或付款。",
   },
   ko: {
@@ -217,6 +221,7 @@ window.serviceTranslations = {
     services_ai_title: "AI 클립 조립",
     services_ai_desc: "사용 권한이 있는 AI 생성 클립 최대 6개를 일관된 16:9 마스터 영상과 더 짧은 웹용 버전으로 완성합니다.",
     services_ai_cta: "500달러 범위와 영상 예시 보기 →",
+    services_more: "더 많은 작업 예시와 서비스 →",
     services_note: "양측이 범위에 합의하기 전에는 원본 업로드나 결제가 필요하지 않습니다.",
   },
   ar: {
@@ -261,6 +266,7 @@ window.serviceTranslations = {
     services_ai_title: "تجميع مقاطع AI",
     services_ai_desc: "نحوّل ما يصل إلى ستة مقاطع مولّدة بالذكاء الاصطناعي تملك حق استخدامها إلى فيديو رئيسي متماسك بنسبة 16:9 ونسخة ويب أقصر.",
     services_ai_cta: "اطّلع على نطاق 500 دولار وأمثلة الفيديو ←",
+    services_more: "المزيد من نماذج الأعمال والخدمات ←",
     services_note: "لا رفع للملفات الأصلية ولا دفع قبل موافقة الطرفين على النطاق.",
   },
   vi: {
@@ -305,6 +311,7 @@ window.serviceTranslations = {
     services_ai_title: "Ghép clip AI",
     services_ai_desc: "Biến tối đa sáu clip do AI tạo mà bạn có quyền sử dụng thành một bản chính 16:9 mạch lạc và một bản web ngắn hơn.",
     services_ai_cta: "Xem phạm vi 500 USD và video mẫu →",
+    services_more: "Xem thêm sản phẩm mẫu và dịch vụ →",
     services_note: "Không cần tải tệp nguồn hay thanh toán trước khi hai bên thống nhất phạm vi.",
   },
   fr: {
@@ -349,6 +356,7 @@ window.serviceTranslations = {
     services_ai_title: "Assemblage de clips IA",
     services_ai_desc: "Transformez jusqu’à six clips générés par IA que vous pouvez utiliser en un master 16:9 cohérent et une version web plus courte.",
     services_ai_cta: "Voir le périmètre à 500 USD et les vidéos →",
+    services_more: "Voir d’autres exemples et services →",
     services_note: "Aucun dépôt de source ni paiement avant accord des deux parties sur le périmètre.",
   },
   es: {
@@ -393,6 +401,7 @@ window.serviceTranslations = {
     services_ai_title: "Montaje de clips de IA",
     services_ai_desc: "Convierte hasta seis clips generados con IA que puedas usar en un máster 16:9 coherente y una versión web más corta.",
     services_ai_cta: "Ver el alcance de 500 USD y los vídeos →",
+    services_more: "Más ejemplos y servicios →",
     services_note: "No se suben fuentes ni se paga antes de que ambas partes acepten el alcance.",
   },
   pt: {
@@ -437,6 +446,7 @@ window.serviceTranslations = {
     services_ai_title: "Montagem de clipes de IA",
     services_ai_desc: "Transforme até seis clipes gerados por IA que você possa usar em um vídeo principal 16:9 coerente e uma versão web mais curta.",
     services_ai_cta: "Ver o escopo de USD 500 e os vídeos →",
+    services_more: "Mais exemplos e serviços →",
     services_note: "Nenhum envio de arquivo-fonte ou pagamento antes de ambas as partes aceitarem o escopo.",
   },
   de: {
@@ -481,6 +491,7 @@ window.serviceTranslations = {
     services_ai_title: "KI-Clip-Montage",
     services_ai_desc: "Machen Sie aus bis zu sechs nutzungsberechtigten KI-generierten Clips einen stimmigen 16:9-Hauptfilm und eine kürzere Webfassung.",
     services_ai_cta: "500-USD-Umfang und Videobeispiele ansehen →",
+    services_more: "Weitere Beispiele und Leistungen →",
     services_note: "Keine Quelldatei und keine Zahlung, bevor beide Seiten dem Umfang zustimmen.",
   },
   ru: {
@@ -525,6 +536,7 @@ window.serviceTranslations = {
     services_ai_title: "Монтаж ИИ-клипов",
     services_ai_desc: "Превратим до шести ИИ-клипов, которые вы вправе использовать, в цельный основной ролик 16:9 и более короткую веб-версию.",
     services_ai_cta: "Посмотреть объём за 500 USD и видеопримеры →",
+    services_more: "Другие примеры и услуги →",
     services_note: "Исходные файлы и оплата не требуются до согласования объёма обеими сторонами.",
   },
   tr: {
@@ -569,6 +581,7 @@ window.serviceTranslations = {
     services_ai_title: "AI klip montajı",
     services_ai_desc: "Kullanma hakkınız olan en fazla altı AI üretimi klibi, tutarlı bir 16:9 ana videoya ve daha kısa bir web sürümüne dönüştürün.",
     services_ai_cta: "500 USD kapsamını ve video örneklerini görün →",
+    services_more: "Diğer örnekler ve hizmetler →",
     services_note: "İki taraf kapsamı kabul etmeden kaynak dosya yüklenmez ve ödeme alınmaz.",
   },
 };

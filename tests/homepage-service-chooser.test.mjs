@@ -64,5 +64,18 @@ assert.doesNotMatch(chooser, /utm_campaign=story_clip_pilot/);
 assert.doesNotMatch(chooser, /utm_campaign=ai_clip_assembly/);
 assert.doesNotMatch(chooser, /fit-check\//);
 assert.match(homepage, /href="#services" data-i18n="nav_services"/);
+assert.match(chooser, /href="work\/#services" data-i18n="services_more"/);
+assert.match(chooser, /More examples and services/);
+
+// The six highlighted cards stay focused, while an Instagram bio visitor can
+// still find an existing secondary offer without knowing its URL in advance.
+const work = fs.readFileSync(
+  fileURLToPath(new URL("../work/index.html", import.meta.url)),
+  "utf8",
+);
+const moreServices = work.match(/<section class="services" id="services"[\s\S]*?<\/section>/);
+assert.ok(moreServices, "the homepage continuation must land on existing services");
+assert.match(moreServices[0], /Story Clip Pilot/);
+assert.match(moreServices[0], /href="\.\.\/story-clip\/\?/);
 
 console.log("Homepage service chooser tests passed");
