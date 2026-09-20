@@ -66,6 +66,9 @@ assert.doesNotMatch(chooser, /fit-check\//);
 assert.match(homepage, /href="#services" data-i18n="nav_services"/);
 assert.match(chooser, /href="work\/#services" data-i18n="services_more"/);
 assert.match(chooser, /More examples and services/);
+assert.match(chooser, /class="service-link service-more"/);
+assert.match(homepage, /\.service-more \{[^}]*color: var\(--light\);[^}]*text-decoration: underline;/);
+assert.match(homepage, /\.service-more:focus-visible \{[^}]*outline: 2px solid currentColor;/);
 
 // The six highlighted cards stay focused, while an Instagram bio visitor can
 // still find an existing secondary offer without knowing its URL in advance.
