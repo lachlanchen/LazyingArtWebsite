@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Redirecting…</title>
-  <meta http-equiv="refresh" content="0; url=/" />
+  <title>Page not found — LazyingArt</title>
+  <meta name="robots" content="noindex" />
   <style>
     html, body { height: 100%; margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; background:#0f0f23; color:#fff; }
     .wrap { display: grid; place-items: center; height: 100%; text-align: center; padding: 2rem; }
@@ -14,22 +14,10 @@
 <body>
   <div class="wrap">
     <div>
-      <h1>Redirecting…</h1>
-      <p>If you’re not redirected automatically, <a href="/">click here</a>.</p>
-      <script>
-        (function() {
-          try {
-            // Prefer JS redirect for better SPA-like behavior
-            var dest = '/';
-            if (location && location.origin) dest = location.origin + '/';
-            window.location.replace(dest);
-          } catch (e) {
-            // meta refresh above is the fallback
-          }
-        })();
-      </script>
+      <h1>This page isn’t here</h1>
+      <p>The link may be old, or the page may have moved.</p>
+      <p><a href="/products/">Browse the current projects</a> · <a href="https://blog.lazying.art/">Search the blog</a> · <a href="/">Home</a></p>
     </div>
   </div>
 </body>
 </html>
-
