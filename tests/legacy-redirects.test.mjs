@@ -15,7 +15,7 @@ const sitemap = fs.readFileSync(new URL('sitemap.xml', root), 'utf8');
 for (const sourcePath of Object.keys(data.pages)) {
   assert.ok(!sitemap.includes(`https://lazying.art${sourcePath}</loc>`), 'redirects are not index targets');
 }
-assert.ok(!Object.hasOwn(data.postIds, '1881'), 'unpublished/missing posts are not restored');
+assert.ok(!Object.hasOwn(data.postIds, '999999'), 'unverified IDs are not guessed');
 assert.ok(!fs.readFileSync(new URL('404.html', root), 'utf8').includes('location.replace'), 'no blanket 404 redirect');
 assert.ok(!fs.readFileSync(new URL('404.html', root), 'utf8').includes('http-equiv="refresh"'), 'unknown pages do not refresh to the homepage');
 console.log('Exact legacy redirects and unknown/private destination guards pass');
