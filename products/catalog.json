@@ -1,0 +1,446 @@
+{
+  "updated": "2026-09-21",
+  "title": "LazyingArt products, books and open-source tools",
+  "groups": [
+    {
+      "id": "learn",
+      "name": "Learn a little, every day",
+      "intro": "Short practice sessions, readable books, and source-linked study material."
+    },
+    {
+      "id": "build",
+      "name": "Build with tools you can inspect",
+      "intro": "Local knowledge, research workflows, agents, and practical automation."
+    },
+    {
+      "id": "create",
+      "name": "Make and explore",
+      "intro": "Music, video, writing, and small objects made with care."
+    },
+    {
+      "id": "play",
+      "name": "Watch, read, and play",
+      "intro": "Public game previews and a quieter way to study a position."
+    },
+    {
+      "id": "research",
+      "name": "Research and prototypes",
+      "intro": "Technical notebooks and experiments. Hardware projects are not a promise of stock or delivery."
+    },
+    {
+      "id": "about",
+      "name": "Around LazyingArt",
+      "intro": "The studio, the person behind it, and longer-form notes."
+    }
+  ],
+  "items": [
+    {
+      "id": "landn",
+      "group": "learn",
+      "name": "L & N speech practice",
+      "url": "https://l-and-n.lazying.art/",
+      "repository": "https://github.com/lachlanchen/L-and-N",
+      "kind": "Free web app",
+      "description": "Practice the L/N contrast in English, Mandarin, and Cantonese: listen to word pairs, record a word, and inspect the feedback.",
+      "action": "Try the practice",
+      "featured": true
+    },
+    {
+      "id": "lingualeaf",
+      "group": "learn",
+      "name": "LinguaLeaf",
+      "url": "https://lachlan.lazying.art/LinguaLeaf/website/",
+      "repository": "https://github.com/lachlanchen/LinguaLeaf",
+      "kind": "Multilingual books",
+      "description": "Read Chinese classics and history with multilingual annotations. Browse the available editions and their source notes.",
+      "action": "Browse the books",
+      "featured": true
+    },
+    {
+      "id": "lazylearn",
+      "group": "learn",
+      "name": "LazyLearn",
+      "url": "https://learn.lazying.art/",
+      "repository": "https://github.com/lachlanchen/LazyLearn",
+      "kind": "Learning library",
+      "description": "A growing collection of books, notes, and learning paths for unrushed study.",
+      "action": "Open the library",
+      "featured": false
+    },
+    {
+      "id": "susskind",
+      "group": "learn",
+      "name": "Leonard Susskind study archive",
+      "url": "https://blog.lazying.art/html/the-theoretical-minimum/3167/leonard-susskind-lecture-notes-transcripts-and-pdfs-in-one-place.html",
+      "repository": "https://github.com/lachlanchen/leonardsusskind",
+      "kind": "Community study resource",
+      "description": "Find transcripts, subtitles, notes, TeX, and PDFs to revisit The Theoretical Minimum lectures.",
+      "action": "Find study material",
+      "featured": true
+    },
+    {
+      "id": "lazytravel",
+      "group": "learn",
+      "name": "LazyTravel · Hakone",
+      "url": "https://lachlan.lazying.art/LazyTravel/japan/prefectures/kanagawa/hakone/",
+      "repository": "https://github.com/lachlanchen/LazyTravel",
+      "kind": "Reading guides",
+      "description": "Read a multilingual Hakone guide with aligned Chinese, Japanese, and English material.",
+      "action": "Read the Hakone guide",
+      "featured": false
+    },
+    {
+      "id": "lazytravel-xian",
+      "group": "learn",
+      "name": "LazyTravel · Xi’an",
+      "url": "https://lachlan.lazying.art/LazyTravel/china/cities/xian/",
+      "repository": "https://github.com/lachlanchen/LazyTravel",
+      "kind": "Reading guides",
+      "description": "Explore Xi’an through a multilingual guide and its companion pocket-book project.",
+      "action": "Read the Xi’an guide",
+      "featured": false
+    },
+    {
+      "id": "lazytravel-lanzhou",
+      "group": "learn",
+      "name": "LazyTravel · Lanzhou",
+      "url": "https://lachlan.lazying.art/LazyTravel/china/cities/lanzhou/",
+      "repository": "https://github.com/lachlanchen/LazyTravel",
+      "kind": "Reading guides",
+      "description": "Read a multilingual Lanzhou guide with its companion pocket-book edition.",
+      "action": "Read the Lanzhou guide",
+      "featured": false
+    },
+    {
+      "id": "kindle",
+      "group": "learn",
+      "name": "Kindle Book Sender",
+      "url": "https://lachlan.lazying.art/Kindle/",
+      "repository": "https://github.com/lachlanchen/Kindle",
+      "kind": "Open-source desktop tool",
+      "description": "Explore a document-transfer workflow for compatible KOReader Kindles. Check device and firmware requirements before installation.",
+      "action": "Check compatibility",
+      "featured": false
+    },
+    {
+      "id": "lazyearn",
+      "group": "learn",
+      "name": "LazyEarn",
+      "url": "https://earn.lazying.art/",
+      "repository": "https://github.com/lachlanchen/LazyEarn",
+      "kind": "Books and research",
+      "description": "Study money, markets, and entrepreneurship through books and source-linked notes—not earnings forecasts.",
+      "action": "Browse the shelf",
+      "featured": false
+    },
+    {
+      "id": "howyougotrich",
+      "group": "learn",
+      "name": "HowYouGotRich",
+      "url": "https://lachlan.lazying.art/HowYouGotRich/",
+      "repository": "https://github.com/lachlanchen/HowYouGotRich",
+      "kind": "Book and reader",
+      "description": "Read and compare accounts of business, work, and wealth creation. Examples are material to study, not a promised outcome.",
+      "action": "Open the reader",
+      "featured": false
+    },
+    {
+      "id": "lkt",
+      "group": "build",
+      "name": "Local Knowledge Terminal",
+      "url": "https://lazying.art/lkt/",
+      "repository": "https://github.com/lachlanchen/LocalKnowledgeTerminal",
+      "kind": "Fixed-scope service",
+      "description": "Find out whether a document collection is ready for local search, multilingual knowledge cards, citations, and provenance.",
+      "action": "See the sample and scope",
+      "featured": true
+    },
+    {
+      "id": "agintiflow",
+      "group": "build",
+      "name": "AgInTiFlow",
+      "url": "https://flow.lazying.art/",
+      "repository": "https://github.com/lazyingart/AgInTiFlow",
+      "kind": "Open-source agent tools",
+      "description": "Inspect plans, tool calls, and resumable work from a terminal-first agent workflow.",
+      "action": "Explore the workflow",
+      "featured": true
+    },
+    {
+      "id": "aaps",
+      "group": "build",
+      "name": "AAPS",
+      "url": "https://aaps.lazying.art/",
+      "repository": "https://github.com/lachlanchen/AAPS",
+      "kind": "Open-source workflow tools",
+      "description": "Explore structured, inspectable programs and workflows for agent-assisted work.",
+      "action": "Open the project",
+      "featured": false
+    },
+    {
+      "id": "lazyremote",
+      "group": "build",
+      "name": "LazyRemote",
+      "url": "https://remote.lazying.art/",
+      "repository": "https://github.com/lachlanchen/LazyTunnel",
+      "kind": "Open-source remote access",
+      "description": "Learn how the LazyTunnel project connects computers and services through a controlled relay.",
+      "action": "Explore remote access",
+      "featured": true
+    },
+    {
+      "id": "paperagent",
+      "group": "build",
+      "name": "PaperAgent",
+      "url": "https://paper.lazying.art/",
+      "repository": "https://github.com/lachlanchen/PaperAgent",
+      "kind": "Research tools",
+      "description": "Explore reproducible manuscript builds, revision workflows, and source-linked research work.",
+      "action": "Open the project",
+      "featured": false
+    },
+    {
+      "id": "revision",
+      "group": "build",
+      "name": "Paper revision skill",
+      "url": "https://lachlan.lazying.art/paper-revision-skill/",
+      "repository": "https://github.com/lachlanchen/paper-revision-skill",
+      "kind": "Workflow documentation",
+      "description": "Plan and track manuscript revisions, response letters, and reproducible document builds.",
+      "action": "Read the workflow",
+      "featured": false
+    },
+    {
+      "id": "lazyskills",
+      "group": "build",
+      "name": "LazySkills",
+      "url": "https://lachlan.lazying.art/LazySkills/",
+      "repository": "https://github.com/lachlanchen/LazySkills",
+      "kind": "Open-source skill library",
+      "description": "Browse reusable agent workflows with instructions and supporting tools.",
+      "action": "Browse the skills",
+      "featured": false
+    },
+    {
+      "id": "astrill",
+      "group": "build",
+      "name": "Astrill lazy policies",
+      "url": "https://lachlan.lazying.art/astrill-lazy-policies/",
+      "repository": "https://github.com/lachlanchen/astrill-lazy-policies",
+      "kind": "Configuration guide",
+      "description": "Inspect a documented policy configuration workflow and its source before using it.",
+      "action": "Read the guide",
+      "featured": false
+    },
+    {
+      "id": "mcp",
+      "group": "build",
+      "name": "MCP boundary review",
+      "url": "https://lazying.art/mcp-boundary-review/",
+      "repository": "https://github.com/lachlanchen/LazyPromotion",
+      "kind": "Fixed-scope service",
+      "description": "Review one pinned MCP server's authority and data boundaries. Start with the executed sample before a fit check.",
+      "action": "Read the sample",
+      "featured": true
+    },
+    {
+      "id": "musia",
+      "group": "create",
+      "name": "Fun Lazying Art / Musia",
+      "url": "https://fun.lazying.art/",
+      "repository": "https://github.com/lachlanchen/Musia",
+      "kind": "Music and media library",
+      "description": "Explore songs with lyrics, timing, and music-practice views.",
+      "action": "Listen and explore",
+      "featured": true
+    },
+    {
+      "id": "lazyedit",
+      "group": "create",
+      "name": "LazyEdit",
+      "url": "https://studio.lazying.art/",
+      "repository": "https://github.com/lachlanchen/LazyEdit",
+      "kind": "Creative tools overview",
+      "description": "Explore transcription, subtitle, editing, and media-publication workflows.",
+      "action": "Explore the tools",
+      "featured": false
+    },
+    {
+      "id": "localvideo",
+      "group": "create",
+      "name": "Video work",
+      "url": "https://lazying.art/video/",
+      "repository": "https://github.com/lachlanchen/LocalVideoGen",
+      "kind": "Selected portfolio",
+      "description": "Watch selected video work and explore the tools used to assemble it.",
+      "action": "View selected work",
+      "featured": false
+    },
+    {
+      "id": "lalamedias",
+      "group": "create",
+      "name": "LalaMedias",
+      "url": "https://lachlan.lazying.art/LalaMedias/",
+      "repository": "https://github.com/lachlanchen/LalaMedias",
+      "kind": "Creative project",
+      "description": "Explore the public media project and its source.",
+      "action": "Open the project",
+      "featured": false
+    },
+    {
+      "id": "figurine",
+      "group": "create",
+      "name": "LazyingArt handmade collection",
+      "url": "https://buy.lazying.art/",
+      "repository": "https://github.com/lachlanchen/Figurine",
+      "kind": "Product catalogue",
+      "description": "Browse handmade objects and notebooks. Check the current options and delivery terms on the product page.",
+      "action": "View the collection",
+      "featured": false
+    },
+    {
+      "id": "blog",
+      "group": "create",
+      "name": "LazyingArt blog",
+      "url": "https://blog.lazying.art/",
+      "repository": null,
+      "kind": "Technical writing",
+      "description": "Practical build stories and guides across language, code, research, and creative tools.",
+      "action": "Read the blog",
+      "featured": false
+    },
+    {
+      "id": "games",
+      "group": "play",
+      "name": "LazyingArt Games",
+      "url": "https://lazying.art/games/",
+      "repository": "https://github.com/lachlanchen/LazyGameWeb",
+      "kind": "Read-only visitor mode",
+      "description": "Watch the public Weiqi replay without signing in. Interactive learning and the wider game catalogue require an account.",
+      "action": "Explore the visitor mode",
+      "featured": true,
+      "app_url": "https://game.lazying.art/"
+    },
+    {
+      "id": "shigame",
+      "group": "play",
+      "name": "ShiGame",
+      "url": "https://lachlan.lazying.art/ShiGame/",
+      "repository": "https://github.com/lachlanchen/ShiGame",
+      "kind": "Game project",
+      "description": "Explore the public game project and its source.",
+      "action": "Open the project",
+      "featured": false
+    },
+    {
+      "id": "ideas",
+      "group": "research",
+      "name": "IDEAS research notebook",
+      "url": "https://ideas.onlyideas.art/",
+      "repository": "https://github.com/lachlanchen/IDEAS",
+      "kind": "Research notebook",
+      "description": "Browse ideas and linked research in imaging, photonics, simulation, and related fields.",
+      "action": "Browse the notebook",
+      "featured": false
+    },
+    {
+      "id": "openhi",
+      "group": "research",
+      "name": "OpenHI",
+      "url": "https://lazying.art/openhi-kit.html",
+      "repository": "https://github.com/lachlanchen/OpenHI",
+      "kind": "Imaging research",
+      "description": "Explore an event-based hyperspectral imaging project and its reproducible research code. Hardware availability is separate.",
+      "action": "Explore the research",
+      "featured": false
+    },
+    {
+      "id": "ideasglass",
+      "group": "research",
+      "name": "IdeasGlass",
+      "url": "https://glass.lazying.art/",
+      "repository": "https://github.com/lachlanchen/IdeasGlass",
+      "kind": "Hardware/software prototype",
+      "description": "Explore a wearable capture project, its firmware, and software design. This is a technical project overview.",
+      "action": "Read the project overview",
+      "featured": false
+    },
+    {
+      "id": "ideasrobot",
+      "group": "research",
+      "name": "IdeasRobot",
+      "url": "https://robot.lazying.art/",
+      "repository": "https://github.com/lachlanchen/IdeasRobot",
+      "kind": "Hardware/software prototype",
+      "description": "Explore microphone-array sensing, waveform views, and a web-console design. Hardware and deployment are project-specific.",
+      "action": "Read the project overview",
+      "featured": false
+    },
+    {
+      "id": "aginti",
+      "group": "research",
+      "name": "AgInTi",
+      "url": "https://agent.lazying.art/",
+      "repository": "https://github.com/lachlanchen/AgInTi",
+      "kind": "Research project",
+      "description": "Explore the public agent and robotics project and its source.",
+      "action": "Read the project overview",
+      "featured": false
+    },
+    {
+      "id": "lab",
+      "group": "research",
+      "name": "LazyingArtBot LAB",
+      "url": "https://lab.lazying.art/",
+      "repository": "https://github.com/lachlanchen/LazyingArtBot",
+      "kind": "Project overview",
+      "description": "Read about local-first assistant and research orchestration tools. The directory links the overview, not an operator console.",
+      "action": "Read the overview",
+      "featured": false
+    },
+    {
+      "id": "lre",
+      "group": "research",
+      "name": "LifeReverseEngineering",
+      "url": "https://lre.lazying.art/",
+      "repository": "https://github.com/lachlanchen/LifeReverseEngineering",
+      "kind": "Research workflow",
+      "description": "Explore a source-linked workflow for reading plans and research directions.",
+      "action": "Read the workflow",
+      "featured": false
+    },
+    {
+      "id": "home",
+      "group": "about",
+      "name": "LazyingArt",
+      "url": "https://lazying.art/",
+      "repository": "https://github.com/lachlanchen/LazyingArtWebsite",
+      "kind": "Studio",
+      "description": "The home of LazyingArt's apps, books, tools, and bounded services.",
+      "action": "Visit the studio",
+      "featured": false
+    },
+    {
+      "id": "personal",
+      "group": "about",
+      "name": "Lachlan Chen",
+      "url": "https://lachlan.lazying.art/",
+      "repository": "https://github.com/lachlanchen/lachlanchen.github.io",
+      "kind": "Personal site",
+      "description": "Meet the builder and browse public projects and publications.",
+      "action": "Visit the personal site",
+      "featured": false
+    },
+    {
+      "id": "meta",
+      "group": "about",
+      "name": "The Art of Lazying",
+      "url": "https://meta.lazying.art/",
+      "repository": "https://github.com/lachlanchen/the-art-of-lazying",
+      "kind": "Essays and tools",
+      "description": "Notes and practical tools for reducing friction in everyday creative and technical work.",
+      "action": "Explore the notes",
+      "featured": false
+    }
+  ]
+}

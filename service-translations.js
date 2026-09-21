@@ -2,6 +2,7 @@ window.serviceTranslations = {
   en: {
     nav_services: "Services",
     nav_work: "Work",
+    nav_products: "Products",
     services_tag: "FOCUSED SERVICES",
     services_title: "Choose one bounded service.",
     services_subtitle: "Bring one software stage or source you control. Read the public proof first, then request a free fit check.",
@@ -47,6 +48,7 @@ window.serviceTranslations = {
   ja: {
     nav_services: "サービス",
     nav_work: "実績",
+    nav_products: "製品",
     services_tag: "明確なサービス",
     services_title: "範囲が明確なサービスを1つ選べます。",
     services_subtitle: "管理できるソフトウェア工程、または利用権のある資料を1つお持ちください。公開サンプルを確認してから、無料の適合チェックをご依頼ください。",
@@ -92,6 +94,7 @@ window.serviceTranslations = {
   "zh-Hans": {
     nav_services: "服务",
     nav_work: "作品",
+    nav_products: "产品",
     services_tag: "聚焦服务",
     services_title: "选择一项范围明确的服务。",
     services_subtitle: "带来一个你能管理的软件阶段，或一份你有权使用的资料。先看公开样例，再申请免费适配检查。",
@@ -137,6 +140,7 @@ window.serviceTranslations = {
   "zh-Hant": {
     nav_services: "服務",
     nav_work: "作品",
+    nav_products: "產品",
     services_tag: "聚焦服務",
     services_title: "選擇一項範圍明確的服務。",
     services_subtitle: "帶來一個你能管理的軟體階段，或一份你有權使用的資料。先看公開樣例，再申請免費適配檢查。",
@@ -182,6 +186,7 @@ window.serviceTranslations = {
   ko: {
     nav_services: "서비스",
     nav_work: "작업",
+    nav_products: "제품",
     services_tag: "집중 서비스",
     services_title: "범위가 명확한 서비스 하나를 선택하세요.",
     services_subtitle: "관리할 수 있는 소프트웨어 단계나 사용 권한이 있는 자료 하나를 가져오세요. 공개 예시를 먼저 보고 무료 적합성 확인을 요청하세요.",
@@ -227,6 +232,7 @@ window.serviceTranslations = {
   ar: {
     nav_services: "الخدمات",
     nav_work: "الأعمال",
+    nav_products: "المنتجات",
     services_tag: "خدمات محددة",
     services_title: "اختر خدمة واحدة واضحة النطاق.",
     services_subtitle: "قدّم مرحلة برمجية تديرها أو مصدرًا واحدًا تملك حق استخدامه. راجع النموذج العلني ثم اطلب فحص ملاءمة مجانيًا.",
@@ -272,6 +278,7 @@ window.serviceTranslations = {
   vi: {
     nav_services: "Dịch vụ",
     nav_work: "Dự án",
+    nav_products: "Sản phẩm",
     services_tag: "DỊCH VỤ TRỌNG TÂM",
     services_title: "Chọn một dịch vụ có phạm vi rõ ràng.",
     services_subtitle: "Mang đến một công đoạn phần mềm bạn quản lý hoặc một nguồn bạn có quyền sử dụng. Xem bằng chứng công khai trước, sau đó yêu cầu kiểm tra phù hợp miễn phí.",
@@ -317,6 +324,7 @@ window.serviceTranslations = {
   fr: {
     nav_services: "Services",
     nav_work: "Projets",
+    nav_products: "Produits",
     services_tag: "SERVICES CIBLÉS",
     services_title: "Choisissez un service au périmètre clair.",
     services_subtitle: "Apportez une étape logicielle que vous maîtrisez ou une source que vous êtes autorisé à utiliser. Consultez d’abord la preuve publique, puis demandez une vérification gratuite.",
@@ -362,6 +370,7 @@ window.serviceTranslations = {
   es: {
     nav_services: "Servicios",
     nav_work: "Proyectos",
+    nav_products: "Productos",
     services_tag: "SERVICIOS CONCRETOS",
     services_title: "Elige un servicio con alcance claro.",
     services_subtitle: "Trae una etapa de software que controles o una fuente que puedas usar. Revisa primero la prueba pública y después solicita una comprobación gratuita.",
@@ -407,6 +416,7 @@ window.serviceTranslations = {
   pt: {
     nav_services: "Serviços",
     nav_work: "Projetos",
+    nav_products: "Produtos",
     services_tag: "SERVIÇOS OBJETIVOS",
     services_title: "Escolha um serviço com escopo claro.",
     services_subtitle: "Traga uma etapa de software que você controla ou uma fonte que possa usar. Veja primeiro a prova pública e depois solicite uma verificação gratuita.",
@@ -452,6 +462,7 @@ window.serviceTranslations = {
   de: {
     nav_services: "Services",
     nav_work: "Projekte",
+    nav_products: "Produkte",
     services_tag: "KLAR UMRISSENE SERVICES",
     services_title: "Wählen Sie einen klar umrissenen Service.",
     services_subtitle: "Bringen Sie eine Softwarestufe, die Sie kontrollieren, oder eine Quelle mit, die Sie nutzen dürfen. Prüfen Sie zuerst den öffentlichen Nachweis und fordern Sie dann den kostenlosen Eignungscheck an.",
@@ -497,6 +508,7 @@ window.serviceTranslations = {
   ru: {
     nav_services: "Услуги",
     nav_work: "Проекты",
+    nav_products: "Продукты",
     services_tag: "ЧЁТКИЕ УСЛУГИ",
     services_title: "Выберите одну услугу с чётким объёмом.",
     services_subtitle: "Предоставьте контролируемый этап программы или источник, который вы вправе использовать. Сначала изучите публичный пример, затем запросите бесплатную проверку.",
@@ -542,6 +554,7 @@ window.serviceTranslations = {
   tr: {
     nav_services: "Hizmetler",
     nav_work: "Projeler",
+    nav_products: "Ürünler",
     services_tag: "ODAKLI HİZMETLER",
     services_title: "Kapsamı net bir hizmet seçin.",
     services_subtitle: "Yönettiğiniz bir yazılım aşaması veya kullanma hakkınız olan bir kaynak getirin. Önce herkese açık örneği inceleyin, ardından ücretsiz uygunluk kontrolü isteyin.",
