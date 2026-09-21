@@ -49,10 +49,10 @@ function setup({ compact = true, observer = true, missing = false } = {}) {
   return { nodes, document, media, window, styles, resize };
 }
 
-test('navigation retains existing destinations, adds products, and labels its disclosure in every locale', () => {
+test('navigation retains available destinations and labels its disclosure in every locale', () => {
   const nav = html.match(/<div class="nav-links" id="navLinks">([\s\S]*?)<\/div>/)[1];
   const hrefs = [...nav.matchAll(/href="([^"]+)"/g)].map((match) => match[1]);
-  assert.deepEqual(hrefs, ['#services', 'work/', 'products/', '#ecosystem', '#coin', '#product',
+  assert.deepEqual(hrefs, ['#services', 'work/', 'products/', '#ecosystem', '#product',
     'https://onlyideas.art', '#babelglass', 'eink/', 'lkt/', 'lecture-pack/',
     '#company', '#contact', 'https://chat.lazying.art']);
   assert.match(html, /id="menuToggle" type="button" aria-controls="navLinks" aria-expanded="false" aria-labelledby="menuLabel"/);
