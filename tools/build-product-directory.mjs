@@ -3,6 +3,13 @@ import assert from 'node:assert/strict';
 
 const root = new URL('../', import.meta.url);
 const catalog = JSON.parse(fs.readFileSync(new URL('products/catalog.json', root), 'utf8'));
+const guides = JSON.parse(fs.readFileSync(new URL('products/guides.json', root), 'utf8'));
+for (const guide of guides) {
+  const url = new URL(guide.url);
+  assert.equal(url.origin, 'https://blog.lazying.art');
+  assert.equal(url.search, '');
+  assert.equal(url.hash, '');
+}
 const escape = (value) => String(value).replace(/[&<>"']/g, (c) => ({'&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'}[c]));
 const canonical = 'https://lazying.art/products/';
 const description = 'Discover LazyingArt apps, multilingual books, learning resources, creative tools, and open-source projects. Try L & N, read a book, or explore a practical workflow.';
@@ -64,7 +71,11 @@ const html = `<!doctype html>
       <div><p class="eyebrow">Small tools. Useful work.</p><h1>Find something<br><em>you can use.</em></h1><p class="lead">A few minutes of pronunciation practice. A book with room for another language. A tool that makes the next bit of work easier. Explore what we’re building at LazyingArt.</p><div class="hero-actions"><a class="button primary" href="https://l-and-n.lazying.art/">Try L &amp; N</a><a class="button secondary" href="#learn">Browse the library</a></div></div>
       <aside class="directory-note"><p class="eyebrow">Need help with a project?</p><h2>Start with one clear problem.</h2><p>Our service pages show a sample, a bounded scope, and a free fit check before any payment.</p><a href="../work/#services">Explore the services →</a></aside>
     </section>
-    <nav class="directory-nav" aria-label="Product categories">${catalog.groups.map(group => `<a href="#${escape(group.id)}">${escape(group.name)}</a>`).join('')}</nav>
+    <nav class="directory-nav" aria-label="Product categories"><a href="#guides">Practical guides</a>${catalog.groups.map(group => `<a href="#${escape(group.id)}">${escape(group.name)}</a>`).join('')}</nav>
+    <section class="work-section" id="guides" aria-labelledby="guides-title">
+      <div class="work-heading"><h2 id="guides-title">A useful place to start</h2><p>Working through a specific problem? These guides share the checks, trade-offs, and code behind the projects.</p></div>
+      <div class="work-grid">${guides.map(guide => `<article><p class="work-kind">Practical guide</p><h3><a href="${escape(guide.url)}">${escape(guide.title)}</a></h3><p>${escape(guide.summary)}</p></article>`).join('')}</div>
+    </section>
     ${sections}
   </main>
   <footer class="directory-footer"><span>LazyingArt · Build less. Live more.</span><a href="https://github.com/lachlanchen/lachlanchen/blob/main/projects/sites.md">Website and repository directory</a><a href="../work/">Selected work</a><a href="https://lachlan.lazying.art/">About Lachlan</a></footer>

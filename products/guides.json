@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Search private PDFs on an ordinary laptop",
+    "summary": "Start with text extraction and full-text search; add OCR or embeddings only when the collection needs them.",
+    "url": "https://blog.lazying.art/html/computer_internet/3619/search-confidential-pdfs-locally-without-overbuilding-rag.html"
+  },
+  {
+    "title": "Stop Chinese text becoming one giant RAG chunk",
+    "summary": "Check whitespace assumptions, bound chunk length, and keep each passage tied to its original source offsets.",
+    "url": "https://blog.lazying.art/html/computer_internet/3841/chinese-rag-whitespace-chunking-source-offsets.html"
+  },
+  {
+    "title": "Keep one study fact and all its sources",
+    "summary": "Deduplicate cards across textbook chapters and lecture transcripts without losing the evidence or review history.",
+    "url": "https://blog.lazying.art/html/algorithms-data-structures/3782/deduplicate-study-cards-chapters-lecture-transcripts.html"
+  },
+  {
+    "title": "Diagnose GitHub MCP authentication in Docker",
+    "summary": "Separate sandbox secrets, CLI login state, and MCP configuration before changing credentials.",
+    "url": "https://blog.lazying.art/html/computer_internet/3834/github-mcp-requires-authentication-docker-sandboxes.html"
+  },
+  {
+    "title": "Fix a LaTeX redline that will not compile",
+    "summary": "Treat the redline as its own build: preserve both baselines, reproduce the toolchain, and inspect the first failure.",
+    "url": "https://blog.lazying.art/html/computer_internet/3784/latex-latexdiff-redline-compiles-overleaf.html"
+  },
+  {
+    "title": "Reproduce research code on a new workstation",
+    "summary": "Pin a revision, check one input and output contract, and keep enough evidence to explain what worked or failed.",
+    "url": "https://blog.lazying.art/html/computer_internet/3820/reproduce-research-code-new-workstation.html"
+  }
+]

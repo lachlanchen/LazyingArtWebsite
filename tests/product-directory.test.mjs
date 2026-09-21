@@ -8,6 +8,13 @@ const read = name => fs.readFileSync(new URL(name, root), 'utf8');
 const catalog = JSON.parse(read('products/catalog.json'));
 const html = read('products/index.html');
 const discovery = read('discovery-sitemap.xml');
+const guides = JSON.parse(read('products/guides.json'));
+assert.equal(guides.length, 6);
+for (const guide of guides) {
+  assert.equal(new URL(guide.url).origin, 'https://blog.lazying.art');
+  assert.equal(new URL(guide.url).search, '');
+  assert.ok(html.includes(`href="${guide.url}"`), 'guides are crawlable without JavaScript');
+}
 assert.ok(catalog.items.length >= 30, 'the directory must cover the wider public portfolio');
 assert.equal(new Set(catalog.items.map(item => item.url)).size, catalog.items.length);
 assert.equal((html.match(/<h1[ >]/g) || []).length, 1);
