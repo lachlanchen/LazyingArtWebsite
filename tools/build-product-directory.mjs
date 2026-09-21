@@ -76,7 +76,7 @@ const destination = new URL('products/index.html', root);
 // Both LazyingArt and OnlyIdeas domain properties were verified on 2026-09-21.
 const discoveryUrls = [...new Set([canonical, 'https://lazying.art/games/', ...catalog.items
   .filter(item => item.id !== 'games' && (new URL(item.url).hostname === 'lazying.art' || new URL(item.url).hostname.endsWith('.lazying.art') || new URL(item.url).hostname === 'ideas.onlyideas.art'))
-  .map(item => item.url)])];
+  .map(item => { const url = new URL(item.url); url.hash = ''; return url.href; })])];
 const discovery = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
   + discoveryUrls.map(url => `  <url><loc>${escape(url)}</loc></url>`).join('\n') + '\n</urlset>\n';
 const discoveryPath = new URL('discovery-sitemap.xml', root);

@@ -46,6 +46,18 @@
       "featured": true
     },
     {
+      "id": "echomind",
+      "group": "learn",
+      "name": "EchoMind",
+      "url": "https://lazying.art/#product",
+      "repository": null,
+      "kind": "Messaging app",
+      "description": "Explore multilingual messaging and AI-assisted language tools. Personal conversations and account features require sign-in.",
+      "action": "Meet EchoMind",
+      "featured": true,
+      "app_url": "https://chat.lazying.art/"
+    },
+    {
       "id": "lingualeaf",
       "group": "learn",
       "name": "LinguaLeaf",
