@@ -73,9 +73,9 @@ const html = `<!doctype html>
 `;
 const destination = new URL('products/index.html', root);
 // Google cross-site submission requires ownership of every included site.
-// Keep OnlyIdeas separate until its own verified property can receive a sitemap.
+// Both LazyingArt and OnlyIdeas domain properties were verified on 2026-09-21.
 const discoveryUrls = [...new Set([canonical, 'https://lazying.art/games/', ...catalog.items
-  .filter(item => item.id !== 'games' && (new URL(item.url).hostname === 'lazying.art' || new URL(item.url).hostname.endsWith('.lazying.art')))
+  .filter(item => item.id !== 'games' && (new URL(item.url).hostname === 'lazying.art' || new URL(item.url).hostname.endsWith('.lazying.art') || new URL(item.url).hostname === 'ideas.onlyideas.art'))
   .map(item => item.url)])];
 const discovery = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
   + discoveryUrls.map(url => `  <url><loc>${escape(url)}</loc></url>`).join('\n') + '\n</urlset>\n';

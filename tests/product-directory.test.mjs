@@ -24,7 +24,7 @@ assert.doesNotMatch(html, forbidden);
 assert.doesNotMatch(discovery, forbidden);
 for(const [,loc] of discovery.matchAll(/<loc>([^<]+)<\/loc>/g)) {
   const url = new URL(loc);
-  assert.ok(url.hostname === 'lazying.art' || url.hostname.endsWith('.lazying.art'));
+  assert.ok(url.hostname === 'lazying.art' || url.hostname.endsWith('.lazying.art') || url.hostname === 'ideas.onlyideas.art');
   assert.ok(url.hostname !== 'game.lazying.art', 'submit the stable games introduction, not the redirecting app root');
 }
 assert.match(discovery, /https:\/\/l-and-n\.lazying\.art\//);

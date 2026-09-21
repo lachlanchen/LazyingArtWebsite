@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://lazying.art/sitemap.xml
+Sitemap: https://lazying.art/discovery-sitemap.xml
