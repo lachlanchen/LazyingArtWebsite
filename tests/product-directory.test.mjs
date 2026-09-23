@@ -37,6 +37,10 @@ for(const [,loc] of discovery.matchAll(/<loc>([^<]+)<\/loc>/g)) {
 assert.match(discovery, /https:\/\/l-and-n\.lazying\.art\//);
 assert.match(discovery, /https:\/\/lachlan\.lazying\.art\/LazyTravel\//);
 assert.match(discovery, /https:\/\/lazying\.art\/games\//);
+assert.equal(catalog.items.find(item => item.id === 'bunko').url, 'https://lachlan.lazying.art/Bunko/');
+assert.equal(catalog.items.find(item => item.id === 'lazyoracle').url, 'https://oracle.lazying.art/');
+assert.equal(catalog.items.find(item => item.id === 'auspice').kind, 'Native app preview');
+assert.doesNotMatch(discovery, /oracle-fast\.lazying\.art|bunko\.lazying\.art|aimemo-backend\./, 'mirrors, TLS-failing aliases and backends are not discovery targets');
 for (const item of catalog.items) {
   assert.match(html, new RegExp(`id="${item.id}"`));
   assert.ok(html.includes(item.url.replaceAll('&','&amp;')));
