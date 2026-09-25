@@ -40,9 +40,16 @@
       "name": "Bunko · 文庫",
       "url": "https://lachlan.lazying.art/Bunko/",
       "repository": "https://github.com/lachlanchen/Bunko",
-      "kind": "Web reader",
+      "kind": "Web reader · iOS",
       "description": "Read classics with furigana, pinyin, and aligned English, Chinese, and Japanese text. Browse the shelf or save a book for offline reading.",
       "action": "Open the reader",
+      "storeLinks": [
+        {
+          "store": "app-store",
+          "url": "https://apps.apple.com/us/app/bunko-classics-with-ruby/id6815137919",
+          "device": "iPhone · iPad"
+        }
+      ],
       "featured": false
     },
     {

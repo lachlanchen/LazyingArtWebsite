@@ -26,7 +26,7 @@ const stores = {
 const storeLinks = (item) => item.storeLinks?.length ? `
       <div class="store-links" role="group" aria-label="${escape(item.name)} app downloads">${item.storeLinks.map(link => {
         const store = stores[link.store];
-        return `<a class="store-button" data-store="${escape(link.store)}" href="${escape(link.url)}" aria-label="${escape(item.name)} on the ${store.name}">${store.icon}<span><strong>${store.name}</strong><small>${store.device}</small></span></a>`;
+        return `<a class="store-button" data-store="${escape(link.store)}" href="${escape(link.url)}" aria-label="${escape(item.name)} on the ${store.name}">${store.icon}<span><strong>${store.name}</strong><small>${escape(link.device || store.device)}</small></span></a>`;
       }).join('')}</div>` : '';
 const canonical = 'https://lazying.art/products/';
 const description = 'Discover LazyingArt apps, multilingual books, learning resources, creative tools, and open-source projects. Try L & N, read a book, or explore a practical workflow.';

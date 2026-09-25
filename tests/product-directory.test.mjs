@@ -37,7 +37,15 @@ for(const [,loc] of discovery.matchAll(/<loc>([^<]+)<\/loc>/g)) {
 assert.match(discovery, /https:\/\/l-and-n\.lazying\.art\//);
 assert.match(discovery, /https:\/\/lachlan\.lazying\.art\/LazyTravel\//);
 assert.match(discovery, /https:\/\/lazying\.art\/games\//);
-assert.equal(catalog.items.find(item => item.id === 'bunko').url, 'https://lachlan.lazying.art/Bunko/');
+const bunko = catalog.items.find(item => item.id === 'bunko');
+assert.equal(bunko.url, 'https://lachlan.lazying.art/Bunko/');
+assert.deepEqual(bunko.storeLinks, [
+  {store: 'app-store', url: 'https://apps.apple.com/us/app/bunko-classics-with-ruby/id6815137919', device: 'iPhone · iPad'}
+]);
+const bunkoCard = html.match(/<article id="bunko"[^>]*>([\s\S]*?)<\/article>/)[1];
+assert.match(bunkoCard, /href="https:\/\/lachlan\.lazying\.art\/Bunko\/"/, 'keep the web reader entry');
+assert.match(bunkoCard, /href="https:\/\/apps\.apple\.com\/us\/app\/bunko-classics-with-ruby\/id6815137919"/);
+assert.match(bunkoCard, /<small>iPhone · iPad<\/small>/);
 assert.equal(catalog.items.find(item => item.id === 'lazyoracle').url, 'https://oracle.lazying.art/');
 assert.equal(catalog.items.find(item => item.id === 'auspice').kind, 'Native app preview');
 const landn = catalog.items.find(item => item.id === 'landn');
@@ -58,7 +66,7 @@ assert.match(landnCard, /<strong>App Store<\/strong>/);
 assert.match(landnCard, /<strong>Google Play<\/strong>/);
 assert.doesNotMatch(landnCard, /internaltest|testflight|\.apk|art\.lazying\.landn\.pro/);
 assert.doesNotMatch(discovery, /apps\.apple\.com|play\.google\.com/, 'store listings are not owned sitemap URLs');
-assert.equal((html.match(/class="store-button"/g) || []).length, 2, 'only the requested app gets new store links');
+assert.equal((html.match(/class="store-button"/g) || []).length, 3, 'only public app listings get store links');
 const styles = read('products/styles.css');
 assert.match(styles, /\.store-links\s*\{[^}]*flex-wrap:\s*wrap/);
 assert.match(styles, /\.work-grid \.store-button\s*\{[^}]*min-height:\s*60px/);
