@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-23",
+  "updated": "2026-09-25",
   "title": "LazyingArt products, books and open-source tools",
   "groups": [
     {
@@ -73,10 +73,20 @@
       "name": "L & N speech practice",
       "url": "https://l-and-n.lazying.art/",
       "repository": "https://github.com/lachlanchen/L-and-N",
-      "kind": "Free web app",
+      "kind": "Free web app · iOS & Android",
       "description": "Practice the L/N contrast in English, Mandarin, and Cantonese: listen to word pairs, record a word, and inspect the feedback.",
       "action": "Try the practice",
-      "featured": true
+      "featured": true,
+      "storeLinks": [
+        {
+          "store": "app-store",
+          "url": "https://apps.apple.com/app/l-n-speech-practice/id6808872450"
+        },
+        {
+          "store": "google-play",
+          "url": "https://play.google.com/store/apps/details?id=art.lazying.landn"
+        }
+      ]
     },
     {
       "id": "echomind",

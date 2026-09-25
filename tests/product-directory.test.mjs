@@ -40,6 +40,29 @@ assert.match(discovery, /https:\/\/lazying\.art\/games\//);
 assert.equal(catalog.items.find(item => item.id === 'bunko').url, 'https://lachlan.lazying.art/Bunko/');
 assert.equal(catalog.items.find(item => item.id === 'lazyoracle').url, 'https://oracle.lazying.art/');
 assert.equal(catalog.items.find(item => item.id === 'auspice').kind, 'Native app preview');
+const landn = catalog.items.find(item => item.id === 'landn');
+assert.deepEqual(landn.storeLinks, [
+  {store: 'app-store', url: 'https://apps.apple.com/app/l-n-speech-practice/id6808872450'},
+  {store: 'google-play', url: 'https://play.google.com/store/apps/details?id=art.lazying.landn'}
+]);
+const landnCard = html.match(/<article id="landn"[^>]*>([\s\S]*?)<\/article>/)[1];
+assert.match(landnCard, /href="https:\/\/l-and-n\.lazying\.art\/"/, 'keep the free web entry');
+assert.equal((landnCard.match(/class="store-button"/g) || []).length, 2);
+assert.match(landnCard, /role="group" aria-label="L &amp; N speech practice app downloads"/);
+for (const link of landn.storeLinks) {
+  assert.ok(landnCard.includes(`data-store="${link.store}" href="${link.url}"`));
+}
+assert.match(landnCard, /aria-label="L &amp; N speech practice on the App Store"/);
+assert.match(landnCard, /aria-label="L &amp; N speech practice on the Google Play"/);
+assert.match(landnCard, /<strong>App Store<\/strong>/);
+assert.match(landnCard, /<strong>Google Play<\/strong>/);
+assert.doesNotMatch(landnCard, /internaltest|testflight|\.apk|art\.lazying\.landn\.pro/);
+assert.doesNotMatch(discovery, /apps\.apple\.com|play\.google\.com/, 'store listings are not owned sitemap URLs');
+assert.equal((html.match(/class="store-button"/g) || []).length, 2, 'only the requested app gets new store links');
+const styles = read('products/styles.css');
+assert.match(styles, /\.store-links\s*\{[^}]*flex-wrap:\s*wrap/);
+assert.match(styles, /\.work-grid \.store-button\s*\{[^}]*min-height:\s*60px/);
+assert.match(styles, /\.work-grid \.store-button:focus-visible/);
 assert.doesNotMatch(discovery, /oracle-fast\.lazying\.art|bunko\.lazying\.art|aimemo-backend\./, 'mirrors, TLS-failing aliases and backends are not discovery targets');
 for (const item of catalog.items) {
   assert.match(html, new RegExp(`id="${item.id}"`));

@@ -20,6 +20,19 @@
 .work-kind { margin-bottom: 1.25rem; }
 .link-row { gap: .8rem; }
 .link-row .source-link { color: var(--muted); font-weight: 500; font-size: .8rem; }
+.store-links { display: flex; flex-wrap: wrap; gap: .65rem; margin-top: 1.25rem; }
+.work-grid .store-button {
+  display: inline-flex; align-items: center; gap: .7rem;
+  flex: 1 1 170px; min-width: 0; min-height: 60px; margin: 0;
+  padding: .75rem 1rem; border: 1px solid var(--ink); border-radius: 12px;
+  background: var(--ink); color: var(--white); text-decoration: none;
+}
+.store-button svg { width: 24px; height: 24px; flex-shrink: 0; }
+.store-button span { display: grid; gap: .2rem; }
+.store-button strong { font-size: 1rem; line-height: 1.2; }
+.store-button small { color: #d9e4de; font-size: .7rem; font-weight: 500; line-height: 1.4; }
+.work-grid .store-button:hover { background: var(--green); border-color: var(--green); }
+.work-grid .store-button:focus-visible { outline: 3px solid var(--green); outline-offset: 4px; }
 .directory-footer { width: min(1180px, calc(100% - 2rem)); margin: auto; padding: 2rem 0; display: flex; flex-wrap: wrap; gap: 1rem 2rem; font-size: .9rem; }
 :focus-visible { outline: 3px solid var(--green); outline-offset: 5px; }
 @media (max-width: 760px) {

@@ -11,6 +11,23 @@ for (const guide of guides) {
   assert.equal(url.hash, '');
 }
 const escape = (value) => String(value).replace(/[&<>"']/g, (c) => ({'&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'}[c]));
+// Reuse the homepage's decorative device / Play symbols; the link text stays
+// readable and actionable without scripts, images, or a third-party badge host.
+const stores = {
+  'app-store': {
+    name: 'App Store', device: 'iPhone · iPad · Apple Watch', host: 'apps.apple.com',
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><rect x="7" y="2" width="10" height="20" rx="2"></rect><path d="M11 18h2"></path></svg>'
+  },
+  'google-play': {
+    name: 'Google Play', device: 'Android', host: 'play.google.com',
+    icon: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M4.7 3.3a1.6 1.6 0 0 0-.7 1.3v14.8c0 .5.3 1 .7 1.3l8.5-8.7-8.5-8.7Zm9.6 7.6 2.4-2.5-8.9-5a2 2 0 0 0-1.2-.3l7.7 7.8Zm0 2.2-7.7 7.8c.4 0 .8-.1 1.2-.3l8.9-5-2.4-2.5Zm3.8-3.9-2.7 2.8 2.7 2.8 1.6-.9c1.2-.7 1.2-2.4 0-3.1l-1.6-.9Z"></path></svg>'
+  }
+};
+const storeLinks = (item) => item.storeLinks?.length ? `
+      <div class="store-links" role="group" aria-label="${escape(item.name)} app downloads">${item.storeLinks.map(link => {
+        const store = stores[link.store];
+        return `<a class="store-button" data-store="${escape(link.store)}" href="${escape(link.url)}" aria-label="${escape(item.name)} on the ${store.name}">${store.icon}<span><strong>${store.name}</strong><small>${store.device}</small></span></a>`;
+      }).join('')}</div>` : '';
 const canonical = 'https://lazying.art/products/';
 const description = 'Discover LazyingArt apps, multilingual books, learning resources, creative tools, and open-source projects. Try L & N, read a book, or explore a practical workflow.';
 assert.equal(new Set(catalog.items.map(item => item.id)).size, catalog.items.length);
@@ -18,6 +35,25 @@ for (const item of catalog.items) {
   assert.ok(catalog.groups.some(group => group.id === item.group));
   assert.equal(new URL(item.url).protocol, 'https:');
   if (item.repository) assert.match(item.repository, /^https:\/\/github\.com\/(?:lachlanchen|lazyingart)\/[A-Za-z0-9_.-]+$/);
+  if (item.storeLinks) {
+    assert.ok(Array.isArray(item.storeLinks));
+    assert.equal(new Set(item.storeLinks.map(link => link.store)).size, item.storeLinks.length);
+    for (const link of item.storeLinks) {
+      assert.ok(Object.hasOwn(stores, link.store), 'Use a supported public app store');
+      const url = new URL(link.url);
+      assert.equal(url.protocol, 'https:');
+      assert.equal(url.hostname, stores[link.store].host);
+      assert.equal(url.username + url.password + url.port + url.hash, '');
+      if (link.store === 'app-store') {
+        assert.match(url.pathname, /^\/(?:[a-z]{2}\/)?app\/[^/]+\/id\d+$/);
+        assert.equal(url.search, '');
+      } else {
+        assert.equal(url.pathname, '/store/apps/details');
+        assert.deepEqual([...url.searchParams.keys()], ['id']);
+        assert.match(url.searchParams.get('id'), /^[a-z][a-z0-9_]*(?:\.[a-z][a-z0-9_]*)+$/i);
+      }
+    }
+  }
 }
 const schema = {
   '@context': 'https://schema.org', '@type': 'CollectionPage',
@@ -34,7 +70,7 @@ const sections = catalog.groups.map(group => `<section class="work-section" id="
       <p class="work-kind">${escape(item.kind)}</p>
       <h3>${escape(item.name)}</h3>
       <p>${escape(item.description)}</p>
-      <div class="link-row"><a href="${escape(item.url)}">${escape(item.action)} <span aria-hidden="true">→</span></a>${item.repository ? `<a class="source-link" href="${escape(item.repository)}">Source: ${escape(item.repository.split('/').at(-1))}</a>` : ''}</div>
+      <div class="link-row"><a href="${escape(item.url)}">${escape(item.action)} <span aria-hidden="true">→</span></a>${item.repository ? `<a class="source-link" href="${escape(item.repository)}">Source: ${escape(item.repository.split('/').at(-1))}</a>` : ''}</div>${storeLinks(item)}
     </article>`).join('')}
   </div>
 </section>`).join('\n');
