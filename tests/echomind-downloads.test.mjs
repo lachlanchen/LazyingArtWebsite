@@ -13,7 +13,12 @@ assert.ok(!html.includes(`href="${file}"`), "retired test APK is not a public in
 assert.ok(html.includes('href="https://testflight.apple.com/join/bKGrC3Jn"'));
 assert.ok(html.includes('href="https://play.google.com/store/apps/details?id=art.lazying.echomind"'));
 assert.ok(!html.includes('href="https://play.google.com/apps/internaltest/4701510550966449647"'));
-assert.ok(!html.includes('href="https://apps.apple.com/'), "EchoMind App Store release is not yet verified");
+const echoMindCard = html.match(/<aside class="beta-launch-card"[\s\S]*?<\/aside>/)?.[0];
+assert.ok(echoMindCard, "EchoMind download card exists");
+assert.ok(!echoMindCard.includes('href="https://apps.apple.com/'), "EchoMind App Store release is not yet verified");
+for (const [, href] of html.matchAll(/href="(https:\/\/apps\.apple\.com\/[^\"]+)"/g)) {
+  assert.match(href, /\/id(?:6808872450|6815137919)$/, "only verified L & N and Bunko App Store destinations are linked");
+}
 assert.ok(!html.includes('href="https://play.google.com/apps/testing/art.lazying.echomind"'));
 assert.equal(crypto.createHash("sha256").update(fs.readFileSync(new URL(file, root))).digest("hex"),
   "61be324cfad32ef6e9ac06d2af1675dffdb3151a7694b8c414e9245b7400a638");
