@@ -15,9 +15,10 @@ assert.ok(html.includes('href="https://play.google.com/store/apps/details?id=art
 assert.ok(!html.includes('href="https://play.google.com/apps/internaltest/4701510550966449647"'));
 const echoMindCard = html.match(/<aside class="beta-launch-card"[\s\S]*?<\/aside>/)?.[0];
 assert.ok(echoMindCard, "EchoMind download card exists");
-assert.ok(!echoMindCard.includes('href="https://apps.apple.com/'), "EchoMind App Store release is not yet verified");
+assert.ok(echoMindCard.includes('href="https://apps.apple.com/app/id6793615455"'), "released EchoMind uses its own App Store identity");
+assert.ok(echoMindCard.includes('href="https://testflight.apple.com/join/bKGrC3Jn"'), "optional TestFlight access remains available");
 for (const [, href] of html.matchAll(/href="(https:\/\/apps\.apple\.com\/[^\"]+)"/g)) {
-  assert.match(href, /\/id(?:6808872450|6815137919)$/, "only verified L & N and Bunko App Store destinations are linked");
+  assert.match(href, /\/id(?:6808872450|6815137919|6793615455)$/, "only verified app identities are linked");
 }
 assert.ok(!html.includes('href="https://play.google.com/apps/testing/art.lazying.echomind"'));
 assert.equal(crypto.createHash("sha256").update(fs.readFileSync(new URL(file, root))).digest("hex"),
@@ -25,15 +26,16 @@ assert.equal(crypto.createHash("sha256").update(fs.readFileSync(new URL(file, ro
 assert.ok(fs.existsSync(new URL("downloads/EchoMind-0.1.0-build81-test.apk", root)), "prior link remains recoverable");
 assert.equal(Object.keys(translations).length, 13);
 for (const [locale, dictionary] of Object.entries(translations)) {
-  for (const key of ["beta_subtitle", "beta_google_play", "beta_testflight", "beta_android"]) {
+  for (const key of ["beta_title", "beta_subtitle", "beta_google_play", "beta_testflight", "beta_android"]) {
     assert.ok(dictionary[key]?.trim(), `${locale}.${key} is localized`);
   }
 }
 for (const [locale, dictionary] of Object.entries(translations)) {
   assert.match(dictionary.beta_subtitle, /Google Play/, `${locale}: public Android store`);
-  assert.match(dictionary.beta_subtitle, /TestFlight/, `${locale}: iPhone is still beta`);
-  assert.match(dictionary.beta_subtitle, /App[ -]Store/, `${locale}: pending Apple review`);
+  assert.match(dictionary.beta_testflight, /TestFlight/, `${locale}: beta access is clearly separate`);
+  assert.match(dictionary.beta_subtitle, /App[ -]Store/, `${locale}: public Apple store`);
 }
-assert.match(translations.en.beta_subtitle, /review is in progress/);
+assert.doesNotMatch(translations.en.beta_subtitle, /review|beta|progress/);
+assert.match(translations.en.beta_subtitle, /varies by region/);
 assert.doesNotMatch(translations.en.beta_google_play, /test/i);
 console.log("EchoMind download identity and 13-locale access guidance passed");
