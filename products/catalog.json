@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-25",
+  "updated": "2026-09-27",
   "title": "LazyingArt products, books and open-source tools",
   "groups": [
     {
@@ -36,6 +36,7 @@
   "items": [
     {
       "id": "bunko",
+      "storyUrl": "https://blog.lazying.art/html/books/3853/bunko-chinese-japanese-classics-pinyin-furigana.html",
       "group": "learn",
       "name": "Bunko · 文庫",
       "url": "https://lachlan.lazying.art/Bunko/",
@@ -54,6 +55,7 @@
     },
     {
       "id": "lazyoracle",
+      "storyUrl": "https://blog.lazying.art/html/computer_internet/3866/lazyoracle-cards-rules-before-ai-story.html",
       "group": "play",
       "name": "LazyOracle",
       "url": "https://oracle.lazying.art/",
@@ -69,18 +71,19 @@
       "name": "Auspice · 宜时",
       "url": "https://auspice.lazying.art/",
       "repository": "https://github.com/lachlanchen/LazyOracle",
-      "kind": "Native app preview",
-      "description": "Meet LazyOracle's native companion: a traditional almanac, tarot, I Ching, and BaZi tools for reflection. Mobile builds are currently in testing.",
+      "kind": "Companion app preview",
+      "description": "Explore the classic-interface companion to LazyOracle, with a traditional almanac, tarot, I Ching, and BaZi tools for reflection. Mobile builds are currently in testing.",
       "action": "Read the introduction",
       "featured": false
     },
     {
       "id": "landn",
+      "storyUrl": "https://blog.lazying.art/html/computer_internet/3849/l-and-n-pronunciation-listening-practice.html",
       "group": "learn",
       "name": "L & N speech practice",
       "url": "https://l-and-n.lazying.art/",
       "repository": "https://github.com/lachlanchen/L-and-N",
-      "kind": "Free web app · iOS & Android",
+      "kind": "iOS & Android",
       "description": "Practice the L/N contrast in English, Mandarin, and Cantonese: listen to word pairs, record a word, and inspect the feedback.",
       "action": "Try the practice",
       "featured": true,
@@ -99,13 +102,39 @@
       "id": "echomind",
       "group": "learn",
       "name": "EchoMind",
-      "url": "https://lazying.art/#product",
+      "url": "https://blog.lazying.art/html/computer_internet/3867/echomind-language-help-in-conversation.html",
       "repository": null,
       "kind": "Messaging app",
-      "description": "Explore multilingual messaging and AI-assisted language tools. Personal conversations and account features require sign-in.",
+      "description": "Keep text and voice conversations beside optional language support. Account features need sign-in; current store listings describe invitation-based registration, so check access before buying.",
       "action": "Meet EchoMind",
       "featured": true,
-      "app_url": "https://chat.lazying.art/"
+      "app_url": "https://chat.lazying.art/",
+      "storeLinks": [
+        {"store": "app-store", "url": "https://apps.apple.com/us/app/echomind-language-research/id6793615455", "device": "iPhone · iPad"},
+        {"store": "google-play", "url": "https://play.google.com/store/apps/details?id=art.lazying.echomind"}
+      ]
+    },
+    {
+      "id": "aimemo",
+      "group": "build",
+      "name": "AiMemo",
+      "url": "https://blog.lazying.art/html/computer_internet/3862/aimemo-turn-a-thought-into-a-note.html",
+      "repository": null,
+      "kind": "Web app · mobile releases in review",
+      "description": "Turn a thought or voice draft into an editable note, task or event. Start with one memo; the current web release is free and requires an account.",
+      "action": "Meet AiMemo",
+      "featured": false
+    },
+    {
+      "id": "onlyideas",
+      "group": "research",
+      "name": "OnlyIdeas",
+      "url": "https://blog.lazying.art/html/computer_internet/3864/onlyideas-read-papers-equations-questions.html",
+      "repository": "https://github.com/lachlanchen/OnlyIdeasApp",
+      "kind": "Web reading room · native apps in testing",
+      "description": "Read a paper with its equations, figures and passage-level questions nearby. Try the public sample before signing in to import personal papers.",
+      "action": "Meet OnlyIdeas",
+      "featured": false
     },
     {
       "id": "lingualeaf",
@@ -318,6 +347,7 @@
     },
     {
       "id": "lazyedit",
+      "storyUrl": "https://blog.lazying.art/html/computer_internet/3857/app-demo-subtitles-lazyedit-workflow.html",
       "group": "create",
       "name": "LazyEdit",
       "url": "https://studio.lazying.art/",

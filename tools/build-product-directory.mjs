@@ -35,6 +35,12 @@ for (const item of catalog.items) {
   assert.ok(catalog.groups.some(group => group.id === item.group));
   assert.equal(new URL(item.url).protocol, 'https:');
   if (item.repository) assert.match(item.repository, /^https:\/\/github\.com\/(?:lachlanchen|lazyingart)\/[A-Za-z0-9_.-]+$/);
+  if (item.storyUrl) {
+    const story = new URL(item.storyUrl);
+    assert.equal(story.origin, 'https://blog.lazying.art');
+    assert.equal(story.search + story.hash, '');
+    assert.notEqual(item.storyUrl, item.url, 'The primary action already links this introduction');
+  }
   if (item.storeLinks) {
     assert.ok(Array.isArray(item.storeLinks));
     assert.equal(new Set(item.storeLinks.map(link => link.store)).size, item.storeLinks.length);
@@ -70,7 +76,7 @@ const sections = catalog.groups.map(group => `<section class="work-section" id="
       <p class="work-kind">${escape(item.kind)}</p>
       <h3>${escape(item.name)}</h3>
       <p>${escape(item.description)}</p>
-      <div class="link-row"><a href="${escape(item.url)}">${escape(item.action)} <span aria-hidden="true">→</span></a>${item.repository ? `<a class="source-link" href="${escape(item.repository)}">Source: ${escape(item.repository.split('/').at(-1))}</a>` : ''}</div>${storeLinks(item)}
+      <div class="link-row"><a href="${escape(item.url)}">${escape(item.action)} <span aria-hidden="true">→</span></a>${item.storyUrl ? `<a class="source-link" href="${escape(item.storyUrl)}">Read the story</a>` : ''}${item.repository ? `<a class="source-link" href="${escape(item.repository)}">Source: ${escape(item.repository.split('/').at(-1))}</a>` : ''}</div>${storeLinks(item)}
     </article>`).join('')}
   </div>
 </section>`).join('\n');

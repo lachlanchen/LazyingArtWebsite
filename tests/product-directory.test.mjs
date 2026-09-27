@@ -49,7 +49,7 @@ assert.match(bunkoCard, /href="https:\/\/lachlan\.lazying\.art\/Bunko\/"/, 'keep
 assert.match(bunkoCard, /href="https:\/\/apps\.apple\.com\/us\/app\/bunko-classics-with-ruby\/id6815137919"/);
 assert.match(bunkoCard, /<small>iPhone · iPad<\/small>/);
 assert.equal(catalog.items.find(item => item.id === 'lazyoracle').url, 'https://oracle.lazying.art/');
-assert.equal(catalog.items.find(item => item.id === 'auspice').kind, 'Native app preview');
+assert.equal(catalog.items.find(item => item.id === 'auspice').kind, 'Companion app preview');
 const landn = catalog.items.find(item => item.id === 'landn');
 assert.deepEqual(landn.storeLinks, [
   {store: 'app-store', url: 'https://apps.apple.com/app/l-n-speech-practice/id6808872450'},
@@ -68,7 +68,20 @@ assert.match(landnCard, /<strong>App Store<\/strong>/);
 assert.match(landnCard, /<strong>Google Play<\/strong>/);
 assert.doesNotMatch(landnCard, /internaltest|testflight|\.apk|art\.lazying\.landn\.pro/);
 assert.doesNotMatch(discovery, /apps\.apple\.com|play\.google\.com/, 'store listings are not owned sitemap URLs');
-assert.equal((html.match(/class="store-button"/g) || []).length, 3, 'only public app listings get store links');
+assert.equal((html.match(/class="store-button"/g) || []).length, 5, 'only verified public app listings get store links');
+for (const id of ['aimemo', 'onlyideas']) {
+  const item = catalog.items.find(item => item.id === id);
+  assert.equal(new URL(item.url).origin, 'https://blog.lazying.art', 'Index the useful public introduction, not a private account workspace');
+  assert.equal(item.storeLinks, undefined, 'Pending native apps do not get public store buttons');
+}
+assert.equal(catalog.items.find(item => item.id === 'aimemo').repository, null, 'Private source stays private');
+assert.match(catalog.items.find(item => item.id === 'echomind').description, /invitation-based/);
+for (const id of ['bunko', 'landn', 'lazyedit', 'lazyoracle']) {
+  const item = catalog.items.find(item => item.id === id);
+  assert.equal(new URL(item.storyUrl).origin, 'https://blog.lazying.art');
+  const card = html.match(new RegExp(`<article id="${id}"[^>]*>([\\s\\S]*?)<\\/article>`))[1];
+  assert.ok(card.includes(`href="${item.storyUrl}">Read the story</a>`));
+}
 const styles = read('products/styles.css');
 assert.match(styles, /\.store-links\s*\{[^}]*flex-wrap:\s*wrap/);
 assert.match(styles, /\.work-grid \.store-button\s*\{[^}]*min-height:\s*60px/);
