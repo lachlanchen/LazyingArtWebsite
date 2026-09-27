@@ -4,6 +4,20 @@ import fs from "node:fs";
 const root = new URL("../", import.meta.url);
 const html = fs.readFileSync(new URL("index.html", root), "utf8");
 const head = html.split("</head>")[0];
+const title = head.match(/<title>([^<]+)<\/title>/)?.[1];
+assert.equal(title, "LazyingArt — L &amp; N, Bunko and EchoMind");
+const description = head.match(/<meta name="description" content="([^"]+)">/)?.[1];
+assert.ok(description);
+for (const product of ["L &amp; N", "Bunko", "EchoMind"]) {
+  assert.ok(description.includes(product), `${product}: search preview describes the actual app shelf`);
+}
+assert.ok(description.replaceAll("&amp;", "&").length <= 160, "keep the description concise; search display length is not guaranteed");
+assert.doesNotMatch(description, /free|guarantee|accurate|public.beta|testflight|airdrop/i);
+for (const [attribute, expected] of [["og:title", title], ["twitter:title", title], ["og:description", description], ["twitter:description", description]]) {
+  const tags = [...head.matchAll(new RegExp(`<meta (?:property|name)="${attribute}" content="([^"]+)">`, "g"))];
+  assert.equal(tags.length, 1, `${attribute}: one unambiguous preview value`);
+  assert.equal(tags[0][1], expected, `${attribute}: matches the main search preview`);
+}
 assert.equal((head.match(/rel="canonical"/g) || []).length, 1);
 assert.match(head, /<link rel="canonical" href="https:\/\/lazying\.art\/">/);
 assert.match(head, /<meta property="og:url" content="https:\/\/lazying\.art\/">/);
