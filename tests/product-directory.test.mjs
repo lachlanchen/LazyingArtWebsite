@@ -16,6 +16,8 @@ for (const guide of guides) {
   assert.ok(html.includes(`href="${guide.url}"`), 'guides are crawlable without JavaScript');
 }
 assert.ok(catalog.items.length >= 30, 'the directory must cover the wider public portfolio');
+assert.ok(html.includes('href="https://platform.lazying.art/">Apps &amp; shop</a>'));
+assert.ok(discovery.includes('<loc>https://platform.lazying.art/</loc>'));
 assert.equal(new Set(catalog.items.map(item => item.url)).size, catalog.items.length);
 assert.equal((html.match(/<h1[ >]/g) || []).length, 1);
 assert.match(html, /<link rel="canonical" href="https:\/\/lazying\.art\/products\/">/);

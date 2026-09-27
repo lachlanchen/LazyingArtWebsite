@@ -100,7 +100,7 @@ const html = `<!doctype html>
   <a class="skip-link" href="#main">Skip to products</a>
   <header class="site-header">
     <a class="brand" href="../"><img src="../logos/logo.svg" alt="" width="42" height="42"><span><strong>LazyingArt</strong><small>Apps, books &amp; tools</small></span></a>
-    <nav aria-label="Primary navigation"><a href="../">Home</a><a href="../work/">Selected work</a><a href="../work/#services">Work with us</a><a href="https://blog.lazying.art/">Blog</a></nav>
+    <nav aria-label="Primary navigation"><a href="../">Home</a><a href="https://platform.lazying.art/">Apps &amp; shop</a><a href="../work/">Selected work</a><a href="../work/#services">Work with us</a><a href="https://blog.lazying.art/">Blog</a></nav>
   </header>
   <main id="main">
     <section class="hero directory-hero">
@@ -121,7 +121,7 @@ const html = `<!doctype html>
 const destination = new URL('products/index.html', root);
 // Google cross-site submission requires ownership of every included site.
 // Both LazyingArt and OnlyIdeas domain properties were verified on 2026-09-21.
-const discoveryUrls = [...new Set([canonical, 'https://lazying.art/games/', ...catalog.items
+const discoveryUrls = [...new Set([canonical, 'https://lazying.art/games/', 'https://platform.lazying.art/', ...catalog.items
   .filter(item => item.id !== 'games' && (new URL(item.url).hostname === 'lazying.art' || new URL(item.url).hostname.endsWith('.lazying.art') || new URL(item.url).hostname === 'ideas.onlyideas.art'))
   .map(item => { const url = new URL(item.url); url.hash = ''; return url.href; })])];
 const discovery = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
