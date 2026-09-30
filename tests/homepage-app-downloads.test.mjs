@@ -4,7 +4,7 @@ import vm from 'node:vm';
 
 const html = fs.readFileSync(new URL('../index.html', import.meta.url), 'utf8');
 const cards = [...html.matchAll(/<article class="app-download-card"[^>]*>([\s\S]*?)<\/article>/g)].map(m => m[1]);
-assert.equal(cards.length, 2);
+assert.equal(cards.length, 3);
 assert.ok(html.indexOf('id="app-downloads"') < html.indexOf('<aside class="beta-launch-card"'));
 const links = card => [...card.matchAll(/href="([^"]+)"/g)].map(m => m[1]);
 assert.deepEqual(links(cards[0]), [
@@ -13,6 +13,10 @@ assert.deepEqual(links(cards[0]), [
 ]);
 assert.deepEqual(links(cards[1]), [
   'https://apps.apple.com/us/app/bunko-classics-with-ruby/id6815137919',
+  'https://apps.apple.com/us/app/bunko-classics-with-ruby/id6815137919?platform=mac',
+]);
+assert.deepEqual(links(cards[2]), [
+  'https://apps.apple.com/us/app/onlyideas/id6816392935?platform=mac',
 ]);
 assert.doesNotMatch(cards.join(''), /testflight|internaltest|\.apk|Pro\b|accurate|guarantee|free|localhost|127\.0\.0\.1/i);
 for (const card of cards) {
@@ -24,7 +28,7 @@ assert.ok(match);
 const translations = vm.runInNewContext(`(${match[1]})`);
 assert.equal(Object.keys(translations).length, 13);
 for (const [locale, dictionary] of Object.entries(translations)) {
-  for (const key of ['app_landn_desc', 'app_bunko_desc']) {
+  for (const key of ['app_landn_desc', 'app_bunko_desc', 'app_onlyideas_desc']) {
     assert.ok(dictionary[key]?.trim(), `${locale}.${key} is localized`);
   }
 }

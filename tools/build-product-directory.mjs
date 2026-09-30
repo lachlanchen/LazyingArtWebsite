@@ -14,6 +14,10 @@ const escape = (value) => String(value).replace(/[&<>"']/g, (c) => ({'&':'&amp;'
 // Reuse the homepage's decorative device / Play symbols; the link text stays
 // readable and actionable without scripts, images, or a third-party badge host.
 const stores = {
+  'mac-app-store': {
+    name: 'Mac App Store', device: 'Mac', host: 'apps.apple.com',
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><rect x="2" y="3" width="20" height="14" rx="2"></rect><path d="M12 17v4M7 21h10"></path></svg>'
+  },
   'app-store': {
     name: 'App Store', device: 'iPhone · iPad · Apple Watch', host: 'apps.apple.com',
     icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><rect x="7" y="2" width="10" height="20" rx="2"></rect><path d="M11 18h2"></path></svg>'
@@ -50,9 +54,9 @@ for (const item of catalog.items) {
       assert.equal(url.protocol, 'https:');
       assert.equal(url.hostname, stores[link.store].host);
       assert.equal(url.username + url.password + url.port + url.hash, '');
-      if (link.store === 'app-store') {
+      if (link.store === 'app-store' || link.store === 'mac-app-store') {
         assert.match(url.pathname, /^\/(?:[a-z]{2}\/)?app\/[^/]+\/id\d+$/);
-        assert.equal(url.search, '');
+        assert.equal(url.search, link.store === 'mac-app-store' ? '?platform=mac' : '');
       } else {
         assert.equal(url.pathname, '/store/apps/details');
         assert.deepEqual([...url.searchParams.keys()], ['id']);

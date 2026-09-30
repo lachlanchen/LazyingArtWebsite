@@ -5,10 +5,10 @@ const root = new URL("../", import.meta.url);
 const html = fs.readFileSync(new URL("index.html", root), "utf8");
 const head = html.split("</head>")[0];
 const title = head.match(/<title>([^<]+)<\/title>/)?.[1];
-assert.equal(title, "LazyingArt — L &amp; N, Bunko and EchoMind");
+assert.equal(title, "LazyingArt — apps for reading, speech and ideas");
 const description = head.match(/<meta name="description" content="([^"]+)">/)?.[1];
 assert.ok(description);
-for (const product of ["L &amp; N", "Bunko", "EchoMind"]) {
+for (const product of ["L &amp; N", "Bunko", "EchoMind", "OnlyIdeas"]) {
   assert.ok(description.includes(product), `${product}: search preview describes the actual app shelf`);
 }
 assert.ok(description.replaceAll("&amp;", "&").length <= 160, "keep the description concise; search display length is not guaranteed");

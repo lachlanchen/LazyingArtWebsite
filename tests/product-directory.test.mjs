@@ -42,12 +42,14 @@ assert.match(discovery, /https:\/\/lazying\.art\/games\//);
 const bunko = catalog.items.find(item => item.id === 'bunko');
 assert.equal(bunko.url, 'https://lachlan.lazying.art/Bunko/');
 assert.deepEqual(bunko.storeLinks, [
-  {store: 'app-store', url: 'https://apps.apple.com/us/app/bunko-classics-with-ruby/id6815137919', device: 'iPhone · iPad'}
+  {store: 'app-store', url: 'https://apps.apple.com/us/app/bunko-classics-with-ruby/id6815137919', device: 'iPhone · iPad · Watch'},
+  {store: 'mac-app-store', url: 'https://apps.apple.com/us/app/bunko-classics-with-ruby/id6815137919?platform=mac', device: 'Mac'}
 ]);
 const bunkoCard = html.match(/<article id="bunko"[^>]*>([\s\S]*?)<\/article>/)[1];
 assert.match(bunkoCard, /href="https:\/\/lachlan\.lazying\.art\/Bunko\/"/, 'keep the web reader entry');
 assert.match(bunkoCard, /href="https:\/\/apps\.apple\.com\/us\/app\/bunko-classics-with-ruby\/id6815137919"/);
-assert.match(bunkoCard, /<small>iPhone · iPad<\/small>/);
+assert.match(bunkoCard, /<small>iPhone · iPad · Watch<\/small>/);
+assert.match(bunkoCard, /<strong>Mac App Store<\/strong>/);
 assert.equal(catalog.items.find(item => item.id === 'lazyoracle').url, 'https://oracle.lazying.art/');
 assert.equal(catalog.items.find(item => item.id === 'auspice').kind, 'Companion app preview');
 const landn = catalog.items.find(item => item.id === 'landn');
@@ -68,12 +70,16 @@ assert.match(landnCard, /<strong>App Store<\/strong>/);
 assert.match(landnCard, /<strong>Google Play<\/strong>/);
 assert.doesNotMatch(landnCard, /internaltest|testflight|\.apk|art\.lazying\.landn\.pro/);
 assert.doesNotMatch(discovery, /apps\.apple\.com|play\.google\.com/, 'store listings are not owned sitemap URLs');
-assert.equal((html.match(/class="store-button"/g) || []).length, 5, 'only verified public app listings get store links');
-for (const id of ['aimemo', 'onlyideas']) {
+assert.equal((html.match(/class="store-button"/g) || []).length, 7, 'only verified public app listings get store links');
+for (const id of ['aimemo']) {
   const item = catalog.items.find(item => item.id === id);
   assert.equal(new URL(item.url).origin, 'https://blog.lazying.art', 'Index the useful public introduction, not a private account workspace');
   assert.equal(item.storeLinks, undefined, 'Pending native apps do not get public store buttons');
 }
+const onlyideas = catalog.items.find(item => item.id === 'onlyideas');
+assert.equal(onlyideas.storeLinks.length, 1);
+assert.equal(onlyideas.storeLinks[0].url, 'https://apps.apple.com/us/app/onlyideas/id6816392935?platform=mac');
+assert.match(onlyideas.description, /mobile editions are still in review/);
 assert.equal(catalog.items.find(item => item.id === 'aimemo').repository, null, 'Private source stays private');
 assert.match(catalog.items.find(item => item.id === 'echomind').description, /invitation-based/);
 for (const id of ['bunko', 'landn', 'lazyedit', 'lazyoracle']) {

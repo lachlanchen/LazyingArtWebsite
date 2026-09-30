@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-27",
+  "updated": "2026-09-30",
   "title": "LazyingArt products, books and open-source tools",
   "groups": [
     {
@@ -41,17 +41,22 @@
       "name": "Bunko · 文庫",
       "url": "https://lachlan.lazying.art/Bunko/",
       "repository": "https://github.com/lachlanchen/Bunko",
-      "kind": "Web reader · iOS",
-      "description": "Read classics with furigana, pinyin, and aligned English, Chinese, and Japanese text. Browse the shelf or save a book for offline reading.",
+      "kind": "iPhone · iPad · Mac · Apple Watch",
+      "description": "Read classics with furigana, pinyin, and aligned language layers. Save books offline on iPhone, iPad or Mac; send a short passage from iPhone to Apple Watch.",
       "action": "Open the reader",
       "storeLinks": [
         {
           "store": "app-store",
           "url": "https://apps.apple.com/us/app/bunko-classics-with-ruby/id6815137919",
-          "device": "iPhone · iPad"
+          "device": "iPhone · iPad · Watch"
+        },
+        {
+          "store": "mac-app-store",
+          "url": "https://apps.apple.com/us/app/bunko-classics-with-ruby/id6815137919?platform=mac",
+          "device": "Mac"
         }
       ],
-      "featured": false
+      "featured": true
     },
     {
       "id": "lazyoracle",
@@ -131,10 +136,17 @@
       "name": "OnlyIdeas",
       "url": "https://blog.lazying.art/html/computer_internet/3864/onlyideas-read-papers-equations-questions.html",
       "repository": "https://github.com/lachlanchen/OnlyIdeasApp",
-      "kind": "Web reading room · native apps in testing",
-      "description": "Read a paper with its equations, figures and passage-level questions nearby. Try the public sample before signing in to import personal papers.",
+      "kind": "Mac app · web reading room",
+      "description": "Read research with equations, figures and original/translated passages together. The Mac app is free; mobile editions are still in review. Try a public paper before importing your own.",
       "action": "Meet OnlyIdeas",
-      "featured": false
+      "featured": true,
+      "storeLinks": [
+        {
+          "store": "mac-app-store",
+          "url": "https://apps.apple.com/us/app/onlyideas/id6816392935?platform=mac",
+          "device": "Mac · free"
+        }
+      ]
     },
     {
       "id": "lingualeaf",
