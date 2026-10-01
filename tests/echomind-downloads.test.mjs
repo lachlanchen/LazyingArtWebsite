@@ -25,6 +25,11 @@ assert.ok(!html.includes('href="https://play.google.com/apps/testing/art.lazying
 assert.equal(crypto.createHash("sha256").update(fs.readFileSync(new URL(file, root))).digest("hex"),
   "61be324cfad32ef6e9ac06d2af1675dffdb3151a7694b8c414e9245b7400a638");
 assert.ok(fs.existsSync(new URL("downloads/EchoMind-0.1.0-build81-test.apk", root)), "prior link remains recoverable");
+const currentTestApk = "downloads/EchoMind-0.2.0-build92-test.apk";
+assert.equal(crypto.createHash("sha256").update(fs.readFileSync(new URL(currentTestApk, root))).digest("hex"),
+  "66884cfcb328fc2c310f000f275f459769573e813b7fe2f4f1a0f2536862f43b",
+  "Android92 direct test download matches the qualified signed artifact");
+assert.ok(!html.includes(`href="${currentTestApk}"`), "public release buttons remain store destinations, independent of tester mail");
 assert.equal(Object.keys(translations).length, 13);
 for (const [locale, dictionary] of Object.entries(translations)) {
   for (const key of ["beta_title", "beta_subtitle", "beta_google_play", "beta_testflight", "beta_android"]) {
