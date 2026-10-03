@@ -30,7 +30,8 @@ const stores = {
 const storeLinks = (item) => item.storeLinks?.length ? `
       <div class="store-links" role="group" aria-label="${escape(item.name)} app downloads">${item.storeLinks.map(link => {
         const store = stores[link.store];
-        return `<a class="store-button" data-store="${escape(link.store)}" href="${escape(link.url)}" aria-label="${escape(item.name)} on the ${store.name}">${store.icon}<span><strong>${store.name}</strong><small>${escape(link.device || store.device)}</small></span></a>`;
+        const label = store.name + (link.edition ? ` ${link.edition}` : '');
+        return `<a class="store-button" data-store="${escape(link.store)}" href="${escape(link.url)}" aria-label="${escape(item.name)} on the ${escape(label)}">${store.icon}<span><strong>${escape(label)}</strong><small>${escape(link.device || store.device)}</small></span></a>`;
       }).join('')}</div>` : '';
 const canonical = 'https://lazying.art/products/';
 const description = 'Discover LazyingArt apps, multilingual books, learning resources, creative tools, and open-source projects. Try L & N, read a book, or explore a practical workflow.';
@@ -47,9 +48,11 @@ for (const item of catalog.items) {
   }
   if (item.storeLinks) {
     assert.ok(Array.isArray(item.storeLinks));
-    assert.equal(new Set(item.storeLinks.map(link => link.store)).size, item.storeLinks.length);
+    assert.equal(new Set(item.storeLinks.map(link => link.url)).size, item.storeLinks.length);
+    assert.equal(new Set(item.storeLinks.map(link => `${link.store}:${link.edition || ''}`)).size, item.storeLinks.length);
     for (const link of item.storeLinks) {
       assert.ok(Object.hasOwn(stores, link.store), 'Use a supported public app store');
+      if (link.edition) assert.ok(link.store === 'google-play' && link.edition === 'Pro', 'Only the verified Android Pro edition has a separate label');
       const url = new URL(link.url);
       assert.equal(url.protocol, 'https:');
       assert.equal(url.hostname, stores[link.store].host);

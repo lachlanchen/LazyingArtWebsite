@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="/legacy-post-redirect.js"></script>
     <title>LazyingArt — apps for reading, speech and ideas</title>
-    <meta name="description" content="Practise with L &amp; N, read classics with Bunko, explore papers with OnlyIdeas for Mac, and connect through EchoMind. Find the official LazyingArt apps.">
+    <meta name="description" content="Read with Bunko and OnlyIdeas, practise L &amp; N, save notes in AiMemo, or connect through EchoMind. Find LazyingArt apps and SHI's historical strategy.">
     <meta property="og:title" content="LazyingArt — apps for reading, speech and ideas">
-    <meta property="og:description" content="Practise with L &amp; N, read classics with Bunko, explore papers with OnlyIdeas for Mac, and connect through EchoMind. Find the official LazyingArt apps.">
+    <meta property="og:description" content="Read with Bunko and OnlyIdeas, practise L &amp; N, save notes in AiMemo, or connect through EchoMind. Find LazyingArt apps and SHI's historical strategy.">
     <link rel="canonical" href="https://lazying.art/">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://lazying.art/">
@@ -15,7 +15,7 @@
     <meta property="og:image:alt" content="LazyingArt">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="LazyingArt — apps for reading, speech and ideas">
-    <meta name="twitter:description" content="Practise with L &amp; N, read classics with Bunko, explore papers with OnlyIdeas for Mac, and connect through EchoMind. Find the official LazyingArt apps.">
+    <meta name="twitter:description" content="Read with Bunko and OnlyIdeas, practise L &amp; N, save notes in AiMemo, or connect through EchoMind. Find LazyingArt apps and SHI's historical strategy.">
     <meta name="twitter:image" content="https://lazying.art/logos/banner.png">
     <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48 64x64 128x128 256x256" type="image/x-icon">
     <link rel="icon" href="/logos/panda-v1/favicon-32x32.png" type="image/png" sizes="32x32">
@@ -338,6 +338,7 @@
         }
         .app-download-card h2 { font-size: 1.25rem; line-height: 1.4; }
         .app-download-card p { font-size: 1rem; line-height: 1.6; }
+        .app-download-card[aria-labelledby="lightmind-download-title"] { grid-column: 1 / -1; }
         .app-download-links { display: flex; flex-wrap: wrap; gap: 0.65rem; margin-top: auto; }
         .app-download-links a {
             display: inline-flex;
@@ -1862,6 +1863,7 @@
                     <div class="app-download-links" role="group" aria-labelledby="landn-download-title">
                         <a href="https://apps.apple.com/us/app/l-n-speech-practice/id6808872450">App Store</a>
                         <a href="https://play.google.com/store/apps/details?id=art.lazying.landn">Google Play</a>
+                        <a href="https://play.google.com/store/apps/details?id=art.lazying.landn.pro">Google Play Pro</a>
                     </div>
                 </article>
                 <article class="app-download-card" aria-labelledby="bunko-download-title">
@@ -1870,13 +1872,46 @@
                     <div class="app-download-links" role="group" aria-labelledby="bunko-download-title">
                         <a href="https://apps.apple.com/us/app/bunko-classics-with-ruby/id6815137919">App Store</a>
                         <a href="https://apps.apple.com/us/app/bunko-classics-with-ruby/id6815137919?platform=mac">Mac App Store</a>
+                        <a href="https://play.google.com/store/apps/details?id=art.lazying.bunko">Google Play</a>
                     </div>
                 </article>
                 <article class="app-download-card" aria-labelledby="onlyideas-download-title">
                     <h2 id="onlyideas-download-title">OnlyIdeas</h2>
-                    <p data-i18n="app_onlyideas_desc">Read research with equations, figures and parallel translations. Now on Mac.</p>
+                    <p data-i18n="app_onlyideas_desc">Read research with equations, figures and parallel translations. On Mac and Android.</p>
                     <div class="app-download-links" role="group" aria-labelledby="onlyideas-download-title">
                         <a href="https://apps.apple.com/us/app/onlyideas/id6816392935?platform=mac">Mac App Store</a>
+                        <a href="https://play.google.com/store/apps/details?id=art.onlyideas.app">Google Play</a>
+                    </div>
+                </article>
+                <article class="app-download-card" aria-labelledby="aimemo-download-title">
+                    <h2 id="aimemo-download-title">AiMemo: AI Notes &amp; Voice</h2>
+                    <p data-i18n="app_aimemo_desc">Capture a thought by voice or text. Find and edit it later.</p>
+                    <div class="app-download-links" role="group" aria-labelledby="aimemo-download-title">
+                        <a href="https://apps.apple.com/us/app/aimemo-ai-notes-voice/id6757573920">App Store</a>
+                        <a href="https://play.google.com/store/apps/details?id=art.lazying.aimemo">Google Play</a>
+                    </div>
+                </article>
+                <article class="app-download-card" aria-labelledby="shi-download-title">
+                    <h2 id="shi-download-title">SHI: The Shape of Power</h2>
+                    <p data-i18n="app_shi_desc">Lead a column through late Qin China. Weigh each order. Play offline.</p>
+                    <div class="app-download-links" role="group" aria-labelledby="shi-download-title">
+                        <a href="https://apps.apple.com/us/app/shi-the-shape-of-power/id6816377548">App Store</a>
+                        <a href="https://play.google.com/store/apps/details?id=art.lazying.shi">Google Play</a>
+                    </div>
+                </article>
+                <article class="app-download-card" aria-labelledby="oracle-download-title">
+                    <h2 id="oracle-download-title">LazyOracle</h2>
+                    <p data-i18n="app_oracle_desc">Explore tarot, BaZi and the I Ching. A space for reflection, not prediction.</p>
+                    <div class="app-download-links" role="group" aria-labelledby="oracle-download-title">
+                        <a href="https://play.google.com/store/apps/details?id=art.lazying.lazyoracle">Google Play</a>
+                    </div>
+                </article>
+                <article class="app-download-card" aria-labelledby="lightmind-download-title">
+                    <h2 id="lightmind-download-title">LightMind Agent</h2>
+                    <p data-i18n="app_lightmind_desc">Audio notes and reminders, with supported smart-glasses workflows. By LightMind Tech Limited.</p>
+                    <div class="app-download-links" role="group" aria-labelledby="lightmind-download-title">
+                        <a href="https://apps.apple.com/us/app/lightmind-agent/id6794785684">App Store</a>
+                        <a href="https://play.google.com/store/apps/details?id=art.lightmind.mobile">Google Play</a>
                     </div>
                 </article>
             </div>
@@ -2736,7 +2771,11 @@
                 beta_badge: 'Mobile app',
                 app_landn_desc: 'Hear the difference. Practise L and N in English, Mandarin and Cantonese.',
                 app_bunko_desc: 'Read classics with pinyin, furigana and parallel translations.',
-                app_onlyideas_desc: 'Read research with equations, figures and parallel translations. Now on Mac.',
+                app_onlyideas_desc: "Read research with equations, figures and parallel translations. On Mac and Android.",
+                app_aimemo_desc: "Capture a thought by voice or text. Find and edit it later.",
+                app_shi_desc: "Lead a column through late Qin China. Weigh each order. Play offline.",
+                app_oracle_desc: "Explore tarot, BaZi and the I Ching. A space for reflection, not prediction.",
+                app_lightmind_desc: "Audio notes and reminders, with supported smart-glasses workflows. By LightMind Tech Limited.",
                 beta_title: 'Get EchoMind on your phone',
                 beta_subtitle: 'Get EchoMind from the App Store or Google Play. Availability varies by region.',
                 beta_testflight: 'TestFlight beta',
@@ -2949,7 +2988,11 @@
                 beta_badge: 'モバイルアプリ',
                 app_landn_desc: 'LとNの違いを聞いて、発音を練習。英語・普通話・広東語に対応。',
                 app_bunko_desc: 'ピンイン・ふりがな・対訳とともに古典を読む。',
-                app_onlyideas_desc: '数式・図・対訳とともに論文を読む。Mac版を公開しました。',
+                app_onlyideas_desc: "数式・図・対訳とともに論文を読む。MacとAndroidに対応。",
+                app_aimemo_desc: "声や文字で思いつきを残す。後から探して編集できます。",
+                app_shi_desc: "秦末の中国で一隊を率いる。命令の代償を考える、オフラインの戦略物語。",
+                app_oracle_desc: "タロット・四柱推命・易経を探る。予言ではなく、考えるための道具。",
+                app_lightmind_desc: "音声メモとリマインダー、対応スマートグラスとの連携。LightMind Tech Limited製。",
                 beta_title: 'スマートフォンでEchoMindを始めよう',
                 beta_subtitle: 'App StoreまたはGoogle PlayからEchoMindをダウンロード。提供状況は地域によって異なります。',
                 beta_testflight: 'TestFlightベータ版',
@@ -3147,7 +3190,11 @@
                 beta_badge: '手机应用',
                 app_landn_desc: '听清区别，开口练习。支持英语、普通话和粤语的 L/N 发音练习。',
                 app_bunko_desc: '配合拼音、假名与对照译文，阅读经典。',
-                app_onlyideas_desc: '保留公式与插图，对照译文读论文。现已推出 Mac 版。',
+                app_onlyideas_desc: "保留公式与插图，对照译文读论文。支持 Mac 和 Android。",
+                app_aimemo_desc: "用语音或文字记下想法，之后随时查找、编辑。",
+                app_shi_desc: "在秦末带领一支队伍，权衡每道命令。支持离线游玩。",
+                app_oracle_desc: "探索塔罗、八字与易经。用来思考，不是预测。",
+                app_lightmind_desc: "记录语音笔记与提醒，连接兼容的智能眼镜。由 LightMind Tech Limited 开发。",
                 beta_title: '在手机上使用 EchoMind',
                 beta_subtitle: '从 App Store 或 Google Play 下载 EchoMind。可用情况因地区而异。',
                 beta_testflight: 'TestFlight 测试版',
@@ -3348,7 +3395,11 @@
                 beta_badge: '手機應用',
                 app_landn_desc: '聽清差別，開口練習。支援英語、普通話和粵語的 L/N 發音練習。',
                 app_bunko_desc: '配合拼音、假名與對照譯文，閱讀經典。',
-                app_onlyideas_desc: '保留公式與插圖，對照譯文讀論文。現已推出 Mac 版。',
+                app_onlyideas_desc: "保留公式與插圖，對照譯文讀論文。支援 Mac 和 Android。",
+                app_aimemo_desc: "用語音或文字記下想法，之後隨時尋找、編輯。",
+                app_shi_desc: "在秦末帶領一支隊伍，權衡每道命令。支援離線遊玩。",
+                app_oracle_desc: "探索塔羅、八字與易經。用來思考，不是預測。",
+                app_lightmind_desc: "記錄語音筆記與提醒，連接相容的智慧眼鏡。由 LightMind Tech Limited 開發。",
                 beta_title: '在手機上使用 EchoMind',
                 beta_subtitle: '從 App Store 或 Google Play 下載 EchoMind。供應情況因地區而異。',
                 beta_testflight: 'TestFlight 測試版',
@@ -3549,7 +3600,11 @@
                 beta_badge: '모바일 앱',
                 app_landn_desc: 'L과 N의 차이를 듣고 발음을 연습하세요. 영어, 중국어 표준어, 광둥어를 지원합니다.',
                 app_bunko_desc: '병음, 후리가나, 대역 번역과 함께 고전을 읽어 보세요.',
-                app_onlyideas_desc: '수식과 그림, 대역 번역을 함께 보며 논문을 읽으세요. 이제 Mac에서도 사용할 수 있습니다.',
+                app_onlyideas_desc: "수식, 그림, 대역 번역과 함께 논문을 읽으세요. Mac과 Android에서 사용할 수 있습니다.",
+                app_aimemo_desc: "음성이나 글로 생각을 남기고 나중에 찾아 수정하세요.",
+                app_shi_desc: "진나라 말기의 중국에서 부대를 이끄세요. 명령의 결과를 생각하며 오프라인으로 플레이하세요.",
+                app_oracle_desc: "타로, 사주와 주역을 탐색하세요. 예측이 아닌 성찰을 위한 도구입니다.",
+                app_lightmind_desc: "음성 메모와 알림, 호환 스마트 안경 연동. LightMind Tech Limited 제작.",
                 beta_title: '휴대폰에서 EchoMind 시작하기',
                 beta_subtitle: 'App Store 또는 Google Play에서 EchoMind를 다운로드하세요. 제공 여부는 지역에 따라 다릅니다.',
                 beta_testflight: 'TestFlight 베타',
@@ -3748,7 +3803,11 @@
                 beta_badge: 'تطبيق الهاتف',
                 app_landn_desc: 'اسمع الفرق وتدرّب على نطق L وN بالإنجليزية والماندرين والكانتونية.',
                 app_bunko_desc: 'اقرأ الأدب الكلاسيكي مع البينيين والفوريغانا والترجمات الموازية.',
-                app_onlyideas_desc: 'اقرأ الأبحاث مع المعادلات والأشكال والترجمات المتوازية. متاح الآن على Mac.',
+                app_onlyideas_desc: "اقرأ الأبحاث مع المعادلات والأشكال والترجمات المتوازية على Mac وAndroid.",
+                app_aimemo_desc: "دوّن فكرة بالصوت أو الكتابة، ثم ابحث عنها وعدّلها لاحقًا.",
+                app_shi_desc: "قد فرقة في الصين أواخر عهد تشين. زن كل أمر والعب دون اتصال.",
+                app_oracle_desc: "استكشف التاروت وبازي وكتاب التغيرات. مساحة للتأمل لا للتنبؤ.",
+                app_lightmind_desc: "ملاحظات صوتية وتذكيرات مع وظائف للنظارات الذكية المتوافقة. من LightMind Tech Limited.",
                 beta_title: 'جرّب EchoMind على هاتفك',
                 beta_subtitle: 'نزّل EchoMind من App Store أو Google Play. يختلف التوفر حسب المنطقة.',
                 beta_testflight: 'نسخة TestFlight التجريبية',
@@ -3947,7 +4006,11 @@
                 beta_badge: 'Ứng dụng di động',
                 app_landn_desc: 'Nghe sự khác biệt, luyện phát âm L và N trong tiếng Anh, tiếng Quan thoại và tiếng Quảng Đông.',
                 app_bunko_desc: 'Đọc tác phẩm kinh điển với pinyin, furigana và bản dịch song song.',
-                app_onlyideas_desc: 'Đọc nghiên cứu cùng công thức, hình minh họa và bản dịch song song. Nay có trên Mac.',
+                app_onlyideas_desc: "Đọc nghiên cứu cùng công thức, hình minh họa và bản dịch song song trên Mac và Android.",
+                app_aimemo_desc: "Ghi lại ý nghĩ bằng giọng nói hoặc văn bản. Tìm và chỉnh sửa sau.",
+                app_shi_desc: "Dẫn một đoàn quân qua Trung Quốc cuối thời Tần. Cân nhắc từng mệnh lệnh, chơi ngoại tuyến.",
+                app_oracle_desc: "Khám phá tarot, Bát Tự và Kinh Dịch. Dành cho suy ngẫm, không phải dự đoán.",
+                app_lightmind_desc: "Ghi âm, ghi chú và nhắc nhở, kết nối kính thông minh tương thích. Do LightMind Tech Limited phát triển.",
                 beta_title: 'Thử EchoMind trên điện thoại',
                 beta_subtitle: 'Tải EchoMind từ App Store hoặc Google Play. Khả năng cung cấp tùy thuộc vào khu vực.',
                 beta_testflight: 'Bản beta TestFlight',
@@ -4146,7 +4209,11 @@
                 beta_badge: 'Application mobile',
                 app_landn_desc: 'Écoutez la différence. Entraînez-vous à prononcer L et N en anglais, mandarin et cantonais.',
                 app_bunko_desc: 'Lisez les classiques avec pinyin, furigana et traductions en parallèle.',
-                app_onlyideas_desc: 'Lisez les articles scientifiques avec équations, figures et traductions en parallèle. Maintenant sur Mac.',
+                app_onlyideas_desc: "Lisez les articles avec équations, figures et traductions en parallèle, sur Mac et Android.",
+                app_aimemo_desc: "Notez une idée par la voix ou le texte. Retrouvez-la et modifiez-la plus tard.",
+                app_shi_desc: "Menez une colonne dans la Chine des derniers Qin. Pesez chaque ordre. Jouez hors ligne.",
+                app_oracle_desc: "Explorez le tarot, le BaZi et le Yi Jing. Un espace de réflexion, pas de prédiction.",
+                app_lightmind_desc: "Notes vocales et rappels, avec fonctions pour lunettes compatibles. Par LightMind Tech Limited.",
                 beta_title: 'Retrouvez EchoMind sur votre téléphone',
                 beta_subtitle: 'Téléchargez EchoMind sur l’App Store ou Google Play. La disponibilité varie selon la région.',
                 beta_testflight: 'Bêta TestFlight',
@@ -4345,7 +4412,11 @@
                 beta_badge: 'Aplicación móvil',
                 app_landn_desc: 'Escucha la diferencia. Practica L y N en inglés, mandarín y cantonés.',
                 app_bunko_desc: 'Lee clásicos con pinyin, furigana y traducciones en paralelo.',
-                app_onlyideas_desc: 'Lee artículos científicos con ecuaciones, figuras y traducciones en paralelo. Ya en Mac.',
+                app_onlyideas_desc: "Lee artículos con ecuaciones, figuras y traducciones en paralelo, en Mac y Android.",
+                app_aimemo_desc: "Guarda una idea por voz o texto. Encuéntrala y edítala después.",
+                app_shi_desc: "Dirige una columna en la China de finales de Qin. Sopesa cada orden. Juega sin conexión.",
+                app_oracle_desc: "Explora el tarot, BaZi y el I Ching. Para reflexionar, no para predecir.",
+                app_lightmind_desc: "Notas de voz y recordatorios, con funciones para gafas compatibles. De LightMind Tech Limited.",
                 beta_title: 'Prueba EchoMind en tu teléfono',
                 beta_subtitle: 'Descarga EchoMind en App Store o Google Play. La disponibilidad varía según la región.',
                 beta_testflight: 'Beta de TestFlight',
@@ -4544,7 +4615,11 @@
                 beta_badge: 'Aplicativo móvel',
                 app_landn_desc: 'Ouça a diferença. Pratique L e N em inglês, mandarim e cantonês.',
                 app_bunko_desc: 'Leia clássicos com pinyin, furigana e traduções em paralelo.',
-                app_onlyideas_desc: 'Leia artigos científicos com equações, figuras e traduções em paralelo. Agora no Mac.',
+                app_onlyideas_desc: "Leia artigos com equações, figuras e traduções em paralelo, no Mac e Android.",
+                app_aimemo_desc: "Guarde uma ideia por voz ou texto. Encontre e edite depois.",
+                app_shi_desc: "Lidere uma coluna na China do fim da dinastia Qin. Pese cada ordem. Jogue offline.",
+                app_oracle_desc: "Explore tarô, BaZi e I Ching. Um espaço de reflexão, não de previsão.",
+                app_lightmind_desc: "Notas de voz e lembretes, com funções para óculos compatíveis. Por LightMind Tech Limited.",
                 beta_title: 'Use o EchoMind no seu telefone',
                 beta_subtitle: 'Baixe o EchoMind na App Store ou no Google Play. A disponibilidade varia por região.',
                 beta_testflight: 'Beta no TestFlight',
@@ -4743,7 +4818,11 @@
                 beta_badge: 'Mobile App',
                 app_landn_desc: 'Höre den Unterschied. Übe L und N auf Englisch, Mandarin und Kantonesisch.',
                 app_bunko_desc: 'Lies Klassiker mit Pinyin, Furigana und Parallelübersetzungen.',
-                app_onlyideas_desc: 'Lies Forschungsartikel mit Formeln, Abbildungen und Parallelübersetzungen. Jetzt auf dem Mac.',
+                app_onlyideas_desc: "Lies Forschungsartikel mit Formeln, Abbildungen und Parallelübersetzungen auf Mac und Android.",
+                app_aimemo_desc: "Halte einen Gedanken per Stimme oder Text fest. Finde und bearbeite ihn später.",
+                app_shi_desc: "Führe eine Truppe durch China am Ende der Qin-Zeit. Wäge jeden Befehl ab. Spiele offline.",
+                app_oracle_desc: "Erkunde Tarot, BaZi und I Ging. Zum Nachdenken, nicht zur Vorhersage.",
+                app_lightmind_desc: "Sprachnotizen und Erinnerungen, mit Funktionen für kompatible Smartglasses. Von LightMind Tech Limited.",
                 beta_title: 'EchoMind auf dem Smartphone nutzen',
                 beta_subtitle: 'Lade EchoMind im App Store oder bei Google Play herunter. Die Verfügbarkeit ist regional unterschiedlich.',
                 beta_testflight: 'TestFlight-Beta',
@@ -4944,7 +5023,11 @@
                 beta_badge: 'Мобильное приложение',
                 app_landn_desc: 'Услышьте разницу. Тренируйте L и N на английском, путунхуа и кантонском.',
                 app_bunko_desc: 'Читайте классику с пиньинем, фуриганой и параллельными переводами.',
-                app_onlyideas_desc: 'Читайте научные статьи с формулами, иллюстрациями и параллельным переводом. Теперь на Mac.',
+                app_onlyideas_desc: "Читайте научные статьи с формулами, иллюстрациями и параллельным переводом на Mac и Android.",
+                app_aimemo_desc: "Сохраните мысль голосом или текстом. Найдите и отредактируйте её позже.",
+                app_shi_desc: "Ведите отряд по Китаю конца эпохи Цинь. Обдумывайте каждый приказ. Играйте офлайн.",
+                app_oracle_desc: "Изучайте таро, Ба-цзы и И-цзин. Для размышления, а не предсказаний.",
+                app_lightmind_desc: "Голосовые заметки и напоминания, функции для совместимых умных очков. От LightMind Tech Limited.",
                 beta_title: 'Попробуйте EchoMind на телефоне',
                 beta_subtitle: 'Скачайте EchoMind в App Store или Google Play. Доступность зависит от региона.',
                 beta_testflight: 'Бета в TestFlight',
@@ -5143,7 +5226,11 @@
                 beta_badge: 'Mobil uygulama',
                 app_landn_desc: 'Farkı duyun. İngilizce, Mandarin ve Kantonca L ve N seslerini çalışın.',
                 app_bunko_desc: 'Klasikleri pinyin, furigana ve paralel çevirilerle okuyun.',
-                app_onlyideas_desc: 'Araştırma makalelerini denklemler, şekiller ve paralel çevirilerle okuyun. Artık Mac’te.',
+                app_onlyideas_desc: "Araştırma makalelerini denklemler, şekiller ve paralel çevirilerle Mac ve Android’de okuyun.",
+                app_aimemo_desc: "Bir düşünceyi sesle veya yazıyla kaydedin. Sonra bulun ve düzenleyin.",
+                app_shi_desc: "Qin döneminin sonlarında Çin’de bir birliği yönetin. Her emri tartın. Çevrimdışı oynayın.",
+                app_oracle_desc: "Tarot, BaZi ve I Ching’i keşfedin. Kehanet değil, düşünme alanı.",
+                app_lightmind_desc: "Sesli notlar ve hatırlatıcılar, uyumlu akıllı gözlük işlevleri. LightMind Tech Limited tarafından.",
                 beta_title: 'EchoMind’i telefonunuzda deneyin',
                 beta_subtitle: 'EchoMind’i App Store veya Google Play’den indirin. Kullanılabilirlik bölgeye göre değişir.',
                 beta_testflight: 'TestFlight beta',

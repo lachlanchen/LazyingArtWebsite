@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-30",
+  "updated": "2026-10-03",
   "title": "LazyingArt products, books and open-source tools",
   "groups": [
     {
@@ -41,8 +41,8 @@
       "name": "Bunko · 文庫",
       "url": "https://lachlan.lazying.art/Bunko/",
       "repository": "https://github.com/lachlanchen/Bunko",
-      "kind": "iPhone · iPad · Mac · Apple Watch",
-      "description": "Read classics with furigana, pinyin, and aligned language layers. Save books offline on iPhone, iPad or Mac; send a short passage from iPhone to Apple Watch.",
+      "kind": "iPhone · iPad · Android · Mac · Apple Watch",
+      "description": "Read classics with furigana, pinyin, and aligned language layers. Download books for offline reading; send a short passage from iPhone to Apple Watch.",
       "action": "Open the reader",
       "storeLinks": [
         {
@@ -54,6 +54,11 @@
           "store": "mac-app-store",
           "url": "https://apps.apple.com/us/app/bunko-classics-with-ruby/id6815137919?platform=mac",
           "device": "Mac"
+        },
+        {
+          "store": "google-play",
+          "url": "https://play.google.com/store/apps/details?id=art.lazying.bunko",
+          "device": "Android"
         }
       ],
       "featured": true
@@ -65,10 +70,13 @@
       "name": "LazyOracle",
       "url": "https://oracle.lazying.art/",
       "repository": "https://github.com/lachlanchen/LazyOracle",
-      "kind": "Free web app",
+      "kind": "Android · web app",
       "description": "Explore tarot, the I Ching, and BaZi through reproducible rule-based calculations and optional AI narration. A space for cultural exploration and reflection.",
       "action": "Explore LazyOracle",
-      "featured": false
+      "featured": false,
+      "storeLinks": [
+        {"store": "google-play", "url": "https://play.google.com/store/apps/details?id=art.lazying.lazyoracle", "device": "Android"}
+      ]
     },
     {
       "id": "auspice",
@@ -100,6 +108,12 @@
         {
           "store": "google-play",
           "url": "https://play.google.com/store/apps/details?id=art.lazying.landn"
+        },
+        {
+          "store": "google-play",
+          "edition": "Pro",
+          "url": "https://play.google.com/store/apps/details?id=art.lazying.landn.pro",
+          "device": "Android · all pairs included"
         }
       ]
     },
@@ -125,10 +139,14 @@
       "name": "AiMemo",
       "url": "https://blog.lazying.art/html/computer_internet/3862/aimemo-turn-a-thought-into-a-note.html",
       "repository": null,
-      "kind": "Web app · mobile releases in review",
-      "description": "Turn a thought or voice draft into an editable note, task or event. Start with one memo; the current web release is free and requires an account.",
+      "kind": "iPhone · iPad · Android · Apple Watch",
+      "description": "Capture a thought by voice or text, then find and edit the saved memo. Keep notes, tasks and dated entries together. Account required; AI processing is optional.",
       "action": "Meet AiMemo",
-      "featured": false
+      "featured": true,
+      "storeLinks": [
+        {"store": "app-store", "url": "https://apps.apple.com/us/app/aimemo-ai-notes-voice/id6757573920", "device": "iPhone · iPad · Watch companion"},
+        {"store": "google-play", "url": "https://play.google.com/store/apps/details?id=art.lazying.aimemo", "device": "Android"}
+      ]
     },
     {
       "id": "onlyideas",
@@ -136,15 +154,20 @@
       "name": "OnlyIdeas",
       "url": "https://blog.lazying.art/html/computer_internet/3864/onlyideas-read-papers-equations-questions.html",
       "repository": "https://github.com/lachlanchen/OnlyIdeasApp",
-      "kind": "Mac app · web reading room",
-      "description": "Read research with equations, figures and original/translated passages together. The Mac app is free; mobile editions are still in review. Try a public paper before importing your own.",
+      "kind": "Mac · Android · web reading room",
+      "description": "Read research with equations, figures and original/translated passages together. Available on Mac and Android; try a public paper before importing your own.",
       "action": "Meet OnlyIdeas",
       "featured": true,
       "storeLinks": [
         {
           "store": "mac-app-store",
           "url": "https://apps.apple.com/us/app/onlyideas/id6816392935?platform=mac",
-          "device": "Mac · free"
+          "device": "Mac"
+        },
+        {
+          "store": "google-play",
+          "url": "https://play.google.com/store/apps/details?id=art.onlyideas.app",
+          "device": "Android"
         }
       ]
     },
@@ -428,13 +451,32 @@
     {
       "id": "shigame",
       "group": "play",
-      "name": "ShiGame",
+      "name": "SHI: The Shape of Power",
       "url": "https://lachlan.lazying.art/ShiGame/",
       "repository": "https://github.com/lachlanchen/ShiGame",
-      "kind": "Game project",
-      "description": "Explore the public game project and its source.",
-      "action": "Open the project",
-      "featured": false
+      "kind": "iPhone · iPad · Android",
+      "description": "Lead a column through late Qin China in a branching historical strategy narrative. Weigh grain, trust and exposure before each order. One purchase, offline play.",
+      "action": "Explore the game",
+      "featured": true,
+      "storeLinks": [
+        {"store": "app-store", "url": "https://apps.apple.com/us/app/shi-the-shape-of-power/id6816377548", "device": "iPhone · iPad"},
+        {"store": "google-play", "url": "https://play.google.com/store/apps/details?id=art.lazying.shi", "device": "Android"}
+      ]
+    },
+    {
+      "id": "lightmind-agent",
+      "group": "build",
+      "name": "LightMind Agent",
+      "url": "https://lightmind.art/",
+      "repository": null,
+      "kind": "Companion brand · iPhone · iPad · Android",
+      "description": "Keep audio notes, reminders and memory cues on your phone; connect compatible smart glasses for supported media workflows. Made by LightMind Tech Limited. Hardware features depend on the device.",
+      "action": "Meet LightMind",
+      "featured": false,
+      "storeLinks": [
+        {"store": "app-store", "url": "https://apps.apple.com/us/app/lightmind-agent/id6794785684", "device": "iPhone · iPad"},
+        {"store": "google-play", "url": "https://play.google.com/store/apps/details?id=art.lightmind.mobile", "device": "Android"}
+      ]
     },
     {
       "id": "ideas",

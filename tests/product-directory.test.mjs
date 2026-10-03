@@ -43,7 +43,8 @@ const bunko = catalog.items.find(item => item.id === 'bunko');
 assert.equal(bunko.url, 'https://lachlan.lazying.art/Bunko/');
 assert.deepEqual(bunko.storeLinks, [
   {store: 'app-store', url: 'https://apps.apple.com/us/app/bunko-classics-with-ruby/id6815137919', device: 'iPhone · iPad · Watch'},
-  {store: 'mac-app-store', url: 'https://apps.apple.com/us/app/bunko-classics-with-ruby/id6815137919?platform=mac', device: 'Mac'}
+  {store: 'mac-app-store', url: 'https://apps.apple.com/us/app/bunko-classics-with-ruby/id6815137919?platform=mac', device: 'Mac'},
+  {store: 'google-play', url: 'https://play.google.com/store/apps/details?id=art.lazying.bunko', device: 'Android'}
 ]);
 const bunkoCard = html.match(/<article id="bunko"[^>]*>([\s\S]*?)<\/article>/)[1];
 assert.match(bunkoCard, /href="https:\/\/lachlan\.lazying\.art\/Bunko\/"/, 'keep the web reader entry');
@@ -55,11 +56,12 @@ assert.equal(catalog.items.find(item => item.id === 'auspice').kind, 'Companion 
 const landn = catalog.items.find(item => item.id === 'landn');
 assert.deepEqual(landn.storeLinks, [
   {store: 'app-store', url: 'https://apps.apple.com/app/l-n-speech-practice/id6808872450'},
-  {store: 'google-play', url: 'https://play.google.com/store/apps/details?id=art.lazying.landn'}
+  {store: 'google-play', url: 'https://play.google.com/store/apps/details?id=art.lazying.landn'},
+  {store: 'google-play', edition: 'Pro', url: 'https://play.google.com/store/apps/details?id=art.lazying.landn.pro', device: 'Android · all pairs included'}
 ]);
 const landnCard = html.match(/<article id="landn"[^>]*>([\s\S]*?)<\/article>/)[1];
 assert.match(landnCard, /href="https:\/\/l-and-n\.lazying\.art\/"/, 'keep the free web entry');
-assert.equal((landnCard.match(/class="store-button"/g) || []).length, 2);
+assert.equal((landnCard.match(/class="store-button"/g) || []).length, 3);
 assert.match(landnCard, /role="group" aria-label="L &amp; N speech practice app downloads"/);
 for (const link of landn.storeLinks) {
   assert.ok(landnCard.includes(`data-store="${link.store}" href="${link.url}"`));
@@ -68,18 +70,28 @@ assert.match(landnCard, /aria-label="L &amp; N speech practice on the App Store"
 assert.match(landnCard, /aria-label="L &amp; N speech practice on the Google Play"/);
 assert.match(landnCard, /<strong>App Store<\/strong>/);
 assert.match(landnCard, /<strong>Google Play<\/strong>/);
-assert.doesNotMatch(landnCard, /internaltest|testflight|\.apk|art\.lazying\.landn\.pro/);
+assert.match(landnCard, /<strong>Google Play Pro<\/strong>/);
+assert.doesNotMatch(landnCard, /internaltest|testflight|\.apk/);
 assert.doesNotMatch(discovery, /apps\.apple\.com|play\.google\.com/, 'store listings are not owned sitemap URLs');
-assert.equal((html.match(/class="store-button"/g) || []).length, 7, 'only verified public app listings get store links');
+assert.equal((html.match(/class="store-button"/g) || []).length, 17, 'only verified public app listings get store links');
 for (const id of ['aimemo']) {
   const item = catalog.items.find(item => item.id === id);
   assert.equal(new URL(item.url).origin, 'https://blog.lazying.art', 'Index the useful public introduction, not a private account workspace');
-  assert.equal(item.storeLinks, undefined, 'Pending native apps do not get public store buttons');
+  assert.equal(item.storeLinks.length, 2, 'AiMemo is now publicly listed on iOS and Android');
+  assert.doesNotMatch(item.description + item.kind, /in review|web release is free/);
 }
 const onlyideas = catalog.items.find(item => item.id === 'onlyideas');
-assert.equal(onlyideas.storeLinks.length, 1);
+assert.equal(onlyideas.storeLinks.length, 2);
 assert.equal(onlyideas.storeLinks[0].url, 'https://apps.apple.com/us/app/onlyideas/id6816392935?platform=mac');
-assert.match(onlyideas.description, /mobile editions are still in review/);
+assert.equal(onlyideas.storeLinks[1].url, 'https://play.google.com/store/apps/details?id=art.onlyideas.app');
+assert.match(onlyideas.description, /Mac and Android/);
+assert.doesNotMatch(onlyideas.description, /Mac app is free|mobile editions are still in review/);
+assert.ok(!onlyideas.storeLinks.some(link => link.store === 'app-store'), 'Mac approval does not imply iPhone approval');
+const lightmind = catalog.items.find(item => item.id === 'lightmind-agent');
+assert.match(lightmind.description, /LightMind Tech Limited/);
+assert.equal(lightmind.storeLinks.length, 2);
+assert.ok(!discovery.includes('lightmind.art'), 'separate brand is not included in the LazyingArt cross-site sitemap');
+for (const id of ['shigame', 'lazyoracle']) assert.ok(catalog.items.find(item => item.id === id).storeLinks.length);
 assert.equal(catalog.items.find(item => item.id === 'aimemo').repository, null, 'Private source stays private');
 assert.match(catalog.items.find(item => item.id === 'echomind').description, /invitation-based/);
 for (const id of ['bunko', 'landn', 'lazyedit', 'lazyoracle']) {
