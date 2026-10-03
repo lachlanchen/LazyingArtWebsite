@@ -9,6 +9,7 @@ assert.ok(html.indexOf('id="app-downloads"') < html.indexOf('<aside class="beta-
 const links = card => [...card.matchAll(/href="([^"]+)"/g)].map(m => m[1]);
 assert.deepEqual(links(cards[0]), [
   'https://apps.apple.com/us/app/l-n-speech-practice/id6808872450',
+  'https://apps.apple.com/us/app/l-n-speech-practice/id6808872450?platform=mac',
   'https://play.google.com/store/apps/details?id=art.lazying.landn',
   'https://play.google.com/store/apps/details?id=art.lazying.landn.pro',
 ]);
@@ -50,6 +51,10 @@ for (const [locale, dictionary] of Object.entries(translations)) {
   }
 }
 assert.match(translations.en.app_onlyideas_desc, /Mac and Android/);
+for (const [locale, dictionary] of Object.entries(translations)) {
+  assert.match(dictionary.app_bunko_desc, /Apple Watch/, `${locale}: shipped Watch reading is localized`);
+}
+assert.match(cards[1], /aligned passage on Apple Watch/);
 assert.match(html, /\.app-download-links\s*\{[^}]*flex-wrap:\s*wrap/);
 assert.match(html, /\.app-download-links a\s*\{[^}]*min-height:\s*44px/);
 assert.match(html, /\.app-download-links a:focus-visible/);

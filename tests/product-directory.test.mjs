@@ -41,6 +41,7 @@ assert.match(discovery, /https:\/\/lachlan\.lazying\.art\/LazyTravel\//);
 assert.match(discovery, /https:\/\/lazying\.art\/games\//);
 const bunko = catalog.items.find(item => item.id === 'bunko');
 assert.equal(bunko.url, 'https://lachlan.lazying.art/Bunko/');
+assert.match(bunko.description, /Apple Watch with ruby readings and sentence-by-sentence translations/);
 assert.deepEqual(bunko.storeLinks, [
   {store: 'app-store', url: 'https://apps.apple.com/us/app/bunko-classics-with-ruby/id6815137919', device: 'iPhone · iPad · Watch'},
   {store: 'mac-app-store', url: 'https://apps.apple.com/us/app/bunko-classics-with-ruby/id6815137919?platform=mac', device: 'Mac'},
@@ -55,13 +56,17 @@ assert.equal(catalog.items.find(item => item.id === 'lazyoracle').url, 'https://
 assert.equal(catalog.items.find(item => item.id === 'auspice').kind, 'Companion app preview');
 const landn = catalog.items.find(item => item.id === 'landn');
 assert.deepEqual(landn.storeLinks, [
-  {store: 'app-store', url: 'https://apps.apple.com/app/l-n-speech-practice/id6808872450'},
+  {store: 'app-store', url: 'https://apps.apple.com/app/l-n-speech-practice/id6808872450', device: 'iPhone · iPad · Watch'},
+  {store: 'mac-app-store', url: 'https://apps.apple.com/us/app/l-n-speech-practice/id6808872450?platform=mac', device: 'Mac'},
   {store: 'google-play', url: 'https://play.google.com/store/apps/details?id=art.lazying.landn'},
   {store: 'google-play', edition: 'Pro', url: 'https://play.google.com/store/apps/details?id=art.lazying.landn.pro', device: 'Android · all pairs included'}
 ]);
 const landnCard = html.match(/<article id="landn"[^>]*>([\s\S]*?)<\/article>/)[1];
+assert.match(landn.kind, /Apple Watch/);
+assert.match(landn.kind, /Mac/);
+assert.equal(landn.storeLinks.filter(link => link.store === 'mac-app-store').length, 1, 'Mac release gets one qualified route');
 assert.match(landnCard, /href="https:\/\/l-and-n\.lazying\.art\/"/, 'keep the free web entry');
-assert.equal((landnCard.match(/class="store-button"/g) || []).length, 3);
+assert.equal((landnCard.match(/class="store-button"/g) || []).length, 4);
 assert.match(landnCard, /role="group" aria-label="L &amp; N speech practice app downloads"/);
 for (const link of landn.storeLinks) {
   assert.ok(landnCard.includes(`data-store="${link.store}" href="${link.url}"`));
@@ -73,7 +78,7 @@ assert.match(landnCard, /<strong>Google Play<\/strong>/);
 assert.match(landnCard, /<strong>Google Play Pro<\/strong>/);
 assert.doesNotMatch(landnCard, /internaltest|testflight|\.apk/);
 assert.doesNotMatch(discovery, /apps\.apple\.com|play\.google\.com/, 'store listings are not owned sitemap URLs');
-assert.equal((html.match(/class="store-button"/g) || []).length, 17, 'only verified public app listings get store links');
+assert.equal((html.match(/class="store-button"/g) || []).length, 18, 'only verified public app listings get store links');
 for (const id of ['aimemo']) {
   const item = catalog.items.find(item => item.id === id);
   assert.equal(new URL(item.url).origin, 'https://blog.lazying.art', 'Index the useful public introduction, not a private account workspace');
@@ -94,6 +99,7 @@ assert.ok(!discovery.includes('lightmind.art'), 'separate brand is not included 
 for (const id of ['shigame', 'lazyoracle']) assert.ok(catalog.items.find(item => item.id === id).storeLinks.length);
 assert.equal(catalog.items.find(item => item.id === 'aimemo').repository, null, 'Private source stays private');
 assert.match(catalog.items.find(item => item.id === 'echomind').description, /invitation-based/);
+assert.match(catalog.items.find(item => item.id === 'echomind').description, /central account signup alone does not grant it/);
 for (const id of ['bunko', 'landn', 'lazyedit', 'lazyoracle']) {
   const item = catalog.items.find(item => item.id === id);
   assert.equal(new URL(item.storyUrl).origin, 'https://blog.lazying.art');
