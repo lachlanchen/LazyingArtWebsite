@@ -1,7 +1,8 @@
 # App artwork
 
 Official app-store artwork for L & N, Bunko, OnlyIdeas, AiMemo, SHI,
-LazyOracle and EchoMind. These files reuse the reviewed October 3, 2026
+LazyOracle, EchoMind and the separately branded LightMind companion. These
+files reuse the reviewed October 3, 2026
 [Platform assets](https://github.com/lachlanchen/LazyingArtPlatform/blob/main/docs/assets.md)
 without alterations, so both websites show the same app identities.
 

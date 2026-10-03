@@ -321,14 +321,21 @@
             backdrop-filter: blur(18px);
         }
 
+        .app-shortcuts { max-width: 1120px; margin: 0 auto 1.5rem; position: relative; }
         .app-shelf {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px 16px;
-            width: min(100%, 520px);
-            margin: 0 auto 2rem;
+            flex-wrap: nowrap;
+            gap: 16px;
+            width: 100%;
+            padding: 12px 4px 16px;
+            overflow-x: auto;
+            overscroll-behavior-x: contain;
+            scroll-snap-type: x proximity;
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary) transparent;
+            direction: ltr;
         }
+        .app-shelf::before, .app-shelf::after { content: ''; flex: 1 0 0; }
         .app-shelf a {
             flex: 0 0 112px;
             display: flex;
@@ -345,7 +352,8 @@
             font-weight: 650;
             text-align: center;
             text-decoration: none;
-            transition: background 0.2s, border-color 0.2s;
+            scroll-snap-align: center;
+            transition: background 0.2s, border-color 0.2s, transform 0.25s;
         }
         .app-shelf img {
             width: 80px;
@@ -354,35 +362,81 @@
             border-radius: 21px;
             box-shadow: 0 8px 20px var(--glow);
         }
-        .app-shelf a:hover { border-color: var(--primary); background: var(--control-bg); }
+        .app-shelf a:hover { border-color: var(--primary); background: var(--control-bg); transform: translateY(-4px); }
         .app-shelf a:focus-visible { outline: 3px solid var(--primary); outline-offset: 4px; }
-        @media (max-width: 740px) {
-            .app-shelf { gap: 16px 12px; max-width: 360px; }
-            .app-shelf a { flex-basis: 88px; min-height: 112px; padding: 12px 6px; gap: 10px; border-radius: 18px; font-size: 0.8125rem; }
-            .app-shelf img { width: 64px; height: 64px; border-radius: 17px; }
+        .app-shortcut-controls { display: flex; justify-content: center; gap: 8px; margin-top: 4px; }
+        .app-shortcut-controls[hidden] { display: none; }
+        .app-reel { min-width: 0; }
+        .app-reel-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem; }
+        .app-reel-title { font-size: clamp(1.5rem, 3vw, 2rem); letter-spacing: -0.035em; }
+        .app-reel-controls { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+        .app-reel-controls[hidden] { display: none; }
+        .app-reel-button {
+            display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+            min-height: 44px; min-width: 44px; padding: 10px 14px;
+            border: 1px solid var(--control-border); border-radius: 999px;
+            background: var(--glass); color: var(--light); font: inherit; font-weight: 650; cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
         }
-        @media (prefers-reduced-motion: reduce) {
-            .app-shelf a { transition: none; }
-        }
-
+        .app-reel-button:hover { background: var(--control-bg); transform: translateY(-2px); }
+        .app-reel-button:focus-visible, .app-downloads:focus-visible { outline: 3px solid var(--primary); outline-offset: 4px; }
+        .app-reel-button:disabled { opacity: 0.35; cursor: default; transform: none; }
+        .app-reel-arrow { font-size: 1.4rem; line-height: 1; }
+        .app-reel-auto[aria-pressed="true"] { background: #4f46e5; border-color: #4f46e5; color: #fff; }
         .app-downloads {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
-            gap: 1rem;
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 20px;
+            overflow-x: auto;
+            padding: 14px 4px 24px;
+            overscroll-behavior-x: contain;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary) transparent;
+            direction: ltr;
         }
-        .app-download-card {
+        .app-downloads[data-reel-ready] { scroll-snap-type: none; }
+        .app-download-card, .app-downloads > .beta-launch-card {
+            --app-accent: #4f46e5;
+            --app-wash: #e9eaff;
+            flex: 0 0 320px;
             min-width: 0;
-            padding: 1.25rem;
-            border: 1px solid var(--control-border);
-            border-radius: 18px;
-            background: var(--control-bg);
+            min-height: 378px;
+            padding: 26px;
+            border: 1px solid color-mix(in srgb, var(--app-accent) 24%, transparent);
+            border-radius: 28px;
+            background: radial-gradient(ellipse at 100% 0, var(--app-wash), transparent 75%), var(--glass);
+            box-shadow: 0 8px 24px color-mix(in srgb, var(--app-accent) 8%, transparent);
             display: flex;
             flex-direction: column;
-            gap: 0.7rem;
+            align-items: stretch;
+            justify-content: flex-start;
+            gap: 14px;
+            scroll-snap-align: start;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: app-arrive 0.65s backwards;
         }
+        .app-download-card:hover, .app-downloads > .beta-launch-card:hover { transform: translateY(-5px); box-shadow: 0 16px 34px color-mix(in srgb, var(--app-accent) 18%, transparent); }
+        .app-download-card[data-app="landn"] { --app-accent: #3b42cf; --app-wash: #dfe7ff; }
+        .app-download-card[data-app="bunko"] { --app-accent: #0075bb; --app-wash: #d8f5ff; }
+        .app-download-card[data-app="onlyideas"] { --app-accent: #6450c8; --app-wash: #ece2ff; }
+        .app-download-card[data-app="aimemo"] { --app-accent: #31713d; --app-wash: #e5f5c6; }
+        .app-download-card[data-app="shi"] { --app-accent: #aa4724; --app-wash: #ffe7cf; }
+        .app-download-card[data-app="oracle"] { --app-accent: #6353a3; --app-wash: #ece1ff; }
+        .app-download-card[data-app="lightmind"] { --app-accent: #176b76; --app-wash: #cff5ee; }
+        .app-downloads > .beta-launch-card { --app-accent: #0060cd; --app-wash: #d9eeff; }
+        body[data-theme="dark"] .app-downloads > * { --app-wash: color-mix(in srgb, var(--app-accent) 35%, #141429); }
+        .app-card-icon {
+            width: 72px; height: 72px; border-radius: 20px; flex-shrink: 0;
+            box-shadow: 0 10px 22px color-mix(in srgb, var(--app-accent) 20%, transparent);
+            transition: transform 0.35s;
+        }
+        .app-downloads > *:hover .app-card-icon { transform: rotate(-4deg) scale(1.06); }
         .app-download-card h2 { font-size: 1.25rem; line-height: 1.4; }
-        .app-download-card p { font-size: 1rem; line-height: 1.6; }
-        .app-download-card[aria-labelledby="lightmind-download-title"] { grid-column: 1 / -1; }
+        .app-download-card p { font-size: 1rem; line-height: 1.6; color: var(--text-muted); }
+        html[dir="rtl"] .app-downloads > * { direction: rtl; text-align: right; }
         .app-download-links { display: flex; flex-wrap: wrap; gap: 0.65rem; margin-top: auto; }
         .app-download-links a {
             display: inline-flex;
@@ -390,15 +444,35 @@
             justify-content: center;
             min-height: 44px;
             padding: 0.55rem 1rem;
-            border: 1px solid var(--control-border);
-            border-radius: 10px;
-            color: var(--light);
-            font-size: 1rem;
+            border: 1px solid transparent;
+            border-radius: 13px;
+            color: #fff;
+            background: linear-gradient(135deg, var(--app-accent), color-mix(in srgb, var(--app-accent) 76%, #15102d));
+            box-shadow: 0 5px 12px color-mix(in srgb, var(--app-accent) 20%, transparent);
+            font-size: 0.875rem;
             font-weight: 650;
             text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
-        .app-download-links a:hover { border-color: var(--primary); }
+        .app-download-links a:hover { transform: translateY(-3px); box-shadow: 0 8px 18px color-mix(in srgb, var(--app-accent) 28%, transparent); }
         .app-download-links a:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
+        .app-downloads .beta-launch-copy { gap: 10px; }
+        .app-downloads .beta-launch-heading { gap: 10px; }
+        .app-downloads .beta-launch-actions { margin-top: auto; flex-wrap: wrap; gap: 10px; }
+        .app-downloads .beta-download-button { font-size: 0.875rem; padding: 0.7rem 0.85rem; }
+        .app-downloads .beta-launch-card::after, .app-downloads .beta-launch-badge::before { animation: none; }
+        @keyframes app-arrive { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+        @media (max-width: 740px) {
+            .app-shelf { gap: 12px; }
+            .app-shelf a { flex-basis: 88px; min-height: 112px; padding: 12px 6px; gap: 10px; border-radius: 18px; font-size: 0.8125rem; }
+            .app-shelf img { width: 64px; height: 64px; border-radius: 17px; }
+            .app-download-card, .app-downloads > .beta-launch-card { flex-basis: min(300px, calc(100% - 22px)); padding: 22px; }
+            .app-reel-header { align-items: flex-start; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .app-shelf a, .app-reel-button, .app-downloads > *, .app-card-icon, .app-download-links a { transition: none; animation: none; }
+            .app-shelf a:hover, .app-downloads > *:hover, .app-downloads > *:hover .app-card-icon, .app-download-links a:hover { transform: none; }
+        }
 
         .beta-launch-card {
             position: relative;
@@ -1899,7 +1973,8 @@
     </nav>
 
     <section class="top-banner">
-        <nav class="app-shelf" aria-label="Explore LazyingArt apps">
+        <div class="app-shortcuts" data-app-reel>
+        <nav class="app-shelf" id="app-shortcuts" aria-label="Explore LazyingArt apps" data-app-aria="shortcuts" data-reel-track>
             <a href="#landn-download-title"><img src="/logos/apps/landn.png" width="80" height="80" alt=""><span>L &amp; N</span></a>
             <a href="#bunko-download-title"><img src="/logos/apps/bunko.png" width="80" height="80" alt=""><span>Bunko</span></a>
             <a href="#onlyideas-download-title"><img src="/logos/apps/onlyideas.png" width="80" height="80" alt=""><span>OnlyIdeas</span></a>
@@ -1908,9 +1983,24 @@
             <a href="#oracle-download-title"><img src="/logos/apps/lazyoracle.png" width="80" height="80" alt=""><span>LazyOracle</span></a>
             <a href="#beta-launch-title"><img src="/logos/apps/echomind.png" width="80" height="80" alt=""><span>EchoMind</span></a>
         </nav>
+        <div class="app-shortcut-controls" hidden>
+            <button class="app-reel-button" type="button" data-reel-prev data-app-aria="previous" aria-label="Previous apps" aria-controls="app-shortcuts"><span class="app-reel-arrow" aria-hidden="true">←</span></button>
+            <button class="app-reel-button" type="button" data-reel-next data-app-aria="next" aria-label="Next apps" aria-controls="app-shortcuts"><span class="app-reel-arrow" aria-hidden="true">→</span></button>
+        </div>
+        </div>
         <div class="top-banner-inner">
-            <div class="app-downloads" id="app-downloads">
-                <article class="app-download-card" aria-labelledby="landn-download-title">
+            <section class="app-reel" data-app-reel data-reel-loop aria-labelledby="apps-reel-title" aria-roledescription="carousel">
+            <div class="app-reel-header">
+                <h2 class="app-reel-title" id="apps-reel-title" data-app-label="title">Find your next favourite app.</h2>
+                <div class="app-reel-controls" hidden>
+                    <button class="app-reel-button app-reel-auto" type="button" data-reel-auto aria-pressed="false" aria-controls="app-downloads"><span data-auto-icon aria-hidden="true">▶</span><span data-auto-label>Autoplay off</span></button>
+                    <button class="app-reel-button" type="button" data-reel-prev data-app-aria="previous" aria-label="Previous apps" aria-controls="app-downloads"><span class="app-reel-arrow" aria-hidden="true">←</span></button>
+                    <button class="app-reel-button" type="button" data-reel-next data-app-aria="next" aria-label="Next apps" aria-controls="app-downloads"><span class="app-reel-arrow" aria-hidden="true">→</span></button>
+                </div>
+            </div>
+            <div class="app-downloads" id="app-downloads" data-reel-track tabindex="0" aria-label="App cards" data-app-aria="cards">
+                <article class="app-download-card" data-app="landn" aria-labelledby="landn-download-title">
+                    <img class="app-card-icon" src="/logos/apps/landn.png" width="72" height="72" alt="">
                     <h2 id="landn-download-title">L &amp; N: Speech Practice</h2>
                     <p data-i18n="app_landn_desc">Hear the difference. Practise L and N in English, Mandarin and Cantonese.</p>
                     <div class="app-download-links" role="group" aria-labelledby="landn-download-title">
@@ -1919,7 +2009,8 @@
                         <a href="https://play.google.com/store/apps/details?id=art.lazying.landn.pro">Google Play Pro</a>
                     </div>
                 </article>
-                <article class="app-download-card" aria-labelledby="bunko-download-title">
+                <article class="app-download-card" data-app="bunko" aria-labelledby="bunko-download-title">
+                    <img class="app-card-icon" src="/logos/apps/bunko.png" width="72" height="72" alt="">
                     <h2 id="bunko-download-title">Bunko: Classics with Ruby</h2>
                     <p data-i18n="app_bunko_desc">Read classics with pinyin, furigana and parallel translations.</p>
                     <div class="app-download-links" role="group" aria-labelledby="bunko-download-title">
@@ -1928,7 +2019,8 @@
                         <a href="https://play.google.com/store/apps/details?id=art.lazying.bunko">Google Play</a>
                     </div>
                 </article>
-                <article class="app-download-card" aria-labelledby="onlyideas-download-title">
+                <article class="app-download-card" data-app="onlyideas" aria-labelledby="onlyideas-download-title">
+                    <img class="app-card-icon" src="/logos/apps/onlyideas.png" width="72" height="72" alt="">
                     <h2 id="onlyideas-download-title">OnlyIdeas</h2>
                     <p data-i18n="app_onlyideas_desc">Read research with equations, figures and parallel translations. On Mac and Android.</p>
                     <div class="app-download-links" role="group" aria-labelledby="onlyideas-download-title">
@@ -1936,7 +2028,8 @@
                         <a href="https://play.google.com/store/apps/details?id=art.onlyideas.app">Google Play</a>
                     </div>
                 </article>
-                <article class="app-download-card" aria-labelledby="aimemo-download-title">
+                <article class="app-download-card" data-app="aimemo" aria-labelledby="aimemo-download-title">
+                    <img class="app-card-icon" src="/logos/apps/aimemo.jpg" width="72" height="72" alt="">
                     <h2 id="aimemo-download-title">AiMemo: AI Notes &amp; Voice</h2>
                     <p data-i18n="app_aimemo_desc">Capture a thought by voice or text. Find and edit it later.</p>
                     <div class="app-download-links" role="group" aria-labelledby="aimemo-download-title">
@@ -1944,7 +2037,8 @@
                         <a href="https://play.google.com/store/apps/details?id=art.lazying.aimemo">Google Play</a>
                     </div>
                 </article>
-                <article class="app-download-card" aria-labelledby="shi-download-title">
+                <article class="app-download-card" data-app="shi" aria-labelledby="shi-download-title">
+                    <img class="app-card-icon" src="/logos/apps/shi.jpg" width="72" height="72" alt="">
                     <h2 id="shi-download-title">SHI: The Shape of Power</h2>
                     <p data-i18n="app_shi_desc">Lead a column through late Qin China. Weigh each order. Play offline.</p>
                     <div class="app-download-links" role="group" aria-labelledby="shi-download-title">
@@ -1952,14 +2046,16 @@
                         <a href="https://play.google.com/store/apps/details?id=art.lazying.shi">Google Play</a>
                     </div>
                 </article>
-                <article class="app-download-card" aria-labelledby="oracle-download-title">
+                <article class="app-download-card" data-app="oracle" aria-labelledby="oracle-download-title">
+                    <img class="app-card-icon" src="/logos/apps/lazyoracle.png" width="72" height="72" alt="">
                     <h2 id="oracle-download-title">LazyOracle</h2>
                     <p data-i18n="app_oracle_desc">Explore tarot, BaZi and the I Ching. A space for reflection, not prediction.</p>
                     <div class="app-download-links" role="group" aria-labelledby="oracle-download-title">
                         <a href="https://play.google.com/store/apps/details?id=art.lazying.lazyoracle">Google Play</a>
                     </div>
                 </article>
-                <article class="app-download-card" aria-labelledby="lightmind-download-title">
+                <article class="app-download-card" data-app="lightmind" aria-labelledby="lightmind-download-title">
+                    <img class="app-card-icon" src="/logos/apps/lightmind.jpg" width="72" height="72" alt="">
                     <h2 id="lightmind-download-title">LightMind Agent</h2>
                     <p data-i18n="app_lightmind_desc">Audio notes and reminders, with supported smart-glasses workflows. By LightMind Tech Limited.</p>
                     <div class="app-download-links" role="group" aria-labelledby="lightmind-download-title">
@@ -1967,8 +2063,8 @@
                         <a href="https://play.google.com/store/apps/details?id=art.lightmind.mobile">Google Play</a>
                     </div>
                 </article>
-            </div>
             <aside class="beta-launch-card" aria-labelledby="beta-launch-title">
+                <img class="app-card-icon" src="/logos/apps/echomind.png" width="72" height="72" alt="">
                 <div class="beta-launch-copy">
                     <div class="beta-launch-heading">
                         <span class="beta-launch-badge" data-i18n="beta_badge">Mobile app</span>
@@ -1993,6 +2089,8 @@
                     </a>
                 </div>
             </aside>
+            </div>
+            </section>
             <h1 class="top-banner-title" data-i18n="top_banner_title">以AI創新連結世界</h1>
             <p class="top-banner-subtitle" data-i18n="top_banner_subtitle">在LazyingArt，我們相信溝通應當簡單而自然。我們的AI打破藩籬，讓交流和創造像對話一樣輕鬆。</p>
             <div class="top-banner-actions">
@@ -2763,6 +2861,7 @@
 
     <script src="service-translations.js?v=86320602d191"></script>
     <script src="navigation.js"></script>
+    <script src="app-carousel.js" defer></script>
 
     <script>
         // i18n Translations

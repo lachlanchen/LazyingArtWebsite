@@ -18,11 +18,12 @@ test('top app launcher reuses the seven official app icons and existing download
   assert.ok(html.indexOf('<nav class="app-shelf"') < html.indexOf('id="app-downloads"'));
 });
 
-test('app launcher wraps uniform tiles and centers every row on wide and small screens', () => {
-  assert.match(html, /\.app-shelf\s*\{[^}]*flex-wrap:\s*wrap[^}]*justify-content:\s*center[^}]*width:\s*min\(100%, 520px\)[^}]*margin:\s*0 auto 2rem/);
+test('app launcher stays in one swipeable row without inheriting sticky navigation styles', () => {
+  assert.match(html, /\.app-shelf\s*\{[^}]*flex-wrap:\s*nowrap[^}]*overflow-x:\s*auto/);
   assert.match(html, /\.app-shelf a\s*\{[^}]*flex:\s*0 0 112px[^}]*align-items:\s*center/);
   assert.match(html, /\.app-shelf a\s*\{[^}]*flex-basis:\s*88px/);
   assert.match(html, /\.app-shelf a:focus-visible/);
   assert.match(html, /#navbar\s*\{[^}]*position:\s*sticky/);
   assert.doesNotMatch(html, /(?:^|\n)\s*nav\s*\{/);
+  assert.match(html, /id="app-shortcuts"[^>]*data-reel-track/);
 });
