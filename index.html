@@ -111,7 +111,7 @@
         }
 
         /* Navigation */
-        nav {
+        #navbar {
             position: sticky;
             top: 0;
             width: 100%;
@@ -123,7 +123,7 @@
             transition: all 0.3s ease;
         }
 
-        nav.scrolled {
+        #navbar.scrolled {
             padding: 1rem 5%;
             background: var(--nav-solid);
         }
@@ -319,6 +319,50 @@
             border-radius: 28px;
             padding: 2.75rem 3rem;
             backdrop-filter: blur(18px);
+        }
+
+        .app-shelf {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px 16px;
+            width: min(100%, 520px);
+            margin: 0 auto 2rem;
+        }
+        .app-shelf a {
+            flex: 0 0 112px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            min-height: 136px;
+            padding: 14px 10px;
+            border: 1px solid var(--control-border);
+            border-radius: 22px;
+            background: var(--glass);
+            color: var(--light);
+            font-size: 0.875rem;
+            font-weight: 650;
+            text-align: center;
+            text-decoration: none;
+            transition: background 0.2s, border-color 0.2s;
+        }
+        .app-shelf img {
+            width: 80px;
+            height: 80px;
+            flex-shrink: 0;
+            border-radius: 21px;
+            box-shadow: 0 8px 20px var(--glow);
+        }
+        .app-shelf a:hover { border-color: var(--primary); background: var(--control-bg); }
+        .app-shelf a:focus-visible { outline: 3px solid var(--primary); outline-offset: 4px; }
+        @media (max-width: 740px) {
+            .app-shelf { gap: 16px 12px; max-width: 360px; }
+            .app-shelf a { flex-basis: 88px; min-height: 112px; padding: 12px 6px; gap: 10px; border-radius: 18px; font-size: 0.8125rem; }
+            .app-shelf img { width: 64px; height: 64px; border-radius: 17px; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .app-shelf a { transition: none; }
         }
 
         .app-downloads {
@@ -1855,6 +1899,15 @@
     </nav>
 
     <section class="top-banner">
+        <nav class="app-shelf" aria-label="Explore LazyingArt apps">
+            <a href="#landn-download-title"><img src="/logos/apps/landn.png" width="80" height="80" alt=""><span>L &amp; N</span></a>
+            <a href="#bunko-download-title"><img src="/logos/apps/bunko.png" width="80" height="80" alt=""><span>Bunko</span></a>
+            <a href="#onlyideas-download-title"><img src="/logos/apps/onlyideas.png" width="80" height="80" alt=""><span>OnlyIdeas</span></a>
+            <a href="#aimemo-download-title"><img src="/logos/apps/aimemo.jpg" width="80" height="80" alt=""><span>AiMemo</span></a>
+            <a href="#shi-download-title"><img src="/logos/apps/shi.jpg" width="80" height="80" alt=""><span>SHI</span></a>
+            <a href="#oracle-download-title"><img src="/logos/apps/lazyoracle.png" width="80" height="80" alt=""><span>LazyOracle</span></a>
+            <a href="#beta-launch-title"><img src="/logos/apps/echomind.png" width="80" height="80" alt=""><span>EchoMind</span></a>
+        </nav>
         <div class="top-banner-inner">
             <div class="app-downloads" id="app-downloads">
                 <article class="app-download-card" aria-labelledby="landn-download-title">
