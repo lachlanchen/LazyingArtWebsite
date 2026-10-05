@@ -78,7 +78,14 @@ assert.match(landnCard, /<strong>Google Play<\/strong>/);
 assert.match(landnCard, /<strong>Google Play Pro<\/strong>/);
 assert.doesNotMatch(landnCard, /internaltest|testflight|\.apk/);
 assert.doesNotMatch(discovery, /apps\.apple\.com|play\.google\.com/, 'store listings are not owned sitemap URLs');
-assert.equal((html.match(/class="store-button"/g) || []).length, 18, 'only verified public app listings get store links');
+assert.equal((html.match(/class="store-button"/g) || []).length, 19, 'only verified public app listings get store links');
+const musia = catalog.items.find(item => item.id === 'musia-app');
+assert.equal(musia.storeLinks.length, 1);
+assert.equal(musia.storeLinks[0].url, 'https://play.google.com/store/apps/details?id=art.lazying.musia');
+assert.match(musia.kind, /US\$2\.99/);
+assert.match(musia.description, /iPhone and Mac editions are awaiting review/);
+assert.equal(catalog.items.find(item => item.id === 'musia').url, 'https://fun.lazying.art/');
+assert.ok(discovery.includes('https://musia.lazying.art/'));
 for (const id of ['aimemo']) {
   const item = catalog.items.find(item => item.id === id);
   assert.equal(new URL(item.url).origin, 'https://blog.lazying.art', 'Index the useful public introduction, not a private account workspace');

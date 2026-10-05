@@ -5,11 +5,11 @@ import { readFileSync, existsSync } from 'node:fs';
 const root = new URL('../', import.meta.url);
 const html = readFileSync(new URL('index.html', root), 'utf8');
 
-test('top app launcher reuses the seven official app icons and existing download sections', () => {
+test('top app launcher reuses the eight official app icons and existing download sections', () => {
   const shelf = html.match(/<nav class="app-shelf"[^>]*>([\s\S]*?)<\/nav>/)[1];
   const anchors = [...shelf.matchAll(/<a href="#([^"]+)"><img src="([^"]+)"[^>]*alt=""><span>([^<]+)<\/span><\/a>/g)];
-  assert.deepEqual(anchors.map(m => m[1]), ['landn-download-title', 'bunko-download-title', 'onlyideas-download-title', 'aimemo-download-title', 'shi-download-title', 'oracle-download-title', 'beta-launch-title']);
-  assert.deepEqual(anchors.map(m => m[3]), ['L &amp; N', 'Bunko', 'OnlyIdeas', 'AiMemo', 'SHI', 'LazyOracle', 'EchoMind']);
+  assert.deepEqual(anchors.map(m => m[1]), ['landn-download-title', 'bunko-download-title', 'onlyideas-download-title', 'aimemo-download-title', 'shi-download-title', 'oracle-download-title', 'musia-download-title', 'beta-launch-title']);
+  assert.deepEqual(anchors.map(m => m[3]), ['L &amp; N', 'Bunko', 'OnlyIdeas', 'AiMemo', 'SHI', 'LazyOracle', 'Musia', 'EchoMind']);
   for (const [, anchor, src] of anchors) {
     assert.ok(html.includes(`id="${anchor}"`));
     assert.match(src, /^\/logos\/apps\/[a-z]+\.(png|jpg)$/);

@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-04",
+  "updated": "2026-10-05",
   "title": "LazyingArt products, books and open-source tools",
   "groups": [
     {
@@ -384,6 +384,20 @@
       "kind": "Music and media library",
       "description": "Explore songs with lyrics, timing, and music-practice views.",
       "action": "Listen and explore",
+      "featured": true
+    },
+    {
+      "id": "musia-app",
+      "group": "learn",
+      "name": "Musia: Learn Music & Guitar",
+      "url": "https://musia.lazying.art/",
+      "repository": "https://github.com/lachlanchen/Musia",
+      "kind": "Android · US$2.99",
+      "description": "Slow down a musical phrase without changing pitch, loop a passage, follow timed lyrics and guitar chord shapes, or tap along to a steady pulse. Practice history stays on your device. The iPhone and Mac editions are awaiting review.",
+      "action": "Explore music practice",
+      "storeLinks": [
+        {"store": "google-play", "url": "https://play.google.com/store/apps/details?id=art.lazying.musia", "device": "Android · US$2.99"}
+      ],
       "featured": true
     },
     {

@@ -4,7 +4,7 @@ import vm from 'node:vm';
 
 const html = fs.readFileSync(new URL('../index.html', import.meta.url), 'utf8');
 const cards = [...html.matchAll(/<article class="app-download-card"[^>]*>([\s\S]*?)<\/article>/g)].map(m => m[1]);
-assert.equal(cards.length, 7);
+assert.equal(cards.length, 8);
 assert.ok(html.indexOf('id="app-downloads"') < html.indexOf('<aside class="beta-launch-card"'));
 const links = card => [...card.matchAll(/href="([^"]+)"/g)].map(m => m[1]);
 assert.deepEqual(links(cards[0]), [
@@ -35,6 +35,10 @@ assert.deepEqual(links(cards[6]), [
   'https://apps.apple.com/us/app/lightmind-agent/id6794785684',
   'https://play.google.com/store/apps/details?id=art.lightmind.mobile',
 ]);
+assert.deepEqual(links(cards[7]), ['https://play.google.com/store/apps/details?id=art.lazying.musia']);
+assert.match(cards[7], /US\$2\.99/);
+assert.match(cards[7], /iPhone and Mac editions are awaiting review/);
+assert.doesNotMatch(cards[7], /apps\.apple\.com|cloud music generation|microphone|AI-generated songs/i);
 assert.doesNotMatch(cards.join(''), /testflight|internaltest|\.apk|accurate|guarantee|free|localhost|127\.0\.0\.1/i);
 assert.match(cards[6], /LightMind Tech Limited/);
 for (const card of cards) {
@@ -46,7 +50,7 @@ assert.ok(match);
 const translations = vm.runInNewContext(`(${match[1]})`);
 assert.equal(Object.keys(translations).length, 13);
 for (const [locale, dictionary] of Object.entries(translations)) {
-  for (const key of ['app_landn_desc', 'app_bunko_desc', 'app_onlyideas_desc', 'app_aimemo_desc', 'app_shi_desc', 'app_oracle_desc', 'app_lightmind_desc']) {
+  for (const key of ['app_landn_desc', 'app_bunko_desc', 'app_onlyideas_desc', 'app_aimemo_desc', 'app_shi_desc', 'app_oracle_desc', 'app_lightmind_desc', 'app_musia_desc', 'app_musia_apple']) {
     assert.ok(dictionary[key]?.trim(), `${locale}.${key} is localized`);
   }
 }
