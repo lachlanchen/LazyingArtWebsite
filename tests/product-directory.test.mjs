@@ -78,7 +78,7 @@ assert.match(landnCard, /<strong>Google Play<\/strong>/);
 assert.match(landnCard, /<strong>Google Play Pro<\/strong>/);
 assert.doesNotMatch(landnCard, /internaltest|testflight|\.apk/);
 assert.doesNotMatch(discovery, /apps\.apple\.com|play\.google\.com/, 'store listings are not owned sitemap URLs');
-assert.equal((html.match(/class="store-button"/g) || []).length, 19, 'only verified public app listings get store links');
+assert.equal((html.match(/class="store-button"/g) || []).length, 20, 'only verified public app listings get store links');
 const musia = catalog.items.find(item => item.id === 'musia-app');
 assert.equal(musia.storeLinks.length, 1);
 assert.equal(musia.storeLinks[0].url, 'https://play.google.com/store/apps/details?id=art.lazying.musia');
@@ -93,12 +93,13 @@ for (const id of ['aimemo']) {
   assert.doesNotMatch(item.description + item.kind, /in review|web release is free/);
 }
 const onlyideas = catalog.items.find(item => item.id === 'onlyideas');
-assert.equal(onlyideas.storeLinks.length, 2);
-assert.equal(onlyideas.storeLinks[0].url, 'https://apps.apple.com/us/app/onlyideas/id6816392935?platform=mac');
-assert.equal(onlyideas.storeLinks[1].url, 'https://play.google.com/store/apps/details?id=art.onlyideas.app');
-assert.match(onlyideas.description, /Mac and Android/);
+assert.equal(onlyideas.storeLinks.length, 3);
+assert.equal(onlyideas.storeLinks[0].url, 'https://apps.apple.com/us/app/onlyideas/id6816392935?platform=iphone');
+assert.equal(onlyideas.storeLinks[1].url, 'https://apps.apple.com/us/app/onlyideas/id6816392935?platform=mac');
+assert.equal(onlyideas.storeLinks[2].url, 'https://play.google.com/store/apps/details?id=art.onlyideas.app');
+assert.match(onlyideas.description, /iPhone, iPad, Mac and Android/);
 assert.doesNotMatch(onlyideas.description, /Mac app is free|mobile editions are still in review/);
-assert.ok(!onlyideas.storeLinks.some(link => link.store === 'app-store'), 'Mac approval does not imply iPhone approval');
+assert.ok(onlyideas.storeLinks.some(link => link.store === 'app-store'), 'Public iOS release has its own App Store route');
 const lightmind = catalog.items.find(item => item.id === 'lightmind-agent');
 assert.match(lightmind.description, /LightMind Tech Limited/);
 assert.equal(lightmind.storeLinks.length, 2);

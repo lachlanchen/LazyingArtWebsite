@@ -59,7 +59,8 @@ for (const item of catalog.items) {
       assert.equal(url.username + url.password + url.port + url.hash, '');
       if (link.store === 'app-store' || link.store === 'mac-app-store') {
         assert.match(url.pathname, /^\/(?:[a-z]{2}\/)?app\/[^/]+\/id\d+$/);
-        assert.equal(url.search, link.store === 'mac-app-store' ? '?platform=mac' : '');
+        if (link.store === 'mac-app-store') assert.equal(url.search, '?platform=mac');
+        else assert.ok(['', '?platform=iphone'].includes(url.search), 'Use the default or explicit iPhone listing');
       } else {
         assert.equal(url.pathname, '/store/apps/details');
         assert.deepEqual([...url.searchParams.keys()], ['id']);

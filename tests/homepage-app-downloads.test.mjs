@@ -19,6 +19,7 @@ assert.deepEqual(links(cards[1]), [
   'https://play.google.com/store/apps/details?id=art.lazying.bunko',
 ]);
 assert.deepEqual(links(cards[2]), [
+  'https://apps.apple.com/us/app/onlyideas/id6816392935?platform=iphone',
   'https://apps.apple.com/us/app/onlyideas/id6816392935?platform=mac',
   'https://play.google.com/store/apps/details?id=art.onlyideas.app',
 ]);
@@ -54,7 +55,7 @@ for (const [locale, dictionary] of Object.entries(translations)) {
     assert.ok(dictionary[key]?.trim(), `${locale}.${key} is localized`);
   }
 }
-assert.match(translations.en.app_onlyideas_desc, /Mac and Android/);
+assert.match(translations.en.app_onlyideas_desc, /iPhone, iPad, Mac and Android/);
 for (const [locale, dictionary] of Object.entries(translations)) {
   assert.match(dictionary.app_bunko_desc, /Apple Watch/, `${locale}: shipped Watch reading is localized`);
 }

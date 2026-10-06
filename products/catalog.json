@@ -160,11 +160,16 @@
       "name": "OnlyIdeas",
       "url": "https://blog.lazying.art/html/computer_internet/3864/onlyideas-read-papers-equations-questions.html",
       "repository": "https://github.com/lachlanchen/OnlyIdeasApp",
-      "kind": "Mac · Android · web reading room",
-      "description": "Read research with equations, figures and original/translated passages together. Available on Mac and Android; try a public paper before importing your own.",
+      "kind": "iPhone · iPad · Mac · Android · web reading room",
+      "description": "Read research with equations, figures and original/translated passages together. Available on iPhone, iPad, Mac and Android; try a public paper before importing your own.",
       "action": "Meet OnlyIdeas",
       "featured": true,
       "storeLinks": [
+        {
+          "store": "app-store",
+          "url": "https://apps.apple.com/us/app/onlyideas/id6816392935?platform=iphone",
+          "device": "iPhone · iPad"
+        },
         {
           "store": "mac-app-store",
           "url": "https://apps.apple.com/us/app/onlyideas/id6816392935?platform=mac",
