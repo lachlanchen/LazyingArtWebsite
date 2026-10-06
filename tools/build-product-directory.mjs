@@ -81,12 +81,21 @@ const appDesign = {
   onlyideas: ['onlyideas.png', 'mint', 'Follow your curiosity.'],
   bunko: ['bunko.png', 'peach', 'Old books. New ways in.'],
   landn: ['landn.png', 'blue', 'Hear it. Say it. Try again.'],
+  lazyedit: ['lazyedit.webp', 'pink', 'Your video. Your private Studio.'],
   'musia-app': ['musia.png', 'pink', 'Make time for music.'],
   aimemo: ['aimemo.jpg', 'yellow', 'Keep the thought.'],
   echomind: ['echomind.png', 'lavender', 'A conversation across languages.'],
   shigame: ['shi.jpg', 'peach', 'History is full of choices.'],
   lazyoracle: ['lazyoracle.png', 'lavender', 'A moment to reflect.'],
-  'lightmind-agent': ['lightmind.jpg', 'blue', 'A companion for your glasses.']
+  'lightmind-agent': ['lightmind.jpg', 'blue', 'A companion for your glasses.'],
+  'clearpair-handf': ['clearpair-handf.webp', 'peach', 'H or F? Start with the sound.'],
+  'clearpair-landr': ['clearpair-landr.webp', 'blue', 'A little practice with L and R.'],
+  'clearpair-english': ['clearpair-english.webp', 'mint', 'Stay with the tricky sounds.'],
+  'clearpair-chinese': ['clearpair-chinese.webp', 'yellow', 'Make time for Mandarin.'],
+  'clearpair-cantonese': ['clearpair-cantonese.webp', 'lavender', 'Listen a little closer.'],
+  'clearpair-korean': ['clearpair-korean.webp', 'peach', 'Get to know Hangul.'],
+  'clearpair-arabic': ['clearpair-arabic.webp', 'mint', 'A dot can make a difference.'],
+  'clearpair-japanese': ['clearpair-japanese.webp', 'pink', 'One kana. One sound.']
 };
 const categoryLabels = {learn: 'Learn', build: 'Build', create: 'Create', play: 'Play', research: 'Research', about: 'About'};
 const apps = Object.keys(appDesign).map(id => {
@@ -99,6 +108,8 @@ const card = item => {
   const design = appDesign[item.id];
   const spotlight = item.id === 'onlyideas';
   const group = catalog.groups.find(group => group.id === item.group);
+  const primaryLink = item.storeLinks?.some(link => link.url === item.url) ? '' : `<a href="${escape(item.url)}">${escape(item.action)} <span aria-hidden="true">↗</span></a>`;
+  const secondaryLinks = `${primaryLink}${item.storyUrl ? `<a class="source-link" href="${escape(item.storyUrl)}">Read the story</a>` : ''}${item.repository ? `<a class="source-link" href="${escape(item.repository)}">Source: ${escape(item.repository.split('/').at(-1))}</a>` : ''}`;
   return `<article id="${escape(item.id)}" class="product-card ${design ? `app-card tone-${design[1]}` : 'project-card'}${spotlight ? ' spotlight' : ''}" data-product data-category="${escape(item.group)}"${design ? ' data-app' : ''}>
       <div class="card-content">
         <div class="card-top">${design ? `<img class="app-icon" src="../logos/apps/${design[0]}" alt="" width="80" height="80" loading="lazy">` : `<span class="project-mark" aria-hidden="true">${escape(item.name.slice(0, 1))}</span>`}<span class="card-label">${design ? (item.id === 'lightmind-agent' ? 'Companion brand' : 'LazyingArt app') : escape(group.name)}</span><span class="card-spark" aria-hidden="true">↗</span></div>
@@ -107,7 +118,7 @@ const card = item => {
         <p class="work-kind">${escape(item.kind)}</p>
         <p class="card-description">${escape(item.description)}</p>
         ${storeLinks(item)}
-        <div class="link-row"><a href="${escape(item.url)}">${escape(item.action)} <span aria-hidden="true">↗</span></a>${item.storyUrl ? `<a class="source-link" href="${escape(item.storyUrl)}">Read the story</a>` : ''}${item.repository ? `<a class="source-link" href="${escape(item.repository)}">Source: ${escape(item.repository.split('/').at(-1))}</a>` : ''}</div>
+        ${secondaryLinks ? `<div class="link-row">${secondaryLinks}</div>` : ''}
       </div>${spotlight ? `<div class="spotlight-art" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="icon-plinth"><img src="../logos/apps/onlyideas.png" alt="" width="180" height="180" loading="lazy"></div><span class="art-chip chip-one">Equations &amp; figures</span><span class="art-chip chip-two">Parallel text</span><span class="art-caption">A little space for big ideas.</span></div>` : ''}
     </article>`;
 };

@@ -1,0 +1,93 @@
+{
+  "checkedOn": "2026-10-07",
+  "market": "US",
+  "currency": "USD",
+  "basis": "Public Google Play SoftwareApplication pages with InStock offers; local production-submission identities matched. Not a claim about Apple release or newer internal builds.",
+  "apps": [
+    {
+      "id": "clearpair-handf",
+      "package": "art.lazying.clearpair.handf",
+      "name": "ClearPair H & F",
+      "url": "https://play.google.com/store/apps/details?id=art.lazying.clearpair.handf",
+      "price": "0.99",
+      "icon": "clearpair-handf.webp",
+      "iconSource": "https://play-lh.googleusercontent.com/wMke5ysdTJau8LJzPLZX8jz7c0ix6YhilP0OAulsJlJhItksDV-9Ftaa8-ATLFWLFa7YPP-WZHd0fhoDRqxK=w256-h256-rw"
+    },
+    {
+      "id": "clearpair-landr",
+      "package": "art.lazying.clearpair.landr",
+      "name": "ClearPair L & R",
+      "url": "https://play.google.com/store/apps/details?id=art.lazying.clearpair.landr",
+      "price": "0.99",
+      "icon": "clearpair-landr.webp",
+      "iconSource": "https://play-lh.googleusercontent.com/TsrPfTm164gsDKZoj4f1-D_6hprCsGOM7tNWt-8aPMX4rRS0amWO8HZp7EkoPAhYbHOpeuyH3MScsigo9PuTFg=w256-h256-rw"
+    },
+    {
+      "id": "clearpair-english",
+      "package": "art.lazying.clearpair.english",
+      "name": "ClearPair English",
+      "url": "https://play.google.com/store/apps/details?id=art.lazying.clearpair.english",
+      "price": "0.99",
+      "icon": "clearpair-english.webp",
+      "iconSource": "https://play-lh.googleusercontent.com/W7GMf7KmAe7aVKrZBLYpVsWJ4e3n1Iib0tf0uGEvbTFb92GfTdTINkbzgCSIzS3MBdd2vWjlFSWzQR9GX4zkgt0=w256-h256-rw"
+    },
+    {
+      "id": "clearpair-chinese",
+      "package": "art.lazying.clearpair.chinese",
+      "name": "ClearPair Mandarin",
+      "url": "https://play.google.com/store/apps/details?id=art.lazying.clearpair.chinese",
+      "price": "0.99",
+      "icon": "clearpair-chinese.webp",
+      "iconSource": "https://play-lh.googleusercontent.com/i8k2ijhktAuBVhER8b16Ha3qwfX7CXYz3-k5NdGPgQQI6daRbbbwH_02asIYP0QgEBoICo9ezj81QdzJBdsu5g=w256-h256-rw"
+    },
+    {
+      "id": "clearpair-cantonese",
+      "package": "art.lazying.clearpair.cantonese",
+      "name": "ClearPair Cantonese",
+      "url": "https://play.google.com/store/apps/details?id=art.lazying.clearpair.cantonese",
+      "price": "0.99",
+      "icon": "clearpair-cantonese.webp",
+      "iconSource": "https://play-lh.googleusercontent.com/IWguOLGEGuSz2S4QVQzQaI3aj8EY2nSVC0S4yKj1utFdiuHQXWgq4IfylsFmeq1LE2-9mFKApX7FKCZV-2HW3w=w256-h256-rw"
+    },
+    {
+      "id": "clearpair-korean",
+      "package": "art.lazying.clearpair.korean",
+      "name": "ClearPair Korean",
+      "url": "https://play.google.com/store/apps/details?id=art.lazying.clearpair.korean",
+      "price": "0.99",
+      "icon": "clearpair-korean.webp",
+      "iconSource": "https://play-lh.googleusercontent.com/RpiEIfu6_Asr4vICGpDeKipH0H3Qt0ThuA2-q4hWO-yFAnuh8S-Awe2_rus-IuO0hEh6aaBW3kbiL8929AjKBg=w256-h256-rw"
+    },
+    {
+      "id": "clearpair-arabic",
+      "package": "art.lazying.clearpair.arabic",
+      "name": "ClearPair Arabic Letters",
+      "url": "https://play.google.com/store/apps/details?id=art.lazying.clearpair.arabic",
+      "price": "0.99",
+      "icon": "clearpair-arabic.webp",
+      "iconSource": "https://play-lh.googleusercontent.com/-aRRWVn397hc6VXGXOAUVN_zDZvtl3NyQVnQrafA161rLA_lB1AfCAPG0mdIe-Cm67DwFt-QShActpNChGR-AA=w256-h256-rw"
+    },
+    {
+      "id": "clearpair-japanese",
+      "package": "art.lazying.clearpair.japanese",
+      "name": "ClearPair Japanese",
+      "url": "https://play.google.com/store/apps/details?id=art.lazying.clearpair.japanese",
+      "price": "0.99",
+      "icon": "clearpair-japanese.webp",
+      "iconSource": "https://play-lh.googleusercontent.com/jGiAJHGKN-fn1hEs4BBXq-mdvrj6MKR2KmwCKGQSVcq2qqnLc4nxOnh7Wnc4tsg0wLRtn8jDsG6yaa5SGH9F=w256-h256-rw"
+    },
+    {
+      "id": "lazyedit",
+      "package": "art.lazying.lazyedit",
+      "name": "LazyEdit Studio",
+      "url": "https://play.google.com/store/apps/details?id=art.lazying.lazyedit",
+      "price": "0.99",
+      "icon": "lazyedit.webp",
+      "iconSource": "https://play-lh.googleusercontent.com/3iXb7i2QRgArRm2o3pyWKJtlnSx0SniCqKkqNdv1NGtAAZn9Vt621__hZ_x6YrKpnDNgXjVTzYQ0cQ0je_dIJGE=w256-h256-rw"
+    }
+  ],
+  "accessNotes": {
+    "lazyedit": "Invitation and internet required. Social publication is a separate operator-enabled capability. No processing subscription is offered in this pilot.",
+    "clearpair": "Eight separate Android app purchases. The consolidated ClearPair beta and its credit wallet are not being advertised."
+  }
+}

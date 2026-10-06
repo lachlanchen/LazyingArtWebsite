@@ -409,13 +409,20 @@
       "id": "lazyedit",
       "storyUrl": "https://blog.lazying.art/html/computer_internet/3857/app-demo-subtitles-lazyedit-workflow.html",
       "group": "create",
-      "name": "LazyEdit",
+      "name": "LazyEdit Studio",
       "url": "https://studio.lazying.art/",
       "repository": "https://github.com/lachlanchen/LazyEdit",
-      "kind": "Creative tools overview",
-      "description": "Explore transcription, subtitle, editing, and media-publication workflows.",
-      "action": "Explore the tools",
-      "featured": false
+      "kind": "Android · US$0.99 · invited members",
+      "description": "Upload a video, correct multilingual subtitles, adjust the layout and logo, and preview the result in your private Studio. An invitation and internet connection are required. Social publishing is a separate operator-enabled integration.",
+      "action": "Explore LazyEdit Studio",
+      "featured": true,
+      "storeLinks": [
+        {
+          "store": "google-play",
+          "url": "https://play.google.com/store/apps/details?id=art.lazying.lazyedit",
+          "device": "Android · US$0.99"
+        }
+      ]
     },
     {
       "id": "localvideo",
@@ -612,6 +619,150 @@
       "description": "Notes and practical tools for reducing friction in everyday creative and technical work.",
       "action": "Explore the notes",
       "featured": false
+    },
+    {
+      "id": "clearpair-handf",
+      "group": "learn",
+      "name": "ClearPair H & F",
+      "url": "https://play.google.com/store/apps/details?id=art.lazying.clearpair.handf",
+      "repository": null,
+      "kind": "Android · US$0.99",
+      "description": "Hear and practise easily confused H/F sounds in English and Mandarin.",
+      "action": "View on Google Play",
+      "storeLinks": [
+        {
+          "store": "google-play",
+          "url": "https://play.google.com/store/apps/details?id=art.lazying.clearpair.handf",
+          "device": "Android · US$0.99"
+        }
+      ],
+      "featured": true
+    },
+    {
+      "id": "clearpair-landr",
+      "group": "learn",
+      "name": "ClearPair L & R",
+      "url": "https://play.google.com/store/apps/details?id=art.lazying.clearpair.landr",
+      "repository": null,
+      "kind": "Android · US$0.99",
+      "description": "Hear and practise easily confused English L/R sounds, from words to sentences.",
+      "action": "View on Google Play",
+      "storeLinks": [
+        {
+          "store": "google-play",
+          "url": "https://play.google.com/store/apps/details?id=art.lazying.clearpair.landr",
+          "device": "Android · US$0.99"
+        }
+      ],
+      "featured": true
+    },
+    {
+      "id": "clearpair-english",
+      "group": "learn",
+      "name": "ClearPair English",
+      "url": "https://play.google.com/store/apps/details?id=art.lazying.clearpair.english",
+      "repository": null,
+      "kind": "Android · US$0.99",
+      "description": "Practise easily confused English vowels, TH sounds and final consonants.",
+      "action": "View on Google Play",
+      "storeLinks": [
+        {
+          "store": "google-play",
+          "url": "https://play.google.com/store/apps/details?id=art.lazying.clearpair.english",
+          "device": "Android · US$0.99"
+        }
+      ],
+      "featured": true
+    },
+    {
+      "id": "clearpair-chinese",
+      "group": "learn",
+      "name": "ClearPair Mandarin",
+      "url": "https://play.google.com/store/apps/details?id=art.lazying.clearpair.chinese",
+      "repository": null,
+      "kind": "Android · US$0.99",
+      "description": "Practise Mandarin sounds that are easy to confuse: initials, finals and tones.",
+      "action": "View on Google Play",
+      "storeLinks": [
+        {
+          "store": "google-play",
+          "url": "https://play.google.com/store/apps/details?id=art.lazying.clearpair.chinese",
+          "device": "Android · US$0.99"
+        }
+      ],
+      "featured": true
+    },
+    {
+      "id": "clearpair-cantonese",
+      "group": "learn",
+      "name": "ClearPair Cantonese",
+      "url": "https://play.google.com/store/apps/details?id=art.lazying.clearpair.cantonese",
+      "repository": null,
+      "kind": "Android · US$0.99",
+      "description": "Explore Cantonese tones and confusing sounds with Jyutping and pair practice.",
+      "action": "View on Google Play",
+      "storeLinks": [
+        {
+          "store": "google-play",
+          "url": "https://play.google.com/store/apps/details?id=art.lazying.clearpair.cantonese",
+          "device": "Android · US$0.99"
+        }
+      ],
+      "featured": true
+    },
+    {
+      "id": "clearpair-korean",
+      "group": "learn",
+      "name": "ClearPair Korean",
+      "url": "https://play.google.com/store/apps/details?id=art.lazying.clearpair.korean",
+      "repository": null,
+      "kind": "Android · US$0.99",
+      "description": "Explore easily confused Hangul letters and Korean sound contrasts.",
+      "action": "View on Google Play",
+      "storeLinks": [
+        {
+          "store": "google-play",
+          "url": "https://play.google.com/store/apps/details?id=art.lazying.clearpair.korean",
+          "device": "Android · US$0.99"
+        }
+      ],
+      "featured": true
+    },
+    {
+      "id": "clearpair-arabic",
+      "group": "learn",
+      "name": "ClearPair Arabic Letters",
+      "url": "https://play.google.com/store/apps/details?id=art.lazying.clearpair.arabic",
+      "repository": null,
+      "kind": "Android · US$0.99",
+      "description": "Tell confusing Arabic letters apart through dots, joins and sound families.",
+      "action": "View on Google Play",
+      "storeLinks": [
+        {
+          "store": "google-play",
+          "url": "https://play.google.com/store/apps/details?id=art.lazying.clearpair.arabic",
+          "device": "Android · US$0.99"
+        }
+      ],
+      "featured": true
+    },
+    {
+      "id": "clearpair-japanese",
+      "group": "learn",
+      "name": "ClearPair Japanese",
+      "url": "https://play.google.com/store/apps/details?id=art.lazying.clearpair.japanese",
+      "repository": null,
+      "kind": "Android · US$0.99",
+      "description": "Remember confusing kana and practise Japanese vowel length and consonant holds.",
+      "action": "View on Google Play",
+      "storeLinks": [
+        {
+          "store": "google-play",
+          "url": "https://play.google.com/store/apps/details?id=art.lazying.clearpair.japanese",
+          "device": "Android · US$0.99"
+        }
+      ],
+      "featured": true
     }
   ]
 }

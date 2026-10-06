@@ -78,7 +78,7 @@ assert.match(landnCard, /<strong>Google Play<\/strong>/);
 assert.match(landnCard, /<strong>Google Play Pro<\/strong>/);
 assert.doesNotMatch(landnCard, /internaltest|testflight|\.apk/);
 assert.doesNotMatch(discovery, /apps\.apple\.com|play\.google\.com/, 'store listings are not owned sitemap URLs');
-assert.equal((html.match(/class="store-button"/g) || []).length, 20, 'only verified public app listings get store links');
+assert.equal((html.match(/class="store-button"/g) || []).length, 29, 'only verified public app listings get store links');
 const musia = catalog.items.find(item => item.id === 'musia-app');
 assert.equal(musia.storeLinks.length, 1);
 assert.equal(musia.storeLinks[0].url, 'https://play.google.com/store/apps/details?id=art.lazying.musia');
@@ -124,7 +124,7 @@ assert.match(html, /data-motion-toggle[^>]*hidden/);
 assert.match(html, /type="search" id="product-search"/);
 assert.match(html, /role="status" aria-live="polite"/);
 assert.equal((html.match(/data-product\b/g) || []).length, catalog.items.length);
-assert.equal((html.match(/data-app>/g) || []).length, 9);
+assert.equal((html.match(/data-app>/g) || []).length, 18);
 assert.equal((html.match(/data-guide\b/g) || []).length, guides.length);
 assert.ok(html.indexOf('id="apps"') < html.indexOf('id="learn"'), 'Downloadable apps appear before the wider portfolio');
 assert.ok(html.indexOf('id="onlyideas"') < html.indexOf('id="bunko"'), 'OnlyIdeas gets the first app spotlight');
@@ -140,7 +140,13 @@ for (const item of catalog.items) {
   assert.match(html, new RegExp(`id="${item.id}"`));
   assert.ok(html.includes(item.url.replaceAll('&','&amp;')));
   assert.equal(new URL(item.url).protocol, 'https:');
-  assert.ok(!new URL(item.url).search, 'canonical catalogue links have no campaign or session parameters');
+  const primary = new URL(item.url);
+  if (primary.search) {
+    assert.equal(primary.origin, 'https://play.google.com');
+    assert.equal(primary.pathname, '/store/apps/details');
+    assert.deepEqual([...primary.searchParams.keys()], ['id']);
+    assert.ok(item.storeLinks.some(link => link.url === item.url), 'A store-primary item must use its verified listing, not campaign or session parameters');
+  }
 }
 assert.match(catalog.items.find(item => item.id === 'games').description, /read|Watch/);
 assert.match(catalog.items.find(item => item.id === 'games').description, /require an account/);
