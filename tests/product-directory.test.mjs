@@ -26,7 +26,7 @@ const schema = JSON.parse(html.match(/<script type="application\/ld\+json">([\s\
 assert.equal(schema['@type'], 'CollectionPage');
 assert.equal(schema.mainEntity.itemListElement.length, catalog.items.length);
 assert.doesNotMatch(html, /"@type":"(?:Review|AggregateRating|Offer)"/);
-assert.doesNotMatch(html, /<script(?! type="application\/ld\+json")/);
+assert.deepEqual([...html.matchAll(/<script(?! type="application\/ld\+json")[^>]*>/g)].map(match => match[0]), ['<script src="directory.js" defer>'], 'Only the first-party progressive enhancement script is permitted');
 const forbidden = /(?:router\.lazying\.art|lazealoptix\.com|blogstudio\.|novelstudio\.|storystudio\.|text-and-speech-api|https:\/\/llm\.|https:\/\/memo\.|https:\/\/api\.|127\.0\.0\.1|ngrok|localhost|github\.io\/|github\.com\/lachlanchen\/(?:EchoMind|AiMemo|LocalSTT|OnlyIdeasWebsite|LazyingArtCoin)(?:["/]|$))/i;
 assert.doesNotMatch(JSON.stringify(catalog), forbidden, 'public data excludes private, retired, and redirect-only destinations');
 assert.doesNotMatch(html, forbidden);
@@ -115,6 +115,23 @@ for (const id of ['bunko', 'landn', 'lazyedit', 'lazyoracle']) {
   assert.ok(card.includes(`href="${item.storyUrl}">Read the story</a>`));
 }
 const styles = read('products/styles.css');
+const directoryScript = read('products/directory.js');
+new vm.Script(directoryScript);
+assert.doesNotMatch(directoryScript, /\bfetch\s*\(|XMLHttpRequest|sendBeacon|innerHTML|eval\s*\(/, 'Filtering stays local and does not inject HTML or send search terms');
+assert.match(styles, /prefers-reduced-motion: reduce/);
+assert.match(styles, /html\[data-motion="off"\]/);
+assert.match(html, /data-motion-toggle[^>]*hidden/);
+assert.match(html, /type="search" id="product-search"/);
+assert.match(html, /role="status" aria-live="polite"/);
+assert.equal((html.match(/data-product\b/g) || []).length, catalog.items.length);
+assert.equal((html.match(/data-app>/g) || []).length, 9);
+assert.equal((html.match(/data-guide\b/g) || []).length, guides.length);
+assert.ok(html.indexOf('id="apps"') < html.indexOf('id="learn"'), 'Downloadable apps appear before the wider portfolio');
+assert.ok(html.indexOf('id="onlyideas"') < html.indexOf('id="bunko"'), 'OnlyIdeas gets the first app spotlight');
+for (const item of catalog.items) {
+  assert.equal([...html.matchAll(new RegExp(`id="${item.id}"`, 'g'))].length, 1, 'Deep links have exactly one target');
+}
+for (const [,path] of html.matchAll(/src="\.\.\/(logos\/apps\/[^"<>]+)"/g)) assert.ok(fs.existsSync(new URL(path, root)), `Missing app icon ${path}`);
 assert.match(styles, /\.store-links\s*\{[^}]*flex-wrap:\s*wrap/);
 assert.match(styles, /\.work-grid \.store-button\s*\{[^}]*min-height:\s*60px/);
 assert.match(styles, /\.work-grid \.store-button:focus-visible/);
