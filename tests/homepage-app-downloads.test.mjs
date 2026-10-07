@@ -4,7 +4,7 @@ import vm from 'node:vm';
 
 const html = fs.readFileSync(new URL('../index.html', import.meta.url), 'utf8');
 const cards = [...html.matchAll(/<article class="app-download-card"[^>]*>([\s\S]*?)<\/article>/g)].map(m => m[1]);
-assert.equal(cards.length, 17);
+assert.equal(cards.length, 18);
 assert.ok(html.indexOf('id="app-downloads"') < html.indexOf('<aside class="beta-launch-card"'));
 const links = card => [...card.matchAll(/href="([^"]+)"/g)].map(m => m[1]);
 assert.deepEqual(links(cards[0]), [
@@ -22,10 +22,12 @@ assert.deepEqual(links(cards[2]), [
   'https://apps.apple.com/us/app/onlyideas/id6816392935?platform=iphone',
   'https://apps.apple.com/us/app/onlyideas/id6816392935?platform=mac',
   'https://play.google.com/store/apps/details?id=art.onlyideas.app',
+  'https://onlyideas.art/',
 ]);
 assert.deepEqual(links(cards[3]), [
   'https://apps.apple.com/us/app/aimemo-ai-notes-voice/id6757573920',
   'https://play.google.com/store/apps/details?id=art.lazying.aimemo',
+  'products/#aimemo',
 ]);
 assert.deepEqual(links(cards[4]), [
   'https://apps.apple.com/us/app/shi-the-shape-of-power/id6816377548',

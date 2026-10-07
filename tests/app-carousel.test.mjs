@@ -29,7 +29,7 @@ test('one real-card row keeps official artwork, safe anchors and existing purcha
   assert.match(html, /data-app-reel data-reel-loop/);
   assert.match(html, /data-reel-auto aria-pressed="false"/);
   const cards = [...html.matchAll(/<article class="app-download-card"[^>]*>([\s\S]*?)<\/article>/g)].map(m=>m[1]);
-  assert.equal(cards.length, 17);
+  assert.equal(cards.length, 18);
   for (const card of cards) {
     const icon = card.match(/<img class="app-card-icon" src="([^"]+)"/)[1];
     assert.ok(existsSync(new URL(icon.slice(1), root)));

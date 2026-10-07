@@ -1915,7 +1915,7 @@
         }
     </style>
     <link rel="stylesheet" href="site-navigation.css">
-    <link rel="stylesheet" href="vibrant-theme.css?v=20261007">
+    <link rel="stylesheet" href="vibrant-theme.css?v=20261007-carousels">
 </head>
 <body data-theme="light">
     <!-- Animated Particles Background -->
@@ -2002,6 +2002,7 @@
             <a href="#clearpair-arabic-download-title"><img src="/logos/apps/clearpair-arabic.webp" width="80" height="80" alt=""><span>CP Arabic</span></a>
             <a href="#clearpair-japanese-download-title"><img src="/logos/apps/clearpair-japanese.webp" width="80" height="80" alt=""><span>CP Japanese</span></a>
             <a href="#lazyedit-download-title"><img src="/logos/apps/lazyedit.webp" width="80" height="80" alt=""><span>LazyEdit Studio</span></a>
+            <a href="#microquant-title"><img src="/logos/apps/microquant.png" width="80" height="80" alt=""><span>MicroQuant</span></a>
         </nav>
         <div class="app-shortcut-controls" hidden>
             <button class="app-reel-button" type="button" data-reel-prev data-app-aria="previous" aria-label="Previous apps" aria-controls="app-shortcuts"><span class="app-reel-arrow" aria-hidden="true">←</span></button>
@@ -2049,6 +2050,7 @@
                         <a href="https://apps.apple.com/us/app/onlyideas/id6816392935?platform=mac">Mac App Store</a>
                         <a href="https://play.google.com/store/apps/details?id=art.onlyideas.app">Google Play</a>
                     </div>
+                    <a class="app-details-link" href="https://onlyideas.art/" data-i18n="detail_link">View details →</a>
                 </article>
                 <article class="app-download-card" data-app="aimemo" aria-labelledby="aimemo-download-title">
                     <img class="app-card-icon" src="/logos/apps/aimemo.jpg" width="72" height="72" alt="">
@@ -2058,6 +2060,7 @@
                         <a href="https://apps.apple.com/us/app/aimemo-ai-notes-voice/id6757573920">App Store</a>
                         <a href="https://play.google.com/store/apps/details?id=art.lazying.aimemo">Google Play</a>
                     </div>
+                    <a class="app-details-link" href="products/#aimemo" data-i18n="detail_link">View details →</a>
                 </article>
                 <article class="app-download-card" data-app="shi" aria-labelledby="shi-download-title">
                     <img class="app-card-icon" src="/logos/apps/shi.jpg" width="72" height="72" alt="">
@@ -2147,6 +2150,7 @@
                     <h2 id="lazyedit-download-title">LazyEdit Studio</h2>
                     <p data-i18n="app_lazyedit_desc">Edit videos and multilingual subtitles in your private Studio. Invitation and internet required.</p>
                     <div class="app-download-links" role="group" aria-labelledby="lazyedit-download-title"><a href="https://play.google.com/store/apps/details?id=art.lazying.lazyedit">Google Play · US$0.99</a></div>
+                    <a class="app-details-link" href="products/#lazyedit" data-i18n="detail_link">View details →</a>
                 </article>
             <aside class="beta-launch-card" aria-labelledby="beta-launch-title">
                 <img class="app-card-icon" src="/logos/apps/echomind.png" width="72" height="72" alt="">
@@ -2173,7 +2177,18 @@
                         <span data-i18n="beta_google_play">Get it on Google Play</span>
                     </a>
                 </div>
+                <a class="app-details-link" href="products/#echomind" data-i18n="detail_link">View details →</a>
             </aside>
+                <article class="app-download-card" data-app="microquant" aria-labelledby="microquant-title">
+                    <img class="app-card-icon" src="/logos/apps/microquant.png" width="72" height="72" alt="">
+                    <span class="app-kind" data-i18n="app_microquant_kind">Research tool</span>
+                    <h2 id="microquant-title">MicroQuant</h2>
+                    <p data-i18n="app_microquant_desc">Explore market data and inspect LLM-assisted analysis in an open-source research dashboard.</p>
+                    <div class="app-download-links" role="group" aria-labelledby="microquant-title">
+                        <a href="https://quant.lazying.art/" data-i18n="detail_link">View details →</a>
+                        <a href="https://github.com/lachlanchen/MicroQuant">GitHub</a>
+                    </div>
+                </article>
             </div>
             </section>
             <h1 class="top-banner-title" data-i18n="top_banner_title">以AI創新連結世界</h1>
@@ -2190,13 +2205,17 @@
     <!-- Product Section -->
     <section class="product" id="product">
         <div class="product-container">
+            <div class="hardware-heading">
+                <h2 data-i18n="hardware_tag">Hardware</h2>
+                <a class="app-details-link" href="products/#research" data-i18n="detail_link">View details →</a>
+            </div>
             <div class="product-carousel-wrap">
                 <div class="product-carousel" aria-label="Product demos" role="region">
                     <div class="carousel-track">
-                    <figure class="carousel-slide is-active">
+                    <figure class="carousel-slide is-active" id="lazyingart-robot">
                         <img src="demos/LazyingArtRobot.png" alt="LazyingArt Robot demo" loading="lazy">
                     </figure>
-                    <figure class="carousel-slide">
+                    <figure class="carousel-slide" id="einkwordsgpt">
                         <img src="demos/words_card_arabic.JPG" alt="Eink Words Card Arabic words sample" loading="lazy">
                     </figure>
                     <figure class="carousel-slide">
@@ -2237,7 +2256,6 @@
                         <a href="eink/" class="secondary-button carousel-detail-link" data-i18n="detail_link">View details →</a>
                     <div class="carousel-buy-actions">
                         <a href="mailto:contact@lazying.art?subject=Eink%20Words%20Card%20availability" class="secondary-button" data-i18n="nav_contact">Contact</a>
-                        <a href="https://lazying.art/#einkwordsgpt" class="secondary-button">lazying.art</a>
                         <small><a href="https://github.com/lachlanchen/EinkWordsGPT" target="_blank" rel="noopener" style="color: var(--accent); text-decoration:none;">GitHub →</a></small>
                     </div>
                 </div>
@@ -2255,267 +2273,6 @@
                 </div>
             </aside>
         </div>
-            <div class="product-panels">
-                <div class="product-showcase" id="einkwordsgpt">
-                    <div class="showcase-header">
-                        <div class="eink-logo">🖥️</div>
-                        <div class="echomind-title">
-                            <h3 data-i18n="eink_title">Eink Words Card</h3>
-                            <p data-i18n="eink_subtitle">E-ink vocabulary companion</p>
-                        </div>
-                    </div>
-                    <div class="showcase-features">
-                        <div class="showcase-feature">
-                            <div class="check-icon"></div>
-                            <div>
-                                <strong data-i18n="eink_feat1_title">E-ink Focus</strong>
-                                <p style="color: var(--text-muted); font-size: 0.9rem;" data-i18n="eink_feat1_desc">Paper-like display for distraction-free reading and long battery life.</p>
-                            </div>
-                        </div>
-                        <div class="showcase-feature">
-                            <div class="check-icon"></div>
-                            <div>
-                                <strong data-i18n="eink_feat2_title">Daily Words + Phonetics</strong>
-                                <p style="color: var(--text-muted); font-size: 0.9rem;" data-i18n="eink_feat2_desc">Fresh vocabulary cards with clear definitions and pronunciation guides.</p>
-                            </div>
-                        </div>
-                        <div class="showcase-feature">
-                            <div class="check-icon"></div>
-                            <div>
-                                <strong data-i18n="eink_feat3_title">Always-On Learning</strong>
-                                <p style="color: var(--text-muted); font-size: 0.9rem;" data-i18n="eink_feat3_desc">Low-power, desk-friendly device for passive review and habit building.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="showcase-actions">
-                        <small><a href="https://github.com/lachlanchen/EinkWordsGPT" target="_blank" rel="noopener" style="color: var(--accent); text-decoration:none;">GitHub →</a></small>
-                    </div>
-                </div>
-                <div class="product-showcase" id="lazyingart-robot">
-                    <div class="showcase-header">
-                        <div class="robot-logo">🤖</div>
-                        <div class="echomind-title">
-                            <h3 data-i18n="robot_title">LazyingArt Robot</h3>
-                            <p data-i18n="robot_subtitle">Modular humanoid for creators and educators</p>
-                        </div>
-                    </div>
-                    <div class="showcase-features">
-                        <div class="showcase-feature">
-                            <div class="check-icon"></div>
-                            <div>
-                                <strong data-i18n="robot_feat1_title">Modular Humanoid Frame</strong>
-                                <p style="color: var(--text-muted); font-size: 0.9rem;" data-i18n="robot_feat1_desc">Precision joints, stable stance, and configurable modules for rapid builds.</p>
-                            </div>
-                        </div>
-                        <div class="showcase-feature">
-                            <div class="check-icon"></div>
-                            <div>
-                                <strong data-i18n="robot_feat2_title">Programmable Control Stack</strong>
-                                <p style="color: var(--text-muted); font-size: 0.9rem;" data-i18n="robot_feat2_desc">Extensible architecture for AI experiments, robotics classes, and creative motion.</p>
-                            </div>
-                        </div>
-                        <div class="showcase-feature">
-                            <div class="check-icon"></div>
-                            <div>
-                                <strong data-i18n="robot_feat3_title">Built for The Art of Lazying</strong>
-                                <p style="color: var(--text-muted); font-size: 0.9rem;" data-i18n="robot_feat3_desc">Lower complexity so you can focus on ideas, interaction, and innovation.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="showcase-actions">
-                        <a href="https://robot.lazying.art" class="secondary-button">robot.lazying.art</a>
-                        <small><a href="https://github.com/lachlanchen/IdeasRobot" target="_blank" rel="noopener" style="color: var(--accent); text-decoration:none;">GitHub →</a></small>
-                    </div>
-                </div>
-                <div class="product-showcase">
-                    <div class="showcase-header">
-                        <div class="echomind-logo">🌍</div>
-                        <div class="echomind-title">
-                            <h3>EchoMind</h3>
-                            <p>Your Multilingual AI Companion</p>
-                        </div>
-                    </div>
-                    <div class="showcase-features">
-                        <div class="showcase-feature">
-                            <div class="check-icon"></div>
-                            <div>
-                                <strong data-i18n="prod_feat2_title">Custom Voice Models</strong>
-                                <p style="color: var(--text-muted); font-size: 0.9rem;" data-i18n="prod_feat2_desc">Choose from multiple AI personalities with distinct voice characteristics</p>
-                            </div>
-                        </div>
-                        <div class="showcase-feature">
-                            <div class="check-icon"></div>
-                            <div>
-                                <strong data-i18n="prod_feat3_title">Language Enhancement</strong>
-                                <p style="color: var(--text-muted); font-size: 0.9rem;" data-i18n="prod_feat3_desc">Automatic pronunciation guides and grammar analysis for language learners</p>
-                            </div>
-                        </div>
-                        <div class="showcase-feature">
-                            <div class="check-icon"></div>
-                            <div>
-                                <strong data-i18n="prod_feat4_title">Social Features</strong>
-                                <p style="color: var(--text-muted); font-size: 0.9rem;" data-i18n="prod_feat4_desc">Connect with friends, share posts, and practice languages together</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="showcase-actions">
-                        <a href="https://chat.lazying.art" class="secondary-button">chat.lazying.art</a>
-                    </div>
-                </div>
-                <div class="product-showcase">
-                    <div class="showcase-header">
-                        <div class="paperagent-logo">📄</div>
-                        <div class="echomind-title">
-                            <h3 data-i18n="paper_title">OnlyIdeas</h3>
-                            <p data-i18n="paper_subtitle">只專注於想法的 PaperAgent</p>
-                        </div>
-                    </div>
-                    <div class="showcase-features">
-                        <div class="showcase-feature">
-                            <div class="check-icon"></div>
-                            <div>
-                                <strong data-i18n="paper_feat1_title">Idea-first drafting</strong>
-                                <p style="color: var(--text-muted); font-size: 0.9rem;" data-i18n="paper_feat1_desc">Capture concepts fast, then expand with structured sections.</p>
-                            </div>
-                        </div>
-                        <div class="showcase-feature">
-                            <div class="check-icon"></div>
-                            <div>
-                                <strong data-i18n="paper_feat2_title">Reference management</strong>
-                                <p style="color: var(--text-muted); font-size: 0.9rem;" data-i18n="paper_feat2_desc">Organize sources and citations while you write.</p>
-                            </div>
-                        </div>
-                        <div class="showcase-feature">
-                            <div class="check-icon"></div>
-                            <div>
-                                <strong data-i18n="paper_feat3_title">Publish-ready outputs</strong>
-                                <p style="color: var(--text-muted); font-size: 0.9rem;" data-i18n="paper_feat3_desc">Export clean drafts for sharing or submission.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="showcase-actions">
-                        <a href="https://paper.lazying.art" class="secondary-button">paper.lazying.art</a>
-                        <span class="link-sep" aria-hidden="true">→</span>
-                        <small><a href="https://github.com/lachlanchen/PaperAgent" target="_blank" rel="noopener" style="color: var(--accent); text-decoration:none;">GitHub</a></small>
-                    </div>
-                </div>
-                <div class="product-showcase">
-                    <div class="showcase-header">
-                        <div class="lazyedit-logo">🎬</div>
-                        <div class="echomind-title">
-                            <h3 data-i18n="lazyedit_title">LazyEdit Studio</h3>
-                            <p data-i18n="lazyedit_subtitle">Multilingual Video Editor</p>
-                        </div>
-                    </div>
-                    <div class="showcase-features">
-                        <div class="showcase-feature">
-                            <div class="check-icon"></div>
-                            <div>
-                                <strong data-i18n="lazyedit_feat1_title">Auto transcription + translation</strong>
-                                <p style="color: var(--text-muted); font-size: 0.9rem;" data-i18n="lazyedit_feat1_desc">Generate timed subtitles across languages with cache control.</p>
-                            </div>
-                        </div>
-                        <div class="showcase-feature">
-                            <div class="check-icon"></div>
-                            <div>
-                                <strong data-i18n="lazyedit_feat2_title">Keyframes + captions</strong>
-                                <p style="color: var(--text-muted); font-size: 0.9rem;" data-i18n="lazyedit_feat2_desc">Extract keyframes and caption frames for metadata and edits.</p>
-                            </div>
-                        </div>
-                        <div class="showcase-feature">
-                            <div class="check-icon"></div>
-                            <div>
-                                <strong data-i18n="lazyedit_feat3_title">Subtitle burning studio</strong>
-                                <p style="color: var(--text-muted); font-size: 0.9rem;" data-i18n="lazyedit_feat3_desc">Stack multiple languages with ruby, IPA, and layout previews.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="showcase-actions">
-                        <a href="https://studio.lazying.art" class="secondary-button">studio.lazying.art</a>
-                        <span class="link-sep" aria-hidden="true">→</span>
-                        <small><a href="https://github.com/lachlanchen/LazyEdit" target="_blank" rel="noopener" style="color: var(--accent); text-decoration:none;">GitHub</a></small>
-                    </div>
-                </div>
-                <div class="product-showcase">
-                    <div class="showcase-header">
-                        <div class="microquant-logo">📈</div>
-                        <div class="echomind-title">
-                            <h3 data-i18n="microquant_title">MicroQuant</h3>
-                            <p data-i18n="microquant_subtitle">LLM-guided micro quant app</p>
-                        </div>
-                    </div>
-                    <div class="showcase-features">
-                        <div class="showcase-feature">
-                            <div class="check-icon"></div>
-                            <div>
-                                <strong data-i18n="microquant_feat1_title">Signal workbench</strong>
-                                <p style="color: var(--text-muted); font-size: 0.9rem;" data-i18n="microquant_feat1_desc">LLM reasoning, tech snapshots, and feature stores unify gold/FX ideas.</p>
-                            </div>
-                        </div>
-                        <div class="showcase-feature">
-                            <div class="check-icon"></div>
-                            <div>
-                                <strong data-i18n="microquant_feat2_title">Postgres truth</strong>
-                                <p style="color: var(--text-muted); font-size: 0.9rem;" data-i18n="microquant_feat2_desc">Persistent OHLC, preferences, and risk tags keep execution auditable.</p>
-                            </div>
-                        </div>
-                        <div class="showcase-feature">
-                            <div class="check-icon"></div>
-                            <div>
-                                <strong data-i18n="microquant_feat3_title">Execution guardrails</strong>
-                                <p style="color: var(--text-muted); font-size: 0.9rem;" data-i18n="microquant_feat3_desc">MicroQuant bridges research to MT5 with risk budgets, logging, and safety toggles.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="showcase-actions">
-                        <a href="https://quant.lazying.art" class="secondary-button">quant.lazying.art</a>
-                        <span class="link-sep" aria-hidden="true">→</span>
-                        <small><a href="https://github.com/lachlanchen/MicroQuant" target="_blank" rel="noopener" style="color: var(--accent); text-decoration:none;">GitHub</a></small>
-                    </div>
-                </div>
-                <div class="product-showcase">
-                    <div class="showcase-header">
-                        <div class="aimemo-logo">📚</div>
-                        <div class="echomind-title">
-                            <h3 data-i18n="aimemo_title">AiMemo</h3>
-                            <p data-i18n="aimemo_subtitle">Conversational ledger for travel, fitness, and research</p>
-                        </div>
-                    </div>
-                    <div class="showcase-features">
-                        <div class="showcase-feature">
-                            <div class="check-icon"></div>
-                            <div>
-                                <strong data-i18n="aimemo_feat1_title">Natural language → tables</strong>
-                                <p style="color: var(--text-muted); font-size: 0.9rem;" data-i18n="aimemo_feat1_desc">Chats, emails, and notes automatically become structured rows you can query instantly.</p>
-                            </div>
-                        </div>
-                        <div class="showcase-feature">
-                            <div class="check-icon"></div>
-                            <div>
-                                <strong data-i18n="aimemo_feat2_title">Contextual memory</strong>
-                                <p style="color: var(--text-muted); font-size: 0.9rem;" data-i18n="aimemo_feat2_desc">Calorie logs, trip plans, and lab experiments are grouped by intent and stay synced with IdeasGlass.</p>
-                            </div>
-                        </div>
-                        <div class="showcase-feature">
-                            <div class="check-icon"></div>
-                            <div>
-                                <strong data-i18n="aimemo_feat3_title">AI secretary DNA</strong>
-                                <p style="color: var(--text-muted); font-size: 0.9rem;" data-i18n="aimemo_feat3_desc">Built on AISecretary’s inbox triage and IdeasGlass LLM triggers for email-to-knowledge automation.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="showcase-actions">
-                        <a href="https://memo.lazying.art" class="secondary-button">memo.lazying.art</a>
-                        <span class="link-sep" aria-hidden="true">→</span>
-                        <small><a href="https://github.com/lachlanchen/AiMemo" target="_blank" rel="noopener" style="color: var(--accent); text-decoration:none;">GitHub</a></small>
-                    </div>
-                </div>
-                <div class="product-showcase product-showcase--placeholder">
-                    <div class="placeholder-inner">
-                        <a href="#ecosystem" class="secondary-button" data-i18n="btn_more">More →</a>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -2949,7 +2706,7 @@
     </footer>
 
     <script src="service-translations.js?v=f0539b21e579"></script>
-    <script src="app-release-translations.js"></script>
+    <script src="app-release-translations.js?v=20261007-carousels"></script>
     <script src="navigation.js?v=20261007-more"></script>
     <script src="echomind-link.js?v=20261007"></script>
     <script src="app-carousel.js" defer></script>
@@ -5952,6 +5709,22 @@
                 stopAutoPlay();
                 timerId = setInterval(() => goToSlide(currentIndex + 1), 7000);
             };
+
+            // Old hardware links now reveal the matching carousel slide.
+            const revealHardware = (hash) => {
+                const index = [...slides].findIndex(slide => slide.id && `#${slide.id}` === hash);
+                if (index < 0) return;
+                goToSlide(index);
+                stopAutoPlay();
+                if (autoplayToggle) autoplayToggle.checked = false;
+                carousel.scrollIntoView({ block: 'start', behavior: 'instant' });
+            };
+            window.addEventListener('hashchange', () => revealHardware(location.hash));
+            document.addEventListener('click', event => {
+                const link = event.target.closest('a[href^="#"]');
+                if (link) revealHardware(link.getAttribute('href'));
+            });
+            revealHardware(location.hash);
 
             dots.forEach((dot, i) => {
                 dot.addEventListener('click', () => {

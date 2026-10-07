@@ -4,6 +4,17 @@ The main homepage has a single-row icon shortcut strip above a single-row
 carousel of app download cards. Several cards fit on desktop; phones show a
 full card and a hint of the next. Both rows support native horizontal swiping.
 
+The former two-column feature grid below the hardware carousel is removed.
+OnlyIdeas, AiMemo, LazyEdit and EchoMind now keep their introduction links on
+the existing app cards. MicroQuant has one carousel card and icon shortcut,
+explicitly labelled as a research tool, with its public landing page and GitHub
+links rather than store badges. Its icon is the existing MicroQuant favicon
+from `MicroQuant/static/favicon.png`; it is not new product artwork.
+
+E Ink and Robot remain in the hardware carousel. Old `#einkwordsgpt` and
+`#lazyingart-robot` URLs reveal the corresponding slide and stop autoplay so
+the visitor stays on the linked product. The detail pages remain unchanged.
+
 `app-carousel.js` progressively adds previous/next controls, keyboard arrows
 on the card row and looping card navigation. It rotates the actual offscreen
 cards with scroll compensation: there are no cloned IDs, inaccessible duplicate

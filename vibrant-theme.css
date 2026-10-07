@@ -40,6 +40,20 @@ body[data-theme="dark"] {
 .app-download-card[data-app="clearpair-landr"], .app-download-card[data-app="clearpair-english"] { --app-accent: #1859c8; --app-wash: #e9f0ff; }
 .app-download-card[data-app="clearpair-korean"], .app-download-card[data-app="clearpair-japanese"] { --app-accent: #a02c61; --app-wash: #fce9f2; }
 .app-download-card[data-app="lazyedit"] { --app-accent: #6048be; --app-wash: #eee8ff; }
+.app-download-card[data-app="microquant"] { --app-accent: #087286; --app-wash: #ddf6f8; }
+.app-kind { align-self: flex-start; padding: .2rem .65rem; border: 1px solid var(--control-border); border-radius: 999px; color: var(--text-muted); font-size: .75rem; font-weight: 650; }
+.app-details-link { color: var(--primary); text-decoration: none; font-size: .9rem; font-weight: 650; padding-block: .4rem; width: fit-content; }
+.app-details-link:hover { text-decoration: underline; text-underline-offset: .25em; }
+.app-details-link:focus-visible { outline: 3px solid var(--primary); outline-offset: 4px; border-radius: 4px; }
+.hardware-heading { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+.hardware-heading h2 { font-size: clamp(1.5rem, 3vw, 2rem); letter-spacing: -.035em; }
+.product-container { gap: 1.5rem; }
+.product-carousel-wrap { gap: 1.25rem; }
+.product-carousel, .carousel-slide { scroll-margin-top: calc(var(--nav-height, 90px) + 20px); }
+.carousel-buy-card { align-items: flex-start; text-align: start; border-top: 4px solid #087286; box-shadow: 0 6px 20px var(--glow); }
+.carousel-buy-card h3 { font-size: clamp(1.35rem, 2vw, 1.8rem); letter-spacing: -.025em; }
+.carousel-buy-actions { flex-direction: row; justify-content: flex-start; text-align: start; }
+.carousel-buy-actions .link-sep { display: none; }
 .app-downloads > .beta-launch-card { --app-accent: #1859c8; --app-wash: #e0efff; }
 body[data-theme="dark"] .app-downloads > * { --app-wash: color-mix(in srgb, var(--app-accent) 22%, #14233c); }
 .app-download-card h2 { font-weight: 750; letter-spacing: -.02em; }
