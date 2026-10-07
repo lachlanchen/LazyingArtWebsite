@@ -1,6 +1,7 @@
 window.serviceTranslations = {
   en: {
     nav_services: "Services",
+    nav_more: "More",
     nav_work: "Work",
     nav_products: "Products",
     services_tag: "FOCUSED SERVICES",
@@ -47,6 +48,7 @@ window.serviceTranslations = {
   },
   ja: {
     nav_services: "サービス",
+    nav_more: "その他",
     nav_work: "実績",
     nav_products: "製品",
     services_tag: "明確なサービス",
@@ -93,6 +95,7 @@ window.serviceTranslations = {
   },
   "zh-Hans": {
     nav_services: "服务",
+    nav_more: "更多",
     nav_work: "作品",
     nav_products: "产品",
     services_tag: "聚焦服务",
@@ -139,6 +142,7 @@ window.serviceTranslations = {
   },
   "zh-Hant": {
     nav_services: "服務",
+    nav_more: "更多",
     nav_work: "作品",
     nav_products: "產品",
     services_tag: "聚焦服務",
@@ -185,6 +189,7 @@ window.serviceTranslations = {
   },
   ko: {
     nav_services: "서비스",
+    nav_more: "더 보기",
     nav_work: "작업",
     nav_products: "제품",
     services_tag: "집중 서비스",
@@ -231,6 +236,7 @@ window.serviceTranslations = {
   },
   ar: {
     nav_services: "الخدمات",
+    nav_more: "المزيد",
     nav_work: "الأعمال",
     nav_products: "المنتجات",
     services_tag: "خدمات محددة",
@@ -277,6 +283,7 @@ window.serviceTranslations = {
   },
   vi: {
     nav_services: "Dịch vụ",
+    nav_more: "Thêm",
     nav_work: "Dự án",
     nav_products: "Sản phẩm",
     services_tag: "DỊCH VỤ TRỌNG TÂM",
@@ -323,6 +330,7 @@ window.serviceTranslations = {
   },
   fr: {
     nav_services: "Services",
+    nav_more: "Plus",
     nav_work: "Projets",
     nav_products: "Produits",
     services_tag: "SERVICES CIBLÉS",
@@ -369,6 +377,7 @@ window.serviceTranslations = {
   },
   es: {
     nav_services: "Servicios",
+    nav_more: "Más",
     nav_work: "Proyectos",
     nav_products: "Productos",
     services_tag: "SERVICIOS CONCRETOS",
@@ -415,6 +424,7 @@ window.serviceTranslations = {
   },
   pt: {
     nav_services: "Serviços",
+    nav_more: "Mais",
     nav_work: "Projetos",
     nav_products: "Produtos",
     services_tag: "SERVIÇOS OBJETIVOS",
@@ -461,6 +471,7 @@ window.serviceTranslations = {
   },
   de: {
     nav_services: "Services",
+    nav_more: "Mehr",
     nav_work: "Projekte",
     nav_products: "Produkte",
     services_tag: "KLAR UMRISSENE SERVICES",
@@ -507,6 +518,7 @@ window.serviceTranslations = {
   },
   ru: {
     nav_services: "Услуги",
+    nav_more: "Ещё",
     nav_work: "Проекты",
     nav_products: "Продукты",
     services_tag: "ЧЁТКИЕ УСЛУГИ",
@@ -553,6 +565,7 @@ window.serviceTranslations = {
   },
   tr: {
     nav_services: "Hizmetler",
+    nav_more: "Diğer",
     nav_work: "Projeler",
     nav_products: "Ürünler",
     services_tag: "ODAKLI HİZMETLER",

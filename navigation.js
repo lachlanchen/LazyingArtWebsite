@@ -3,6 +3,7 @@
   const header = document.getElementById('navbar');
   const toggle = document.getElementById('menuToggle');
   const links = document.getElementById('navLinks');
+  const more = document.getElementById('navMore');
   if (!header || !toggle || !links) return;
 
   const compact = window.matchMedia('(max-width: 968px)');
@@ -10,6 +11,7 @@
     const expanded = open && compact.matches;
     links.classList.toggle('active', expanded);
     toggle.setAttribute('aria-expanded', String(expanded));
+    if (!open && more) more.open = false;
     if (restoreFocus && compact.matches) toggle.focus();
   };
   toggle.addEventListener('click', () => {
@@ -29,12 +31,19 @@
     }
   });
   document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && more?.open) {
+      event.preventDefault();
+      more.open = false;
+      more.querySelector('summary').focus();
+      return;
+    }
     if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
       event.preventDefault();
       setOpen(false, true);
     }
   });
   document.addEventListener('click', (event) => {
+    if (more && !more.contains(event.target)) more.open = false;
     if (!header.contains(event.target)) setOpen(false);
   });
   document.addEventListener('focusin', (event) => {

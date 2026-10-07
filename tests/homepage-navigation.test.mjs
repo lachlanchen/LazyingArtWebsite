@@ -26,9 +26,13 @@ function element() {
 }
 
 function setup({ compact = true, observer = true, missing = false } = {}) {
-  const nodes = Object.fromEntries(['navbar', 'menuToggle', 'navLinks', 'langSelect', 'services']
+  const nodes = Object.fromEntries(['navbar', 'menuToggle', 'navLinks', 'navMore', 'langSelect', 'services']
     .map((id) => [id, element()]));
   nodes.menuToggle.setAttribute('aria-expanded', 'false');
+  nodes.navMore.open = false;
+  nodes.navMore.summary = element();
+  nodes.navMore.querySelector = () => nodes.navMore.summary;
+  nodes.navMore.contains = (target) => [nodes.navMore, nodes.navMore.summary].includes(target);
   nodes.navbar.contains = (target) => [nodes.navbar, nodes.menuToggle, nodes.navLinks].includes(target);
   const document = element();
   document.getElementById = (id) => missing ? null : nodes[id];
@@ -52,9 +56,13 @@ function setup({ compact = true, observer = true, missing = false } = {}) {
 test('navigation retains available destinations and labels its disclosure in every locale', () => {
   const nav = html.match(/<div class="nav-links" id="navLinks">([\s\S]*?)<\/div>/)[1];
   const hrefs = [...nav.matchAll(/href="([^"]+)"/g)].map((match) => match[1]);
-  assert.deepEqual(hrefs, ['#services', 'work/', 'products/', '#ecosystem', '#product',
-    'https://onlyideas.art', '#babelglass', 'eink/', 'lkt/', 'lecture-pack/',
-    '#company', '#contact', 'https://chat.lazying.art']);
+  assert.deepEqual(hrefs, ['#services', 'products/', '#ecosystem', '#product',
+    'https://onlyideas.art', 'https://lightmind.art/', 'work/', 'eink/', 'lkt/', 'lecture-pack/',
+    '#company', '#contact']);
+  const more = nav.match(/<details class="nav-more" id="navMore">([\s\S]*?)<\/details>/)[1];
+  assert.deepEqual([...more.matchAll(/href="([^"]+)"/g)].map(m => m[1]), ['work/', 'eink/', 'lkt/', 'lecture-pack/']);
+  assert.match(more, /<summary>.*data-i18n="nav_more"/);
+  assert.match(html, /href="site-navigation.css"/);
   assert.match(html, /id="menuToggle" type="button" aria-controls="navLinks" aria-expanded="false" aria-labelledby="menuLabel"/);
   assert.match(html, /id="menuLabel" class="visually-hidden" data-i18n="nav_menu"/);
   assert.ok(html.indexOf('id="menuToggle"') < html.indexOf('id="navLinks"'), 'disclosure precedes controlled links in keyboard order');
@@ -64,8 +72,21 @@ test('navigation retains available destinations and labels its disclosure in eve
   for (const [language, dictionary] of Object.entries(translations)) {
     assert.ok(dictionary.nav_menu?.trim(), `${language} has an accessible menu label`);
   }
-  assert.match(html, /<script src="navigation\.js"><\/script>/);
+  assert.match(html, /<script src="navigation\.js\?v=20261007-more"><\/script>/);
   assert.doesNotMatch(html, /navLinks\.classList\.toggle\('active'\)/);
+});
+
+test('More closes before the compact menu on Escape, and dismisses outside', () => {
+  const { nodes, document } = setup();
+  nodes.menuToggle.listeners.click();
+  nodes.navMore.open = true;
+  document.listeners.keydown({ key:'Escape', preventDefault() {} });
+  assert.equal(nodes.navMore.open, false);
+  assert.equal(nodes.navMore.summary.focused, true);
+  assert.equal(nodes.menuToggle.getAttribute('aria-expanded'), 'true');
+  nodes.navMore.open = true;
+  document.listeners.click({ target:nodes.menuToggle });
+  assert.equal(nodes.navMore.open, false);
 });
 
 test('compact toggle and Escape keep the visible state and accessible state in sync', () => {

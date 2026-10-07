@@ -1914,6 +1914,7 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="site-navigation.css">
 </head>
 <body data-theme="light">
     <!-- Animated Particles Background -->
@@ -1934,18 +1935,22 @@
             </button>
             <div class="nav-links" id="navLinks">
                 <a href="#services" data-i18n="nav_services">Services</a>
-                <a href="work/" data-i18n="nav_work">Work</a>
                 <a href="products/" data-i18n="nav_products">Products</a>
                 <a href="#ecosystem" data-i18n="nav_features">Ecosystem</a>
                 <a href="#product">EchoMind</a>
                 <a href="https://onlyideas.art" target="_blank" rel="noopener noreferrer">OnlyIdeas</a>
-                <a href="#babelglass">IdeasGlass</a>
-                <a href="eink/">E Ink</a>
-                <a href="lkt/">LKT</a>
-                <a href="lecture-pack/">Lecture Pack</a>
+                <a href="https://lightmind.art/" target="_blank" rel="noopener noreferrer">LightMind <span aria-hidden="true">↗</span></a>
+                <details class="nav-more" id="navMore">
+                    <summary><span data-i18n="nav_more">More</span><svg width="12" height="12" viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+                    <ul class="nav-more-panel">
+                        <li><a href="work/"><span class="nav-item-icon" aria-hidden="true">✳</span><span data-i18n="nav_work">Work</span></a></li>
+                        <li><a href="eink/"><span class="nav-item-icon" aria-hidden="true">▤</span><span>E Ink</span></a></li>
+                        <li><a href="lkt/"><span class="nav-item-icon" aria-hidden="true">⌘</span><span>LKT</span></a></li>
+                        <li><a href="lecture-pack/"><span class="nav-item-icon" aria-hidden="true">▶</span><span>Lecture Pack</span></a></li>
+                    </ul>
+                </details>
                 <a href="#company" data-i18n="nav_about">About</a>
                 <a href="#contact" data-i18n="nav_contact">Contact</a>
-                <a href="https://chat.lazying.art" class="cta-button" data-i18n="nav_try">Try EchoMind</a>
             </div>
             <div class="nav-controls">
                 <div class="theme-wrap">
@@ -2938,9 +2943,9 @@
         </div>
     </footer>
 
-    <script src="service-translations.js?v=86320602d191"></script>
+    <script src="service-translations.js?v=f0539b21e579"></script>
     <script src="app-release-translations.js"></script>
-    <script src="navigation.js"></script>
+    <script src="navigation.js?v=20261007-more"></script>
     <script src="app-carousel.js" defer></script>
 
     <script>

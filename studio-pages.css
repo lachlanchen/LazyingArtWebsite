@@ -1,0 +1,100 @@
+/* A shared product-studio finish. Scoped: forms and other offers keep their own UI. */
+.studio-page {
+  --ink: #17203a; --muted: #53617a; --paper: #f8faff; --paper-deep: #edf1fb;
+  --white: #fff; --line: #dce3ef; --green: #4152ce; --lime: #d9e7ff; --orange: #7454cf;
+  --forest: #265f59; --forest-dark: #193e42; --ink-soft: #526477;
+  --display: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  color: var(--ink); background: #f8faff;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+.studio-page.lkt-page { --green: #137b79; --lime: #bceee7; }
+.studio-page.eink-page { --paper: #f8fbfa; --paper-light: #fff; --paper-deep: #e5f3ee; --green: #217768; background: #f8fbfa; }
+.studio-page h1, .studio-page h2 { font-family: inherit; font-weight: 750; letter-spacing: -.045em; text-wrap: balance; }
+.studio-page h1 em { font-style: normal; font-weight: inherit; color: var(--green); }
+.studio-page .hero h1 { font-size: clamp(2.6rem, 4.6vw, 4.5rem); line-height: 1.07; }
+.studio-page h2 { font-size: clamp(1.85rem, 3.2vw, 3rem); line-height: 1.15; }
+.studio-page .lead, .studio-page .hero-lead { color: var(--muted); font-size: 1.04rem; line-height: 1.8; }
+.studio-page .eyebrow { letter-spacing: .09em; font-size: .73rem; }
+.studio-page:not(.eink-page) .site-header { width: min(1360px, calc(100% - 3rem)); min-height: 86px; gap: 1.4rem; }
+.studio-page .brand img { width: 48px; height: 48px; object-fit: contain; }
+.studio-page .brand strong { font-size: 1.3rem; letter-spacing: -.045em; }
+.studio-page .brand small { margin-top: .25rem; font-size: .72rem; }
+.studio-page .site-header nav { flex-wrap: wrap; gap: .35rem; justify-content: flex-end; }
+.studio-page .site-header nav a { min-height: 40px; display: inline-flex; align-items: center; padding: .5rem .7rem; border-radius: 12px; font-size: .8rem; }
+.studio-page .site-header nav a:hover { background: #e9eefb; color: var(--green); }
+.studio-page:not(.eink-page) .hero {
+  width: min(1280px, calc(100% - 3rem)); margin-block: 2rem 3rem;
+  padding: clamp(1.6rem, 3.5vw, 3.5rem); gap: 3rem; align-items: center;
+  border: 1px solid #e1e7f3; border-radius: 36px;
+  background: radial-gradient(ellipse at 95% 0%, #dce7ff 0%, transparent 60%), linear-gradient(135deg, #fff, #f0f6ff);
+}
+.studio-page.lkt-page .hero { background: radial-gradient(ellipse at 95% 0%, #d3f1e9, transparent 65%), #fff; }
+.studio-page .hero-copy { min-width: 0; }
+.studio-page .button { border-radius: 14px; min-height: 48px; transition: transform .2s ease, box-shadow .2s ease; }
+.studio-page .button.primary { background: var(--green); border-color: var(--green); color: white; box-shadow: 0 8px 22px #31439c21; }
+.studio-page .button.secondary { border-color: #c6d1e3; background: #ffffffb3; }
+.studio-page .button:hover { transform: translateY(-2px); box-shadow: 0 9px 24px #21324b19; }
+.studio-page .scope-proof { font-size: .78rem; line-height: 1.65; }
+.studio-page .status { display: block; font-size: .77rem; line-height: 1.7; }
+.studio-page .status > span { display: inline-block; margin-inline-end: .7rem; vertical-align: middle; }
+.studio-page .product-visual, .studio-page .shelf-map, .studio-page .lecture-flow { transform: none; border-radius: 25px; box-shadow: 0 24px 65px #23345a16; }
+.studio-page .product-visual { padding: .6rem; border-color: #dce5ec; }
+.studio-page .product-visual img { display: block; width: 100%; height: auto; object-fit: contain; border-radius: 18px; }
+.studio-page .product-visual figcaption { color: var(--muted); padding: .75rem; }
+.studio-page .shelf-map, .studio-page .lecture-flow { border-color: #35426b; background: linear-gradient(145deg, #1a2849, #2d3060); }
+.studio-page .shelf-map strong { font-size: 1.15rem; }
+.studio-page .shelf-map li { padding: 1.5rem 0; }
+.studio-page .lecture-flow h2 { font-family: inherit; font-size: 2rem; }
+.studio-page .lecture-flow .eyebrow { color: #baceff; }
+.studio-page .flow-step strong { font-family: inherit; }
+.studio-page .proof-strip { border-radius: 22px; border: 1px solid var(--line); background: #fff; box-shadow: 0 10px 35px #22355407; }
+.studio-page:not(.eink-page) .proof-strip { width: min(1180px, calc(100% - 3rem)); margin: 0 auto 2rem; padding: 1.6rem; }
+.studio-page .proof-strip strong { color: var(--green); font-size: 1.3rem; }
+.studio-page .section, .studio-page .work-section { padding-top: 4.7rem; padding-bottom: 4.7rem; }
+.studio-page .feature-grid article, .studio-page .work-grid article, .studio-page .use-grid article { background: #fff; border: 1px solid var(--line); border-radius: 22px; box-shadow: 0 8px 25px #23345a06; transition: transform .22s ease, box-shadow .22s ease; }
+.studio-page .feature-grid article:hover, .studio-page .work-grid article:hover { transform: translateY(-4px); box-shadow: 0 16px 38px #23345a12; }
+.studio-page .work-kind, .studio-page .number { color: var(--green); }
+.studio-page .work-kind { margin-bottom: 1.4rem; }
+.studio-page .work-grid { gap: 1.2rem; }
+.studio-page .work-grid h3 { font-size: 1.35rem; letter-spacing: -.025em; }
+.studio-page .work-section-dark, .studio-page .scope-band { background: #172440; color: #fff; }
+.studio-page .work-section-dark .work-grid article, .studio-page .scope-band .feature-grid article { background: #ffffff08; border-color: #ffffff26; }
+.studio-page .work-section-dark .work-kind { color: #baceff; }
+.studio-page .work-section-dark .work-grid a { color: #c4d7ff; }
+.studio-page .services, .studio-page .pilot { background: linear-gradient(135deg, #e5ecff, #e4f6ef); color: #17203a; }
+.studio-page .origin-section img { border-radius: 20px; border: 1px solid var(--line); box-shadow: 0 15px 50px #22355416; }
+.studio-page .sample-delivery { border-radius: 24px; box-shadow: 0 15px 40px #23345a0e; }
+.studio-page a:focus-visible, .studio-page button:focus-visible { outline: 3px solid #5377e9; outline-offset: 4px; }
+/* E Ink keeps its useful tool/library sections and checkout gates. */
+.eink-page .kindle-ribbon { background: #214d4b; }
+.eink-page .site-header { background: #f8fbfaec; border-color: #dce9e5; }
+.eink-page .hero { padding-top: 4rem; background: radial-gradient(ellipse at 90% 20%, #d9eee5, transparent 65%); }
+.eink-page .hero-wash, .eink-page .product-hero::before { display: none; }
+.eink-page .hero-grid { gap: clamp(2rem, 5vw, 5rem); align-items: center; }
+.eink-page .hero h1 { font-size: clamp(3.2rem, 5.5vw, 5.6rem); }
+.eink-page .hero h1 em { font-style: normal; letter-spacing: -.05em; }
+.eink-page .product-hero { transform: none; padding: 12px; border-radius: 30px; border: 1px solid #d6e6e0; background: #fff; box-shadow: 0 24px 70px #1e524317; }
+.eink-page .product-hero > img { border-radius: 22px; transform: none; }
+.eink-page .hero-price { border-radius: 16px; background: #fff; padding: 1rem 1.2rem; border: 1px solid #dce9e5; }
+.eink-page .proof-strip { padding: 1.5rem; }
+.eink-page .section-intro h2, .eink-page .books-copy h2, .eink-page .reader-heading h2, .eink-page .early-card h2 { font-family: inherit; font-weight: 750; font-size: clamp(2rem, 3.5vw, 3.2rem); letter-spacing: -.045em; }
+@media (max-width: 980px) {
+  .studio-page:not(.eink-page) .site-header { flex-wrap: wrap; gap: .5rem; padding-block: .8rem; }
+  .studio-page .site-header nav { justify-content: flex-start; }
+  .studio-page:not(.eink-page) .hero { grid-template-columns: 1fr; gap: 2rem; }
+  .studio-page .work-grid-four { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 560px) {
+  .studio-page:not(.eink-page) .hero { width: calc(100% - 1.25rem); padding: 1.5rem; margin-top: 1rem; border-radius: 25px; }
+  .studio-page:not(.eink-page) .site-header { width: calc(100% - 2rem); }
+  .studio-page .site-header nav a { padding: .4rem .5rem; font-size: .76rem; }
+  .studio-page .hero-actions { align-items: stretch; }
+  .studio-page .hero-actions .button { flex: 1 1 auto; }
+  .studio-page .work-grid-four { grid-template-columns: 1fr; }
+  .studio-page .proof-strip strong { font-size: 1.05rem; }
+  .eink-page .hero { padding-top: 2rem; }
+  .eink-page .hero-grid { gap: 2rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .studio-page *, .studio-page *::before { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
