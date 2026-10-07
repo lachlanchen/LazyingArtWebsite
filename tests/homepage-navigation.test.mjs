@@ -57,10 +57,13 @@ test('navigation retains available destinations and labels its disclosure in eve
   const nav = html.match(/<div class="nav-links" id="navLinks">([\s\S]*?)<\/div>/)[1];
   const hrefs = [...nav.matchAll(/href="([^"]+)"/g)].map((match) => match[1]);
   assert.deepEqual(hrefs, ['products/', 'https://chat.lazying.art/',
-    'https://onlyideas.art', 'https://lightmind.art/', '#services', 'eink/', 'lkt/', 'lecture-pack/', 'work/',
+    'https://onlyideas.art', 'https://lightmind.art/', 'eink/', 'lkt/', 'lecture-pack/', 'work/', '#services',
     '#ecosystem', '#company', '#contact']);
   const more = nav.match(/<details class="nav-more" id="navMore">([\s\S]*?)<\/details>/)[1];
-  assert.deepEqual([...more.matchAll(/href="([^"]+)"/g)].map(m => m[1]), ['#services', 'eink/', 'lkt/', 'lecture-pack/', 'work/']);
+  assert.deepEqual([...more.matchAll(/href="([^"]+)"/g)].map(m => m[1]), ['eink/', 'lkt/', 'lecture-pack/', 'work/', '#services']);
+  const footer = html.match(/<div class="footer-links">([\s\S]*?)<\/div>/)[1];
+  const footerLinks = [...footer.matchAll(/href="([^"]+)"/g)].map(m => m[1]);
+  assert.equal(footerLinks.indexOf('#services'), footerLinks.indexOf('work/') + 1);
   assert.match(more, /<summary>.*data-i18n="nav_more"/);
   assert.match(html, /href="site-navigation.css"/);
   assert.match(html, /id="menuToggle" type="button" aria-controls="navLinks" aria-expanded="false" aria-labelledby="menuLabel"/);
