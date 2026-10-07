@@ -11,9 +11,15 @@ const chooserMatch = homepage.match(
   /<section class="service-chooser" id="services"[\s\S]*?<\/section>/,
 );
 
-assert.ok(chooserMatch, "homepage should expose a focused services section");
+assert.ok(chooserMatch, "existing service information remains available on demand");
 
 const chooser = chooserMatch[0];
+
+assert.match(chooser, /<details class="service-drawer">/);
+assert.doesNotMatch(chooser, /<details[^>]*\bopen(?:\s|=|>)/);
+assert.match(chooser, /<summary><span id="services-label" data-i18n="nav_services">Services<\/span>/);
+assert.ok(homepage.indexOf(chooser) > homepage.indexOf('id="ecosystem"'), "service drawer belongs at the bottom, not ahead of the apps");
+assert.ok(homepage.indexOf(chooser) < homepage.indexOf('<footer id="contact">'));
 
 assert.match(chooser, /Choose one bounded service/);
 assert.match(chooser, /one software stage or source you control/);
@@ -33,7 +39,7 @@ assert.match(chooser, /No source upload or payment before both sides accept the 
 assert.equal(
   (chooser.match(/<article class="service-card(?: service-card-wide)?">/g) || []).length,
   6,
-  "homepage should expose the six strongest currently supported bounded service routes",
+  "collapsed drawer preserves the six existing service routes without adding promises",
 );
 
 assert.match(
@@ -70,8 +76,8 @@ assert.match(chooser, /class="service-link service-more"/);
 assert.match(homepage, /\.service-more \{[^}]*color: var\(--light\);[^}]*text-decoration: underline;/);
 assert.match(homepage, /\.service-more:focus-visible \{[^}]*outline: 2px solid currentColor;/);
 
-// The six highlighted cards stay focused, while an Instagram bio visitor can
-// still find an existing secondary offer without knowing its URL in advance.
+// Secondary information remains reachable without putting service offers
+// ahead of the published apps or implying newly available delivery capacity.
 const work = fs.readFileSync(
   fileURLToPath(new URL("../work/index.html", import.meta.url)),
   "utf8",

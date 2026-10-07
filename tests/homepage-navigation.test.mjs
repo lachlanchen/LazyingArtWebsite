@@ -56,11 +56,11 @@ function setup({ compact = true, observer = true, missing = false } = {}) {
 test('navigation retains available destinations and labels its disclosure in every locale', () => {
   const nav = html.match(/<div class="nav-links" id="navLinks">([\s\S]*?)<\/div>/)[1];
   const hrefs = [...nav.matchAll(/href="([^"]+)"/g)].map((match) => match[1]);
-  assert.deepEqual(hrefs, ['#services', 'products/', '#ecosystem', '#product',
-    'https://onlyideas.art', 'https://lightmind.art/', 'work/', 'eink/', 'lkt/', 'lecture-pack/',
-    '#company', '#contact']);
+  assert.deepEqual(hrefs, ['products/', 'https://chat.lazying.art/',
+    'https://onlyideas.art', 'https://lightmind.art/', '#services', 'eink/', 'lkt/', 'lecture-pack/', 'work/',
+    '#ecosystem', '#company', '#contact']);
   const more = nav.match(/<details class="nav-more" id="navMore">([\s\S]*?)<\/details>/)[1];
-  assert.deepEqual([...more.matchAll(/href="([^"]+)"/g)].map(m => m[1]), ['work/', 'eink/', 'lkt/', 'lecture-pack/']);
+  assert.deepEqual([...more.matchAll(/href="([^"]+)"/g)].map(m => m[1]), ['#services', 'eink/', 'lkt/', 'lecture-pack/', 'work/']);
   assert.match(more, /<summary>.*data-i18n="nav_more"/);
   assert.match(html, /href="site-navigation.css"/);
   assert.match(html, /id="menuToggle" type="button" aria-controls="navLinks" aria-expanded="false" aria-labelledby="menuLabel"/);

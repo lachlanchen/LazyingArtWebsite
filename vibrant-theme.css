@@ -1,0 +1,76 @@
+/* Clear canvas, confident colour, real app artwork. No yellow/beige wash. */
+:root {
+  --primary: #185bd8; --secondary: #6c3fc9; --accent: #b62e62;
+  --bg-start: #f5f8ff; --bg-end: #edf6ff; --dark: #eef3fc; --light: #14213b;
+  --glass: #ffffffed; --glass-border: #d9e3f2; --nav-solid: #fffffff5;
+  --control-bg: #eaf0fc; --control-border: #cbd8ed;
+  --text-muted: #51617b; --text-soft: #596984; --glow: #15376516;
+  --particle: #5b8af0;
+}
+body { background: radial-gradient(ellipse at 100% 0, #dfeaff 0, transparent 38%), #f5f8ff; }
+body[data-theme="dark"] {
+  --primary: #8eb9ff; --secondary: #b29afa; --accent: #ff9bc1;
+  --bg-start: #0c1527; --bg-end: #11213c; --dark: #101d32; --light: #f3f7ff;
+  --glass: #15243bea; --glass-border: #30415c; --nav-solid: #101d32f5;
+  --control-bg: #223551; --control-border: #425574;
+  --text-muted: #c0cde3; --text-soft: #b1c1dc; --glow: #00000033; --particle: #89b9ff;
+  background: radial-gradient(ellipse at 100% 0, #19335b 0, transparent 42%), #0c1527;
+}
+.particles { display: none; }
+.logo-text { background: none; -webkit-text-fill-color: currentColor; color: var(--light); }
+.nav-links > a:hover, .nav-more summary:hover, .nav-more[open] summary { background: var(--control-bg); }
+.top-banner { padding-top: 1.75rem; }
+.app-shelf a { background: var(--glass); border-color: var(--glass-border); box-shadow: 0 3px 12px var(--glow); }
+.app-shelf a:hover { background: var(--glass); }
+.top-banner-inner { background: var(--glass); border-color: var(--glass-border); box-shadow: 0 15px 60px var(--glow); }
+.app-reel-title { font-weight: 800; letter-spacing: -.045em; }
+.app-download-card, .app-downloads > .beta-launch-card {
+  --app-accent: #1859c8; --app-wash: #eaf1ff;
+  background: var(--app-wash); border-color: color-mix(in srgb, var(--app-accent) 22%, transparent);
+  border-top: 4px solid var(--app-accent); box-shadow: 0 6px 20px var(--glow);
+}
+.app-download-card[data-app="landn"] { --app-accent: #1859c8; --app-wash: #e9f0ff; }
+.app-download-card[data-app="bunko"] { --app-accent: #066b99; --app-wash: #e0f6ff; }
+.app-download-card[data-app="onlyideas"] { --app-accent: #08705c; --app-wash: #e0f8ee; }
+.app-download-card[data-app="aimemo"] { --app-accent: #a02c61; --app-wash: #fce9f2; }
+.app-download-card[data-app="shi"] { --app-accent: #ad384b; --app-wash: #ffe9ed; }
+.app-download-card[data-app="oracle"] { --app-accent: #6048be; --app-wash: #eee8ff; }
+.app-download-card[data-app="lightmind"] { --app-accent: #087286; --app-wash: #ddf6f8; }
+.app-download-card[data-app^="clearpair-"] { --app-accent: #08705c; --app-wash: #e0f8ee; }
+.app-download-card[data-app="clearpair-landr"], .app-download-card[data-app="clearpair-english"] { --app-accent: #1859c8; --app-wash: #e9f0ff; }
+.app-download-card[data-app="clearpair-korean"], .app-download-card[data-app="clearpair-japanese"] { --app-accent: #a02c61; --app-wash: #fce9f2; }
+.app-download-card[data-app="lazyedit"] { --app-accent: #6048be; --app-wash: #eee8ff; }
+.app-downloads > .beta-launch-card { --app-accent: #1859c8; --app-wash: #e0efff; }
+body[data-theme="dark"] .app-downloads > * { --app-wash: color-mix(in srgb, var(--app-accent) 22%, #14233c); }
+.app-download-card h2 { font-weight: 750; letter-spacing: -.02em; }
+.app-download-links a { background: var(--app-accent); box-shadow: 0 4px 10px var(--glow); }
+.app-reel-auto[aria-pressed="true"] { background: #1859c8; border-color: #1859c8; }
+.cta-button, .primary-button { background: #185bd8; color: #fff; box-shadow: 0 6px 18px #185bd824; }
+.secondary-button { background: var(--glass); border-color: var(--control-border); color: var(--light); }
+.hero h1, .top-banner-title, .section-title, .product-info h2, .stat-number { background: none; -webkit-text-fill-color: currentColor; color: var(--light); }
+.hero h1 span, .stat-number { color: var(--primary); }
+.hero-card, .feature-card, .product-showcase, .ecosystem-card, .philosophy, .coin-card { background: var(--glass); border-color: var(--glass-border); box-shadow: 0 10px 35px var(--glow); }
+.feature-card, .ecosystem-card { border-top: 3px solid #185bd8; }
+.feature-card:nth-child(3n + 2), .ecosystem-card:nth-child(3n + 2) { border-top-color: #098873; }
+.feature-card:nth-child(3n), .ecosystem-card:nth-child(3n) { border-top-color: #cd4270; }
+.feature-icon, .echomind-logo, .check-icon { background: #185bd8; color: #fff; }
+.paperagent-logo { background: #08705c; }.eink-logo { background: #087286; }.lazyedit-logo { background: #6048be; }
+.service-chooser-inner { background: var(--glass); box-shadow: 0 12px 40px var(--glow); }
+.service-card { min-width: 0; overflow-wrap: anywhere; background: var(--bg-start); border-inline-start: 3px solid #185bd8; }
+.service-card:nth-child(3n + 2) { border-inline-start-color: #098873; }
+.service-card:nth-child(3n) { border-inline-start-color: #cd4270; }
+.service-kicker { color: var(--primary) !important; }.service-link { color: var(--primary); }
+.service-chooser { padding: 1.5rem 5% 3rem; }
+.service-drawer { max-width: 1200px; margin: 0 auto; background: var(--glass); border: 1px solid var(--glass-border); border-radius: 20px; }
+.service-drawer > summary { display: flex; align-items: center; justify-content: space-between; gap: 1rem; list-style: none; min-height: 64px; padding: 1.2rem 1.5rem; font-weight: 650; color: var(--text-muted); cursor: pointer; }
+.service-drawer > summary::-webkit-details-marker { display: none; }
+.service-drawer > summary:focus-visible { outline: 3px solid var(--primary); outline-offset: 4px; border-radius: 20px; }
+.service-drawer > summary:hover { color: var(--primary); }
+.service-drawer[open] > summary { border-bottom: 1px solid var(--glass-border); }
+.service-drawer[open] > summary svg { transform: rotate(180deg); }
+.service-drawer .service-chooser-inner { border: 0; box-shadow: none; background: transparent; }
+.cta-container { background: var(--dark); border: 1px solid var(--glass-border); }
+.footer { background: var(--dark); }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}

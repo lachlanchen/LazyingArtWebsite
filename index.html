@@ -22,7 +22,7 @@
     <link rel="icon" href="/logos/panda-v1/favicon-96x96.png" type="image/png" sizes="96x96">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
     <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#f6f4ff">
+    <meta name="theme-color" content="#f5f8ff">
     
     <style>
         * {
@@ -1915,6 +1915,7 @@
         }
     </style>
     <link rel="stylesheet" href="site-navigation.css">
+    <link rel="stylesheet" href="vibrant-theme.css?v=20261007">
 </head>
 <body data-theme="light">
     <!-- Animated Particles Background -->
@@ -1934,21 +1935,21 @@
                 <span class="menu-bar" aria-hidden="true"></span>
             </button>
             <div class="nav-links" id="navLinks">
-                <a href="#services" data-i18n="nav_services">Services</a>
                 <a href="products/" data-i18n="nav_products">Products</a>
-                <a href="#ecosystem" data-i18n="nav_features">Ecosystem</a>
-                <a href="#product">EchoMind</a>
+                <a href="https://chat.lazying.art/" data-echomind-link>EchoMind</a>
                 <a href="https://onlyideas.art" target="_blank" rel="noopener noreferrer">OnlyIdeas</a>
                 <a href="https://lightmind.art/" target="_blank" rel="noopener noreferrer">LightMind <span aria-hidden="true">↗</span></a>
                 <details class="nav-more" id="navMore">
                     <summary><span data-i18n="nav_more">More</span><svg width="12" height="12" viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
                     <ul class="nav-more-panel">
-                        <li><a href="work/"><span class="nav-item-icon" aria-hidden="true">✳</span><span data-i18n="nav_work">Work</span></a></li>
+                        <li><a href="#services"><span class="nav-item-icon" aria-hidden="true">＋</span><span data-i18n="nav_services">Services</span></a></li>
                         <li><a href="eink/"><span class="nav-item-icon" aria-hidden="true">▤</span><span>E Ink</span></a></li>
                         <li><a href="lkt/"><span class="nav-item-icon" aria-hidden="true">⌘</span><span>LKT</span></a></li>
                         <li><a href="lecture-pack/"><span class="nav-item-icon" aria-hidden="true">▶</span><span>Lecture Pack</span></a></li>
+                        <li><a href="work/"><span class="nav-item-icon" aria-hidden="true">✳</span><span data-i18n="nav_work">Work</span></a></li>
                     </ul>
                 </details>
+                <a href="#ecosystem" data-i18n="nav_features">Ecosystem</a>
                 <a href="#company" data-i18n="nav_about">About</a>
                 <a href="#contact" data-i18n="nav_contact">Contact</a>
             </div>
@@ -2185,55 +2186,6 @@
         </div>
     </section>
 
-    <section class="service-chooser" id="services" aria-labelledby="services-title">
-        <div class="service-chooser-inner">
-            <div class="section-header">
-                <span class="section-tag" data-i18n="services_tag">FOCUSED SERVICES</span>
-                <h2 class="section-title" id="services-title" data-i18n="services_title">Choose one bounded service.</h2>
-                <p class="section-subtitle" data-i18n="services_subtitle">Bring one software stage or source you control. Read the public proof first, then request a free fit check.</p>
-            </div>
-            <div class="service-grid">
-                <article class="service-card service-card-wide">
-                    <p class="service-kicker" data-i18n="services_openhi_kicker">Scientific software</p>
-                    <h3 data-i18n="services_openhi_title">OpenHI reproducibility sprint</h3>
-                    <p data-i18n="services_openhi_desc">Test one named OpenHI stage on one existing workstation and keep the environment, commands, outputs, failures, and go/no-go together.</p>
-                    <a class="service-link" href="openhi-reproducibility/?utm_source=lazyingart&amp;utm_medium=website&amp;utm_campaign=openhi_reproducibility&amp;utm_content=service_chooser" data-i18n="services_openhi_cta">See the USD 500 scope and executed sample →</a>
-                </article>
-                <article class="service-card">
-                    <p class="service-kicker" data-i18n="services_lkt_kicker">Books + local AI</p>
-                    <h3 data-i18n="services_lkt_title">Collection-fit sprint</h3>
-                    <p data-i18n="services_lkt_desc">Map one collection into private, cited multilingual cards and a provenance-aware browser proof on your existing machine.</p>
-                    <a class="service-link" href="lkt/?utm_source=lazyingart&amp;utm_medium=website&amp;utm_campaign=local_knowledge_terminal_pilot&amp;utm_content=service_chooser" data-i18n="services_lkt_cta">See scope and sample report →</a>
-                </article>
-                <article class="service-card">
-                    <p class="service-kicker" data-i18n="services_remote_kicker">Private infrastructure</p>
-                    <h3 data-i18n="services_remote_title">LazyRemote network fit review</h3>
-                    <p data-i18n="services_remote_desc">Review one reachable relay and up to three existing computers before opening ports or changing firewall rules.</p>
-                    <a class="service-link" href="https://remote.lazying.art/?utm_source=lazyingart&amp;utm_medium=website&amp;utm_campaign=lazyremote_network_review&amp;utm_content=service_chooser#review" data-i18n="services_remote_cta">See the USD 250 scope and complete sample →</a>
-                </article>
-                <article class="service-card">
-                    <p class="service-kicker" data-i18n="services_manuscript_kicker">Research + code</p>
-                    <h3 data-i18n="services_manuscript_title">Manuscript build &amp; redline</h3>
-                    <p data-i18n="services_manuscript_desc">Make one LaTeX manuscript buildable, traceable, and easier to revise without changing its claims.</p>
-                    <a class="service-link" href="manuscript-sprint/?utm_source=lazyingart&amp;utm_medium=website&amp;utm_campaign=manuscript_sprint_pilot&amp;utm_content=service_chooser" data-i18n="services_manuscript_cta">See scope and redline proof →</a>
-                </article>
-                <article class="service-card">
-                    <p class="service-kicker" data-i18n="services_lecture_kicker">Media + pocket books</p>
-                    <h3 data-i18n="services_lecture_title">Bilingual lecture pack</h3>
-                    <p data-i18n="services_lecture_desc">Turn one rights-cleared lecture into reviewed subtitles, an editable bilingual source, a pocket study PDF, and a short preview.</p>
-                    <a class="service-link" href="lecture-pack/?utm_source=lazyingart&amp;utm_medium=website&amp;utm_campaign=bilingual_lecture_pack_pilot&amp;utm_content=service_chooser" data-i18n="services_lecture_cta">See scope and working proof →</a>
-                </article>
-                <article class="service-card">
-                    <p class="service-kicker" data-i18n="services_mcp_kicker">MCP + agent safety</p>
-                    <h3 data-i18n="services_mcp_title">MCP server pre-deployment review</h3>
-                    <p data-i18n="services_mcp_desc">Map what one MCP server can read or change, run ten protocol checks, and receive an evidence-backed go/no-go report.</p>
-                    <a class="service-link" href="mcp-boundary-review/?utm_source=lazyingart&amp;utm_medium=website&amp;utm_campaign=mcp_boundary_review&amp;utm_content=service_chooser" data-i18n="services_mcp_cta">See the USD 500 scope and executed sample →</a>
-                </article>
-            </div>
-            <p class="service-note"><a class="service-link service-more" href="work/#services" data-i18n="services_more">More examples and services →</a></p>
-            <p class="service-note" data-i18n="services_note">No source upload or payment before both sides accept the scope.</p>
-        </div>
-    </section>
 
     <!-- Product Section -->
     <section class="product" id="product">
@@ -2917,6 +2869,59 @@
         </div>
     </section>
 
+    <section class="service-chooser" id="services" aria-labelledby="services-label">
+        <details class="service-drawer">
+            <summary><span id="services-label" data-i18n="nav_services">Services</span><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 8l5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <div class="service-chooser-inner">
+            <div class="section-header">
+                <span class="section-tag" data-i18n="services_tag">FOCUSED SERVICES</span>
+                <h2 class="section-title" id="services-title" data-i18n="services_title">Choose one bounded service.</h2>
+                <p class="section-subtitle" data-i18n="services_subtitle">Bring one software stage or source you control. Read the public proof first, then request a free fit check.</p>
+            </div>
+            <div class="service-grid">
+                <article class="service-card service-card-wide">
+                    <p class="service-kicker" data-i18n="services_openhi_kicker">Scientific software</p>
+                    <h3 data-i18n="services_openhi_title">OpenHI reproducibility sprint</h3>
+                    <p data-i18n="services_openhi_desc">Test one named OpenHI stage on one existing workstation and keep the environment, commands, outputs, failures, and go/no-go together.</p>
+                    <a class="service-link" href="openhi-reproducibility/?utm_source=lazyingart&amp;utm_medium=website&amp;utm_campaign=openhi_reproducibility&amp;utm_content=service_chooser" data-i18n="services_openhi_cta">See the USD 500 scope and executed sample →</a>
+                </article>
+                <article class="service-card">
+                    <p class="service-kicker" data-i18n="services_lkt_kicker">Books + local AI</p>
+                    <h3 data-i18n="services_lkt_title">Collection-fit sprint</h3>
+                    <p data-i18n="services_lkt_desc">Map one collection into private, cited multilingual cards and a provenance-aware browser proof on your existing machine.</p>
+                    <a class="service-link" href="lkt/?utm_source=lazyingart&amp;utm_medium=website&amp;utm_campaign=local_knowledge_terminal_pilot&amp;utm_content=service_chooser" data-i18n="services_lkt_cta">See scope and sample report →</a>
+                </article>
+                <article class="service-card">
+                    <p class="service-kicker" data-i18n="services_remote_kicker">Private infrastructure</p>
+                    <h3 data-i18n="services_remote_title">LazyRemote network fit review</h3>
+                    <p data-i18n="services_remote_desc">Review one reachable relay and up to three existing computers before opening ports or changing firewall rules.</p>
+                    <a class="service-link" href="https://remote.lazying.art/?utm_source=lazyingart&amp;utm_medium=website&amp;utm_campaign=lazyremote_network_review&amp;utm_content=service_chooser#review" data-i18n="services_remote_cta">See the USD 250 scope and complete sample →</a>
+                </article>
+                <article class="service-card">
+                    <p class="service-kicker" data-i18n="services_manuscript_kicker">Research + code</p>
+                    <h3 data-i18n="services_manuscript_title">Manuscript build &amp; redline</h3>
+                    <p data-i18n="services_manuscript_desc">Make one LaTeX manuscript buildable, traceable, and easier to revise without changing its claims.</p>
+                    <a class="service-link" href="manuscript-sprint/?utm_source=lazyingart&amp;utm_medium=website&amp;utm_campaign=manuscript_sprint_pilot&amp;utm_content=service_chooser" data-i18n="services_manuscript_cta">See scope and redline proof →</a>
+                </article>
+                <article class="service-card">
+                    <p class="service-kicker" data-i18n="services_lecture_kicker">Media + pocket books</p>
+                    <h3 data-i18n="services_lecture_title">Bilingual lecture pack</h3>
+                    <p data-i18n="services_lecture_desc">Turn one rights-cleared lecture into reviewed subtitles, an editable bilingual source, a pocket study PDF, and a short preview.</p>
+                    <a class="service-link" href="lecture-pack/?utm_source=lazyingart&amp;utm_medium=website&amp;utm_campaign=bilingual_lecture_pack_pilot&amp;utm_content=service_chooser" data-i18n="services_lecture_cta">See scope and working proof →</a>
+                </article>
+                <article class="service-card">
+                    <p class="service-kicker" data-i18n="services_mcp_kicker">MCP + agent safety</p>
+                    <h3 data-i18n="services_mcp_title">MCP server pre-deployment review</h3>
+                    <p data-i18n="services_mcp_desc">Map what one MCP server can read or change, run ten protocol checks, and receive an evidence-backed go/no-go report.</p>
+                    <a class="service-link" href="mcp-boundary-review/?utm_source=lazyingart&amp;utm_medium=website&amp;utm_campaign=mcp_boundary_review&amp;utm_content=service_chooser" data-i18n="services_mcp_cta">See the USD 500 scope and executed sample →</a>
+                </article>
+            </div>
+            <p class="service-note"><a class="service-link service-more" href="work/#services" data-i18n="services_more">More examples and services →</a></p>
+            <p class="service-note" data-i18n="services_note">No source upload or payment before both sides accept the scope.</p>
+        </div>
+        </details>
+    </section>
+
     <!-- Footer -->
     <footer id="contact">
         <div class="footer-container">
@@ -2946,6 +2951,7 @@
     <script src="service-translations.js?v=f0539b21e579"></script>
     <script src="app-release-translations.js"></script>
     <script src="navigation.js?v=20261007-more"></script>
+    <script src="echomind-link.js?v=20261007"></script>
     <script src="app-carousel.js" defer></script>
 
     <script>
