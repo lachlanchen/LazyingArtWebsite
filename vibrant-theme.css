@@ -17,7 +17,7 @@ body[data-theme="dark"] {
   background: radial-gradient(ellipse at 100% 0, #19335b 0, transparent 42%), #0c1527;
 }
 .particles { display: none; }
-.logo-text { background: none; -webkit-text-fill-color: currentColor; color: var(--light); }
+.logo-text { background: linear-gradient(135deg, var(--primary), var(--accent)); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 .nav-links > a:hover, .nav-more summary:hover, .nav-more[open] summary { background: var(--control-bg); }
 .top-banner { padding-top: 1.75rem; }
 .app-shelf a { background: var(--glass); border-color: var(--glass-border); box-shadow: 0 3px 12px var(--glow); }
@@ -45,6 +45,16 @@ body[data-theme="dark"] {
 .app-details-link { color: var(--primary); text-decoration: none; font-size: .9rem; font-weight: 650; padding-block: .4rem; width: fit-content; }
 .app-details-link:hover { text-decoration: underline; text-underline-offset: .25em; }
 .app-details-link:focus-visible { outline: 3px solid var(--primary); outline-offset: 4px; border-radius: 4px; }
+.app-downloads > * > .app-details-link {
+  display: inline-flex; align-items: center; min-height: 44px; max-width: 100%;
+  margin-top: auto; padding: .55rem .9rem; border-radius: 999px;
+  border: 1px solid var(--control-border); background: var(--glass);
+  color: var(--light); font-size: .8125rem; line-height: 1.4;
+}
+.app-downloads > * > .app-details-link:hover { background: var(--control-bg); border-color: var(--primary); text-decoration: none; }
+.app-downloads > * > .app-details-link + :is(.app-download-links, .beta-launch-actions) { margin-top: 0; }
+.app-downloads .beta-download-button { min-width: 0; max-width: 100%; white-space: normal; }
+.app-downloads .beta-download-button span { min-width: 0; overflow-wrap: anywhere; }
 .hardware-heading { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
 .hardware-heading h2 { font-size: clamp(1.5rem, 3vw, 2rem); letter-spacing: -.035em; }
 .product-container { gap: 1.5rem; }

@@ -11,6 +11,10 @@ explicitly labelled as a research tool, with its public landing page and GitHub
 links rather than store badges. Its icon is the existing MicroQuant favicon
 from `MicroQuant/static/favicon.png`; it is not new product artwork.
 
+Detail links are compact outline pills immediately above each card's store
+buttons. The button groups remain at the bottom, including Musia's status note
+above its buttons. Keep DOM order and keyboard order consistent with this layout.
+
 E Ink and Robot remain in the hardware carousel. Old `#einkwordsgpt` and
 `#lazyingart-robot` URLs reveal the corresponding slide and stop autoplay so
 the visitor stays on the linked product. The detail pages remain unchanged.

@@ -19,15 +19,15 @@ assert.deepEqual(links(cards[1]), [
   'https://play.google.com/store/apps/details?id=art.lazying.bunko',
 ]);
 assert.deepEqual(links(cards[2]), [
+  'https://onlyideas.art/',
   'https://apps.apple.com/us/app/onlyideas/id6816392935?platform=iphone',
   'https://apps.apple.com/us/app/onlyideas/id6816392935?platform=mac',
   'https://play.google.com/store/apps/details?id=art.onlyideas.app',
-  'https://onlyideas.art/',
 ]);
 assert.deepEqual(links(cards[3]), [
+  'products/#aimemo',
   'https://apps.apple.com/us/app/aimemo-ai-notes-voice/id6757573920',
   'https://play.google.com/store/apps/details?id=art.lazying.aimemo',
-  'products/#aimemo',
 ]);
 assert.deepEqual(links(cards[4]), [
   'https://apps.apple.com/us/app/shi-the-shape-of-power/id6816377548',

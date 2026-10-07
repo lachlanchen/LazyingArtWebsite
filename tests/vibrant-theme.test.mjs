@@ -14,6 +14,7 @@ test('all solid app-button colours support readable white labels',() => {
   }
 });
 test('fresh palette preserves dark mode, reduced motion and catalogue keys',() => {
+  assert.match(theme, /\.logo-text \{[^}]*linear-gradient[^}]*background-clip: text[^}]*-webkit-text-fill-color: transparent/);
   assert.match(read('index.html'),/vibrant-theme.css\?v=20261007/);
   assert.match(theme,/body\[data-theme="dark"\]/);
   assert.match(theme,/prefers-reduced-motion: reduce/);

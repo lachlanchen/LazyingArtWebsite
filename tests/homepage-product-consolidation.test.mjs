@@ -36,13 +36,20 @@ test('MicroQuant is a research card with project links, not an invented store re
   }
 });
 
-test('consolidated app cards keep introduction links alongside the store buttons', () => {
+test('consolidated app cards place introduction links before bottom-aligned store buttons', () => {
   for (const [app, link] of [['onlyideas','https://onlyideas.art/'], ['aimemo','products/#aimemo'], ['lazyedit','products/#lazyedit']]) {
     const card = html.match(new RegExp(`<article class="app-download-card" data-app="${app}"[\\s\\S]*?<\\/article>`))[0];
     assert.ok(card.includes(`class="app-details-link" href="${link}"`));
     assert.match(card, /play.google.com/);
+    assert.ok(card.indexOf('class="app-details-link"') < card.indexOf('class="app-download-links"'));
   }
   const echo = html.match(/<aside class="beta-launch-card"[\s\S]*?<\/aside>/)[0];
   assert.match(echo, /class="app-details-link" href="products\/#echomind"/);
   assert.match(echo, /apps.apple.com/);
+  assert.ok(echo.indexOf('class="app-details-link"') < echo.indexOf('class="beta-launch-actions"'));
+  const musia = html.match(/<article class="app-download-card" data-app="musia"[\s\S]*?<\/article>/)[0];
+  assert.ok(musia.indexOf('data-i18n="app_musia_apple"') < musia.indexOf('class="app-download-links"'));
+  const css = read('vibrant-theme.css');
+  assert.match(css, /\.app-downloads > \* > \.app-details-link \{[^}]*margin-top: auto/);
+  assert.match(css, /\.app-details-link \+ :is\(\.app-download-links, \.beta-launch-actions\) \{ margin-top: 0;/);
 });
