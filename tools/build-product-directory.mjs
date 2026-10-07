@@ -82,7 +82,7 @@ const appDesign = {
   bunko: ['bunko.png', 'peach', 'Old books. New ways in.'],
   landn: ['landn.png', 'blue', 'Hear it. Say it. Try again.'],
   lazyedit: ['lazyedit.webp', 'pink', 'Your video. Your private Studio.'],
-  'musia-app': ['musia.png', 'pink', 'Make time for music.'],
+  'musia-app': ['musia.png?v=ribbon-20261006', 'pink', 'Make time for music.'],
   aimemo: ['aimemo.jpg', 'yellow', 'Keep the thought.'],
   echomind: ['echomind.png', 'lavender', 'A conversation across languages.'],
   shigame: ['shi.jpg', 'peach', 'History is full of choices.'],
@@ -101,7 +101,7 @@ const categoryLabels = {learn: 'Learn', build: 'Build', create: 'Create', play: 
 const apps = Object.keys(appDesign).map(id => {
   const item = catalog.items.find(item => item.id === id);
   assert.ok(item?.storeLinks?.length, `App spotlight requires a verified store: ${id}`);
-  assert.ok(fs.existsSync(new URL(`logos/apps/${appDesign[id][0]}`, root)));
+  assert.ok(fs.existsSync(new URL(`logos/apps/${appDesign[id][0].split('?')[0]}`, root)));
   return item;
 });
 const card = item => {

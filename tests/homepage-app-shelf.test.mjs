@@ -13,8 +13,8 @@ test('top app launcher reuses the official app icons and existing download secti
   assert.deepEqual(anchors.slice(0,8).map(m => m[3]), ['L &amp; N', 'Bunko', 'OnlyIdeas', 'AiMemo', 'SHI', 'LazyOracle', 'Musia', 'EchoMind']);
   for (const [, anchor, src] of anchors) {
     assert.ok(html.includes(`id="${anchor}"`));
-    assert.match(src, /^\/logos\/apps\/[a-z-]+\.(png|jpg|webp)$/);
-    assert.ok(existsSync(new URL(src.slice(1), root)));
+    assert.match(src, /^\/logos\/apps\/[a-z-]+\.(png|jpg|webp)(?:\?v=[a-z0-9-]+)?$/);
+    assert.ok(existsSync(new URL(src.split('?')[0].slice(1), root)));
   }
   assert.ok(html.indexOf('<nav class="app-shelf"') < html.indexOf('id="app-downloads"'));
 });

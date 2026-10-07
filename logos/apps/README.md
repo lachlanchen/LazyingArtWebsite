@@ -10,6 +10,9 @@ The top launcher links to the existing download sections. A displayed icon
 does not imply that every operating-system edition has been released; use
 the [verified store destinations](../../docs/store-availability-2026-10-03.md).
 
-`musia.png` reuses Musia's public Google Play icon, retrieved October 5, 2026
-for `art.lazying.musia`. The Android app is live; its Apple editions remain
-in review. See [the release evidence](../../docs/musia-release-2026-10-05.md).
+`musia.png` uses the latest owner-approved coral/cyan ribbon M, updated here
+October 7, 2026. It is the unchanged 192×192 transparent PNG from Musia's
+`apps/android/app/src/main/res/mipmap-xxxhdpi/ic_musia.png`, derived from the
+rounded master in `apps/shared/brand/` (source commit `0516cc6`). A versioned
+image URL refreshes previously cached artwork. This branding update does not
+change store availability; see [the release evidence](../../docs/musia-release-2026-10-05.md).
