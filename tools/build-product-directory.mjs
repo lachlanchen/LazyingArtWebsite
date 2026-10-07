@@ -35,6 +35,8 @@ const storeLinks = (item) => item.storeLinks?.length ? `
       }).join('')}</div>` : '';
 const canonical = 'https://lazying.art/products/';
 const description = 'Discover LazyingArt apps, multilingual books, learning resources, creative tools, and open-source projects. Try L & N, read a book, or explore a practical workflow.';
+const publisherLinks = '<a href="https://apps.apple.com/developer/lazyingart-llc/id1867662412" target="_blank" rel="noopener noreferrer">App Store <span aria-hidden="true">↗</span></a><a href="https://play.google.com/store/apps/developer?id=LazyingArt+LLC" target="_blank" rel="noopener noreferrer">Google Play <span aria-hidden="true">↗</span></a>';
+const publisherGridLinks = publisherLinks.replace('https://play.google.com/store/apps/developer?id=LazyingArt+LLC', 'https://play.google.com/store/apps/collection/cluster?gsr=SmpqLDQ4ai9HUUs3N21RMXUya01GYTVITW1ZWm9ybkFoTTdEMnFNVi9ZYyt4T0E9sgI2ChkKFWFydC5sYXp5aW5nLmxhbmRuLnBybxAHEhcIARITNjE1NzU1NzY3OTY0NDQ5NjY4NhgAsBIA:S:ANO1ljKWPdo');
 assert.equal(new Set(catalog.items.map(item => item.id)).size, catalog.items.length);
 for (const item of catalog.items) {
   assert.ok(catalog.groups.some(group => group.id === item.group));
@@ -145,7 +147,7 @@ const html = `<!doctype html>
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://lazying.art/logos/banner.png">
   <link rel="icon" href="../favicon.ico" sizes="any">
-  <link rel="stylesheet" href="styles.css?v=20261007-vibrant">
+  <link rel="stylesheet" href="styles.css?v=20261007-vibrant&amp;stores=20261008">
   <script src="directory.js" defer></script>
   <script type="application/ld+json">${JSON.stringify(schema).replaceAll('<','\\u003c')}</script>
 </head>
@@ -167,7 +169,7 @@ const html = `<!doctype html>
       <p class="result-status" role="status" aria-live="polite" aria-atomic="true"></p>
     </div>
     <div class="empty-state" hidden><span aria-hidden="true">✳</span><h2>Not in the collection. Yet.</h2><p>Try a different word, or have a look around.</p><button class="button primary" type="button" data-reset>Show everything</button></div>
-    <section class="work-section apps-section" id="apps" data-section aria-labelledby="apps-title"><div class="work-heading"><div><p class="eyebrow">Ready when you are</p><h2 id="apps-title">Small apps.<br><em>Possibilities, everywhere.</em></h2></div><p>A few minutes to read, practise, create or play. Pick something that feels like you.</p></div><div class="work-grid app-grid">${apps.map(card).join('\n')}</div></section>
+    <section class="work-section apps-section" id="apps" data-section aria-labelledby="apps-title"><div class="work-heading"><div><p class="eyebrow">Ready when you are</p><h2 id="apps-title">Small apps.<br><em>Possibilities, everywhere.</em></h2></div><p>A few minutes to read, practise, create or play. Pick something that feels like you.</p></div><div class="publisher-links" role="group" aria-label="LazyingArt app stores"><span>All LazyingArt apps</span>${publisherGridLinks}</div><div class="work-grid app-grid">${apps.map(card).join('\n')}</div></section>
     ${sections}
     <section class="work-section" id="guides" data-section aria-labelledby="guides-title">
       <div class="work-heading"><h2 id="guides-title">A useful place to start</h2><p>Working through a specific problem? These guides share the checks, trade-offs, and code behind the projects.</p></div>
@@ -175,7 +177,7 @@ const html = `<!doctype html>
     </section>
     <aside class="closing-note"><img src="/logos/panda-v1/logo-256.png" alt="" width="112" height="112" loading="lazy"><div><p class="eyebrow">The art of lazying</p><h2>Less friction.<br>More room to be curious.</h2><p>Ideas, experiments, and the stories behind the tools.</p></div><a class="button primary" href="https://blog.lazying.art/">From the notebook <span aria-hidden="true">↗</span></a></aside>
   </main>
-  <footer class="directory-footer"><span>LazyingArt · Build less. Live more.</span><a href="https://github.com/lachlanchen/lachlanchen/blob/main/projects/sites.md">Website and repository directory</a><a href="../work/">Selected work</a><a href="https://lachlan.lazying.art/">About Lachlan</a></footer>
+  <footer class="directory-footer"><span>LazyingArt · Build less. Live more.</span>${publisherLinks}<a href="https://github.com/lachlanchen/lachlanchen/blob/main/projects/sites.md">Website and repository directory</a><a href="../work/">Selected work</a><a href="https://lachlan.lazying.art/">About Lachlan</a></footer>
 </body>
 </html>
 `.replace(/[ \t]+$/gm, '');

@@ -36,7 +36,7 @@ test('invited Studio access remains explicit and all homepage copy is localized'
     assert.ok(dictionary.app_lazyedit_desc?.length > 15, locale);
   }
   assert.match(dictionaries.en.app_lazyedit_desc, /Invitation and internet required/);
-  assert.match(home, /<script src="app-release-translations.js\?v=20261007-carousels"><\/script>/);
+  assert.match(home, /<script src="app-release-translations.js\?v=20261008-stores"><\/script>/);
   assert.match(home, /releaseDict\[key\]/);
   const item = catalog.items.find(item => item.id === 'lazyedit');
   assert.match(item.description, /invitation and internet connection are required/);

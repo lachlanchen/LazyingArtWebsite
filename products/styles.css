@@ -138,6 +138,12 @@ h1 em { color: var(--orange); }
 .directory-footer { display: flex; flex-wrap: wrap; gap: 18px 26px; border-top: 1px solid var(--line); padding: 28px 0; font-size: 11px; color: var(--muted); line-height: 1.6; }
 .directory-footer > span { margin-right: auto; }
 .directory-footer a { text-underline-offset: 4px; }
+.publisher-links { display: flex; align-items: center; flex-wrap: wrap; gap: 0.65rem 1rem; margin: 0 0 1.75rem; }
+.publisher-links > span { color: var(--muted); font-size: 0.9rem; }
+.publisher-links a { display: inline-flex; align-items: center; gap: 0.6rem; min-height: 44px; padding: 0.5rem 1rem; border: 1px solid var(--line); border-radius: 999px; color: var(--ink); background: #fff; font-size: 0.9rem; font-weight: 650; text-decoration: none; }
+.publisher-links a:hover { border-color: var(--orange); color: var(--orange); }
+.publisher-links a:focus-visible { outline: 2px solid var(--orange); outline-offset: 3px; }
+@media (max-width: 640px) { .publisher-links > span { flex-basis: 100%; } }
 .revealing { animation: reveal .6s ease-out both; }
 @keyframes float { 0%, 100% { translate: 0 0; } 50% { translate: 0 -7px; } }
 @keyframes turn { to { rotate: 360deg; } }

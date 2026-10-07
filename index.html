@@ -441,6 +441,15 @@
         .app-download-card h2 { font-size: 1.25rem; line-height: 1.4; }
         .app-download-card p { font-size: 1rem; line-height: 1.6; color: var(--text-muted); }
         html[dir="rtl"] .app-downloads > * { direction: rtl; text-align: right; }
+        .publisher-links { display: flex; align-items: center; flex-wrap: wrap; gap: 0.65rem 1rem; margin: 1.25rem 0; }
+        .publisher-links > span { color: var(--text-muted); font-size: 0.9rem; }
+        .publisher-links a { display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem; min-height: 44px; padding: 0.5rem 1rem; border: 1px solid var(--glass-border); border-radius: 999px; background: var(--control-bg); color: var(--light); font-size: 0.9rem; font-weight: 650; text-decoration: none; }
+        .publisher-links a:hover { border-color: var(--primary); color: var(--primary); }
+        .publisher-links a:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
+        @media (max-width: 640px) { .publisher-links > span { flex-basis: 100%; } }
+        .top-banner .publisher-links { justify-content: center; }
+        .publisher-footer-links { display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; margin-top: 0.8rem; }
+        .publisher-footer-links a { color: var(--text-muted); font-size: 0.875rem; text-underline-offset: 0.25em; padding-block: 0.5rem; }
         .app-download-links { display: flex; flex-wrap: wrap; gap: 0.65rem; margin-top: auto; }
         .app-download-links a {
             display: inline-flex;
@@ -2191,6 +2200,10 @@
                 </article>
             </div>
             </section>
+            <div class="publisher-links" role="group" aria-labelledby="all-apps-label">
+                <span id="all-apps-label" data-i18n="all_apps_label">All LazyingArt apps</span>
+                <a href="https://apps.apple.com/developer/lazyingart-llc/id1867662412" target="_blank" rel="noopener noreferrer">App Store <span aria-hidden="true">↗</span></a><a href="https://play.google.com/store/apps/collection/cluster?gsr=SmpqLDQ4ai9HUUs3N21RMXUya01GYTVITW1ZWm9ybkFoTTdEMnFNVi9ZYyt4T0E9sgI2ChkKFWFydC5sYXp5aW5nLmxhbmRuLnBybxAHEhcIARITNjE1NzU1NzY3OTY0NDQ5NjY4NhgAsBIA:S:ANO1ljKWPdo" target="_blank" rel="noopener noreferrer">Google Play <span aria-hidden="true">↗</span></a>
+            </div>
             <h1 class="top-banner-title" data-i18n="top_banner_title">以AI創新連結世界</h1>
             <p class="top-banner-subtitle" data-i18n="top_banner_subtitle">在LazyingArt，我們相信溝通應當簡單而自然。我們的AI打破藩籬，讓交流和創造像對話一樣輕鬆。</p>
             <div class="top-banner-actions">
@@ -2678,6 +2691,7 @@
                     <span class="logo-text">LazyingArt</span>
                 </div>
                 <p id="footerCopy" style="color: var(--text-soft);" data-i18n="footer_copyright">© 2024 LazyingArt LLC. All rights reserved.</p>
+                <div class="publisher-footer-links" role="group" aria-label="LazyingArt app stores"><a href="https://apps.apple.com/developer/lazyingart-llc/id1867662412" target="_blank" rel="noopener noreferrer">App Store <span aria-hidden="true">↗</span></a><a href="https://play.google.com/store/apps/developer?id=LazyingArt+LLC" target="_blank" rel="noopener noreferrer">Google Play <span aria-hidden="true">↗</span></a></div>
             </div>
             <div class="footer-links">
                 <a href="https://chat.lazying.art">EchoMind</a>
@@ -2696,7 +2710,7 @@
     </footer>
 
     <script src="service-translations.js?v=f0539b21e579"></script>
-    <script src="app-release-translations.js?v=20261007-carousels"></script>
+    <script src="app-release-translations.js?v=20261008-stores"></script>
     <script src="navigation.js?v=20261007-more"></script>
     <script src="echomind-link.js?v=20261007"></script>
     <script src="app-carousel.js" defer></script>
