@@ -40,7 +40,7 @@ for (const [language, dictionary] of Object.entries(translations)) {
     "stats_languages",
     "stats_active_users",
     "stats_ai_availability",
-    "glass_notice",
+    "app_lightmind_desc",
     "hero_flagship_p1",
     "hero_flagship_p2",
     "feat_voice_desc",

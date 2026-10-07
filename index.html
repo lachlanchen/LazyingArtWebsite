@@ -1784,7 +1784,7 @@
         .ecosystem-actions { margin-top: 1.75rem; display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap; }
         .link-icon { margin-left: 0.25rem; font-size: 0.9em; }
 
-        /* IdeasGlass Section */
+        /* GlassAgent / LightMind companion app */
         .babel {
             padding: var(--section-pad) 5%;
             position: relative;
@@ -1799,24 +1799,24 @@
             align-items: center;
         }
         .babel-visual .hero-card { min-height: 360px; }
-        .babel-list { color: var(--text-muted); line-height: 1.6; }
-        .badge-soon {
-            display: inline-block; margin-left: 0.5rem; padding: 0.2rem 0.6rem;
-            border-radius: 999px; font-size: 0.75rem; color: #fff;
-            background: linear-gradient(135deg, var(--secondary), var(--accent));
+        .babel-visual .product-preview { height: auto; min-height: 400px; padding: 2rem 1rem; }
+        .babel-visual .product-logo { flex-shrink: 0; }
+        .babel-visual .lang-tag { opacity: 1; }
+        .glassagent-app { --app-accent: #176b76; }
+        .glassagent-app-icon {
+            display: block; width: 112px; height: 112px; object-fit: cover;
+            border-radius: 25px; box-shadow: 0 12px 30px rgb(23 107 118 / 18%);
         }
-        .prototype-placeholder {
-            margin-top: 1rem;
-            border: 2px dashed var(--glass-border);
-            border-radius: 16px;
-            padding: 1.25rem;
-            background: var(--control-bg);
-        }
-        .prototype-actions { display: flex; gap: 0.75rem; margin-top: 0.75rem; }
-        .button-disabled {
-            padding: 0.8rem 1.4rem; border-radius: 50px; border: 2px solid var(--glass-border);
-            color: var(--text-soft); background: transparent; pointer-events: none; opacity: 0.6;
-        }
+        .glassagent-app .section-title { font-size: clamp(2rem, 3.6vw, 3rem); margin: 1.25rem 0 0.85rem; }
+        .glassagent-app .section-subtitle { margin: 0 0 1.5rem; max-width: 34rem; }
+        .glassagent-store-links { margin-top: 0; }
+        .glassagent-store-links a { gap: 0.7rem; padding: 0.8rem 1.2rem; text-align: start; }
+        .glassagent-store-links svg { width: 24px; height: 24px; flex-shrink: 0; }
+        .glassagent-store-links strong, .glassagent-store-links small { display: block; }
+        .glassagent-store-links strong { font-size: 1rem; }
+        .glassagent-store-links small { font-size: 0.75rem; font-weight: 400; }
+        .glassagent-site-link { display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1.3rem; color: var(--accent); font-weight: 650; text-underline-offset: 0.25em; }
+        .glassagent-site-link:focus-visible { outline: 2px solid var(--primary); outline-offset: 5px; border-radius: 4px; }
 
         .more-wrap { text-align: center; margin-top: 2rem; }
 
@@ -1938,7 +1938,7 @@
                 <a href="products/" data-i18n="nav_products">Products</a>
                 <a href="https://chat.lazying.art/" data-echomind-link>EchoMind</a>
                 <a href="https://onlyideas.art" target="_blank" rel="noopener noreferrer">OnlyIdeas</a>
-                <a href="https://lightmind.art/" target="_blank" rel="noopener noreferrer">LightMind <span aria-hidden="true">↗</span></a>
+                <a href="https://lightmind.art/" target="_blank" rel="noopener noreferrer">GlassAgent <span aria-hidden="true">↗</span></a>
                 <details class="nav-more" id="navMore">
                     <summary><span data-i18n="nav_more">More</span><svg width="12" height="12" viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
                     <ul class="nav-more-panel">
@@ -2329,56 +2329,46 @@
     </section>
 
 
-    <!-- IdeasGlass Section -->
-    <section class="babel" id="babelglass">
+    <!-- GlassAgent / LightMind app -->
+    <section class="babel" id="babelglass" aria-labelledby="glassagent-app-title">
         <div class="babel-container">
             <div class="babel-visual">
                 <div class="hero-card">
                     <div class="product-preview">
                         <div class="product-logo">👓</div>
-                        <h3 style="margin-bottom: 0.5rem;">IdeasGlass</h3>
+                        <h3 style="margin-bottom: 0.5rem;">GlassAgent</h3>
                         <div class="language-tags" style="margin-top: 0.5rem;">
                             <span class="lang-tag">🇺🇸 English</span>
-                            <span class="lang-tag">🇨🇳 中文</span>
+                            <span class="lang-tag">🇨🇳 简体中文</span>
                             <span class="lang-tag">🇯🇵 日本語</span>
-                            <span class="lang-tag">🇭🇰 粤语</span>
+                            <span class="lang-tag">🇭🇰 繁體中文</span>
                             <span class="lang-tag">🇰🇷 한국어</span>
                             <span class="lang-tag">🇸🇦 العربية</span>
-                            <span class="lang-tag">🇹🇷 Türkçe</span>
                             <span class="lang-tag">🇻🇳 Tiếng Việt</span>
                             <span class="lang-tag">🇫🇷 Français</span>
                             <span class="lang-tag">🇪🇸 Español</span>
-                            <span class="lang-tag">🇵🇹 Português</span>
                             <span class="lang-tag">🇷🇺 Русский</span>
                             <span class="lang-tag">🇩🇪 Deutsch</span>
                         </div>
                     </div>
                 </div>
             </div>
-            <div>
-                <span class="section-tag" data-i18n="hardware_tag">HARDWARE</span>
-                <h2 class="section-title"><span data-i18n="glass_title">Wear It, Speak Any Language</span><span class="badge-soon" data-i18n="glass_badge">Prototype</span></h2>
-                <p class="section-subtitle" style="margin-bottom: 1rem;" data-i18n="glass_subtitle">Real-time, hands-free translation with lens subtitles and natural speech output — built for global conversations</p>
-                <p class="section-subtitle" data-i18n="glass_notice">Prototype concept; the points below are design goals, not shipping features.</p>
-                <ul class="babel-list">
-                    <li data-i18n="glass_b1">Bidirectional, interruption-friendly translation with on-lens subtitles</li>
-                    <li data-i18n="glass_b2">Multi-microphone pickup, beamforming, and noise suppression</li>
-                    <li data-i18n="glass_b3">Cultural nuance support and industry terminology</li>
-                    <li data-i18n="glass_b4">Edge-first architecture with privacy-preserving design</li>
-                    <li data-i18n="glass_b5">Tap-to-charge with magnetic alignment and quick top-ups</li>
-                </ul>
-                <div class="prototype-placeholder">
-                    <strong data-i18n="glass_proto_title">Prototype Dock</strong>
-                    <p style="margin-top: 0.25rem; color: var(--text-muted);" data-i18n="glass_proto_desc">A live 3D model and demo video will appear here. The site runs normally without it.</p>
-                    <div class="prototype-actions">
-                        <button class="button-disabled" aria-disabled="true" title="Coming soon" data-i18n="glass_proto_view">View Prototype</button>
-                        <a href="mailto:contact@lazying.art" class="secondary-button" data-i18n="glass_proto_interest">Register Interest</a>
-                    </div>
+            <div class="glassagent-app">
+                <img class="glassagent-app-icon" src="/logos/apps/lightmind.jpg" width="112" height="112" alt="LightMind Agent app icon" loading="lazy">
+                <h2 class="section-title" id="glassagent-app-title">LightMind Agent</h2>
+                <p class="section-subtitle" data-i18n="app_lightmind_desc">Audio notes and reminders, with supported smart-glasses workflows. By LightMind Tech Limited.</p>
+                <div class="app-download-links glassagent-store-links" role="group" aria-labelledby="glassagent-app-title">
+                    <a href="https://apps.apple.com/us/app/lightmind-agent/id6794785684" target="_blank" rel="noopener noreferrer">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M10 5h4M11 19h2"/></svg>
+                        <span><strong>App Store</strong><small>iPhone · iPad</small></span>
+                    </a>
+                    <a href="https://play.google.com/store/apps/details?id=art.lightmind.mobile" target="_blank" rel="noopener noreferrer">
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.7 3.3a1.6 1.6 0 0 0-.7 1.3v14.8c0 .5.3 1 .7 1.3l8.5-8.7-8.5-8.7Zm9.6 7.6 2.4-2.5-8.9-5a2 2 0 0 0-1.2-.3l7.7 7.8Zm0 2.2-7.7 7.8c.4 0 .8-.1 1.2-.3l8.9-5-2.4-2.5Zm3.8-3.9-2.7 2.8 2.7 2.8 1.6-.9c1.2-.7 1.2-2.4 0-3.1l-1.6-.9Z"/></svg>
+                        <span><strong>Google Play</strong><small>Android</small></span>
+                    </a>
                 </div>
+                <a class="glassagent-site-link" href="https://lightmind.art/" target="_blank" rel="noopener noreferrer">lightmind.art <span aria-hidden="true">↗</span></a>
             </div>
-        </div>
-        <div class="more-wrap">
-            <a href="#features" class="secondary-button" data-i18n="btn_more">More →</a>
         </div>
     </section>
     <!-- Features Section -->
@@ -2827,19 +2817,6 @@
                 ecos_card_glass: 'IdeasGlass',
                 ecos_card_glass_desc: 'Hands-free translation glasses with on-lens subtitles and natural speech output.',
                 hardware_tag: 'HARDWARE',
-                glass_title: 'Wear It, Speak Any Language',
-                glass_badge: 'Prototype',
-                glass_subtitle: 'Real-time, hands-free translation with lens subtitles and natural speech output — built for global conversations',
-                glass_notice: 'Prototype concept; the points below are design goals, not shipping features.',
-                glass_b1: 'Bidirectional, interruption-friendly translation with on-lens subtitles',
-                glass_b2: 'Multi-microphone pickup, beamforming, and noise suppression',
-                glass_b3: 'Cultural nuance support and industry terminology',
-                glass_b4: 'Edge-first architecture with privacy-preserving design',
-                glass_b5: 'Tap-to-charge with magnetic alignment and quick top-ups',
-                glass_proto_title: 'Prototype Dock',
-                glass_proto_desc: 'A live 3D model and demo video will appear here. The site runs normally without it.',
-                glass_proto_view: 'View Prototype',
-                glass_proto_interest: 'Register Interest',
                 product_tag: 'FLAGSHIP PRODUCT',
                 product_title: 'Meet EchoMind: Where Language Barriers Dissolve',
                 product_p1: "EchoMind is a public-beta voice and text companion built from LazyingArt's multilingual chat, speech, memory, and language-enhancement work.",
@@ -3046,19 +3023,6 @@
                 ecos_card_glass: 'IdeasGlass',
                 ecos_card_glass_desc: 'レンズ上に字幕表示。自然な音声出力でハンズフリー会話。',
                 hardware_tag: 'ハードウェア',
-                glass_title: 'かけるだけで、どんな言語も',
-                glass_badge: 'プロトタイプ',
-                glass_subtitle: 'レンズ字幕と自然音声によるリアルタイム翻訳 — 世界中の会話に対応',
-                glass_notice: 'プロトタイプ構想です。以下は設計目標であり、出荷済み機能ではありません。',
-                glass_b1: '双方向・割り込みに強い翻訳とレンズ字幕',
-                glass_b2: '多マイク・ビームフォーミング・ノイズ抑制',
-                glass_b3: '文化的ニュアンスへの配慮と業界用語への対応',
-                glass_b4: 'プライバシー重視のエッジ処理設計',
-                glass_b5: 'タップで充電。マグネットで簡単アライン',
-                glass_proto_title: 'プロトタイプ・ドック',
-                glass_proto_desc: '将来的に3Dモデルやデモ動画を掲載予定。サイトは現在でも正常に動作します。',
-                glass_proto_view: 'プロトタイプを見る',
-                glass_proto_interest: '関心を登録する',
                 product_tag: 'フラッグシップ',
                 product_title: 'EchoMind — 言語の壁をとかす',
                 product_p1: 'EchoMindは、LazyingArtの多言語チャット、音声、メモリ、言語補助の取り組みをまとめた公開ベータ版の音声・テキストツールです。',
@@ -3250,19 +3214,6 @@
                 ecos_card_glass: 'IdeasGlass',
                 ecos_card_glass_desc: '镜片字幕与自然语音输出，实现真正免手持沟通。',
                 hardware_tag: '硬件',
-                glass_title: '戴上即可说任何语言',
-                glass_badge: '原型',
-                glass_subtitle: '镜片字幕 + 自然语音的实时翻译 — 为全球对话而生',
-                glass_notice: '原型概念；以下内容是设计目标，并非已交付功能。',
-                glass_b1: '双向翻译，支持打断与镜片字幕',
-                glass_b2: '多麦克风拾音、波束成形与降噪',
-                glass_b3: '文化语境支持与行业术语',
-                glass_b4: '以边缘为先的隐私保护架构',
-                glass_b5: '轻触即充，磁吸对位快充',
-                glass_proto_title: '原型区',
-                glass_proto_desc: '未来将展示3D模型与演示视频。当前不影响网站正常使用。',
-                glass_proto_view: '查看原型',
-                glass_proto_interest: '登记意向',
                 product_tag: '旗舰产品',
                 product_title: '遇见 EchoMind：消融语言壁垒',
                 product_p1: 'EchoMind 是公开测试中的语音与文字助手，整合了 LazyingArt 的多语言聊天、语音、记忆和语言增强工作。',
@@ -3457,19 +3408,6 @@
                 ecos_card_glass: 'IdeasGlass',
                 ecos_card_glass_desc: '鏡片字幕與自然語音輸出，實現真正免持溝通。',
                 hardware_tag: '硬體',
-                glass_title: '戴上即可說任何語言',
-                glass_badge: '原型',
-                glass_subtitle: '鏡片字幕＋自然語音的即時翻譯 — 為全球對話而生',
-                glass_notice: '原型概念；以下內容是設計目標，並非已交付功能。',
-                glass_b1: '雙向翻譯，支援打斷與鏡片字幕',
-                glass_b2: '多麥克風收音、波束成形與降噪',
-                glass_b3: '文化語境支援與產業術語',
-                glass_b4: '以邊緣為先的隱私保護架構',
-                glass_b5: '輕觸即充，磁吸對位快充',
-                glass_proto_title: '原型區',
-                glass_proto_desc: '未來將展示3D模型與示範影片。當前不影響網站正常使用。',
-                glass_proto_view: '檢視原型',
-                glass_proto_interest: '登記意向',
                 product_tag: '旗艦產品',
                 product_title: '遇見 EchoMind：消融語言藩籬',
                 product_p1: 'EchoMind 是公開測試中的語音與文字助手，整合了 LazyingArt 的多語言聊天、語音、記憶與語言增強工作。',
@@ -3664,19 +3602,6 @@
                 ecos_card_glass: 'IdeasGlass',
                 ecos_card_glass_desc: '렌즈 자막과 자연스러운 음성 출력으로 핸즈프리 대화.',
                 hardware_tag: '하드웨어',
-                glass_title: '쓰면, 어떤 언어도 말하다',
-                glass_badge: '프로토타입',
-                glass_subtitle: '렌즈 자막과 자연 음성으로 실시간 번역 — 전 세계 대화를 위해 설계',
-                glass_notice: '프로토타입 구상이며, 아래 항목은 출시된 기능이 아니라 설계 목표입니다.',
-                glass_b1: '양방향 번역과 렌즈 자막, 중간 끼어들기 지원',
-                glass_b2: '다중 마이크, 빔포밍, 노이즈 억제',
-                glass_b3: '문화적 뉘앙스와 산업 용어 지원',
-                glass_b4: '프라이버시 중심 엣지 아키텍처',
-                glass_b5: '탭-투-차지, 자기 정렬 고속 충전',
-                glass_proto_title: '프로토타입 도크',
-                glass_proto_desc: '3D 모델과 데모 영상이 여기에 추가될 예정입니다. 현재도 사이트는 정상 동작합니다.',
-                glass_proto_view: '프로토타입 보기',
-                glass_proto_interest: '관심 등록',
                 product_tag: '플래그십',
                 product_title: 'EchoMind: 언어의 장벽을 녹이다',
                 product_p1: 'EchoMind는 LazyingArt의 다국어 채팅, 음성, 메모리, 언어 보조 작업을 모은 공개 베타 음성·텍스트 도구입니다.',
@@ -3869,19 +3794,6 @@
                 ecos_card_glass: 'IdeasGlass',
                 ecos_card_glass_desc: 'نصوص على العدسة وخروج صوت طبيعي لمحادثة دون استخدام اليدين.',
                 hardware_tag: 'الأجهزة',
-                glass_title: 'ارتدِها وتحدث أي لغة',
-                glass_badge: 'نموذج أوّلي',
-                glass_subtitle: 'ترجمة فورية بنص على العدسة وصوت طبيعي — مع تركيز أولي على اليابان',
-                glass_notice: 'مفهوم لنموذج أولي؛ النقاط أدناه أهداف تصميم وليست ميزات متاحة في منتج مُسلَّم.',
-                glass_b1: 'ترجمة ثنائية الاتجاه تدعم المقاطعة مع نص على العدسة',
-                glass_b2: 'التقاط متعدد الميكروفونات وتشكيل الحزمة وتقليل الضجيج',
-                glass_b3: 'دعم اليابانية الشرفية ومصطلحات صناعية',
-                glass_b4: 'هيكلية خصوصية أولاً بمعالجة على الحافة',
-                glass_b5: 'شحن باللمس مع محاذاة مغناطيسية وشحن سريع',
-                glass_proto_title: 'منطقة النموذج',
-                glass_proto_desc: 'سيظهر هنا نموذج ثلاثي الأبعاد وفيديو تجريبي. يعمل الموقع طبيعياً بدونه.',
-                glass_proto_view: 'عرض النموذج',
-                glass_proto_interest: 'سجّل اهتمامك',
                 product_tag: 'المنتج الرائد',
                 product_title: 'تعرف على EchoMind: حيث تزول حواجز اللغة',
                 product_p1: 'EchoMind أداة صوت ونص في نسخة تجريبية عامة تجمع عمل LazyingArt في الدردشة متعددة اللغات والصوت والذاكرة والمساعدة اللغوية.',
@@ -4074,19 +3986,6 @@
                 ecos_card_glass: 'IdeasGlass',
                 ecos_card_glass_desc: 'Phụ đề trên kính và giọng nói tự nhiên, giao tiếp rảnh tay.',
                 hardware_tag: 'Phần cứng',
-                glass_title: 'Đeo lên và nói bất kỳ ngôn ngữ nào',
-                glass_badge: 'Nguyên mẫu',
-                glass_subtitle: 'Phiên dịch theo thời gian thực với phụ đề trên kính và giọng nói tự nhiên — tối ưu cho Nhật Bản',
-                glass_notice: 'Đây là ý tưởng nguyên mẫu; các mục dưới là mục tiêu thiết kế, chưa phải tính năng đang giao.',
-                glass_b1: 'Phiên dịch hai chiều, hỗ trợ chen ngang với phụ đề',
-                glass_b2: 'Nhiều mic, beamforming, khử ồn',
-                glass_b3: 'Hỗ trợ kính ngữ tiếng Nhật và thuật ngữ ngành',
-                glass_b4: 'Kiến trúc ưu tiên edge, bảo vệ quyền riêng tư',
-                glass_b5: 'Chạm để sạc, căn chỉnh từ tính, sạc nhanh',
-                glass_proto_title: 'Khu vực nguyên mẫu',
-                glass_proto_desc: 'Sẽ có mô hình 3D và video demo ở đây. Trang vẫn hoạt động bình thường.',
-                glass_proto_view: 'Xem nguyên mẫu',
-                glass_proto_interest: 'Đăng ký quan tâm',
                 product_tag: 'Sản phẩm chủ lực',
                 product_title: 'EchoMind: Xóa nhòa rào cản ngôn ngữ',
                 product_p1: 'EchoMind là công cụ giọng nói và văn bản beta công khai, kết hợp công việc của LazyingArt về trò chuyện đa ngôn ngữ, giọng nói, bộ nhớ và hỗ trợ ngôn ngữ.',
@@ -4279,19 +4178,6 @@
                 ecos_card_glass: 'IdeasGlass',
                 ecos_card_glass_desc: 'Sous-titres sur la lentille et sortie vocale naturelle.',
                 hardware_tag: 'MATÉRIEL',
-                glass_title: 'Portez-la et parlez toute langue',
-                glass_badge: 'Prototype',
-                glass_subtitle: 'Traduction en temps réel avec sous-titres sur la lentille — pensée pour des conversations partout dans le monde',
-                glass_notice: 'Concept de prototype : les points ci-dessous sont des objectifs de conception, pas des fonctions livrées.',
-                glass_b1: 'Traduction bidirectionnelle avec sous-titres',
-                glass_b2: 'Microphones multiples, beamforming, réduction de bruit',
-                glass_b3: 'Nuances culturelles et terminologie métier',
-                glass_b4: 'Architecture edge respectant la vie privée',
-                glass_b5: 'Tap-to-charge avec alignement magnétique',
-                glass_proto_title: 'Zone prototype',
-                glass_proto_desc: 'Un modèle 3D et une vidéo apparaîtront ici. Le site fonctionne sans.',
-                glass_proto_view: 'Voir le prototype',
-                glass_proto_interest: 'Manifester son intérêt',
                 product_tag: 'PRODUIT PHARE',
                 product_title: 'Découvrez EchoMind : la fin des barrières linguistiques',
                 product_p1: 'EchoMind est un outil vocal et textuel en bêta publique, issu des travaux de LazyingArt sur le dialogue multilingue, la voix, la mémoire et l’aide linguistique.',
@@ -4484,19 +4370,6 @@
                 ecos_card_glass: 'IdeasGlass',
                 ecos_card_glass_desc: 'Subtítulos en lente y salida de voz natural.',
                 hardware_tag: 'HARDWARE',
-                glass_title: 'Póntelas y habla cualquier idioma',
-                glass_badge: 'Prototipo',
-                glass_subtitle: 'Traducción en tiempo real con subtítulos — pensada para conversaciones globales',
-                glass_notice: 'Concepto de prototipo: los puntos siguientes son objetivos de diseño, no funciones entregadas.',
-                glass_b1: 'Traducción bidireccional con subtítulos',
-                glass_b2: 'Múltiples micrófonos, beamforming y reducción de ruido',
-                glass_b3: 'Matices culturales y términos del sector',
-                glass_b4: 'Arquitectura edge que respeta la privacidad',
-                glass_b5: 'Tap-to-charge con alineación magnética',
-                glass_proto_title: 'Zona de prototipo',
-                glass_proto_desc: 'Aquí aparecerá un modelo 3D y un video. El sitio funciona sin ello.',
-                glass_proto_view: 'Ver prototipo',
-                glass_proto_interest: 'Registrar interés',
                 product_tag: 'PRODUCTO INSIGNIA',
                 product_title: 'Conoce EchoMind: donde desaparecen las barreras del idioma',
                 product_p1: 'EchoMind es una herramienta de voz y texto en beta pública que reúne el trabajo de LazyingArt en chat multilingüe, voz, memoria y ayuda lingüística.',
@@ -4689,19 +4562,6 @@
                 ecos_card_glass: 'IdeasGlass',
                 ecos_card_glass_desc: 'Legendas na lente e saída de voz natural.',
                 hardware_tag: 'HARDWARE',
-                glass_title: 'Use e fale qualquer idioma',
-                glass_badge: 'Protótipo',
-                glass_subtitle: 'Tradução em tempo real com legendas — otimizado para o Japão',
-                glass_notice: 'Conceito de protótipo: os pontos abaixo são metas de design, não recursos entregues.',
-                glass_b1: 'Tradução bidirecional com legendas',
-                glass_b2: 'Múltiplos microfones, beamforming e redução de ruído',
-                glass_b3: 'Nuances culturais e termos do setor',
-                glass_b4: 'Arquitetura edge com respeito à privacidade',
-                glass_b5: 'Tap-to-charge com alinhamento magnético',
-                glass_proto_title: 'Área de protótipo',
-                glass_proto_desc: 'Modelo 3D e vídeo de demonstração em breve. O site funciona sem isso.',
-                glass_proto_view: 'Ver protótipo',
-                glass_proto_interest: 'Registrar interesse',
                 product_tag: 'PRODUTO PRINCIPAL',
                 product_title: 'Conheça o EchoMind: fim das barreiras linguísticas',
                 product_p1: 'EchoMind é uma ferramenta de voz e texto em beta pública que reúne o trabalho da LazyingArt em chat multilíngue, voz, memória e apoio linguístico.',
@@ -4894,19 +4754,6 @@
                 ecos_card_glass: 'IdeasGlass',
                 ecos_card_glass_desc: 'Untertitel in der Linse und natürliche Sprachausgabe.',
                 hardware_tag: 'HARDWARE',
-                glass_title: 'Aufsetzen und jede Sprache sprechen',
-                glass_badge: 'Prototyp',
-                glass_subtitle: 'Echtzeitübersetzung mit Linsenuntertiteln — für Gespräche weltweit',
-                glass_notice: 'Prototyp-Konzept: Die folgenden Punkte sind Entwicklungsziele, keine ausgelieferten Funktionen.',
-                glass_b1: 'Zweiwege-Übersetzung mit Untertiteln',
-                glass_b2: 'Mehrere Mikrofone, Beamforming, Rauschunterdrückung',
-                glass_b3: 'Kulturelle Nuancen und Fachtermini',
-                glass_b4: 'Edge-Architektur mit Datenschutz',
-                glass_b5: 'Tap-to-Charge mit magnetischer Ausrichtung',
-                glass_proto_title: 'Prototypbereich',
-                glass_proto_desc: 'Hier erscheint ein 3D-Modell und ein Demo-Video. Die Website funktioniert auch ohne.',
-                glass_proto_view: 'Prototyp ansehen',
-                glass_proto_interest: 'Interesse anmelden',
                 product_tag: 'FLAGGSCHIFF',
                 product_title: 'EchoMind: Wo Sprachbarrieren verschwinden',
                 product_p1: 'EchoMind ist ein öffentliches Beta-Werkzeug für Sprache und Text, das LazyingArts Arbeit an mehrsprachigem Chat, Sprache, Speicher und Sprachhilfen bündelt.',
@@ -5101,19 +4948,6 @@
                 ecos_card_glass: 'IdeasGlass',
                 ecos_card_glass_desc: 'Субтитры на линзе и естественный голос.',
                 hardware_tag: 'УСТРОЙСТВО',
-                glass_title: 'Надень — и говори на любом языке',
-                glass_badge: 'Прототип',
-                glass_subtitle: 'Перевод в реальном времени с субтитрами — для общения по всему миру',
-                glass_notice: 'Концепция прототипа: пункты ниже — цели проектирования, а не готовые функции.',
-                glass_b1: 'Двунаправленный перевод с субтитрами',
-                glass_b2: 'Несколько микрофонов, beamforming и шумоподавление',
-                glass_b3: 'Учёт культурных нюансов и отраслевой терминологии',
-                glass_b4: 'Edge-архитектура, сохраняющая приватность',
-                glass_b5: 'Tap-to-Charge с магнитным выравниванием',
-                glass_proto_title: 'Зона прототипа',
-                glass_proto_desc: 'Здесь появятся 3D‑модель и видео. Сайт работает и без них.',
-                glass_proto_view: 'Посмотреть прототип',
-                glass_proto_interest: 'Оставить интерес',
                 product_tag: 'ФЛАГМАН',
                 product_title: 'EchoMind: там, где исчезают языковые барьеры',
                 product_p1: 'EchoMind — публичная бета-версия голосового и текстового инструмента, объединяющая работу LazyingArt над многоязычным чатом, речью, памятью и языковыми подсказками.',
@@ -5306,19 +5140,6 @@
                 ecos_card_glass: 'IdeasGlass',
                 ecos_card_glass_desc: 'Lens üstü altyazılar ve doğal sesli çıkış.',
                 hardware_tag: 'DONANIM',
-                glass_title: 'Tak ve her dili konuş',
-                glass_badge: 'Prototip',
-                glass_subtitle: 'Gerçek zamanlı çeviri ve lens altyazıları — küresel konuşmalar için tasarlandı',
-                glass_notice: 'Prototip konsepti: aşağıdaki maddeler teslim edilmiş özellikler değil, tasarım hedefleridir.',
-                glass_b1: 'Altyazılı çift yönlü çeviri',
-                glass_b2: 'Çoklu mikrofon, beamforming ve gürültü azaltma',
-                glass_b3: 'Kültürel nüanslar ve sektör terimleri desteği',
-                glass_b4: 'Gizlilik dostu edge mimarisi',
-                glass_b5: 'Manyetik hizalama ile dokun-yükle',
-                glass_proto_title: 'Prototip Alanı',
-                glass_proto_desc: 'Burada 3D model ve demo video olacak. Site onsuz da çalışır.',
-                glass_proto_view: 'Prototipi Gör',
-                glass_proto_interest: 'İlgi Bildir',
                 product_tag: 'AMİRAL ÜRÜN',
                 product_title: 'EchoMind: Dil engelleri burada erir',
                 product_p1: 'EchoMind, LazyingArt’ın çok dilli sohbet, ses, bellek ve dil desteği çalışmalarını bir araya getiren açık beta ses ve metin aracıdır.',
