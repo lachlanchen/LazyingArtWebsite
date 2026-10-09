@@ -36,6 +36,7 @@
   "items": [
     {
       "id": "bunko",
+      "webApp": "https://lachlan.lazying.art/Bunko/",
       "storyUrl": "https://blog.lazying.art/html/books/3853/bunko-chinese-japanese-classics-pinyin-furigana.html",
       "group": "learn",
       "name": "Bunko · 文庫",
@@ -65,6 +66,7 @@
     },
     {
       "id": "lazyoracle",
+      "webApp": "https://oracle.lazying.art/",
       "storyUrl": "https://blog.lazying.art/html/computer_internet/3866/lazyoracle-cards-rules-before-ai-story.html",
       "group": "play",
       "name": "LazyOracle",
@@ -91,6 +93,7 @@
     },
     {
       "id": "landn",
+      "webApp": "https://l-and-n.lazying.art/",
       "storyUrl": "https://blog.lazying.art/html/computer_internet/3849/l-and-n-pronunciation-listening-practice.html",
       "group": "learn",
       "name": "L & N speech practice",
@@ -125,6 +128,7 @@
     },
     {
       "id": "echomind",
+      "webApp": "https://chat.lazying.art/",
       "group": "learn",
       "name": "EchoMind",
       "url": "https://blog.lazying.art/html/computer_internet/3867/echomind-language-help-in-conversation.html",
@@ -141,6 +145,7 @@
     },
     {
       "id": "aimemo",
+      "webApp": "https://aimemo.lazying.art/",
       "group": "build",
       "name": "AiMemo",
       "url": "https://blog.lazying.art/html/computer_internet/3862/aimemo-turn-a-thought-into-a-note.html",
@@ -156,6 +161,7 @@
     },
     {
       "id": "onlyideas",
+      "webApp": "https://agent.onlyideas.art/",
       "group": "research",
       "name": "OnlyIdeas",
       "url": "https://blog.lazying.art/html/computer_internet/3864/onlyideas-read-papers-equations-questions.html",
@@ -393,6 +399,7 @@
     },
     {
       "id": "musia-app",
+      "webApp": "https://musia.lazying.art/",
       "group": "learn",
       "name": "Musia: Learn Music & Guitar",
       "url": "https://musia.lazying.art/",
@@ -482,6 +489,8 @@
     },
     {
       "id": "shigame",
+      "webApp": "https://lachlan.lazying.art/ShiGame/",
+      "webPreview": true,
       "group": "play",
       "name": "SHI: The Shape of Power",
       "url": "https://lachlan.lazying.art/ShiGame/",
@@ -622,6 +631,8 @@
     },
     {
       "id": "clearpair-handf",
+      "webApp": "https://language-agent.lazying.art/handf/",
+      "webPreview": true,
       "group": "learn",
       "name": "ClearPair H & F",
       "url": "https://play.google.com/store/apps/details?id=art.lazying.clearpair.handf",
@@ -640,6 +651,8 @@
     },
     {
       "id": "clearpair-landr",
+      "webApp": "https://language-agent.lazying.art/landr/",
+      "webPreview": true,
       "group": "learn",
       "name": "ClearPair L & R",
       "url": "https://play.google.com/store/apps/details?id=art.lazying.clearpair.landr",
@@ -658,6 +671,8 @@
     },
     {
       "id": "clearpair-english",
+      "webApp": "https://language-agent.lazying.art/english/",
+      "webPreview": true,
       "group": "learn",
       "name": "ClearPair English",
       "url": "https://play.google.com/store/apps/details?id=art.lazying.clearpair.english",
@@ -676,6 +691,8 @@
     },
     {
       "id": "clearpair-chinese",
+      "webApp": "https://language-agent.lazying.art/chinese/",
+      "webPreview": true,
       "group": "learn",
       "name": "ClearPair Mandarin",
       "url": "https://play.google.com/store/apps/details?id=art.lazying.clearpair.chinese",
@@ -694,6 +711,8 @@
     },
     {
       "id": "clearpair-cantonese",
+      "webApp": "https://language-agent.lazying.art/cantonese/",
+      "webPreview": true,
       "group": "learn",
       "name": "ClearPair Cantonese",
       "url": "https://play.google.com/store/apps/details?id=art.lazying.clearpair.cantonese",
@@ -712,6 +731,8 @@
     },
     {
       "id": "clearpair-korean",
+      "webApp": "https://language-agent.lazying.art/korean/",
+      "webPreview": true,
       "group": "learn",
       "name": "ClearPair Korean",
       "url": "https://play.google.com/store/apps/details?id=art.lazying.clearpair.korean",
@@ -730,6 +751,8 @@
     },
     {
       "id": "clearpair-arabic",
+      "webApp": "https://language-agent.lazying.art/arabic/",
+      "webPreview": true,
       "group": "learn",
       "name": "ClearPair Arabic Letters",
       "url": "https://play.google.com/store/apps/details?id=art.lazying.clearpair.arabic",
@@ -748,6 +771,8 @@
     },
     {
       "id": "clearpair-japanese",
+      "webApp": "https://language-agent.lazying.art/japanese/",
+      "webPreview": true,
       "group": "learn",
       "name": "ClearPair Japanese",
       "url": "https://play.google.com/store/apps/details?id=art.lazying.clearpair.japanese",

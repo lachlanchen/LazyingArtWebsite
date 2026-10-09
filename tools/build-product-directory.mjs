@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
+import {openPageLinksInNewTabs} from './page-link-policy.mjs';
 
 const root = new URL('../', import.meta.url);
 const catalog = JSON.parse(fs.readFileSync(new URL('products/catalog.json', root), 'utf8'));
@@ -32,7 +33,7 @@ const storeLinks = (item) => item.storeLinks?.length ? `
         const store = stores[link.store];
         const label = store.name + (link.edition ? ` ${link.edition}` : '');
         return `<a class="store-button" data-store="${escape(link.store)}" href="${escape(link.url)}" aria-label="${escape(item.name)} on the ${escape(label)}">${store.icon}<span><strong>${escape(label)}</strong><small>${escape(link.device || store.device)}</small></span></a>`;
-      }).join('')}</div>` : '';
+      }).join('')}${item.webApp ? `<a class="store-button web-app-button" data-web-app href="${escape(item.webApp)}" aria-label="${escape(item.name)} ${item.webPreview ? 'web preview' : 'web app'}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18"/></svg><span><strong>${item.webPreview ? 'Web preview' : 'Web app'}</strong><small>Open in your browser</small></span></a>` : ''}</div>` : '';
 const canonical = 'https://lazying.art/products/';
 const description = 'Discover LazyingArt apps, multilingual books, learning resources, creative tools, and open-source projects. Try L & N, read a book, or explore a practical workflow.';
 const publisherLinks = '<a href="https://apps.apple.com/developer/lazyingart-llc/id1867662412" target="_blank" rel="noopener noreferrer">App Store <span aria-hidden="true">↗</span></a><a href="https://play.google.com/store/apps/developer?id=LazyingArt+LLC" target="_blank" rel="noopener noreferrer">Google Play <span aria-hidden="true">↗</span></a>';
@@ -40,6 +41,13 @@ assert.equal(new Set(catalog.items.map(item => item.id)).size, catalog.items.len
 for (const item of catalog.items) {
   assert.ok(catalog.groups.some(group => group.id === item.group));
   assert.equal(new URL(item.url).protocol, 'https:');
+  if (item.webApp) {
+    const web = new URL(item.webApp);
+    assert.equal(web.protocol, 'https:');
+    assert.ok(web.hostname.endsWith('.lazying.art') || web.hostname === 'agent.onlyideas.art');
+    assert.equal(web.username + web.password + web.port + web.search + web.hash, '');
+    assert.ok(item.storeLinks?.length, 'Web app buttons belong to the app collection');
+  }
   if (item.repository) assert.match(item.repository, /^https:\/\/github\.com\/(?:lachlanchen|lazyingart)\/[A-Za-z0-9_.-]+$/);
   if (item.storyUrl) {
     const story = new URL(item.storyUrl);
@@ -109,7 +117,7 @@ const card = item => {
   const design = appDesign[item.id];
   const spotlight = item.id === 'onlyideas';
   const group = catalog.groups.find(group => group.id === item.group);
-  const primaryLink = item.storeLinks?.some(link => link.url === item.url) ? '' : `<a href="${escape(item.url)}">${escape(item.action)} <span aria-hidden="true">↗</span></a>`;
+  const primaryLink = item.webApp === item.url || item.storeLinks?.some(link => link.url === item.url) ? '' : `<a href="${escape(item.url)}">${escape(item.action)} <span aria-hidden="true">↗</span></a>`;
   const secondaryLinks = `${primaryLink}${item.storyUrl ? `<a class="source-link" href="${escape(item.storyUrl)}">Read the story</a>` : ''}${item.repository ? `<a class="source-link" href="${escape(item.repository)}">Source: ${escape(item.repository.split('/').at(-1))}</a>` : ''}`;
   return `<article id="${escape(item.id)}" class="product-card ${design ? `app-card tone-${design[1]}` : 'project-card'}${spotlight ? ' spotlight' : ''}" data-product data-category="${escape(item.group)}"${design ? ' data-app' : ''}>
       <div class="card-content">
@@ -189,11 +197,12 @@ const discoveryUrls = [...new Set([canonical, 'https://lazying.art/games/', 'htt
 const discovery = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
   + discoveryUrls.map(url => `  <url><loc>${escape(url)}</loc></url>`).join('\n') + '\n</urlset>\n';
 const discoveryPath = new URL('discovery-sitemap.xml', root);
+const rendered = openPageLinksInNewTabs(html);
 if (process.argv.includes('--check')) {
-  assert.equal(fs.readFileSync(destination, 'utf8'), html, 'Run node tools/build-product-directory.mjs to regenerate the static page');
+  assert.equal(fs.readFileSync(destination, 'utf8'), rendered, 'Run node tools/build-product-directory.mjs to regenerate the static page');
   assert.equal(fs.readFileSync(discoveryPath, 'utf8'), discovery, 'Discovery sitemap must match the reviewed public catalogue');
 } else {
-  fs.writeFileSync(destination, html);
+  fs.writeFileSync(destination, rendered);
   fs.writeFileSync(discoveryPath, discovery);
 }
 console.log(`Product directory: ${catalog.items.length} reviewed entries`);

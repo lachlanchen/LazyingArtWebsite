@@ -16,7 +16,7 @@ for (const guide of guides) {
   assert.ok(html.includes(`href="${guide.url}"`), 'guides are crawlable without JavaScript');
 }
 assert.ok(catalog.items.length >= 30, 'the directory must cover the wider public portfolio');
-assert.ok(html.includes('href="https://platform.lazying.art/">Apps &amp; shop</a>'));
+assert.ok(html.includes('href="https://platform.lazying.art/" target="_blank" rel="noopener noreferrer">Apps &amp; shop</a>'));
 assert.ok(discovery.includes('<loc>https://platform.lazying.art/</loc>'));
 assert.equal(new Set(catalog.items.map(item => item.url)).size, catalog.items.length);
 assert.equal((html.match(/<h1[ >]/g) || []).length, 1);
@@ -112,7 +112,7 @@ for (const id of ['bunko', 'landn', 'lazyedit', 'lazyoracle']) {
   const item = catalog.items.find(item => item.id === id);
   assert.equal(new URL(item.storyUrl).origin, 'https://blog.lazying.art');
   const card = html.match(new RegExp(`<article id="${id}"[^>]*>([\\s\\S]*?)<\\/article>`))[1];
-  assert.ok(card.includes(`href="${item.storyUrl}">Read the story</a>`));
+  assert.ok(card.includes(`href="${item.storyUrl}" target="_blank" rel="noopener noreferrer">Read the story</a>`));
 }
 const styles = read('products/styles.css');
 const directoryScript = read('products/directory.js');

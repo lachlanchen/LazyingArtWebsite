@@ -15,7 +15,7 @@ function route(navigator) {
   return link;
 }
 test('EchoMind is a direct usable web link without JavaScript',() => {
-  assert.match(html,/<a href="https:\/\/chat.lazying.art\/" data-echomind-link>EchoMind<\/a>/);
+  assert.match(html,/<a href="https:\/\/chat.lazying.art\/" data-echomind-link target="_blank" rel="noopener noreferrer">EchoMind<\/a>/);
   assert.match(html,/<script src="echomind-link.js\?v=20261007"><\/script>/);
   assert.doesNotMatch(script,/window\.open|location\.|fetch\(|sendBeacon|localStorage|setTimeout/);
 });

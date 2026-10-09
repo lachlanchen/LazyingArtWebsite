@@ -6,7 +6,8 @@ const html = fs.readFileSync(new URL('../index.html', import.meta.url), 'utf8');
 const cards = [...html.matchAll(/<article class="app-download-card"[^>]*>([\s\S]*?)<\/article>/g)].map(m => m[1]);
 assert.equal(cards.length, 18);
 assert.ok(html.indexOf('id="app-downloads"') < html.indexOf('<aside class="beta-launch-card"'));
-const links = card => [...card.matchAll(/href="([^"]+)"/g)].map(m => m[1]);
+// Web destinations have their own contract; native store identities stay exact.
+const links = card => [...card.matchAll(/<a\b[^>]*href="([^"]+)"[^>]*>/g)].filter(m => !m[0].includes('data-web-app')).map(m => m[1]);
 assert.deepEqual(links(cards[0]), [
   'https://apps.apple.com/us/app/l-n-speech-practice/id6808872450',
   'https://apps.apple.com/us/app/l-n-speech-practice/id6808872450?platform=mac',

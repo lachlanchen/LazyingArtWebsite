@@ -86,6 +86,6 @@ for (const file of [
 }
 
 assert.match(homepage, /href="openhi-kit\.html" class="secondary-button"/);
-assert.match(homepage, /href="eink\/" class="secondary-button">View details/);
+assert.match(homepage, /href="eink\/" class="secondary-button" target="_blank" rel="noopener noreferrer">View details/);
 
 console.log("Homepage trust contract passed");
