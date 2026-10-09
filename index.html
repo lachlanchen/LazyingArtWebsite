@@ -1793,7 +1793,7 @@
         .ecosystem-actions { margin-top: 1.75rem; display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap; }
         .link-icon { margin-left: 0.25rem; font-size: 0.9em; }
 
-        /* GlassAgent / LightMind companion app */
+        /* GlassAgent vision and companion app downloads */
         .babel {
             padding: var(--section-pad) 5%;
             position: relative;
@@ -1811,13 +1811,18 @@
         .babel-visual .product-preview { height: auto; min-height: 400px; padding: 2rem 1rem; }
         .babel-visual .product-logo { flex-shrink: 0; }
         .babel-visual .lang-tag { opacity: 1; }
-        .glassagent-app { --app-accent: #176b76; }
-        .glassagent-app-icon {
-            display: block; width: 112px; height: 112px; object-fit: cover;
-            border-radius: 25px; box-shadow: 0 12px 30px rgb(23 107 118 / 18%);
-        }
-        .glassagent-app .section-title { font-size: clamp(2rem, 3.6vw, 3rem); margin: 1.25rem 0 0.85rem; }
-        .glassagent-app .section-subtitle { margin: 0 0 1.5rem; max-width: 34rem; }
+        .glassagent-vision { --app-accent: #176b76; min-width: 0; }
+        .glassagent-vision .section-title { font-size: clamp(2rem, 3.6vw, 3rem); margin: 1.25rem 0 0.85rem; }
+        .glassagent-vision .section-subtitle { margin: 0 0 1.25rem; max-width: 34rem; }
+        .babel-list { color: var(--text-muted); line-height: 1.6; padding-inline-start: 1.2rem; }
+        .babel-list li + li { margin-top: 0.35rem; }
+        .glassagent-companion { margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--glass-border); }
+        .glassagent-app-header { display: flex; align-items: center; gap: 1rem; }
+        .glassagent-app-header > div { min-width: 0; }
+        .glassagent-app-icon { width: 64px; height: 64px; object-fit: cover; flex-shrink: 0; border-radius: 15px; }
+        .glassagent-app-header h3 { margin: 0 0 0.35rem; font-size: 1.2rem; }
+        .glassagent-app-description { color: var(--text-muted); line-height: 1.5; font-size: 0.95rem; }
+        .glassagent-app-note { color: var(--text-muted); line-height: 1.6; margin: 1rem 0 0.75rem; font-size: 0.95rem; }
         .glassagent-store-links { margin-top: 0; }
         .glassagent-store-links a { gap: 0.7rem; padding: 0.8rem 1.2rem; text-align: start; }
         .glassagent-store-links svg { width: 24px; height: 24px; flex-shrink: 0; }
@@ -2342,8 +2347,8 @@
     </section>
 
 
-    <!-- GlassAgent / LightMind app -->
-    <section class="babel" id="babelglass" aria-labelledby="glassagent-app-title">
+    <!-- GlassAgent vision; the companion app is an early step, not the full hardware concept. -->
+    <section class="babel" id="babelglass" aria-labelledby="glassagent-title">
         <div class="babel-container">
             <div class="babel-visual">
                 <div class="hero-card">
@@ -2366,21 +2371,38 @@
                     </div>
                 </div>
             </div>
-            <div class="glassagent-app">
-                <img class="glassagent-app-icon" src="/logos/apps/lightmind.jpg" width="112" height="112" alt="LightMind Agent app icon" loading="lazy">
-                <h2 class="section-title" id="glassagent-app-title">LightMind Agent</h2>
-                <p class="section-subtitle" data-i18n="app_lightmind_desc">Audio notes and reminders, with supported smart-glasses workflows. By LightMind Tech Limited.</p>
-                <div class="app-download-links glassagent-store-links" role="group" aria-labelledby="glassagent-app-title">
-                    <a href="https://apps.apple.com/us/app/lightmind-agent/id6794785684" target="_blank" rel="noopener noreferrer">
+            <div class="glassagent-vision">
+                <span class="section-tag" data-i18n="glass_vision_tag">THE GLASSAGENT VISION</span>
+                <h2 class="section-title" id="glassagent-title" data-i18n="glass_title">Wear It, Speak Any Language</h2>
+                <p class="section-subtitle" data-i18n="glass_subtitle">Real-time, hands-free translation with lens subtitles and natural speech output — built for global conversations</p>
+                <ul class="babel-list">
+                    <li data-i18n="glass_b1">Bidirectional, interruption-friendly translation with on-lens subtitles</li>
+                    <li data-i18n="glass_b2">Multi-microphone pickup, beamforming, and noise suppression</li>
+                    <li data-i18n="glass_b3">Cultural nuance support and industry terminology</li>
+                    <li data-i18n="glass_b4">Edge-first architecture with privacy-preserving design</li>
+                    <li data-i18n="glass_b5">Tap-to-charge with magnetic alignment and quick top-ups</li>
+                </ul>
+                <div class="glassagent-companion">
+                    <div class="glassagent-app-header">
+                        <img class="glassagent-app-icon" src="/logos/apps/lightmind.jpg" width="64" height="64" alt="" loading="lazy">
+                        <div>
+                            <h3 id="glassagent-app-title">LightMind Agent</h3>
+                            <p class="glassagent-app-description" data-i18n="app_lightmind_desc">Audio notes and reminders, with supported smart-glasses workflows. By LightMind Tech Limited.</p>
+                        </div>
+                    </div>
+                    <p class="glassagent-app-note" id="glassagent-app-note" data-i18n="glass_app_note">The app is an early step toward this vision.</p>
+                <div class="app-download-links glassagent-store-links" role="group" aria-label="Companion app downloads" aria-describedby="glassagent-app-note">
+                    <a href="https://apps.apple.com/us/app/lightmind-agent/id6794785684" target="_blank" rel="noopener noreferrer" aria-label="LightMind Agent on the App Store">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M10 5h4M11 19h2"/></svg>
                         <span><strong>App Store</strong><small>iPhone · iPad</small></span>
                     </a>
-                    <a href="https://play.google.com/store/apps/details?id=art.lightmind.mobile" target="_blank" rel="noopener noreferrer">
+                    <a href="https://play.google.com/store/apps/details?id=art.lightmind.mobile" target="_blank" rel="noopener noreferrer" aria-label="LightMind Agent on Google Play">
                         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.7 3.3a1.6 1.6 0 0 0-.7 1.3v14.8c0 .5.3 1 .7 1.3l8.5-8.7-8.5-8.7Zm9.6 7.6 2.4-2.5-8.9-5a2 2 0 0 0-1.2-.3l7.7 7.8Zm0 2.2-7.7 7.8c.4 0 .8-.1 1.2-.3l8.9-5-2.4-2.5Zm3.8-3.9-2.7 2.8 2.7 2.8 1.6-.9c1.2-.7 1.2-2.4 0-3.1l-1.6-.9Z"/></svg>
                         <span><strong>Google Play</strong><small>Android</small></span>
                     </a>
                 </div>
                 <a class="glassagent-site-link" href="https://lightmind.art/" target="_blank" rel="noopener noreferrer">lightmind.art <span aria-hidden="true">↗</span></a>
+                </div>
             </div>
         </div>
     </section>
@@ -2830,6 +2852,15 @@
                 ecos_card_platform_desc: 'Privacy-first software layer for profiles, terminology, and integrations across devices.',
                 ecos_card_glass: 'IdeasGlass',
                 ecos_card_glass_desc: 'Hands-free translation glasses with on-lens subtitles and natural speech output.',
+                glass_title: "Wear It, Speak Any Language",
+                glass_subtitle: "Real-time, hands-free translation with lens subtitles and natural speech output — built for global conversations",
+                glass_b1: "Bidirectional, interruption-friendly translation with on-lens subtitles",
+                glass_b2: "Multi-microphone pickup, beamforming, and noise suppression",
+                glass_b3: "Cultural nuance support and industry terminology",
+                glass_b4: "Edge-first architecture with privacy-preserving design",
+                glass_b5: "Tap-to-charge with magnetic alignment and quick top-ups",
+                glass_vision_tag: "THE GLASSAGENT VISION",
+                glass_app_note: "The app is an early step toward this vision.",
                 hardware_tag: 'HARDWARE',
                 product_tag: 'FLAGSHIP PRODUCT',
                 product_title: 'Meet EchoMind: Where Language Barriers Dissolve',
@@ -3036,6 +3067,15 @@
                 ecos_card_platform_desc: 'プロフィール・用語・連携を担うプライバシー重視のソフト基盤。',
                 ecos_card_glass: 'IdeasGlass',
                 ecos_card_glass_desc: 'レンズ上に字幕表示。自然な音声出力でハンズフリー会話。',
+                glass_title: "かけるだけで、どんな言語も",
+                glass_subtitle: "レンズ字幕と自然音声によるリアルタイム翻訳 — 世界中の会話に対応",
+                glass_b1: "双方向・割り込みに強い翻訳とレンズ字幕",
+                glass_b2: "多マイク・ビームフォーミング・ノイズ抑制",
+                glass_b3: "文化的ニュアンスへの配慮と業界用語への対応",
+                glass_b4: "プライバシー重視のエッジ処理設計",
+                glass_b5: "タップで充電。マグネットで簡単アライン",
+                glass_vision_tag: "GlassAgent のビジョン",
+                glass_app_note: "このアプリは、そのビジョンに向けた最初の一歩です。",
                 hardware_tag: 'ハードウェア',
                 product_tag: 'フラッグシップ',
                 product_title: 'EchoMind — 言語の壁をとかす',
@@ -3227,6 +3267,15 @@
                 ecos_card_platform_desc: '以隐私为先的账户、术语与集成管理。',
                 ecos_card_glass: 'IdeasGlass',
                 ecos_card_glass_desc: '镜片字幕与自然语音输出，实现真正免手持沟通。',
+                glass_title: "戴上即可说任何语言",
+                glass_subtitle: "镜片字幕 + 自然语音的实时翻译 — 为全球对话而生",
+                glass_b1: "双向翻译，支持打断与镜片字幕",
+                glass_b2: "多麦克风拾音、波束成形与降噪",
+                glass_b3: "文化语境支持与行业术语",
+                glass_b4: "以边缘为先的隐私保护架构",
+                glass_b5: "轻触即充，磁吸对位快充",
+                glass_vision_tag: "GlassAgent 愿景",
+                glass_app_note: "这款应用是迈向这一愿景的初步尝试。",
                 hardware_tag: '硬件',
                 product_tag: '旗舰产品',
                 product_title: '遇见 EchoMind：消融语言壁垒',
@@ -3421,6 +3470,15 @@
                 ecos_card_platform_desc: '以隱私為先的帳戶、術語與整合管理。',
                 ecos_card_glass: 'IdeasGlass',
                 ecos_card_glass_desc: '鏡片字幕與自然語音輸出，實現真正免持溝通。',
+                glass_title: "戴上即可說任何語言",
+                glass_subtitle: "鏡片字幕＋自然語音的即時翻譯 — 為全球對話而生",
+                glass_b1: "雙向翻譯，支援打斷與鏡片字幕",
+                glass_b2: "多麥克風收音、波束成形與降噪",
+                glass_b3: "文化語境支援與產業術語",
+                glass_b4: "以邊緣為先的隱私保護架構",
+                glass_b5: "輕觸即充，磁吸對位快充",
+                glass_vision_tag: "GlassAgent 願景",
+                glass_app_note: "這款應用是邁向這一願景的初步嘗試。",
                 hardware_tag: '硬體',
                 product_tag: '旗艦產品',
                 product_title: '遇見 EchoMind：消融語言藩籬',
@@ -3615,6 +3673,15 @@
                 ecos_card_platform_desc: '프로필·용어·연동을 담당하는 프라이버시 중심 소프트웨어.',
                 ecos_card_glass: 'IdeasGlass',
                 ecos_card_glass_desc: '렌즈 자막과 자연스러운 음성 출력으로 핸즈프리 대화.',
+                glass_title: "쓰면, 어떤 언어도 말하다",
+                glass_subtitle: "렌즈 자막과 자연 음성으로 실시간 번역 — 전 세계 대화를 위해 설계",
+                glass_b1: "양방향 번역과 렌즈 자막, 중간 끼어들기 지원",
+                glass_b2: "다중 마이크, 빔포밍, 노이즈 억제",
+                glass_b3: "문화적 뉘앙스와 산업 용어 지원",
+                glass_b4: "프라이버시 중심 엣지 아키텍처",
+                glass_b5: "탭-투-차지, 자기 정렬 고속 충전",
+                glass_vision_tag: "GlassAgent의 비전",
+                glass_app_note: "이 앱은 그 비전을 향한 첫걸음입니다.",
                 hardware_tag: '하드웨어',
                 product_tag: '플래그십',
                 product_title: 'EchoMind: 언어의 장벽을 녹이다',
@@ -3807,6 +3874,15 @@
                 ecos_card_platform_desc: 'طبقة برمجية تركز على الخصوصية للحسابات والمصطلحات والتكاملات.',
                 ecos_card_glass: 'IdeasGlass',
                 ecos_card_glass_desc: 'نصوص على العدسة وخروج صوت طبيعي لمحادثة دون استخدام اليدين.',
+                glass_title: "ارتدِها وتحدث أي لغة",
+                glass_subtitle: "ترجمة فورية بنص على العدسة وصوت طبيعي — مع تركيز أولي على اليابان",
+                glass_b1: "ترجمة ثنائية الاتجاه تدعم المقاطعة مع نص على العدسة",
+                glass_b2: "التقاط متعدد الميكروفونات وتشكيل الحزمة وتقليل الضجيج",
+                glass_b3: "دعم اليابانية الشرفية ومصطلحات صناعية",
+                glass_b4: "هيكلية خصوصية أولاً بمعالجة على الحافة",
+                glass_b5: "شحن باللمس مع محاذاة مغناطيسية وشحن سريع",
+                glass_vision_tag: "رؤية GlassAgent",
+                glass_app_note: "التطبيق خطوة أولى نحو هذه الرؤية.",
                 hardware_tag: 'الأجهزة',
                 product_tag: 'المنتج الرائد',
                 product_title: 'تعرف على EchoMind: حيث تزول حواجز اللغة',
@@ -3999,6 +4075,15 @@
                 ecos_card_platform_desc: 'Lớp phần mềm ưu tiên quyền riêng tư.',
                 ecos_card_glass: 'IdeasGlass',
                 ecos_card_glass_desc: 'Phụ đề trên kính và giọng nói tự nhiên, giao tiếp rảnh tay.',
+                glass_title: "Đeo lên và nói bất kỳ ngôn ngữ nào",
+                glass_subtitle: "Phiên dịch theo thời gian thực với phụ đề trên kính và giọng nói tự nhiên — tối ưu cho Nhật Bản",
+                glass_b1: "Phiên dịch hai chiều, hỗ trợ chen ngang với phụ đề",
+                glass_b2: "Nhiều mic, beamforming, khử ồn",
+                glass_b3: "Hỗ trợ kính ngữ tiếng Nhật và thuật ngữ ngành",
+                glass_b4: "Kiến trúc ưu tiên edge, bảo vệ quyền riêng tư",
+                glass_b5: "Chạm để sạc, căn chỉnh từ tính, sạc nhanh",
+                glass_vision_tag: "TẦM NHÌN GLASSAGENT",
+                glass_app_note: "Ứng dụng là bước đầu hướng tới tầm nhìn này.",
                 hardware_tag: 'Phần cứng',
                 product_tag: 'Sản phẩm chủ lực',
                 product_title: 'EchoMind: Xóa nhòa rào cản ngôn ngữ',
@@ -4191,6 +4276,15 @@
                 ecos_card_platform_desc: 'Couche logicielle axée sur la confidentialité.',
                 ecos_card_glass: 'IdeasGlass',
                 ecos_card_glass_desc: 'Sous-titres sur la lentille et sortie vocale naturelle.',
+                glass_title: "Portez-la et parlez toute langue",
+                glass_subtitle: "Traduction en temps réel avec sous-titres sur la lentille — pensée pour des conversations partout dans le monde",
+                glass_b1: "Traduction bidirectionnelle avec sous-titres",
+                glass_b2: "Microphones multiples, beamforming, réduction de bruit",
+                glass_b3: "Nuances culturelles et terminologie métier",
+                glass_b4: "Architecture edge respectant la vie privée",
+                glass_b5: "Tap-to-charge avec alignement magnétique",
+                glass_vision_tag: "LA VISION GLASSAGENT",
+                glass_app_note: "Cette application est un premier pas vers cette vision.",
                 hardware_tag: 'MATÉRIEL',
                 product_tag: 'PRODUIT PHARE',
                 product_title: 'Découvrez EchoMind : la fin des barrières linguistiques',
@@ -4383,6 +4477,15 @@
                 ecos_card_platform_desc: 'Capa de software centrada en la privacidad.',
                 ecos_card_glass: 'IdeasGlass',
                 ecos_card_glass_desc: 'Subtítulos en lente y salida de voz natural.',
+                glass_title: "Póntelas y habla cualquier idioma",
+                glass_subtitle: "Traducción en tiempo real con subtítulos — pensada para conversaciones globales",
+                glass_b1: "Traducción bidireccional con subtítulos",
+                glass_b2: "Múltiples micrófonos, beamforming y reducción de ruido",
+                glass_b3: "Matices culturales y términos del sector",
+                glass_b4: "Arquitectura edge que respeta la privacidad",
+                glass_b5: "Tap-to-charge con alineación magnética",
+                glass_vision_tag: "LA VISIÓN DE GLASSAGENT",
+                glass_app_note: "La aplicación es un primer paso hacia esta visión.",
                 hardware_tag: 'HARDWARE',
                 product_tag: 'PRODUCTO INSIGNIA',
                 product_title: 'Conoce EchoMind: donde desaparecen las barreras del idioma',
@@ -4575,6 +4678,15 @@
                 ecos_card_platform_desc: 'Camada de software com foco em privacidade.',
                 ecos_card_glass: 'IdeasGlass',
                 ecos_card_glass_desc: 'Legendas na lente e saída de voz natural.',
+                glass_title: "Use e fale qualquer idioma",
+                glass_subtitle: "Tradução em tempo real com legendas — otimizado para o Japão",
+                glass_b1: "Tradução bidirecional com legendas",
+                glass_b2: "Múltiplos microfones, beamforming e redução de ruído",
+                glass_b3: "Nuances culturais e termos do setor",
+                glass_b4: "Arquitetura edge com respeito à privacidade",
+                glass_b5: "Tap-to-charge com alinhamento magnético",
+                glass_vision_tag: "A VISÃO DO GLASSAGENT",
+                glass_app_note: "O aplicativo é um primeiro passo em direção a essa visão.",
                 hardware_tag: 'HARDWARE',
                 product_tag: 'PRODUTO PRINCIPAL',
                 product_title: 'Conheça o EchoMind: fim das barreiras linguísticas',
@@ -4767,6 +4879,15 @@
                 ecos_card_platform_desc: 'Softwareebene mit Fokus auf Privatsphäre.',
                 ecos_card_glass: 'IdeasGlass',
                 ecos_card_glass_desc: 'Untertitel in der Linse und natürliche Sprachausgabe.',
+                glass_title: "Aufsetzen und jede Sprache sprechen",
+                glass_subtitle: "Echtzeitübersetzung mit Linsenuntertiteln — für Gespräche weltweit",
+                glass_b1: "Zweiwege-Übersetzung mit Untertiteln",
+                glass_b2: "Mehrere Mikrofone, Beamforming, Rauschunterdrückung",
+                glass_b3: "Kulturelle Nuancen und Fachtermini",
+                glass_b4: "Edge-Architektur mit Datenschutz",
+                glass_b5: "Tap-to-Charge mit magnetischer Ausrichtung",
+                glass_vision_tag: "DIE GLASSAGENT-VISION",
+                glass_app_note: "Die App ist ein erster Schritt in Richtung dieser Vision.",
                 hardware_tag: 'HARDWARE',
                 product_tag: 'FLAGGSCHIFF',
                 product_title: 'EchoMind: Wo Sprachbarrieren verschwinden',
@@ -4961,6 +5082,15 @@
                 ecos_card_platform_desc: 'Программный уровень с приоритетом приватности.',
                 ecos_card_glass: 'IdeasGlass',
                 ecos_card_glass_desc: 'Субтитры на линзе и естественный голос.',
+                glass_title: "Надень — и говори на любом языке",
+                glass_subtitle: "Перевод в реальном времени с субтитрами — для общения по всему миру",
+                glass_b1: "Двунаправленный перевод с субтитрами",
+                glass_b2: "Несколько микрофонов, beamforming и шумоподавление",
+                glass_b3: "Учёт культурных нюансов и отраслевой терминологии",
+                glass_b4: "Edge-архитектура, сохраняющая приватность",
+                glass_b5: "Tap-to-Charge с магнитным выравниванием",
+                glass_vision_tag: "ВИДЕНИЕ GLASSAGENT",
+                glass_app_note: "Приложение — первый шаг к воплощению этой идеи.",
                 hardware_tag: 'УСТРОЙСТВО',
                 product_tag: 'ФЛАГМАН',
                 product_title: 'EchoMind: там, где исчезают языковые барьеры',
@@ -5153,6 +5283,15 @@
                 ecos_card_platform_desc: 'Gizlilik odaklı yazılım katmanı.',
                 ecos_card_glass: 'IdeasGlass',
                 ecos_card_glass_desc: 'Lens üstü altyazılar ve doğal sesli çıkış.',
+                glass_title: "Tak ve her dili konuş",
+                glass_subtitle: "Gerçek zamanlı çeviri ve lens altyazıları — küresel konuşmalar için tasarlandı",
+                glass_b1: "Altyazılı çift yönlü çeviri",
+                glass_b2: "Çoklu mikrofon, beamforming ve gürültü azaltma",
+                glass_b3: "Kültürel nüanslar ve sektör terimleri desteği",
+                glass_b4: "Gizlilik dostu edge mimarisi",
+                glass_b5: "Manyetik hizalama ile dokun-yükle",
+                glass_vision_tag: "GLASSAGENT VİZYONU",
+                glass_app_note: "Uygulama, bu vizyona doğru atılan ilk adımdır.",
                 hardware_tag: 'DONANIM',
                 product_tag: 'AMİRAL ÜRÜN',
                 product_title: 'EchoMind: Dil engelleri burada erir',
