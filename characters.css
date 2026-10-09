@@ -1,0 +1,49 @@
+/* First-party character artwork. No extra carousel or full storefront here. */
+.character-section { position: relative; z-index: 2; padding: 1rem 5% 2.5rem; }
+.character-panel {
+  max-width: 1400px; margin: auto; padding: clamp(1.25rem, 3vw, 2.75rem);
+  display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.5fr);
+  align-items: center; gap: clamp(1.5rem, 3vw, 3rem);
+  background: linear-gradient(125deg, #e2f8f5, #edf5ff 55%, #fcebf2);
+  border: 1px solid #cde7e7; border-radius: 28px; box-shadow: 0 12px 40px var(--glow);
+}
+.character-intro, .character-artwork { min-width: 0; }
+.character-eyebrow { display: block; color: #12655d; font-size: .7rem; letter-spacing: .12em; font-weight: 750; margin-bottom: .8rem; }
+.character-intro h2 { font-size: clamp(1.8rem, 3vw, 2.65rem); line-height: 1.12; letter-spacing: -.045em; text-wrap: balance; }
+.character-intro p { margin: 1rem 0 1.4rem; color: var(--text-muted); font-size: 1rem; line-height: 1.7; }
+.character-cta { display: inline-flex; align-items: center; gap: .8rem; padding: .8rem 1.15rem; border-radius: 14px; background: #116b60; color: #fff; font-weight: 700; text-decoration: none; line-height: 1.4; }
+.character-intro .character-note { font-size: .8rem; line-height: 1.6; margin-bottom: 0; }
+.character-banners { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .8rem; }
+.character-banners a { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: .55rem; overflow: hidden; background: #fff; color: #20394c; text-decoration: none; border: 1px solid #d4e4ec; border-radius: 16px; }
+.character-banners img { display: block; grid-column: 1 / -1; width: 100%; height: auto; aspect-ratio: 15 / 8; object-fit: contain; }
+.character-banners span { font-size: .8rem; font-weight: 650; padding: 0 .85rem .7rem; }
+.character-banners span[aria-hidden] { padding-inline-start: 0; }
+.character-stickers { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .65rem; margin-top: 1rem; }
+.character-stickers a { min-width: 0; display: flex; flex-direction: column; align-items: center; gap: .3rem; padding: .4rem .4rem .65rem; border-radius: 16px; border: 1px solid #d4e4ec; background: #fff; text-decoration: none; color: #20394c; }
+.character-stickers img { display: block; width: 100%; height: auto; aspect-ratio: 1; object-fit: contain; border-radius: 10px; }
+.character-stickers span { font-size: .8rem; font-weight: 700; }
+.character-motion { display: flex; align-items: center; gap: .45rem; margin-top: .6rem; margin-inline-start: auto; padding: .4rem .7rem; min-height: 36px; border: 1px solid transparent; border-radius: 10px; background: transparent; color: var(--text-muted); font: inherit; font-size: .75rem; cursor: pointer; }
+.character-motion[hidden] { display: none; }
+.character-motion:hover { background: var(--glass); border-color: var(--control-border); }
+.character-panel a, .character-motion { transition: transform .2s ease, box-shadow .2s ease; }
+.character-panel a:hover { transform: translateY(-2px); box-shadow: 0 7px 20px #184a601a; }
+.character-panel :is(a, button):focus-visible { outline: 3px solid var(--primary); outline-offset: 4px; }
+body[data-theme="dark"] .character-panel { background: linear-gradient(125deg, #113733, #142c47 55%, #362039); border-color: #305557; }
+body[data-theme="dark"] .character-eyebrow { color: #97e1d0; }
+@media (max-width: 900px) {
+  .character-panel { grid-template-columns: 1fr; }
+  .character-intro { max-width: 42rem; }
+  .character-intro h2 { max-width: 22ch; }
+}
+@media (max-width: 480px) {
+  .character-panel { padding: 1.1rem; border-radius: 22px; gap: 1.25rem; }
+  .character-banners { gap: .55rem; }
+  .character-banners span { padding: 0 .55rem .6rem; font-size: .72rem; }
+  .character-stickers { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .65rem; }
+  .character-intro h2 { font-size: 1.85rem; }
+  .character-intro p { font-size: .95rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .character-panel a, .character-motion { transition: none; }
+  .character-panel a:hover { transform: none; }
+}
