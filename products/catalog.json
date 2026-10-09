@@ -414,6 +414,7 @@
     },
     {
       "id": "lazyedit",
+      "webApp": "https://edit.lazying.art/login",
       "storyUrl": "https://blog.lazying.art/html/computer_internet/3857/app-demo-subtitles-lazyedit-workflow.html",
       "group": "create",
       "name": "LazyEdit Studio",

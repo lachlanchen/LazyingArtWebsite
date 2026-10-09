@@ -9,7 +9,7 @@ const home = read('index.html');
 const products = read('products/index.html');
 const apps = JSON.parse(read('products/catalog.json')).items.filter(item => item.webApp);
 test('every reviewed web app has a static button on the homepage and product card', () => {
-  assert.equal(apps.length, 16);
+  assert.equal(apps.length, 17);
   for (const item of apps) {
     const id = ({'shigame':'shi','lazyoracle':'oracle','musia-app':'musia'})[item.id] || item.id;
     const homeCard = item.id === 'echomind'
@@ -23,7 +23,13 @@ test('every reviewed web app has a static button on the homepage and product car
       assert.match(webLinks[0][0], /target="_blank" rel="noopener noreferrer"/);
     }
     assert.ok(item.webApp.startsWith('https://'));
-    assert.ok(!/backend|\/admin|edit\.lazying\.art/.test(item.webApp));
+    assert.ok(!/backend|\/admin/.test(item.webApp));
+    if (item.id === 'lazyedit') {
+      assert.equal(item.webApp, 'https://edit.lazying.art/login');
+      assert.match(item.description, /invitation and internet connection are required/);
+    } else {
+      assert.notEqual(new URL(item.webApp).hostname, 'edit.lazying.art');
+    }
     if (item.id.startsWith('clearpair-') || item.id === 'shigame') {
       assert.equal(item.webPreview, true);
       assert.ok(homeCard.includes('Web preview'));
