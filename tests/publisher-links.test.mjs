@@ -4,7 +4,6 @@ import {readFileSync} from 'node:fs';
 import vm from 'node:vm';
 
 const root = new URL('../', import.meta.url);
-const grid = 'https://play.google.com/store/apps/collection/cluster?gsr=SmpqLDQ4ai9HUUs3N21RMXUya01GYTVITW1ZWm9ybkFoTTdEMnFNVi9ZYyt4T0E9sgI2ChkKFWFydC5sYXp5aW5nLmxhbmRuLnBybxAHEhcIARITNjE1NzU1NzY3OTY0NDQ5NjY4NhgAsBIA:S:ANO1ljKWPdo';
 const urls = [
   'https://apps.apple.com/developer/lazyingart-llc/id1867662412',
   'https://play.google.com/store/apps/developer?id=LazyingArt+LLC',
@@ -16,17 +15,15 @@ for (const file of ['index.html', 'products/index.html']) {
     const footer = html.match(/<footer\b[\s\S]*?<\/footer>/)[0];
     for (const url of urls) {
       const anchors = [...html.matchAll(/<a\b[^>]*>/g)].map(m => m[0]).filter(tag => tag.includes(`href="${url}"`));
-      assert.equal(anchors.length, url === urls[0] ? 2 : 1);
+      assert.equal(anchors.length, 2);
       for (const tag of anchors) {
         assert.match(tag, /target="_blank"/);
         assert.match(tag, /rel="noopener noreferrer"/);
       }
-      assert.ok(row.includes(url === urls[0] ? url : grid));
+      assert.ok(row.includes(url));
       assert.ok(footer.includes(url));
     }
-    assert.ok(!row.includes(urls[1]), 'App browsing uses the grid; footer uses the developer page');
-    const gridTag = [...row.matchAll(/<a\b[^>]*>/g)].map(m => m[0]).find(tag => tag.includes(grid));
-    assert.match(gridTag, /target="_blank" rel="noopener noreferrer"/);
+    assert.ok(!html.includes('/store/apps/collection/'), 'Use the stable developer page, not an opaque collection URL');
     assert.match(row, /All LazyingArt apps/);
   });
 }

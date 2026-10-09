@@ -36,7 +36,6 @@ const storeLinks = (item) => item.storeLinks?.length ? `
 const canonical = 'https://lazying.art/products/';
 const description = 'Discover LazyingArt apps, multilingual books, learning resources, creative tools, and open-source projects. Try L & N, read a book, or explore a practical workflow.';
 const publisherLinks = '<a href="https://apps.apple.com/developer/lazyingart-llc/id1867662412" target="_blank" rel="noopener noreferrer">App Store <span aria-hidden="true">↗</span></a><a href="https://play.google.com/store/apps/developer?id=LazyingArt+LLC" target="_blank" rel="noopener noreferrer">Google Play <span aria-hidden="true">↗</span></a>';
-const publisherGridLinks = publisherLinks.replace('https://play.google.com/store/apps/developer?id=LazyingArt+LLC', 'https://play.google.com/store/apps/collection/cluster?gsr=SmpqLDQ4ai9HUUs3N21RMXUya01GYTVITW1ZWm9ybkFoTTdEMnFNVi9ZYyt4T0E9sgI2ChkKFWFydC5sYXp5aW5nLmxhbmRuLnBybxAHEhcIARITNjE1NzU1NzY3OTY0NDQ5NjY4NhgAsBIA:S:ANO1ljKWPdo');
 assert.equal(new Set(catalog.items.map(item => item.id)).size, catalog.items.length);
 for (const item of catalog.items) {
   assert.ok(catalog.groups.some(group => group.id === item.group));
@@ -169,7 +168,7 @@ const html = `<!doctype html>
       <p class="result-status" role="status" aria-live="polite" aria-atomic="true"></p>
     </div>
     <div class="empty-state" hidden><span aria-hidden="true">✳</span><h2>Not in the collection. Yet.</h2><p>Try a different word, or have a look around.</p><button class="button primary" type="button" data-reset>Show everything</button></div>
-    <section class="work-section apps-section" id="apps" data-section aria-labelledby="apps-title"><div class="work-heading"><div><p class="eyebrow">Ready when you are</p><h2 id="apps-title">Small apps.<br><em>Possibilities, everywhere.</em></h2></div><p>A few minutes to read, practise, create or play. Pick something that feels like you.</p></div><div class="publisher-links" role="group" aria-label="LazyingArt app stores"><span>All LazyingArt apps</span>${publisherGridLinks}</div><div class="work-grid app-grid">${apps.map(card).join('\n')}</div></section>
+    <section class="work-section apps-section" id="apps" data-section aria-labelledby="apps-title"><div class="work-heading"><div><p class="eyebrow">Ready when you are</p><h2 id="apps-title">Small apps.<br><em>Possibilities, everywhere.</em></h2></div><p>A few minutes to read, practise, create or play. Pick something that feels like you.</p></div><div class="publisher-links" role="group" aria-label="LazyingArt app stores"><span>All LazyingArt apps</span>${publisherLinks}</div><div class="work-grid app-grid">${apps.map(card).join('\n')}</div></section>
     ${sections}
     <section class="work-section" id="guides" data-section aria-labelledby="guides-title">
       <div class="work-heading"><h2 id="guides-title">A useful place to start</h2><p>Working through a specific problem? These guides share the checks, trade-offs, and code behind the projects.</p></div>
