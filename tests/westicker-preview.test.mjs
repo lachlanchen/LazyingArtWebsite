@@ -1,0 +1,22 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync,existsSync} from 'node:fs';
+import vm from 'node:vm';
+const read=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8');
+test('WeSticker is discoverable as a project, never an invented store release',()=>{
+ const item=JSON.parse(read('products/catalog.json')).items.find(x=>x.id==='westicker');
+ assert.equal(item.url,'https://github.com/lachlanchen/WeSticker');
+ assert.equal(item.storeLinks,undefined);
+ assert.equal(item.webApp,undefined);
+ assert.match(item.kind,/local prototype/);
+ const card=read('products/index.html').match(/<article id="westicker"[\s\S]*?<\/article>/)[0];
+ assert.match(card,/Not yet a public service/);
+ assert.doesNotMatch(card,/data-app|store-button|checkout/);
+ assert.ok(existsSync(new URL('../logos/apps/'+item.icon,import.meta.url)));
+ const home=read('index.html');
+ assert.match(home,/id="westicker-preview"/);
+ assert.match(home,/href="products\/#westicker"/);
+ const context={window:{}};
+ vm.runInNewContext(read('app-release-translations.js'),context);
+ for(const dict of Object.values(context.window.appReleaseTranslations))assert.ok(dict.westicker_preview?.trim());
+});

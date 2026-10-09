@@ -41,6 +41,10 @@ assert.equal(new Set(catalog.items.map(item => item.id)).size, catalog.items.len
 for (const item of catalog.items) {
   assert.ok(catalog.groups.some(group => group.id === item.group));
   assert.equal(new URL(item.url).protocol, 'https:');
+  if (item.icon) {
+    assert.match(item.icon, /^[a-z0-9-]+\.(png|jpg|webp)$/);
+    assert.ok(fs.existsSync(new URL(`logos/apps/${item.icon}`, root)));
+  }
   if (item.webApp) {
     const web = new URL(item.webApp);
     assert.equal(web.protocol, 'https:');
@@ -117,11 +121,12 @@ const card = item => {
   const design = appDesign[item.id];
   const spotlight = item.id === 'onlyideas';
   const group = catalog.groups.find(group => group.id === item.group);
+  const projectMark = item.icon ? `<img class="app-icon" src="../logos/apps/${escape(item.icon)}" alt="" width="80" height="80" loading="lazy">` : `<span class="project-mark" aria-hidden="true">${escape(item.name.slice(0, 1))}</span>`;
   const primaryLink = item.webApp === item.url || item.storeLinks?.some(link => link.url === item.url) ? '' : `<a href="${escape(item.url)}">${escape(item.action)} <span aria-hidden="true">↗</span></a>`;
   const secondaryLinks = `${primaryLink}${item.storyUrl ? `<a class="source-link" href="${escape(item.storyUrl)}">Read the story</a>` : ''}${item.repository ? `<a class="source-link" href="${escape(item.repository)}">Source: ${escape(item.repository.split('/').at(-1))}</a>` : ''}`;
   return `<article id="${escape(item.id)}" class="product-card ${design ? `app-card tone-${design[1]}` : 'project-card'}${spotlight ? ' spotlight' : ''}" data-product data-category="${escape(item.group)}"${design ? ' data-app' : ''}>
       <div class="card-content">
-        <div class="card-top">${design ? `<img class="app-icon" src="../logos/apps/${design[0]}" alt="" width="80" height="80" loading="lazy">` : `<span class="project-mark" aria-hidden="true">${escape(item.name.slice(0, 1))}</span>`}<span class="card-label">${design ? (item.id === 'lightmind-agent' ? 'Companion brand' : 'LazyingArt app') : escape(group.name)}</span><span class="card-spark" aria-hidden="true">↗</span></div>
+        <div class="card-top">${design ? `<img class="app-icon" src="../logos/apps/${design[0]}" alt="" width="80" height="80" loading="lazy">` : projectMark}<span class="card-label">${design ? (item.id === 'lightmind-agent' ? 'Companion brand' : 'LazyingArt app') : escape(group.name)}</span><span class="card-spark" aria-hidden="true">↗</span></div>
         ${design ? `<p class="card-tagline">${escape(design[2])}</p>` : ''}
         <h3>${escape(item.name)}</h3>
         <p class="work-kind">${escape(item.kind)}</p>

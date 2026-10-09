@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-05",
+  "updated": "2026-10-10",
   "title": "LazyingArt products, books and open-source tools",
   "groups": [
     {
@@ -431,6 +431,17 @@
           "device": "Android · US$0.99"
         }
       ]
+    },
+    {
+      "id": "westicker",
+      "group": "create",
+      "name": "WeSticker",
+      "url": "https://github.com/lachlanchen/WeSticker",
+      "icon": "westicker.png",
+      "kind": "In development · local prototype",
+      "description": "A personal sticker studio for keeping one character consistent across everyday expressions. Explore the local prototype for character references, editable captions and sticker exports. Not yet a public service or an App Store / Google Play release.",
+      "action": "Explore the project",
+      "featured": false
     },
     {
       "id": "localvideo",
