@@ -43,7 +43,7 @@
       "url": "https://lachlan.lazying.art/Bunko/",
       "repository": "https://github.com/lachlanchen/Bunko",
       "kind": "iPhone · iPad · Android · Mac · Apple Watch",
-      "description": "Read classics with furigana, pinyin and aligned language layers. Download books for offline reading, or send an excerpt from iPhone to Apple Watch with ruby readings and sentence-by-sentence translations.",
+      "description": "Read classics with furigana, pinyin and line-by-line translations. Download books and optional dictionary packs for offline reading, then select a word to look it up. Send an excerpt from iPhone to Apple Watch with ruby readings and sentence-by-sentence translations; text and ruby sizes adjust separately.",
       "action": "Open the reader",
       "storeLinks": [
         {
@@ -405,7 +405,7 @@
       "url": "https://musia.lazying.art/",
       "repository": "https://github.com/lachlanchen/Musia",
       "kind": "Android · US$2.99",
-      "description": "Slow down a musical phrase without changing pitch, loop a passage, follow timed lyrics and guitar chord shapes, or tap along to a steady pulse. Practice history stays on your device. The iPhone and Mac editions are awaiting review.",
+      "description": "Loop a phrase and slow it down without changing pitch. Follow multilingual lyrics with Chinese pinyin or Japanese furigana, practise guitar chords, or train your ear with Do Re Mi listening quizzes and a 40–160 BPM metronome. Practice history stays on your device. Android 0.1.2 is available; iPhone and Mac editions are awaiting review.",
       "action": "Explore music practice",
       "storeLinks": [
         {"store": "google-play", "url": "https://play.google.com/store/apps/details?id=art.lazying.musia", "device": "Android · US$2.99"}
