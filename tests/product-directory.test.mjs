@@ -33,7 +33,7 @@ assert.doesNotMatch(html, forbidden);
 assert.doesNotMatch(discovery, forbidden);
 for(const [,loc] of discovery.matchAll(/<loc>([^<]+)<\/loc>/g)) {
   const url = new URL(loc);
-  assert.ok(url.hostname === 'lazying.art' || url.hostname.endsWith('.lazying.art') || url.hostname === 'ideas.onlyideas.art');
+  assert.ok(url.hostname === 'lazying.art' || url.hostname.endsWith('.lazying.art') || ['ideas.onlyideas.art', 'westory.onlyideas.art'].includes(url.hostname));
   assert.ok(url.hostname !== 'game.lazying.art', 'submit the stable games introduction, not the redirecting app root');
 }
 assert.match(discovery, /https:\/\/l-and-n\.lazying\.art\//);
@@ -53,7 +53,8 @@ assert.match(bunkoCard, /href="https:\/\/apps\.apple\.com\/us\/app\/bunko-classi
 assert.match(bunkoCard, /<small>iPhone · iPad · Watch<\/small>/);
 assert.match(bunkoCard, /<strong>Mac App Store<\/strong>/);
 assert.equal(catalog.items.find(item => item.id === 'lazyoracle').url, 'https://oracle.lazying.art/');
-assert.equal(catalog.items.find(item => item.id === 'auspice').kind, 'Companion app preview');
+assert.equal(catalog.items.find(item => item.id === 'auspice'), undefined);
+assert.doesNotMatch(html + discovery, /auspice/i);
 const landn = catalog.items.find(item => item.id === 'landn');
 assert.deepEqual(landn.storeLinks, [
   {store: 'app-store', url: 'https://apps.apple.com/app/l-n-speech-practice/id6808872450', device: 'iPhone · iPad · Watch'},
@@ -124,7 +125,7 @@ assert.match(html, /data-motion-toggle[^>]*hidden/);
 assert.match(html, /type="search" id="product-search"/);
 assert.match(html, /role="status" aria-live="polite"/);
 assert.equal((html.match(/data-product\b/g) || []).length, catalog.items.length);
-assert.equal((html.match(/data-app>/g) || []).length, 18);
+assert.equal((html.match(/data-app>/g) || []).length, 20);
 assert.equal((html.match(/data-guide\b/g) || []).length, guides.length);
 assert.ok(html.indexOf('id="apps"') < html.indexOf('id="learn"'), 'Downloadable apps appear before the wider portfolio');
 assert.ok(html.indexOf('id="onlyideas"') < html.indexOf('id="bunko"'), 'OnlyIdeas gets the first app spotlight');

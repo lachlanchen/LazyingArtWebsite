@@ -1,0 +1,42 @@
+{
+  "verifiedOn": "2026-10-10",
+  "scope": "Public website app collection; no native release or account changes",
+  "apps": [
+    {
+      "id": "westory",
+      "name": "WeStory",
+      "url": "https://westory.onlyideas.art/",
+      "status": "web-beta",
+      "publicGetStatus": 200,
+      "publicTitle": "WeStory · A world we make together",
+      "access": "Adults; reader account, room invitation and separate contribution/creation permissions",
+      "storeLinks": [],
+      "iconUrl": "https://westory.onlyideas.art/icon-192.png",
+      "localIcon": "logos/apps/westory.png",
+      "iconSha256": "a05956961ac6549add43bf3bf8087fc6da5fb81977447f08495ebb14d7844973"
+    },
+    {
+      "id": "lazyingart-coin",
+      "name": "LazyingArt Coin",
+      "url": "https://coin.lazying.art/",
+      "status": "public-web-app",
+      "publicGetStatus": 200,
+      "publicTitle": "LazyArtCoin",
+      "access": "Public wallet-lookup interface; account views require authentication",
+      "storeLinks": [],
+      "iconUrl": "https://coin.lazying.art/icons/icon-192.png",
+      "localIcon": "logos/apps/lazyingart-coin.png",
+      "iconSha256": "8a3e0146a5e2e624a96a72c4cae66fc90c02446bf47c4b380f178be01b9e4fc6"
+    }
+  ],
+  "hiddenByOwnerRequest": ["auspice"],
+  "validation": {
+    "homepageLanguages": 13,
+    "browserWidths": [390, 1440],
+    "browserLocales": ["en", "zh-Hans", "ar"],
+    "appsFilterAndSearch": "passed",
+    "horizontalPageOverflow": false,
+    "javascriptErrors": 0,
+    "iconBytesMatchPublicAssets": true
+  }
+}

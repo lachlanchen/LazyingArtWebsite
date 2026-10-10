@@ -28,8 +28,8 @@ const stores = {
     icon: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M4.7 3.3a1.6 1.6 0 0 0-.7 1.3v14.8c0 .5.3 1 .7 1.3l8.5-8.7-8.5-8.7Zm9.6 7.6 2.4-2.5-8.9-5a2 2 0 0 0-1.2-.3l7.7 7.8Zm0 2.2-7.7 7.8c.4 0 .8-.1 1.2-.3l8.9-5-2.4-2.5Zm3.8-3.9-2.7 2.8 2.7 2.8 1.6-.9c1.2-.7 1.2-2.4 0-3.1l-1.6-.9Z"></path></svg>'
   }
 };
-const storeLinks = (item) => item.storeLinks?.length ? `
-      <div class="store-links" role="group" aria-label="${escape(item.name)} app downloads">${item.storeLinks.map(link => {
+const storeLinks = (item) => item.storeLinks?.length || item.webApp ? `
+      <div class="store-links" role="group" aria-label="${escape(item.name)} app downloads">${(item.storeLinks || []).map(link => {
         const store = stores[link.store];
         const label = store.name + (link.edition ? ` ${link.edition}` : '');
         return `<a class="store-button" data-store="${escape(link.store)}" href="${escape(link.url)}" aria-label="${escape(item.name)} on the ${escape(label)}">${store.icon}<span><strong>${escape(label)}</strong><small>${escape(link.device || store.device)}</small></span></a>`;
@@ -48,9 +48,8 @@ for (const item of catalog.items) {
   if (item.webApp) {
     const web = new URL(item.webApp);
     assert.equal(web.protocol, 'https:');
-    assert.ok(web.hostname.endsWith('.lazying.art') || web.hostname === 'agent.onlyideas.art');
+    assert.ok(web.hostname.endsWith('.lazying.art') || ['agent.onlyideas.art', 'westory.onlyideas.art'].includes(web.hostname));
     assert.equal(web.username + web.password + web.port + web.search + web.hash, '');
-    assert.ok(item.storeLinks?.length, 'Web app buttons belong to the app collection');
   }
   if (item.repository) assert.match(item.repository, /^https:\/\/github\.com\/(?:lachlanchen|lazyingart)\/[A-Za-z0-9_.-]+$/);
   if (item.storyUrl) {
@@ -108,12 +107,14 @@ const appDesign = {
   'clearpair-cantonese': ['clearpair-cantonese.webp', 'lavender', 'Listen a little closer.'],
   'clearpair-korean': ['clearpair-korean.webp', 'peach', 'Get to know Hangul.'],
   'clearpair-arabic': ['clearpair-arabic.webp', 'mint', 'A dot can make a difference.'],
-  'clearpair-japanese': ['clearpair-japanese.webp', 'pink', 'One kana. One sound.']
+  'clearpair-japanese': ['clearpair-japanese.webp', 'pink', 'One kana. One sound.'],
+  westory: ['westory.png', 'blue', 'A world we make together.'],
+  'lazyingart-coin': ['lazyingart-coin.png', 'lavender', 'Your community companion.']
 };
 const categoryLabels = {learn: 'Learn', build: 'Build', create: 'Create', play: 'Play', research: 'Research', about: 'About'};
 const apps = Object.keys(appDesign).map(id => {
   const item = catalog.items.find(item => item.id === id);
-  assert.ok(item?.storeLinks?.length, `App spotlight requires a verified store: ${id}`);
+  assert.ok(item?.storeLinks?.length || item?.webApp, `App spotlight requires a verified store or public web app: ${id}`);
   assert.ok(fs.existsSync(new URL(`logos/apps/${appDesign[id][0].split('?')[0]}`, root)));
   return item;
 });
@@ -197,7 +198,7 @@ const destination = new URL('products/index.html', root);
 // Google cross-site submission requires ownership of every included site.
 // Both LazyingArt and OnlyIdeas domain properties were verified on 2026-09-21.
 const discoveryUrls = [...new Set([canonical, 'https://lazying.art/games/', 'https://platform.lazying.art/', ...catalog.items
-  .filter(item => item.id !== 'games' && (new URL(item.url).hostname === 'lazying.art' || new URL(item.url).hostname.endsWith('.lazying.art') || new URL(item.url).hostname === 'ideas.onlyideas.art'))
+  .filter(item => item.id !== 'games' && (new URL(item.url).hostname === 'lazying.art' || new URL(item.url).hostname.endsWith('.lazying.art') || ['ideas.onlyideas.art', 'westory.onlyideas.art'].includes(new URL(item.url).hostname)))
   .map(item => { const url = new URL(item.url); url.hash = ''; return url.href; })])];
 const discovery = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
   + discoveryUrls.map(url => `  <url><loc>${escape(url)}</loc></url>`).join('\n') + '\n</urlset>\n';

@@ -6,7 +6,8 @@ const root = new URL('../', import.meta.url);
 const data = JSON.parse(fs.readFileSync(new URL('legacy-redirects.json', root), 'utf8'));
 execFileSync('node', [new URL('tools/build-legacy-redirects.mjs', root).pathname, '--check']);
 const source = fs.readFileSync(new URL('legacy-post-redirect.js', root), 'utf8');
-assert.doesNotMatch(fs.readFileSync(new URL('index.html', root), 'utf8'), /href="https:\/\/coin\.lazying\.art/);
+// Coin is now an explicitly requested web-app card, never a legacy redirect target.
+assert.doesNotMatch(JSON.stringify(data), /coin\.lazying\.art/);
 for (const [query, expected] of [['?p=2883', data.postIds['2883']], ['?p=999999', null], ['?p=__proto__', null], ['?p=2883&p=3117', null], ['?redirect=https://evil.example', null], ['', null]]) {
   let destination = null;
   vm.runInNewContext(source, { URLSearchParams, window: { location: { pathname: '/', search: query, replace: (url) => { destination = url; } } } });

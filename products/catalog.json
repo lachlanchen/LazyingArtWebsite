@@ -81,14 +81,25 @@
       ]
     },
     {
-      "id": "auspice",
-      "group": "play",
-      "name": "Auspice · 宜时",
-      "url": "https://auspice.lazying.art/",
-      "repository": "https://github.com/lachlanchen/LazyOracle",
-      "kind": "Companion app preview",
-      "description": "Explore the classic-interface companion to LazyOracle, with a traditional almanac, tarot, I Ching, and BaZi tools for reflection. Mobile builds are currently in testing.",
-      "action": "Read the introduction",
+      "id": "westory",
+      "group": "create",
+      "name": "WeStory",
+      "url": "https://westory.onlyideas.art/",
+      "webApp": "https://westory.onlyideas.art/",
+      "kind": "Web beta · community fiction",
+      "description": "Join a shared story room, read together and bring an idea to the conversation. An AI editor helps develop the fiction. For adults; a reader account and room invitation are required. Contributing and creating rooms need separate permission.",
+      "action": "Open WeStory",
+      "featured": false
+    },
+    {
+      "id": "lazyingart-coin",
+      "group": "about",
+      "name": "LazyingArt Coin",
+      "url": "https://coin.lazying.art/",
+      "webApp": "https://coin.lazying.art/",
+      "kind": "Web app · LAC community companion",
+      "description": "Look up LAC balances by public Ethereum address and explore the LazyingArt community. A browser companion for LAC and the connected apps.",
+      "action": "Open LazyingArt Coin",
       "featured": false
     },
     {

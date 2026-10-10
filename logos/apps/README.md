@@ -16,3 +16,10 @@ October 7, 2026. It is the unchanged 192×192 transparent PNG from Musia's
 rounded master in `apps/shared/brand/` (source commit `0516cc6`). A versioned
 image URL refreshes previously cached artwork. This branding update does not
 change store availability; see [the release evidence](../../docs/musia-release-2026-10-05.md).
+
+`westory.png` and `lazyingart-coin.png` are unchanged 192×192 public-web app
+icons, added October 10, 2026. WeStory uses its approved woven-ribbon artwork
+from [its public web app](https://westory.onlyideas.art/icon-192.png); Coin uses
+[its public web icon](https://coin.lazying.art/icons/icon-192.png). Both match
+the live HTTPS assets. These entries link to web apps only, not unapproved
+native releases; see [the verification record](../../docs/web-apps-2026-10-10.json).

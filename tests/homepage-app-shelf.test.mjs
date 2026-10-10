@@ -9,7 +9,7 @@ test('top app launcher reuses the official app icons and existing download secti
   const shelf = html.match(/<nav class="app-shelf"[^>]*>([\s\S]*?)<\/nav>/)[1];
   const anchors = [...shelf.matchAll(/<a href="#([^"]+)"><img src="([^"]+)"[^>]*alt=""><span>([^<]+)<\/span><\/a>/g)];
   const released = JSON.parse(readFileSync(new URL('docs/google-app-releases-20261007.json', root), 'utf8')).apps;
-  assert.deepEqual(anchors.map(m => m[1]), ['landn-download-title', 'bunko-download-title', 'onlyideas-download-title', 'aimemo-download-title', 'shi-download-title', 'oracle-download-title', 'musia-download-title', 'beta-launch-title', ...released.map(app => app.id + '-download-title'), 'microquant-title']);
+  assert.deepEqual(anchors.map(m => m[1]), ['landn-download-title', 'bunko-download-title', 'onlyideas-download-title', 'aimemo-download-title', 'shi-download-title', 'oracle-download-title', 'musia-download-title', 'beta-launch-title', ...released.map(app => app.id + '-download-title'), 'microquant-title', 'westory-download-title', 'lazyingart-coin-download-title']);
   assert.deepEqual(anchors.slice(0,8).map(m => m[3]), ['L &amp; N', 'Bunko', 'OnlyIdeas', 'AiMemo', 'SHI', 'LazyOracle', 'Musia', 'EchoMind']);
   for (const [, anchor, src] of anchors) {
     assert.ok(html.includes(`id="${anchor}"`));

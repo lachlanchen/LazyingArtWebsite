@@ -430,6 +430,8 @@
         .app-download-card[data-app="clearpair-landr"], .app-download-card[data-app="clearpair-english"] { --app-accent: #465ea9; --app-wash: #e2eaff; }
         .app-download-card[data-app="clearpair-korean"], .app-download-card[data-app="clearpair-japanese"] { --app-accent: #a74a68; --app-wash: #ffe1e9; }
         .app-download-card[data-app="lazyedit"] { --app-accent: #864b9c; --app-wash: #f0dfff; }
+        .app-download-card[data-app="westory"] { --app-accent: #3e50b5; --app-wash: #e3e9ff; }
+        .app-download-card[data-app="lazyingart-coin"] { --app-accent: #7050ac; --app-wash: #eee3ff; }
         .app-downloads > .beta-launch-card { --app-accent: #0060cd; --app-wash: #d9eeff; }
         body[data-theme="dark"] .app-downloads > * { --app-wash: color-mix(in srgb, var(--app-accent) 35%, #141429); }
         .app-card-icon {
@@ -2018,6 +2020,8 @@
             <a href="#clearpair-japanese-download-title"><img src="/logos/apps/clearpair-japanese.webp" width="80" height="80" alt=""><span>CP Japanese</span></a>
             <a href="#lazyedit-download-title"><img src="/logos/apps/lazyedit.webp" width="80" height="80" alt=""><span>LazyEdit Studio</span></a>
             <a href="#microquant-title"><img src="/logos/apps/microquant.png" width="80" height="80" alt=""><span>MicroQuant</span></a>
+            <a href="#westory-download-title"><img src="/logos/apps/westory.png" width="80" height="80" alt=""><span>WeStory</span></a>
+            <a href="#lazyingart-coin-download-title"><img src="/logos/apps/lazyingart-coin.png" width="80" height="80" alt=""><span>LazyingArt Coin</span></a>
         </nav>
         <div class="app-shortcut-controls" hidden>
             <button class="app-reel-button" type="button" data-reel-prev data-app-aria="previous" aria-label="Previous apps" aria-controls="app-shortcuts"><span class="app-reel-arrow" aria-hidden="true">←</span></button>
@@ -2210,6 +2214,26 @@
                     <div class="app-download-links" role="group" aria-labelledby="microquant-title">
                         <a href="https://quant.lazying.art/" data-i18n="detail_link" target="_blank" rel="noopener noreferrer">View details →</a>
                         <a href="https://github.com/lachlanchen/MicroQuant" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    </div>
+                </article>
+                <article class="app-download-card" data-app="westory" aria-labelledby="westory-download-title">
+                    <img class="app-card-icon" src="/logos/apps/westory.png" width="72" height="72" alt="">
+                    <span class="app-kind" data-i18n="web_beta_label">Web beta</span>
+                    <h2 id="westory-download-title">WeStory</h2>
+                    <p data-i18n="app_westory_desc">Read and shape a shared story with an AI editor. For adults; room invitations and contribution permissions apply.</p>
+                    <a class="app-details-link" href="products/#westory" data-i18n="detail_link" target="_blank" rel="noopener noreferrer">View details →</a>
+                    <div class="app-download-links" role="group" aria-labelledby="westory-download-title">
+                        <a href="https://westory.onlyideas.art/" data-web-app data-i18n="web_app_label" target="_blank" rel="noopener noreferrer">Web app</a>
+                    </div>
+                </article>
+                <article class="app-download-card" data-app="lazyingart-coin" aria-labelledby="lazyingart-coin-download-title">
+                    <img class="app-card-icon" src="/logos/apps/lazyingart-coin.png" width="72" height="72" alt="">
+                    <span class="app-kind" data-i18n="web_app_label">Web app</span>
+                    <h2 id="lazyingart-coin-download-title">LazyingArt Coin</h2>
+                    <p data-i18n="app_lazyingart_coin_desc">Look up LAC balances by public Ethereum address and explore the LazyingArt community.</p>
+                    <a class="app-details-link" href="products/#lazyingart-coin" data-i18n="detail_link" target="_blank" rel="noopener noreferrer">View details →</a>
+                    <div class="app-download-links" role="group" aria-labelledby="lazyingart-coin-download-title">
+                        <a href="https://coin.lazying.art/" data-web-app data-i18n="web_app_label" target="_blank" rel="noopener noreferrer">Web app</a>
                     </div>
                 </article>
             </div>
@@ -2786,7 +2810,7 @@
     </footer>
 
     <script src="service-translations.js?v=f0539b21e579"></script>
-    <script src="app-release-translations.js?v=20261008-stores"></script>
+    <script src="app-release-translations.js?v=20261010-web-apps"></script>
     <script src="navigation.js?v=20261007-more"></script>
     <script src="echomind-link.js?v=20261007"></script>
     <script src="app-carousel.js" defer></script>

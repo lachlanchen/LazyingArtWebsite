@@ -9,7 +9,7 @@ const home = read('index.html');
 const products = read('products/index.html');
 const apps = JSON.parse(read('products/catalog.json')).items.filter(item => item.webApp);
 test('every reviewed web app has a static button on the homepage and product card', () => {
-  assert.equal(apps.length, 17);
+  assert.equal(apps.length, 19);
   for (const item of apps) {
     const id = ({'shigame':'shi','lazyoracle':'oracle','musia-app':'musia'})[item.id] || item.id;
     const homeCard = item.id === 'echomind'

@@ -4,7 +4,7 @@ import vm from 'node:vm';
 
 const html = fs.readFileSync(new URL('../index.html', import.meta.url), 'utf8');
 const cards = [...html.matchAll(/<article class="app-download-card"[^>]*>([\s\S]*?)<\/article>/g)].map(m => m[1]);
-assert.equal(cards.length, 18);
+assert.equal(cards.length, 20);
 assert.ok(html.indexOf('id="app-downloads"') < html.indexOf('<aside class="beta-launch-card"'));
 // Web destinations have their own contract; native store identities stay exact.
 const links = card => [...card.matchAll(/<a\b[^>]*href="([^"]+)"[^>]*>/g)].filter(m => !m[0].includes('data-web-app')).map(m => m[1]);
