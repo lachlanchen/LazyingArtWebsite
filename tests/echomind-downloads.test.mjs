@@ -30,10 +30,14 @@ const priorTestApk = "downloads/EchoMind-0.2.0-build92-test.apk";
 assert.equal(crypto.createHash("sha256").update(fs.readFileSync(new URL(priorTestApk, root))).digest("hex"),
   "66884cfcb328fc2c310f000f275f459769573e813b7fe2f4f1a0f2536862f43b",
   "Prior Android92 direct test download remains unchanged and recoverable");
-const currentTestApk = "downloads/EchoMind-0.2.0-build96-test.apk";
-assert.equal(crypto.createHash("sha256").update(fs.readFileSync(new URL(currentTestApk, root))).digest("hex"),
+const previous96Apk = "downloads/EchoMind-0.2.0-build96-test.apk";
+assert.equal(crypto.createHash("sha256").update(fs.readFileSync(new URL(previous96Apk, root))).digest("hex"),
   "781dee67512aec072de520f5cf1b5265aa5309fbc606802d0e01bb21128f1e67",
-  "Android96 direct test download matches the qualified signed artifact");
+  "Prior Android96 direct test download remains unchanged and recoverable");
+const currentTestApk = "downloads/EchoMind-0.2.0-build97-test.apk";
+assert.equal(crypto.createHash("sha256").update(fs.readFileSync(new URL(currentTestApk, root))).digest("hex"),
+  "3f6849b3e16629c16ae8959c7aa0fb75193f208d29081505872ab508b5ff2c0a",
+  "Android97 direct test download matches the qualified signed artifact");
 assert.ok(!html.includes(`href="${currentTestApk}"`), "public release buttons remain store destinations, independent of tester mail");
 assert.equal(Object.keys(translations).length, 13);
 for (const [locale, dictionary] of Object.entries(translations)) {
