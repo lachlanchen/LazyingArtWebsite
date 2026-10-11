@@ -79,12 +79,13 @@ assert.match(landnCard, /<strong>Google Play<\/strong>/);
 assert.match(landnCard, /<strong>Google Play Pro<\/strong>/);
 assert.doesNotMatch(landnCard, /internaltest|testflight|\.apk/);
 assert.doesNotMatch(discovery, /apps\.apple\.com|play\.google\.com/, 'store listings are not owned sitemap URLs');
-assert.equal((html.match(/class="store-button"/g) || []).length, 29, 'only verified public app listings get store links');
+assert.equal((html.match(/class="store-button"/g) || []).length, 30, 'only verified public app listings get store links');
 const musia = catalog.items.find(item => item.id === 'musia-app');
-assert.equal(musia.storeLinks.length, 1);
-assert.equal(musia.storeLinks[0].url, 'https://play.google.com/store/apps/details?id=art.lazying.musia');
+assert.equal(musia.storeLinks.length, 2);
+assert.equal(musia.storeLinks[0].url, 'https://apps.apple.com/us/app/musia-learn-music-guitar/id6816265930?mt=12');
+assert.equal(musia.storeLinks[1].url, 'https://play.google.com/store/apps/details?id=art.lazying.musia');
 assert.match(musia.kind, /US\$2\.99/);
-assert.match(musia.description, /iPhone and Mac editions are awaiting review/);
+assert.match(musia.description, /iPhone edition is still in review/);
 assert.equal(catalog.items.find(item => item.id === 'musia').url, 'https://fun.lazying.art/');
 assert.ok(discovery.includes('https://musia.lazying.art/'));
 for (const id of ['aimemo']) {

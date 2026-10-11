@@ -19,6 +19,7 @@ assert.ok(echoMindCard.includes('href="https://apps.apple.com/app/id6793615455"'
 assert.ok(echoMindCard.includes('href="https://testflight.apple.com/join/bKGrC3Jn"'), "optional TestFlight access remains available");
 for (const [, href] of html.matchAll(/href="(https:\/\/apps\.apple\.com\/[^\"]+)"/g)) {
   if (href === 'https://apps.apple.com/developer/lazyingart-llc/id1867662412') continue; // Company catalogue, not an app purchase.
+  if (href === 'https://apps.apple.com/us/app/musia-learn-music-guitar/id6816265930?mt=12') continue; // Qualified Mac-only release, not the pending iPhone edition.
   assert.match(href, /\/id(?:6808872450|6815137919|6793615455|6816392935|6757573920|6816377548|6794785684)(?:\?platform=(?:mac|iphone))?$/, "only verified app identities are linked");
   if (href.includes('6816392935')) assert.match(href, /\?platform=(?:mac|iphone)$/, 'OnlyIdeas has qualified iOS and Mac routes');
 }

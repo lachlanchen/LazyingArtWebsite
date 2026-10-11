@@ -415,10 +415,11 @@
       "name": "Musia: Learn Music & Guitar",
       "url": "https://musia.lazying.art/",
       "repository": "https://github.com/lachlanchen/Musia",
-      "kind": "Android · US$2.99",
-      "description": "Loop a phrase and slow it down without changing pitch. Follow multilingual lyrics with Chinese pinyin or Japanese furigana, practise guitar chords, or train your ear with Do Re Mi listening quizzes and a 40–160 BPM metronome. Practice history stays on your device. Android 0.1.2 is available; iPhone and Mac editions are awaiting review.",
+      "kind": "Mac & Android · US$2.99",
+      "description": "Loop a phrase and slow it down without changing pitch. Follow multilingual lyrics with Chinese pinyin or Japanese furigana, practise guitar chords, or train your ear with Do Re Mi listening quizzes and a 40–160 BPM metronome. Practice history stays on your device. Android 0.1.2 and Mac 0.1.2 are available. Mac requires macOS 14 or later; the iPhone edition is still in review.",
       "action": "Explore music practice",
       "storeLinks": [
+        {"store": "mac-app-store", "url": "https://apps.apple.com/us/app/musia-learn-music-guitar/id6816265930?mt=12", "device": "Mac · US$2.99"},
         {"store": "google-play", "url": "https://play.google.com/store/apps/details?id=art.lazying.musia", "device": "Android · US$2.99"}
       ],
       "featured": true

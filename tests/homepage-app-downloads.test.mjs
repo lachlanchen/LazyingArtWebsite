@@ -39,10 +39,10 @@ assert.deepEqual(links(cards[6]), [
   'https://apps.apple.com/us/app/lightmind-agent/id6794785684',
   'https://play.google.com/store/apps/details?id=art.lightmind.mobile',
 ]);
-assert.deepEqual(links(cards[7]), ['https://play.google.com/store/apps/details?id=art.lazying.musia']);
+assert.deepEqual(links(cards[7]), ['https://apps.apple.com/us/app/musia-learn-music-guitar/id6816265930?mt=12', 'https://play.google.com/store/apps/details?id=art.lazying.musia']);
 assert.match(cards[7], /US\$2\.99/);
-assert.match(cards[7], /iPhone and Mac editions are awaiting review/);
-assert.doesNotMatch(cards[7], /apps\.apple\.com|cloud music generation|microphone|AI-generated songs/i);
+assert.match(cards[7], /Now on Mac \(macOS 14\+\).*iPhone edition is still in review/);
+assert.doesNotMatch(cards[7], /cloud music generation|microphone|AI-generated songs/i);
 assert.doesNotMatch(cards.join(''), /testflight|internaltest|\.apk|accurate|guarantee|free|localhost|127\.0\.0\.1/i);
 assert.match(cards[6], /LightMind Tech Limited/);
 for (const card of cards) {
