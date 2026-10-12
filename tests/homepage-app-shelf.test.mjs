@@ -22,7 +22,7 @@ test('top app launcher reuses the official app icons and existing download secti
   }
   assert.ok(html.indexOf('<nav class="app-shelf"') < html.indexOf('id="app-downloads"'));
   assert.equal([...shelf.matchAll(/<a href=/g)].length, 22);
-  assert.match(shelf, /<a href="https:\/\/westicker\.lazying\.art\/" target="_blank" rel="noopener noreferrer"><img src="\/logos\/apps\/westicker\.png"[^>]*><span>WeSticker PWA<\/span><\/a>\s*$/);
+  assert.match(shelf, /<a href="https:\/\/westicker\.lazying\.art\/" target="_blank" rel="noopener noreferrer"><img src="\/logos\/apps\/westicker\.png\?v=aya-lala-v2"[^>]*><span>WeSticker<\/span><\/a>\s*$/);
 });
 
 test('product directory hero icon order is independent of unchanged product cards', () => {
