@@ -12,7 +12,7 @@ test('top app launcher reuses the official app icons and existing download secti
     'beta-launch-title', 'aimemo-download-title', 'bunko-download-title', 'onlyideas-download-title',
     'lazyedit-download-title', 'musia-download-title', 'westory-download-title', 'landn-download-title',
     ...['handf', 'landr', 'english', 'chinese', 'cantonese', 'japanese', 'korean', 'arabic'].map(id => `clearpair-${id}-download-title`),
-    'oracle-download-title', 'shi-download-title', 'lazyingart-coin-download-title', 'microquant-title'
+    'oracle-download-title', 'shi-download-title', 'lazyingart-coin-download-title', 'microquant-title', 'lightmind-download-title'
   ]);
   assert.deepEqual(anchors.slice(0,8).map(m => m[3]), ['EchoMind', 'AiMemo', 'Bunko', 'OnlyIdeas', 'LazyEdit Studio', 'Musia', 'WeStory', 'L &amp; N']);
   for (const [, anchor, src] of anchors) {
@@ -21,6 +21,8 @@ test('top app launcher reuses the official app icons and existing download secti
     assert.ok(existsSync(new URL(src.split('?')[0].slice(1), root)));
   }
   assert.ok(html.indexOf('<nav class="app-shelf"') < html.indexOf('id="app-downloads"'));
+  assert.equal([...shelf.matchAll(/<a href=/g)].length, 22);
+  assert.match(shelf, /<a href="https:\/\/westicker\.lazying\.art\/" target="_blank" rel="noopener noreferrer"><img src="\/logos\/apps\/westicker\.png"[^>]*><span>WeSticker PWA<\/span><\/a>\s*$/);
 });
 
 test('product directory hero icon order is independent of unchanged product cards', () => {
