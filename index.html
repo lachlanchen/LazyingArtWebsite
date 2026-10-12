@@ -321,23 +321,18 @@
             backdrop-filter: blur(18px);
         }
 
-        .app-shortcuts { max-width: 1120px; margin: 0 auto 1.5rem; position: relative; }
+        .app-shortcuts { max-width: 1400px; margin: 0 auto 1.5rem; }
         .app-shelf {
             display: flex;
-            flex-wrap: nowrap;
+            flex-wrap: wrap;
+            justify-content: center;
             gap: 16px;
             width: 100%;
             padding: 12px 4px 16px;
-            overflow-x: auto;
-            overscroll-behavior-x: contain;
-            scroll-snap-type: x proximity;
-            scrollbar-width: thin;
-            scrollbar-color: var(--primary) transparent;
             direction: ltr;
         }
-        .app-shelf::before, .app-shelf::after { content: ''; flex: 1 0 0; }
         .app-shelf a {
-            flex: 0 0 112px;
+            flex: 0 0 120px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -352,7 +347,7 @@
             font-weight: 650;
             text-align: center;
             text-decoration: none;
-            scroll-snap-align: center;
+            overflow-wrap: anywhere;
             transition: background 0.2s, border-color 0.2s, transform 0.25s;
         }
         .app-shelf img {
@@ -364,8 +359,6 @@
         }
         .app-shelf a:hover { border-color: var(--primary); background: var(--control-bg); transform: translateY(-4px); }
         .app-shelf a:focus-visible { outline: 3px solid var(--primary); outline-offset: 4px; }
-        .app-shortcut-controls { display: flex; justify-content: center; gap: 8px; margin-top: 4px; }
-        .app-shortcut-controls[hidden] { display: none; }
         .app-reel { min-width: 0; }
         .app-reel-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem; }
         .app-reel-title { font-size: clamp(1.5rem, 3vw, 2rem); letter-spacing: -0.035em; }
@@ -2000,8 +1993,8 @@
     </nav>
 
     <section class="top-banner">
-        <div class="app-shortcuts" data-app-reel>
-        <nav class="app-shelf" id="app-shortcuts" aria-label="Explore LazyingArt apps" data-app-aria="shortcuts" data-reel-track>
+        <div class="app-shortcuts">
+        <nav class="app-shelf" id="app-shortcuts" aria-label="Explore LazyingArt apps" data-app-aria="shortcuts">
             <a href="#landn-download-title"><img src="/logos/apps/landn.png" width="80" height="80" alt=""><span>L &amp; N</span></a>
             <a href="#bunko-download-title"><img src="/logos/apps/bunko.png" width="80" height="80" alt=""><span>Bunko</span></a>
             <a href="#onlyideas-download-title"><img src="/logos/apps/onlyideas.png" width="80" height="80" alt=""><span>OnlyIdeas</span></a>
@@ -2023,10 +2016,6 @@
             <a href="#westory-download-title"><img src="/logos/apps/westory.png" width="80" height="80" alt=""><span>WeStory</span></a>
             <a href="#lazyingart-coin-download-title"><img src="/logos/apps/lazyingart-coin.png" width="80" height="80" alt=""><span>LazyArtCoin</span></a>
         </nav>
-        <div class="app-shortcut-controls" hidden>
-            <button class="app-reel-button" type="button" data-reel-prev data-app-aria="previous" aria-label="Previous apps" aria-controls="app-shortcuts"><span class="app-reel-arrow" aria-hidden="true">←</span></button>
-            <button class="app-reel-button" type="button" data-reel-next data-app-aria="next" aria-label="Next apps" aria-controls="app-shortcuts"><span class="app-reel-arrow" aria-hidden="true">→</span></button>
-        </div>
         </div>
         <div class="top-banner-inner">
             <section class="app-reel" data-app-reel data-reel-loop aria-labelledby="apps-reel-title" aria-roledescription="carousel">

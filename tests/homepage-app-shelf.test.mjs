@@ -19,12 +19,14 @@ test('top app launcher reuses the official app icons and existing download secti
   assert.ok(html.indexOf('<nav class="app-shelf"') < html.indexOf('id="app-downloads"'));
 });
 
-test('app launcher stays in one swipeable row without inheriting sticky navigation styles', () => {
-  assert.match(html, /\.app-shelf\s*\{[^}]*flex-wrap:\s*nowrap[^}]*overflow-x:\s*auto/);
-  assert.match(html, /\.app-shelf a\s*\{[^}]*flex:\s*0 0 112px[^}]*align-items:\s*center/);
+test('app launcher wraps every icon into visible rows without carousel controls', () => {
+  assert.match(html, /\.app-shelf\s*\{[^}]*flex-wrap:\s*wrap[^}]*justify-content:\s*center/);
+  assert.match(html, /\.app-shelf a\s*\{[^}]*flex:\s*0 0 120px[^}]*align-items:\s*center/);
   assert.match(html, /\.app-shelf a\s*\{[^}]*flex-basis:\s*88px/);
   assert.match(html, /\.app-shelf a:focus-visible/);
   assert.match(html, /#navbar\s*\{[^}]*position:\s*sticky/);
   assert.doesNotMatch(html, /(?:^|\n)\s*nav\s*\{/);
-  assert.match(html, /id="app-shortcuts"[^>]*data-reel-track/);
+  assert.doesNotMatch(html, /id="app-shortcuts"[^>]*data-reel-track/);
+  assert.doesNotMatch(html, /app-shortcut-controls|aria-controls="app-shortcuts"/);
+  assert.doesNotMatch(html, /\.app-shelf\s*\{[^}]*overflow-x:\s*auto/);
 });

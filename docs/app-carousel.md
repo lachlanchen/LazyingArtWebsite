@@ -1,8 +1,13 @@
 # Homepage app carousels
 
-The main homepage has a single-row icon shortcut strip above a single-row
-carousel of app download cards. Several cards fit on desktop; phones show a
-full card and a hint of the next. Both rows support native horizontal swiping.
+The main homepage shows all app shortcut icons in wrapping, centered rows.
+The shelf shares the page’s 1400px maximum width: typical desktops fit 9–10
+icons per row, and compact screens wrap into fewer columns. There is no icon
+carousel, horizontal scrolling or previous/next control. Every shortcut stays
+visible in normal page flow, with its existing destination and artwork.
+
+Below the icons, the app download cards retain their single-row carousel.
+Several cards fit on desktop; phones show a full card and a hint of the next.
 
 The former two-column feature grid below the hardware carousel is removed.
 OnlyIdeas, AiMemo, LazyEdit and EchoMind now keep their introduction links on
@@ -30,7 +35,7 @@ Hover, keyboard focus, dragging, an in-progress scroll or a hidden page pause it
 The visible autoplay toggle stops movement and remembers an off preference
 locally. Reduced-motion preferences start autoplay off and disable decorative
 animation; a later reduced-motion change stops it again. A visitor can explicitly
-enable it. The icon strip is manually controlled, not another moving animation.
+enable it. The wrapping icon shelf is static and does not use the carousel controller.
 
 Controls and accessibility names follow all 13 website languages. Light/dark
 themes are supported. If JavaScript is unavailable, the real app cards, store

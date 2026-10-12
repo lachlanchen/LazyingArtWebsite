@@ -32,7 +32,7 @@
     const previous = root.querySelector('[data-reel-prev]');
     const next = root.querySelector('[data-reel-next]');
     const auto = root.querySelector('[data-reel-auto]');
-    const controls = root.querySelector('.app-reel-controls, .app-shortcut-controls');
+    const controls = root.querySelector('.app-reel-controls');
     let enabled = !!auto && !motion.matches;
     try { if (localStorage.getItem(storageKey) === 'off') enabled = false; } catch (_) { /* private browsing */ }
     let timer, settleTimer, finishTimer;
@@ -171,7 +171,13 @@
       return true;
     } });
   }
-  const updateAll = () => instances.forEach(reel => reel.update());
+  const updateAll = () => {
+    instances.forEach(reel => reel.update());
+    document.querySelectorAll('.app-shelf[data-app-aria]').forEach(el => {
+      el.setAttribute('aria-label', dictionary()[el.dataset.appAria]);
+    });
+  };
+  updateAll();
   new MutationObserver(updateAll).observe(document.documentElement, { attributes:true, attributeFilter:['lang'] });
   document.getElementById('langSelect')?.addEventListener('change', updateAll);
   // Capture before the site's generic smooth-scroll anchor handler. Otherwise
