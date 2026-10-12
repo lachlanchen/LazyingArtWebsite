@@ -1,0 +1,16 @@
+{
+  "checkedOn": "2026-10-12",
+  "app": "LazyArtCoin",
+  "package": "art.lazying.lazyartcoin",
+  "version": "0.1.1",
+  "versionCode": 3,
+  "status": "Available on Google Play",
+  "url": "https://play.google.com/store/apps/details?id=art.lazying.lazyartcoin",
+  "countries": [
+    "HK",
+    "US"
+  ],
+  "evidence": "Coin owner verified Production release1, Published submission2, policy No issues found, and the public Install action.",
+  "coinReceiptRepository": "https://github.com/lachlanchen/LazyingArtCoin/blob/main/store/google/release-0.1.1-3.json",
+  "appleAvailabilityClaimed": false
+}

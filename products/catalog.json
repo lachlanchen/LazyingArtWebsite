@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-10",
+  "updated": "2026-10-12",
   "title": "LazyingArt products, books and open-source tools",
   "groups": [
     {
@@ -94,13 +94,20 @@
     {
       "id": "lazyingart-coin",
       "group": "about",
-      "name": "LazyingArt Coin",
+      "name": "LazyArtCoin",
       "url": "https://coin.lazying.art/",
       "webApp": "https://coin.lazying.art/",
-      "kind": "Web app · LAC community companion",
-      "description": "Look up LAC balances by public Ethereum address and explore the LazyingArt community. A browser companion for LAC and the connected apps.",
-      "action": "Open LazyingArt Coin",
-      "featured": false
+      "kind": "Android · web app · LAC community companion",
+      "description": "View EchoMind credits and public LAC and ETH balances, save public addresses, and follow guided MetaMask setup. Platform credits and on-chain tokens remain separate.",
+      "action": "Open LazyArtCoin",
+      "featured": false,
+      "storeLinks": [
+        {
+          "store": "google-play",
+          "url": "https://play.google.com/store/apps/details?id=art.lazying.lazyartcoin",
+          "device": "Android"
+        }
+      ]
     },
     {
       "id": "landn",

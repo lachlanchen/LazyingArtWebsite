@@ -12,12 +12,14 @@ const routes = {
   'lazyingart-coin': 'https://coin.lazying.art/'
 };
 
-test('web-only apps are in both app collections with one honest browser action', () => {
+test('web apps retain their browser action alongside qualified store releases', () => {
   for (const [id, url] of Object.entries(routes)) {
     const item = catalog.items.find(item => item.id === id);
     assert.equal(item.url, url);
     assert.equal(item.webApp, url);
-    assert.equal(item.storeLinks, undefined);
+    if (id === 'lazyingart-coin') {
+      assert.deepEqual(item.storeLinks, [{store: 'google-play', url: 'https://play.google.com/store/apps/details?id=art.lazying.lazyartcoin', device: 'Android'}]);
+    } else assert.equal(item.storeLinks, undefined);
     assert.equal(item.repository, undefined, 'No private source or unrelated parent repository');
     const homeCard = home.match(new RegExp(`<article class="app-download-card" data-app="${id}"[\\s\\S]*?<\\/article>`))?.[0];
     const productCard = products.match(new RegExp(`<article id="${id}"[\\s\\S]*?<\\/article>`))?.[0];
@@ -26,7 +28,10 @@ test('web-only apps are in both app collections with one honest browser action',
       assert.match(card, new RegExp(`src="(?:/|../)logos/apps/${id}\\.png"`));
       assert.equal((card.match(/data-web-app/g) || []).length, 1);
       assert.ok(card.includes(`href="${url}"`));
-      assert.doesNotMatch(card, /apps\.apple\.com|play\.google\.com|TestFlight|\.apk|airdrop|earn rewards/i);
+      assert.doesNotMatch(card, /apps\.apple\.com|TestFlight|\.apk|airdrop|earn rewards/i);
+      if (id === 'lazyingart-coin') {
+        assert.equal((card.match(/href="https:\/\/play\.google\.com\/store\/apps\/details\?id=art\.lazying\.lazyartcoin"/g) || []).length, 1);
+      } else assert.doesNotMatch(card, /play\.google\.com/);
     }
     assert.match(productCard, /data-app>/, 'The Apps filter includes web-only releases');
     assert.ok(home.includes(`href="#${id}-download-title"`), 'Discoverable in top app shelf');
