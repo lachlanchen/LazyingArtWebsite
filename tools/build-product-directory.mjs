@@ -118,6 +118,9 @@ const apps = Object.keys(appDesign).map(id => {
   assert.ok(fs.existsSync(new URL(`logos/apps/${appDesign[id][0].split('?')[0]}`, root)));
   return item;
 });
+// Icon shortcuts follow the owner's sequence independently of the product cards.
+const heroApps = ['echomind', 'aimemo', 'bunko', 'onlyideas', 'lazyedit', 'musia-app']
+  .map(id => apps.find(item => item.id === id));
 const card = item => {
   const design = appDesign[item.id];
   const spotlight = item.id === 'onlyideas';
@@ -174,7 +177,7 @@ const html = `<!doctype html>
   <main id="main">
     <section class="directory-hero" aria-labelledby="hero-title">
       <div class="hero-copy"><p class="eyebrow"><span aria-hidden="true">✳</span> Small tools. A little more life.</p><h1 id="hero-title">Make room for<br><em>the good stuff.</em></h1><p class="lead">A book you finally get into. A sound you learn to say. A song you play just for yourself. Tools for the things worth making time for.</p><div class="hero-actions"><a class="button primary" href="#apps">Find your next app <span aria-hidden="true">↗</span></a><a class="button secondary" href="#learn">Explore the books <span aria-hidden="true">→</span></a></div><p class="hero-footnote">Independent apps. Open-source projects. Made with curiosity.</p></div>
-      <div class="hero-playground"><span class="playground-spark" aria-hidden="true">✳</span><p class="playground-label">A little collection of possibilities</p><div class="icon-board">${apps.slice(0, 6).map((item, i) => `<a class="hero-app hero-app-${i}" href="#${item.id}"><img src="../logos/apps/${appDesign[item.id][0]}" alt="" width="96" height="96"><span>${escape(item.id === 'landn' ? 'L & N' : item.id === 'musia-app' ? 'Musia' : item.name)}</span></a>`).join('')}</div><span class="playground-note">Read. Learn. Make. Repeat.</span></div>
+      <div class="hero-playground"><span class="playground-spark" aria-hidden="true">✳</span><p class="playground-label">A little collection of possibilities</p><div class="icon-board">${heroApps.map((item, i) => `<a class="hero-app hero-app-${i}" href="#${item.id}"><img src="../logos/apps/${appDesign[item.id][0]}" alt="" width="96" height="96"><span>${escape(item.id === 'landn' ? 'L & N' : item.id === 'musia-app' ? 'Musia' : item.name)}</span></a>`).join('')}</div><span class="playground-note">Read. Learn. Make. Repeat.</span></div>
     </section>
     <div class="discovery-toolbar" id="directory">
       <div class="discovery-heading"><h2>What are you curious about?</h2><label class="search-box" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="m16 16 5 5"></path></svg><span class="sr-only">Search apps, books and tools</span><input type="search" id="product-search" placeholder="Try reading, music, Python…" autocomplete="off"></label></div>

@@ -8,15 +8,28 @@ const html = readFileSync(new URL('index.html', root), 'utf8');
 test('top app launcher reuses the official app icons and existing download sections', () => {
   const shelf = html.match(/<nav class="app-shelf"[^>]*>([\s\S]*?)<\/nav>/)[1];
   const anchors = [...shelf.matchAll(/<a href="#([^"]+)"><img src="([^"]+)"[^>]*alt=""><span>([^<]+)<\/span><\/a>/g)];
-  const released = JSON.parse(readFileSync(new URL('docs/google-app-releases-20261007.json', root), 'utf8')).apps;
-  assert.deepEqual(anchors.map(m => m[1]), ['landn-download-title', 'bunko-download-title', 'onlyideas-download-title', 'aimemo-download-title', 'shi-download-title', 'oracle-download-title', 'musia-download-title', 'beta-launch-title', ...released.map(app => app.id + '-download-title'), 'microquant-title', 'westory-download-title', 'lazyingart-coin-download-title']);
-  assert.deepEqual(anchors.slice(0,8).map(m => m[3]), ['L &amp; N', 'Bunko', 'OnlyIdeas', 'AiMemo', 'SHI', 'LazyOracle', 'Musia', 'EchoMind']);
+  assert.deepEqual(anchors.map(m => m[1]), [
+    'beta-launch-title', 'aimemo-download-title', 'bunko-download-title', 'onlyideas-download-title',
+    'lazyedit-download-title', 'musia-download-title', 'westory-download-title', 'landn-download-title',
+    ...['handf', 'landr', 'english', 'chinese', 'cantonese', 'japanese', 'korean', 'arabic'].map(id => `clearpair-${id}-download-title`),
+    'oracle-download-title', 'shi-download-title', 'lazyingart-coin-download-title', 'microquant-title'
+  ]);
+  assert.deepEqual(anchors.slice(0,8).map(m => m[3]), ['EchoMind', 'AiMemo', 'Bunko', 'OnlyIdeas', 'LazyEdit Studio', 'Musia', 'WeStory', 'L &amp; N']);
   for (const [, anchor, src] of anchors) {
     assert.ok(html.includes(`id="${anchor}"`));
     assert.match(src, /^\/logos\/apps\/[a-z-]+\.(png|jpg|webp)(?:\?v=[a-z0-9-]+)?$/);
     assert.ok(existsSync(new URL(src.split('?')[0].slice(1), root)));
   }
   assert.ok(html.indexOf('<nav class="app-shelf"') < html.indexOf('id="app-downloads"'));
+});
+
+test('product directory hero icon order is independent of unchanged product cards', () => {
+  const directory = readFileSync(new URL('products/index.html', root), 'utf8');
+  const board = directory.match(/<div class="icon-board">([\s\S]*?)<\/div>/)[1];
+  assert.deepEqual([...board.matchAll(/href="#([^"]+)"/g)].map(m => m[1]),
+    ['echomind', 'aimemo', 'bunko', 'onlyideas', 'lazyedit', 'musia-app']);
+  const cards = [...directory.matchAll(/<article id="([^"]+)" class="product-card app-card/g)].map(m => m[1]);
+  assert.deepEqual(cards.slice(0, 6), ['onlyideas', 'bunko', 'landn', 'lazyedit', 'musia-app', 'aimemo']);
 });
 
 test('app launcher wraps every icon into visible rows without carousel controls', () => {
