@@ -10,8 +10,10 @@ interface or simulated product performance.
 - [MP4 master](lazyingart-intro.mp4): 960 × 540, 30 fps, 12 seconds, no audio.
 - [Static preview](lazyingart-intro-poster.png).
 
-The GIF is separate from the canonical banner, which remains unchanged. Use
-one shared URL beneath the banner; clicking either opens the website:
+The GIF is a separate asset from the original static banner, which remains
+unchanged at its existing URL. Use this shared GIF as the visible masthead;
+clicking it opens the website. Earlier forks and clones can keep using
+`https://github.com/lachlanchen/lachlanchen/raw/main/figs/banner.png`:
 
 ```markdown
 [![Explore LazyingArt — apps and four buddies](https://github.com/lachlanchen/LazyingArtWebsite/raw/main/media/brand/lazyingart-intro.gif)](https://lazying.art)
