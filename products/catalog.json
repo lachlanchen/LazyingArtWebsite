@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-12",
+  "updated": "2026-10-13",
   "title": "LazyingArt products, books and open-source tools",
   "groups": [
     {
@@ -168,12 +168,13 @@
       "name": "AiMemo",
       "url": "https://blog.lazying.art/html/computer_internet/3862/aimemo-turn-a-thought-into-a-note.html",
       "repository": null,
-      "kind": "iPhone · iPad · Android · Apple Watch",
+      "kind": "iPhone · iPad · Mac · Android · Apple Watch",
       "description": "Capture a thought by voice or text, then find and edit the saved memo. Keep notes, tasks and dated entries together. Account required; AI processing is optional.",
       "action": "Meet AiMemo",
       "featured": true,
       "storeLinks": [
         {"store": "app-store", "url": "https://apps.apple.com/us/app/aimemo-ai-notes-voice/id6757573920", "device": "iPhone · iPad · Watch companion"},
+        {"store": "mac-app-store", "url": "https://apps.apple.com/us/app/aimemo-ai-notes-voice/id6757573920?platform=mac", "device": "Mac · macOS 12+ · US$0.99"},
         {"store": "google-play", "url": "https://play.google.com/store/apps/details?id=art.lazying.aimemo", "device": "Android"}
       ]
     },
@@ -541,12 +542,13 @@
       "name": "LightMind Agent",
       "url": "https://lightmind.art/",
       "repository": null,
-      "kind": "Companion brand · iPhone · iPad · Android",
-      "description": "Keep audio notes, reminders and memory cues on your phone; connect compatible smart glasses for supported media workflows. Made by LightMind Tech Limited. Hardware features depend on the device.",
+      "kind": "Companion brand · iPhone · iPad · Mac · Android",
+      "description": "Keep notes, reminders and memory cues close, on your phone or Mac. Connect compatible smart glasses for supported workflows. Made by LightMind Tech Limited. Hardware features depend on the device.",
       "action": "Meet LightMind",
       "featured": false,
       "storeLinks": [
         {"store": "app-store", "url": "https://apps.apple.com/us/app/lightmind-agent/id6794785684", "device": "iPhone · iPad"},
+        {"store": "mac-app-store", "url": "https://apps.apple.com/us/app/lightmind-agent/id6794785684?platform=mac", "device": "Mac · macOS 13+ · US$0.99"},
         {"store": "google-play", "url": "https://play.google.com/store/apps/details?id=art.lightmind.mobile", "device": "Android"}
       ]
     },

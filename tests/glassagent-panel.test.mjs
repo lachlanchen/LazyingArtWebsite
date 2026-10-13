@@ -29,6 +29,7 @@ test('GlassAgent leads with its original vision and a compact companion app belo
   const links = [...panel.matchAll(/<a [^>]*href="([^"]+)"[^>]*>/g)];
   assert.deepEqual(links.map(m => m[1]), [
     'https://apps.apple.com/us/app/lightmind-agent/id6794785684',
+    'https://apps.apple.com/us/app/lightmind-agent/id6794785684?platform=mac',
     'https://play.google.com/store/apps/details?id=art.lightmind.mobile',
     'https://lightmind.art/',
   ]);

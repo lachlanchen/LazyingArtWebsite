@@ -28,6 +28,7 @@ assert.deepEqual(links(cards[2]), [
 assert.deepEqual(links(cards[3]), [
   'products/#aimemo',
   'https://apps.apple.com/us/app/aimemo-ai-notes-voice/id6757573920',
+  'https://apps.apple.com/us/app/aimemo-ai-notes-voice/id6757573920?platform=mac',
   'https://play.google.com/store/apps/details?id=art.lazying.aimemo',
 ]);
 assert.deepEqual(links(cards[4]), [
@@ -37,6 +38,7 @@ assert.deepEqual(links(cards[4]), [
 assert.deepEqual(links(cards[5]), ['https://play.google.com/store/apps/details?id=art.lazying.lazyoracle']);
 assert.deepEqual(links(cards[6]), [
   'https://apps.apple.com/us/app/lightmind-agent/id6794785684',
+  'https://apps.apple.com/us/app/lightmind-agent/id6794785684?platform=mac',
   'https://play.google.com/store/apps/details?id=art.lightmind.mobile',
 ]);
 assert.deepEqual(links(cards[7]), ['https://apps.apple.com/us/app/musia-learn-music-guitar/id6816265930?mt=12', 'https://play.google.com/store/apps/details?id=art.lazying.musia']);

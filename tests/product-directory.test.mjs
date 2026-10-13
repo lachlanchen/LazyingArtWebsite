@@ -79,7 +79,7 @@ assert.match(landnCard, /<strong>Google Play<\/strong>/);
 assert.match(landnCard, /<strong>Google Play Pro<\/strong>/);
 assert.doesNotMatch(landnCard, /internaltest|testflight|\.apk/);
 assert.doesNotMatch(discovery, /apps\.apple\.com|play\.google\.com/, 'store listings are not owned sitemap URLs');
-assert.equal((html.match(/class="store-button"/g) || []).length, 31, 'only verified public app listings get store links');
+assert.equal((html.match(/class="store-button"/g) || []).length, 33, 'only verified public app listings get store links');
 const musia = catalog.items.find(item => item.id === 'musia-app');
 assert.equal(musia.storeLinks.length, 2);
 assert.equal(musia.storeLinks[0].url, 'https://apps.apple.com/us/app/musia-learn-music-guitar/id6816265930?mt=12');
@@ -91,7 +91,10 @@ assert.ok(discovery.includes('https://musia.lazying.art/'));
 for (const id of ['aimemo']) {
   const item = catalog.items.find(item => item.id === id);
   assert.equal(new URL(item.url).origin, 'https://blog.lazying.art', 'Index the useful public introduction, not a private account workspace');
-  assert.equal(item.storeLinks.length, 2, 'AiMemo is now publicly listed on iOS and Android');
+  assert.equal(item.storeLinks.length, 3, 'AiMemo is publicly listed on iOS, Mac and Android');
+  assert.equal(item.storeLinks[1].store, 'mac-app-store');
+  assert.equal(item.storeLinks[1].url, 'https://apps.apple.com/us/app/aimemo-ai-notes-voice/id6757573920?platform=mac');
+  assert.match(item.storeLinks[1].device, /macOS 12/);
   assert.doesNotMatch(item.description + item.kind, /in review|web release is free/);
 }
 const onlyideas = catalog.items.find(item => item.id === 'onlyideas');
@@ -104,7 +107,10 @@ assert.doesNotMatch(onlyideas.description, /Mac app is free|mobile editions are 
 assert.ok(onlyideas.storeLinks.some(link => link.store === 'app-store'), 'Public iOS release has its own App Store route');
 const lightmind = catalog.items.find(item => item.id === 'lightmind-agent');
 assert.match(lightmind.description, /LightMind Tech Limited/);
-assert.equal(lightmind.storeLinks.length, 2);
+assert.equal(lightmind.storeLinks.length, 3);
+assert.equal(lightmind.storeLinks[1].store, 'mac-app-store');
+assert.equal(lightmind.storeLinks[1].url, 'https://apps.apple.com/us/app/lightmind-agent/id6794785684?platform=mac');
+assert.match(lightmind.storeLinks[1].device, /macOS 13/);
 assert.ok(!discovery.includes('lightmind.art'), 'separate brand is not included in the LazyingArt cross-site sitemap');
 for (const id of ['shigame', 'lazyoracle']) assert.ok(catalog.items.find(item => item.id === id).storeLinks.length);
 assert.equal(catalog.items.find(item => item.id === 'aimemo').repository, null, 'Private source stays private');
