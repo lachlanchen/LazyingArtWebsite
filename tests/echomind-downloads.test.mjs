@@ -16,6 +16,7 @@ assert.ok(!html.includes('href="https://play.google.com/apps/internaltest/470151
 const echoMindCard = html.match(/<aside class="beta-launch-card"[\s\S]*?<\/aside>/)?.[0];
 assert.ok(echoMindCard, "EchoMind download card exists");
 assert.ok(echoMindCard.includes('href="https://apps.apple.com/app/id6793615455"'), "released EchoMind uses its own App Store identity");
+assert.ok(echoMindCard.includes('href="https://apps.apple.com/us/app/echomind-language-research/id6793615455?platform=mac"'), "released native EchoMind Mac app has an explicit store route");
 assert.ok(echoMindCard.includes('href="https://testflight.apple.com/join/bKGrC3Jn"'), "optional TestFlight access remains available");
 for (const [, href] of html.matchAll(/href="(https:\/\/apps\.apple\.com\/[^\"]+)"/g)) {
   if (href === 'https://apps.apple.com/developer/lazyingart-llc/id1867662412') continue; // Company catalogue, not an app purchase.
@@ -58,6 +59,8 @@ assert.equal(crypto.createHash("sha256").update(fs.readFileSync(new URL(currentT
 assert.ok(!html.includes(`href="${currentTestApk}"`), "public release buttons remain store destinations, independent of tester mail");
 assert.equal(Object.keys(translations).length, 13);
 for (const [locale, dictionary] of Object.entries(translations)) {
+  assert.match(dictionary.beta_title, /Mac/, `${locale}: Mac is included in the release title`);
+  assert.match(dictionary.beta_subtitle, /Mac/, `${locale}: Mac is included in download guidance`);
   for (const key of ["beta_title", "beta_subtitle", "beta_google_play", "beta_testflight", "beta_android"]) {
     assert.ok(dictionary[key]?.trim(), `${locale}.${key} is localized`);
   }

@@ -79,7 +79,7 @@ assert.match(landnCard, /<strong>Google Play<\/strong>/);
 assert.match(landnCard, /<strong>Google Play Pro<\/strong>/);
 assert.doesNotMatch(landnCard, /internaltest|testflight|\.apk/);
 assert.doesNotMatch(discovery, /apps\.apple\.com|play\.google\.com/, 'store listings are not owned sitemap URLs');
-assert.equal((html.match(/class="store-button"/g) || []).length, 33, 'only verified public app listings get store links');
+assert.equal((html.match(/class="store-button"/g) || []).length, 34, 'only verified public app listings get store links');
 const musia = catalog.items.find(item => item.id === 'musia-app');
 assert.equal(musia.storeLinks.length, 2);
 assert.equal(musia.storeLinks[0].url, 'https://apps.apple.com/us/app/musia-learn-music-guitar/id6816265930?mt=12');
@@ -116,6 +116,17 @@ for (const id of ['shigame', 'lazyoracle']) assert.ok(catalog.items.find(item =>
 assert.equal(catalog.items.find(item => item.id === 'aimemo').repository, null, 'Private source stays private');
 assert.match(catalog.items.find(item => item.id === 'echomind').description, /invitation-based/);
 assert.match(catalog.items.find(item => item.id === 'echomind').description, /central account signup alone does not grant it/);
+const echoMac = catalog.items.find(item => item.id === 'echomind').storeLinks.find(link => link.store === 'mac-app-store');
+assert.equal(echoMac.url, 'https://apps.apple.com/us/app/echomind-language-research/id6793615455?platform=mac');
+assert.match(echoMac.device, /macOS 13/);
+for (const [id, version] of [['bunko', '1.0.13'], ['aimemo', '1.2'], ['onlyideas', '1.0.7']]) {
+  const item = catalog.items.find(item => item.id === id);
+  assert.ok(item.releaseNote.includes(version));
+  const card = html.match(new RegExp(`<article id="${id}"[^>]*>([\\s\\S]*?)<\\/article>`))[1];
+  assert.ok(card.includes(item.releaseNote), `Render the verified ${id} release highlight`);
+}
+assert.match(catalog.items.find(item => item.id === 'bunko').releaseNote, /^iPhone and iPad /);
+assert.match(catalog.items.find(item => item.id === 'aimemo').releaseNote, /^iPhone and iPad /);
 for (const id of ['bunko', 'landn', 'lazyedit', 'lazyoracle']) {
   const item = catalog.items.find(item => item.id === id);
   assert.equal(new URL(item.storyUrl).origin, 'https://blog.lazying.art');

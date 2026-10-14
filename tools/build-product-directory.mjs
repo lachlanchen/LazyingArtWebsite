@@ -59,6 +59,10 @@ for (const item of catalog.items) {
     assert.notEqual(item.storyUrl, item.url, 'The primary action already links this introduction');
   }
   if (item.storeLinks) {
+    if (item.releaseNote) {
+      assert.equal(typeof item.releaseNote, 'string');
+      assert.ok(item.releaseNote.length <= 240, 'Keep release highlights concise and platform-specific');
+    }
     assert.ok(Array.isArray(item.storeLinks));
     assert.equal(new Set(item.storeLinks.map(link => link.url)).size, item.storeLinks.length);
     assert.equal(new Set(item.storeLinks.map(link => `${link.store}:${link.edition || ''}`)).size, item.storeLinks.length);
@@ -134,7 +138,7 @@ const card = item => {
         ${design ? `<p class="card-tagline">${escape(design[2])}</p>` : ''}
         <h3>${escape(item.name)}</h3>
         <p class="work-kind">${escape(item.kind)}</p>
-        <p class="card-description">${escape(item.description)}</p>
+        <p class="card-description">${escape(item.description)}</p>${item.releaseNote ? `\n        <p class="work-kind release-note">${escape(item.releaseNote)}</p>` : ''}
         ${storeLinks(item)}
         ${secondaryLinks ? `<div class="link-row">${secondaryLinks}</div>` : ''}
       </div>${spotlight ? `<div class="spotlight-art" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="icon-plinth"><img src="../logos/apps/onlyideas.png" alt="" width="180" height="180" loading="lazy"></div><span class="art-chip chip-one">Equations &amp; figures</span><span class="art-chip chip-two">Parallel text</span><span class="art-caption">A little space for big ideas.</span></div>` : ''}

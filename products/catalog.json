@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-13",
+  "updated": "2026-10-14",
   "title": "LazyingArt products, books and open-source tools",
   "groups": [
     {
@@ -36,6 +36,7 @@
   "items": [
     {
       "id": "bunko",
+      "releaseNote": "iPhone and iPad 1.0.13: open a passage discussion from the original or its translation, with smoother cached book downloads.",
       "webApp": "https://lachlan.lazying.art/Bunko/",
       "storyUrl": "https://blog.lazying.art/html/books/3853/bunko-chinese-japanese-classics-pinyin-furigana.html",
       "group": "learn",
@@ -151,18 +152,20 @@
       "name": "EchoMind",
       "url": "https://blog.lazying.art/html/computer_internet/3867/echomind-language-help-in-conversation.html",
       "repository": null,
-      "kind": "Messaging app",
+      "kind": "iPhone · iPad · Mac · Android · Apple Watch",
       "description": "Keep text and voice conversations beside optional language support. Full EchoMind access remains invitation-based; central account signup alone does not grant it. Check access before buying.",
       "action": "Meet EchoMind",
       "featured": true,
       "app_url": "https://chat.lazying.art/",
       "storeLinks": [
         {"store": "app-store", "url": "https://apps.apple.com/us/app/echomind-language-research/id6793615455", "device": "iPhone · iPad"},
+        {"store": "mac-app-store", "url": "https://apps.apple.com/us/app/echomind-language-research/id6793615455?platform=mac", "device": "Mac · macOS 13+ · US$0.99"},
         {"store": "google-play", "url": "https://play.google.com/store/apps/details?id=art.lazying.echomind"}
       ]
     },
     {
       "id": "aimemo",
+      "releaseNote": "iPhone and iPad 1.2: keep voice recordings with their transcripts, expand notes inline and copy chat replies.",
       "webApp": "https://aimemo.lazying.art/",
       "group": "build",
       "name": "AiMemo",
@@ -180,6 +183,7 @@
     },
     {
       "id": "onlyideas",
+      "releaseNote": "Version 1.0.7 is now on iPhone, iPad, Mac and Android: read accessible web articles alongside PDFs, with smoother scrolling and remembered sharing choices.",
       "webApp": "https://agent.onlyideas.art/",
       "group": "research",
       "name": "OnlyIdeas",

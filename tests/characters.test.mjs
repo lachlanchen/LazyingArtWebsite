@@ -14,7 +14,9 @@ test('character panel follows products and uses only first-party existing artwor
   assert.equal((panel.match(/data-ip-gif=/g) || []).length, 4);
   assert.equal((panel.match(/\/banner\.jpg/g) || []).length, 2);
   assert.equal((panel.match(/href="https:\/\/aya\.lazying\.art\//g) || []).length, 7);
-  assert.equal((panel.match(/target="_blank" rel="noopener noreferrer"/g) || []).length, 7);
+  const links = [...panel.matchAll(/<a\b[^>]+>/g)].map(match => match[0]);
+  assert.equal(links.length, 8, 'Seven AYA links and the existing LINE creator store');
+  for (const link of links) assert.match(link, /target="_blank" rel="noopener noreferrer"/);
   for (const asset of panel.matchAll(/(?:src|data-ip-gif)="([^"]+)"/g)) {
     assert.ok(asset[1].startsWith('https://aya.lazying.art/media/'));
   }
