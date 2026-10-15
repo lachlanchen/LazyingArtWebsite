@@ -40,6 +40,12 @@ const publisherLinks = '<a href="https://apps.apple.com/developer/lazyingart-llc
 assert.equal(new Set(catalog.items.map(item => item.id)).size, catalog.items.length);
 for (const item of catalog.items) {
   assert.ok(catalog.groups.some(group => group.id === item.group));
+  if (item.film) {
+    assert.match(item.film.src, /^\/media\/apps\/[a-z0-9-]+\/[a-z0-9-]+\.mp4$/);
+    assert.match(item.film.poster, /^\/media\/apps\/[a-z0-9-]+\/[a-z0-9-]+\.jpg$/);
+    for (const path of [item.film.src, item.film.poster]) assert.ok(fs.existsSync(new URL(path.slice(1), root)));
+    assert.ok(item.film.title && item.film.caption);
+  }
   assert.equal(new URL(item.url).protocol, 'https:');
   if (item.icon) {
     assert.match(item.icon, /^[a-z0-9-]+\.(png|jpg|webp)$/);
@@ -135,7 +141,7 @@ const card = item => {
   const projectMark = item.icon ? `<img class="app-icon" src="../logos/apps/${escape(item.icon)}" alt="" width="80" height="80" loading="lazy">` : `<span class="project-mark" aria-hidden="true">${escape(item.name.slice(0, 1))}</span>`;
   const primaryLink = item.preview || item.webApp === item.url || item.storeLinks?.some(link => link.url === item.url) ? '' : `<a href="${escape(item.url)}">${escape(item.action)} <span aria-hidden="true">↗</span></a>`;
   const secondaryLinks = `${primaryLink}${item.storyUrl ? `<a class="source-link" href="${escape(item.storyUrl)}">Read the story</a>` : ''}${item.repository ? `<a class="source-link" href="${escape(item.repository)}">Source: ${escape(item.repository.split('/').at(-1))}</a>` : ''}`;
-  return `<article id="${escape(item.id)}" class="product-card ${design ? `app-card tone-${design[1]}` : 'project-card'}${spotlight ? ' spotlight' : ''}" data-product data-category="${escape(item.group)}"${design ? ' data-app' : ''}>
+  return `<article id="${escape(item.id)}" class="product-card ${design ? `app-card tone-${design[1]}` : 'project-card'}${spotlight ? ' spotlight' : ''}${item.film ? ' has-film' : ''}" data-product data-category="${escape(item.group)}"${design ? ' data-app' : ''}>
       <div class="card-content">
         <div class="card-top">${design ? `<img class="app-icon" src="../logos/apps/${design[0]}" alt="" width="80" height="80" loading="lazy">` : projectMark}<span class="card-label">${design ? (item.id === 'lightmind-agent' ? 'Companion brand' : 'LazyingArt app') : escape(group.name)}</span><span class="card-spark" aria-hidden="true">↗</span></div>
         ${design ? `<p class="card-tagline">${escape(design[2])}</p>` : ''}
@@ -144,7 +150,7 @@ const card = item => {
         <p class="card-description">${escape(item.description)}</p>${item.releaseNote ? `\n        <p class="work-kind release-note">${escape(item.releaseNote)}</p>` : ''}
         ${storeLinks(item)}
         ${secondaryLinks ? `<div class="link-row">${secondaryLinks}</div>` : ''}
-      </div>${spotlight ? `<div class="spotlight-art" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="icon-plinth"><img src="../logos/apps/onlyideas.png" alt="" width="180" height="180" loading="lazy"></div><span class="art-chip chip-one">Equations &amp; figures</span><span class="art-chip chip-two">Parallel text</span><span class="art-caption">A little space for big ideas.</span></div>` : ''}
+      </div>${item.film ? `<figure class="product-film"><video controls playsinline preload="none" width="1080" height="1920" poster="${escape(item.film.poster)}" aria-label="${escape(item.film.title)}" aria-describedby="${escape(item.id)}-film-caption"><source src="${escape(item.film.src)}" type="video/mp4"><a href="${escape(item.film.src)}">Watch ${escape(item.name)}</a></video><figcaption id="${escape(item.id)}-film-caption"><strong>${escape(item.film.title)}</strong><span>${escape(item.film.caption)}</span></figcaption></figure>` : ''}${spotlight ? `<div class="spotlight-art" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="icon-plinth"><img src="../logos/apps/onlyideas.png" alt="" width="180" height="180" loading="lazy"></div><span class="art-chip chip-one">Equations &amp; figures</span><span class="art-chip chip-two">Parallel text</span><span class="art-caption">A little space for big ideas.</span></div>` : ''}
     </article>`;
 };
 const sections = catalog.groups.map(group => `<section class="work-section" id="${escape(group.id)}" data-section aria-labelledby="${escape(group.id)}-title">

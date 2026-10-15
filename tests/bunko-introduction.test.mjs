@@ -1,0 +1,14 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import crypto from 'node:crypto';
+const root = new URL('../', import.meta.url);
+const html = fs.readFileSync(new URL('products/index.html', root), 'utf8');
+const card = html.match(/<article id="bunko"[^>]*>([\s\S]*?)<\/article>/)[1];
+assert.match(card, /<video controls playsinline preload="none"/);
+assert.doesNotMatch(card, /autoplay|<iframe/);
+assert.match(card, /Japanese audio · English, Japanese, Chinese and French subtitles/);
+assert.match(card, /aria-describedby="bunko-film-caption"/);
+assert.match(card, /src="\/media\/apps\/bunko\/introduction-ja-subtitled.mp4"/);
+assert.match(card, /poster="\/media\/apps\/bunko\/introduction-ja-poster.jpg"/);
+assert.equal(crypto.createHash('sha256').update(fs.readFileSync(new URL('media/apps/bunko/introduction-ja-subtitled.mp4', root))).digest('hex'), '813d030679f8297c8b9721e0ab0575835fe5b7a490e1994823394ddf8bc373e1', 'Reuse the exact approved LazyEdit subtitled export');
+console.log('Bunko introduction: exact subtitled file, local playback, no autoplay.');

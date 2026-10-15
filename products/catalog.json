@@ -36,6 +36,12 @@
   "items": [
     {
       "id": "bunko",
+      "film": {
+        "src": "/media/apps/bunko/introduction-ja-subtitled.mp4",
+        "poster": "/media/apps/bunko/introduction-ja-poster.jpg",
+        "title": "Meet Bunko in 20 seconds",
+        "caption": "Japanese audio · English, Japanese, Chinese and French subtitles"
+      },
       "releaseNote": "iPhone and iPad 1.0.13: open a passage discussion from the original or its translation, with smoother cached book downloads.",
       "webApp": "https://lachlan.lazying.art/Bunko/",
       "storyUrl": "https://blog.lazying.art/html/books/3853/bunko-chinese-japanese-classics-pinyin-furigana.html",

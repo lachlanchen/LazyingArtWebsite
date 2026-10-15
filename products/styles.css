@@ -83,6 +83,14 @@ h1 em { color: var(--orange); }
 .work-grid h3 { font-size: 23px; line-height: 1.18; letter-spacing: -.6px; margin: 0 0 12px; overflow-wrap: anywhere; }
 .app-card { padding: 32px; }
 .app-card h3 { font-size: 32px; letter-spacing: -1px; }
+.has-film { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(220px, .75fr); gap: 32px; align-items: center; }
+.has-film .card-content { height: auto; }
+.product-film { margin: 0; text-align: center; min-width: 0; }
+.product-film video { display: block; width: min(100%, 280px); height: auto; aspect-ratio: 9 / 16; margin: 0 auto; object-fit: contain; border-radius: 20px; background: #1b2030; box-shadow: 0 14px 36px #25355624; }
+.product-film video:focus-visible { outline: 3px solid #255de0; outline-offset: 5px; }
+.product-film figcaption { display: grid; gap: 5px; margin: 14px auto 0; max-width: 320px; font-size: 12px; line-height: 1.5; color: #57545e; }
+.product-film figcaption strong { font-size: 16px; color: #292635; }
+@media (max-width: 700px) { .has-film { grid-template-columns: 1fr; gap: 24px; } .product-film video { width: min(100%, 320px); } }
 .work-kind { font-size: 13px; line-height: 1.6; font-weight: 500; color: var(--muted); margin: 0 0 15px; }
 .card-description, .guide-card > p:not(.work-kind) { font-size: 14px; line-height: 1.8; color: #57545e; margin: 0 0 22px; }
 .card-description { flex-grow: 1; }
