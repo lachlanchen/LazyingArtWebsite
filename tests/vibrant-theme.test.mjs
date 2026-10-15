@@ -15,10 +15,10 @@ test('all solid app-button colours support readable white labels',() => {
 });
 test('fresh palette preserves dark mode, reduced motion and catalogue keys',() => {
   assert.match(theme, /\.logo-text \{[^}]*linear-gradient[^}]*background-clip: text[^}]*-webkit-text-fill-color: transparent/);
-  assert.match(read('index.html'),/vibrant-theme.css\?v=20261007/);
+  assert.match(read('index.html'),/vibrant-theme.css\?v=20261015-panels/);
   assert.match(theme,/body\[data-theme="dark"\]/);
   assert.match(theme,/prefers-reduced-motion: reduce/);
   assert.doesNotMatch(products,/#fcf9f4|#fbf3d9|#f8e8d7|#fff0e3/);
   assert.match(products,/\.tone-yellow \{[^}]*background: #ddf5f8/);
-  assert.match(read('products/index.html'),/styles.css\?v=20261007-vibrant/);
+  assert.match(read('products/index.html'),/styles.css\?v=20261015-panels/);
 });

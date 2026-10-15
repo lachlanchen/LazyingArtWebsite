@@ -113,24 +113,27 @@ const appDesign = {
   'clearpair-arabic': ['clearpair-arabic.webp', 'mint', 'A dot can make a difference.'],
   'clearpair-japanese': ['clearpair-japanese.webp', 'pink', 'One kana. One sound.'],
   westory: ['westory.png', 'blue', 'A world we make together.'],
+  westicker: ['westicker.png?v=aya-lala-v2', 'pink', 'A little more you in every reply.'],
+  weblog: ['weblog.png', 'mint', 'Your ideas. Your WordPress.'],
   'lazyingart-coin': ['lazyingart-coin.png', 'lavender', 'Your community companion.']
 };
 const categoryLabels = {learn: 'Learn', build: 'Build', create: 'Create', play: 'Play', research: 'Research', about: 'About'};
 const apps = Object.keys(appDesign).map(id => {
   const item = catalog.items.find(item => item.id === id);
-  assert.ok(item?.storeLinks?.length || item?.webApp, `App spotlight requires a verified store or public web app: ${id}`);
+  assert.ok(item?.storeLinks?.length || item?.webApp || item?.preview === true, `App spotlight requires a verified destination or an explicit preview: ${id}`);
+  if (item.preview) assert.ok(!item.storeLinks?.length && !item.webApp && !item.repository, 'Internal previews must not imply a public release');
   assert.ok(fs.existsSync(new URL(`logos/apps/${appDesign[id][0].split('?')[0]}`, root)));
   return item;
 });
 // Icon shortcuts follow the owner's sequence independently of the product cards.
-const heroApps = ['echomind', 'aimemo', 'bunko', 'onlyideas', 'lazyedit', 'musia-app']
+const heroApps = ['echomind', 'aimemo', 'bunko', 'onlyideas', 'lazyedit', 'musia-app', 'westory', 'westicker', 'weblog']
   .map(id => apps.find(item => item.id === id));
 const card = item => {
   const design = appDesign[item.id];
   const spotlight = item.id === 'onlyideas';
   const group = catalog.groups.find(group => group.id === item.group);
   const projectMark = item.icon ? `<img class="app-icon" src="../logos/apps/${escape(item.icon)}" alt="" width="80" height="80" loading="lazy">` : `<span class="project-mark" aria-hidden="true">${escape(item.name.slice(0, 1))}</span>`;
-  const primaryLink = item.webApp === item.url || item.storeLinks?.some(link => link.url === item.url) ? '' : `<a href="${escape(item.url)}">${escape(item.action)} <span aria-hidden="true">↗</span></a>`;
+  const primaryLink = item.preview || item.webApp === item.url || item.storeLinks?.some(link => link.url === item.url) ? '' : `<a href="${escape(item.url)}">${escape(item.action)} <span aria-hidden="true">↗</span></a>`;
   const secondaryLinks = `${primaryLink}${item.storyUrl ? `<a class="source-link" href="${escape(item.storyUrl)}">Read the story</a>` : ''}${item.repository ? `<a class="source-link" href="${escape(item.repository)}">Source: ${escape(item.repository.split('/').at(-1))}</a>` : ''}`;
   return `<article id="${escape(item.id)}" class="product-card ${design ? `app-card tone-${design[1]}` : 'project-card'}${spotlight ? ' spotlight' : ''}" data-product data-category="${escape(item.group)}"${design ? ' data-app' : ''}>
       <div class="card-content">
@@ -167,7 +170,7 @@ const html = `<!doctype html>
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://lazying.art/logos/banner.png">
   <link rel="icon" href="../favicon.ico" sizes="any">
-  <link rel="stylesheet" href="styles.css?v=20261007-vibrant&amp;stores=20261008">
+  <link rel="stylesheet" href="styles.css?v=20261015-panels">
   <script src="directory.js" defer></script>
   <script type="application/ld+json">${JSON.stringify(schema).replaceAll('<','\\u003c')}</script>
 </head>

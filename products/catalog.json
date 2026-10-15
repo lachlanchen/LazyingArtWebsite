@@ -460,11 +460,24 @@
       "id": "westicker",
       "group": "create",
       "name": "WeSticker",
-      "url": "https://github.com/lachlanchen/WeSticker",
+      "url": "https://westicker.lazying.art/",
+      "webApp": "https://westicker.lazying.art/",
       "icon": "westicker.png",
-      "kind": "In development · local prototype",
-      "description": "A personal sticker studio for keeping one character consistent across everyday expressions. Explore the local prototype for character references, editable captions and sticker exports. Not yet a public service or an App Store / Google Play release.",
-      "action": "Explore the project",
+      "kind": "Web beta · Native apps in testing",
+      "description": "Browse animated stickers in Chinese, English and Japanese without signing in. Keep character references, captions and drafts in your private creator workspace when you sign in. Native apps are still in testing.",
+      "action": "Open WeSticker",
+      "featured": false
+    },
+    {
+      "id": "weblog",
+      "group": "create",
+      "name": "WeBlog",
+      "url": "https://lazying.art/products/#weblog",
+      "icon": "weblog.png",
+      "preview": true,
+      "kind": "In development · Internal testing",
+      "description": "Turn a conversation into a draft for your own WordPress site. Review and edit the words, then choose when to publish. WeBlog is in internal testing, with no public download yet.",
+      "action": "In development",
       "featured": false
     },
     {

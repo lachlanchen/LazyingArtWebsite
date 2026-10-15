@@ -143,7 +143,7 @@ assert.match(html, /data-motion-toggle[^>]*hidden/);
 assert.match(html, /type="search" id="product-search"/);
 assert.match(html, /role="status" aria-live="polite"/);
 assert.equal((html.match(/data-product\b/g) || []).length, catalog.items.length);
-assert.equal((html.match(/data-app>/g) || []).length, 20);
+assert.equal((html.match(/data-app>/g) || []).length, 22);
 assert.equal((html.match(/data-guide\b/g) || []).length, guides.length);
 assert.ok(html.indexOf('id="apps"') < html.indexOf('id="learn"'), 'Downloadable apps appear before the wider portfolio');
 assert.ok(html.indexOf('id="onlyideas"') < html.indexOf('id="bunko"'), 'OnlyIdeas gets the first app spotlight');
@@ -151,7 +151,7 @@ for (const item of catalog.items) {
   assert.equal([...html.matchAll(new RegExp(`id="${item.id}"`, 'g'))].length, 1, 'Deep links have exactly one target');
 }
 for (const [,path] of html.matchAll(/src="\.\.\/(logos\/apps\/[^"<>]+)"/g)) assert.ok(fs.existsSync(new URL(path, root)), `Missing app icon ${path}`);
-assert.match(styles, /\.store-links\s*\{[^}]*flex-wrap:\s*wrap/);
+assert.match(styles, /\.store-links\s*\{[^}]*grid-template-columns:\s*repeat\(2, minmax\(0, 1fr\)\)/);
 assert.match(styles, /\.work-grid \.store-button\s*\{[^}]*min-height:\s*60px/);
 assert.match(styles, /\.work-grid \.store-button:focus-visible/);
 assert.doesNotMatch(discovery, /oracle-fast\.lazying\.art|bunko\.lazying\.art|aimemo-backend\./, 'mirrors, TLS-failing aliases and backends are not discovery targets');

@@ -4,7 +4,7 @@ import vm from 'node:vm';
 
 const html = fs.readFileSync(new URL('../index.html', import.meta.url), 'utf8');
 const cards = [...html.matchAll(/<article class="app-download-card"[^>]*>([\s\S]*?)<\/article>/g)].map(m => m[1]);
-assert.equal(cards.length, 20);
+assert.equal(cards.length, 22);
 assert.ok(html.indexOf('id="app-downloads"') < html.indexOf('<aside class="beta-launch-card"'));
 // Web destinations have their own contract; native store identities stay exact.
 const links = card => [...card.matchAll(/<a\b[^>]*href="([^"]+)"[^>]*>/g)].filter(m => !m[0].includes('data-web-app')).map(m => m[1]);
@@ -49,6 +49,11 @@ assert.doesNotMatch(cards.join(''), /testflight|internaltest|\.apk|accurate|guar
 assert.match(cards[6], /LightMind Tech Limited/);
 for (const card of cards) {
   const id = card.match(/<h2 id="([^"]+)"/)[1];
+  if (id === 'weblog-download-title') {
+    assert.match(card, /Internal testing/);
+    assert.doesNotMatch(card, /data-web-app|apps.apple.com|play.google.com/);
+    continue;
+  }
   assert.ok(card.includes(`role="group" aria-labelledby="${id}"`));
 }
 const match = html.match(/const translations = (\{[\s\S]*?\n        \});\n\n        function applyTranslations/);
