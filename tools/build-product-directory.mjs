@@ -176,7 +176,7 @@ const html = `<!doctype html>
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://lazying.art/logos/banner.png">
   <link rel="icon" href="../favicon.ico" sizes="any">
-  <link rel="stylesheet" href="styles.css?v=20261015-panels">
+  <link rel="stylesheet" href="styles.css?v=20261015-bunko-film">
   <script src="directory.js" defer></script>
   <script type="application/ld+json">${JSON.stringify(schema).replaceAll('<','\\u003c')}</script>
 </head>
