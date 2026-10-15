@@ -16,7 +16,7 @@ clicking it opens the website. Earlier forks and clones can keep using
 `https://github.com/lachlanchen/lachlanchen/raw/main/figs/banner.png`:
 
 ```markdown
-[![Explore LazyingArt — apps and four buddies](https://github.com/lachlanchen/LazyingArtWebsite/raw/main/media/brand/lazyingart-intro.gif)](https://lazying.art)
+[![Explore LazyingArt — apps and four buddies](https://lazying.art/media/brand/lazyingart-intro.gif)](https://lazying.art)
 ```
 
 Reviewed on 2026-10-13: full GIF and MP4 decode; original artwork and app icon
