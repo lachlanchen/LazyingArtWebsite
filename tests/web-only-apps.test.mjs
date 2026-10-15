@@ -18,7 +18,7 @@ test('web apps retain their browser action alongside qualified store releases', 
     assert.equal(item.url, url);
     assert.equal(item.webApp, url);
     if (id === 'lazyingart-coin') {
-      assert.deepEqual(item.storeLinks, [{store: 'google-play', url: 'https://play.google.com/store/apps/details?id=art.lazying.lazyartcoin', device: 'Android'}]);
+      assert.deepEqual(item.storeLinks, [{store: 'app-store', url: 'https://apps.apple.com/app/lazyartcoin/id6816384930', device: 'iPhone · iPad'}, {store: 'google-play', url: 'https://play.google.com/store/apps/details?id=art.lazying.lazyartcoin', device: 'Android'}]);
     } else assert.equal(item.storeLinks, undefined);
     assert.equal(item.repository, undefined, 'No private source or unrelated parent repository');
     const homeCard = home.match(new RegExp(`<article class="app-download-card" data-app="${id}"[\\s\\S]*?<\\/article>`))?.[0];
@@ -28,10 +28,12 @@ test('web apps retain their browser action alongside qualified store releases', 
       assert.match(card, new RegExp(`src="(?:/|../)logos/apps/${id}\\.png"`));
       assert.equal((card.match(/data-web-app/g) || []).length, 1);
       assert.ok(card.includes(`href="${url}"`));
-      assert.doesNotMatch(card, /apps\.apple\.com|TestFlight|\.apk|airdrop|earn rewards/i);
+      assert.doesNotMatch(card, /TestFlight|\.apk|airdrop|earn rewards/i);
       if (id === 'lazyingart-coin') {
+        assert.equal((card.match(/href="https:\/\/apps\.apple\.com\/app\/lazyartcoin\/id6816384930"/g) || []).length, 1);
+        assert.doesNotMatch(card, /Mac App Store|platform=mac/);
         assert.equal((card.match(/href="https:\/\/play\.google\.com\/store\/apps\/details\?id=art\.lazying\.lazyartcoin"/g) || []).length, 1);
-      } else assert.doesNotMatch(card, /play\.google\.com/);
+      } else assert.doesNotMatch(card, /play\.google\.com|apps\.apple\.com/);
     }
     assert.match(productCard, /data-app>/, 'The Apps filter includes web-only releases');
     assert.ok(home.includes(`href="#${id}-download-title"`), 'Discoverable in top app shelf');
