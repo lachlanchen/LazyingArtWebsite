@@ -57,6 +57,16 @@ for (const item of catalog.items) {
     assert.equal(web.username + web.password + web.port + web.search + web.hash, '');
   }
   if (item.repository) assert.match(item.repository, /^https:\/\/github\.com\/(?:lachlanchen|lazyingart)\/[A-Za-z0-9_.-]+$/);
+  if (item.referenceLinks) {
+    assert.ok(Array.isArray(item.referenceLinks));
+    for (const link of item.referenceLinks) {
+      assert.ok(typeof link.label === 'string' && link.label.trim());
+      const url = new URL(link.url);
+      assert.equal(url.origin, 'https://etherscan.io');
+      assert.match(url.pathname, /^\/token\/0x[a-fA-F0-9]{40}$/);
+      assert.equal(url.username + url.password + url.search + url.hash, '');
+    }
+  }
   if (item.storyUrl) {
     const story = new URL(item.storyUrl);
     assert.equal(story.origin, 'https://blog.lazying.art');
@@ -140,7 +150,7 @@ const card = item => {
   const group = catalog.groups.find(group => group.id === item.group);
   const projectMark = item.icon ? `<img class="app-icon" src="../logos/apps/${escape(item.icon)}" alt="" width="80" height="80" loading="lazy">` : `<span class="project-mark" aria-hidden="true">${escape(item.name.slice(0, 1))}</span>`;
   const primaryLink = item.preview || item.webApp === item.url || item.storeLinks?.some(link => link.url === item.url) ? '' : `<a href="${escape(item.url)}">${escape(item.action)} <span aria-hidden="true">↗</span></a>`;
-  const secondaryLinks = `${primaryLink}${item.storyUrl ? `<a class="source-link" href="${escape(item.storyUrl)}">Read the story</a>` : ''}${item.repository ? `<a class="source-link" href="${escape(item.repository)}">Source: ${escape(item.repository.split('/').at(-1))}</a>` : ''}`;
+  const secondaryLinks = `${primaryLink}${item.storyUrl ? `<a class="source-link" href="${escape(item.storyUrl)}">Read the story</a>` : ''}${item.repository ? `<a class="source-link" href="${escape(item.repository)}">Source: ${escape(item.repository.split('/').at(-1))}</a>` : ''}${(item.referenceLinks || []).map(link => `<a class="source-link" href="${escape(link.url)}">${escape(link.label)}</a>`).join('')}`;
   return `<article id="${escape(item.id)}" class="product-card ${design ? `app-card tone-${design[1]}` : 'project-card'}${spotlight ? ' spotlight' : ''}${item.film ? ' has-film' : ''}" data-product data-category="${escape(item.group)}"${design ? ' data-app' : ''}>
       <div class="card-content">
         <div class="card-top">${design ? `<img class="app-icon" src="../logos/apps/${design[0]}" alt="" width="80" height="80" loading="lazy">` : projectMark}<span class="card-label">${design ? (item.id === 'lightmind-agent' ? 'Companion brand' : 'LazyingArt app') : escape(group.name)}</span><span class="card-spark" aria-hidden="true">↗</span></div>

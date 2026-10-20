@@ -60,6 +60,7 @@ test('Coin web capabilities distinguish networks without upgrading public store 
   const network = catalog.items.find(item => item.id === 'lazyart-network');
   assert.match(coin.description, /The web app supports native LAC on LazyArt Network/);
   assert.match(coin.description, /existing LazyingArtCoin on Ethereum separately/);
+  assert.match(coin.description, /LazyArtCoin on Ethereum/);
   assert.match(coin.description, /optional LazyingArt account login/);
   assert.match(coin.description, /App credits remain separate/);
   assert.equal(network.url, 'https://lac.lazying.art/');
@@ -71,7 +72,13 @@ test('Coin web capabilities distinguish networks without upgrading public store 
     assert.match(page, /href="https:\/\/lac\.lazying\.art\/"[^>]*target="_blank"[^>]*rel="noopener noreferrer"/);
   }
   for (const item of [coin, network]) {
-    assert.doesNotMatch(JSON.stringify(item), /0x[a-f0-9]{40}|airdrop|migration|bridge|guaranteed|new token/i);
+    assert.doesNotMatch(JSON.stringify(item), /airdrop|migration|bridge|guaranteed|new token/i);
+  }
+  const tokenURL = 'https://etherscan.io/token/0x59D29c62F41B10dD580Cc9D428C79E0D3d6685a4';
+  assert.deepEqual(coin.referenceLinks, [{label: 'Ethereum · LazyArtCoin (2026)', url: tokenURL}]);
+  assert.match(coin.description, /Cross-network transfers are not available/);
+  for (const page of [home, products]) {
+    assert.ok(page.includes(`href="${tokenURL}" target="_blank" rel="noopener noreferrer"`));
   }
 
   const context = {window: {}};
@@ -84,7 +91,7 @@ test('Coin web capabilities distinguish networks without upgrading public store 
     assert.equal(dictionary.coin_title, 'LazyArtCoin', locale);
     assert.ok(dictionary.coin_card_cta_title.includes('LazyArtCoin'), locale);
     const description = context.window.appReleaseTranslations[locale].app_lazyingart_coin_desc;
-    assert.ok(description.includes('LazyArt Network') && description.includes('LazyingArtCoin'), locale);
+    assert.ok(description.includes('LazyArt Network') && description.includes('LazyArtCoin') && description.includes('LazyingArtCoin'), locale);
   }
   assert.ok(home.includes(context.window.appReleaseTranslations.en.app_lazyingart_coin_desc));
 });
