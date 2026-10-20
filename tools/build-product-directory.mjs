@@ -12,20 +12,19 @@ for (const guide of guides) {
   assert.equal(url.hash, '');
 }
 const escape = (value) => String(value).replace(/[&<>"']/g, (c) => ({'&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'}[c]));
-// Reuse the homepage's decorative device / Play symbols; the link text stays
-// readable and actionable without scripts, images, or a third-party badge host.
+// Store artwork is supplied by the shared stylesheet; device labels stay text.
 const stores = {
   'mac-app-store': {
     name: 'Mac App Store', device: 'Mac', host: 'apps.apple.com',
-    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><rect x="2" y="3" width="20" height="14" rx="2"></rect><path d="M12 17v4M7 21h10"></path></svg>'
+    icon: ''
   },
   'app-store': {
     name: 'App Store', device: 'iPhone · iPad · Apple Watch', host: 'apps.apple.com',
-    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><rect x="7" y="2" width="10" height="20" rx="2"></rect><path d="M11 18h2"></path></svg>'
+    icon: ''
   },
   'google-play': {
     name: 'Google Play', device: 'Android', host: 'play.google.com',
-    icon: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M4.7 3.3a1.6 1.6 0 0 0-.7 1.3v14.8c0 .5.3 1 .7 1.3l8.5-8.7-8.5-8.7Zm9.6 7.6 2.4-2.5-8.9-5a2 2 0 0 0-1.2-.3l7.7 7.8Zm0 2.2-7.7 7.8c.4 0 .8-.1 1.2-.3l8.9-5-2.4-2.5Zm3.8-3.9-2.7 2.8 2.7 2.8 1.6-.9c1.2-.7 1.2-2.4 0-3.1l-1.6-.9Z"></path></svg>'
+    icon: ''
   }
 };
 const storeLinks = (item) => item.storeLinks?.length || item.webApp ? `
@@ -178,6 +177,7 @@ const html = `<!doctype html>
   <meta name="twitter:image" content="https://lazying.art/logos/banner.png">
   <link rel="icon" href="../favicon.ico" sizes="any">
   <link rel="stylesheet" href="styles.css?v=20261015-bunko-film">
+  <link rel="stylesheet" href="/store-links.css?v=20261020">
   <script src="directory.js" defer></script>
   <script type="application/ld+json">${JSON.stringify(schema).replaceAll('<','\\u003c')}</script>
 </head>

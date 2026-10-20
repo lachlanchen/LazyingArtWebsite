@@ -1,0 +1,27 @@
+/* Official store marks; visible link text remains the accessible label. */
+a[href^="https://apps.apple.com/"],
+a[href^="https://play.google.com/store/"] {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+a[href^="https://apps.apple.com/"]::before,
+a[href^="https://play.google.com/store/"]::before {
+  content: "";
+  display: inline-block;
+  flex: 0 0 24px;
+  width: 24px;
+  height: 24px;
+  background: center / contain no-repeat;
+}
+a[href^="https://apps.apple.com/"]::before {
+  background-image: url("logos/stores/app-store.png");
+}
+a[href^="https://play.google.com/store/"]::before {
+  background-image: url("logos/stores/google-play.svg");
+}
+/* Older download buttons used device outlines instead of store marks. */
+a[href^="https://apps.apple.com/"] > svg,
+a[href^="https://play.google.com/store/"] > svg {
+  display: none;
+}
