@@ -105,7 +105,7 @@
       "url": "https://coin.lazying.art/",
       "webApp": "https://coin.lazying.art/",
       "kind": "iPhone · iPad · Android · web app · LAC community companion",
-      "description": "View EchoMind credits and public LAC and ETH balances, save public addresses, and follow guided MetaMask setup. Platform credits and on-chain tokens remain separate.",
+      "description": "Save public addresses and view balances. The web app supports native LAC on LazyArt Network and existing LazyingArtCoin on Ethereum separately, with optional LazyingArt account login. App credits remain separate from on-chain assets.",
       "action": "Open LazyArtCoin",
       "featured": false,
       "storeLinks": [
@@ -120,6 +120,16 @@
           "device": "Android"
         }
       ]
+    },
+    {
+      "id": "lazyart-network",
+      "group": "about",
+      "name": "LazyArt Network",
+      "url": "https://lac.lazying.art/",
+      "kind": "Web · Ethereum-compatible network",
+      "description": "Explore LazyArt Network, connect an Ethereum-compatible wallet, and use native LAC. Chain ID: 20261020. Native LAC, Ethereum tokens and app points are separate.",
+      "action": "Explore LazyArt Network",
+      "featured": false
     },
     {
       "id": "landn",

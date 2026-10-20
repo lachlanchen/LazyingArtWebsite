@@ -55,6 +55,40 @@ test('web-only availability and concise descriptions cover all homepage language
   assert.match(translations.en.app_westory_desc, /adults.*room invitations.*permissions/);
 });
 
+test('Coin web capabilities distinguish networks without upgrading public store claims', () => {
+  const coin = catalog.items.find(item => item.id === 'lazyingart-coin');
+  const network = catalog.items.find(item => item.id === 'lazyart-network');
+  assert.match(coin.description, /The web app supports native LAC on LazyArt Network/);
+  assert.match(coin.description, /existing LazyingArtCoin on Ethereum separately/);
+  assert.match(coin.description, /optional LazyingArt account login/);
+  assert.match(coin.description, /App credits remain separate/);
+  assert.equal(network.url, 'https://lac.lazying.art/');
+  assert.equal(network.storeLinks, undefined);
+  assert.match(network.description, /20261020/);
+  assert.match(network.description, /Native LAC, Ethereum tokens and app points are separate/);
+  assert.ok(read('discovery-sitemap.xml').includes('<loc>https://lac.lazying.art/</loc>'));
+  for (const page of [home, products]) {
+    assert.match(page, /href="https:\/\/lac\.lazying\.art\/"[^>]*target="_blank"[^>]*rel="noopener noreferrer"/);
+  }
+  for (const item of [coin, network]) {
+    assert.doesNotMatch(JSON.stringify(item), /0x[a-f0-9]{40}|airdrop|migration|bridge|guaranteed|new token/i);
+  }
+
+  const context = {window: {}};
+  vm.runInNewContext(read('app-release-translations.js'), context);
+  const dictionaries = vm.runInNewContext('(' + home.match(
+    /const translations = (\{[\s\S]*?\n        \});\n\n        function applyTranslations/
+  )[1] + ')');
+  assert.equal(Object.keys(dictionaries).length, 13);
+  for (const [locale, dictionary] of Object.entries(dictionaries)) {
+    assert.equal(dictionary.coin_title, 'LazyArtCoin', locale);
+    assert.ok(dictionary.coin_card_cta_title.includes('LazyArtCoin'), locale);
+    const description = context.window.appReleaseTranslations[locale].app_lazyingart_coin_desc;
+    assert.ok(description.includes('LazyArt Network') && description.includes('LazyingArtCoin'), locale);
+  }
+  assert.ok(home.includes(context.window.appReleaseTranslations.en.app_lazyingart_coin_desc));
+});
+
 test('Auspice is absent from visible collection, catalogue, structured data and sitemap', () => {
   for (const source of [home, products, JSON.stringify(catalog), read('discovery-sitemap.xml')]) {
     assert.doesNotMatch(source, /auspice/i);
