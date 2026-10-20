@@ -1,0 +1,15 @@
+{
+  "checkedOn": "2026-10-20",
+  "source": "https://itunes.apple.com/lookup?id=6819458905&entity=macSoftware&country=us",
+  "name": "ClearPair",
+  "appleId": 6819458905,
+  "kind": "mac-software",
+  "version": "1.0.0",
+  "minimumOsVersion": "12.3",
+  "price": 0.99,
+  "currency": "USD",
+  "releaseDate": "2026-10-19T19:50:28Z",
+  "storeUrl": "https://apps.apple.com/us/app/clearpair/id6819458905?platform=mac",
+  "scope": "Combined eight-course Mac app. The eight separate Android apps retain their existing listings.",
+  "iconSha256": "a8a03988e7ca756e719d88b8e2f2576b58158c449358c6cfed0eb1602f3d2586"
+}

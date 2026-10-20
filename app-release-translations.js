@@ -1,6 +1,7 @@
 // App and research-tool carousel copy; store names and product titles stay official.
 window.appReleaseTranslations = {
   en: {
+    app_clearpair_mac_desc: 'Eight pronunciation and script courses in one Mac app. Compare sounds, practise listening and replay your recordings.',
     web_beta_label: 'Web beta',
     app_westory_desc: 'Read and shape a shared story with an AI editor. For adults; room invitations and contribution permissions apply.',
     app_lazyingart_coin_desc: 'Look up LAC balances by public Ethereum address and explore the LazyingArt community.',
@@ -14,6 +15,7 @@ window.appReleaseTranslations = {
     app_lazyedit_desc: 'Edit videos and multilingual subtitles in your private Studio. Invitation and internet required.'
   },
   ja: {
+    app_clearpair_mac_desc: '発音と文字を学ぶ8つのコースを、1つのMacアプリに。音を聞き比べ、聞き取りを練習し、自分の録音を再生できます。',
     web_beta_label: 'Webベータ版',
     app_westory_desc: 'AI編集者と一緒に物語を読み、育てる場所。18歳以上対象。ルームへの招待と投稿権限が必要です。',
     app_lazyingart_coin_desc: '公開EthereumアドレスでLAC残高を確認し、LazyingArtのコミュニティを探索。',
@@ -27,6 +29,7 @@ window.appReleaseTranslations = {
     app_lazyedit_desc: '自分専用のStudioで動画と多言語字幕を編集。招待とインターネット接続が必要です。'
   },
   'zh-Hans': {
+    app_clearpair_mac_desc: '一个 Mac 应用，八门发音与文字课程。对比声音、练习听辨，再回放自己的录音。',
     web_beta_label: '网页版测试中',
     app_westory_desc: '和 AI 编辑一起读故事、共创故事。面向成年人；加入房间需要邀请，投稿需相应权限。',
     app_lazyingart_coin_desc: '通过公开的以太坊地址查询 LAC 余额，探索 LazyingArt 社区。',
@@ -40,6 +43,7 @@ window.appReleaseTranslations = {
     app_lazyedit_desc: '在私人 Studio 中编辑视频和多语言字幕。需要邀请和网络连接。'
   },
   'zh-Hant': {
+    app_clearpair_mac_desc: '一個 Mac 應用，八門發音與文字課程。對比聲音、練習聽辨，再回放自己的錄音。',
     web_beta_label: '網頁版測試中',
     app_westory_desc: '和 AI 編輯一起讀故事、共創故事。面向成年人；加入房間需要邀請，投稿需相應權限。',
     app_lazyingart_coin_desc: '透過公開的以太坊地址查詢 LAC 餘額，探索 LazyingArt 社群。',
@@ -53,6 +57,7 @@ window.appReleaseTranslations = {
     app_lazyedit_desc: '在私人 Studio 中編輯影片和多語言字幕。需要邀請和網絡連線。'
   },
   ko: {
+    app_clearpair_mac_desc: '하나의 Mac 앱에 담긴 8가지 발음·문자 과정. 소리를 비교하고 듣기를 연습하며 내 녹음을 다시 들어 보세요.',
     web_beta_label: '웹 베타',
     app_westory_desc: 'AI 편집자와 함께 이야기를 읽고 만들어 가세요. 성인 대상이며, 방 초대와 기여 권한이 필요합니다.',
     app_lazyingart_coin_desc: '공개 이더리움 주소로 LAC 잔액을 조회하고 LazyingArt 커뮤니티를 둘러보세요.',
@@ -66,6 +71,7 @@ window.appReleaseTranslations = {
     app_lazyedit_desc: '개인 Studio에서 영상과 다국어 자막을 편집하세요. 초대와 인터넷 연결이 필요합니다.'
   },
   ar: {
+    app_clearpair_mac_desc: 'ثمانية مسارات للنطق والكتابة في تطبيق واحد على Mac. قارن الأصوات وتدرّب على الاستماع وأعد تشغيل تسجيلاتك.',
     web_beta_label: 'نسخة ويب تجريبية',
     app_westory_desc: 'اقرأ قصة مشتركة وساهم في تشكيلها مع محرّر بالذكاء الاصطناعي. للبالغين؛ يلزم الحصول على دعوة للغرفة وإذن للمساهمة.',
     app_lazyingart_coin_desc: 'تحقّق من رصيد LAC عبر عنوان إيثريوم عام واستكشف مجتمع LazyingArt.',
@@ -79,6 +85,7 @@ window.appReleaseTranslations = {
     app_lazyedit_desc: 'حرّر الفيديو والترجمات متعددة اللغات في Studio الخاص بك. يتطلب دعوة واتصالاً بالإنترنت.'
   },
   vi: {
+    app_clearpair_mac_desc: 'Tám khóa học phát âm và chữ viết trong một ứng dụng Mac. So sánh âm, luyện nghe và nghe lại bản ghi của bạn.',
     web_beta_label: 'Bản web thử nghiệm',
     app_westory_desc: 'Đọc và cùng xây dựng câu chuyện với biên tập viên AI. Dành cho người lớn; cần lời mời vào phòng và quyền đóng góp.',
     app_lazyingart_coin_desc: 'Tra cứu số dư LAC bằng địa chỉ Ethereum công khai và khám phá cộng đồng LazyingArt.',
@@ -92,6 +99,7 @@ window.appReleaseTranslations = {
     app_lazyedit_desc: 'Chỉnh sửa video và phụ đề đa ngôn ngữ trong Studio riêng. Cần lời mời và kết nối internet.'
   },
   fr: {
+    app_clearpair_mac_desc: 'Huit parcours de prononciation et d’écriture dans une app Mac. Comparez les sons, exercez votre écoute et réécoutez vos enregistrements.',
     web_beta_label: 'Bêta web',
     app_westory_desc: 'Lisez et façonnez une histoire à plusieurs avec un éditeur IA. Pour adultes ; invitation au salon et autorisation de contribuer nécessaires.',
     app_lazyingart_coin_desc: 'Consultez un solde LAC avec une adresse Ethereum publique et découvrez la communauté LazyingArt.',
@@ -105,6 +113,7 @@ window.appReleaseTranslations = {
     app_lazyedit_desc: 'Montez vos vidéos et sous-titres multilingues dans votre Studio privé. Invitation et connexion internet nécessaires.'
   },
   es: {
+    app_clearpair_mac_desc: 'Ocho cursos de pronunciación y escritura en una app para Mac. Compara sonidos, practica la escucha y vuelve a oír tus grabaciones.',
     web_beta_label: 'Beta web',
     app_westory_desc: 'Lee y construye una historia compartida con un editor de IA. Para adultos; requiere invitación a la sala y permiso para contribuir.',
     app_lazyingart_coin_desc: 'Consulta saldos de LAC con una dirección pública de Ethereum y explora la comunidad LazyingArt.',
@@ -118,6 +127,7 @@ window.appReleaseTranslations = {
     app_lazyedit_desc: 'Edita vídeos y subtítulos multilingües en tu Studio privado. Requiere invitación y conexión a internet.'
   },
   pt: {
+    app_clearpair_mac_desc: 'Oito cursos de pronúncia e escrita em um app para Mac. Compare sons, treine a escuta e ouça suas gravações.',
     web_beta_label: 'Beta web',
     app_westory_desc: 'Leia e construa uma história em conjunto com um editor de IA. Para adultos; exige convite para a sala e permissão para contribuir.',
     app_lazyingart_coin_desc: 'Consulte saldos de LAC com um endereço público Ethereum e explore a comunidade LazyingArt.',
@@ -131,6 +141,7 @@ window.appReleaseTranslations = {
     app_lazyedit_desc: 'Edite vídeos e legendas multilíngues no seu Studio privado. Requer convite e conexão à internet.'
   },
   de: {
+    app_clearpair_mac_desc: 'Acht Aussprache- und Schriftkurse in einer Mac-App. Vergleiche Laute, übe das Hörverstehen und höre deine Aufnahmen noch einmal.',
     web_beta_label: 'Web-Beta',
     app_westory_desc: 'Lies und gestalte eine gemeinsame Geschichte mit einem KI-Editor. Für Erwachsene; Raumeinladung und Beitragsrechte erforderlich.',
     app_lazyingart_coin_desc: 'Prüfe LAC-Guthaben über eine öffentliche Ethereum-Adresse und entdecke die LazyingArt-Community.',
@@ -144,6 +155,7 @@ window.appReleaseTranslations = {
     app_lazyedit_desc: 'Bearbeite Videos und mehrsprachige Untertitel in deinem privaten Studio. Einladung und Internetverbindung erforderlich.'
   },
   ru: {
+    app_clearpair_mac_desc: 'Восемь курсов произношения и письменности в одном приложении для Mac. Сравнивайте звуки, тренируйте слух и переслушивайте свои записи.',
     web_beta_label: 'Веб-бета',
     app_westory_desc: 'Читайте и создавайте общую историю с ИИ-редактором. Для взрослых; нужны приглашение в комнату и права участника.',
     app_lazyingart_coin_desc: 'Проверяйте баланс LAC по публичному адресу Ethereum и знакомьтесь с сообществом LazyingArt.',
@@ -157,6 +169,7 @@ window.appReleaseTranslations = {
     app_lazyedit_desc: 'Редактируйте видео и многоязычные субтитры в личной Studio. Нужны приглашение и интернет.'
   },
   tr: {
+    app_clearpair_mac_desc: 'Tek bir Mac uygulamasında sekiz telaffuz ve yazı kursu. Sesleri karşılaştırın, dinleme alıştırması yapın ve kayıtlarınızı yeniden dinleyin.',
     web_beta_label: 'Web beta',
     app_westory_desc: 'Bir yapay zekâ editörüyle ortak bir hikâyeyi okuyup şekillendirin. Yetişkinler içindir; oda daveti ve katkı izni gerekir.',
     app_lazyingart_coin_desc: 'Herkese açık bir Ethereum adresiyle LAC bakiyelerini sorgulayın ve LazyingArt topluluğunu keşfedin.',

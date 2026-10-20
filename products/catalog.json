@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-14",
+  "updated": "2026-10-20",
   "title": "LazyingArt products, books and open-source tools",
   "groups": [
     {
@@ -689,6 +689,24 @@
       "description": "Notes and practical tools for reducing friction in everyday creative and technical work.",
       "action": "Explore the notes",
       "featured": false
+    },
+    {
+      "id": "clearpair",
+      "group": "learn",
+      "name": "ClearPair",
+      "url": "https://apps.apple.com/us/app/clearpair/id6819458905?platform=mac",
+      "icon": "clearpair.png",
+      "kind": "Mac · US$0.99",
+      "description": "Eight pronunciation and script courses in one Mac app: H & F, L & R, English, Mandarin, Cantonese, Japanese, Korean and Arabic Letters. Compare sounds, practise listening, record a phrase and replay it beside the reference. One purchase includes all eight courses.",
+      "action": "Get ClearPair for Mac",
+      "storeLinks": [
+        {
+          "store": "mac-app-store",
+          "url": "https://apps.apple.com/us/app/clearpair/id6819458905?platform=mac",
+          "device": "macOS 12.3+ · US$0.99"
+        }
+      ],
+      "featured": true
     },
     {
       "id": "clearpair-handf",

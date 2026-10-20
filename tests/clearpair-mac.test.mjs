@@ -1,0 +1,25 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import vm from 'node:vm';
+const root = new URL('../', import.meta.url);
+const read = path => fs.readFileSync(new URL(path, root), 'utf8');
+test('ClearPair combined Mac app has its own card, icon and qualified store route', () => {
+  const url = 'https://apps.apple.com/us/app/clearpair/id6819458905?platform=mac';
+  const home = read('index.html');
+  const card = home.match(/<article[^>]+data-app="clearpair"[\s\S]*?<\/article>/)[0];
+  assert.ok(card.includes(url));
+  assert.match(card, /Eight pronunciation and script courses/);
+  assert.match(card, /US\$0\.99/);
+  assert.doesNotMatch(card, /play\.google|platform=iphone|testflight/);
+  assert.ok(fs.existsSync(new URL('logos/apps/clearpair.png', root)));
+  assert.match(home, /href="#clearpair-download-title"/);
+  const item = JSON.parse(read('products/catalog.json')).items.find(p => p.id === 'clearpair');
+  assert.equal(item.storeLinks.length, 1);
+  assert.equal(item.storeLinks[0].url, url);
+  assert.match(item.storeLinks[0].device, /macOS 12\.3/);
+  assert.match(read('products/index.html'), /<article id="clearpair"/);
+  const context = {window: {}};
+  vm.runInNewContext(read('app-release-translations.js'), context);
+  for (const copy of Object.values(context.window.appReleaseTranslations)) assert.ok(copy.app_clearpair_mac_desc);
+});

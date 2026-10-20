@@ -79,7 +79,7 @@ assert.match(landnCard, /<strong>Google Play<\/strong>/);
 assert.match(landnCard, /<strong>Google Play Pro<\/strong>/);
 assert.doesNotMatch(landnCard, /internaltest|testflight|\.apk/);
 assert.doesNotMatch(discovery, /apps\.apple\.com|play\.google\.com/, 'store listings are not owned sitemap URLs');
-assert.equal((html.match(/class="store-button"/g) || []).length, 35, 'only verified public app listings get store links');
+assert.equal((html.match(/class="store-button"/g) || []).length, 36, 'only verified public app listings get store links');
 const musia = catalog.items.find(item => item.id === 'musia-app');
 assert.equal(musia.storeLinks.length, 2);
 assert.equal(musia.storeLinks[0].url, 'https://apps.apple.com/us/app/musia-learn-music-guitar/id6816265930?mt=12');
@@ -143,7 +143,7 @@ assert.match(html, /data-motion-toggle[^>]*hidden/);
 assert.match(html, /type="search" id="product-search"/);
 assert.match(html, /role="status" aria-live="polite"/);
 assert.equal((html.match(/data-product\b/g) || []).length, catalog.items.length);
-assert.equal((html.match(/data-app>/g) || []).length, 22);
+assert.equal((html.match(/data-app>/g) || []).length, 23);
 assert.equal((html.match(/data-guide\b/g) || []).length, guides.length);
 assert.ok(html.indexOf('id="apps"') < html.indexOf('id="learn"'), 'Downloadable apps appear before the wider portfolio');
 assert.ok(html.indexOf('id="onlyideas"') < html.indexOf('id="bunko"'), 'OnlyIdeas gets the first app spotlight');
@@ -161,9 +161,13 @@ for (const item of catalog.items) {
   assert.equal(new URL(item.url).protocol, 'https:');
   const primary = new URL(item.url);
   if (primary.search) {
-    assert.equal(primary.origin, 'https://play.google.com');
-    assert.equal(primary.pathname, '/store/apps/details');
-    assert.deepEqual([...primary.searchParams.keys()], ['id']);
+    if (item.id === 'clearpair') {
+      assert.equal(primary.href, 'https://apps.apple.com/us/app/clearpair/id6819458905?platform=mac');
+    } else {
+      assert.equal(primary.origin, 'https://play.google.com');
+      assert.equal(primary.pathname, '/store/apps/details');
+      assert.deepEqual([...primary.searchParams.keys()], ['id']);
+    }
     assert.ok(item.storeLinks.some(link => link.url === item.url), 'A store-primary item must use its verified listing, not campaign or session parameters');
   }
 }
