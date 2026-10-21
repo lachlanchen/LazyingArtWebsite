@@ -52,10 +52,17 @@ const previous101Apk = "downloads/EchoMind-0.2.0-build101-test.apk";
 assert.equal(crypto.createHash("sha256").update(fs.readFileSync(new URL(previous101Apk, root))).digest("hex"),
   "088e6aa5356b9730a2108f1218d0ce80b8e6a10ec6e39bfeb638d4f9a59aa265",
   "Prior Android101 direct test download remains unchanged and recoverable");
-const currentTestApk = "downloads/EchoMind-0.2.0-build102-test.apk";
-assert.equal(crypto.createHash("sha256").update(fs.readFileSync(new URL(currentTestApk, root))).digest("hex"),
+const previous102Apk = "downloads/EchoMind-0.2.0-build102-test.apk";
+assert.equal(crypto.createHash("sha256").update(fs.readFileSync(new URL(previous102Apk, root))).digest("hex"),
   "6388d4b6620c085af6b73f59897c6ad5d4ad4a31cbd6de7af6361a3cf2d45dd1",
-  "Android102 direct test download matches the qualified signed artifact");
+  "Prior Android102 direct test download remains unchanged and recoverable");
+assert.ok(!html.includes(`href="${previous102Apk}"`), "previous tester download is not a public-store recommendation");
+const currentTestApk = "downloads/EchoMind-0.2.0-build103-test.apk";
+const currentTestBytes = fs.readFileSync(new URL(currentTestApk, root));
+assert.equal(currentTestBytes.length, 2748298, "Android103 exact paired APK size");
+assert.equal(crypto.createHash("sha256").update(currentTestBytes).digest("hex"),
+  "7950fdf922b39484d270a11929c3a68f6692c10f2bd8ca41c96db3a52a4922ad",
+  "Android103 direct test download matches the qualified signed artifact");
 assert.ok(!html.includes(`href="${currentTestApk}"`), "public release buttons remain store destinations, independent of tester mail");
 assert.equal(Object.keys(translations).length, 13);
 for (const [locale, dictionary] of Object.entries(translations)) {
