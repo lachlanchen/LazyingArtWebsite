@@ -35,6 +35,19 @@ test('character introduction and motion controls cover every website locale', ()
   }
 });
 
+test('shop actions have decorative icons and responsive touch-friendly spacing', () => {
+  const actions = panel.match(/<div class="character-actions">[\s\S]*?<\/div>/)?.[0];
+  assert.ok(actions);
+  assert.equal((actions.match(/class="character-cta"/g) || []).length, 2);
+  assert.equal((actions.match(/<svg class="character-cta-icon"[^>]*aria-hidden="true" focusable="false"/g) || []).length, 2);
+  assert.match(actions, /class="character-cta-label" data-ip-label="shop"/);
+  const css = read('characters.css');
+  assert.match(css, /\.character-actions\s*\{[^}]*display: flex;[^}]*flex-wrap: wrap;[^}]*gap: \.75rem;/);
+  assert.match(css, /\.character-cta\s*\{[^}]*min-height: 48px;/);
+  assert.match(css, /@media \(max-width: 480px\)[\s\S]*?\.character-actions\s*\{[^}]*flex-direction: column;/);
+  assert.match(css, /\.character-cta-label\s*\{[^}]*overflow-wrap: anywhere;/);
+});
+
 test('GIFs keep still fallbacks, respect reduced motion and stop offscreen', () => {
   assert.equal((panel.match(/src="[^"]+\.png"/g) || []).length, 4);
   assert.match(script, /prefers-reduced-motion: reduce/);

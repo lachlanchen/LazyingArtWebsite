@@ -11,7 +11,11 @@
 .character-eyebrow { display: block; color: #12655d; font-size: .7rem; letter-spacing: .12em; font-weight: 750; margin-bottom: .8rem; }
 .character-intro h2 { font-size: clamp(1.8rem, 3vw, 2.65rem); line-height: 1.12; letter-spacing: -.045em; text-wrap: balance; }
 .character-intro p { margin: 1rem 0 1.4rem; color: var(--text-muted); font-size: 1rem; line-height: 1.7; }
-.character-cta { display: inline-flex; align-items: center; gap: .8rem; padding: .8rem 1.15rem; border-radius: 14px; background: #116b60; color: #fff; font-weight: 700; text-decoration: none; line-height: 1.4; }
+.character-actions { display: flex; flex-wrap: wrap; align-items: stretch; gap: .75rem; }
+.character-cta { display: inline-flex; align-items: center; gap: .65rem; min-height: 48px; max-width: 100%; padding: .8rem 1rem; border-radius: 14px; background: #116b60; color: #fff; font-size: .9rem; font-weight: 700; text-decoration: none; line-height: 1.4; }
+.character-cta-icon { display: block; width: 1.5rem; height: 1.5rem; flex: 0 0 1.5rem; }
+.character-cta-label { min-width: 0; overflow-wrap: anywhere; }
+.character-cta-arrow { margin-inline-start: auto; flex: 0 0 auto; }
 .character-intro .character-note { font-size: .8rem; line-height: 1.6; margin-bottom: 0; }
 .character-banners { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .8rem; }
 .character-banners a { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: .55rem; overflow: hidden; background: #fff; color: #20394c; text-decoration: none; border: 1px solid #d4e4ec; border-radius: 16px; }
@@ -37,6 +41,8 @@ body[data-theme="dark"] .character-eyebrow { color: #97e1d0; }
 }
 @media (max-width: 480px) {
   .character-panel { padding: 1.1rem; border-radius: 22px; gap: 1.25rem; }
+  .character-actions { flex-direction: column; align-items: stretch; }
+  .character-cta { font-size: 1rem; }
   .character-banners { gap: .55rem; }
   .character-banners span { padding: 0 .55rem .6rem; font-size: .72rem; }
   .character-stickers { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .65rem; }
