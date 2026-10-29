@@ -5,8 +5,9 @@ import {createHash} from 'node:crypto';
 const root = new URL('../', import.meta.url);
 const read = p => fs.readFileSync(new URL(p, root), 'utf8');
 test('store links use the same local official artwork on every store-linked page', () => {
-  for (const page of ['index.html', 'products/index.html', 'work/index.html']) {
-    assert.match(read(page), /href="\/store-links\.css\?v=20261020"/, page);
+  for (const page of ['index.html', 'products/index.html', 'downloads/index.html', 'work/index.html']) {
+    const version = page === 'work/index.html' ? '20261020' : '20261029-apk';
+    assert.ok(read(page).includes(`href="/store-links.css?v=${version}"`), page);
   }
   const css = read('store-links.css');
   for (const host of ['apps.apple.com/', 'play.google.com/store/']) {

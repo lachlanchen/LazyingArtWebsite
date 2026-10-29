@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
 import {openPageLinksInNewTabs} from './page-link-policy.mjs';
+import {downloadsFor, apkButton} from './android-downloads.mjs';
 
 const root = new URL('../', import.meta.url);
 const catalog = JSON.parse(fs.readFileSync(new URL('products/catalog.json', root), 'utf8'));
@@ -27,15 +28,15 @@ const stores = {
     icon: ''
   }
 };
-const storeLinks = (item) => item.storeLinks?.length || item.webApp ? `
+const storeLinks = (item) => item.storeLinks?.length || item.webApp || downloadsFor(item.id).length ? `
       <div class="store-links" role="group" aria-label="${escape(item.name)} app downloads">${(item.storeLinks || []).map(link => {
         const store = stores[link.store];
         const label = store.name + (link.edition ? ` ${link.edition}` : '');
         return `<a class="store-button" data-store="${escape(link.store)}" href="${escape(link.url)}" aria-label="${escape(item.name)} on the ${escape(label)}">${store.icon}<span><strong>${escape(label)}</strong><small>${escape(link.device || store.device)}</small></span></a>`;
-      }).join('')}${item.webApp ? `<a class="store-button web-app-button" data-web-app href="${escape(item.webApp)}" aria-label="${escape(item.name)} ${item.webPreview ? 'web preview' : 'web app'}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18"/></svg><span><strong>${item.webPreview ? 'Web preview' : 'Web app'}</strong><small>Open in your browser</small></span></a>` : ''}</div>` : '';
+      }).join('')}${downloadsFor(item.id).map(app => apkButton(app)).join('')}${item.webApp ? `<a class="store-button web-app-button" data-web-app href="${escape(item.webApp)}" aria-label="${escape(item.name)} ${item.webPreview ? 'web preview' : 'web app'}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18"/></svg><span><strong>${item.webPreview ? 'Web preview' : 'Web app'}</strong><small>Open in your browser</small></span></a>` : ''}</div>` : '';
 const canonical = 'https://lazying.art/products/';
 const description = 'Discover LazyingArt apps, multilingual books, learning resources, creative tools, and open-source projects. Try L & N, read a book, or explore a practical workflow.';
-const publisherLinks = '<a href="https://apps.apple.com/developer/lazyingart-llc/id1867662412" target="_blank" rel="noopener noreferrer">App Store <span aria-hidden="true">↗</span></a><a href="https://play.google.com/store/apps/developer?id=LazyingArt+LLC" target="_blank" rel="noopener noreferrer">Google Play <span aria-hidden="true">↗</span></a>';
+const publisherLinks = '<a href="https://apps.apple.com/developer/lazyingart-llc/id1867662412" target="_blank" rel="noopener noreferrer">App Store <span aria-hidden="true">↗</span></a><a href="https://play.google.com/store/apps/developer?id=LazyingArt+LLC" target="_blank" rel="noopener noreferrer">Google Play <span aria-hidden="true">↗</span></a><a href="/downloads/">Android downloads</a>';
 assert.equal(new Set(catalog.items.map(item => item.id)).size, catalog.items.length);
 for (const item of catalog.items) {
   assert.ok(catalog.groups.some(group => group.id === item.group));
@@ -187,7 +188,7 @@ const html = `<!doctype html>
   <meta name="twitter:image" content="https://lazying.art/logos/banner.png">
   <link rel="icon" href="../favicon.ico" sizes="any">
   <link rel="stylesheet" href="styles.css?v=20261015-bunko-film">
-  <link rel="stylesheet" href="/store-links.css?v=20261020">
+  <link rel="stylesheet" href="/store-links.css?v=20261029-apk">
   <script src="directory.js" defer></script>
   <script type="application/ld+json">${JSON.stringify(schema).replaceAll('<','\\u003c')}</script>
 </head>

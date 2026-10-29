@@ -25,3 +25,8 @@ a[href^="https://apps.apple.com/"] > svg,
 a[href^="https://play.google.com/store/"] > svg {
   display: none;
 }
+/* Direct Android packages share the app's existing download row. */
+a.apk-download { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; text-decoration: none; }
+a.apk-download > svg { display: block; width: 23px; height: 23px; flex: 0 0 23px; }
+a.apk-download:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+a.apk-download small { display: block; }

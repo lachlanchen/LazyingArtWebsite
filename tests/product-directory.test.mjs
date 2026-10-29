@@ -77,7 +77,9 @@ assert.match(landnCard, /aria-label="L &amp; N speech practice on the Google Pla
 assert.match(landnCard, /<strong>App Store<\/strong>/);
 assert.match(landnCard, /<strong>Google Play<\/strong>/);
 assert.match(landnCard, /<strong>Google Play Pro<\/strong>/);
-assert.doesNotMatch(landnCard, /internaltest|testflight|\.apk/);
+assert.doesNotMatch(landnCard, /internaltest|testflight/);
+assert.match(landnCard, /data-apk-download="landn"/);
+assert.match(landnCard, /data-apk-download="landn-pro"/);
 assert.doesNotMatch(discovery, /apps\.apple\.com|play\.google\.com/, 'store listings are not owned sitemap URLs');
 assert.equal((html.match(/class="store-button"/g) || []).length, 36, 'only verified public app listings get store links');
 const musia = catalog.items.find(item => item.id === 'musia-app');

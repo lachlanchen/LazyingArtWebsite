@@ -7,7 +7,7 @@ const cards = [...html.matchAll(/<article class="app-download-card"[^>]*>([\s\S]
 assert.equal(cards.length, 23);
 assert.ok(html.indexOf('id="app-downloads"') < html.indexOf('<aside class="beta-launch-card"'));
 // Web destinations have their own contract; native store identities stay exact.
-const links = card => [...card.matchAll(/<a\b[^>]*href="([^"]+)"[^>]*>/g)].filter(m => !m[0].includes('data-web-app')).map(m => m[1]);
+const links = card => [...card.matchAll(/<a\b[^>]*href="([^"]+)"[^>]*>/g)].filter(m => !m[0].includes('data-web-app') && !m[0].includes('data-apk-download')).map(m => m[1]);
 assert.deepEqual(links(cards[0]), [
   'https://apps.apple.com/us/app/l-n-speech-practice/id6808872450',
   'https://apps.apple.com/us/app/l-n-speech-practice/id6808872450?platform=mac',
@@ -45,7 +45,7 @@ assert.deepEqual(links(cards[7]), ['https://apps.apple.com/us/app/musia-learn-mu
 assert.match(cards[7], /US\$2\.99/);
 assert.match(cards[7], /Now on Mac \(macOS 14\+\).*iPhone edition is still in review/);
 assert.doesNotMatch(cards[7], /cloud music generation|microphone|AI-generated songs/i);
-assert.doesNotMatch(cards.join(''), /testflight|internaltest|\.apk|accurate|guarantee|free|localhost|127\.0\.0\.1/i);
+assert.doesNotMatch(cards.join(''), /testflight|internaltest|accurate|guarantee|free|localhost|127\.0\.0\.1/i);
 assert.match(cards[6], /LightMind Tech Limited/);
 for (const card of cards) {
   const id = card.match(/<h2 id="([^"]+)"/)[1];

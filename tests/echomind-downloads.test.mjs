@@ -67,7 +67,8 @@ assert.equal(currentTestBytes.length, 2748298, "Android104 exact paired APK size
 assert.equal(crypto.createHash("sha256").update(currentTestBytes).digest("hex"),
   "59d92399a770acc80cc01f306c5269c38445df4e0629e321d98c171c10ea45fd",
   "Android104 direct test download matches the qualified signed artifact");
-assert.ok(!html.includes(`href="${currentTestApk}"`), "public release buttons remain store destinations, independent of tester mail");
+assert.ok(html.includes(`href="https://lazying.art/${currentTestApk}"`), "the owner-requested direct download uses the verified signed Android104 artifact");
+assert.ok(html.includes('data-apk-download="echomind"'), "the APK is distinguished from the existing store buttons");
 assert.equal(Object.keys(translations).length, 13);
 for (const [locale, dictionary] of Object.entries(translations)) {
   assert.match(dictionary.beta_title, /Mac/, `${locale}: Mac is included in the release title`);

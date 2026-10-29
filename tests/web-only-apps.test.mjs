@@ -28,7 +28,9 @@ test('web apps retain their browser action alongside qualified store releases', 
       assert.match(card, new RegExp(`src="(?:/|../)logos/apps/${id}\\.png"`));
       assert.equal((card.match(/data-web-app/g) || []).length, 1);
       assert.ok(card.includes(`href="${url}"`));
-      assert.doesNotMatch(card, /TestFlight|\.apk|airdrop|earn rewards/i);
+      assert.doesNotMatch(card, /TestFlight|airdrop|earn rewards/i);
+      if (id === 'lazyingart-coin') assert.match(card, /data-apk-download="lazyingart-coin"/);
+      else assert.doesNotMatch(card, /\.apk|data-apk-download/);
       if (id === 'lazyingart-coin') {
         assert.equal((card.match(/href="https:\/\/apps\.apple\.com\/app\/lazyartcoin\/id6816384930"/g) || []).length, 1);
         assert.doesNotMatch(card, /Mac App Store|platform=mac/);
