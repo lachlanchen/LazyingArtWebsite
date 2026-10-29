@@ -12,6 +12,14 @@ nonactivating Windows 11 sessions: Bunko opened a real multilingual book chapter
 OnlyIdeas opened a public research paper, contents, search and figure enlargement.
 Actual provider sign-in and Windows 10 remain separate qualification gaps.
 
+AiMemo 1.0.0 is a separate, unsigned Edge-backed launcher with a per-user
+installer, not a portable .NET app. Its exact 303,672-byte installer and SHA-256
+come from the public `lachlanchen/AiMemo-Downloads` versioned release. It targets
+Windows 10/11 x64 with Microsoft Edge. Windows 11 install, upgrade, uninstall,
+reinstall and signed-out startup were checked; real provider login remains
+unqualified. The [setup guide](https://memo.lazying.art/windows.html) records
+requirements and limitations. No app-store release or subscription changes.
+
 Regenerate the pages and check links:
 
 ```sh

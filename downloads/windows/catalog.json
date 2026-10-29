@@ -26,6 +26,23 @@
       "sha256": "ce77f9140b7428eec6313d824f3e77a38e0cc811bb7ec6de281a8703b878e035",
       "url": "https://github.com/lachlanchen/LazyingArtWebsite/releases/download/windows-previews-20261030/OnlyIdeas-1.0.10-windows-x64-preview.exe",
       "description": "Read research papers with equations, figures, contents, search and private notes."
+    },
+    {
+      "id": "aimemo",
+      "name": "AiMemo",
+      "version": "1.0.0",
+      "architecture": "x64",
+      "signed": false,
+      "channel": "preview",
+      "filename": "AiMemo-Setup-1.0.0-x64.exe",
+      "bytes": 303672,
+      "sha256": "58b170381f301b24d2ef57e97bd762325ea5161f1f9c65d90555c5b57f611eb1",
+      "url": "https://github.com/lachlanchen/AiMemo-Downloads/releases/download/windows-v1.0.0-preview/AiMemo-Setup-1.0.0-x64.exe",
+      "icon": "aimemo.jpg",
+      "requirements": "Windows 10/11 x64 · Microsoft Edge",
+      "package": "Per-user installer · Edge-backed launcher · Unsigned preview",
+      "guide": "https://memo.lazying.art/windows.html",
+      "description": "Your notes and chat in a dedicated Microsoft Edge window. Installs for your Windows account without administrator access."
     }
   ]
 }
