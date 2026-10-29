@@ -13,6 +13,7 @@ for (const guide of guides) {
   assert.equal(url.hash, '');
 }
 const escape = (value) => String(value).replace(/[&<>"']/g, (c) => ({'&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'}[c]));
+const windowsLink = item => item.windowsDownload ? `<a class="store-button windows-download" data-windows-download="${escape(item.id)}" href="${escape(item.windowsDownload)}" download target="_blank" rel="noopener noreferrer"><span><strong>Windows EXE · Preview</strong><small>x64 · Portable · Unsigned</small></span></a><a class="store-button windows-details" href="/downloads/echomind-windows.html">Windows preview details</a>` : '';
 // Store artwork is supplied by the shared stylesheet; device labels stay text.
 const stores = {
   'mac-app-store': {
@@ -33,12 +34,17 @@ const storeLinks = (item) => item.storeLinks?.length || item.webApp || downloads
         const store = stores[link.store];
         const label = store.name + (link.edition ? ` ${link.edition}` : '');
         return `<a class="store-button" data-store="${escape(link.store)}" href="${escape(link.url)}" aria-label="${escape(item.name)} on the ${escape(label)}">${store.icon}<span><strong>${escape(label)}</strong><small>${escape(link.device || store.device)}</small></span></a>`;
-      }).join('')}${downloadsFor(item.id).map(app => apkButton(app)).join('')}${item.webApp ? `<a class="store-button web-app-button" data-web-app href="${escape(item.webApp)}" aria-label="${escape(item.name)} ${item.webPreview ? 'web preview' : 'web app'}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18"/></svg><span><strong>${item.webPreview ? 'Web preview' : 'Web app'}</strong><small>Open in your browser</small></span></a>` : ''}</div>` : '';
+      }).join('')}${windowsLink(item)}${downloadsFor(item.id).map(app => apkButton(app)).join('')}${item.webApp ? `<a class="store-button web-app-button" data-web-app href="${escape(item.webApp)}" aria-label="${escape(item.name)} ${item.webPreview ? 'web preview' : 'web app'}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18"/></svg><span><strong>${item.webPreview ? 'Web preview' : 'Web app'}</strong><small>Open in your browser</small></span></a>` : ''}</div>` : '';
 const canonical = 'https://lazying.art/products/';
 const description = 'Discover LazyingArt apps, multilingual books, learning resources, creative tools, and open-source projects. Try L & N, read a book, or explore a practical workflow.';
 const publisherLinks = '<a href="https://apps.apple.com/developer/lazyingart-llc/id1867662412" target="_blank" rel="noopener noreferrer">App Store <span aria-hidden="true">↗</span></a><a href="https://play.google.com/store/apps/developer?id=LazyingArt+LLC" target="_blank" rel="noopener noreferrer">Google Play <span aria-hidden="true">↗</span></a><a href="/downloads/">Android downloads</a>';
 assert.equal(new Set(catalog.items.map(item => item.id)).size, catalog.items.length);
 for (const item of catalog.items) {
+  if (item.windowsDownload) {
+    assert.equal(item.id, 'echomind');
+    assert.match(item.windowsDownload, /^\/downloads\/EchoMind-[a-z0-9.-]+-win-x64\.exe$/);
+    assert.ok(fs.existsSync(new URL(item.windowsDownload.slice(1), root)));
+  }
   assert.ok(catalog.groups.some(group => group.id === item.group));
   if (item.film) {
     assert.match(item.film.src, /^\/media\/apps\/[a-z0-9-]+\/[a-z0-9-]+\.mp4$/);

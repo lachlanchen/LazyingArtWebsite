@@ -174,6 +174,7 @@
     },
     {
       "id": "echomind",
+      "windowsDownload": "/downloads/EchoMind-1.0.0-preview.1-win-x64.exe",
       "webApp": "https://chat.lazying.art/",
       "group": "learn",
       "name": "EchoMind",
