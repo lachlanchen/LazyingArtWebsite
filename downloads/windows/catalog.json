@@ -2,6 +2,20 @@
   "updated": "2026-10-30",
   "apps": [
     {
+      "id": "echomind",
+      "name": "EchoMind",
+      "version": "1.0.0-preview.1",
+      "architecture": "x64",
+      "signed": false,
+      "channel": "preview",
+      "filename": "EchoMind-1.0.0-preview.1-win-x64.exe",
+      "bytes": 49678948,
+      "sha256": "2b7d5a41929f91f7a2f54a06eb2e19b2c37a1d79519e49e26dbd71d8fe63dfc3",
+      "url": "https://lazying.art/downloads/EchoMind-1.0.0-preview.1-win-x64.exe",
+      "description": "A native desktop preview for text conversations and language cards. Some mobile features are not yet available on Windows.",
+      "guide": "/downloads/echomind-windows.html"
+    },
+    {
       "id": "bunko",
       "name": "Bunko",
       "version": "1.0.15",

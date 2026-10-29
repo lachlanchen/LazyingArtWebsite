@@ -1,10 +1,10 @@
-import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';
+import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';import crypto from 'node:crypto';
 import {windows} from '../tools/windows-downloads.mjs';
 const read=p=>fs.readFileSync(new URL('../'+p,import.meta.url),'utf8');
 test('each Windows download uses the exact full EXE and exposes preview requirements',()=>{
- assert.equal(windows.apps.length,3);
+ assert.equal(windows.apps.length,4);
  for(const app of windows.apps){
-  for(const file of ['index.html','products/index.html','downloads/windows/index.html']){const html=read(file);assert.ok(html.includes('data-windows-download="'+app.id+'"'));assert.ok(html.includes(app.url));}
+  for(const file of ['index.html','products/index.html','downloads/windows/index.html']){const html=read(file);assert.equal((html.match(new RegExp('data-windows-download="'+app.id+'"','g'))||[]).length,1);assert.ok(html.includes(app.url)||html.includes(new URL(app.url).pathname));}
   assert.ok(read('downloads/windows/index.html').includes(app.sha256));
  }
  const html=read('downloads/windows/index.html');assert.match(html,/unsigned/);assert.match(html,/WebView2 Runtime/);assert.match(html,/Windows 11/);assert.doesNotMatch(html,/rel="(?:preload|prefetch)"|<iframe|<object/);
@@ -23,4 +23,15 @@ test('AiMemo keeps its exact installer and Edge requirements separate from porta
  for(const text of ['Microsoft Edge','Per-user installer','Unsigned preview',app.guide,'aimemo.jpg'])assert.ok(card.includes(text));
  assert.doesNotMatch(card,/\.NET included|WebView2 Runtime|No installer/);
  for(const file of ['index.html','products/index.html'])assert.equal((read(file).match(/data-windows-download="aimemo"/g)||[]).length,1);
+});
+
+test('EchoMind catalogue matches the existing binary and its own requirements',()=>{
+ const app=windows.apps.find(a=>a.id==='echomind');
+ const exe=fs.readFileSync(new URL('../downloads/'+app.filename,import.meta.url));
+ assert.equal(exe.length,app.bytes);assert.equal(crypto.createHash('sha256').update(exe).digest('hex'),app.sha256);
+ const card=read('downloads/windows/index.html').match(/<article[^>]*id="echomind"[\s\S]*?<\/article>/)?.[0];
+ assert.match(card,/href="\/downloads\/echomind-windows.html"/);
+ assert.match(card,/Some mobile features are not yet available/);
+ assert.doesNotMatch(card,/WebView2/);
+ assert.match(read('downloads/windows/index.html'),/Bunko and OnlyIdeas require Microsoft Edge WebView2 Runtime/);
 });

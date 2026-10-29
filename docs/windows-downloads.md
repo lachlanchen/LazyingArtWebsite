@@ -20,6 +20,13 @@ reinstall and signed-out startup were checked; real provider login remains
 unqualified. The [setup guide](https://memo.lazying.art/windows.html) records
 requirements and limitations. No app-store release or subscription changes.
 
+EchoMind's unsigned Windows 11 x64 preview uses a native Windows interface,
+with .NET included. It reuses the existing EXE on this website; no second copy
+is stored. Text conversations and language cards are available, with limited
+mobile feature coverage. Read its [requirements and limitations](https://lazying.art/downloads/echomind-windows.html).
+Adding this catalogue entry does not claim new live-account, voice, workspace
+or notification qualification.
+
 Regenerate the pages and check links:
 
 ```sh
