@@ -104,7 +104,7 @@
       "name": "LazyArtCoin",
       "url": "https://coin.lazying.art/",
       "webApp": "https://coin.lazying.art/",
-      "kind": "iPhone · iPad · Android · web app · LAC community companion",
+      "kind": "iPhone · iPad · Android · Windows preview · web app · LAC community companion",
       "description": "Save public addresses and view balances. The web app supports native LAC on LazyArt Network, LazyArtCoin on Ethereum, and existing LazyingArtCoin on Ethereum separately, with optional LazyingArt account login. App credits remain separate from on-chain assets. Cross-network transfers are not available.",
       "action": "Open LazyArtCoin",
       "featured": false,

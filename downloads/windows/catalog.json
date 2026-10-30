@@ -57,6 +57,20 @@
       "package": "Per-user installer · Edge-backed launcher · Unsigned preview",
       "guide": "https://memo.lazying.art/windows.html",
       "description": "Your notes and chat in a dedicated Microsoft Edge window. Installs for your Windows account without administrator access."
+    },
+    {
+      "id": "lazyingart-coin",
+      "name": "LazyArtCoin",
+      "version": "0.1.1",
+      "architecture": "x64",
+      "signed": false,
+      "channel": "preview",
+      "filename": "LazyArtCoin-0.1.1-windows-x64-preview.exe",
+      "bytes": 71718371,
+      "sha256": "ee5d02600007dcf9feadf5f7be8f33be39b95ba7ab126436692beda023a38ab3",
+      "url": "https://github.com/lachlanchen/LazyingArtWebsite/releases/download/windows-previews-20261030/LazyArtCoin-0.1.1-windows-x64-preview.exe",
+      "description": "Create or restore a wallet, keep public addresses, and send or receive LAC on LazyArt Network and Ethereum. Take a break with Merge Studio.",
+      "note": "Your password-encrypted wallet stays in this app’s local profile. Keep your recovery phrase offline. MetaMask extensions and Google, Apple or GitHub sign-in use the web app in your browser."
     }
   ]
 }

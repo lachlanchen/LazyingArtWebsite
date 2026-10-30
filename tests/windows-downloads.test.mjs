@@ -2,7 +2,7 @@ import test from 'node:test';import assert from 'node:assert/strict';import fs f
 import {windows} from '../tools/windows-downloads.mjs';
 const read=p=>fs.readFileSync(new URL('../'+p,import.meta.url),'utf8');
 test('each Windows download uses the exact full EXE and exposes preview requirements',()=>{
- assert.equal(windows.apps.length,4);
+ assert.equal(windows.apps.length,5);
  for(const app of windows.apps){
   for(const file of ['index.html','products/index.html','downloads/windows/index.html']){const html=read(file);assert.equal((html.match(new RegExp('data-windows-download="'+app.id+'"','g'))||[]).length,1);assert.ok(html.includes(app.url)||html.includes(new URL(app.url).pathname));}
   assert.ok(read('downloads/windows/index.html').includes(app.sha256));
@@ -33,5 +33,7 @@ test('EchoMind catalogue matches the existing binary and its own requirements',(
  assert.match(card,/href="\/downloads\/echomind-windows.html"/);
  assert.match(card,/Some mobile features are not yet available/);
  assert.doesNotMatch(card,/WebView2/);
- assert.match(read('downloads/windows/index.html'),/Bunko and OnlyIdeas require Microsoft Edge WebView2 Runtime/);
+ assert.match(read('downloads/windows/index.html'),/Bunko, OnlyIdeas and LazyArtCoin require Microsoft Edge WebView2 Runtime/);
 });
+
+test("LazyArtCoin identifies local wallet backups and browser-only extensions",()=>{const app=windows.apps.find(a=>a.id==="lazyingart-coin");assert.ok(app);assert.match(app.note,/recovery phrase/);assert.match(app.note,/MetaMask/);assert.match(read("downloads/windows/index.html"),/password-encrypted wallet/);});

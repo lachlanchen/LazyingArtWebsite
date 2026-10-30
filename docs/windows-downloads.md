@@ -1,6 +1,6 @@
 # Windows downloads
 
-Bunko and OnlyIdeas are available as complete, self-contained Windows 11 x64 EXEs
+Bunko, OnlyIdeas and LazyArtCoin are available as complete, self-contained Windows 11 x64 EXEs
 at [Windows downloads](https://lazying.art/downloads/windows/). Homepage and product
 cards link to the same exact files. The binaries are GitHub release assets, keeping
 large generated files out of the website Git history.
