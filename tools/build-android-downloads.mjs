@@ -18,7 +18,7 @@ const html = `<!doctype html>
 <link rel="canonical" href="https://lazying.art/downloads/">
 <meta property="og:title" content="Android downloads · LazyingArt"><meta property="og:description" content="Signed APKs for reading, research, learning and creating."><meta property="og:type" content="website"><meta property="og:url" content="https://lazying.art/downloads/">
 <meta name="theme-color" content="#f5f8ff"><link rel="icon" href="/favicon.ico">
-<link rel="stylesheet" href="/products/styles.css?v=20261015-bunko-film"><link rel="stylesheet" href="/store-links.css?v=20261029-apk"><link rel="stylesheet" href="styles.css?v=20261029"><script src="downloads.js" defer></script>
+<link rel="stylesheet" href="/products/styles.css?v=20261015-bunko-film"><link rel="stylesheet" href="/store-links.css?v=20261031-downloads"><script type="module" src="/store-downloads.mjs?v=20261031"></script><link rel="stylesheet" href="styles.css?v=20261029"><script src="downloads.js" defer></script>
 </head><body>
 <a class="skip-link" href="#main">Skip to downloads</a>
 <header class="site-header"><a class="brand" href="/"><img src="/logos/panda-v1/logo-256.png" alt="" width="48" height="48"><span><strong>LazyingArt</strong><small>The art of lazying.</small></span></a><nav aria-label="Primary navigation"><a href="/">Home</a><a href="/products/">Apps &amp; products</a><a href="/downloads/" aria-current="page">Android downloads</a><a href="/downloads/windows/">Windows downloads</a></nav></header>

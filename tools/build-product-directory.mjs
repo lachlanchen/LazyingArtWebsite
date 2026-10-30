@@ -195,7 +195,7 @@ const html = `<!doctype html>
   <meta name="twitter:image" content="https://lazying.art/logos/banner.png">
   <link rel="icon" href="../favicon.ico" sizes="any">
   <link rel="stylesheet" href="styles.css?v=20261015-bunko-film">
-  <link rel="stylesheet" href="/store-links.css?v=20261029-apk">
+  <link rel="stylesheet" href="/store-links.css?v=20261031-downloads"><script type="module" src="/store-downloads.mjs?v=20261031"></script>
   <script src="directory.js" defer></script>
   <script type="application/ld+json">${JSON.stringify(schema).replaceAll('<','\\u003c')}</script>
 </head>

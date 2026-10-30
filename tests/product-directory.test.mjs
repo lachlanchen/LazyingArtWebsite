@@ -26,7 +26,7 @@ const schema = JSON.parse(html.match(/<script type="application\/ld\+json">([\s\
 assert.equal(schema['@type'], 'CollectionPage');
 assert.equal(schema.mainEntity.itemListElement.length, catalog.items.length);
 assert.doesNotMatch(html, /"@type":"(?:Review|AggregateRating|Offer)"/);
-assert.deepEqual([...html.matchAll(/<script(?! type="application\/ld\+json")[^>]*>/g)].map(match => match[0]), ['<script src="directory.js" defer>'], 'Only the first-party progressive enhancement script is permitted');
+assert.deepEqual([...html.matchAll(/<script(?! type="application\/ld\+json")[^>]*>/g)].map(match => match[0]), ['<script type="module" src="/store-downloads.mjs?v=20261031">', '<script src="directory.js" defer>'], 'Only the first-party directory and local download enhancements are permitted');
 const forbidden = /(?:router\.lazying\.art|lazealoptix\.com|blogstudio\.|novelstudio\.|storystudio\.|text-and-speech-api|https:\/\/llm\.|https:\/\/memo\.|https:\/\/api\.|127\.0\.0\.1|ngrok|localhost|github\.io\/|github\.com\/lachlanchen\/(?:EchoMind|AiMemo|LocalSTT|OnlyIdeasWebsite|LazyingArtCoin)(?:["/]|$))/i;
 assert.doesNotMatch(JSON.stringify(catalog), forbidden, 'public data excludes private, retired, and redirect-only destinations');
 assert.doesNotMatch(html, forbidden);

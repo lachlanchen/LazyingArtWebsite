@@ -7,7 +7,7 @@ const cards = [...html.matchAll(/<article class="app-download-card"[^>]*>([\s\S]
 assert.equal(cards.length, 23);
 assert.ok(html.indexOf('id="app-downloads"') < html.indexOf('<aside class="beta-launch-card"'));
 // Web destinations have their own contract; native store identities stay exact.
-const links = card => [...card.matchAll(/<a\b[^>]*href="([^"]+)"[^>]*>/g)].filter(m => !m[0].includes('data-web-app') && !m[0].includes('data-apk-download')).map(m => m[1]);
+const links = card => [...card.matchAll(/<a\b[^>]*href="([^"]+)"[^>]*>/g)].filter(m => !m[0].includes('data-web-app') && !m[0].includes('data-apk-download') && !m[0].includes('data-windows-download')).map(m => m[1]);
 assert.deepEqual(links(cards[0]), [
   'https://apps.apple.com/us/app/l-n-speech-practice/id6808872450',
   'https://apps.apple.com/us/app/l-n-speech-practice/id6808872450?platform=mac',

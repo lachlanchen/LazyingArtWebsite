@@ -47,7 +47,7 @@ test('page links open safely in new tabs while anchors and contact actions stay 
     assert.equal(openPageLinksInNewTabs(html), html, 'Generated and handwritten pages use the same policy');
     for (const [tag, href] of html.matchAll(/<a\b[^>]*href="([^"]*)"[^>]*>/g)) {
       if (href.startsWith('#')) assert.ok(!tag.includes('target="_blank"'));
-      else if (/^(https?:|\/|[a-z][\w-]*\/)/i.test(href)) {
+      else if (!/\bdownload(?:=|\s|>)/.test(tag) && /^(https?:|\/|[a-z][\w-]*\/)/i.test(href)) {
         assert.match(tag, /target="_blank"/);
         assert.match(tag, /rel="[^\"]*noopener/);
         assert.match(tag, /rel="[^\"]*noreferrer/);

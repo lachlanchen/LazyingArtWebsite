@@ -30,3 +30,72 @@ a.apk-download { display: inline-flex; align-items: center; gap: 8px; min-height
 a.apk-download > svg { display: block; width: 23px; height: 23px; flex: 0 0 23px; }
 a.apk-download:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
 a.apk-download small { display: block; }
+
+/* One spacing and interaction system, without inventing unavailable platforms. */
+.store-links, .app-download-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 9.25rem), 1fr));
+  gap: 12px;
+  align-items: stretch;
+}
+.app-download-links { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.store-links > .store-button, .app-download-links > a,
+.beta-launch-actions > .beta-download-button {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  min-width: 0;
+  min-height: 64px;
+  padding: 12px;
+  border: 1px solid #cfd5e0;
+  border-radius: 12px;
+  background: #fff;
+  color: #20243a;
+  box-shadow: none;
+  font-family: inherit;
+  font-size: .85rem;
+  font-weight: 600;
+  line-height: 1.35;
+  text-align: start;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  transform: none;
+}
+.store-links > .store-button span, .app-download-links > a span { min-width: 0; }
+.store-links strong { font-size: .85rem; }
+.store-links small { display: block; margin-top: 3px; font-size: .74rem; line-height: 1.4; color: #555e73; }
+.store-links > .store-button > svg, .app-download-links > a > svg { width: 24px; height: 24px; flex: 0 0 24px; }
+.store-links > .store-button:hover, .app-download-links > a:hover,
+.beta-launch-actions > .beta-download-button:hover {
+  border-color: var(--app-accent, #4a52a5);
+  background: #f5f6ff;
+  color: #20243a;
+  box-shadow: 0 2px 8px #24285212;
+  transform: none;
+}
+.store-links > .store-button:focus-visible, .app-download-links > a:focus-visible,
+.store-qr > summary:focus-visible {
+  outline: 3px solid #4b60d0;
+  outline-offset: 3px;
+}
+.store-qr { margin-top: 12px; font-size: .83rem; line-height: 1.5; text-align: start; }
+.store-qr > summary { min-height: 44px; width: fit-content; padding: 10px 4px; box-sizing: border-box; cursor: pointer; }
+.store-qr-body { display: flex; flex-wrap: wrap; gap: 16px; padding: 12px 0; }
+.store-qr figure { margin: 0; max-width: 176px; }
+.store-qr img { display: block; width: 176px; max-width: 100%; height: auto; background: #fff; border-radius: 8px; image-rendering: pixelated; }
+.store-qr figcaption { max-width: 176px; margin-top: 6px; color: inherit; }
+body[data-theme="dark"] .store-links > .store-button,
+body[data-theme="dark"] .app-download-links > a,
+body[data-theme="dark"] .beta-launch-actions > .beta-download-button {
+  background: #24283e; color: #f4f5ff; border-color: #596078;
+}
+body[data-theme="dark"] .store-links small { color: #c7cde0; }
+body[data-theme="dark"] .store-links > .store-button:hover,
+body[data-theme="dark"] .app-download-links > a:hover { background: #30364e; }
+@media (max-width: 480px) {
+  .store-links, .app-download-links { gap: 12px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 7.25rem), 1fr)); }
+  .beta-launch-actions { gap: 12px; }
+  .beta-launch-actions > .beta-download-button { flex: 1 1 140px; }
+}
