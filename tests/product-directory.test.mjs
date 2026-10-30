@@ -81,7 +81,7 @@ assert.doesNotMatch(landnCard, /internaltest|testflight/);
 assert.match(landnCard, /data-apk-download="landn"/);
 assert.match(landnCard, /data-apk-download="landn-pro"/);
 assert.doesNotMatch(discovery, /apps\.apple\.com|play\.google\.com/, 'store listings are not owned sitemap URLs');
-assert.equal((html.match(/class="store-button"/g) || []).length, 36, 'only verified public app listings get store links');
+assert.equal((html.match(/class="store-button"/g) || []).length, 37, 'only verified public app listings get store links');
 const musia = catalog.items.find(item => item.id === 'musia-app');
 assert.equal(musia.storeLinks.length, 2);
 assert.equal(musia.storeLinks[0].url, 'https://apps.apple.com/us/app/musia-learn-music-guitar/id6816265930?mt=12');
@@ -164,7 +164,7 @@ for (const item of catalog.items) {
   const primary = new URL(item.url);
   if (primary.search) {
     if (item.id === 'clearpair') {
-      assert.equal(primary.href, 'https://apps.apple.com/us/app/clearpair/id6819458905?platform=mac');
+      assert.equal(primary.href, 'https://apps.apple.com/us/app/clearpair/id6819458905?platform=iphone');
     } else {
       assert.equal(primary.origin, 'https://play.google.com');
       assert.equal(primary.pathname, '/store/apps/details');

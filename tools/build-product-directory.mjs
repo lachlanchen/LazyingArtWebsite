@@ -127,7 +127,7 @@ const appDesign = {
   shigame: ['shi.jpg', 'peach', 'History is full of choices.'],
   lazyoracle: ['lazyoracle.png', 'lavender', 'A moment to reflect.'],
   'lightmind-agent': ['lightmind.jpg', 'blue', 'A companion for your glasses.'],
-  clearpair: ['clearpair.png', 'mint', 'Eight courses. One Mac app.'],
+  clearpair: ['clearpair.png', 'mint', 'Eight courses. One app.'],
   'clearpair-handf': ['clearpair-handf.webp', 'peach', 'H or F? Start with the sound.'],
   'clearpair-landr': ['clearpair-landr.webp', 'blue', 'A little practice with L and R.'],
   'clearpair-english': ['clearpair-english.webp', 'mint', 'Stay with the tricky sounds.'],

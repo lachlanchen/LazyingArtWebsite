@@ -711,12 +711,17 @@
       "id": "clearpair",
       "group": "learn",
       "name": "ClearPair",
-      "url": "https://apps.apple.com/us/app/clearpair/id6819458905?platform=mac",
+      "url": "https://apps.apple.com/us/app/clearpair/id6819458905?platform=iphone",
       "icon": "clearpair.png",
-      "kind": "Mac · US$0.99",
-      "description": "Eight pronunciation and script courses in one Mac app: H & F, L & R, English, Mandarin, Cantonese, Japanese, Korean and Arabic Letters. Compare sounds, practise listening, record a phrase and replay it beside the reference. One purchase includes all eight courses.",
-      "action": "Get ClearPair for Mac",
+      "kind": "iPhone · iPad · Mac · US$0.99",
+      "description": "Eight pronunciation and script courses in one app for iPhone, iPad and Mac: H & F, L & R, English, Mandarin, Cantonese, Japanese, Korean and Arabic Letters. Compare sounds, practise listening, record a phrase and replay it beside the reference. One purchase includes all eight courses.",
+      "action": "Get ClearPair",
       "storeLinks": [
+        {
+          "store": "app-store",
+          "url": "https://apps.apple.com/us/app/clearpair/id6819458905?platform=iphone",
+          "device": "iPhone · iPad · iOS 15+ · US$0.99"
+        },
         {
           "store": "mac-app-store",
           "url": "https://apps.apple.com/us/app/clearpair/id6819458905?platform=mac",

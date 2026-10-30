@@ -1,0 +1,18 @@
+{
+  "checkedAt": "2026-10-30",
+  "name": "ClearPair",
+  "appleId": "6819458905",
+  "bundleId": "art.lazying.clearpair.clearpair",
+  "version": "1.0.0",
+  "build": "2",
+  "platform": "IOS",
+  "state": "READY_FOR_SALE",
+  "releaseType": "AFTER_APPROVAL",
+  "storeUrl": "https://apps.apple.com/us/app/clearpair/id6819458905?platform=iphone",
+  "publicLookup": "https://itunes.apple.com/lookup?id=6819458905&country=us",
+  "price": "0.99",
+  "currency": "USD",
+  "minimumOsVersion": "15.0",
+  "includes": "All eight courses; no in-app purchases or subscription required in this release.",
+  "scope": "Add the released iPhone/iPad listing alongside the existing Mac listing. Keep the eight standalone Google Play editions unchanged. No test-build features advertised."
+}
