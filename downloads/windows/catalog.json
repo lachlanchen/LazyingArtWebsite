@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-30",
+  "updated": "2026-10-31",
   "apps": [
     {
       "id": "echomind",
@@ -18,15 +18,16 @@
     {
       "id": "bunko",
       "name": "Bunko",
-      "version": "1.0.15",
+      "version": "1.0.16",
       "architecture": "x64",
       "signed": false,
       "channel": "preview",
-      "filename": "Bunko-1.0.15-windows-x64-preview.exe",
-      "bytes": 71761019,
-      "sha256": "ffe2c5a30919c87470a4afbc21ff592e977e0da998fba4739100b52b7445ee83",
-      "url": "https://github.com/lachlanchen/LazyingArtWebsite/releases/download/windows-previews-20261030/Bunko-1.0.15-windows-x64-preview.exe",
-      "description": "Read multilingual books with ruby readings, parallel languages and your reading companion."
+      "filename": "Bunko-1.0.16-46-windows-x64-preview.exe",
+      "bytes": 71770235,
+      "sha256": "cd0ebb3982d84e77dfe1b1fde0ea39c75b3f6f1d42ca5f61d98e1eb9493dd78b",
+      "url": "https://github.com/lachlanchen/LazyingArtWebsite/releases/download/windows-previews-20261030/Bunko-1.0.16-46-windows-x64-preview.exe",
+      "description": "Read multilingual books with ruby readings, parallel languages and your reading companion.",
+      "build": 46
     },
     {
       "id": "onlyideas",
@@ -35,11 +36,12 @@
       "architecture": "x64",
       "signed": false,
       "channel": "preview",
-      "filename": "OnlyIdeas-1.0.10-windows-x64-preview.exe",
-      "bytes": 71680659,
-      "sha256": "ce77f9140b7428eec6313d824f3e77a38e0cc811bb7ec6de281a8703b878e035",
-      "url": "https://github.com/lachlanchen/LazyingArtWebsite/releases/download/windows-previews-20261030/OnlyIdeas-1.0.10-windows-x64-preview.exe",
-      "description": "Read research papers with equations, figures, contents, search and private notes."
+      "filename": "OnlyIdeas-1.0.10-41-windows-x64-preview.exe",
+      "bytes": 71660235,
+      "sha256": "7ede0aca6d6683b66c60bb6a16a6e4b0a62c01db77bc550cdd71daf8a3ceafd2",
+      "url": "https://github.com/lachlanchen/LazyingArtWebsite/releases/download/windows-previews-20261030/OnlyIdeas-1.0.10-41-windows-x64-preview.exe",
+      "description": "Read research papers with equations, figures, contents, search and private notes.",
+      "build": 41
     },
     {
       "id": "aimemo",
