@@ -61,13 +61,17 @@ const previous103Apk = "downloads/EchoMind-0.2.0-build103-test.apk";
 assert.equal(crypto.createHash("sha256").update(fs.readFileSync(new URL(previous103Apk, root))).digest("hex"),
   "7950fdf922b39484d270a11929c3a68f6692c10f2bd8ca41c96db3a52a4922ad",
   "Prior Android103 direct test download remains unchanged and recoverable");
-const currentTestApk = "downloads/EchoMind-0.2.0-build104-test.apk";
-const currentTestBytes = fs.readFileSync(new URL(currentTestApk, root));
-assert.equal(currentTestBytes.length, 2748298, "Android104 exact paired APK size");
-assert.equal(crypto.createHash("sha256").update(currentTestBytes).digest("hex"),
+const previous104Apk = "downloads/EchoMind-0.2.0-build104-test.apk";
+assert.equal(crypto.createHash("sha256").update(fs.readFileSync(new URL(previous104Apk, root))).digest("hex"),
   "59d92399a770acc80cc01f306c5269c38445df4e0629e321d98c171c10ea45fd",
-  "Android104 direct test download matches the qualified signed artifact");
-assert.ok(html.includes(`href="https://lazying.art/${currentTestApk}"`), "the owner-requested direct download uses the verified signed Android104 artifact");
+  "Prior Android104 download remains unchanged and recoverable");
+const currentTestApk = "downloads/EchoMind-0.2.1-build105-test.apk";
+const currentTestBytes = fs.readFileSync(new URL(currentTestApk, root));
+assert.equal(currentTestBytes.length, 2748298, "Android105 exact paired APK size");
+assert.equal(crypto.createHash("sha256").update(currentTestBytes).digest("hex"),
+  "ff34bad69c77b5cc2f01b1a417a52e0f16b9c73aea0cbe0a5b782df4e1f690dd",
+  "Android105 direct test download matches the qualified signed artifact");
+assert.ok(html.includes(`href="https://lazying.art/${currentTestApk}"`), "the direct download uses the verified signed Android105 artifact");
 assert.ok(html.includes('data-apk-download="echomind"'), "the APK is distinguished from the existing store buttons");
 assert.equal(Object.keys(translations).length, 13);
 for (const [locale, dictionary] of Object.entries(translations)) {
