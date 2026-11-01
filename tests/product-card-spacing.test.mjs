@@ -25,7 +25,8 @@ test('optional details and badges use the icon header without an empty text row'
   assert.match(css, /\.app-downloads \.app-card-meta\s*\{[^}]*flex-direction: column[^}]*flex-wrap: nowrap/);
   assert.match(css, /\.app-downloads \.app-card-meta > :is\([^}]+max-width: 100%;\s*margin: 0/);
   const musia = html.match(/<article class="app-download-card" data-app="musia"[\s\S]*?<\/article>/)[0];
-  assert.match(musia, /<div class="app-card-description">\s*<p data-i18n="app_musia_desc">[\s\S]*?<p data-i18n="app_musia_apple">[\s\S]*?<\/div>/);
+  assert.match(musia, /<div class="app-card-description">\s*<p data-i18n="app_musia_desc">[^<]+<\/p>\s*<\/div>/);
+  assert.doesNotMatch(musia, /app_musia_apple|still in review/);
 });
 
 test('EchoMind hides only the long Windows note and retains all seven install routes', () => {

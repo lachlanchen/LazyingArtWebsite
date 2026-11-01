@@ -43,7 +43,8 @@ assert.deepEqual(links(cards[6]), [
 ]);
 assert.deepEqual(links(cards[7]), ['https://apps.apple.com/us/app/musia-learn-music-guitar/id6816265930?mt=12', 'https://play.google.com/store/apps/details?id=art.lazying.musia']);
 assert.match(cards[7], /US\$2\.99/);
-assert.match(cards[7], /Now on Mac \(macOS 14\+\).*iPhone edition is still in review/);
+assert.match(cards[7], /<p data-i18n="app_musia_desc">A music and guitar practice app\.<\/p>/);
+assert.doesNotMatch(cards[7], /app_musia_apple|still in review|Now on Mac/);
 assert.doesNotMatch(cards[7], /cloud music generation|microphone|AI-generated songs/i);
 assert.doesNotMatch(cards.join(''), /testflight|internaltest|accurate|guarantee|free|localhost|127\.0\.0\.1/i);
 assert.match(cards[6], /LightMind Tech Limited/);
@@ -61,7 +62,7 @@ assert.ok(match);
 const translations = vm.runInNewContext(`(${match[1]})`);
 assert.equal(Object.keys(translations).length, 13);
 for (const [locale, dictionary] of Object.entries(translations)) {
-  for (const key of ['app_landn_desc', 'app_bunko_desc', 'app_onlyideas_desc', 'app_aimemo_desc', 'app_shi_desc', 'app_oracle_desc', 'app_lightmind_desc', 'app_musia_desc', 'app_musia_apple']) {
+  for (const key of ['app_landn_desc', 'app_bunko_desc', 'app_onlyideas_desc', 'app_aimemo_desc', 'app_shi_desc', 'app_oracle_desc', 'app_lightmind_desc', 'app_musia_desc']) {
     assert.ok(dictionary[key]?.trim(), `${locale}.${key} is localized`);
   }
 }

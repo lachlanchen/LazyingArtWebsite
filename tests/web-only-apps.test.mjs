@@ -93,8 +93,11 @@ test('Coin web capabilities distinguish networks without upgrading public store 
     assert.equal(dictionary.coin_title, 'LazyArtCoin', locale);
     assert.ok(dictionary.coin_card_cta_title.includes('LazyArtCoin'), locale);
     const description = context.window.appReleaseTranslations[locale].app_lazyingart_coin_desc;
-    assert.ok(description.includes('LazyArt Network') && description.includes('LazyArtCoin') && description.includes('LazyingArtCoin'), locale);
+    assert.ok(description.includes('LazyingArt'), locale);
+    assert.ok([...description].length <= 100, locale);
+    assert.doesNotMatch(description, /LazyArt Network|Ethereum|LazyingArtCoin|native LAC/, locale);
   }
+  assert.equal(context.window.appReleaseTranslations.en.app_lazyingart_coin_desc, 'A wallet and community app for LazyingArt.');
   assert.ok(home.includes(context.window.appReleaseTranslations.en.app_lazyingart_coin_desc));
 });
 

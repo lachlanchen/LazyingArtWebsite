@@ -22,15 +22,16 @@ test('Musia exposes released Mac and Android practice, not iOS or the agent-mode
   assert.ok(generated.includes(item.description));
 });
 
-test('all homepage locales carry the new practice description', () => {
+test('all homepage locales identify Musia briefly without temporary release notes', () => {
   const match = html.match(/const translations = (\{[\s\S]*?\n        \});\n\n        function applyTranslations/);
   const translations = vm.runInNewContext(`(${match[1]})`);
   assert.equal(Object.keys(translations).length, 13);
   for (const [locale, copy] of Object.entries(translations)) {
-    assert.ok(copy.app_musia_desc.trim().length > 30, locale);
-    assert.ok(copy.app_musia_apple.trim(), locale);
-    assert.match(copy.app_musia_apple, /macOS 14/, locale);
+    assert.ok(copy.app_musia_desc.trim().length > 0, locale);
+    assert.ok([...copy.app_musia_desc].length <= 80, locale);
+    assert.equal(copy.app_musia_apple, undefined, locale);
+    assert.doesNotMatch(copy.app_musia_desc, /macOS|0\.1\.2|review|Do Re Mi|pinyin|furigana/i, locale);
   }
-  assert.match(translations.en.app_musia_desc, /pinyin or furigana.*Do Re Mi/);
-  assert.match(translations['zh-Hans'].app_musia_desc, /拼音、假名.*Do Re Mi/);
+  assert.equal(translations.en.app_musia_desc, 'A music and guitar practice app.');
+  assert.equal(translations['zh-Hans'].app_musia_desc, '音乐与吉他练习应用。');
 });

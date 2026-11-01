@@ -48,7 +48,8 @@ test('consolidated app cards place introduction links before bottom-aligned stor
   assert.match(echo, /apps.apple.com/);
   assert.ok(echo.indexOf('class="app-details-link"') < echo.indexOf('class="beta-launch-actions"'));
   const musia = html.match(/<article class="app-download-card" data-app="musia"[\s\S]*?<\/article>/)[0];
-  assert.ok(musia.indexOf('data-i18n="app_musia_apple"') < musia.indexOf('class="app-download-links"'));
+  assert.ok(musia.indexOf('data-i18n="app_musia_desc"') >= 0);
+  assert.ok(musia.indexOf('data-i18n="app_musia_desc"') < musia.indexOf('class="app-download-links"'));
   const css = read('vibrant-theme.css');
   assert.match(css, /\.app-downloads > \* > \.app-details-link \{[^}]*margin-top: auto/);
   assert.match(css, /\.app-details-link \+ :is\(\.app-download-links, \.beta-launch-actions\) \{ margin-top: 0;/);
