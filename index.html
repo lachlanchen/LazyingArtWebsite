@@ -1927,7 +1927,7 @@
     <link rel="stylesheet" href="site-navigation.css">
     <link rel="stylesheet" href="vibrant-theme.css?v=20261015-panels">
     <link rel="stylesheet" href="characters.css?v=20261022">
-    <link rel="stylesheet" href="/store-links.css?v=20261031-downloads"><script type="module" src="/store-downloads.mjs?v=20261031"></script>
+    <link rel="stylesheet" href="/store-links.css?v=20261101-compact-cards"><script type="module" src="/store-downloads.mjs?v=20261031"></script>
 </head>
 <body data-theme="light">
     <!-- Animated Particles Background -->
@@ -2113,8 +2113,10 @@
                 <article class="app-download-card" data-app="musia" aria-labelledby="musia-download-title">
                     <img class="app-card-icon" src="/logos/apps/musia.png?v=ribbon-20261006" width="72" height="72" alt="">
                     <h2 id="musia-download-title">Musia: Learn Music &amp; Guitar</h2>
-                    <p data-i18n="app_musia_desc">Loop a phrase, follow lyrics with pinyin or furigana, and train your ear with Do Re Mi.</p>
-                    <p data-i18n="app_musia_apple">Now on Mac (macOS 14+). The iPhone edition is still in review.</p>
+                    <div class="app-card-description">
+                        <p data-i18n="app_musia_desc">Loop a phrase, follow lyrics with pinyin or furigana, and train your ear with Do Re Mi.</p>
+                        <p data-i18n="app_musia_apple">Now on Mac (macOS 14+). The iPhone edition is still in review.</p>
+                    </div>
                     <div class="app-download-links" role="group" aria-labelledby="musia-download-title">
                         <a href="https://apps.apple.com/us/app/musia-learn-music-guitar/id6816265930?mt=12" target="_blank" rel="noopener noreferrer">Mac App Store · US$2.99</a>
                         <a href="https://play.google.com/store/apps/details?id=art.lazying.musia" target="_blank" rel="noopener noreferrer">Google Play · US$2.99</a><a class="apk-download" data-apk-download="musia-app" href="https://lazying.art/downloads/Musia-0.2.1-build9.apk" download="Musia-0.2.1-build9.apk" aria-label="Download Musia 0.2.1 Android APK" title="0.2.1 (9) · 15.7 MB"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M4 16v4h16v-4" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="android_apk_label">Android APK</span></a>
@@ -2184,15 +2186,16 @@
                 </article>
             <aside class="beta-launch-card" aria-labelledby="beta-launch-title">
                 <img class="app-card-icon" src="/logos/apps/echomind.png" width="72" height="72" alt="">
+                <div class="app-card-meta">
+                    <span class="beta-launch-badge" data-i18n="beta_badge">Phone &amp; Mac</span>
+                    <a class="app-details-link" href="products/#echomind" data-i18n="detail_link" target="_blank" rel="noopener noreferrer">View details →</a>
+                </div>
                 <div class="beta-launch-copy">
                     <div class="beta-launch-heading">
-                        <span class="beta-launch-badge" data-i18n="beta_badge">Phone &amp; Mac</span>
                         <strong class="beta-launch-title" id="beta-launch-title" data-i18n="beta_title">EchoMind, on your phone and Mac</strong>
                     </div>
                     <p class="beta-launch-subtitle" data-i18n="beta_subtitle">iPhone, iPad, Mac and Android. Get EchoMind from the App Store or Google Play. Availability varies by region.</p>
-                    <a class="beta-testflight-link" href="https://testflight.apple.com/join/bKGrC3Jn" data-i18n="beta_testflight" target="_blank" rel="noopener noreferrer">TestFlight beta</a>
                 </div>
-                <a class="app-details-link" href="products/#echomind" data-i18n="detail_link" target="_blank" rel="noopener noreferrer">View details →</a>
                 <div class="beta-launch-actions">
                     <a href="https://chat.lazying.art/" class="beta-download-button" data-web-app data-i18n="web_app_label" target="_blank" rel="noopener noreferrer">Web app</a>
                     <a href="https://apps.apple.com/app/id6793615455" class="beta-download-button apple" target="_blank" rel="noopener noreferrer">
@@ -2216,8 +2219,9 @@
                         </svg>
                         <span data-i18n="beta_google_play">Get it on Google Play</span>
                     </a><a class="apk-download beta-download-button" data-apk-download="echomind" href="https://lazying.art/downloads/EchoMind-0.2.1-build105-test.apk" download="EchoMind-0.2.1-build105-test.apk" aria-label="Download EchoMind 0.2.1 Android APK" title="0.2.1 (105) · 2.7 MB"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M4 16v4h16v-4" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="android_apk_label">Android APK</span></a>
+                    <a class="beta-testflight-link beta-download-button" href="https://testflight.apple.com/join/bKGrC3Jn" data-i18n="beta_testflight" target="_blank" rel="noopener noreferrer">TestFlight beta</a>
                 </div>
-                <p id="echomind-windows-note" class="beta-launch-subtitle"><a href="/downloads/echomind-windows.html" data-i18n="echomind_windows_details" target="_blank" rel="noopener noreferrer">Windows x64 preview: features, unsigned-download notice and file details</a></p>
+                <p id="echomind-windows-note" class="beta-launch-subtitle" hidden><a href="/downloads/echomind-windows.html" data-i18n="echomind_windows_details" target="_blank" rel="noopener noreferrer">Windows x64 preview: features, unsigned-download notice and file details</a></p>
             </aside>
                 <article class="app-download-card" data-app="microquant" aria-labelledby="microquant-title">
                     <img class="app-card-icon" src="/logos/apps/microquant.png" width="72" height="72" alt="">
@@ -2231,35 +2235,43 @@
                 </article>
                 <article class="app-download-card" data-app="westory" aria-labelledby="westory-download-title">
                     <img class="app-card-icon" src="/logos/apps/westory.png" width="72" height="72" alt="">
-                    <span class="app-kind" data-i18n="web_beta_label">Web beta</span>
+                    <div class="app-card-meta">
+                        <span class="app-kind" data-i18n="web_beta_label">Web beta</span>
+                        <a class="app-details-link" href="products/#westory" data-i18n="detail_link" target="_blank" rel="noopener noreferrer">View details →</a>
+                    </div>
                     <h2 id="westory-download-title">WeStory</h2>
                     <p data-i18n="app_westory_desc">Read and shape a shared story with an AI editor. For adults; room invitations and contribution permissions apply.</p>
-                    <a class="app-details-link" href="products/#westory" data-i18n="detail_link" target="_blank" rel="noopener noreferrer">View details →</a>
                     <div class="app-download-links" role="group" aria-labelledby="westory-download-title">
                         <a href="https://westory.onlyideas.art/" data-web-app data-i18n="web_app_label" target="_blank" rel="noopener noreferrer">Web app</a>
                     </div>
                 </article>
                 <article class="app-download-card" data-app="westicker" aria-labelledby="westicker-download-title">
                     <img class="app-card-icon" src="/logos/apps/westicker.png?v=aya-lala-v2" width="72" height="72" alt="">
-                    <span class="app-kind" data-i18n="web_beta_label">Web beta</span>
+                    <div class="app-card-meta">
+                        <span class="app-kind" data-i18n="web_beta_label">Web beta</span>
+                        <a class="app-details-link" href="products/#westicker" data-i18n="detail_link" target="_blank" rel="noopener noreferrer">View details →</a>
+                    </div>
                     <h2 id="westicker-download-title">WeSticker</h2>
                     <p data-i18n="app_westicker_desc">Browse animated stickers in Chinese, English and Japanese. Sign in to keep your character references and drafts in a private workspace.</p>
-                    <a class="app-details-link" href="products/#westicker" data-i18n="detail_link" target="_blank" rel="noopener noreferrer">View details →</a>
                     <div class="app-download-links" role="group" aria-labelledby="westicker-download-title"><a href="https://westicker.lazying.art/" data-web-app data-i18n="web_app_label" target="_blank" rel="noopener noreferrer">Web app</a><a class="apk-download" data-apk-download="westicker" href="https://lazying.art/downloads/WeSticker-1.0-build15.apk" download="WeSticker-1.0-build15.apk" aria-label="Download WeSticker 1.0 Android APK" title="1.0 (15) · 20.1 MB"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M4 16v4h16v-4" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="android_apk_label">Android APK</span></a></div>
                 </article>
                 <article class="app-download-card" data-app="weblog" aria-labelledby="weblog-download-title">
                     <img class="app-card-icon" src="/logos/apps/weblog.png" width="72" height="72" alt="">
-                    <span class="app-kind" data-i18n="internal_testing_label">In development · Internal testing</span>
+                    <div class="app-card-meta">
+                        <span class="app-kind" data-i18n="internal_testing_label">In development · Internal testing</span>
+                        <a class="app-details-link" href="products/#weblog" data-i18n="detail_link" target="_blank" rel="noopener noreferrer">View details →</a>
+                    </div>
                     <h2 id="weblog-download-title">WeBlog</h2>
                     <p data-i18n="app_weblog_desc">Turn a conversation into a draft for your own WordPress site. Review and edit the words, then choose when to publish.</p>
-                    <a class="app-details-link" href="products/#weblog" data-i18n="detail_link" target="_blank" rel="noopener noreferrer">View details →</a>
                 <div class="app-download-links" role="group" aria-labelledby="weblog-download-title"><a class="apk-download" data-apk-download="weblog" href="https://lazying.art/downloads/WeBlog-0.1.0-build4.apk" download="WeBlog-0.1.0-build4.apk" aria-label="Download WeBlog 0.1.0 Android APK" title="0.1.0 (4) · 13.2 MB"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M4 16v4h16v-4" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="android_apk_label">Android APK</span></a></div></article>
                 <article class="app-download-card" data-app="lazyingart-coin" aria-labelledby="lazyingart-coin-download-title">
                     <img class="app-card-icon" src="/logos/apps/lazyingart-coin.png" width="72" height="72" alt="">
-                    <span class="app-kind">iPhone · iPad · Android · Windows · <span data-i18n="web_app_label">Web app</span></span>
+                    <div class="app-card-meta">
+                        <span class="app-kind">iPhone · iPad · Android · Windows · <span data-i18n="web_app_label">Web app</span></span>
+                        <a class="app-details-link" href="products/#lazyingart-coin" data-i18n="detail_link" target="_blank" rel="noopener noreferrer">View details →</a>
+                    </div>
                     <h2 id="lazyingart-coin-download-title">LazyArtCoin</h2>
                     <p data-i18n="app_lazyingart_coin_desc">The web app shows three separate balances: native LAC on LazyArt Network, LazyArtCoin on Ethereum, and existing LazyingArtCoin on Ethereum. Save public addresses and optionally connect your LazyingArt account.</p>
-                    <a class="app-details-link" href="products/#lazyingart-coin" data-i18n="detail_link" target="_blank" rel="noopener noreferrer">View details →</a>
                     <div class="app-download-links" role="group" aria-labelledby="lazyingart-coin-download-title">
                         <a href="https://apps.apple.com/app/lazyartcoin/id6816384930" target="_blank" rel="noopener noreferrer">App Store</a>
                         <a href="https://play.google.com/store/apps/details?id=art.lazying.lazyartcoin" target="_blank" rel="noopener noreferrer">Google Play</a><a class="apk-download" data-apk-download="lazyingart-coin" href="https://lazying.art/downloads/LazyArtCoin-0.1.1-build17.apk" download="LazyArtCoin-0.1.1-build17.apk" aria-label="Download LazyArtCoin 0.1.1 Android APK" title="0.1.1 (17) · 4.9 MB"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M4 16v4h16v-4" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="android_apk_label">Android APK</span></a><a class="apk-download windows-download" data-windows-download="lazyingart-coin" href="https://github.com/lachlanchen/LazyingArtWebsite/releases/download/windows-previews-20261030/LazyArtCoin-0.1.1-windows-x64-preview.exe" download="LazyArtCoin-0.1.1-windows-x64-preview.exe" aria-label="Download LazyArtCoin Windows preview" title="Windows 11 x64 · Unsigned preview · 71.7 MB"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M4 16v4h16v-4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Windows EXE · Preview</span></a>

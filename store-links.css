@@ -94,6 +94,102 @@ body[data-theme="dark"] .beta-launch-actions > .beta-download-button {
 body[data-theme="dark"] .store-links small { color: #c7cde0; }
 body[data-theme="dark"] .store-links > .store-button:hover,
 body[data-theme="dark"] .app-download-links > a:hover { background: #30364e; }
+
+/* Keep the first download row beside the copy, not at the card's bottom.
+   Extra platforms grow downward; they must not create a blank intro above. */
+.app-downloads > .app-download-card,
+.app-downloads > .beta-launch-card { min-height: 0; gap: 12px; }
+.app-downloads .app-download-links,
+.app-downloads .beta-launch-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-content: start;
+  align-items: stretch;
+  gap: 10px;
+  margin-top: 0;
+}
+.app-downloads .beta-launch-actions > .beta-download-button {
+  margin: 0;
+  white-space: normal;
+}
+.app-downloads .store-qr { margin: 0; }
+.app-card-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.app-card-description { display: grid; gap: 8px; }
+
+/* Shared intrinsic tracks align every title, description and first button.
+   No fixed copy heights, clipping, placeholders or JavaScript measurements;
+   translations, text zoom and expanded QR panels can all grow naturally. */
+@supports (grid-template-rows: subgrid) {
+  .app-downloads {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 320px;
+    grid-template-rows: repeat(5, max-content);
+    column-gap: 20px;
+    row-gap: 12px;
+  }
+  .app-downloads > .app-download-card,
+  .app-downloads > .beta-launch-card {
+    display: grid;
+    grid-row: 1 / span 5;
+    grid-template-rows: subgrid;
+    align-items: start;
+  }
+  .app-downloads .beta-launch-copy,
+  .app-downloads .beta-launch-heading { display: contents; }
+  .app-downloads > * > *,
+  .app-downloads .beta-launch-title,
+  .app-downloads .beta-launch-subtitle,
+  .app-downloads .beta-launch-badge { grid-column: 1; }
+  .app-downloads .app-card-icon { grid-row: 1; width: 64px; height: 64px; }
+  .app-downloads .app-card-meta {
+    grid-row: 1;
+    justify-self: end;
+    max-width: calc(100% - 78px);
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: flex-end;
+    gap: 6px;
+  }
+  .app-downloads .app-kind,
+  .app-downloads .beta-launch-badge,
+  .app-downloads .app-details-link {
+    grid-row: 1;
+    justify-self: end;
+    max-width: calc(100% - 86px);
+    font-size: .8125rem;
+    line-height: 1.4;
+    text-align: end;
+  }
+  .app-downloads .app-kind,
+  .app-downloads .beta-launch-badge { align-self: start; }
+  .app-downloads .app-details-link { align-self: end; }
+  .app-downloads .app-card-meta > :is(.app-kind, .beta-launch-badge, .app-details-link) {
+    max-width: 100%;
+    margin: 0;
+    align-self: auto;
+  }
+  .app-downloads h2,
+  .app-downloads .beta-launch-title {
+    grid-row: 2;
+    font-size: 1.25rem;
+    line-height: 1.4;
+  }
+  .app-downloads .app-card-description,
+  .app-downloads > * > p:not([hidden]),
+  .app-downloads .beta-launch-copy > .beta-launch-subtitle {
+    grid-row: 3;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  .app-downloads .app-download-links,
+  .app-downloads .beta-launch-actions { grid-row: 4; align-self: start; }
+  .app-downloads .store-qr { grid-row: 5; align-self: start; }
+  @media (max-width: 740px) {
+    .app-downloads { grid-auto-columns: min(300px, calc(100% - 22px)); }
+  }
+}
+
 @media (max-width: 480px) {
   .store-links, .app-download-links { gap: 12px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 7.25rem), 1fr)); }
   .beta-launch-actions { gap: 12px; }

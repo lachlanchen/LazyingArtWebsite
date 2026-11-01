@@ -6,7 +6,7 @@ const root = new URL('../', import.meta.url);
 const read = p => fs.readFileSync(new URL(p, root), 'utf8');
 test('store links use the same local official artwork on every store-linked page', () => {
   for (const page of ['index.html', 'products/index.html', 'downloads/index.html', 'work/index.html']) {
-    const version = '20261031-downloads';
+    const version = page === 'index.html' ? '20261101-compact-cards' : '20261031-downloads';
     assert.ok(read(page).includes(`href="/store-links.css?v=${version}"`), page);
   }
   const css = read('store-links.css');
