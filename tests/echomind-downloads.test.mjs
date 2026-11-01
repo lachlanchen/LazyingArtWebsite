@@ -65,13 +65,17 @@ const previous104Apk = "downloads/EchoMind-0.2.0-build104-test.apk";
 assert.equal(crypto.createHash("sha256").update(fs.readFileSync(new URL(previous104Apk, root))).digest("hex"),
   "59d92399a770acc80cc01f306c5269c38445df4e0629e321d98c171c10ea45fd",
   "Prior Android104 download remains unchanged and recoverable");
-const currentTestApk = "downloads/EchoMind-0.2.1-build105-test.apk";
-const currentTestBytes = fs.readFileSync(new URL(currentTestApk, root));
-assert.equal(currentTestBytes.length, 2748298, "Android105 exact paired APK size");
-assert.equal(crypto.createHash("sha256").update(currentTestBytes).digest("hex"),
+const previous105Apk = "downloads/EchoMind-0.2.1-build105-test.apk";
+assert.equal(crypto.createHash("sha256").update(fs.readFileSync(new URL(previous105Apk, root))).digest("hex"),
   "ff34bad69c77b5cc2f01b1a417a52e0f16b9c73aea0cbe0a5b782df4e1f690dd",
-  "Android105 direct test download matches the qualified signed artifact");
-assert.ok(html.includes(`href="https://lazying.art/${currentTestApk}"`), "the direct download uses the verified signed Android105 artifact");
+  "Prior Android105 download remains unchanged and recoverable");
+const currentTestApk = "downloads/EchoMind-0.2.1-build106-test.apk";
+const currentTestBytes = fs.readFileSync(new URL(currentTestApk, root));
+assert.equal(currentTestBytes.length, 2748502, "Android106 exact paired APK size");
+assert.equal(crypto.createHash("sha256").update(currentTestBytes).digest("hex"),
+  "c39ea26493612791ad79c7d9edf8932cc1e42884639bcce64ea63a862f6ed0d3",
+  "Android106 direct test download matches the qualified signed artifact");
+assert.ok(html.includes(`href="https://lazying.art/${currentTestApk}"`), "the direct download uses the verified signed Android106 artifact");
 assert.ok(html.includes('data-apk-download="echomind"'), "the APK is distinguished from the existing store buttons");
 assert.equal(Object.keys(translations).length, 13);
 for (const [locale, dictionary] of Object.entries(translations)) {

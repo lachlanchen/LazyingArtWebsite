@@ -39,7 +39,7 @@ test('EchoMind hides only the long Windows note and retains all seven install ro
     'https://apps.apple.com/us/app/echomind-language-research/id6793615455?platform=mac',
     '/downloads/EchoMind-1.0.1-preview.1-win-x64.exe',
     'https://play.google.com/store/apps/details?id=art.lazying.echomind',
-    'https://lazying.art/downloads/EchoMind-0.2.1-build105-test.apk',
+    'https://lazying.art/downloads/EchoMind-0.2.1-build106-test.apk',
     'https://testflight.apple.com/join/bKGrC3Jn',
   ]) assert.ok(actions.includes(`href="${destination}"`), destination);
 });
