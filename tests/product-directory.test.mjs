@@ -86,7 +86,7 @@ const musia = catalog.items.find(item => item.id === 'musia-app');
 assert.equal(musia.storeLinks.length, 2);
 assert.equal(musia.storeLinks[0].url, 'https://apps.apple.com/us/app/musia-learn-music-guitar/id6816265930?mt=12');
 assert.equal(musia.storeLinks[1].url, 'https://play.google.com/store/apps/details?id=art.lazying.musia');
-assert.match(musia.kind, /US\$2\.99/);
+assert.equal(musia.kind, 'Mac & Android');
 assert.match(musia.description, /iPhone edition is still in review/);
 assert.equal(catalog.items.find(item => item.id === 'musia').url, 'https://fun.lazying.art/');
 assert.ok(discovery.includes('https://musia.lazying.art/'));

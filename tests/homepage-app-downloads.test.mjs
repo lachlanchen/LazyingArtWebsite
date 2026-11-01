@@ -42,7 +42,7 @@ assert.deepEqual(links(cards[6]), [
   'https://play.google.com/store/apps/details?id=art.lightmind.mobile',
 ]);
 assert.deepEqual(links(cards[7]), ['https://apps.apple.com/us/app/musia-learn-music-guitar/id6816265930?mt=12', 'https://play.google.com/store/apps/details?id=art.lazying.musia']);
-assert.match(cards[7], /US\$2\.99/);
+assert.doesNotMatch(cards[7], /US\$\d/);
 assert.match(cards[7], /<p data-i18n="app_musia_desc">A music and guitar practice app\.<\/p>/);
 assert.doesNotMatch(cards[7], /app_musia_apple|still in review|Now on Mac/);
 assert.doesNotMatch(cards[7], /cloud music generation|microphone|AI-generated songs/i);

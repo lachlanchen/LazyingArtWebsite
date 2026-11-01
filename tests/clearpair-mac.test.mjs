@@ -11,7 +11,7 @@ test('ClearPair combined Apple app has released iPhone/iPad and Mac routes', () 
   for (const url of urls) assert.ok(card.includes(url));
   assert.match(card, /Eight pronunciation and script courses/);
   assert.match(card, /iPhone, iPad and Mac/);
-  assert.match(card, /US\$0\.99/);
+  assert.doesNotMatch(card, /US\$\d/);
   assert.doesNotMatch(card, /play\.google|testflight|credit wallet|200 credits/i);
   assert.ok(fs.existsSync(new URL('logos/apps/clearpair.png', root)));
   assert.match(home, /href="#clearpair-download-title"/);

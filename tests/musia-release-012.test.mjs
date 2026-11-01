@@ -17,7 +17,7 @@ test('Musia exposes released Mac and Android practice, not iOS or the agent-mode
   assert.doesNotMatch(item.description, /0\.2\.0|agent.mode|subscription|microphone pitch|singing grade/i);
   assert.deepEqual(item.storeLinks.map(link => link.store), ['mac-app-store', 'google-play']);
   assert.equal(item.storeLinks[0].url, 'https://apps.apple.com/us/app/musia-learn-music-guitar/id6816265930?mt=12');
-  assert.match(item.storeLinks[0].device, /^Mac ·/);
+  assert.equal(item.storeLinks[0].device, 'Mac');
   const generated = readFileSync(new URL('products/index.html', root), 'utf8');
   assert.ok(generated.includes(item.description));
 });

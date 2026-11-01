@@ -6,6 +6,27 @@ const html = readFileSync(new URL('../index.html', import.meta.url), 'utf8');
 const css = readFileSync(new URL('../store-links.css', import.meta.url), 'utf8');
 const echo = html.match(/<aside class="beta-launch-card"[\s\S]*?<\/aside>/)[0];
 
+test('homepage and directory cards omit prices while keeping compatibility labels', () => {
+  const directory = readFileSync(new URL('../products/index.html', import.meta.url), 'utf8');
+  const catalog = JSON.parse(readFileSync(new URL('../products/catalog.json', import.meta.url), 'utf8'));
+  const homepageCards = [...html.matchAll(/<(?:article class="app-download-card"|aside class="beta-launch-card")[\s\S]*?<\/(?:article|aside)>/g)].map(match => match[0]);
+  const directoryCards = [...directory.matchAll(/<article\b[\s\S]*?<\/article>/g)].map(match => match[0]);
+  assert.equal(homepageCards.length, 24);
+  assert.ok(directoryCards.length > 24);
+  for (const card of [...homepageCards, ...directoryCards]) {
+    assert.doesNotMatch(card, /(?:US\$|USD|[$€£¥])\s*\d+(?:[.,]\d{2})?/);
+  }
+  for (const item of catalog.items) {
+    for (const label of [item.kind, ...(item.storeLinks || []).map(link => link.device)]) {
+      assert.doesNotMatch(label || '', /US\$\d/);
+    }
+  }
+  const clearpair = catalog.items.find(item => item.id === 'clearpair');
+  assert.match(clearpair.storeLinks[0].device, /iOS 15\+/);
+  assert.match(clearpair.storeLinks[1].device, /macOS 12\.3\+/);
+  assert.match(clearpair.description, /One purchase includes all eight courses/);
+});
+
 test('shared intrinsic tracks align copy and the first download row, not card bottoms', () => {
   assert.match(css, /@supports \(grid-template-rows: subgrid\)/);
   assert.match(css, /\.app-downloads\s*\{[^}]*grid-auto-flow: column[^}]*grid-auto-columns: 320px[^}]*grid-template-rows: repeat\(5, max-content\)/);
