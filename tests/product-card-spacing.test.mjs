@@ -50,16 +50,17 @@ test('optional details and badges use the icon header without an empty text row'
   assert.doesNotMatch(musia, /app_musia_apple|still in review/);
 });
 
-test('EchoMind hides only the long Windows note and retains all seven install routes', () => {
+test('EchoMind keeps its existing install routes and adds the Linux preview', () => {
   assert.match(echo, /<p id="echomind-windows-note"[^>]*\bhidden>/);
   assert.match(echo, /aria-describedby="echomind-windows-note"/);
   assert.match(echo, /href="\/downloads\/echomind-windows.html"/);
   const actions = echo.match(/<div class="beta-launch-actions">([\s\S]*?)<\/div>/)[1];
-  assert.equal([...actions.matchAll(/<a\b/g)].length, 7);
+  assert.equal([...actions.matchAll(/<a\b/g)].length, 8);
   for (const destination of [
     'https://chat.lazying.art/', 'https://apps.apple.com/app/id6793615455',
     'https://apps.apple.com/us/app/echomind-language-research/id6793615455?platform=mac',
     '/downloads/EchoMind-1.0.1-preview.1-win-x64.exe',
+    '/downloads/echomind-linux.html',
     'https://play.google.com/store/apps/details?id=art.lazying.echomind',
     'https://lazying.art/downloads/EchoMind-0.2.1-build106-test.apk',
     'https://testflight.apple.com/join/bKGrC3Jn',
