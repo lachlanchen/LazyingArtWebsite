@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bunko and OnlyIdeas for Ubuntu · LazyingArt</title>
+<meta name="description" content="Download Bunko and OnlyIdeas desktop apps for Ubuntu 24.04 LTS.">
+<link rel="canonical" href="https://lazying.art/downloads/ubuntu/">
+<link rel="icon" href="/favicon.ico">
+<link rel="stylesheet" href="/products/styles.css">
+<link rel="stylesheet" href="/downloads/styles.css">
+<style>
+.ubuntu-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;align-items:stretch;max-width:950px}
+.ubuntu-card{display:flex;flex-direction:column;padding:clamp(18px,4vw,30px);background:linear-gradient(152deg,#fff2e7,var(--surface,#fff) 65%)}
+.ubuntu-card+ .ubuntu-card{background:linear-gradient(152deg,#e5f5ef,var(--surface,#fff) 65%)}
+.ubuntu-card .summary{color:var(--ink,#182332);line-height:1.6;flex:1;margin:18px 0}
+.ubuntu-download{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:44px;background:#263b53;color:#fff;border-radius:14px;padding:8px 15px;text-decoration:none;font-weight:650}
+.ubuntu-download:hover{background:#385774}.ubuntu-download span{font:13px ui-monospace,monospace;color:#d2e4f6}
+.install{margin:30px 0 52px;max-width:760px}.install h2{font-size:22px}.install p{line-height:1.65}
+.ubuntu-card code{overflow-wrap:anywhere}
+@media(max-width:640px){.ubuntu-grid{grid-template-columns:minmax(0,1fr)}}
+@media(prefers-color-scheme:dark){.ubuntu-card,.ubuntu-card+ .ubuntu-card{background:var(--surface,#1b2432)}}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to downloads</a>
+<header class="site-header"><a class="brand" href="/"><img src="/logos/panda-v1/logo-256.png" alt="" width="48" height="48"><span><strong>LazyingArt</strong><small>The art of lazying.</small></span></a><nav aria-label="Primary navigation"><a href="/products/">Products</a><a href="/downloads/">Android</a><a href="/downloads/windows/">Windows</a><a href="/downloads/ubuntu/" aria-current="page">Ubuntu</a></nav></header>
+<main id="main">
+<section class="download-intro"><h1>Read on Ubuntu</h1><p class="lead">Open Bunko and OnlyIdeas in dedicated desktop windows, with native controls for zoom, full screen and saving files.</p></section>
+<section class="ubuntu-grid" aria-label="Ubuntu apps">
+<article class="download-card ubuntu-card" id="bunko">
+<div class="card-heading"><img src="/logos/apps/bunko.png" alt="" width="64" height="64"><div><h2>Bunko · 文庫</h2><p>Version 1.0.16</p></div></div>
+<p class="summary">Read classics with furigana, pinyin, and parallel translations. Keep downloaded books and reading positions in your desktop library.</p>
+<a class="ubuntu-download" href="https://github.com/lachlanchen/Bunko/releases/download/ubuntu-1.0.16-1/bunko_1.0.16-1_all.deb">Download Bunko <span>.deb</span></a>
+<div class="card-links"><a href="https://lachlan.lazying.art/Bunko/">Open web app</a><details><summary>Package checksum</summary><p><code>09af2a89c85923087598dc37319a2b1f398d62590c1014520598b9bebdc0d2bd</code></p></details></div>
+</article>
+<article class="download-card ubuntu-card" id="onlyideas">
+<div class="card-heading"><img src="/logos/apps/onlyideas.png" alt="" width="64" height="64"><div><h2>OnlyIdeas</h2><p>Version 1.0.10</p></div></div>
+<p class="summary">Read research papers with equations and figures, search within a paper, and keep highlights and notes close to the text.</p>
+<a class="ubuntu-download" href="https://github.com/lachlanchen/OnlyIdeasApp/releases/download/ubuntu-1.0.10-1/onlyideas_1.0.10-1_all.deb">Download OnlyIdeas <span>.deb</span></a>
+<div class="card-links"><a href="https://agent.onlyideas.art/">Open web app</a><details><summary>Package checksum</summary><p><code>08806ecc9ccfec237d27d3761f0807174de03f997937c93a3063b249ab05b70a</code></p></details></div>
+</article>
+</section>
+<section class="install"><h2>Install on Ubuntu</h2><p>These Debian packages were tested on Ubuntu 24.04 LTS (x86-64). Open the downloaded file in your package installer, or run <code>sudo apt install ./filename.deb</code> from your Downloads folder. Replace <code>filename.deb</code> with the actual file name. The apps appear in your launcher after installation.</p><p>The libraries use the live reading services. Use the app menu to check for desktop package updates.</p><a href="/downloads/echomind-linux.html">EchoMind desktop preview</a></section>
+</main>
+<footer class="directory-footer"><span>LazyingArt</span><a href="/products/">Explore apps</a></footer>
+</body></html>

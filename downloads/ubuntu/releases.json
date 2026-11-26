@@ -1,0 +1,19 @@
+{
+  "schema": 1,
+  "apps": {
+    "bunko": {
+      "version": "1.0.16",
+      "build": 1,
+      "bytes": 271022,
+      "sha256": "09af2a89c85923087598dc37319a2b1f398d62590c1014520598b9bebdc0d2bd",
+      "download": "https://github.com/lachlanchen/Bunko/releases/download/ubuntu-1.0.16-1/bunko_1.0.16-1_all.deb"
+    },
+    "onlyideas": {
+      "version": "1.0.10",
+      "build": 1,
+      "bytes": 45880,
+      "sha256": "08806ecc9ccfec237d27d3761f0807174de03f997937c93a3063b249ab05b70a",
+      "download": "https://github.com/lachlanchen/OnlyIdeasApp/releases/download/ubuntu-1.0.10-1/onlyideas_1.0.10-1_all.deb"
+    }
+  }
+}
