@@ -27,6 +27,12 @@
       "bytes": 891437890,
       "sha256": "55130b1b1ecf37a27c5ade273f741a33a10a265d90ac4c285869de232aede725",
       "download": "https://language-agent.lazying.art/downloads/ubuntu/clearpair_1.0.3_amd64.deb"
+    },
+    "landn": {
+      "version": "1.0.0",
+      "bytes": 358829440,
+      "sha256": "8626bf01b324847f21d4a0dd0dfa642500f0c334a6184a63ff135fc4361bd734",
+      "download": "https://l-and-n.lazying.art/downloads/ubuntu/landn_1.0.0_amd64.deb"
     }
   }
 }
