@@ -17,9 +17,12 @@ for (const guide of guides) {
 const escape = (value) => String(value).replace(/[&<>"']/g, (c) => ({'&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'}[c]));
 const windowsLink = item => item.windowsDownload ? `<a class="store-button windows-download" data-windows-download="${escape(item.id)}" href="${escape(item.windowsDownload)}" download target="_blank" rel="noopener noreferrer"><span><strong>Windows EXE · Preview</strong><small>x64 · Portable · Unsigned</small></span></a><a class="store-button windows-details" href="/downloads/echomind-windows.html">Windows preview details</a>` : '';
 function ubuntuButton(item) {
-  if (!item.ubuntuDownload) return '';
   const release = ubuntuReleases[item.id];
+  if (!release && !item.ubuntuDownload) return '';
   assert.ok(release && new URL(release.download).protocol === 'https:' && release.bytes > 0);
+  if (!item.ubuntuDownload) {
+    return `<a class="store-button linux-download" data-ubuntu-download="${escape(item.id)}" href="/downloads/ubuntu/#${escape(item.id)}" aria-label="Download ${escape(item.name)} for Ubuntu"><span><strong>Ubuntu</strong><small>24.04 LTS · .deb</small></span></a>`;
+  }
   return `<a class="store-button linux-download" data-ubuntu-download="${escape(item.id)}" href="${escape(release.download)}" download><span><strong>Ubuntu .deb</strong><small>24.04 LTS · x64 · ${Math.round(release.bytes / 1e6)} MB</small></span></a>`;
 }
 const desktopLinks = item => windowsLink(item) + ubuntuButton(item) + (item.linuxDownloadGuide ? `<a class="store-button linux-download" data-linux-download="${escape(item.id)}" href="${escape(item.linuxDownloadGuide)}"><span><strong>Linux .deb · Preview</strong><small>Ubuntu 24.04 · x64</small></span></a>` : '');
@@ -46,7 +49,7 @@ const storeLinks = (item) => item.storeLinks?.length || item.webApp || downloads
       }).join('')}${desktopLinks(item)}${downloadsFor(item.id).map(app => apkButton(app)).join('')}${item.windowsDownload ? '' : windowsFor(item.id).map(app => windowsButton(app)).join('')}${item.webApp ? `<a class="store-button web-app-button" data-web-app href="${escape(item.webApp)}" aria-label="${escape(item.name)} ${item.webPreview ? 'web preview' : 'web app'}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18"/></svg><span><strong>${item.webPreview ? 'Web preview' : 'Web app'}</strong><small>Open in your browser</small></span></a>` : ''}</div>` : '';
 const canonical = 'https://lazying.art/products/';
 const description = 'Discover LazyingArt apps, multilingual books, learning resources, creative tools, and open-source projects. Try L & N, read a book, or explore a practical workflow.';
-const publisherLinks = '<a href="https://apps.apple.com/developer/lazyingart-llc/id1867662412" target="_blank" rel="noopener noreferrer">App Store <span aria-hidden="true">↗</span></a><a href="https://play.google.com/store/apps/developer?id=LazyingArt+LLC" target="_blank" rel="noopener noreferrer">Google Play <span aria-hidden="true">↗</span></a><a href="/downloads/">Android downloads</a><a href="/downloads/windows/">Windows downloads</a>';
+const publisherLinks = '<a href="https://apps.apple.com/developer/lazyingart-llc/id1867662412" target="_blank" rel="noopener noreferrer">App Store <span aria-hidden="true">↗</span></a><a href="https://play.google.com/store/apps/developer?id=LazyingArt+LLC" target="_blank" rel="noopener noreferrer">Google Play <span aria-hidden="true">↗</span></a><a href="/downloads/">Android downloads</a><a href="/downloads/windows/">Windows downloads</a><a href="/downloads/ubuntu/">Ubuntu downloads</a>';
 assert.equal(new Set(catalog.items.map(item => item.id)).size, catalog.items.length);
 for (const item of catalog.items) {
   if (item.linuxDownloadGuide) {
@@ -171,10 +174,7 @@ const card = item => {
   const group = catalog.groups.find(group => group.id === item.group);
   const projectMark = item.icon ? `<img class="app-icon" src="../logos/apps/${escape(item.icon)}" alt="" width="80" height="80" loading="lazy">` : `<span class="project-mark" aria-hidden="true">${escape(item.name.slice(0, 1))}</span>`;
   const primaryLink = item.preview || item.webApp === item.url || item.storeLinks?.some(link => link.url === item.url) ? '' : `<a href="${escape(item.url)}">${escape(item.action)} <span aria-hidden="true">↗</span></a>`;
-  const ubuntuDetails = ubuntuReleases[item.id] && !item.ubuntuDownload
-    ? `<a href="/downloads/ubuntu/#${escape(item.id)}" aria-label="${escape(item.name)} for Ubuntu">Ubuntu download</a>`
-    : '';
-  const secondaryLinks = `${ubuntuDetails}${primaryLink}${item.storyUrl ? `<a class="source-link" href="${escape(item.storyUrl)}">Read the story</a>` : ''}${item.repository ? `<a class="source-link" href="${escape(item.repository)}">Source: ${escape(item.repository.split('/').at(-1))}</a>` : ''}${(item.referenceLinks || []).map(link => `<a class="source-link" href="${escape(link.url)}">${escape(link.label)}</a>`).join('')}`;
+  const secondaryLinks = `${primaryLink}${item.storyUrl ? `<a class="source-link" href="${escape(item.storyUrl)}">Read the story</a>` : ''}${item.repository ? `<a class="source-link" href="${escape(item.repository)}">Source: ${escape(item.repository.split('/').at(-1))}</a>` : ''}${(item.referenceLinks || []).map(link => `<a class="source-link" href="${escape(link.url)}">${escape(link.label)}</a>`).join('')}`;
   return `<article id="${escape(item.id)}" class="product-card ${design ? `app-card tone-${design[1]}` : 'project-card'}${spotlight ? ' spotlight' : ''}${item.film ? ' has-film' : ''}" data-product data-category="${escape(item.group)}"${design ? ' data-app' : ''}>
       <div class="card-content">
         <div class="card-top">${design ? `<img class="app-icon" src="../logos/apps/${design[0]}" alt="" width="80" height="80" loading="lazy">` : projectMark}<span class="card-label">${design ? (item.id === 'lightmind-agent' ? 'Companion brand' : 'LazyingArt app') : escape(group.name)}</span><span class="card-spark" aria-hidden="true">↗</span></div>

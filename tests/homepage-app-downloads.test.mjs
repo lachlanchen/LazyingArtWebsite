@@ -7,7 +7,7 @@ const cards = [...html.matchAll(/<article class="app-download-card"[^>]*>([\s\S]
 assert.equal(cards.length, 23);
 assert.ok(html.indexOf('id="app-downloads"') < html.indexOf('<aside class="beta-launch-card"'));
 // Web destinations have their own contract; native store identities stay exact.
-const links = card => [...card.matchAll(/<a\b[^>]*href="([^"]+)"[^>]*>/g)].filter(m => !m[0].includes('data-web-app') && !m[0].includes('data-apk-download') && !m[0].includes('data-windows-download')).map(m => m[1]);
+const links = card => [...card.matchAll(/<a\b[^>]*href="([^"]+)"[^>]*>/g)].filter(m => !m[0].includes('data-web-app') && !m[0].includes('data-apk-download') && !m[0].includes('data-windows-download') && !m[0].includes('data-ubuntu-download')).map(m => m[1]);
 assert.deepEqual(links(cards[0]), [
   'https://apps.apple.com/us/app/l-n-speech-practice/id6808872450',
   'https://apps.apple.com/us/app/l-n-speech-practice/id6808872450?platform=mac',
@@ -25,6 +25,8 @@ assert.deepEqual(links(cards[2]), [
   'https://apps.apple.com/us/app/onlyideas/id6816392935?platform=mac',
   'https://play.google.com/store/apps/details?id=art.onlyideas.app',
 ]);
+assert.match(cards[1], /data-ubuntu-download="bunko" href="\/downloads\/ubuntu\/#bunko"/);
+assert.match(cards[2], /data-ubuntu-download="onlyideas" href="\/downloads\/ubuntu\/#onlyideas"/);
 assert.deepEqual(links(cards[3]), [
   'products/#aimemo',
   'https://apps.apple.com/us/app/aimemo-ai-notes-voice/id6757573920',
