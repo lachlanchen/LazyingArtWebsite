@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
+import {downloadsFor} from '../tools/android-downloads.mjs';
 
 const html = readFileSync(new URL('../index.html', import.meta.url), 'utf8');
 const css = readFileSync(new URL('../store-links.css', import.meta.url), 'utf8');
@@ -62,7 +63,7 @@ test('EchoMind keeps its existing install routes and adds the Linux preview', ()
     '/downloads/EchoMind-1.0.1-preview.1-win-x64.exe',
     '/downloads/echomind-linux.html',
     'https://play.google.com/store/apps/details?id=art.lazying.echomind',
-    'https://lazying.art/downloads/EchoMind-0.2.1-build106-test.apk',
+    downloadsFor('echomind')[0].url,
     'https://testflight.apple.com/join/bKGrC3Jn',
   ]) assert.ok(actions.includes(`href="${destination}"`), destination);
 });

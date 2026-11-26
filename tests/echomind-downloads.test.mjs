@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import crypto from "node:crypto";
 import vm from "node:vm";
+import {apkButton, downloadsFor} from "../tools/android-downloads.mjs";
 
 const root = new URL("../", import.meta.url);
 const html = fs.readFileSync(new URL("index.html", root), "utf8");
@@ -69,14 +70,29 @@ const previous105Apk = "downloads/EchoMind-0.2.1-build105-test.apk";
 assert.equal(crypto.createHash("sha256").update(fs.readFileSync(new URL(previous105Apk, root))).digest("hex"),
   "ff34bad69c77b5cc2f01b1a417a52e0f16b9c73aea0cbe0a5b782df4e1f690dd",
   "Prior Android105 download remains unchanged and recoverable");
-const currentTestApk = "downloads/EchoMind-0.2.1-build106-test.apk";
-const currentTestBytes = fs.readFileSync(new URL(currentTestApk, root));
-assert.equal(currentTestBytes.length, 2748502, "Android106 exact paired APK size");
-assert.equal(crypto.createHash("sha256").update(currentTestBytes).digest("hex"),
+const verified106 = fs.readFileSync(new URL("downloads/EchoMind-0.2.1-build106-test.apk", root));
+assert.equal(verified106.length, 2748502, "Android106 exact paired APK size");
+assert.equal(crypto.createHash("sha256").update(verified106).digest("hex"),
   "c39ea26493612791ad79c7d9edf8932cc1e42884639bcce64ea63a862f6ed0d3",
   "Android106 direct test download matches the qualified signed artifact");
-assert.ok(html.includes(`href="https://lazying.art/${currentTestApk}"`), "the direct download uses the verified signed Android106 artifact");
-assert.ok(html.includes('data-apk-download="echomind"'), "the APK is distinguished from the existing store buttons");
+const [current, ...duplicates] = downloadsFor("echomind");
+assert.ok(current && !duplicates.length && current.build >= 108, "one reviewed direct-APK record; never advertise a superseded build");
+const verified108 = fs.readFileSync(new URL("downloads/EchoMind-0.2.1-build108-test.apk", root));
+assert.equal(verified108.length, 2793662);
+assert.equal(crypto.createHash("sha256").update(verified108).digest("hex"),
+  "5aa9e429ac6337ffed76a50f044092c3641359b68ed9d8cce096aae13d04f516", "Qualified directly signed Android108 APK");
+const advertised = fs.readFileSync(new URL("downloads/" + current.filename, root));
+assert.equal(advertised.length, current.bytes);
+assert.equal(crypto.createHash("sha256").update(advertised).digest("hex"), current.sha256);
+for (const route of ["index.html", "products/index.html", "downloads/index.html"]) {
+  const page = fs.readFileSync(new URL(route, root), "utf8");
+  const anchors = [...page.matchAll(/<a\b[^>]*data-apk-download="echomind"[^>]*>[\s\S]*?<\/a>/g)].map(m => m[0]);
+  const expected = route === "index.html" ? apkButton(current, {homepage:true, extraClass:"beta-download-button"}) : apkButton(current);
+  assert.deepEqual(anchors, [expected], "Static download link, filename and label must match the verified catalog on " + route);
+}
+const downloadCard = fs.readFileSync(new URL("downloads/index.html", root), "utf8").match(/<article[^>]+id="echomind"[^>]*>[\s\S]*?<\/article>/)?.[0];
+assert.ok(downloadCard?.includes("· Build " + current.build + "</span>") && downloadCard.includes(current.sha256),
+  "Install page must describe the exact linked APK");
 assert.equal(Object.keys(translations).length, 13);
 for (const [locale, dictionary] of Object.entries(translations)) {
   assert.match(dictionary.beta_title, /Mac/, `${locale}: Mac is included in the release title`);
