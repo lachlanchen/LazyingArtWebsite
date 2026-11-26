@@ -7,8 +7,14 @@ test('EchoMind links to the qualified Linux preview on home and product pages', 
     assert.match(read(route), /href="\/downloads\/echomind-linux.html"[^>]*data-linux-download="echomind"|data-linux-download="echomind"[^>]*href="\/downloads\/echomind-linux.html"/);
   }
   const page = read('downloads/echomind-linux.html');
-  assert.ok(page.includes('https://github.com/lachlanchen/LazyingArtWebsite/releases/download/echomind-linux-preview-1.0.1/EchoMind-1.0.1-preview.1-linux-x64.deb'));
-  assert.match(page, /b233575e2582e40acdf5795051f8ec3220896551222aad1fb2da0a636c72fb45/);
+  const meta = JSON.parse(read('downloads/ubuntu/releases.json')).apps.echomind;
+  const filename = 'EchoMind-1.0.45-preview.1-2-linux-x64.deb';
+  assert.equal(meta.download, 'https://github.com/lachlanchen/LazyingArtWebsite/releases/download/echomind-linux-preview-1.0.45/' + filename);
+  assert.ok(page.includes('data-linux-package="echomind" href="' + meta.download + '"'));
+  assert.ok(page.includes('sudo apt install ./' + filename));
+  assert.equal(meta.sha256, '21df73506e2f54ad64673be10abe40f0da742603485612dee767e2240fc7e4d3');
+  assert.ok(page.includes(meta.sha256) && page.includes(meta.bytes.toLocaleString('en-US') + ' bytes'));
   assert.match(page, /Ubuntu 24\.04 LTS, x64/);
-  assert.match(page, /does not save your password or login session/);
+  assert.match(page, /direct, unsigned preview download/);
+  assert.match(page, /session stays in your browser/);
 });

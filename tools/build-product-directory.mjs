@@ -18,14 +18,17 @@ const escape = (value) => String(value).replace(/[&<>"']/g, (c) => ({'&':'&amp;'
 const windowsLink = item => item.windowsDownload ? `<a class="store-button windows-download" data-windows-download="${escape(item.id)}" href="${escape(item.windowsDownload)}" download target="_blank" rel="noopener noreferrer"><span><strong>Windows EXE · Preview</strong><small>x64 · Portable · Unsigned</small></span></a><a class="store-button windows-details" href="/downloads/echomind-windows.html">Windows preview details</a>` : '';
 function ubuntuButton(item) {
   const release = ubuntuReleases[item.id];
-  if (!release && !item.ubuntuDownload) return '';
+  if (!release && !item.ubuntuDownload && !item.linuxDownloadGuide) return '';
   assert.ok(release && new URL(release.download).protocol === 'https:' && release.bytes > 0);
+  if (item.linuxDownloadGuide) {
+    return `<a class="store-button linux-download" data-linux-download="${escape(item.id)}" data-ubuntu-download="${escape(item.id)}" href="${escape(item.linuxDownloadGuide)}"><span><strong>Ubuntu .deb · Preview</strong><small>24.04 LTS · x64 · ${escape(release.version)}</small></span></a>`;
+  }
   if (!item.ubuntuDownload) {
     return `<a class="store-button linux-download" data-ubuntu-download="${escape(item.id)}" href="/downloads/ubuntu/#${escape(item.id)}" aria-label="Download ${escape(item.name)} for Ubuntu"><span><strong>Ubuntu</strong><small>24.04 LTS · .deb</small></span></a>`;
   }
   return `<a class="store-button linux-download" data-ubuntu-download="${escape(item.id)}" href="${escape(release.download)}" download><span><strong>Ubuntu .deb</strong><small>24.04 LTS · x64 · ${Math.round(release.bytes / 1e6)} MB</small></span></a>`;
 }
-const desktopLinks = item => windowsLink(item) + ubuntuButton(item) + (item.linuxDownloadGuide ? `<a class="store-button linux-download" data-linux-download="${escape(item.id)}" href="${escape(item.linuxDownloadGuide)}"><span><strong>Linux .deb · Preview</strong><small>Ubuntu 24.04 · x64</small></span></a>` : '');
+const desktopLinks = item => windowsLink(item) + ubuntuButton(item);
 // Store artwork is supplied by the shared stylesheet; device labels stay text.
 const stores = {
   'mac-app-store': {

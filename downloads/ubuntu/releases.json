@@ -1,6 +1,13 @@
 {
   "schema": 1,
   "apps": {
+    "echomind": {
+      "version": "1.0.45-preview.1",
+      "packageRevision": 2,
+      "bytes": 35029096,
+      "sha256": "21df73506e2f54ad64673be10abe40f0da742603485612dee767e2240fc7e4d3",
+      "download": "https://github.com/lachlanchen/LazyingArtWebsite/releases/download/echomind-linux-preview-1.0.45/EchoMind-1.0.45-preview.1-2-linux-x64.deb"
+    },
     "bunko": {
       "version": "1.0.16",
       "build": 1,

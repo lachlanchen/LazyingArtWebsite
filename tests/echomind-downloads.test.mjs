@@ -19,6 +19,22 @@ assert.ok(echoMindCard, "EchoMind download card exists");
 assert.ok(echoMindCard.includes('href="https://apps.apple.com/app/id6793615455"'), "released EchoMind uses its own App Store identity");
 assert.ok(echoMindCard.includes('href="https://apps.apple.com/us/app/echomind-language-research/id6793615455?platform=mac"'), "released native EchoMind Mac app has an explicit store route");
 assert.ok(echoMindCard.includes('href="https://testflight.apple.com/join/bKGrC3Jn"'), "optional TestFlight access remains available");
+const ubuntu = JSON.parse(fs.readFileSync(new URL("downloads/ubuntu/releases.json", root))).apps.echomind;
+const guide = '/downloads/echomind-linux.html';
+const products = fs.readFileSync(new URL('products/index.html', root), 'utf8');
+const echoProduct = products.match(/<article id="echomind"[^>]*>[\s\S]*?<\/article>/)?.[0];
+for (const card of [echoMindCard, echoProduct]) {
+  const buttons = [...card.matchAll(/<a\b[^>]*data-ubuntu-download="echomind"[^>]*>[\s\S]*?<\/a>/g)];
+  assert.equal(buttons.length, 1, 'one EchoMind Ubuntu button per card');
+  assert.ok(buttons[0][0].includes(`href="${guide}"`) && buttons[0][0].includes('Ubuntu .deb · Preview'));
+  assert.equal(card.split(`href="${guide}"`).length, 2, 'no duplicate guide link');
+}
+const ubuntuDirectory = fs.readFileSync(new URL('downloads/ubuntu/index.html', root), 'utf8');
+const ubuntuCard = ubuntuDirectory.match(/<article[^>]* id="echomind"[^>]*>[\s\S]*?<\/article>/)?.[0];
+assert.ok(ubuntuCard, 'the Ubuntu directory has a linkable EchoMind card');
+for (const detail of [ubuntu.version, `Package ${ubuntu.packageRevision}`, ubuntu.sha256, `href="${ubuntu.download}"`, `href="${guide}"`, (ubuntu.bytes / 1e6).toFixed(1) + ' MB']) {
+  assert.ok(ubuntuCard.includes(detail), `Ubuntu release card: ${detail}`);
+}
 for (const [, href] of html.matchAll(/href="(https:\/\/apps\.apple\.com\/[^\"]+)"/g)) {
   if (href === 'https://apps.apple.com/developer/lazyingart-llc/id1867662412') continue; // Company catalogue, not an app purchase.
   if (href === 'https://apps.apple.com/us/app/musia-learn-music-guitar/id6816265930?mt=12') continue; // Qualified Mac-only release, not the pending iPhone edition.
@@ -95,6 +111,7 @@ assert.ok(downloadCard?.includes("· Build " + current.build + "</span>") && dow
   "Install page must describe the exact linked APK");
 assert.equal(Object.keys(translations).length, 13);
 for (const [locale, dictionary] of Object.entries(translations)) {
+  assert.match(dictionary.echomind_ubuntu_download, /Ubuntu \.deb/, `${locale}: Ubuntu preview label`);
   assert.match(dictionary.beta_title, /Mac/, `${locale}: Mac is included in the release title`);
   assert.match(dictionary.beta_subtitle, /Mac/, `${locale}: Mac is included in download guidance`);
   for (const key of ["beta_title", "beta_subtitle", "beta_google_play", "beta_testflight", "beta_android"]) {
