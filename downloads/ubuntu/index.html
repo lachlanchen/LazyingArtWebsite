@@ -19,7 +19,11 @@
 .install{margin:30px 0 52px;max-width:760px}.install h2{font-size:22px}.install p{line-height:1.65}
 .ubuntu-card code{overflow-wrap:anywhere}
 @media(max-width:640px){.ubuntu-grid{grid-template-columns:minmax(0,1fr)}}
-@media(prefers-color-scheme:dark){.ubuntu-card,.ubuntu-card+ .ubuntu-card{background:var(--surface,#1b2432)}}
+@media(prefers-color-scheme:dark){
+:root{color-scheme:dark;--paper:#131c28;--ink:#e6edf7;--muted:#abbad1;--line:#3a4b63;--orange:#97c7ff;--purple:#bda9ff}
+.ubuntu-card,.ubuntu-card+ .ubuntu-card{background:#1b2432}
+.skip-link{background:#263b53;color:#fff}
+}
 </style>
 </head>
 <body>
