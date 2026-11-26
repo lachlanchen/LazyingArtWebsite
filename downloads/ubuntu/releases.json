@@ -14,6 +14,12 @@
       "bytes": 45880,
       "sha256": "08806ecc9ccfec237d27d3761f0807174de03f997937c93a3063b249ab05b70a",
       "download": "https://github.com/lachlanchen/OnlyIdeasApp/releases/download/ubuntu-1.0.10-1/onlyideas_1.0.10-1_all.deb"
+    },
+    "clearpair": {
+      "version": "1.0.3",
+      "bytes": 891437890,
+      "sha256": "55130b1b1ecf37a27c5ade273f741a33a10a265d90ac4c285869de232aede725",
+      "download": "https://language-agent.lazying.art/downloads/ubuntu/clearpair_1.0.3_amd64.deb"
     }
   }
 }

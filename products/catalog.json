@@ -714,8 +714,8 @@
       "name": "ClearPair",
       "url": "https://apps.apple.com/us/app/clearpair/id6819458905?platform=iphone",
       "icon": "clearpair.png",
-      "kind": "iPhone · iPad · Mac",
-      "description": "Eight pronunciation and script courses in one app for iPhone, iPad and Mac: H & F, L & R, English, Mandarin, Cantonese, Japanese, Korean and Arabic Letters. Compare sounds, practise listening, record a phrase and replay it beside the reference. One purchase includes all eight courses.",
+      "kind": "iPhone · iPad · Mac · Ubuntu",
+      "description": "Eight pronunciation and script courses in one app for iPhone, iPad, Mac and Ubuntu. Practise H & F, L & R, English, Mandarin, Cantonese, Japanese, Korean and Arabic Letters. Compare sounds, practise listening, record a phrase and replay it beside the reference. One purchase includes all eight courses on Apple devices.",
       "action": "Get ClearPair",
       "storeLinks": [
         {
@@ -729,7 +729,8 @@
           "device": "macOS 12.3+"
         }
       ],
-      "featured": true
+      "featured": true,
+      "ubuntuDownload": true
     },
     {
       "id": "clearpair-handf",
